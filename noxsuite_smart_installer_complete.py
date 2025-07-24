@@ -10,11 +10,24 @@ import json
 import subprocess
 import platform
 import shutil
-import requests
 import time
 import hashlib
-import chardet
 import codecs
+
+# Optional imports with fallbacks
+try:
+    import requests
+    HAS_REQUESTS = True
+except ImportError:
+    HAS_REQUESTS = False
+    print("Warning: requests module not available. Some features will be limited.")
+
+try:
+    import chardet
+    HAS_CHARDET = True
+except ImportError:
+    HAS_CHARDET = False
+    print("Warning: chardet module not available. Using basic encoding detection.")
 import logging
 import tempfile
 import uuid
@@ -191,14 +204,25 @@ class SmartLogger:
         try:
             return text.decode('utf-8')
         except UnicodeDecodeError:
-            # Fallback to chardet detection
-            try:
-                detected = chardet.detect(text)
-                encoding = detected['encoding'] or 'latin1'
-                return text.decode(encoding)
-            except:
-                # Last resort: replace problematic characters
-                return text.decode('utf-8', errors='replace')
+            # Fallback to chardet detection if available
+            if HAS_CHARDET:
+                try:
+                    detected = chardet.detect(text)
+                    encoding = detected['encoding'] or 'latin1'
+                    return text.decode(encoding)
+                except:
+                    pass
+            
+            # Try common encodings as fallback
+            fallback_encodings = ['latin1', 'cp1252', 'iso-8859-1']
+            for encoding in fallback_encodings:
+                try:
+                    return text.decode(encoding)
+                except:
+                    continue
+            
+            # Last resort: replace problematic characters
+            return text.decode('utf-8', errors='replace')
     
     def step_start(self, step_name: str, description: str = ""):
         """Log step start with emoji support"""
@@ -1974,13 +1998,27 @@ class SmartNoxSuiteInstaller:
         
         failed_urls = []
         
-        for url in test_urls:
-            try:
-                response = requests.get(url, timeout=10)
-                if response.status_code != 200:
+        # Use requests if available, otherwise urllib
+        if HAS_REQUESTS:
+            for url in test_urls:
+                try:
+                    response = requests.get(url, timeout=10)
+                    if response.status_code != 200:
+                        failed_urls.append(url)
+                except:
                     failed_urls.append(url)
-            except:
-                failed_urls.append(url)
+        else:
+            # Fallback to urllib for basic connectivity check
+            import urllib.request
+            import urllib.error
+            
+            for url in test_urls:
+                try:
+                    with urllib.request.urlopen(url, timeout=10) as response:
+                        if response.getcode() != 200:
+                            failed_urls.append(url)
+                except:
+                    failed_urls.append(url)
         
         if failed_urls:
             return {

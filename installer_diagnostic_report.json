@@ -1,0 +1,92 @@
+{
+  "timestamp": "1753361159.2612214",
+  "working_directory": "/home/engine/project",
+  "files": {
+    "required": {
+      "install_noxsuite.py": {
+        "exists": true,
+        "path": "/home/engine/project/install_noxsuite.py",
+        "size": 7412
+      },
+      "noxsuite_smart_installer_complete.py": {
+        "exists": true,
+        "path": "/home/engine/project/noxsuite_smart_installer_complete.py",
+        "size": 90094
+      },
+      "noxsuite_bootstrap_installer.py": {
+        "exists": true,
+        "path": "/home/engine/project/noxsuite_bootstrap_installer.py",
+        "size": 15891
+      }
+    },
+    "optional": {
+      "noxsuite_installer_utils.py": {
+        "exists": true,
+        "path": "/home/engine/project/noxsuite_installer_utils.py",
+        "size": 31407
+      },
+      "requirements.txt": {
+        "exists": true,
+        "path": "/home/engine/project/requirements.txt",
+        "size": 2924
+      }
+    },
+    "missing_required": [],
+    "missing_optional": []
+  },
+  "dependencies": {
+    "requests": {
+      "available": true,
+      "version": "unknown",
+      "required": false
+    },
+    "chardet": {
+      "available": true,
+      "version": "unknown",
+      "required": false
+    }
+  },
+  "system": {
+    "python_version": {
+      "current": "3.12.3",
+      "required": "3.8+",
+      "compatible": true
+    },
+    "platform": {
+      "system": "Linux",
+      "release": "5.10.223",
+      "architecture": "64bit"
+    },
+    "encoding_support": {
+      "stdout": "utf-8",
+      "filesystem": "utf-8",
+      "utf8_mode": 0
+    }
+  },
+  "logs": {
+    "noxsuite_installer.log": {
+      "exists": true,
+      "size": 11886,
+      "lines": 94,
+      "last_session": {
+        "sessions": 3,
+        "errors": 0,
+        "last_completion": true,
+        "last_error": null
+      }
+    },
+    "noxsuite_bootstrap.log": {
+      "exists": true,
+      "size": 9228,
+      "lines": 177,
+      "last_session": {
+        "sessions": 0,
+        "errors": 2,
+        "last_completion": false,
+        "last_error": "[2025-07-24 12:39:44] [ERROR] Failed to install chardet>=4.0.0 with all available methods"
+      }
+    }
+  },
+  "issues": [],
+  "recommendations": []
+}

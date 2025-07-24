@@ -110,6 +110,25 @@ def check_updates():
     except Exception as e:
         print(f"❌ Could not check for updates: {e}")
 
+def try_bootstrap():
+    """Try to run bootstrap installer if main installer fails"""
+    print("\n🔄 Attempting to bootstrap dependencies...")
+    try:
+        bootstrap_file = Path("noxsuite_bootstrap_installer.py")
+        if bootstrap_file.exists():
+            import subprocess
+            result = subprocess.run([
+                sys.executable, 
+                str(bootstrap_file)
+            ] + sys.argv[1:], capture_output=False)
+            sys.exit(result.returncode)
+        else:
+            print("❌ Bootstrap installer not found")
+            return False
+    except Exception as e:
+        print(f"❌ Bootstrap failed: {e}")
+        return False
+
 def main():
     """Main launcher function"""
     # Parse command line arguments
@@ -136,7 +155,15 @@ def main():
         from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode
     except ImportError as e:
         print(f"❌ Could not import installer modules: {e}")
-        print("Make sure all installer files are in the same directory.")
+        print("This usually means required dependencies are missing.")
+        
+        # Try to run bootstrap installer
+        print("\n🔧 The installer will now attempt to install missing dependencies...")
+        try_bootstrap()
+        
+        print("\nIf the problem persists, try manually installing dependencies:")
+        print("  pip install requests chardet")
+        print("  python install_noxsuite.py")
         sys.exit(1)
     
     # Determine installation mode
