@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "Heimnetz",
+    "version": "7.0-unified",
+    "description": "ADHD-friendly network management dashboard"
+  },
+  "paths": {
+    "frontend": "c:\\xampp\\htdocs\\heimnetzV2\\Heimnetz\\htdocs",
+    "backend": "K:\\Project Heimnetz\\AI\\NoxPanel",
+    "archive": "K:\\Project Heimnetz\\archive"
+  },
+  "features": {
+    "adhd_friendly": true,
+    "ai_integration": true,
+    "network_scanning": true,
+    "real_time_monitoring": true
+  },
+  "frontend": {
+    "theme_support": true,
+    "responsive_design": true,
+    "accessibility": "WCAG-AA",
+    "chart_library": "Chart.js"
+  },
+  "backend": {
+    "framework": "Flask",
+    "ai_models": "Ollama (9 models)",
+    "database": "SQLite",
+    "api_version": "v1"
+  },
+  "development": {
+    "entry_point": "main.py",
+    "test_framework": "enhanced",
+    "bootstrapper": "init_noxpanel.py"
+  }
+}

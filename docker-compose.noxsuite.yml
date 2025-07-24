@@ -1,0 +1,609 @@
+# NoxSuite + AI Dev Infrastructure - Complete Docker Compose
+# Modern React + FastAPI + AI Agent Architecture
+version: '3.8'
+
+services:
+  # ============================================================================
+  # FRONTEND SERVICES
+  # ============================================================================
+  
+  # React Frontend - NoxPanel UI
+  noxpanel-ui:
+    build:
+      context: ./frontend/noxpanel-ui
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV:-production}
+    container_name: noxsuite-ui
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_WS_URL=ws://localhost:8000
+      - NEXT_PUBLIC_GRAFANA_URL=http://localhost:3001
+      - NEXT_PUBLIC_LANGFLOW_URL=http://localhost:7860
+    volumes:
+      - ./frontend/noxpanel-ui:/app${DEV_MODE:+:delegated}
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - noxsuite-api
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.noxpanel.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.services.noxpanel.loadbalancer.server.port=3000"
+
+  # Mobile PWA Build Service
+  noxgo-mobile:
+    build:
+      context: ./frontend/noxgo-mobile
+      dockerfile: Dockerfile
+    container_name: noxsuite-mobile
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - REACT_APP_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend/noxgo-mobile:/app${DEV_MODE:+:delegated}
+      - /app/node_modules
+    depends_on:
+      - noxsuite-api
+    networks:
+      - noxsuite-network
+    profiles:
+      - mobile
+
+  # ============================================================================
+  # BACKEND SERVICES
+  # ============================================================================
+
+  # FastAPI Primary Backend
+  noxsuite-api:
+    build:
+      context: ./backend/fastapi
+      dockerfile: Dockerfile
+      args:
+        PYTHON_VERSION: 3.11
+    container_name: noxsuite-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-noxsuite123}@postgres:5432/noxsuite
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_HOST=http://ollama:11434
+      - LANGFLOW_URL=http://langflow:7860
+      - DEBUG=${DEBUG:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - SECRET_KEY=${SECRET_KEY:-noxsuite-secret-key-change-in-production}
+      - JWT_SECRET=${JWT_SECRET:-jwt-secret-change-in-production}
+      - ENABLE_AI=${ENABLE_AI:-true}
+      - ENABLE_VOICE=${ENABLE_VOICE:-false}
+      - AI_MODELS=${AI_MODELS:-mistral:7b-instruct,gemma:7b-it}
+    volumes:
+      - ./backend/fastapi:/app${DEV_MODE:+:delegated}
+      - ./data/logs:/app/logs
+      - ./data/uploads:/app/uploads
+      - ./plugins:/app/plugins
+    depends_on:
+      - postgres
+      - redis
+      - ollama
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # Legacy Flask Backend (Compatibility Layer)
+  heimnetz-legacy:
+    build:
+      context: ./backend/flask-legacy
+      dockerfile: ../../Dockerfile.production
+    container_name: noxsuite-legacy
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=${FLASK_ENV:-production}
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-noxsuite123}@postgres:5432/noxsuite
+      - REDIS_URL=redis://redis:6379
+      - HEIMNETZ_ENV=production
+      - SSL_ENABLED=false
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./backend/flask-legacy:/app${DEV_MODE:+:delegated}
+      - ./data/logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - noxsuite-network
+    profiles:
+      - legacy
+
+  # Background Task Worker
+  noxsuite-worker:
+    build:
+      context: ./backend/fastapi
+      dockerfile: Dockerfile.worker
+    container_name: noxsuite-worker
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-noxsuite123}@postgres:5432/noxsuite
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_HOST=http://ollama:11434
+      - WORKER_CONCURRENCY=4
+    volumes:
+      - ./backend/fastapi:/app${DEV_MODE:+:delegated}
+      - ./data/logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+      - noxsuite-api
+    networks:
+      - noxsuite-network
+    command: celery -A app.worker worker --loglevel=info --concurrency=4
+
+  # ============================================================================
+  # AI & AGENT SERVICES
+  # ============================================================================
+
+  # Ollama Local LLM Server
+  ollama:
+    image: ollama/ollama:latest
+    container_name: noxsuite-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_ORIGINS=*
+      - OLLAMA_KEEP_ALIVE=24h
+    volumes:
+      - ./data/ollama:/root/.ollama
+      - ./models:/models
+    networks:
+      - noxsuite-network
+    profiles:
+      - ai
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 2G
+      # Uncomment for GPU support
+      # resources:
+      #   reservations:
+      #     devices:
+      #       - driver: nvidia
+      #         count: all
+      #         capabilities: [gpu]
+
+  # Langflow Visual Agent Builder
+  langflow:
+    image: logspace/langflow:latest
+    container_name: noxsuite-langflow
+    restart: unless-stopped
+    ports:
+      - "7860:7860"
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-noxsuite123}@postgres:5432/langflow
+      - LANGFLOW_REDIS_URL=redis://redis:6379
+      - LANGFLOW_SUPERUSER=${LANGFLOW_SUPERUSER:-admin}
+      - LANGFLOW_SUPERUSER_PASSWORD=${LANGFLOW_PASSWORD:-noxsuite123}
+      - LANGFLOW_OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - ./data/langflow:/app/langflow
+      - ./langflow/flows:/app/flows
+      - ./langflow/components:/app/components
+    depends_on:
+      - postgres
+      - redis
+      - ollama
+    networks:
+      - noxsuite-network
+    profiles:
+      - ai
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # AetherCore AI Processing Server (Enhanced)
+  aethercore-ai:
+    build:
+      context: ./aethercore
+      dockerfile: Dockerfile.ai
+    container_name: noxsuite-aethercore
+    restart: unless-stopped
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-noxsuite123}@postgres:5432/noxsuite
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_HOST=http://ollama:11434
+      - AI_MODEL_PATH=/models
+      - ENABLE_GPU=${ENABLE_GPU:-false}
+    volumes:
+      - ./aethercore:/app${DEV_MODE:+:delegated}
+      - ./data/ai_models:/models
+      - ./data/logs:/app/logs
+    depends_on:
+      - ollama
+      - redis
+    networks:
+      - noxsuite-network
+    profiles:
+      - ai
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+
+  # ============================================================================
+  # DATA LAYER
+  # ============================================================================
+
+  # PostgreSQL Primary Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: noxsuite-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=noxsuite
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-noxsuite123}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - ./sql/noxsuite-schema.sql:/docker-entrypoint-initdb.d/02-schema.sql:ro
+      - ./sql/sample-data.sql:/docker-entrypoint-initdb.d/03-sample.sql:ro
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d noxsuite"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+
+  # Redis Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: noxsuite-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-}
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/etc/redis/redis.conf:ro
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+
+  # InfluxDB Time Series Database
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: noxsuite-influxdb
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=noxsuite
+      - DOCKER_INFLUXDB_INIT_PASSWORD=noxsuite123
+      - DOCKER_INFLUXDB_INIT_ORG=noxsuite
+      - DOCKER_INFLUXDB_INIT_BUCKET=metrics
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    networks:
+      - noxsuite-network
+    profiles:
+      - metrics
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ============================================================================
+  # INFRASTRUCTURE SERVICES  
+  # ============================================================================
+
+  # Nginx Reverse Proxy & Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: noxsuite-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./ssl:/etc/ssl:ro
+      - ./data/nginx/logs:/var/log/nginx
+      - ./static:/var/www/static:ro
+    depends_on:
+      - noxpanel-ui
+      - noxsuite-api
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "traefik.enable=false"
+
+  # Traefik (Alternative Reverse Proxy)
+  traefik:
+    image: traefik:v3.0
+    container_name: noxsuite-traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard
+    command:
+      - --api.dashboard=true
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik:/etc/traefik:ro
+    networks:
+      - noxsuite-network
+    profiles:
+      - traefik
+
+  # ============================================================================
+  # MONITORING & OBSERVABILITY
+  # ============================================================================
+
+  # Prometheus Metrics Collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: noxsuite-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.enable-admin-api'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus/rules:/etc/prometheus/rules:ro
+      - prometheus_data:/prometheus
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+
+  # Grafana Dashboards & Visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: noxsuite-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-noxsuite123}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel,grafana-clock-panel
+      - GF_RENDERING_SERVER_URL=http://renderer:8081/render
+      - GF_RENDERING_CALLBACK_URL=http://grafana:3000/
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    networks:
+      - noxsuite-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    user: "0"  # Run as root to avoid permission issues
+
+  # Grafana Image Renderer
+  renderer:
+    image: grafana/grafana-image-renderer:latest
+    container_name: noxsuite-renderer
+    restart: unless-stopped
+    environment:
+      - ENABLE_METRICS=true
+    networks:
+      - noxsuite-network
+    profiles:
+      - monitoring
+
+  # AlertManager for Notifications
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: noxsuite-alertmanager
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - alertmanager_data:/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+      - '--web.external-url=http://localhost:9093'
+    networks:
+      - noxsuite-network
+    profiles:
+      - monitoring
+
+  # ============================================================================
+  # UTILITY SERVICES
+  # ============================================================================
+
+  # Portainer Docker Management
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: noxsuite-portainer
+    restart: unless-stopped
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - noxsuite-network
+    profiles:
+      - management
+
+  # Watchtower Auto-Updates
+  watchtower:
+    image: containrrr/watchtower
+    container_name: noxsuite-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400  # 24 hours
+      - WATCHTOWER_INCLUDE_STOPPED=true
+    networks:
+      - noxsuite-network
+    profiles:
+      - auto-update
+
+# ============================================================================
+# NETWORKS
+# ============================================================================
+
+networks:
+  noxsuite-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+    labels:
+      - "com.noxsuite.network=main"
+
+# ============================================================================
+# VOLUMES
+# ============================================================================
+
+volumes:
+  postgres_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=database"
+  redis_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=cache"
+  prometheus_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=metrics"
+  grafana_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=dashboards"
+  influxdb_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=timeseries"
+  influxdb_config:
+    driver: local
+  alertmanager_data:
+    driver: local
+  portainer_data:
+    driver: local
+    labels:
+      - "com.noxsuite.volume=management"
+
+# ============================================================================
+# CONFIGURATION PROFILES
+# ============================================================================
+
+# Usage Examples:
+# Full stack:     docker-compose -f docker-compose.noxsuite.yml up -d
+# AI features:    docker-compose -f docker-compose.noxsuite.yml --profile ai up -d  
+# Development:    docker-compose -f docker-compose.noxsuite.yml --profile ai --profile mobile up -d
+# Production:     docker-compose -f docker-compose.noxsuite.yml --profile ai --profile monitoring up -d
+# Management:     docker-compose -f docker-compose.noxsuite.yml --profile management up -d portainer

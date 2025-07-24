@@ -1,0 +1,6 @@
+{
+  "minification": true,
+  "compression": true,
+  "cache_busting": true,
+  "cdn_enabled": false
+}

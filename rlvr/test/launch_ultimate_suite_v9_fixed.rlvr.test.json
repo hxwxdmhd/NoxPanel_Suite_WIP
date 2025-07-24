@@ -1,0 +1,112 @@
+{
+  "module": "AI\\NoxPanel\\launch_ultimate_suite_v9_fixed.py",
+  "timestamp": "2025-07-18T11:02:23.620479",
+  "total_functions": 5,
+  "test_cases": [
+    {
+      "name": "test_setup_logging_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_setup_logging_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_setup_logging_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_check_dependencies_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_check_dependencies_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_check_dependencies_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_default_config_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_default_config_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_default_config_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_safe_import_webapp_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_safe_import_webapp_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_safe_import_webapp_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_main_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_main_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_main_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

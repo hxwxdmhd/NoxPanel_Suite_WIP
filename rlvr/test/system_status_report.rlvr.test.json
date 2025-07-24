@@ -1,0 +1,49 @@
+{
+  "module": "AI\\NoxPanel\\system_status_report.py",
+  "timestamp": "2025-07-18T11:02:28.001410",
+  "total_functions": 2,
+  "test_cases": [
+    {
+      "name": "test_test_noxpanel_endpoints_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_test_noxpanel_endpoints_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_test_noxpanel_endpoints_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_generate_report_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_generate_report_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_generate_report_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

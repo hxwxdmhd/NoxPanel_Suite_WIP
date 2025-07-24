@@ -1,0 +1,70 @@
+{
+  "module": "AI\\NoxPanel\\webpanel\\certs_routes.py",
+  "timestamp": "2025-07-18T11:02:40.722969",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test_dashboard_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_dashboard_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_dashboard_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_status_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_status_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_status_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_action_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_action_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_action_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

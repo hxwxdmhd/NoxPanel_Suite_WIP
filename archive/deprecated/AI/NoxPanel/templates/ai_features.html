@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI Features - NoxPanel v7.0.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/enhanced-themes.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/themes.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/version-banner.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/visual-enhancements.css') }}" rel="stylesheet">
+    <style>
+        /* ADHD-friendly styling */
+        .ai-features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--accent-primary);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-try {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-try:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-try:active {
+            transform: scale(0.98);
+        }
+
+        /* Color coding for different feature types */
+        .feature-card[data-type="chat"] .icon { color: #4A90E2; }
+        .feature-card[data-type="system"] .icon { color: #7ED321; }
+        .feature-card[data-type="script"] .icon { color: #F5A623; }
+        .feature-card[data-type="code"] .icon { color: #9013FE; }
+        .feature-card[data-type="schedule"] .icon { color: #FF6B6B; }
+
+        /* Quick Commands Section */
+        .quick-commands {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 2px solid var(--border-color);
+        }
+
+        .quick-commands h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-cmd-btn {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quick-cmd-btn:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+            transform: translateX(5px);
+        }
+
+        .quick-cmd-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quick-cmd-btn .icon {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Command Result Box */
+        .command-result {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            min-height: 100px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--text-primary);
+            position: relative;
+            display: none;
+        }
+
+        .command-result.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .result-status {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-status.success { color: #7ED321; }
+        .result-status.error { color: #FF6B6B; }
+        .result-status.loading { color: #4A90E2; }
+
+        .copy-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-features-container {
+                padding: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Success/Error animations */
+        .bounce-in {
+            animation: bounceIn 0.5s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Version 4.3 Feature Announcement Banner -->
+    <div class="version-banner">
+        <span class="version-tag">🚀 FLAGSHIP v4.3</span>
+        <strong>Complete ADHD-Friendly AI Command Center</strong>
+        <span class="feature-highlight">🧠 Cognitive Optimization</span>
+        <span class="feature-highlight">⚡ Real-time Execution</span>
+        <span class="feature-highlight">🎯 Visual Processing</span>
+        <a href="/">← Back to Dashboard</a>
+    </div>
+    
+    <div class="ai-features-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>🤖 AI Features v7.0.0 — Your ADHD-Friendly Smart Assistant<span class="adhd-friendly-indicator">Cognitive Support</span></h1>
+            <p class="intro-text">Quickly access powerful AI tools to streamline your system management. Select a command or type your own below.</p>
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="features-grid">
+            <div class="feature-card" data-type="chat">
+                <div class="icon">🗣️</div>
+                <h3>Natural Language Commands</h3>
+                <p>Talk to your system in plain English. Say what you want, get it done.</p>
+                <button class="btn-try" data-cmd="openChat">Try It</button>
+            </div>
+
+            <div class="feature-card" data-type="script">
+                <div class="icon">⚙️</div>
+                <h3>Script Execution & Analysis</h3>
+                <p>Run and review scripts safely with AI-powered insights.</p>
+                <button class="btn-try" data-cmd="runScript">Try It</button>
+            </div>
+
+            <div class="feature-card" data-type="system">
+                <div class="icon">💻</div>
+                <h3>System Diagnostics</h3>
+                <p>Check your system health with one click. Fast & reliable.</p>
+                <button class="btn-try" data-cmd="systemCheck">Try It</button>
+            </div>
+
+            <div class="feature-card" data-type="code">
+                <div class="icon">🧑‍💻</div>
+                <h3>Code Assistance & Review</h3>
+                <p>Get AI-powered code review and smart suggestions.</p>
+                <button class="btn-try" data-cmd="codeReview">Try It</button>
+            </div>
+
+            <div class="feature-card" data-type="schedule">
+                <div class="icon">⏰</div>
+                <h3>Automated Task Scheduling</h3>
+                <p>Schedule recurring tasks effortlessly with AI help.</p>
+                <button class="btn-try" data-cmd="scheduleTask">Try It</button>
+            </div>
+
+            <div class="feature-card" data-type="system">
+                <div class="icon">📊</div>
+                <h3>Real-time Monitoring</h3>
+                <p>Watch your system metrics live with intelligent alerts.</p>
+                <button class="btn-try" data-cmd="monitoring">Try It</button>
+            </div>
+        </div>
+
+        <!-- Quick Commands Section -->
+        <div class="quick-commands">
+            <h3>⚡ Quick Commands</h3>
+            <div class="commands-grid">
+                <button class="quick-cmd-btn" data-cmd="runSystemCheck">
+                    <i class="icon fas fa-heartbeat"></i>
+                    <span>Run system check</span>
+                </button>
+                <button class="quick-cmd-btn" data-cmd="showDiskUsage">
+                    <i class="icon fas fa-hdd"></i>
+                    <span>Show disk usage</span>
+                </button>
+                <button class="quick-cmd-btn" data-cmd="listRunningServices">
+                    <i class="icon fas fa-list"></i>
+                    <span>List running services</span>
+                </button>
+                <button class="quick-cmd-btn" data-cmd="generateReport">
+                    <i class="icon fas fa-file-alt"></i>
+                    <span>Generate report</span>
+                </button>
+                <button class="quick-cmd-btn" data-cmd="checkProcesses">
+                    <i class="icon fas fa-tasks"></i>
+                    <span>Check processes</span>
+                </button>
+                <button class="quick-cmd-btn" data-cmd="networkStatus">
+                    <i class="icon fas fa-network-wired"></i>
+                    <span>Network status</span>
+                </button>
+            </div>
+
+            <!-- Command Result Box -->
+            <div id="cmdResult" class="command-result">
+                <div class="result-header">
+                    <div class="result-status" id="resultStatus">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Ready</span>
+                    </div>
+                    <button class="copy-btn" id="copyBtn" style="display: none;">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="text-center">
+            <a href="/admin" class="btn btn-secondary me-2">
+                <i class="fas fa-cog"></i> Admin Panel
+            </a>
+            <a href="/dashboard" class="btn btn-primary me-2">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="/chat" class="btn btn-success">
+                <i class="fas fa-comments"></i> AI Chat
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        class AIFeaturesPanel {
+            constructor() {
+                this.resultBox = document.getElementById('cmdResult');
+                this.resultStatus = document.getElementById('resultStatus');
+                this.resultContent = document.getElementById('resultContent');
+                this.copyBtn = document.getElementById('copyBtn');
+                
+                this.init();
+            }
+
+            init() {
+                // Add event listeners for feature cards
+                document.querySelectorAll('.btn-try').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const cmd = e.target.dataset.cmd;
+                        this.handleFeatureClick(cmd);
+                    });
+                });
+
+                // Add event listeners for quick commands
+                document.querySelectorAll('.quick-cmd-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const cmd = e.currentTarget.dataset.cmd;
+                        this.executeQuickCommand(cmd, e.currentTarget);
+                    });
+                });
+
+                // Copy button
+                this.copyBtn.addEventListener('click', () => {
+                    this.copyToClipboard();
+                });
+
+                console.log('🤖 AI Features Panel initialized');
+            }
+
+            handleFeatureClick(cmd) {
+                switch(cmd) {
+                    case 'openChat':
+                        window.open('/chat', '_blank');
+                        break;
+                    case 'runScript':
+                        window.open('/admin#scripts', '_blank');
+                        break;
+                    case 'systemCheck':
+                        this.executeQuickCommand('runSystemCheck');
+                        break;
+                    case 'codeReview':
+                        this.showMessage('Code review feature coming soon! 🚀', 'info');
+                        break;
+                    case 'scheduleTask':
+                        this.showMessage('Task scheduling feature coming soon! ⏰', 'info');
+                        break;
+                    case 'monitoring':
+                        window.open('/admin#monitoring', '_blank');
+                        break;
+                }
+            }
+
+            async executeQuickCommand(cmd, buttonElement = null) {
+                if (buttonElement) {
+                    buttonElement.disabled = true;
+                    const originalText = buttonElement.innerHTML;
+                    buttonElement.innerHTML = '<i class="spinner"></i> Running...';
+                }
+
+                this.showLoading(`Executing: ${cmd}`);
+
+                try {
+                    const response = await fetch(`/api/ai-command?cmd=${cmd}`);
+                    const data = await response.json();
+                    
+                    if (data.status === 'success') {
+                        this.showResult(data.output || data.message, 'success');
+                    } else {
+                        this.showResult(data.message || 'Command failed', 'error');
+                    }
+                } catch (error) {
+                    console.error('Command execution error:', error);
+                    this.showResult(`Error: ${error.message}`, 'error');
+                }
+
+                if (buttonElement) {
+                    buttonElement.disabled = false;
+                    buttonElement.innerHTML = originalText;
+                }
+            }
+
+            showLoading(message) {
+                this.resultBox.classList.add('show');
+                this.resultStatus.className = 'result-status loading';
+                this.resultStatus.innerHTML = '<i class="spinner"></i> <span>' + message + '</span>';
+                this.resultContent.innerHTML = 'Please wait...';
+                this.copyBtn.style.display = 'none';
+            }
+
+            showResult(content, status) {
+                this.resultBox.classList.add('show', 'bounce-in');
+                
+                const statusIcons = {
+                    success: 'fas fa-check-circle',
+                    error: 'fas fa-exclamation-circle',
+                    info: 'fas fa-info-circle'
+                };
+
+                this.resultStatus.className = `result-status ${status}`;
+                this.resultStatus.innerHTML = `<i class="${statusIcons[status]}"></i> <span>${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+                
+                // Format content nicely
+                if (typeof content === 'object') {
+                    this.resultContent.innerHTML = '<pre>' + JSON.stringify(content, null, 2) + '</pre>';
+                } else {
+                    this.resultContent.innerHTML = '<pre>' + content + '</pre>';
+                }
+
+                this.copyBtn.style.display = 'block';
+
+                // Remove animation class after animation completes
+                setTimeout(() => {
+                    this.resultBox.classList.remove('bounce-in');
+                }, 500);
+            }
+
+            showMessage(message, status = 'info') {
+                this.showResult(message, status);
+            }
+
+            copyToClipboard() {
+                const content = this.resultContent.textContent;
+                navigator.clipboard.writeText(content).then(() => {
+                    const originalText = this.copyBtn.innerHTML;
+                    this.copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        this.copyBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new AIFeaturesPanel();
+            
+            // Initialize enhanced theme system
+            if (typeof EnhancedThemeManager !== 'undefined') {
+                window.themeManager = new EnhancedThemeManager();
+                console.log('✅ Enhanced Theme Manager initialized in AI Features');
+            } else if (typeof ThemeManager !== 'undefined') {
+                window.themeManager = new ThemeManager();
+                window.themeManager.init();
+                console.log('⚠️ Using fallback theme manager in AI Features');
+            }
+        });
+    </script>
+    
+    <!-- Enhanced Theme System -->
+    <script src="{{ url_for('static', filename='js/enhanced-theme-manager.js') }}"></script>
+    </script>
+</body>
+</html>

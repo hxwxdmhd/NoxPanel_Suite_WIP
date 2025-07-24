@@ -1,0 +1,9029 @@
+# Cleanup Report
+
+## Safe To Delete
+- `.\activate_multi_agent.py`
+  - Last Modified: 2025-07-19T23:34:16.096224
+  - Hash: 2a341cf257ed9021e1743c7d5ebf6b6609312284906f6748c035f417e38c30a6
+  - Reason: No references, not legacy, not config
+- `.\AETHERCORE_INTEGRATION_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: b961cace2692a50a5abe7aad742b5e5b8bc06eae81d041dadc0cd14d13ac4b7e
+  - Reason: No references, not legacy, not config
+- `.\agent_coordinator.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: f4a9db6771f80b8666317955289186485176f77e2eaf229e2436f52f950829b1
+  - Reason: No references, not legacy, not config
+- `.\ai_model_integration.py`
+  - Last Modified: 2025-07-18T13:25:50.330515
+  - Hash: eaa447fef0d77bdf6c0c7e95060180a8071789e07f91582ec236015dd9277031
+  - Reason: No references, not legacy, not config
+- `.\ai_routing_engine.py`
+  - Last Modified: 2025-07-18T13:25:50.354557
+  - Hash: f0df029ea4b0f241ac13a1b0c2d74124c3f22854c7e76bb8a4c1fa53b9cabe09
+  - Reason: No references, not legacy, not config
+- `.\api_bridge.py`
+  - Last Modified: 2025-07-18T13:25:50.356557
+  - Hash: 4d8d956601b23586d2a52c9dd161df05a96e92c8a9553a67aa958815573f5ada
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_2_ROADMAP.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: ea05c8ac5773007b08a4aeb534ba8f2a51f9c845092e9782c4e5cfea2f4ef841
+  - Reason: No references, not legacy, not config
+- `.\audit_2_validation.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: b566b8736e38e2440401c6b047326c894f48663b5769172cbe53b36c05a398ce
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_3_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: d0324a3be27a21f3c44d2a7536ee01b16db5d6afbf2d723adc5cf6fe857cad26
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_3_PHASE_1_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: c62edb70a9a52d9becaa7ca78b06491dc9ae7357d1c1ded57deef1b06c44a821
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_3_PHASE_2_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 79b4c3032b185efcb2220457d8ebe841954b04ecf635c2c025e31e9ce56528b5
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_3_PREPARATION.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: afe5f9ca1227a6c1bf21684c52f666f236ce4733bca00c0845fd362769cf596a
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_4_COMPLETE_STATUS.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 30023d163f66647d643e19b66a66f9dc7ec1504cbbbb6a440b37fa8516dbbbda
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_4_PREPARATION.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: e888d6c1a7b4cda4887f4e2e955c04770813bde9fa36534893c43f5507b3fe41
+  - Reason: No references, not legacy, not config
+- `.\AUDIT_5_PREPARATION.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 604e83a15999c1dd2fac696d9724f6162e3d3c8476d8b7fba5e6b842f96469ec
+  - Reason: No references, not legacy, not config
+- `.\audit_plugins_security.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 330a980dcf429d012db9875be7f8b2ad77db702233bdb93ff520f84c12be7d8b
+  - Reason: No references, not legacy, not config
+- `.\automated_testing_framework.py`
+  - Last Modified: 2025-07-19T13:58:33.134034
+  - Hash: 12090c42aaa2ca141ed4ab95829f35979dd9b276897b0cbad22e31033e97d514
+  - Reason: No references, not legacy, not config
+- `.\autonomous_system_manager.py`
+  - Last Modified: 2025-07-18T13:25:50.125500
+  - Hash: 5ad1cc88fa5c3d470dedef69130976581ffe1be95b36f89183dcf0a0d1c3e99c
+  - Reason: No references, not legacy, not config
+- `.\autoscaler.py`
+  - Last Modified: 2025-07-18T13:25:50.127004
+  - Hash: 322965e7bdbfadf70e6b422b9ee5939e3ea3d0ac6a28f81422f57fa2d7397834
+  - Reason: No references, not legacy, not config
+- `.\auto_documentation_generator.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 1f96cbd14faaab0892f1345bc671ea38e8bf600050e63b8d5ee2e8006d58b317
+  - Reason: No references, not legacy, not config
+- `.\auto_status_saver.py`
+  - Last Modified: 2025-07-18T13:25:50.129015
+  - Hash: 16dfd498d6c514794ca29ad9089676f85b4f289061a6ea7972e58c426d6b308a
+  - Reason: No references, not legacy, not config
+- `.\AUTO_STATUS_SAVER_IMPLEMENTATION.md`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 6747f3991daa96b68e9e49b72c902fa2e1413b75ca0abf1b1b5e1ba32810a91c
+  - Reason: No references, not legacy, not config
+- `.\auto_status_saver_windows.py`
+  - Last Modified: 2025-07-18T13:25:50.130015
+  - Hash: fdc24ec66af1d372b2e629209a548d31e20f98c4fcd47e5e1d8f3d7963d79a42
+  - Reason: No references, not legacy, not config
+- `.\CHANGELOG.md`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 67a8cebdb2d3ce22558bdb366d427e8b1179beb6bf11d00e7734f5d6a6e5f879
+  - Reason: No references, not legacy, not config
+- `.\check_rlvr_score.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: a9643e1abb3feee4408c1fc23282eb0f8f7f90b8b14200b9b6db0db8d8549666
+  - Reason: No references, not legacy, not config
+- `.\CLEANUP_EXECUTION_GUIDE_v10.1.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: fe12c2f6452f6d5fe87bb7701179dbd5264e0ead140fe99b8ed6a37b8bf9b029
+  - Reason: No references, not legacy, not config
+- `.\CLEANUP_EXECUTION_LOG.md`
+  - Last Modified: 2025-07-19T11:56:27.256481
+  - Hash: 1f5c300c21bac83793161f4b9475d7b703e72b443a180722634fdfadf076bb16
+  - Reason: No references, not legacy, not config
+- `.\cleanup_project.py`
+  - Last Modified: 2025-07-20T01:34:36.047610
+  - Hash: 83ed19bcdcc273e66a205a90504dba5505810c37b20574eccd7b312a7b402e1d
+  - Reason: No references, not legacy, not config
+- `.\CLEANUP_SYSTEM_VALIDATION_REPORT_v1.0.md`
+  - Last Modified: 2025-07-19T12:25:37.549341
+  - Hash: bf5221d3096a820674a474f0ec39bdddbf7301879955d4f4c132428ed8e93e37
+  - Reason: No references, not legacy, not config
+- `.\cloud_native_deployment.py`
+  - Last Modified: 2025-07-18T13:25:50.131015
+  - Hash: b61023165f6622431b7f4acd35e3be53797f36cfa47a2edcdef104f69ff37d8c
+  - Reason: No references, not legacy, not config
+- `.\CODE_OF_CONDUCT.md`
+  - Last Modified: 2025-07-15T17:59:52.000100
+  - Hash: 26743c9206a2a66ecc5df89332721874192bf6547ebf541f7a92b1e3dface4d3
+  - Reason: No references, not legacy, not config
+- `.\COMPLIANCE_AUDIT_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 0174c0f9be54d1fadacba09b3df48223d82a44a1ae61b6471447ac80346c8065
+  - Reason: No references, not legacy, not config
+- `.\COMPLIANCE_EMERGENCY_RESOLVED.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 3f3d1c30394921b2e69bb2bd404b52d1d75fa198333f7a2190006c4e2be5126e
+  - Reason: No references, not legacy, not config
+- `.\comprehensive_plugin_test.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: f368dc93a754a79ef106725d75ecd892455a91fb525742c043433178f79b29ed
+  - Reason: No references, not legacy, not config
+- `.\COMPREHENSIVE_VALIDATION_REPORT.md`
+  - Last Modified: 2025-07-19T11:53:27.287796
+  - Hash: 8852c035f0f5262e986f935ff04f1b78b6530bb4cfe7978c470547487dd4db7b
+  - Reason: No references, not legacy, not config
+- `.\COMPREHENSIVE_VERSIONING_REPORT.md`
+  - Last Modified: 2025-07-18T14:23:03.259600
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: No references, not legacy, not config
+- `.\CONTRIBUTING.md`
+  - Last Modified: 2025-07-19T15:00:46.776678
+  - Hash: 2792cd835293fd62c3289db0b12672dd650c77765c6c88c08d041396af34323a
+  - Reason: No references, not legacy, not config
+- `.\COPILOT_DIAGNOSIS_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 7d666c789331f8a849e350511a9dd4a22a089afe7520b6fbe7f1afa4aefeecfc
+  - Reason: No references, not legacy, not config
+- `.\COPILOT_RLVR_REASONING_GUIDE.md`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: f6475948854175619d98ffd4ad6622e64c16b46ec12f75784b535be17e3f28cb
+  - Reason: No references, not legacy, not config
+- `.\DASHBOARD_INTEGRATION_VALIDATION_PLAN_v1.0.md`
+  - Last Modified: 2025-07-19T12:38:55.276156
+  - Hash: 05c88f7441a99fa12c0108426059f13fea2b44b88e642a133fc2ce9959d19380
+  - Reason: No references, not legacy, not config
+- `.\DEPLOYMENT_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 545ec3ae0c39dbb2dcd32c27b0855223ac76c947dc2b92a1114653dace8ee847
+  - Reason: No references, not legacy, not config
+- `.\DEPLOYMENT_GUIDE.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 001aa61ba1d5b6a48b49c98685c662a3ebde8740b02b7fd6ec4b543d9bbfc4cf
+  - Reason: No references, not legacy, not config
+- `.\DEPLOYMENT_GUIDE_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: d1b88ec2c344f69ea11a71a895e89a824f5fc55c2c7e447ed2562cd5d8c2918e
+  - Reason: No references, not legacy, not config
+- `.\deploy_kubernetes.py`
+  - Last Modified: 2025-07-18T13:25:50.132015
+  - Hash: 3d608530ef7dc2457ff224865fb10fa4f85faffabdda14ca19cf02a2149b99b1
+  - Reason: No references, not legacy, not config
+- `.\deploy_production.py`
+  - Last Modified: 2025-07-18T13:25:50.134016
+  - Hash: 72c64dd1bd2e8212b66afee206ad5db833d2e94b78534bf3f52997cb3bc1641e
+  - Reason: No references, not legacy, not config
+- `.\deploy_simple_production.py`
+  - Last Modified: 2025-07-18T13:25:50.135017
+  - Hash: f8c784b9bd54b1c9d2c51c927280cfb4a55cf49f469ce564e89329e3f75236ad
+  - Reason: No references, not legacy, not config
+- `.\development_session_manager.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 1482ea0044f76514085948c8ec019471d1fd036bb1f2f8487c6913d7ee0b0208
+  - Reason: No references, not legacy, not config
+- `.\distributed_computing_framework.py`
+  - Last Modified: 2025-07-18T13:25:50.137532
+  - Hash: 08307c181bca9463c18c45afe541cf50640f5b660b8947ca1a026a4c54b00292
+  - Reason: No references, not legacy, not config
+- `.\DOCKER_NETWORKING_IMPLEMENTATION_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: c70bfb72aecb85c01f852bedda0ac47f7141ea43a2c6e8ee52f18082cab2e72b
+  - Reason: No references, not legacy, not config
+- `.\DOCKER_NETWORKING_SOLUTIONS.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: d7b0ce6e0540b6f696e39b42acc3c3724409965e3c83b7af0cc839560c7878e7
+  - Reason: No references, not legacy, not config
+- `.\DOCKER_RECOVERY_COMPLETE.md`
+  - Last Modified: 2025-07-19T17:05:46.742745
+  - Hash: 522ab71930dff11ee43adbbd7bba410c95e0339446e50abc839c3c0d6ec8d8b2
+  - Reason: No references, not legacy, not config
+- `.\enhanced_plugin_demo.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: fde2dd81fd10f6ae43a61e3cea67274a31d7b708c394577f0c07e6e21f8ddf3d
+  - Reason: No references, not legacy, not config
+- `.\ENHANCED_PLUGIN_SYSTEM_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 495babd20aabc3c6242439f4a3f92836806a8aa2a28197ef7dd96491f85690c5
+  - Reason: No references, not legacy, not config
+- `.\ENHANCED_PLUGIN_SYSTEM_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: c5606fb16932dfd3a1072820901e6ebf550edad41671b6fac507bcf38cd08be8
+  - Reason: No references, not legacy, not config
+- `.\enhanced_plugin_system_demo.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 121fad6ee5ccc89ceaf523cd4528a692deb502c4cbf940a7fefb7670bf8f76ff
+  - Reason: No references, not legacy, not config
+- `.\ENHANCED_PLUGIN_SYSTEM_FINAL_STATUS.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 289837b92d67a9565a4fd144c76b4ad6d8ecf99523cf682ddd3a5c30255c65ff
+  - Reason: No references, not legacy, not config
+- `.\enterprise_security.py`
+  - Last Modified: 2025-07-18T13:25:50.138534
+  - Hash: 74979c64018581fb56734ea5f0605b2dabf0c9ece617464d291e0356b87c5151
+  - Reason: No references, not legacy, not config
+- `.\final_production_demo.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: b308d91bb0dbeb2a8cb86e1cbf871337f6fff047afda85c7799c2f43ea3c7a88
+  - Reason: No references, not legacy, not config
+- `.\FINAL_SUCCESS_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: de039ca5547f9de2955a5bf0e9e44fa18c260fc9b38f1c0d961f0d67ca4440a3
+  - Reason: No references, not legacy, not config
+- `.\FINAL_SUCCESS_REPORT_v2.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: d9fb53918639e55166cf3d7b435bf66c001404cd65399c5518b03f63588c50c5
+  - Reason: No references, not legacy, not config
+- `.\FRITZWATCHER_DEPLOYMENT_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 000e93bbfe8ed4ca54038989e12886372c873989d59fa130e6691197d635d4f1
+  - Reason: No references, not legacy, not config
+- `.\FUTURE_ROADMAP_MULTIMEDIA_INTEGRATION_v1.0.md`
+  - Last Modified: 2025-07-19T12:24:47.310552
+  - Hash: 659718ea97ac4ed70cb76f9dcecc39b4d63f33abfaccebbbcbffc487a4cfd566
+  - Reason: No references, not legacy, not config
+- `.\gate6_progress_dashboard.py`
+  - Last Modified: 2025-07-18T12:41:53.028680
+  - Hash: 45a7e1ea7d17355caf0aa1f7ba3371a95bfacecf3c8c5bcb1ce3060200d50377
+  - Reason: No references, not legacy, not config
+- `.\gateway_service.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: fb4b96b37841522b062f0d88602aa839a67a51ad9deb71bd3c8acc80271d7ec0
+  - Reason: No references, not legacy, not config
+- `.\heimnetz_cli.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 516b2e82b2f4d5829850a806296617d70f899b73939a861c7adfb271efda3953
+  - Reason: No references, not legacy, not config
+- `.\HEIMNETZ_ULTIMATE_DOCUMENTATION_v10.0.md`
+  - Last Modified: 2025-07-18T12:49:05.892940
+  - Hash: 1f38ecccfd61efaf9c03d4742f52ffa9ce432cb75fd251b41343cf14f771c236
+  - Reason: No references, not legacy, not config
+- `.\init_noxvalidator.py`
+  - Last Modified: 2025-07-18T13:25:50.140543
+  - Hash: 2ad26728451a7a9bbd265f743423a3aaa98460b6b3b7604bec63edb00c99e214
+  - Reason: No references, not legacy, not config
+- `.\integrated_monitoring_system.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: d4a3d06f275b78ec4c429b28981d883a790ed1a03599a187c040217c450ad75e
+  - Reason: No references, not legacy, not config
+- `.\integrated_web_server.py`
+  - Last Modified: 2025-07-19T15:00:46.241063
+  - Hash: d2a14c15fa812414939fdd46c702194bcaf6e189f750b827f7804ef42a0ad545
+  - Reason: No references, not legacy, not config
+- `.\integrate_heimnetz.py`
+  - Last Modified: 2025-07-19T15:00:46.241063
+  - Hash: 322dc75944d6d605637edf22b52a6da0c3bba781c61a222e5353808bf6921eb7
+  - Reason: No references, not legacy, not config
+- `.\LANGFLOW_ORCHESTRATION_WORKFLOW.md`
+  - Last Modified: 2025-07-19T23:34:16.096224
+  - Hash: 0beb4ed0ec54a26e1901868a2e75d89145a735d691e17fcf8fc5b3af4ca2a2cd
+  - Reason: No references, not legacy, not config
+- `.\LAUNCH_INSTRUCTIONS.md`
+  - Last Modified: 2025-07-19T21:48:37.012125
+  - Hash: c0d1ac262354025f0d373ee71ebcf551899977d90f07bbb5181c4aa1956123a4
+  - Reason: No references, not legacy, not config
+- `.\launch_server.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 519b86c5b4185b103c0207c32a93506ad482a9665b9235cef89f54d52eedc91f
+  - Reason: No references, not legacy, not config
+- `.\LAUNCH_SUMMARY.md`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 86503c30ce1461d0a57703bdc5e291066901d2b067905d2f3367ba76939f631a
+  - Reason: No references, not legacy, not config
+- `.\launch_unified_server.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: fd270c5225d547a3ac7f686669e364abba3a3986fa947fcbabc09298164fb55f
+  - Reason: No references, not legacy, not config
+- `.\launch_workspace.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 2e42afbfbab098dae36f8dc551b36e195ad813397c3040b43a498f051bcafb16
+  - Reason: No references, not legacy, not config
+- `.\LEGACY_PREVENTION_FINAL_STATUS.md`
+  - Last Modified: 2025-07-19T16:11:11.244232
+  - Hash: c74e6ebb68f63490d29fefe4bbe20ba1131a291d2b4325a73b93e9b43af753db
+  - Reason: No references, not legacy, not config
+- `.\main.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: c6e2020e628237a39e6ca2e4635984ccaa592cc17d009de09116608913620c92
+  - Reason: No references, not legacy, not config
+- `.\main_unified_server.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 6acd02f79136e28b0fb7dabeba3a825f2666140bff34b3ecc2072b159f575d7a
+  - Reason: No references, not legacy, not config
+- `.\main_unified_server_clean.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 3487fbdd1ee9c024a510fa6001fd3f86b1393671bd41f1763664f4406f58ff14
+  - Reason: No references, not legacy, not config
+- `.\main_unified_server_integrated.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 742dd1968119b3ee5a3395c6316a7a0c7d57679b19f98544ce67de7ca8f99a89
+  - Reason: No references, not legacy, not config
+- `.\manual_environment_validation.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 8604f591b0e0d8b88f63a1b73dde53c422b541d3ad86e01dd9999113843020b6
+  - Reason: No references, not legacy, not config
+- `.\memory_leak_detector.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: ef79b5694b8654bfcb29311860e94cbe163975c7cef021658f8732ba7b5433b3
+  - Reason: No references, not legacy, not config
+- `.\microservices_architecture.py`
+  - Last Modified: 2025-07-18T13:25:50.146541
+  - Hash: 25fffd6776597f405b26cb05cd5c7303a34946d4569249dbbb8cc97a2a12fad5
+  - Reason: No references, not legacy, not config
+- `.\MISSION_ACCOMPLISHED_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: d2a920d784199342c61cb0d9fd656ff2e601b1caa4c2aa9f3e87803d38b3f638
+  - Reason: No references, not legacy, not config
+- `.\models_simple.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 7ec414f1cdebc3b3486928aabedc8b03cb9b3e69f6ce35da32a7ac038791c658
+  - Reason: No references, not legacy, not config
+- `.\models_unified.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 715608c4b860e667661dfb6aab4f8374d7e8e32dcab4bd566122a3fd81e3e390
+  - Reason: No references, not legacy, not config
+- `.\models_unified_clean.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 80e0ef7503fc4c68ea6bfa13261aa0444cb49f052bead065087949d3a615264e
+  - Reason: No references, not legacy, not config
+- `.\module_toggle_system.py`
+  - Last Modified: 2025-07-19T11:55:31.325603
+  - Hash: 387d33c43e207d4416322cf2f33db15e7ebe65ba10463dcd4c3514ad5413e775
+  - Reason: No references, not legacy, not config
+- `.\MSP_AWARENESS_PROTOCOL_ACTIVE.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 74da5e83322f4c24f58c840d4e257424c1e03d5746379d0de94dc3366dff0995
+  - Reason: No references, not legacy, not config
+- `.\MSP_OPERATIONAL_READINESS_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: c37916393198bb3bc38a42b52adbe6dceb6e7aff8bbe5c5e7eb2eecfec5cdb17
+  - Reason: No references, not legacy, not config
+- `.\MULTI_AGENT_ACTIVATION_REPORT.md`
+  - Last Modified: 2025-07-19T23:42:59.802911
+  - Hash: a7b6a8530db1ea2eebdc06b61ec55591529a2a4c93335db825970fac0d1c3f9b
+  - Reason: No references, not legacy, not config
+- `.\multi_agent_collaboration.py`
+  - Last Modified: 2025-07-19T23:34:16.096224
+  - Hash: d2ae7ca9cc8141a19e0516e88e420ab595fbb89cf62a02637e146223b77c9abd
+  - Reason: No references, not legacy, not config
+- `.\multi_tenant_adapter.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: c948d824eb6ca98a27cbd279928dc47af00db91c2488337d11166de28d902a8f
+  - Reason: No references, not legacy, not config
+- `.\NEXT_LOGICAL_DEVELOPMENT_TASKS_v1.0.md`
+  - Last Modified: 2025-07-19T12:40:20.936635
+  - Hash: 8f94a8115ae044d45d541876c9bbc5945e7eff4a929762d17dcf2673c0ea7096
+  - Reason: No references, not legacy, not config
+- `.\NEXT_STEPS_ROADMAP.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 0e2a6050c4301bff876b3d862e7ee658896a4b4caf5f3b8c675a5ed3ae4f0597
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel Code Citations & License.md`
+  - Last Modified: 2025-07-18T12:49:06.331666
+  - Hash: 407ec1be9b61bae51da636e1094436c0eceba80cd66402e2f214e029768f0121
+  - Reason: No references, not legacy, not config
+- `.\OPTIMIZATION_EXECUTIVE_SUMMARY.md`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 7e6fbf6cdc15cb56f24145b4529005fcc3bcd61a870f192cba3fcbf4c91182ab
+  - Reason: No references, not legacy, not config
+- `.\OPTIMIZATION_STATUS_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 6af212eda6626db80db9bf9a22c94d3fba256005eda801ddb50a39fb0deee6ed
+  - Reason: No references, not legacy, not config
+- `.\OPTION_4_IMPLEMENTATION_DASHBOARD.html`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: fa782ba6ee723a0c74e133899e9ce5e18a2e55e743eeb8766e7b834df559d802
+  - Reason: No references, not legacy, not config
+- `.\performance_enhanced_web_server.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: b0ef3f2220110be60cc0a46b358d30fd9c1833fe944fe8d6c0b09d8ab41b0ac1
+  - Reason: No references, not legacy, not config
+- `.\performance_server.py`
+  - Last Modified: 2025-07-18T13:25:50.220237
+  - Hash: 2bf480f21de8f021e17a7896175060baaa1dd973b330b79dd256689d19ac45aa
+  - Reason: No references, not legacy, not config
+- `.\PHASE_10_PREPARATION_PLAN_v1.0.md`
+  - Last Modified: 2025-07-19T12:37:20.694580
+  - Hash: 84b9f17c079d82d576da89be548f3d2c5901d8e0cc9df0b17217732eb7629e5e
+  - Reason: No references, not legacy, not config
+- `.\PHASE_3_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 0da3bfc9d5b697dd057be74fb9078608cfb721fbd85a1294a961f4cb77db33aa
+  - Reason: No references, not legacy, not config
+- `.\plugin_architecture.py`
+  - Last Modified: 2025-07-18T13:25:50.222240
+  - Hash: 06ddab5e6aaf164048e073084f0b751902591023648f00b4d85f461648812169
+  - Reason: No references, not legacy, not config
+- `.\plugin_framework_core.py`
+  - Last Modified: 2025-07-19T14:27:18.809292
+  - Hash: 29ea64c0c50fbd0b8221e21a8db5bc91c48b6009c13ac0e948c1f615444a3d5a
+  - Reason: No references, not legacy, not config
+- `.\PLUGIN_FRAMEWORK_FOUNDATION.md`
+  - Last Modified: 2025-07-19T14:35:18.390523
+  - Hash: 533db0683e1c7975e39847293ad08c5c201cfbe546e5fa98309d20f29cdc6dec
+  - Reason: No references, not legacy, not config
+- `.\plugin_framework_sdk.py`
+  - Last Modified: 2025-07-19T14:30:31.955268
+  - Hash: b8e4dba251886b5ee5bb12e46a061e815263e887ed0218ccfec0d088f860230c
+  - Reason: No references, not legacy, not config
+- `.\plugin_framework_v2.py`
+  - Last Modified: 2025-07-19T12:56:30.962095
+  - Hash: 4622158eff1333c78ad831cbb4e437a9bbce1ced2386c836cce41be7dc1fee9d
+  - Reason: No references, not legacy, not config
+- `.\PLUGIN_INTEGRATION_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 6ee3ee545ac00bc8e4d97f308c17b1c5bfcf076e3d4058b41924aff635e64bbd
+  - Reason: No references, not legacy, not config
+- `.\plugin_manifest_system.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: bcbd9f77a3790d7b458ac33e2ed6fbad9572918687f4dec516feb7cc8183d7fe
+  - Reason: No references, not legacy, not config
+- `.\plugin_registry_db.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 65c3916022035859ec58cce6c52c9e63cc4e5bcc264c364a8d72b12353f5721e
+  - Reason: No references, not legacy, not config
+- `.\plugin_registry_marketplace.py`
+  - Last Modified: 2025-07-19T14:33:26.497481
+  - Hash: abe41d902dbb0499821a3f14831fb8ed80a739e97ef4473d0dc9af564e97cbb4
+  - Reason: No references, not legacy, not config
+- `.\plugin_sandbox_isolation_enhanced.py`
+  - Last Modified: 2025-07-19T13:47:48.651478
+  - Hash: 30ae657d7dfffee6f576d2b76c8c159bacf7cac531f449a61325750911fdda28
+  - Reason: No references, not legacy, not config
+- `.\plugin_sdk_preparation.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 607c08b3bc0664b0c5015b5a8b007d0e153ba6592114ad52bb7a5ebe99a1614a
+  - Reason: No references, not legacy, not config
+- `.\plugin_security_report.md`
+  - Last Modified: 2025-07-18T19:39:55.138163
+  - Hash: 443b6a162fd2d1c6b6d8f228f50141fcd66de4e0e39eb7b0716385a31b3bebd2
+  - Reason: No references, not legacy, not config
+- `.\plugin_validator.py`
+  - Last Modified: 2025-07-18T13:14:53.944377
+  - Hash: 4fe34213e1e7fed81d01f79be37eece6d585c13208e01723071aea4934191d4c
+  - Reason: No references, not legacy, not config
+- `.\post_certification_status.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 617d04fea3051b8bd882a5a3c17ff16314acae4fb7730a2a3aea37655d288826
+  - Reason: No references, not legacy, not config
+- `.\post_certification_status_simple.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 7baba492409823302c538c403bbb520f16820c8d200d4270289ca2a67766beae
+  - Reason: No references, not legacy, not config
+- `.\powershell_integration.py`
+  - Last Modified: 2025-07-19T15:29:27.339489
+  - Hash: 33c0996f39abe5301944a1bd6ea8889db3cde9aac350e1830343d0492b6a5c77
+  - Reason: No references, not legacy, not config
+- `.\predictive_analytics.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 0698fc49baf647b3d564bb968e643c45177a4d1f551044289a5c6fdbc9985275
+  - Reason: No references, not legacy, not config
+- `.\production_deployment_validator.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: cd37670a525daf7f4dbf7d53e1cf3a19b0aeabb22265d8f3e6ba824b22d567de
+  - Reason: No references, not legacy, not config
+- `.\PRODUCTION_ENVIRONMENT_LOG.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: ce63e494fc09eac9a295bf43aaa5750380621ee4cf04ce2c747b3bd119746ed7
+  - Reason: No references, not legacy, not config
+- `.\PRODUCTION_ENVIRONMENT_STATUS.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 9ac1df7da863563cbe50dc5c09b1e5620e717dec57508585476f4e0ed6549edf
+  - Reason: No references, not legacy, not config
+- `.\PRODUCTION_READY_REPORT.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 3e0cae173fcc19c3eae3142604e38bffaef292f83683eaf7717b623f2fc94a0f
+  - Reason: No references, not legacy, not config
+- `.\PRODUCTION_VALIDATION_DASHBOARD.html`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 20ed63a4f99eb1be4f3e85990196c5ce57846e6254c6dd1288a5ef863d526e73
+  - Reason: No references, not legacy, not config
+- `.\PRODUCTION_VALIDATION_RUNNER.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: f21a1d2a217a08aa7e96ab404827b9e81ee96789dfac3dd88c8cdc873402fe7c
+  - Reason: No references, not legacy, not config
+- `.\project_cleanup_migration_working.py`
+  - Last Modified: 2025-07-20T01:21:46.986042
+  - Hash: bb6cdba18ed3019d3fc0c375c0e1009759dd067a5dd2e356e042792edf772af2
+  - Reason: No references, not legacy, not config
+- `.\PROJECT_PROGRESS_SUMMARY_2025-07-19.md`
+  - Last Modified: 2025-07-19T12:27:34.053077
+  - Hash: e03e1c9da6d27988307c68a629e778bb27da754f3d039df636a61827ca70d0ef
+  - Reason: No references, not legacy, not config
+- `.\PROJECT_STATUS_REBOOT_SAVE.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 61c93a094cf3348580c93794c9ca3c0ac53bfcbba5ebca30673d314ad2d6765d
+  - Reason: No references, not legacy, not config
+- `.\PROJECT_STATUS_SUMMARY_v11.0.md`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 26e034d3e55d4db83359957b41cc559e573a6908ea36e0297ca6aff202ab9664
+  - Reason: No references, not legacy, not config
+- `.\PROJECT_STRUCTURE_CONSOLIDATION_PLAN.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 22b9383917229d5a1f8939c4eedf62dec43c8dbca93ef7fbfe849ddfa787b2a9
+  - Reason: No references, not legacy, not config
+- `.\PROJECT_SUITE_STATUS_REPORT.md`
+  - Last Modified: 2025-07-19T11:42:26.415143
+  - Hash: f0ae2ab21599fb4a3c1a055d17ac93b2ea3419c52d8e6e5bea8d17f7d038ac46
+  - Reason: No references, not legacy, not config
+- `.\prometheus_metrics_system.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: d4c49fec870f78e7dba80131587171efa5d2da3e370ec6c4a4fa1684d805703a
+  - Reason: No references, not legacy, not config
+- `.\PROOF_AUDIT_REPORT_v3.0.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 48ef6e560d82e1b4c748b4c30a6d5407ba26b0c9bc62b352e7b6b3abf18d0a1b
+  - Reason: No references, not legacy, not config
+- `.\quick_recovery_system.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: ea41b35629126b6a691c33253f92ab48340ba477f365be6d017a35f36e8aa0ee
+  - Reason: No references, not legacy, not config
+- `.\README.md`
+  - Last Modified: 2025-07-15T18:09:32.108607
+  - Hash: 1479cfd6b8f3973bf3e0e47123009c740e7741aa1f3e5ae09b9eaaae56e24faf
+  - Reason: No references, not legacy, not config
+- `.\README_INTEGRATED.md`
+  - Last Modified: 2025-07-15T17:41:40.409437
+  - Hash: b27f86f28037978d64f861b41a1e7ab0227fb553c3a51bf93834de3c6b9b5196
+  - Reason: No references, not legacy, not config
+- `.\README_PHASE_LOCK.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 1f6e549ab1de2d41fe2818989778fefbaef23b9df95e101dbe919a8d5158852d
+  - Reason: No references, not legacy, not config
+- `.\README_POST_CERTIFICATION.md`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: b03b4e7b7c96f316ff48c55a9c86ff2810d6e0463242cb405772e6d90f2e8566
+  - Reason: No references, not legacy, not config
+- `.\REBOOT_CHECKPOINT.md`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 1b072cd2f5662ff09860d723399c79235c28e38ba86b41f2138e6768be3efe66
+  - Reason: No references, not legacy, not config
+- `.\recovery_and_optimization_engine.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 922000b933a555a8b2b38341717eb53b2a5f1ce5e070cdb736759fc44bc916bd
+  - Reason: No references, not legacy, not config
+- `.\RECOVERY_COMPLETE_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 041f3e9b39270d4e78bd80a239c47d14a0d515106985da9114de64ba9c84a603
+  - Reason: No references, not legacy, not config
+- `.\recovery_status_summary.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 6e23df2a5b45f97aebf4f74c2228593ee2d2ac2b8b45138787fd41e8681879fe
+  - Reason: No references, not legacy, not config
+- `.\REDIS_ISSUE_RESOLVED.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: d204d12852380f171ee26d96a6146a898c7032054645bd8a80a55c3691e8fb35
+  - Reason: No references, not legacy, not config
+- `.\REFOCUS_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 9155748cecaa32dcf4ec0bd3518f8913e804d89eb9f8ba45f7d8cc5f6b3c0f86
+  - Reason: No references, not legacy, not config
+- `.\rlvr_autoscaler.py`
+  - Last Modified: 2025-07-18T13:25:50.223238
+  - Hash: 1413b34f2b71578506c51a9ddff6d51d658b1c616b3d25c2bb4820f1192c1fcf
+  - Reason: No references, not legacy, not config
+- `.\rlvr_comprehensive_test_framework.py`
+  - Last Modified: 2025-07-18T13:25:50.225240
+  - Hash: ace21b90ae8a9a3ce79119fed0ee2cd6c714b6f3751c1e93c6cdf0447461b5d6
+  - Reason: No references, not legacy, not config
+- `.\rlvr_deploy_status.md`
+  - Last Modified: 2025-07-18T12:00:57.138066
+  - Hash: 1c2235b627c10a9d50da706312a836af573f838825f842ff626ca888801fb756
+  - Reason: No references, not legacy, not config
+- `.\rlvr_deploy_status.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 4791d63ff15ad6551e28156cf385dfde2ac9be5cd3a7b478a1ec830e796b3e1d
+  - Reason: No references, not legacy, not config
+- `.\rlvr_emergency_remediation.py`
+  - Last Modified: 2025-07-18T13:25:50.226744
+  - Hash: d70f9a0790b39cbdbd8401bd537215912f3cd8041de9e988c66d356baeaefaf1
+  - Reason: No references, not legacy, not config
+- `.\rlvr_enhanced_autoscaler_v3.py`
+  - Last Modified: 2025-07-18T13:25:50.228757
+  - Hash: 66032773d973a329b6f61cc11f94254b54c9996beb80c3f66baae701a928f68a
+  - Reason: No references, not legacy, not config
+- `.\rlvr_enhanced_deployer_v3.py`
+  - Last Modified: 2025-07-18T13:25:50.229756
+  - Hash: d324c6d6c9ba870114da270e13a6513fa6c26fc20ae2ac935ee87e8b5bdb7ae7
+  - Reason: No references, not legacy, not config
+- `.\rlvr_enhancement_v52.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 7c0748956591caa85fbe3bba2b3db892674a805272b0b020aef20f43e8fca9e4
+  - Reason: No references, not legacy, not config
+- `.\rlvr_enhancement_v52_simple.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: e7b7687920a73ec1e9623b968d5db5133cbebd3dcdf2be645d536f0876ace128
+  - Reason: No references, not legacy, not config
+- `.\rlvr_frontend_dashboard.html`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: a749709021b236ea90aea9afb4b018606ad4e05e3b665c79d57a973096e76b58
+  - Reason: No references, not legacy, not config
+- `.\rlvr_guardian.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 2479dd9c770f2720dd41af49ad8bf4773b05be38c9102e177081053a255ed5b9
+  - Reason: No references, not legacy, not config
+- `.\rlvr_guardian_simple.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 2c2ba0b06e210dc88fd3f635a19692bdeaf0192a4193d643f46b5261edc03e22
+  - Reason: No references, not legacy, not config
+- `.\rlvr_intelligent_monitor_v3.py`
+  - Last Modified: 2025-07-18T13:25:50.231758
+  - Hash: dadaeb3a8848690816a04b598cb323420c9ba9470e5feaad9fa117acd7772275
+  - Reason: No references, not legacy, not config
+- `.\rlvr_master_achievement_report.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 2b3e0f528c54726ecae124c05ba087fe3ab4e47fa670e74286de2ae1c075ada2
+  - Reason: No references, not legacy, not config
+- `.\rlvr_master_dashboard.py`
+  - Last Modified: 2025-07-18T13:25:50.233756
+  - Hash: fef795abebf9b7eea694efd397d2f19c314909511cec2b32ef683a2e482059d3
+  - Reason: No references, not legacy, not config
+- `.\rlvr_master_dashboard_fixed.py`
+  - Last Modified: 2025-07-18T13:25:50.234758
+  - Hash: 12318a0402d788a46f4327b5e2fa81c6f7f9ddca2ffb345d2cb089f7d3deeb26
+  - Reason: No references, not legacy, not config
+- `.\rlvr_master_dashboard_v4.py`
+  - Last Modified: 2025-07-18T13:25:50.236268
+  - Hash: 0a5f9675e48144b9fd7c3741c724b29eefe455e21e88ace6b1eecfd9ea141ac5
+  - Reason: No references, not legacy, not config
+- `.\rlvr_noxpanel_gate5_integration.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 2ec5453ede0ce08a917d7197395eb8c3385ac8b64816059871842d3df3874158
+  - Reason: No references, not legacy, not config
+- `.\RLVR_NoxPanel_System_Architecture_Overview.md`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 1f99e1cc04c840d0f542c7de4852393ca0b9842dc990f9ef512be4e150604e5b
+  - Reason: No references, not legacy, not config
+- `.\rlvr_orchestration_controller_v3.py`
+  - Last Modified: 2025-07-18T13:25:50.237281
+  - Hash: e9b25dea26b1528e2ef63c9043fd12997ccef0e7849b7bc17a6fbec1b50fcfc0
+  - Reason: No references, not legacy, not config
+- `.\rlvr_phase2_enhancer.py`
+  - Last Modified: 2025-07-18T13:25:50.238280
+  - Hash: 040d5f2c4822aad4390e977ab96fe146eed66e2b38cbe4c0b71ffe9b004f2a10
+  - Reason: No references, not legacy, not config
+- `.\rlvr_phase3_advanced_enhancer.py`
+  - Last Modified: 2025-07-18T12:42:45.469388
+  - Hash: 6d559d5bf995bc181cec4e2c319bbb0555a0d2a359c664d2f12515b6182c48a9
+  - Reason: No references, not legacy, not config
+- `.\rlvr_phase3_completion_dashboard.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 5399396f49791b5b3cbcdf11958c9bae46a2724fc9a2167165c792669cddda55
+  - Reason: No references, not legacy, not config
+- `.\rlvr_phase4_deep_integration.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 8773604ab77218467f3b0a1e7de3c264c3fbd658df0d7e7227709189f0749dec
+  - Reason: No references, not legacy, not config
+- `.\rlvr_phase5_ultimate_optimization.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 62b7f24b668b82daa5763f0ff1510462a8e6a6e3ab7bd937aa993bc0459173bb
+  - Reason: No references, not legacy, not config
+- `.\rlvr_platform_adapter.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 0a896e5e6885df9efebe0f34c9f8f39ce2fe8496d974c8bf717523cbdeee72e3
+  - Reason: No references, not legacy, not config
+- `.\rlvr_production_deployer.py`
+  - Last Modified: 2025-07-18T13:25:50.240291
+  - Hash: bd3c7aa0f1f7aa9f33d87f45d73ade6650e341ee30f6654f7dc2686923ab7237
+  - Reason: No references, not legacy, not config
+- `.\rlvr_production_deployer_corrected.py`
+  - Last Modified: 2025-07-18T13:25:50.241288
+  - Hash: ee1f6cdccfd130bcafe24bcdf0358d81b4161ed6d8f77cae93403bcdeaf59cc0
+  - Reason: No references, not legacy, not config
+- `.\rlvr_ultimate_success_report.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: e0584824ac5e802b8f38197b369995cc435af319f0affd8aa28bcd94ab141caf
+  - Reason: No references, not legacy, not config
+- `.\rlvr_validator_agent.py`
+  - Last Modified: 2025-07-18T13:25:50.243291
+  - Hash: d4deead453a27d517f510abece6ab4529f0a4139101273da3f8ce8c725873b46
+  - Reason: No references, not legacy, not config
+- `.\rlvr_windows_compatible_test_framework.py`
+  - Last Modified: 2025-07-18T13:25:50.245292
+  - Hash: 1cfb8f1c2542cb87d24c499a3d5b0d5ad73f87f95ca20eeea1a58a50a0ea8c87
+  - Reason: No references, not legacy, not config
+- `.\SECURITY.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: b679fd368687075553efbbbe9fee9223a63160f5bea3b5bacc335b32514e3154
+  - Reason: No references, not legacy, not config
+- `.\server_advanced.py`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 6f161d34a6f923d5eb55248884eb98ab86456002144c56891b488f0214a16576
+  - Reason: No references, not legacy, not config
+- `.\server_dev.py`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 7a9fadc6e5dda1b42500d2046d7f96e852b69c91cf8395fc85960d40a456dfe5
+  - Reason: No references, not legacy, not config
+- `.\server_enhanced.py`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: d8e3905f27f0437fd1c66234936285728093d84ac7ceeba2ce82423071407bc2
+  - Reason: No references, not legacy, not config
+- `.\SERVER_INTEGRATION_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 925dbe6734ec47dd64e9dcdfafbcc52e8a13232b730c14fbf6244f75187c690f
+  - Reason: No references, not legacy, not config
+- `.\server_production.py`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: a1135dc3f0b584f371ad041c2d715062a4dc9d2db7ac4b89069f4587153fc647
+  - Reason: No references, not legacy, not config
+- `.\server_quick_deploy.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 0d4f096bd6ae17eb005d977feee39b2f2251fa8934c5b8a7480a8be594278d7f
+  - Reason: No references, not legacy, not config
+- `.\session_summary.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 2aacd8a4be9cb7348bb85108ed65d52bc7c1424e35eaaeb019963d85c092a68e
+  - Reason: No references, not legacy, not config
+- `.\setup_uacms.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 25f7855cf1a444454568348dc5aacdd292620d21923bf5a65b57afa48dfeed5b
+  - Reason: No references, not legacy, not config
+- `.\simple_status_saver.py`
+  - Last Modified: 2025-07-18T13:25:50.264373
+  - Hash: f70da2b218a0691789b1486d397a68d7315f371afa2942d81756b1417df6fc0a
+  - Reason: No references, not legacy, not config
+- `.\smart_cleanup_system.py`
+  - Last Modified: 2025-07-19T11:54:27.069298
+  - Hash: 977d1e4e86af481eb4d2cd3111c09f1d9fd9d81943abd06d6dd82501e86cf28c
+  - Reason: No references, not legacy, not config
+- `.\start_secure_server.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 279cfab1c2d6b447a869b8864ed07cf4591eb0035c2afe5c2174574f2bb1e983
+  - Reason: No references, not legacy, not config
+- `.\start_status_service.py`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: bc6d99595a1dd92382cf0fc93533ee033bd570c162e8c9f51af53dddd8f84aa5
+  - Reason: No references, not legacy, not config
+- `.\status_saver_service.py`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: f769fa3f4af8bc988e78726ddd488e45627b9a2667ef40471e858ca2bb419310
+  - Reason: No references, not legacy, not config
+- `.\STRATEGIC_PERFORMANCE_ANALYSIS.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 5164a894665da162394fd4662ef22a17411c36ed6e96193bc75fbabbd3ba4872
+  - Reason: No references, not legacy, not config
+- `.\strategic_performance_analyzer.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: b91dda8522fe0ee8bde63a593c847377972edf159e807fe5ac0fbff7e009b2b0
+  - Reason: No references, not legacy, not config
+- `.\sysadmin_copilot.py`
+  - Last Modified: 2025-07-19T15:29:27.261292
+  - Hash: 3cb94a8d3d30035a0d61d9c90f2c1806e693655c2b65cecd18c2d46fd8932adb
+  - Reason: No references, not legacy, not config
+- `.\SYSADMIN_COPILOT_STATUS.md`
+  - Last Modified: 2025-07-19T14:58:15.184872
+  - Hash: a7bfb4ab220684f91df2f00e8b3355e840de7b2b5bec53d75b18db42b65f611c
+  - Reason: No references, not legacy, not config
+- `.\sysadmin_copilot_v2.py`
+  - Last Modified: 2025-07-19T13:26:12.163194
+  - Hash: 4fa707569c8849f3f0a4fa9151195acf9fdc61dd18113c842077f2ca48f28826
+  - Reason: No references, not legacy, not config
+- `.\TASK_4_AUTOMATED_TESTING_INFRASTRUCTURE_COMPLETED.md`
+  - Last Modified: 2025-07-19T13:36:29.381911
+  - Hash: 625e67c0a2f38c1b699c2721b8b07c6880766df73fcfa5932de8368fdba5f485
+  - Reason: No references, not legacy, not config
+- `.\TASK_5_COMPLETION_SUMMARY.md`
+  - Last Modified: 2025-07-19T14:01:16.395200
+  - Hash: bacc0be88ca4038bbffb6130d49c5dd4e3a025f3a87bc1d9130a6d69cc0f9ef3
+  - Reason: No references, not legacy, not config
+- `.\TASK_6_PROGRESS.md`
+  - Last Modified: 2025-07-19T14:23:42.999361
+  - Hash: d838309310f31bdfa7efe185257ca299dfbcc82ca77205becba398b5b0d4c30b
+  - Reason: No references, not legacy, not config
+- `.\test_enhanced_features.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 104ffe01a90c20b3a8429584a3b84da24f3570e57aeb56f108360155c24e5b51
+  - Reason: No references, not legacy, not config
+- `.\test_enhanced_plugin_system.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: caf210576db2d9771e01b2a2ce722a06535eefa813e7a935cce26c4ec872b36f
+  - Reason: No references, not legacy, not config
+- `.\test_enhanced_sandbox_isolation.py`
+  - Last Modified: 2025-07-19T13:55:28.912818
+  - Hash: af26a7c7b2d79e713f931a5e8c679d5edd909492d18689d1f850892440dfd153
+  - Reason: No references, not legacy, not config
+- `.\test_localhost_vs_ip.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 61c951bf34a928d599b1dcde3e60037aaaa45d89804aef4c1d39ff06818174af
+  - Reason: No references, not legacy, not config
+- `.\test_performance_dashboard.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: cdee9cf6ec2cd1a799deba1dffea10c353be2d61f56ff4ded569ae742e332b10
+  - Reason: No references, not legacy, not config
+- `.\test_plugin_framework_v2.py`
+  - Last Modified: 2025-07-19T13:00:41.805710
+  - Hash: 14e1f4353780bf44f72b64aa3220f7ebd6dd5ffa9baff90503a7661a46d10daa
+  - Reason: No references, not legacy, not config
+- `.\test_runner.py`
+  - Last Modified: 2025-07-19T13:33:29.091443
+  - Hash: fa37da2f1c4094d47c0c29ebde2153ae3e078b42e683fceeff0715bc9fb9e318
+  - Reason: No references, not legacy, not config
+- `.\test_sandbox.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 3dfe04e0153fe9dfa9f1ecdc951486c984ddea40e1a7b8be4d7a19a1f6dcc989
+  - Reason: No references, not legacy, not config
+- `.\test_server_startup.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 1d6cb155384f6240074b58053e9a60c720cb89f9a556440baa700034638c50e7
+  - Reason: No references, not legacy, not config
+- `.\UACMS_DEPLOYMENT_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 8ebfb0827f8d1cfcec3248101a0060b6c8081c2fc9689f276fefb8a313d4efb9
+  - Reason: No references, not legacy, not config
+- `.\UACMS_SYSTEM_OVERVIEW.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 27a0ca1915db5859f5062118d0266566b14ff4d2bc4164d61a3f218423f84db6
+  - Reason: No references, not legacy, not config
+- `.\ultimate_suite_optimizer.py`
+  - Last Modified: 2025-07-18T13:25:50.270394
+  - Hash: 26b2e0502b18d5c744df1be40ca603734662b62d73ea20265f1ae41ee470505c
+  - Reason: No references, not legacy, not config
+- `.\ULTIMATE_SUITE_PERFORMANCE_ANALYSIS.md`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: fa26c9881a13ebd6f644d1312a87b79cdf842aa70f16469e87c1afd332d7e074
+  - Reason: No references, not legacy, not config
+- `.\ULTIMATE_SUITE_v10_COMPREHENSIVE_GUIDE.md`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 1075b2dfcf9994ed3e7e5321f758cdf2b11389a6963e394bfd6d2dc6c43ddc10
+  - Reason: No references, not legacy, not config
+- `.\ULTIMATE_SUITE_v10_FINAL_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 1973715322d7234220c76e2e3736436baad753f0aad98459cf8317216abeab2c
+  - Reason: No references, not legacy, not config
+- `.\ULTIMATE_SUITE_V11_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 23abfd7703fe53b8d0298e3831d54b5911998b3f7d77a343e7680ff5af248d6c
+  - Reason: No references, not legacy, not config
+- `.\ultimate_webapp_v10.py`
+  - Last Modified: 2025-07-18T13:25:50.272391
+  - Hash: c1a38a552916dcff0b4517f31977d182dbc58f16c82002455214c2edf73b6180
+  - Reason: No references, not legacy, not config
+- `.\ultra_fast_server.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 5120127c874432012bd122d6688d681b05f3ad25e5766a461eb79bff92b2d1f6
+  - Reason: No references, not legacy, not config
+- `.\ultra_secure_server.py`
+  - Last Modified: 2025-07-19T15:00:46.773171
+  - Hash: 0874d52fd9251646b6ba2041c1b0f7fa6ccb308601509940ad1213c0214fa8a1
+  - Reason: No references, not legacy, not config
+- `.\unified_plugin_system.py`
+  - Last Modified: 2025-07-18T14:30:57.300442
+  - Hash: 1da5a70ea8a2516dd9e2c5374e008572395106605fb57c30a643d3730173fee4
+  - Reason: No references, not legacy, not config
+- `.\unified_plugin_system_clean.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 3b1929a316f3f992b983b58b950ae6f904b87bcf26e8b5e65099abeee7c3ba76
+  - Reason: No references, not legacy, not config
+- `.\unified_status_dashboard.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: ec31a9120f22f98508f0015b9ee5ca889275b006712f4e774b0c370107509389
+  - Reason: No references, not legacy, not config
+- `.\validate_audit_2.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 1af75bc5b83cd984ab0fca30d6f5a5c2e61a4bd24d61149d48c9b6c61682cc52
+  - Reason: No references, not legacy, not config
+- `.\validate_performance_improvements.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: d6c48fea1b8966e17d9d59f0b692a6b2b0f721e73cb73b9063f79ac0f89e5ea7
+  - Reason: No references, not legacy, not config
+- `.\WEEK1_DEPLOYMENT_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 2a9a0e36123ee5301b4c9747d211df6d719777cdf5b3583f42d70e512ce8864e
+  - Reason: No references, not legacy, not config
+- `.\WEEK2_COMPLETE.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 2685bfa3c8c3fb26f84fb8d92ca8f531873aee39fc8d4193a7ea26a13cd3dbf6
+  - Reason: No references, not legacy, not config
+- `.\WEEK2_IMPLEMENTATION_PLAN.md`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 264de7e3f8df1d9fed1f0a29e2af13013a3995d1504ff6d697674f26a5122b62
+  - Reason: No references, not legacy, not config
+- `.\WEEK3_DEPLOYMENT_SUCCESS.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 0751be8f1e1f1f1951fc1bfb9a4408bd0c5c341128a3586a539cdac8bc1b2890
+  - Reason: No references, not legacy, not config
+- `.\WEEK3_IMPLEMENTATION_PLAN.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: c11a5082d1c8d89547ea3fdfb7437c5019584369a0ad9bbcfe59497bda51a6da
+  - Reason: No references, not legacy, not config
+- `.\WEEK4_DEPLOYMENT_SUCCESS.md`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: a6a46034d7c1dd5e0a4b8cf998526cecc9cefe05a7b97f7ea2fd04f69a65f55a
+  - Reason: No references, not legacy, not config
+- `.\WEEK4_IMPLEMENTATION_PLAN.md`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 00886904de81f9480f06450b871ba42ad87d87f1567d12073772fd1f8a7e69ba
+  - Reason: No references, not legacy, not config
+- `.\.devcontainer\container_performance_monitor.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: c5600aa7d1b8bfa49efde78a44ccfe925f65b0e5c2f90d6991ff81501712e6cb
+  - Reason: No references, not legacy, not config
+- `.\.github\ISSUE_TEMPLATE\accessibility.md`
+  - Last Modified: 2025-07-15T18:03:37.714609
+  - Hash: eae236cd0595535e564fdbfc0fe3ef11bead0be437f02289661b5051d3a901ee
+  - Reason: No references, not legacy, not config
+- `.\.github\ISSUE_TEMPLATE\bug_report.md`
+  - Last Modified: 2025-07-15T18:02:36.194877
+  - Hash: 04bcdaf1bf8e43815247e4257197c59a558b03c204fe2d2c338fa21689a566d9
+  - Reason: No references, not legacy, not config
+- `.\.github\ISSUE_TEMPLATE\feature_request.md`
+  - Last Modified: 2025-07-15T18:03:07.045527
+  - Hash: 16cc22b1c0f733492d3dad3e828282faa6eb5b5f8d7b39a41fd059737fa9ec82
+  - Reason: No references, not legacy, not config
+- `.\.vscode\COPILOT_AGENT_PROMPT.md`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 1a6331f9c50b816b1b7bd1f57d7fb775e2ee6ce5a8e02f180a347793ea0eea50
+  - Reason: No references, not legacy, not config
+- `.\aethercore\index.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: bb7e9fa46716eaaa65c3ebc907f086c2dcf6b58b27df2b89620590e0a0fb77d2
+  - Reason: No references, not legacy, not config
+- `.\aethercore\README.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: f05125cda3c548b30076931436b8e410a9091b9a02c893d61d46b962ba93ad1d
+  - Reason: No references, not legacy, not config
+- `.\aethercore\api\models.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 050e930e34e4d5729de84f51eaeb66284a71984be4dc9c6336ed655c07bda630
+  - Reason: No references, not legacy, not config
+- `.\aethercore\api\serve.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 1bfbe26b0e53047719767b640359ed5153c3edaa352003bbcdd46002ad0499a7
+  - Reason: No references, not legacy, not config
+- `.\aethercore\models\model_metadata.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 3b7c9c173c2adff31711ac5d8d6d71e7a340926eac27eb0724bf6ea2a057bfc3
+  - Reason: No references, not legacy, not config
+- `.\aethercore\services\inference_service.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 752f3a93a4e7a7a90c51604a732c06f5ddd5e05b0c2a955b45439c83f9f22753
+  - Reason: No references, not legacy, not config
+- `.\aethercore\services\model_service.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 656a37615192b407e07f9dd5194e793fb0d64877fda64d128f59b90fef5bf57e
+  - Reason: No references, not legacy, not config
+- `.\agents\MULTI_AGENT_COLLABORATION_PROTOCOL.md`
+  - Last Modified: 2025-07-20T00:06:35.152220
+  - Hash: b9f317e07784dbd019835a6df487426947d47a912cccbdd66738b4c6af88c060
+  - Reason: No references, not legacy, not config
+- `.\agents\VSCode_implementation.md`
+  - Last Modified: 2025-07-20T01:35:14.065388
+  - Hash: 1badfc9ee49b85e21b3281cd5f5c340c50495006cb0176d944f615fb7e7a5531
+  - Reason: No references, not legacy, not config
+- `.\AI\advanced_ai_orchestrator.py`
+  - Last Modified: 2025-07-18T13:25:50.278928
+  - Hash: 5e35025dd01e7c0a5d92f2572e690daee0941cbbf645269d5b470ba9fe468671
+  - Reason: No references, not legacy, not config
+- `.\AI\advanced_analytics_dashboard.py`
+  - Last Modified: 2025-07-18T13:25:50.280926
+  - Hash: 9c4db50c73fa0b60240249ef5b7d1b8af14ab0d469dc3c3d92b0985e199c9434
+  - Reason: No references, not legacy, not config
+- `.\AI\advanced_security_monitor.py`
+  - Last Modified: 2025-07-18T13:25:50.281925
+  - Hash: 34ba43601bac9ef810e21d2beb7304eb6609124123d2c4bec2cc4b4f58d193ba
+  - Reason: No references, not legacy, not config
+- `.\AI\init_noxvalidator_advanced.py`
+  - Last Modified: 2025-07-18T13:25:50.283925
+  - Hash: 45d26641718b6b8dfb20488cabbac6d9c050a82f2cb1a4ecafbb0516c7a42f3b
+  - Reason: No references, not legacy, not config
+- `.\AI\nox_bootstrap.py`
+  - Last Modified: 2025-07-18T13:25:50.284927
+  - Hash: 70fab5bc5c531e5b10b1670763b5a27f1e4fc26cd1d661bd7c014d95091bfda9
+  - Reason: No references, not legacy, not config
+- `.\AI\start_consolidated_web.py`
+  - Last Modified: 2025-07-18T12:43:28.016121
+  - Hash: 83716ae67aeeacd25361535c20c0ddd42189d914d8aa2b0a77123d41fde67518
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\ARCHIVING_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:23.622978
+  - Hash: e14b8189dcd3c73323fbe22d9909c145e9d7bdd085b77466bc27ca79a6cb2409
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\MIGRATION_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:23.639038
+  - Hash: efd57b9cf5f911986e57c3d82c14dbfcc4f3fbae5fa3029d84530957fa492941
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\broken_components\README.md`
+  - Last Modified: 2025-07-15T20:08:51.140725
+  - Hash: 8e214ec7a2a7b5d83dfaaf6328eafe4a13d31b67ccd3abd73974c9dc1a5f1891
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\development_artifacts\README.md`
+  - Last Modified: 2025-07-15T20:08:51.141731
+  - Hash: 048f75e9624c5e63e16dcfefebf0c854285c5e5d36cefef1a634d8b935a05c4a
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\duplicate_files\README.md`
+  - Last Modified: 2025-07-15T20:08:51.139210
+  - Hash: e350521a2b23c1ca71e7779b8d1b61f60dfede4bf46e0165a12e8dc417312fb2
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\duplicate_files\css\noxpanel_style.css`
+  - Last Modified: 2025-07-14T14:00:08.757884
+  - Hash: 87dcb434ce7247f1d28e63af36a32a4a634d07baf0c8c5fea00a871eb3b4a36e
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\legacy_versions\README.md`
+  - Last Modified: 2025-07-15T20:08:51.137209
+  - Hash: d4417e5aacaa28bccf28332c76fba18b8d5823db941d42aa8d1b1052011e69c8
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\old_templates\README.md`
+  - Last Modified: 2025-07-15T20:08:51.144730
+  - Hash: 567467708492d1766f4e91663011e49f00df1c7b82dac1431b28f1e677d565d9
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\outdated_configs\README.md`
+  - Last Modified: 2025-07-15T20:08:51.142732
+  - Hash: df4440a1dfb853b4d7ea3b35a917a1da185e0d8bdb8b2fc0e123b2db3b9a8d5a
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\redundant_scripts\README.md`
+  - Last Modified: 2025-07-15T20:08:51.145734
+  - Hash: 43de247de25b8abb37017dc7b116a0f8ea2cfbe76886f6c4b7ab5158ee64d744
+  - Reason: No references, not legacy, not config
+- `.\AI\archive\v7_consolidation\test_artifacts\README.md`
+  - Last Modified: 2025-07-15T20:08:51.146733
+  - Hash: b7bd688081dcc7db331d8d2441528ec207df93846c8ff8625bc20b1931176123
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\8_GATE_IMPLEMENTATION_SUMMARY.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 8bdcb9b7a29a0230360e2e34aed89328cecc14fd0cdc3e28b9c555ff32c8a9a4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ADVANCED_DEVELOPMENT_COMPLETION_REPORT_v3.0.md`
+  - Last Modified: 2025-07-18T13:14:53.770786
+  - Hash: 19a3042bcf43225261101eb756731507a44c825e78af52527602fd49b6956fe8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\AI_CONTEXT_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:19.823957
+  - Hash: f9da54b5680492e7140b852612c0f0a77176f48a9cb15b9cb210ebce611ec3ca
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ai_monitor.py`
+  - Last Modified: 2025-07-18T13:25:50.286433
+  - Hash: a0555ff80aaf0d335cd58044008e5d4682985ff4d19b0d5be9663efd9888dd5c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\AI_MONITOR_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:19.866556
+  - Hash: 916f30ccf79f39e8f183461376763d22254968f1d6ae75f4b462cf68064d095e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ai_routes.py`
+  - Last Modified: 2025-07-18T13:25:50.290445
+  - Hash: f9ed3119b9a7574bbfb3e1bec774f25cb8f2d409cb398507cad178d9f5f5ed2e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\AUDIT_SUCCESS_REPORT.md`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 884ed416f24a016995f5debf4aeb37e1302d8fe3dba88e73c1701c6555bbb911
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\autonomous_operations_monitor.py`
+  - Last Modified: 2025-07-19T23:34:16.062223
+  - Hash: a6ff222553006346f5bfbb071919ee848fdc7b3712a1770790e8b65317e287bd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\browser-compatibility-verification.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: e71b95224c6543c1a84ef61f1d651bf9800d66157217ce98acc900baf74eae92
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\CHANGELOG.md`
+  - Last Modified: 2025-07-18T12:49:20.007055
+  - Hash: a9f8790099c3dc87226c39f6f289a46e3c2b1cc36a6c6d95dbcfe1c5f6a0b44b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\chatgpt_infrastructure_integration.py`
+  - Last Modified: 2025-07-18T13:25:50.292444
+  - Hash: 9b77ca26ea2eae3f76a17560dd0b2c7173a4fc622660e17b987827069e12ea76
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\clean_start.py`
+  - Last Modified: 2025-07-18T13:25:50.293447
+  - Hash: 1c83c7b87015d7c4db7e79562795dbe6e4f5fbd19fd0ba46ba245d6037c5d24b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\cloud_native_interface.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 5f7be54961a88f16a084a293611219eed0be5c4e32d3a7859e85b67b58e77a50
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\COMPREHENSIVE_CLEANUP_STRATEGY_v10.1.md`
+  - Last Modified: 2025-07-19T15:00:46.773171
+  - Hash: e93bd76f69f5736fa9ee69431a41455ce63d7c8ed758e104b24ef58732a6b19b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\comprehensive_launcher.py`
+  - Last Modified: 2025-07-18T13:25:50.294445
+  - Hash: 6dea9ccb8faa0181f092cee9c3c3a71aa6a00f43b8fa1bc9473840ed04fe63d4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\CONTINUATION_SUCCESS_REPORT_v1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.771789
+  - Hash: c1ecc5101299051794cbe25e824d2aa7788e9ccff180efcd2f57493eddf3b8c1
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\conversation_processor.py`
+  - Last Modified: 2025-07-18T13:25:50.296444
+  - Hash: decfac9afe6e786dfe61e356229ec41b1ab37b728523c1616eb372c29112cbd0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\COPILOT_AGENT_DIAGNOSTIC_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 661dae2a55367fe6d7c1b59623a8a807fd9f4ad53f85fa280a2005a8d112f7e4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\copilot_fix_report.md`
+  - Last Modified: 2025-07-18T13:09:07.571472
+  - Hash: 6818e37303378d46deecd2a844e4364e5bee2d53e93f1c1f1c0cad61f1a23b15
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\copilot_problem_detector.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: bbec274991e03cf64b19cba35f0656703a8e99e08c7414205df8243286a183a0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\dashboard_enhancement_builder.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: d76ef03d48adbf2eec6f8847e09ba104112e6bc9e23f0b63437f5b2f11a18b62
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\deep_analysis_engine.py`
+  - Last Modified: 2025-07-18T13:25:50.297957
+  - Hash: 9ae5470b4f65a06b4a3d9a3de0bc5b84d7153909741a8e12bd74f49575ad9d72
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DEFINITIVE_EXCELLENCE_ACHIEVEMENT.md`
+  - Last Modified: 2025-07-18T12:49:20.263451
+  - Hash: 03824d5d1507569ed2c32b524a72f1f9b34870321a736ba757488ce1eff88558
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\demo_noxpanel.py`
+  - Last Modified: 2025-07-18T13:25:50.299964
+  - Hash: 4d518035e1a84cf62186061ee411cb7fcd516a981e9d306ded60349ae26afec6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\demo_ultimate_suite_v9.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: ff26ab676c883f5d4f44116be6efaec29b934d2204c36762c9d6adac103b4ffe
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DEPLOYMENT.md`
+  - Last Modified: 2025-07-18T12:49:20.265971
+  - Hash: c3d0662d88e62fc195b0aa563d14c1ee938749a323ebece2fadbaa8c5e470069
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\development-roadmap-v5.0.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: b3e24692d468a0bb0558320410c28c4b2bb1841f52ceaf890231bc88704e4ee5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DEVELOPMENT_PHASE_COMPLETE_v1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 0885adb3966663dfac122552de51b28f0c233f149fb1f7d51c07817d348c9e57
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DEVELOPMENT_STATUS.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 5fd944ed4a2d3112b78deab9461c6de77677309f77c12021b31eab7db97ca862
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\devops_automation_engine.py`
+  - Last Modified: 2025-07-18T13:25:50.302963
+  - Hash: 559121435d2aa51031b171e2f8fd5659750f7b1367c62e083bd400eb69ca5476
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\dev_scanner.py`
+  - Last Modified: 2025-07-18T13:25:50.303963
+  - Hash: e38edf8efc32d4e5527eff4b5212eecb5e321f7f21861bb954100a90b64e0bfc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DIAGNOSTIC_DASHBOARD.md`
+  - Last Modified: 2025-07-18T13:19:26.458390
+  - Hash: a28728f143cf35f9bf8038538f7508db8bad497eb46d8167616fd1fdb577202c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\direct_test_v9.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: bdbd5a7563e2486ce8a92947d90eb9bd79ad04faf26809bef8f84efda09ea30b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\DOCUMENTATION_REVISION_REPORT_v10.0.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: d372e1af077bc82bb9b9cf5a05f91d9551b2d700bbcedb23ff347e6db9e984fa
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced-development-update-v5.1.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: bdc96bfc36371b188a04e96bbf491bfed797010c38563d6eaecf089b168be2b5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_admin_panel.py`
+  - Last Modified: 2025-07-18T13:25:50.308481
+  - Hash: b18ea19c7ee05a7186d6d337dadfd35bdef4c0648ed8598f06a8289f9a6f5f6b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_gateway.py`
+  - Last Modified: 2025-07-18T13:25:50.310482
+  - Hash: da3029a4747c79f10db47c2e9e1e19e1900e7691199fd0f9bd8078168065d366
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_master_dashboard.py`
+  - Last Modified: 2025-07-18T13:14:53.771789
+  - Hash: 29869f01ebb8b6b24d7f62f675624d5172c36d96a4804c595b97722177fdca7d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_network_scanner.py`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 8ca608b3334219d671368918acbbc349498e7718d3a4f6fd6b027e6d558afdb8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_plugin_system.py`
+  - Last Modified: 2025-07-18T13:14:53.847554
+  - Hash: 54ab1b1bdd47ed5e797cedced9b6072824d6d8db1872520d1264bc87323d693e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ENHANCED_ROADMAP_v9.md`
+  - Last Modified: 2025-07-19T15:56:31.599610
+  - Hash: 1c0064671ae8f271b84645e5342627519753c719f47d33a9b0e1425632acda99
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\enhanced_sysadmin_copilot.py`
+  - Last Modified: 2025-07-18T12:44:23.203413
+  - Hash: 1ab91747ee56e1b0b2f2fc8fde4c6d88bd12cd8b7e9db3d91f52c0d48aa31609
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ENHANCED_THEME_SYSTEM.md`
+  - Last Modified: 2025-07-14T17:22:12.311278
+  - Hash: 27e5e60cba7cd905dae734faa22d39d5f150b8781c3c0324af1a2a97dcfa245a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\FINAL_ENTERPRISE_IMPLEMENTATION_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:21.351634
+  - Hash: f09f120b4f106724a555469540d953b4b287cf54845534430a29c02824f8d95b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\FINAL_EXCELLENCE_ACHIEVEMENT.md`
+  - Last Modified: 2025-07-18T12:49:21.405308
+  - Hash: a4d4d0e5eaebed4fe4032d634855a5a03a3468ff81d541d71efe984174687b09
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\fixed_system_metrics.py`
+  - Last Modified: 2025-07-18T12:44:23.230961
+  - Hash: b9d2372edd0e5f4917210af5b7bfe0516ec77b81d68a1ce029874e29547d76a2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\FORENSIC_AUDIT_SUCCESS_SUMMARY.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: c7128af007e38503d2b1cec8205d0886de94239f6aa3f6669841e7379036443c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\FULL_DOCUMENTATION_NoxGuard.md`
+  - Last Modified: 2025-07-18T12:49:21.484025
+  - Hash: 30c19c16a532c00c01a16a18f4bd96b194bd6bfdb26c4c9eba172d53c5efa482
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\gate5_progression.py`
+  - Last Modified: 2025-07-18T13:14:53.748715
+  - Hash: 1fa1c0412060618b14be529972ead1809effe1dec42c30a547f79e7280d0841e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\gate6_progression_system.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: b783e4ce5b1c4d9a823b396a46297bb2f2315283bf8449da2cef936949342391
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\gate7_preparation_system.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: c0f7fed22f95ba5d7f9eda4769776ee38f810a7db8966b91bef1e6d26f7faa67
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\GATE7_READINESS_ROADMAP.md`
+  - Last Modified: 2025-07-18T13:43:23.428810
+  - Hash: 9eb144baa2d6f8fc59bddc6ab2fffaa6a995905a67fc0c76012e62c48c4fae2b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\GIT_PLUGIN_INTEGRATION_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:21.549198
+  - Hash: 385011dc092bcda695144cb981bf9602f5d3c25fb1aa16317cd466cc5a72e280
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\HEIMNETZ_ULTIMATE_DOCUMENTATION_v10.0.md`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 2d485619a0d190d29c2c5bece7075e878664c3a98737746d79d1f15375f0326b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\IMPLEMENTATION_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:21.706541
+  - Hash: 3fb5852bb04c40521aeb1779b2dd71d24d908d8c5b7c0cb58b99dfec71385e30
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\implementation_roadmap.md`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 8df48b5261d36106fbc18e88a646c33c8ebac1e20d889fd03a1832bc27d4c121
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\infrastructure-discovery-audit-v4.0.0.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: c27529f0648140097c86b11d8e523c1c25db97bac81ddd021afbfe34e3d07f07
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\INFRASTRUCTURE_ASSESSMENT_REPORT_v1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.770786
+  - Hash: 522e9c4985fd8ac30645c3220c79664bfc9e52c4fa8d69f7a39078b315e8ab7f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\infrastructure_discovery.py`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: 82e5068b7e6131ab95001a5a950781b467b14479eeeb7cf0bcad2f359a702e0e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\infrastructure_discovery_simple.py`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 6991781103903e65e0faf3d535ed8090a1a6f87ce486df5a82c3a3e328eca14a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\init_noxpanel.py`
+  - Last Modified: 2025-07-18T12:44:35.652247
+  - Hash: de397cbe52681a9e3a5590b91c857bb045c39c4749c277682e5ffc06f342f073
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\install_ultimate_suite_v9.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: d4ea5e1e815dcabff1673a23933a5bc205cfd67ebd6366aa3ad716a7d90102d9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\install_unified.py`
+  - Last Modified: 2025-07-18T12:44:39.581605
+  - Hash: f623e0e88d8b0d32eb0c1f4fdb0b4d1df606322d5b08f3732fd1c40aef9ac08a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\INTEGRATION_TESTING_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 760a4e25089009445ada3e445900f326f26b58444835e5ea519555707faf2cfd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ISSUES_RESOLVED_v7.md`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: fb7bc958e518eb9a41e27d987b6f00304e6af55dc87db0821f282408bf662888
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\launch_noxpanel.py`
+  - Last Modified: 2025-07-18T12:44:41.414913
+  - Hash: a35862786ed755031be7d30edd2da932239b92c49146c3335031b26a03640b63
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\launch_ultimate_suite_v9_fixed.py`
+  - Last Modified: 2025-07-19T15:00:46.776678
+  - Hash: 72fb98a7544d1cce311e65474d787f7615766dcdcbc84ce8546336794f717af6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\legacy_modules_index.md`
+  - Last Modified: 2025-07-19T23:34:16.069223
+  - Hash: a0be4d00063c66e40787a6032c007103720a00ffa52c0aa4bdbac7e40c8fc984
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\main.py`
+  - Last Modified: 2025-07-18T10:43:33.950156
+  - Hash: 857bd3e66b3e4738964f5c1b31254b2f826fc5bc4efd7f1209f1974b061db926
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\main_unified_server.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 6756d26061d4b661916cbd1b2353b2d64e803d506e49ef656204b590f2408e80
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\manage.py`
+  - Last Modified: 2025-07-18T12:44:42.949475
+  - Hash: b539ad39479d30849c56cd24fab023a7396b2cae230f5150682728785f3b14e8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\manual_fix_assistant.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 095083ef300f4ac1f9e995f3c7ae18e53e847dd059278ae53e041f115b4fcca7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\master_control_system.py`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: dd731839d10d13b0bc12c5854151f99beca53eda7ac4665b91dd491244794bf6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\merge_proposal_plan.md`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 74a0da71ab6fe60f2fa7f8fb86b273180fb0c5ee01b2c2d32a7deca11f6c1b04
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\missing_component_report.md`
+  - Last Modified: 2025-07-19T23:34:16.069223
+  - Hash: e27a25abefb17e38e342863c91a158e3b3345ded2bbc2186860368f798a69583
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\models_unified.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 8ff98992fe896d39675c68764c2bef6106072532ce44194733a65efb3adceea4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\network_scanner_fixes.py`
+  - Last Modified: 2025-07-18T12:44:45.123422
+  - Hash: af99ba1e3b94e7384cb15c384f9e49af8534c7fb1878159bb5285bba37c8ec15
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\NEXT_PHASE_STRATEGIC_PLAN.md`
+  - Last Modified: 2025-07-19T15:00:46.781695
+  - Hash: 0e0145ebae241934302c52bd328ae4c0b7217b78db29752084ae2a5b7efee73e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcrawler.py`
+  - Last Modified: 2025-07-18T12:44:47.113518
+  - Hash: ed3fa9fec6559880670a5007d4d0fa37007781ae6009b9ae2b59ccc4b1cad883
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\NOXPANEL_ULTIMATE_AUDIT_REPORT_v1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.770786
+  - Hash: 87b9f9d336c16905ba866b2841d95432199f64faac7b4853d3865abc290bdeaa
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxpanel_unified.py`
+  - Last Modified: 2025-07-18T12:44:49.142318
+  - Hash: beb3ccd3dd4cfd5172b6b20f9c6688ee06110525649920365103f456d298a68d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxpanel_v5_fixed.py`
+  - Last Modified: 2025-07-18T12:44:55.370429
+  - Hash: 000c038a16ffe4485005fcb47608f7c5e551a088a1699ae4ee3f0b3d911039f3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PHASE3_COMPLETION_SUMMARY.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 8489e5f178b2bc9bf14659170cac5082edea72efc49818b172e626f501bd2b90
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PHASE3_DIAGNOSTICS_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:43:23.759494
+  - Hash: 87d8aed38208a21e425db88cc6ff6d0d30423332d52ac8c33e2e7cb47cd899f2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PHASE4_FINAL_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:35:14.430750
+  - Hash: f68a34d1d94eab7e232dfcab4744b72c37b0d80e6208a28d2a49e5c2951f75d7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PHASE5_GATE7_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:40:48.488163
+  - Hash: f5b1d31a9fc385f8fcca40e776ebfef6646b873dc7935c0042e18a3944ade6eb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PHASE_2_IMPLEMENTATION_TRACKER.md`
+  - Last Modified: 2025-07-18T12:49:22.408722
+  - Hash: 2cdba974d4db8ae4fc7be02fdd03ab23f6333d041caaf4ec8792adfa407378b3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_ecosystem_toolkit.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: c49b3d4afcde9a94c93680daa61feec9076cb9bc4b2a6805d5b6e832ee9391df
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_framework.py`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: f81eb400158e0878dcfc87d970f1c342d2e53a7e2541c8c2d3f38c8466ba8ed8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_system.py`
+  - Last Modified: 2025-07-18T13:14:53.846553
+  - Hash: 1d6b90469df0e3a969c480b8747f3d6b38b513e2295b724f91930b18b5ffde09
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PLUGIN_SYSTEM_BREAKTHROUGH_v1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 0971a6c38cf17ec61e3894c79aff812786a197ddfd80f2fd90e66b347f65f74b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\post_gate_6_validation_summary.md`
+  - Last Modified: 2025-07-18T13:43:23.759494
+  - Hash: c5ffd5bf3fda6eb2e8c87ae116cdc97402c8d53293d61c902f0a7570346258fe
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PRODUCTION_DEPLOYMENT_STATUS_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 25cc590f30fbaff5db3788da70e2131b3c2928ad5d38eb22052a2870dae4bb7f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\production_deployment_system.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 5cf4f63f8b5b13a66979b1ee29d383693171e1f5e89a114b5861c9cbec0fb9ef
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\PROJECT_CONTINUATION_GUIDE.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 2c8d328ef5286e5ea522aa76db218fabc2e2ddabe94a2180a1a0063e931fb725
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\QUICK_REFERENCE.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: d632580602932dc7b01f24fec059a2dd3328882474b0b19ad94cbacd85d65286
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\quick_setup.py`
+  - Last Modified: 2025-07-18T12:44:58.343778
+  - Hash: fc338ec8c64c6699fcc2275081a41354a70e8f221cba71d08624ed1b4d7ababb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\quick_start.py`
+  - Last Modified: 2025-07-18T12:44:58.904154
+  - Hash: 6f778acb3aa306e940b295c2fda4e38c11d11af09133cfa1495c592c59c7365d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\quick_test_v9_routes.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 92c34ea406224f4b8646a528b256349d159be4167e8e4fa471a044414655da04
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\README.md`
+  - Last Modified: 2025-07-18T12:49:22.790608
+  - Hash: a08f111d87fe94a28cd78b452bcb04b02ccc15467783dac27540ab51f13494a9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\README_ULTIMATE_V9.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: f76e2c47dbbd269e23dd269e24682c9a8661558ed63ca0006880de1607371486
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\restart_noxpanel.py`
+  - Last Modified: 2025-07-18T12:44:58.993405
+  - Hash: 8f7d80e862ce9533885f2fecf991157dd678982da5cdc2eb6a30898e1dc14a88
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ROADMAP.md`
+  - Last Modified: 2025-07-18T12:49:22.924929
+  - Hash: b97ce702f2da6b4e4a5a8bd5a0ee7d438ac3e3725f0daa05be60e43961b24981
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\setup_knowledge_base.py`
+  - Last Modified: 2025-07-18T12:44:59.963867
+  - Hash: 33d69ce434d872a251422d9a20c4168a22826c9160a9668a2a83424a8afbb94e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\setup_simple_kb.py`
+  - Last Modified: 2025-07-18T12:45:00.833951
+  - Hash: 2a5acd94739654965a997cfd3ae9dda8f35eb1b6a87c741a19a75b7390b366b8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\simple_noxpanel.py`
+  - Last Modified: 2025-07-18T12:45:03.425124
+  - Hash: 7293e119a2952450d9d4aee12d84760b32accd5b03858991d4d11359854033bc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\sysadmin_copilot.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 892aaad3d0b1c7a90d2e711cd91b5ca5eefe0c85ae5bb475947ffc66579572c8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_demonstration.py`
+  - Last Modified: 2025-07-18T12:45:10.056236
+  - Hash: 731407aaae50d47772d02c5ab4261e50cb5044fd9884ec62c576afc2e7149cbd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_map_dashboard.html`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 2a5bbf5e30f50b8c3e00344c625b7218026ef2718302d1d660f8918c7f188135
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_map_overview.md`
+  - Last Modified: 2025-07-19T23:34:16.062223
+  - Hash: e8ee76518eadac999b9fdac6ff439d8151aa692b95ab48f50f89bee608a04484
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_status_report.py`
+  - Last Modified: 2025-07-18T12:45:10.189171
+  - Hash: 9b893d7d3fb86138b4f2be8184777159cb7b0d86d3481056ad24a48921880cd5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_validation_engine.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 07e35d24a4d3064b00747360c2f5b9c9cec9cf8064547012659b7b8e4a38f53e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\system_validation_report.md`
+  - Last Modified: 2025-07-18T13:19:26.009756
+  - Hash: ac7d1a8668987876ed3311a9ed29d36675d4ac872903f26068e56fca419b0628
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_ai_context.py`
+  - Last Modified: 2025-07-18T12:45:10.304061
+  - Hash: a24ea7a9bc894de53d57287606611da5232c84954cd7d39f9b272fa2fc032d3e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_ai_monitor_direct.py`
+  - Last Modified: 2025-07-18T12:45:11.184742
+  - Hash: 78be59e9a53df9e555dd1f8eca5bfa9eb52386c880e29c12c33fa9024089e2da
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_ai_monitor_full.py`
+  - Last Modified: 2025-07-18T12:45:11.901913
+  - Hash: d550923bddd8c1262210717ac71215b02b3ed5575b9d25b4298423fbdf3496e2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_crawler.py`
+  - Last Modified: 2025-07-18T12:45:11.933488
+  - Hash: d2c376e617ff44530c5ea58a0ee64b18e856ca2dbce8cf86ec389a5a313da121
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_noxpanel_v4.py`
+  - Last Modified: 2025-07-18T12:45:12.370141
+  - Hash: 66656608f95a7eef171d74d80240322c87d54cf4c4aa46110a4fc66bc8ddbc3b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_noxpanel_v5.py`
+  - Last Modified: 2025-07-18T12:45:13.905075
+  - Hash: 984f2895e2508b142c9bb42eb82ed1f7f86df7567ab917e8619f34143a4f124b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_server.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 9cc6a86d10b8a2e06ff12cc26de159d6834880ba4befd5528d21c6a3cb753260
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_server_simple.py`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 76fedf64dde8ab2598755895f05dd7b75b70c1eee67e8dce946ca2554c1cc62a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_theme_system.py`
+  - Last Modified: 2025-07-18T12:45:16.535038
+  - Hash: f5ad8fe6ed643f97f465343817e9da49f07dd05f78b23bf349720133f913e2e1
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_theme_validation.py`
+  - Last Modified: 2025-07-18T12:45:17.680773
+  - Hash: d23608add20f29f759acb26071ebbf2d7d5f7f88f0ab108e3af5059f9556a80c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\THEME_VALIDATION_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:22.943967
+  - Hash: d49da7e4234051b52dec94f84c00a9e537a558133d8ac15db7c25d298bf2a264
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_100_ACHIEVEMENT.md`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 53a2538a948ed3a0079b29c8e856f50eba4d4ca43acc205cd4cb20ec3fc095b7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_FINAL_STATUS_REPORT.md`
+  - Last Modified: 2025-07-18T13:43:23.764002
+  - Hash: 8654925fc9cc2c233f6cee778dc01dc8348b120e508e1598974cf8f05825aeeb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_FINAL_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:15.739222
+  - Hash: 5b7404fac41dc0675b769ffd89a331d548f5d329bdeda945ba2c2fd36c706c07
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_integrator.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: c569b71b10e2aaae273cbe6e0078d2d9bbb59cce79c9c1563ebba2e86be67f43
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_launcher.py`
+  - Last Modified: 2025-07-19T23:34:16.062223
+  - Hash: dc017781e9edf0f42fedd11cccc6c824fd638df70d20df9787eeb50bd16f39b6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_quick_fixes.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 8249ad0ca4df2c4da24bf8aa54e7655f35582bb4cd46652c54791923b500254e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_quick_fixes_corrected.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 6ea1db9575f7a1d16362a7856c49e139893c95ca3374664c8c89f859699e62a4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_stability_tester.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 09cb433737a3927b91f19ff0d7f4d0262c21301f2a23672d42259497b67d5d3c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_STATUS_DASHBOARD.md`
+  - Last Modified: 2025-07-18T13:43:23.761494
+  - Hash: c2dcf7dded0485ce6c85abccf79b8bd73317b37ec6196e0392db334dff643c1a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_v11_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:43:23.764002
+  - Hash: 9cddc3220f8976e4ac491b104ccb9d73266f7552d8a93cd3680b76368237bb3d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_v11_FINAL_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 5aecb9d2d02116c0af305f4d3f7b8a2f0f66660b8c195544168c185c001cc762
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_v8_RELEASE_NOTES.md`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 1d9fcf0bcc877aa7bfb1d00a4abe6e66899b60d7942002d092979b14758a2e8a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_suite_v9_audit.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 4ddb7f03bff07c8139ec68641c0491aa0c5ce85e5866bcd384905e0a58440a1b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTIMATE_SUITE_V9_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 9783897c1fc5e0d096704251cecc8e5271c0f9d05bdf4cd5922185c29e76f849
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_webapp_v7.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 0f7e6c3271261b56e2902e3ceba9a3a9881db087e0a127513f3d1fc460d9634d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_webapp_v8.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 757ab37bc74ef4cd1b594fee14e3b9f5457eb83caf331562661fabf2cf26aae5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultimate_webapp_v9.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 77ef659b74eb271a5c697347ae10fbe290ada24f6b5441ac8fbedbf7b8b8a21b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ULTRA_ENHANCEMENT_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:23.088797
+  - Hash: 6d2fd871ab7e9a8bf97db8eba6c2b6b87ce899b3d0f637b3ca3dc9494f0c9185
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultra_fast_server.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: cc896212112d67ac2e8305972efb5f2d562728b77b6053564444a08057d0a877
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ultra_optimized_noxpanel.py`
+  - Last Modified: 2025-07-18T12:45:42.642584
+  - Hash: 3711124a17e850022be2296c0c25ed594588c78d64ab4e047df6c2e0ed4515bc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\UNIFIED_DOCUMENTATION.md`
+  - Last Modified: 2025-07-18T12:49:23.125855
+  - Hash: 09c3d038ea5ba0e301602822db3ab2bb40ff91accc6f714979dc3a29fbd416f2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\v8_DEPLOYMENT_SUCCESS.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: df12c1b7681a5e9204e792cb45e82dc8d49c9d59a1498e429653bd8037622ed3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\validate_v5_simple.py`
+  - Last Modified: 2025-07-18T12:45:43.573992
+  - Hash: 3ee1457fbb50751f3da8b1c3cb3dbb4655c1e1b4e30e758c902c65f60fac297f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\VERSION_SYNC_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:23.177466
+  - Hash: 1d82ea3da1bdbe1e990a7d232a5c5280aa0544e895b54c7995735f6760caea8e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\VOXTRAL_INTEGRATION_COMPLETE.md`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 0b3f1623ccdd52d89c65178b145d9c2a4ecb1f02fa3666293669467448f19cc0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\VOXTRAL_QUICK_START.md`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 90a7e87ad4345d69977bcc25bb7c7832dbe8d94e8305dd2543e6c3fd27de71b4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\WHATS_NEXT.md`
+  - Last Modified: 2025-07-18T12:49:23.241106
+  - Hash: a70f506a7f43c2580cbfac49c447f0a143996d4cc490556ed11a1e616f26bf1d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\WHATS_NEXT_COMPREHENSIVE_ANALYSIS.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 4c451e20ba52a088f60b6a631c9320ce26dae68cff02385279410960de20519c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\ai\ai_advisor.py`
+  - Last Modified: 2025-07-18T12:45:45.243267
+  - Hash: 6e05a5136f442280758a3ba9ba049db157816ce122e94b5bfe186dc0fc55114a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\deprecated\editable_legacy.py`
+  - Last Modified: 2025-07-18T12:47:44.258952
+  - Hash: b62f979c7ea8cf1cb9e0bc5500902ec8839f59697486e72bdbe5f6fc1d0e8ce8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\deprecated\metadata_legacy.py`
+  - Last Modified: 2025-07-18T12:47:44.285024
+  - Hash: f9ac29ada407f365fee8e1b596117d6772c7e5911be176c217edded85de84f3a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\deprecated\wheel_legacy.py`
+  - Last Modified: 2025-07-18T12:47:44.311606
+  - Hash: 77c114f32aa5b49d7ac2a301f71914b3537627de8118f11a94d6e4caff15cbb4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\AUDIT_SUCCESS_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:29.045641
+  - Hash: 117c09779ffa4e30b761ba75b35bed9f72bb5867f7392353b5955bf98cd622a5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\COMPLETE_ENHANCEMENT_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:29.047155
+  - Hash: d4b31e68e67a4a777071af9cd294f26f33ce04b809150bf1880202b7306bde32
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:29.144405
+  - Hash: 1338ed05a8c78bf4502445c3aac6e5ac08725ab7a642036f8e46e3337506cad8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\CRITICAL_SECURITY_AUDIT_FINAL.md`
+  - Last Modified: 2025-07-18T12:49:29.242145
+  - Hash: 17ff244ef3c67cef294d0a98c6f64c4f9569f354d94eed4df34db8501c13054c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\DEEP_STABILITY_AUDIT_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:29.355940
+  - Hash: 7c6d94715f1d98d945eff577ddd4ae56115c98de0aaf6054d702581ab8de4372
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\ENHANCED_GATEWAY_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:29.452191
+  - Hash: d30d5b0ac5f031c400e81d73c53e532dd08d5aef23224347304ae838cf5df33a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\ENHANCEMENT_REPORT.md`
+  - Last Modified: 2025-07-14T23:15:49.036340
+  - Hash: 948618f68b6dd2d8ebd0c514ab6f930574da009f5fa0fe5535717de02085fdba
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\ENHANCEMENT_SUMMARY.md`
+  - Last Modified: 2025-07-18T12:49:29.455702
+  - Hash: 51a850a5c11a0e139d839627f9dbaa80caaa4f5a2a0d20d204ac5e77fb897a72
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\ERROR_AUDIT.md`
+  - Last Modified: 2025-07-18T12:49:29.902750
+  - Hash: c7bb579826895763d481a771e0b118ff83883f042dfe5dab53463c1c6b14d9bb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\FORENSIC_AUDIT_SUCCESS_SUMMARY.md`
+  - Last Modified: 2025-07-18T12:49:29.969939
+  - Hash: ae5a8b8bac16d0aaac6274b85a146e6521d1e09ee7c4225cd674cb805042aca2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\IMPLEMENTATION_SUMMARY.md`
+  - Last Modified: 2025-07-18T12:49:30.001498
+  - Hash: 21944688ebdc32f0644aa55a8352a192bb10e0f8c1b5209b6c6259d48d440972
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\INTEGRATION_TESTING_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:30.170438
+  - Hash: ba46d8b7422ed510c68822547ac52571ffe414b2585ce3dc422a7e3dff7c9d0e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\PHASE3_COMPLETION_SUMMARY.md`
+  - Last Modified: 2025-07-18T12:49:30.227073
+  - Hash: db267ab9efd94cf37a6d4ef930dc619ad98f14c9cc53a561f9f82d9693a330a4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\PHASE3_TESTING_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:30.245607
+  - Hash: 3111451159878ac77203c9ecd709db790291e3f0a50dfb26a1f6cc2d0399f233
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\PHASE4_EXCELLENCE_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:30.259647
+  - Hash: fc2c4ccf17c6d02010bc7610a8462e92b0dfdb5520eaf4090d3f4c1b63ff4b08
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\PHASE_1_STRUCTURAL_AUDIT_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:31.024424
+  - Hash: 3deb9614ea03e288bace28c0e4fb87f7a719adaa6d4af6067720dfeb40b00128
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\PHASE_2A_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:31.092075
+  - Hash: 8398e6e46a541eb4513693f5e787a5787e24a3df836736a8469ad0f4546ddb29
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\POST_AUDIT_SUMMARY.md`
+  - Last Modified: 2025-07-18T12:49:31.130717
+  - Hash: e13945acfae18506baeef5c941058456306983adceb6498f4bed69a653789446
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\reports\ULTIMATE_SUITE_V9_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:31.145742
+  - Hash: 46b39126dd30fe321cb078047303dc239f7a467af81f018eb505b8a34c1926d7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\superseded_docs\DEVELOPMENT_STATUS.md`
+  - Last Modified: 2025-07-18T12:49:31.194850
+  - Hash: 7cb2b067dfa5234466a84c7acd531fa2aa40a5071b787f4e0918f25561d2fefb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\archive\superseded_docs\PROJECT_CONTINUATION_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:31.279547
+  - Hash: 7579d82a8887fbeebe0c3828f15ba08dbdc5eb4569c14469275df92d821e3eda
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\blueprints\api.py`
+  - Last Modified: 2025-07-18T12:45:46.677320
+  - Hash: 99730f3ff9a5906f3d53512ac5d33ceb8d9a29725348d88da78b05c7cfc10faa
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\blueprints\core.py`
+  - Last Modified: 2025-07-18T12:45:46.721926
+  - Hash: 35d6d5814d3b272788d03c94cc7beae4bf8b85359092f515c346c2a4131cd4b0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\blueprints\ui.py`
+  - Last Modified: 2025-07-18T12:45:47.184758
+  - Hash: e1bea70208e8bc43fb2d04076f389a19d1384c6ac781aadee922d6b753a67063
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\blueprints\__init__.py`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: 78307651dbd1e50595c000c35d773ef58b02abb0c4890aaae638f5c33ca85ae9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\config\ai_context_config.py`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: 9a958dd3f5d7ae6430338d89a15de67b2464dfce41fd68a8718bf12e96d2f3e5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\config\README.md`
+  - Last Modified: 2025-07-14T14:00:08.762888
+  - Hash: 480e92c2a3de242d7c6a81acc36edddb72d5bc5849a224cec91aae0a901277a6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\deploy_and_validate.py`
+  - Last Modified: 2025-07-18T12:45:47.235371
+  - Hash: fa0b00f2dfb7276ed16c8f9920505cc5a8fe5a3e83fdb38fe820126d92de3814
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\optimized_noxpanel.py`
+  - Last Modified: 2025-07-18T12:45:47.275469
+  - Hash: a58a3f56e100201fcbe8cf48f8145660f17f44a537a4591af718b154843126fa
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\blueprints\api.py`
+  - Last Modified: 2025-07-18T12:47:44.347200
+  - Hash: b4eae274a49fd92501bb2d040f8ac96bcc14d95f093246d878249c10cbbf00ff
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\blueprints\core.py`
+  - Last Modified: 2025-07-18T12:47:44.382792
+  - Hash: 80a811d2d88db603405f123c4a80439b2bfdc7b6768d4a8f379589d4dfc66d79
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\blueprints\ui.py`
+  - Last Modified: 2025-07-18T12:47:44.415353
+  - Hash: 89964b5113539901228fcb18d05ed4d1fd08d39c2f1b9c76bef61e7d6c32f85e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\blueprints\__init__.py`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: 8807a0c73589e32b6540357ee5ca9f55d1b3ff1bc6ac09c3c666636a441dae16
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\base.html`
+  - Last Modified: 2025-07-15T11:39:55.112766
+  - Hash: 95bebc8a0104b1bb607c4bf1197301473db99e79e1dfa7e152b4dbf634a82021
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\dashboard.html`
+  - Last Modified: 2025-07-15T11:39:55.116789
+  - Hash: 7c3dfc59a728116d1e45cc80a8d4c6403a00ef4f9efd6f2879b955cdd49bc18d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\status.html`
+  - Last Modified: 2025-07-15T11:39:55.119319
+  - Hash: 33b99f5c00f2668943f1e117f78969c5db1aef93653738f913633c582774688b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\pages\admin.html`
+  - Last Modified: 2025-07-15T11:39:55.126856
+  - Hash: 70c17a73c744942fc8f4ddf3b31054adea277fa747de61866c59c5640bd4589c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\pages\chat.html`
+  - Last Modified: 2025-07-15T11:39:55.129856
+  - Hash: 6a8bfd478e460c43394230a4a5df3bc46310bc348cc5805c0c424b35e29002ec
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\pages\crawler.html`
+  - Last Modified: 2025-07-15T11:39:55.122845
+  - Hash: 168cd27cc69e0f5e9f20c517363aff5a0a082c41c75a309bc726cf400696f76d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\critical_optimized_noxpanel\templates\pages\plugins.html`
+  - Last Modified: 2025-07-18T10:43:34.735532
+  - Hash: e3b40781adf7a8011a157f166131a7009672c299f983fcada253d3407fddea7f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\deployment\blue_green_deployment.py`
+  - Last Modified: 2025-07-18T12:45:49.855780
+  - Hash: dc8a2106cbbc1f93fdc15274122d65ff1748af1c341dd13506188ee5eb3c8003
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\audit_plan.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 6e0efb67af5ad13919f238b363fad580d6c0e0ccf0934cfc7f20701bdcb3b771
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\contributing.md`
+  - Last Modified: 2025-07-18T12:49:25.438660
+  - Hash: e06c88bffeaa2ce18c651e538828db96ddab129730bb3ece8b76bc57b4e967f3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\test-plan.md`
+  - Last Modified: 2025-07-18T12:49:25.763956
+  - Hash: 1eba140609d3212ffe9fc616b1b43737ee536f75a57bc42387a3f0a451dcd860
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\troubleshooting.md`
+  - Last Modified: 2025-07-18T12:49:28.596502
+  - Hash: 943e14acb73e81372f1f690ca29dd71e4d365b4f9bd5ddb0999876c44e559d0d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\v3.0-AI-INTEGRATION.md`
+  - Last Modified: 2025-07-18T12:49:28.646652
+  - Hash: df1026c191752cff3e9033a8be8afb667d651a93d92a2194b946ba2669a422af
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\v4.3-FUNCTIONAL-QUICK-COMMANDS.md`
+  - Last Modified: 2025-07-18T12:49:28.677226
+  - Hash: e06193e3dfe13c1de0b52913a64b38736fb68ff4bc31d847c10b63b4f0cc2372
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\docs\v4.3-GLOBAL-UPDATE-COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:28.753401
+  - Hash: e0cdf57da2b297d0513811b192368a790bc415f31117cb8321891f72ae174004
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\external_plugins\sample_plugin\routes.py`
+  - Last Modified: 2025-07-18T10:43:34.434691
+  - Hash: 5c46768518aaeeeec3ec70c1d3e5d7ae58a442c0ae80c2da585d7d9d98b967ef
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\frontend\public\index.html`
+  - Last Modified: 2025-07-15T17:37:37.606858
+  - Hash: 173ed95b51f7b88db56aa1565734de31eede95a3191c14ab9b32b84c8c18b845
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\frontend\src\services\api.ts`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: 48aaac004e8bf5c0e327d716b4628e26bc814a43b54198b0ac84cccaa365e9ba
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\frontend\src\styles\GlobalStyles.ts`
+  - Last Modified: 2025-07-18T12:48:44.926899
+  - Hash: 48b77e216ab5c05d18d172df63cbfb5be37c4378f03f42177a0f7f0d05772b9a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\frontend\src\utils\localStorage.ts`
+  - Last Modified: 2025-07-18T12:48:45.404459
+  - Hash: f8368ac7d8bf330cc52909787cc2ac04bcb707c431685161de6422fc9cedffac
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\infrastructure\auto_healing_monitor.py`
+  - Last Modified: 2025-07-18T12:45:53.081244
+  - Hash: 6e14b7ca53cbe97934dd19b3bfb4145dcabb639ff5383afe32334a4302b47e0c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\monitoring\enterprise_monitoring.py`
+  - Last Modified: 2025-07-18T12:45:55.185450
+  - Hash: c8fa22e3b26dfad4d2f8ac84756cf4a9c044aae266f6b29045d0ccdc9d6f7d2c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\ai_monitor.py`
+  - Last Modified: 2025-07-18T12:45:57.559863
+  - Hash: 8ba1ae8bbecdbcb863bf1a51b0e07a19b185da68165d5c45d4b7e477de7bef50
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\api_test_utils.py`
+  - Last Modified: 2025-07-18T12:45:57.609486
+  - Hash: 1ddfeca9b89a365ffbf264620f1cf0e5da2aef0f268cd7b847f71e31f0e1dd65
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\app_factory.py`
+  - Last Modified: 2025-07-18T12:45:57.641085
+  - Hash: 6a6537c5fc96b69753946aef616389f98b33d9a156811350aa36f353430079c3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\auth.py`
+  - Last Modified: 2025-07-18T12:45:57.751956
+  - Hash: 03dd7d811f49c0c952a2c763ddeda9611ab6de5bc83c7563afc35e6a42ee89b9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\blueprint_registry.py`
+  - Last Modified: 2025-07-19T15:00:46.781695
+  - Hash: 82282a80b59b2f295989d4ff28115f19dd8c39d74700c0126622137a305d8d93
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\connection_manager.py`
+  - Last Modified: 2025-07-18T12:45:59.161798
+  - Hash: ed85032f6192b4778a0d222261723684d035bcd131b9a92acf2f2f4b6ca96424
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\context_loader.py`
+  - Last Modified: 2025-07-18T12:46:00.339156
+  - Hash: f1eefdaceeb813925151ecd696f12578677fbd74809cc5a4556334772db00ff3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\database_pool.py`
+  - Last Modified: 2025-07-18T12:46:01.011615
+  - Hash: 510659739e6017fd465953af9c3b1ab2bc7396fce6d2dcd1bd561fae723cbcc7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\knowledge_manager.py`
+  - Last Modified: 2025-07-18T12:46:02.996545
+  - Hash: 89e7c688f2cd72a3b3a8ae2d5fc34c2a521e0ed4ed711265b5502dc18eeb5a15
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\llm_integration.py`
+  - Last Modified: 2025-07-18T12:46:03.917746
+  - Hash: 916b4c76d9569a639958d4465c72e542ec9407c79382914719452ba85fa339b9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\model_detector.py`
+  - Last Modified: 2025-07-18T12:46:04.927348
+  - Hash: 29644f95818da45e0c7a0e234b508aea9678cb8fc28da880c5d6d55af23a192c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\nlp_processor.py`
+  - Last Modified: 2025-07-18T12:46:05.994411
+  - Hash: 7382c573dcdb2f0189bed7b5066753ff68a2f6136b892b4599fad57b17c65029
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\plugin_sandbox.py`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: f6d159b360690b073d4c94d13d35dd0a717bc25321ee6205a355c1963c700345
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\process_manager.py`
+  - Last Modified: 2025-07-18T12:46:06.637953
+  - Hash: 2e09d059a580ba224674ad5f152ab6ac15fa19e4b8ad0dcfc93de9b7d687c163
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\rate_limiter.py`
+  - Last Modified: 2025-07-18T12:46:07.763509
+  - Hash: 3adf154fe0d3ef63b098ef42aa1fbaac45ea61e7fc3a06c558ec561f9b6f478f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\runner.py`
+  - Last Modified: 2025-07-18T12:46:07.797104
+  - Hash: 03eb99a830db268c59588bb48f1af7481a37c714688e28985971343e0cfb0fc3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\script_manager.py`
+  - Last Modified: 2025-07-18T12:46:08.712897
+  - Hash: bee62fe938758dbb857599e3476109b4ff4edaacdb235012c241d87b8d422df3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\security_config.py`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 5c00de81ad5ec1934542a17df9418c3450ff1c36bbbd0b0ef70b0a66357b93c0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\security_headers.py`
+  - Last Modified: 2025-07-18T12:46:10.441629
+  - Hash: 783982f757921cf88f66963fa51e44bd7180051891d89ce6d3c1f2f82f4cffeb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\__init__.py`
+  - Last Modified: 2025-07-18T10:43:34.080427
+  - Hash: 287a506d9cb1d9a4d2a24084b1cc37af6392631d8ccec59efe6e54f56c7a46ac
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\utils\config.py`
+  - Last Modified: 2025-07-18T12:47:44.478542
+  - Hash: 33eea22f9b3173e40d49cbdaa30ac160b9c22b421642df432f96f0571f0e059d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\voice\voice_api.py`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 32726ff5bd4bfb442e65024aa0c73b0e188be71975290348304b0211d728fcb2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\voice\voice_web_integration.py`
+  - Last Modified: 2025-07-18T12:47:49.415680
+  - Hash: 6acbb55693bb5bf0f720441ff5afcbb1e6325f64d81c1cd5dd807c735f6a738f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\noxcore\voice\voxtral_service.py`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: d12f7c39b01461d6b4ed1cbfa3916068a5e40afdbb2178064f38687365f67cd9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugins\fritzbox\__init__.py`
+  - Last Modified: 2025-07-18T13:14:53.746732
+  - Hash: 466d4cd335ebe4d539e9c56eafd0a576ccf16ad8ae6753a400c2410d0c86be4c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugins\security_scanner\__init__.py`
+  - Last Modified: 2025-07-18T13:14:53.847554
+  - Hash: 71316d5473044cefe7e1cbc898f2bc82bf3a0a7ff4d91149d314ba78b1b679cf
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_sdk\noxpanel_sdk.py`
+  - Last Modified: 2025-07-18T12:46:10.496780
+  - Hash: 68fdecb49429ffea1ba9de7f9ee080c2075d35ad4e19265dc87b4cf9e7a6f0ce
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_sdk\README.md`
+  - Last Modified: 2025-07-18T12:34:14.006200
+  - Hash: b96e7f2ef03eaca38451f66ad14d4ef855d98e4edc88b77ef5695062bf2d2925
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\plugin_sdk\tools\plugin_generator.py`
+  - Last Modified: 2025-07-18T12:47:52.246221
+  - Hash: 02bde9a77f09a25a7b9ba9b6e16abe6ce87b992980134de760e043e88a0700a8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\access_map_generator.py`
+  - Last Modified: 2025-07-18T12:46:11.833209
+  - Hash: 6013af4e4ae5d16b0b657373f4f5ecd670e57fef362ef7c3388c3b709afad1c6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\audit_1.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 75f8ec2c7ef2115b191fdf5e32b58ccea8e0b4a70833cf0dcd933a17f13575e0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\audit_2.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: d2e80d2874de52d80027ec15633a61199a8658ca8f8f61d86e7c7c6664773920
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\audit_3.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 2f4599caa8c61a50fea668da2a9c9c7f0102737390d22ca9fcdd78a807ec7b80
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\audit_4.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 85dc0f35a6f7352639fb12dcfe11d1224ca36bc5fa66f4d1b872fa7209a0b6e3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\audit_launcher.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: c2e641bf59a720d346615c83685bc204763ce1e541d0555b3ba7a6361c73f115
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\check_routes.py`
+  - Last Modified: 2025-07-18T12:46:20.667823
+  - Hash: e4f623c04b0296570e314acc3d86359fde87f687aa1eadf3b097ee35997663e7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\cleanup_project.py`
+  - Last Modified: 2025-07-19T15:00:46.241063
+  - Hash: 074a78aaf47d0216683af2d1dd8883ff0f2336da37f2f3eb531b0b8a638a6b98
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\critical_implementation_engine.py`
+  - Last Modified: 2025-07-18T12:46:23.695082
+  - Hash: cf1403cf041e52db46ee6b488be1bbae586895dbae22bef0ce4cd060c3522b23
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\definitive_excellence_achiever.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 56ceda5da02fc3a6047ce40e24ca136de218d02bdf6d77bfc703b6aa19afeda2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\example_script.py`
+  - Last Modified: 2025-07-18T12:46:26.510716
+  - Hash: 6ac8b74a7908fabb84ba172d23091b92f47ac365092f95c6aa85c5048c1a3d73
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\final_implementation_report.py`
+  - Last Modified: 2025-07-18T12:46:26.893525
+  - Hash: 7fdb04438c1c8aa8c3c91b50fc1ff3fcb3c6f0ade187be2b9569174dbf98065b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\frontend_backend_integrator.py`
+  - Last Modified: 2025-07-18T12:46:28.349043
+  - Hash: eca97dc01b1b2923180fbd364ef120f33e4ff3c141b6fb1812568e5d5645cb74
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\implementation_status_analyzer.py`
+  - Last Modified: 2025-07-18T12:46:32.449247
+  - Hash: 65146e1e17da16e0263836051df35adfe41541cb55bdbe5262e907854abad1dc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\phase3_testing_executor.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: aa8ca1127d3984b74c591644ae3c55275e10c3059e36ffe6c958b7ef0bd201eb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\phase3_web_consolidation.py`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 04b04f5cc6b1441be4847ffb17970d2d75ab708fe510c796ad8e8fc8c0f1bccf
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\phase4b_final_push.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 40ceac874e26b6b0a719a7592ea8b8ec066ff2be36dbe4ed69aee9cd69abd302
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\phase4_excellence_optimizer.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 3d8bafe5e80e77dddd831e238b4477aa750060c6bbad85ea44e75f90ffff082f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\port_mapper.py`
+  - Last Modified: 2025-07-18T12:46:42.009320
+  - Hash: e90ee1c2f3d092d14e2b85f7456bde5a3722e90233eaa208f8ed8e995ae4bd85
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\post_audit_optimization_engine.py`
+  - Last Modified: 2025-07-18T12:46:42.753029
+  - Hash: 5dda4bcc72fd3dace60e98d1dce421fbb91bac5ad3317d75ed8b9148f30e7eef
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\route_tester.py`
+  - Last Modified: 2025-07-18T12:46:43.657433
+  - Hash: 777e8328826ea26e1b6ec347f37542bc4b03507a56a763d955d794729d4b3441
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\simple_ui_validator.py`
+  - Last Modified: 2025-07-18T12:46:44.502366
+  - Hash: f9e14d59e4555f315fb12d48d73f69ab04e7cedaa8697c6d4eb05e709cc1dd1f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\test_api_endpoints.py`
+  - Last Modified: 2025-07-18T12:46:44.586114
+  - Hash: b64718fa9422d39291f39260e67581ecc20f34ffb6050252ce2cb28663ee4b2e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\ui_validator.py`
+  - Last Modified: 2025-07-18T12:46:45.868385
+  - Hash: 75cdec7f4fce77c83d00cc6aa7e5ccf43fa0fef7651d528a2fd6a48074f3e027
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\ultra_port_mapper.py`
+  - Last Modified: 2025-07-18T12:46:48.548349
+  - Hash: db843cae30e7240574f3098d59ae7ea5f253db1de2b60e29cdc5f265b189f6bc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\unified_architecture_generator.py`
+  - Last Modified: 2025-07-18T12:46:49.726044
+  - Hash: d59312b4e56f6c7061670692701b7013e2ebe9390f5cd2f9d20661c0c105ce3b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\version_audit.py`
+  - Last Modified: 2025-07-18T12:46:50.794051
+  - Hash: 6836553e3b559779803dbc5592a3b912b6673ae83de7a7372608e0791f2c8f04
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\version_tagger.py`
+  - Last Modified: 2025-07-18T12:46:51.972875
+  - Hash: f1c091e68a0408d318946fc98cade01bc32292ba17c66e8d9ed7e84d183c9a2d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\ai\code_reviewer.py`
+  - Last Modified: 2025-07-18T12:47:52.917904
+  - Hash: f18db4543a92789fc0f266b948be35b6bbc8e0384a7e3ff8bd5948eb91380a54
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\ai\text_summarizer.py`
+  - Last Modified: 2025-07-18T12:47:52.988111
+  - Hash: 5781a89c8a6cad368e9f05ef3bfbdf6418f00eecfef9b4ef55edeff9b7faf1f3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\scripts\samples\system_info.py`
+  - Last Modified: 2025-07-18T12:47:53.062298
+  - Hash: 19eae69c9abf72f7fb9cb0d861a51ef9cbbac6748dcaa7cb9ec2e124d62cd850
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\security\enterprise_session_manager.py`
+  - Last Modified: 2025-07-18T12:46:53.265511
+  - Hash: dc959ef10b36fdafd659043ca519b7f1d5a9edd6262491ece6c3c0f3c4fb73ba
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\security\security_manager.py`
+  - Last Modified: 2025-07-18T12:46:55.777044
+  - Hash: b6fe7315f488ca1adbc89c44a97ccdd74bbd4555f731a91f829f1066313859d8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\enhanced-themes.css`
+  - Last Modified: 2025-07-15T20:09:25.156209
+  - Hash: b1ad5c9c48acf997250a5648978f4b71f8d8ef597771f59a85ae40b755f3f896
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\style.css`
+  - Last Modified: 2025-07-14T22:11:58.690181
+  - Hash: 80f82ca367caad8df2008aa87d16062f331c037e7bbdae068e08ebfa86b18800
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\ultimate-dashboard-v8.css`
+  - Last Modified: 2025-07-15T20:36:24.934726
+  - Hash: 1e1ee2a6b0e1bbbb6be86a4b4d0c4334cbc619a3e207bb1cdad3c8b19596aa8e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\ultimate-dashboard-v9.css`
+  - Last Modified: 2025-07-15T20:58:35.367849
+  - Hash: e29caba60825d1093f0dffbcd371333c481263b05ecb949aedbedd9dff2e8214
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\ultimate-dashboard.css`
+  - Last Modified: 2025-07-15T19:53:55.009620
+  - Hash: 8ea25441ffca29a035140f329df68e0332c434a3444f20477cda4a3195368dc0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\css\visual-enhancements.css`
+  - Last Modified: 2025-07-15T20:09:51.470042
+  - Hash: dad7b9f0285a922da23c741ce09a52ad92a9335deca19cf1f169f7ec52a7d9d3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\js\enhanced-theme-manager.js`
+  - Last Modified: 2025-07-19T15:00:46.802738
+  - Hash: 70ec75bdb5996c0caad095b12d0ea864745eb1728e6af1def3b7099b6bea5d20
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\js\sw.js`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: df20edd28ed2452553819307e2d65ffdecf94c6a9a4c72244a97f8cace4acc02
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\js\ultimate-suite-v8.js`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: eff2bd689a34aa532b398939778a0aa3fa8b35405c5b8eb308435bb3cfe45e02
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\static\js\ultimate-suite-v9.js`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 543bcce4957650b2b5e2bf0c242ee80efcf5299d910cb0200272bb7b596ae246
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\admin.html`
+  - Last Modified: 2025-07-15T18:47:50.410734
+  - Hash: cd5414de48195d6c1400816aa7359a8916ac2caaea2a34bd30e7d86495b19408
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\admin_enhanced.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: e6c07450a9b0c6cb0e095713ba4da53964327563d05b3873cefbed96f4897d62
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ai_dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: 997a1972300a209dfd5af2614e4c95ae15f002e43d3790b4758cbec0faac15d4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ai_features.html`
+  - Last Modified: 2025-07-15T18:47:50.415737
+  - Hash: 5c7d3331644f0e1aefab8217361e42ee91a5487a0dd3180263d64b5e13ef46b9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ai_monitor.html`
+  - Last Modified: 2025-07-15T17:37:37.593310
+  - Hash: 179a5c199d83bf77d598f9292abf9878d42793d08cd0e61c23ff7e014645ff0c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ai_settings.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: c02598be1d87b88a20de77aac33365d6df1786a7284aee25f878601f5b7eb328
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\base.html`
+  - Last Modified: 2025-07-15T18:47:50.204746
+  - Hash: c70d5d0788371a5a130b84f85a554600a459e8324882e342640e2c7dac19d28d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\certs.html`
+  - Last Modified: 2025-07-15T08:46:09.811744
+  - Hash: 972a6d1c3f9f2c967a74e9298bdae9dd737aeec2c6d6a2601d77f0cd8c2658e4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\chat.html`
+  - Last Modified: 2025-07-15T18:47:50.433337
+  - Hash: 2c530d0b2ceda92634cbb0a70204ed8dd279383afcac3605200fa2ff8596375e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\dashboard.html`
+  - Last Modified: 2025-07-15T18:47:50.436334
+  - Hash: 6769e4740f5e6d97ad11fade8da2162affb0718b5e4a79e9bd5d390195d78b55
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\dashboard_broken.html`
+  - Last Modified: 2025-07-15T18:47:50.439854
+  - Hash: df560aaed3eb3fe5f5deb4b75274cc4af178983f94a6bcbb540579321882815f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\dashboard_enhanced.html`
+  - Last Modified: 2025-07-15T18:47:50.208252
+  - Hash: a357ff926a8fcb7f03a830242af7634c7ee9680b382791fd35cb66553a68d42e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\dashboard_fixed.html`
+  - Last Modified: 2025-07-15T18:47:50.442864
+  - Hash: 5f77ac7296675d1f8ec2ec95aa7c7c4ba0f1d996bfded5128bd4e97ddc7e14e2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\enhanced_dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: ed70f695e8b4e1bc2e6b7fa31584e79c67b5d63b67d128ccf130ece1680d1401
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\enhanced_gateway.html`
+  - Last Modified: 2025-07-18T10:43:34.714488
+  - Hash: 20b6d171c95f4e894fb0c58cc094c23ead62c900a564501c758ed40a67634c42
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\enhanced_navigation.html`
+  - Last Modified: 2025-07-15T18:47:50.237817
+  - Hash: a45b6d73cb1ca3d9762268444625f413a46651604a45bbc2b45431d6952a4656
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\error.html`
+  - Last Modified: 2025-07-14T23:54:08.812523
+  - Hash: f97cde3e9d05e476bdefdb3acbb87f04abfc5ca37742c92a7e27fe5244141f13
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\heimnetz_interface.html`
+  - Last Modified: 2025-07-15T19:56:52.292522
+  - Hash: 09b8a084c67cac3ac4a68df7f26eaed175bf3daa3fa9f189480ab48d9bb782f4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\media.html`
+  - Last Modified: 2025-07-15T08:46:09.807745
+  - Hash: d2be543c07149e8e105473c563a5ca87d4c74404db1eb076329aa3a502d57700
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\media_enhanced.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: 98ac4f5ed002c62a95f8cf96fd50955ad164ed7af4fc95a18fc13d235b81b0f9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\network.html`
+  - Last Modified: 2025-07-15T08:46:09.805731
+  - Hash: 7faef59976b11ebfbfa796e6bce5e5e73093029927993fc97a2a63a3008c1ab3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\network_enhanced.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: d416cabd71fc932e26d2af926685d0f217436fbea6855a597cd6c34fba6598f3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\noxguard_interface.html`
+  - Last Modified: 2025-07-15T19:57:49.753531
+  - Hash: 39157ae861ffac56e3d4a6970fdd353942fb3760b34f606d34ee2f0600528ad7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\noxpanel_interface.html`
+  - Last Modified: 2025-07-15T19:55:59.095842
+  - Hash: 9d6a5f67d115bb70527f26b4c9649b912a5bfcdd556aa30d6e7b2e003b99655b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\plugins.html`
+  - Last Modified: 2025-07-18T10:43:34.717488
+  - Hash: 751fa5942c35eedc9d27325abd832ffb70545b4ae9cb8e7f01fcb2c1aaca60b2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\plugins_enhanced.html`
+  - Last Modified: 2025-07-18T10:43:34.732526
+  - Hash: b48d1ada8a5fe4ae2007ab49a19b13f6292a3bfd67a0efec129f50a45f419e34
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\scripts.html`
+  - Last Modified: 2025-07-15T08:46:09.810745
+  - Hash: 8c05fe7d7768f9b313a89e6266551b74b53677398cd4826f4620db7f97644994
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\setup.html`
+  - Last Modified: 2025-07-15T08:46:09.816259
+  - Hash: 5efbab47c0af7515790ca9152c95cbbc48ca70bd108a683e546376ef8e26ccc4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\theme_demo.html`
+  - Last Modified: 2025-07-15T18:47:50.446867
+  - Hash: aa86726a352a2f58deed0031a3361d56bb0b53678bd4420d821c5a3500a7c550
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ultimate_dashboard.html`
+  - Last Modified: 2025-07-15T20:21:28.263735
+  - Hash: 76a8257f62576d7dc2619248905a328952b01290d1c70f2de8610f37478d7119
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ultimate_dashboard_v8.html`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 7745fffffe8c908ff60ccc26e56a8efdf05cbeaa5886b6fb72b6c34adb8882c7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ultimate_dashboard_v9.html`
+  - Last Modified: 2025-07-15T20:57:00.689530
+  - Hash: e949c9cba65d33e0a29884aa4511ac161a829072680a875f0ba1081bc864ccd2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\unified_admin.html`
+  - Last Modified: 2025-07-14T23:54:08.484678
+  - Hash: 15d50a99bfe8cedbe2a7da90818247f525d88cef0f28a021d7013c51cfcd12ea
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\vm.html`
+  - Last Modified: 2025-07-15T08:46:09.813744
+  - Hash: 5acd2bcb7e25ba157d9f038144dab684be4c7e9383fb0cb571bdfc7fc4794a11
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\ai_context\dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: baaf2688914f0411b522a0dd217777d266df485ae3b744c512e91dc17a9eaa95
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\analytics\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.996238
+  - Hash: 36ae3d3478a127cc8f82963e71bf49fa19144a594e97990e55674fe8d47c8263
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\api\docs.html`
+  - Last Modified: 2025-07-14T23:15:49.034337
+  - Hash: b0e565fa4ffa1f476e94d34e61700f23a776697bc587afa6c411b3e855f9096f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\backups\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:49.017295
+  - Hash: 59832a5e2d8795d4395a0965d81e78e2650c3347fe839c58550007259e9a62dd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\add.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 0c89cf7372255c2e3ece861f6f6dfef3cd8a014ab992590da371bf74e4308c8d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\code_snippets.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 89c9e976d85ecea9a0d57720db3c62f59c025c129f75c99fe24c8ff5b59e784d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\import.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 302b68fa0e479bd869f64b5f55486a17b33ca6a049b50a207beac8b9a525b999
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\index.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 2478c9a61731213e6f24b05cb72258e36c7a242c90ee8cb7ab0cd5f2bfe8db4e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\item.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 8ea9ed63c9772813e1fa52028c937bfe4484c424874ce7787b10b792f59f954c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\knowledge\search.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: ecd21d5a353f6f23429f8dc4ddc9f1ae2bed7c41eee672e9893a93ad321079eb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\media\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.951649
+  - Hash: 0c30d8c83a984486b3837e8906b96238f7402fd54efb5278ffe6cb7de4828305
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\notifications\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:49.022819
+  - Hash: e9cd49c91f00c6cda4c70e3a309b7037740c4f4ec69bb44d41cfeebc03c138fa
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\pi\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.956655
+  - Hash: 965053294adfe7b10de2987f46f60d8c3eb25f0b18ec3b51cff3c306c9ad62da
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\platforms\switcher.html`
+  - Last Modified: 2025-07-14T23:15:49.005762
+  - Hash: d31083d8e407a9e7bfb6fcef255ee2a1e9ec0fd3c3a993680a94521852565f2c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\proxy\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.941117
+  - Hash: dfe25fa5b9d893464229e0d697f68089a8c718d38f225eed581b3aaee99d0d53
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\scripts\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.946131
+  - Hash: 1c0238d971731022e355cbeb376bd2ebdbfe9d5b331c0904b5de66ce304af970
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\security\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:49.000744
+  - Hash: 1f5751f147639cd11274b5978c5656a24363ec07ddfd61aef380011382701ef1
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\setup\wizard.html`
+  - Last Modified: 2025-07-14T23:15:48.962168
+  - Hash: 89623cc6b27f44b15e34209b22c4df1426199eb51d76f151f86ef1e5ac3772a9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\updates\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:49.012283
+  - Hash: 02abdaa750e9fdb1a79b5f7a37e262ce7e9ed2092fae88f081baeb9080ed6672
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\templates\vm\dashboard.html`
+  - Last Modified: 2025-07-14T23:15:48.925079
+  - Hash: c1220e185717bc721a492e4b4ba4f0f1f2447603ca7f1498f5ba8381128f2ddf
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\conftest.py`
+  - Last Modified: 2025-07-18T12:46:56.889667
+  - Hash: 215ee2464e8eac9fa36edaf30936d5cc1bf4f89b707465a121a44e1077f9145f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\INTEGRATION_COMPLETE.md`
+  - Last Modified: 2025-07-18T12:49:28.767432
+  - Hash: 435bfbd81d6c1869af0ce58e24769db4c6f68562fd5d743c61dae4cb80b47b6c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\integration_demo.py`
+  - Last Modified: 2025-07-18T12:46:58.406363
+  - Hash: b2bcd5a262b3f05f49da9796b65f2195ec0d741679f1bbe46cec47f8a968aadb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\README.md`
+  - Last Modified: 2025-07-18T12:49:29.009579
+  - Hash: 95ce64add74591590156993ad7322195a7cc4c76748e6604c6f7a0a68c5b51fd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\run_tests.py`
+  - Last Modified: 2025-07-18T12:46:59.021859
+  - Hash: b068e98ed6bf7faf7a523fd2c544a50e0e8c72135e91696e10c7173b1d861d1f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\setup.py`
+  - Last Modified: 2025-07-18T12:47:01.193457
+  - Hash: c35d46608a098e2658ddbb579b4a455ea674b628c5897987a7b9158f4628fca4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\setup.ts`
+  - Last Modified: 2025-07-18T12:48:44.901837
+  - Hash: 30e0d8c537aec178253c10c83aa7b5e4081264a84ddf8ba8bacc194cc5fbf6fc
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\test_app_factory.py`
+  - Last Modified: 2025-07-18T12:47:01.223516
+  - Hash: 55386d4cb962b77f3372f17bf17e7131eb4267c64f6eca641896f78b12e096ae
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\test_infrastructure_validation.py`
+  - Last Modified: 2025-07-18T12:47:01.298711
+  - Hash: 6f86b09e76bb42213d49433cfeffb11cdf0876d6ffc42c4415277312c077e14d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\test_runner.py`
+  - Last Modified: 2025-07-18T12:47:03.362200
+  - Hash: bf8d4a970d00492e1cd24f14885133915bc7bbb1c93e029cab842161c41d59f0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\test_validator_advanced.py`
+  - Last Modified: 2025-07-18T12:47:08.066509
+  - Hash: 3a27751dd785fdc53b0924b30c369db023099610fed947673266d0540a679b40
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\__init__.py`
+  - Last Modified: 2025-07-18T12:47:08.079029
+  - Hash: 4c235f4a70a055d7865493e5062c9f739a45b764d10ef18c242430a98bd16c55
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\backend\test_auth_api.py`
+  - Last Modified: 2025-07-18T12:47:56.541529
+  - Hash: a16c582d03c59897fbd47d5f7f0f145ea14fb693b415bf8b85edf2093082340e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\backend\test_device_api.py`
+  - Last Modified: 2025-07-18T12:48:00.029328
+  - Hash: f2cc0e57b51b719a55155f30b8181de990dc8b0a6ae6d728c839690a25046285
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\backend\test_smoke.py`
+  - Last Modified: 2025-07-18T12:48:00.056887
+  - Hash: 8230903b673435fb1c3cc3e6c2abe910c972433c9031a53c13d8ab337311e01a
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\backend\__init__.py`
+  - Last Modified: 2025-07-15T14:47:34.815969
+  - Hash: da89426260cd95d74be847c956428b0d4825227f466599f7611ea92b0d15eb54
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\e2e\test_user_journeys.py`
+  - Last Modified: 2025-07-18T12:48:02.481064
+  - Hash: 79b2505122648e3aacbc65e154ad3c5a366f70636392ffe53026b1ecc626a34d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\performance\test_load_testing.py`
+  - Last Modified: 2025-07-18T12:48:04.855415
+  - Hash: 27940bcb7d900ce519aebe31338ad6af549b1709c49ad0197081098d2faa99be
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\tests\security\security_test_suite.py`
+  - Last Modified: 2025-07-18T12:48:07.859360
+  - Hash: 96114b9c06725856ef3d75502a23658dac405128006e66b4d2f35514b6699e23
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\test_data\test_plugin\main.py`
+  - Last Modified: 2025-07-18T12:48:07.873408
+  - Hash: 52ac6e12b8398ac75c495fe796b7f3bbdf24d3858d36dc185356cb4634efc477
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\unified_architecture\unified_noxpanel.py`
+  - Last Modified: 2025-07-18T12:47:08.123802
+  - Hash: 8549b306ce99409095b4b483362dbe65b91ecf42798acc67c7501e357228b796
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\admin_blueprint.py`
+  - Last Modified: 2025-07-18T12:47:10.109731
+  - Hash: a825f3a708234bf2fc49d52ead91502c26d21628fab85478ce1df55f68128061
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\admin_routes.py`
+  - Last Modified: 2025-07-18T12:47:10.156350
+  - Hash: dc2abe0fa2302c5fd3492b0e717163aa6544b0a0049042ae454c918828f64f79
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\ai_monitor_api.py`
+  - Last Modified: 2025-07-18T12:47:11.607623
+  - Hash: 9d175c00a7e405b6fbe468c3f5590dc244035d3d9777fe836f1c90d3efc9008b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\ai_monitor_direct.py`
+  - Last Modified: 2025-07-18T12:47:12.299771
+  - Hash: f8fff9eed93dfddcc3fff7148266014f312fe32b33e34070e46bb94ccfd0983c
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\ai_monitor_simple.py`
+  - Last Modified: 2025-07-18T12:47:12.353398
+  - Hash: 93d1531f64845a3fc33678ec61dda7d36e3789e38c1f718cb98ec1188f1c3920
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\analytics_routes.py`
+  - Last Modified: 2025-07-18T12:47:12.411023
+  - Hash: da9e215e46013c7db8ab0ffea5fba625bb63081b9c4860a2fc08967c006b7738
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\api_docs_routes.py`
+  - Last Modified: 2025-07-18T12:47:12.431076
+  - Hash: d4b2d27fee51e0612d09774d177d618384082f156efb4f0984d0b76af210e9c9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\app_v5.py`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: 6e8364d1388ca60d72cf1cd7a1e28dcd29e2c748edd16a9cc7386e26e8b4fff3
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\certs_routes.py`
+  - Last Modified: 2025-07-18T12:47:16.720791
+  - Hash: 22b2cf424eb70f22f078b333983e43ba71d07e4e2f36d42743c3a57b57f4ea64
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\chatbot.py`
+  - Last Modified: 2025-07-18T12:47:17.443058
+  - Hash: 60a735e21424a3c3fd3ac586b7f2af626af6438923788a981466fb4d07d90d19
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\chatbot_routes.py`
+  - Last Modified: 2025-07-18T12:47:17.493193
+  - Hash: b6846c1e00eeb1948342084255753d51a3436ad69196627a710369d86a4004e9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\enhanced_knowledge_api.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 5b9a607da42bbe005c803ef2866d098cbcffc20b87d432ec3e98f26c2f2857fb
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\job_scheduler.py`
+  - Last Modified: 2025-07-18T12:47:21.604873
+  - Hash: 7507c23cc1cbc1d7c3b049f66b2a19eb6e8f9edb3c4b929e1faebbaaa4e4d7ec
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\knowledge_routes.py`
+  - Last Modified: 2025-07-18T12:47:23.949807
+  - Hash: b59c8c46e43a031988a89274c3144c7cd71b69bf97ff3e392fe33ae9d84cc618
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\media_routes.py`
+  - Last Modified: 2025-07-18T12:47:24.014432
+  - Hash: c4b89de288522805132ae3327382cf89a5ee8462826f0b3cf7980d0cdbff6e90
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\models.py`
+  - Last Modified: 2025-07-18T12:47:24.871999
+  - Hash: 612d13a637f056c3d66dc6b62e44bab49180a322d184e302fe2d0fc45f0e7005
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\models_direct.py`
+  - Last Modified: 2025-07-18T12:47:28.016665
+  - Hash: 742982c4992af331b344cd88eb7a6a09c631720ee7ce36bdc87067d3c012bf7f
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\models_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.064776
+  - Hash: e0bb0a937cca74b37ba5858b5afdb91d83a5cd9205861d5ac5230d3408a6f9b4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\network_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.108894
+  - Hash: 3e99429844b6d1d4e265c4347114173ce1966054ccc2bd09dabc2e305efee414
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\notifications_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.174072
+  - Hash: 0d3f76f4d571be95acdafb273dae98b23897fd6e4766c91aa6a55f1d368c94a0
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\pi_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.423628
+  - Hash: 7f42fdceeb36b24aee31d8885e89ae9e9015a3b0bf7b9071bc29cb9df696fee8
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\platforms_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.507902
+  - Hash: dc7b95c8510e317fa4430e11364d9de554f6cb7648d3b37f11489a40e2805d19
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\proxy_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.597603
+  - Hash: 1f34b85106db673d1ecdd69848e8b06de8c8d047c75ce74d21d69750527595cf
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\scheduler_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.649254
+  - Hash: 7ceb58444a12165b42b0737d8c155e1dda44af1062da61c1fcf0491f2501c1bf
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\scripts_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.719929
+  - Hash: 1c290b0e18d962289853cf2e82b38eaabdf50e968448815d4deb9c3a937eaa36
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\security_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.786636
+  - Hash: cbcca7f88ce33603007abba962595f08e7f3818d647f8e0a12d1d2057f367d22
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\setup_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.853799
+  - Hash: bf115703e310d898cfcdd0fe9ac85ecee79d281547cffcddf93342d8ed365fb6
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\updates_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.915450
+  - Hash: 0a8afcdb09d741975a9da0f7a00ed792fde978531e38774fd34ba908afc74529
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\vm_routes.py`
+  - Last Modified: 2025-07-18T12:47:28.982618
+  - Hash: 5af0474bb102766601d995889a178af4d79dec2fb24707826fbf7537c23dcf33
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\css\enhanced-dashboard.css`
+  - Last Modified: 2025-07-15T23:42:08.301737
+  - Hash: a26ca25a3e7e66441bc69ff225ccda7d8382a2ad7190682115d3b8e4542017b9
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\css\enhanced-themes.css`
+  - Last Modified: 2025-07-14T17:22:12.311278
+  - Hash: 0210fb246109d92a009ba72e17d2f691f1a347247d7ea883d79d9d1eb65ac55e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\css\themes.css`
+  - Last Modified: 2025-07-14T17:22:12.310766
+  - Hash: d0374fe7b2e0183d5830d1f7a62718c104a4fa599145f3e40443c5217a7cba31
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\css\version-banner.css`
+  - Last Modified: 2025-07-14T17:22:12.311278
+  - Hash: 0984f162752f705b325e9f706e971770c0f0c6b5a1a8e4b8468c22f3c343d1cd
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\css\visual-enhancements.css`
+  - Last Modified: 2025-07-14T17:22:12.311278
+  - Hash: 04c73155ac1fa579614149a1b245e92cd84da9816acb274092a8a66feb2f1b94
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\admin-panel.js`
+  - Last Modified: 2025-07-18T12:49:00.797978
+  - Hash: 31986c90e99b8c38e032f4f65a939a0f60d9fa2f8b403bc103c568262e79d03b
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\dashboard.js`
+  - Last Modified: 2025-07-18T12:49:00.840110
+  - Hash: 908a60187a430fa0dac54a3665113ea3027475df06072eb4a12d216cee19e80e
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\enhanced-dashboard.js`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 76bc6696aa4755f506b2878dcdca29ca1f89b5f1a1f1eac288b1020014bd370d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\enhanced-theme-manager.js`
+  - Last Modified: 2025-07-18T12:49:03.393980
+  - Hash: 896ccd10e10c03f0587c45bf5a2499f85d6b172402ba675ca45fbb95f79bd873
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\theme-manager.js`
+  - Last Modified: 2025-07-18T12:49:03.429565
+  - Hash: c5a9bd8bc611eb87623bd1747e7f91b7b1220e5c26b2e16f27b8b38b2b2fbf4d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\static\js\visual-enhancements.js`
+  - Last Modified: 2025-07-18T12:49:03.925293
+  - Hash: 5a634194a524d2c37c9decd7068592d484dd33ffbc87565f4e87968ed01763e4
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\base.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: 9c342b8c3e96bef365a3e251fde791721e5a30bea9859c67225a5c5aeeddc719
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\dashboard.html`
+  - Last Modified: 2025-07-18T13:14:53.772302
+  - Hash: 4f437585143512dc02dcea01ed6978d6a1313c1addd3026ed85de140e6932ece
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\error.html`
+  - Last Modified: 2025-07-15T19:58:06.657308
+  - Hash: f83992341565a3eec39f836697781e35620804428e1410bf21b9834140bcb275
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\ultimate_dashboard.html`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: fa22c2acd8590562070033b1cd7000eb51ae0a08f21e10b2042f2d9a3624ac82
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\admin\dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.602840
+  - Hash: 2411f45c7fbe9382265ef44bf468b39b7a7c3a17cafb4fecfa680e3dd849e7f5
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\admin\users.html`
+  - Last Modified: 2025-07-15T17:37:37.602840
+  - Hash: 746b0587077f3d86569bee7d8cbdecca96dc3453b3ad7257666ca75e8bb92c46
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\dashboard\enhanced.html`
+  - Last Modified: 2025-07-15T23:41:04.398072
+  - Hash: b8f0b45ba59ace0d367c78201c76293f76442e843278799afab855b6059ad4f7
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\knowledge\index.html`
+  - Last Modified: 2025-07-15T23:38:30.488645
+  - Hash: b7927eced700f1cb0567b4ed690a9884e3dbef5b851b0bb955a74a38a313018d
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\plugins\dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.602840
+  - Hash: 2141561f478d2981c10e27ee5d4b90906359e2e770b69a21ebd1e15f5f46c7c2
+  - Reason: No references, not legacy, not config
+- `.\AI\NoxPanel\webpanel\templates\scheduler\dashboard.html`
+  - Last Modified: 2025-07-15T17:37:37.603850
+  - Hash: f5c331b017a0ba6a1745585e6c71a18d717526bb4774e2d41c0bb74ff27043d6
+  - Reason: No references, not legacy, not config
+- `.\ai_orchestration\routing_performance_report.md`
+  - Last Modified: 2025-07-18T12:01:21.656376
+  - Hash: 1303b51f7612e1b23154209b254c5953f7f428d881d19fe59bec524be16946cb
+  - Reason: No references, not legacy, not config
+- `.\analytics\analytics_dashboard.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 4b8080dea65748a65a6eefb3097ff18c76b81f176d64b286efd358bde07206ff
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\COMPREHENSIVE_VERSIONING_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:31.459941
+  - Hash: 710fdaa8d398f84d4f8a02b8440c73a60f5a2128cef6d56f4791726760d0f7a8
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\CONSOLIDATION_CHECKLIST.md`
+  - Last Modified: 2025-07-18T12:49:31.461941
+  - Hash: 6586d42787d478aca31e86b4028724bfdcd5a14ca4639afb5a69c74a81a2fe83
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\FINAL_IMPLEMENTATION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:31.575700
+  - Hash: b00b8b8ca320731386f8552b113c2bbc061e19834d6f5a368d10e6583fdf7300
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\NOXPANEL_COMPLETE_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:31.614304
+  - Hash: 0ce440a684d5dc095c198dda956d6b126da92d608d2e9dd1a0f18ad4261b991c
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\project.md`
+  - Last Modified: 2025-07-18T12:49:31.617819
+  - Hash: 3b5e1bf1485096ec3aff7a63ca70a451500a60f1273e57943424287dd4a9c123
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\PROJECT_REFOCUS_ANALYSIS.md`
+  - Last Modified: 2025-07-18T12:49:31.642431
+  - Hash: a698006e232eaa1b675d10ebbbf278128553a348cf0ec20358d0c87a7dba1cf9
+  - Reason: No references, not legacy, not config
+- `.\archive\legacy_docs_v1-v9\REFOCUS_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T12:49:31.736659
+  - Hash: e89503a0399c5e0783f3b5911dfaeb61334aca86906a9346b33e50dad6a1b9db
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\debug_response_time.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 2727281f108da044f09f175cfece649f03adb929359c80396bff75757f367140
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\docker_network_diagnostics.py`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 114826e199b5e6f59833b57e523a320e3f809d7888bf88fc1a03eb5f7665fb23
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\plugin_template_secure.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: c850f0766bfd300731a7d5e788261386e4da9eebc051d86105fc48d76f302038
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\rlvr_phase3_advanced_enhancer_fixed.py`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: 6540e54a1da018ec047cb88496e24ff2d5f4c3ef300590fb758d604ee0b8d22f
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\ultimate_suite_enhanced_v10.py`
+  - Last Modified: 2025-07-18T13:25:50.268393
+  - Hash: 938d73ed7c4a424a2ca14bbad1d1c2329a1a36008f8b6a2ead6406375cf3a25c
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\validate_optimization.py`
+  - Last Modified: 2025-07-18T13:25:50.276905
+  - Hash: 7f554ff8a22574a910cc56700868346fd82630fe36a4cef5053fd332a238a7ac
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\.github\pull_request_template.md`
+  - Last Modified: 2025-07-15T18:04:22.032932
+  - Hash: 337daa74ed9a1312cd35800c35c35a60c833df745c6f03b15fdffd0ef97cdecc
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\.pytest_cache\README.md`
+  - Last Modified: 2025-07-19T13:53:29.452936
+  - Hash: 420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\copilot_agent_diagnostics_phase2.py`
+  - Last Modified: 2025-07-18T13:43:23.428810
+  - Hash: 6c2c65dc4002584cbbe4b1a69addcfa40927291e67f6fefe9a67c0fb64b71135
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\copilot_agent_diagnostics_phase3.py`
+  - Last Modified: 2025-07-18T13:43:23.759494
+  - Hash: bdeedb8b004b9d7f0d8391bf18295915d402a09578503306474f4e401fdca124
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\copilot_agent_diagnostics_phase4.py`
+  - Last Modified: 2025-07-18T13:43:23.764002
+  - Hash: 7d7eff96cb41bf380abf2bda77cb3c880d83f5b9194671c83767281846306c56
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\copilot_agent_diagnostics_phase5.py`
+  - Last Modified: 2025-07-18T13:43:23.764002
+  - Hash: a7ce9da3d25aa6fcefc6de1f2eb31499b0d4fff1d6856805c84ffd5b02172a48
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\copilot_agent_diagnostic_system.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 0b9ce2a394196164deb116d4109ffe7caf8c11efbe7f85deb36bd18ae07fc2a8
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\debug_routes.py`
+  - Last Modified: 2025-07-18T12:43:54.710794
+  - Hash: 3afbfc3d3b142b1b58206abbccc7b8723410c86bec7d1dd4cf4c7daa8a8800af
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostics_phase2_report.md`
+  - Last Modified: 2025-07-18T13:19:26.481436
+  - Hash: 086adcb2f4a5318368f516190c2d2d9e1c78997629168198a7412912824923d5
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostic_repair.py`
+  - Last Modified: 2025-07-18T13:25:50.304962
+  - Hash: 6d6047e06238f04229d49bed7c402e967f5117132fcb37a4cae8f9a2d64c9643
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\fix_logging.py`
+  - Last Modified: 2025-07-18T12:44:23.273069
+  - Hash: c9d0df0dfb8155c098f1b19f4d657e1dfcf9e1e4a96ec4307bf0f4d5a172bab1
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\plugin_sdk\templates\python_plugin_template.py`
+  - Last Modified: 2025-07-18T12:47:52.212139
+  - Hash: cc77ab87f4b756ef83ce75b9e0d29865189faf32fc0d99e9642b6590f21cfcb2
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\scripts\git_template_integrator.py`
+  - Last Modified: 2025-07-18T12:46:31.429892
+  - Hash: d632c69b49fa5e7e7c6252312ca712eb8f85e4e676a0cecce5c705211dc2ba51
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\scripts\system_diagnostic.py`
+  - Last Modified: 2025-07-18T12:46:44.538489
+  - Hash: c59d8b8f67fd522ec7a736367190780e22f37f276a785bd86e6cb2c2315e4f23
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\scripts\samples\system_diagnostic.py`
+  - Last Modified: 2025-07-18T12:47:53.046255
+  - Hash: 47fcf8f9c7f8c0be0dcfd17ca28193b0ddb763cc23bf88549ec10f090c929364
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\templates\ai_logs.html`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: f3b9e6152f5421c350230839a3b2940406b96caa0d4c62a5878efc3871c43162
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\templates\login.html`
+  - Last Modified: 2025-07-15T08:42:48.394060
+  - Hash: a18dd5542952211562a267fd6671f3007a2d3f5e84c291b78b81db4397e4161c
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\AI\NoxPanel\webpanel\templates\admin\login.html`
+  - Last Modified: 2025-07-15T17:37:37.602840
+  - Hash: b4890385dc99604c90044893bed5b99ffc6ee030d8d5196398bed991c0abf683
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\data\logs\production_log.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 214c9a9dc1cf933d9d290a026c80ef9a6fb374c5754c75188ccb673603e35042
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\docs\enhanced-sandbox\plugin-template\sandbox_plugin_template.py`
+  - Last Modified: 2025-07-19T14:13:27.108598
+  - Hash: f9dce5d3d9b3c5af7ba267006650c71103242b12f503b37e1079a8bcbb225ad8
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_internal\commands\debug.py`
+  - Last Modified: 2025-07-20T01:22:56.072181
+  - Hash: 0cd0d1804f58b0aadb633534b3754a8bcac7b4a1785f5dc227f6ebffc3d45ced
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_internal\utils\logging.py`
+  - Last Modified: 2025-07-20T01:22:56.296671
+  - Hash: ccc64ad4dc5f84ce10306532694f6ad60acdb8384b4956d29060af6412a668fc
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_internal\utils\temp_dir.py`
+  - Last Modified: 2025-07-20T01:22:56.306695
+  - Hash: e6a3977bc33825e63abda15033cebb779ce4a756d2c0c67e293e63ca698fd198
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_internal\utils\_log.py`
+  - Last Modified: 2025-07-20T01:22:56.277633
+  - Hash: fa31cb384fd31da673e4115c0a7a122fd11802d2749d77a6e3db3da1fe23bcac
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_vendor\rich\logging.py`
+  - Last Modified: 2025-07-20T01:22:57.066631
+  - Hash: 660a4a30c058fc1b8c008fc1633a3e52d5da93ab79a07f552bc9bd4362e6d1fe
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\pip\_vendor\rich\_log_render.py`
+  - Last Modified: 2025-07-20T01:22:57.002345
+  - Hash: d41c88d0f035669c5963708624e2b9e218e5ab85fe073fdba088c8a8277c2a7b
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\Lib\site-packages\tqdm\contrib\logging.py`
+  - Last Modified: 2025-07-20T01:23:11.859877
+  - Hash: 36c62d9cab6d8f698cac69b9f2611da396bd0cfff6beff29672ae2992b96ba50
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\scripts\performance_diagnostic.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: ea0881bf284e55a16e4a3120f40e6804e5839adf60a70369dbe0a3368cd91cfa
+  - Reason: No references, not legacy, not config
+- `.\backup_20250720_012355\tests\rlvr_test_debug_panel.html`
+  - Last Modified: 2025-07-18T10:20:38.760263
+  - Hash: d8ed904b8f70c89cab7db2c5a759e591291a68eafab98449055678f8a480deb5
+  - Reason: No references, not legacy, not config
+- `.\copilot\audit_report_generator.py`
+  - Last Modified: 2025-07-18T12:43:30.030523
+  - Hash: 286869fa7322b456f585bab907d5c190cb3957ed9f26983c7e0d976621fc58da
+  - Reason: No references, not legacy, not config
+- `.\dashboard\index.html`
+  - Last Modified: 2025-07-18T10:56:54.373333
+  - Hash: 4a756f1b33ec371b6c21685c1cd9dbbe97fc4d8b9b0ab3482e3b923ee53699f9
+  - Reason: No references, not legacy, not config
+- `.\docs\accessibility.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: cf9cac7df91f8896dca8b946a55166a93b7b06322eea692de5da3f8ace317352
+  - Reason: No references, not legacy, not config
+- `.\docs\ai-integration.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 5d5a46326f88e1fdd45fe4ec725007d6b55805d06ff39f55c3f2df552d3529ad
+  - Reason: No references, not legacy, not config
+- `.\docs\audit-v3.1.0.md`
+  - Last Modified: 2025-07-18T13:14:53.359978
+  - Hash: 72026f5795df2af80238218dd4e7bf486340274dbd2f2ff79d0c6c0974169dae
+  - Reason: No references, not legacy, not config
+- `.\docs\audit-v3.1.1.md`
+  - Last Modified: 2025-07-18T12:49:12.477736
+  - Hash: 94f832ac27e9385c067e29de149c3951ebf56052c359e03fcc166e12a76af92d
+  - Reason: No references, not legacy, not config
+- `.\docs\copilot-chatgpt-integration-plan.md`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: 821186198558acdc97f578db14757dc8dbf9124491ee377619099edff28cefd0
+  - Reason: No references, not legacy, not config
+- `.\docs\deployment.md`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 5b394e28050f77d0bc65bcb3ea3f254f0c2164a3fd42d912365d68f69cc44e02
+  - Reason: No references, not legacy, not config
+- `.\docs\developer-guide.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 88403f8a2f51dc561b8f53bc8c5c4d0669b94c41dad87f695fea68fb84d6b4d5
+  - Reason: No references, not legacy, not config
+- `.\docs\gate4-breakthrough-report.md`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: b33711525cfbf8c68c2be2fdfa54328f722e629f9823ced84a7585443aa04a21
+  - Reason: No references, not legacy, not config
+- `.\docs\LEGACY_CLEANUP_MISSION_COMPLETE.md`
+  - Last Modified: 2025-07-19T16:02:03.995245
+  - Hash: f25e14ee90cd9a9a236e0c7561c1a906c31457dc370a973d848cf4370bac9c29
+  - Reason: No references, not legacy, not config
+- `.\docs\plugin_architecture.md`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 575989ab9207309f6b525fac9f7f544b66f131bc2c5036e0693b3e693e0997be
+  - Reason: No references, not legacy, not config
+- `.\docs\security.md`
+  - Last Modified: 2025-07-19T15:00:46.778686
+  - Hash: 06cb261e016fbecf4281e67d018a28720004440330b72de0f53e19bc69515ed2
+  - Reason: No references, not legacy, not config
+- `.\docs\user-guide.md`
+  - Last Modified: 2025-07-15T18:13:01.072941
+  - Hash: a50a58ea661af1ca3b7672acac0d1ebb2e45a702419911e66f21465b82115cf5
+  - Reason: No references, not legacy, not config
+- `.\docs\WSL2_SETUP_GUIDE.md`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: dfe5e4b039debde56dfd7ada9c7b19ae6932b3d491338c4f36fc6b4e38389a08
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\api-reference.md`
+  - Last Modified: 2025-07-19T14:05:16.254513
+  - Hash: f3eef7c62f4ed376554c45806f44015895de013757db34d8dc7d7a6b13f3b089
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\configuration-reference.md`
+  - Last Modified: 2025-07-19T14:08:32.131182
+  - Hash: a25b830167ec52a2f3dd380344c1cba53af70c85678224ef28f0639487282ee0
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\developer-guide.md`
+  - Last Modified: 2025-07-19T14:06:53.243079
+  - Hash: 32ac409261a02431219ee9df8d1c33a5559b1311939c85dec0244acbd8bd779f
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\monitoring-guide.md`
+  - Last Modified: 2025-07-19T14:23:17.124178
+  - Hash: e0e0aced8944a3a47af9a354f5160a57d22a448a878a118fa5b4e0bcb31d86ee
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\README.md`
+  - Last Modified: 2025-07-19T14:04:16.349651
+  - Hash: e3cb68cf8a17b6498875e45bd9946ebe2f89c481c436fc9a7d56ae3cd026f81b
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\security-guide.md`
+  - Last Modified: 2025-07-19T14:15:18.533482
+  - Hash: 134e733ba6347d5743eaa5713e7fcb9b4124a6bec41086e28da6f9ce219129c1
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\testing-guide.md`
+  - Last Modified: 2025-07-19T14:20:53.622908
+  - Hash: b46d2f60212f6f1251b2b63ccddf07921942d610697537b9191287ed815426de
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\examples\advanced-configuration.py`
+  - Last Modified: 2025-07-19T14:12:17.896186
+  - Hash: 746a0056d350d862eb242efa5fd155e1ca84b5b369f772a4c80edce8344a41d0
+  - Reason: No references, not legacy, not config
+- `.\docs\enhanced-sandbox\examples\basic-usage.py`
+  - Last Modified: 2025-07-19T14:09:40.184261
+  - Hash: 5948d5ca34b607632b360932b0c73b6298e59a1dff90969c1aa3062d74c88f1f
+  - Reason: No references, not legacy, not config
+- `.\enterprise\advanced_analytics.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: ff0255fe99a6140c0c764e3347d754e42fd4603a4d2a66a2bb88786392e99e45
+  - Reason: No references, not legacy, not config
+- `.\enterprise\ai_integration.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 6abacd831ddf36178147125d2b6e8a363010b5ade4cc9308a9e7e009fbc21dc5
+  - Reason: No references, not legacy, not config
+- `.\enterprise\api_gateway.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 104a2f39885328b87a897da4d52617e83e830317d783b8706c7fe0ba6734fb12
+  - Reason: No references, not legacy, not config
+- `.\enterprise\CLI_IMPLEMENTATION_SUMMARY.md`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 5d5bbefb5ab9e43915144054636bf8362091e5ec846ffa18be5d9f0cc75f7724
+  - Reason: No references, not legacy, not config
+- `.\enterprise\dashboard.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: bbe522de50f8d28d85b66391ddfebc7c1e9c347ed07cca2528e858bd9d5ee749
+  - Reason: No references, not legacy, not config
+- `.\enterprise\deploy_enterprise.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 920262d0ac51aa382d8e04549a73ffcde8e650850abc77f9eeb4d7faa4debe06
+  - Reason: No references, not legacy, not config
+- `.\enterprise\deploy_standalone.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 834728c4974484f0ad2ef7df46202292cd3339142a0e060e57e6dddee6ebabdf
+  - Reason: No references, not legacy, not config
+- `.\enterprise\enterprise_demo.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 8178ff982f942563e7c46e5a218146239f07dc2c9ca271199b9d24fbfe66bc71
+  - Reason: No references, not legacy, not config
+- `.\enterprise\global_scalability.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 8775074bd82d10c6a5982a81fe3c0be68d3614afc11a2e603d4a202b79e05554
+  - Reason: No references, not legacy, not config
+- `.\enterprise\heimnetz_cli.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 530857fc6a3f641bd9b47fbd7d5db52e0d35ff6cdca014194d9da2454e670dbf
+  - Reason: No references, not legacy, not config
+- `.\enterprise\heimnetz_cli_v2.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 2c38f2eb3682e3bdd5c61daac62ed310ed84d774f3a42e4aaa52b6a49b81b051
+  - Reason: No references, not legacy, not config
+- `.\enterprise\master_dashboard.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: eae1cfb282fc1f73b53db928309affb0538c5618a9f67a356bd01537e8e50c7f
+  - Reason: No references, not legacy, not config
+- `.\enterprise\resource_manager.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 89fc410946affa100cb03690e4e3b3289e125d418cceb25b366332e96ecc437f
+  - Reason: No references, not legacy, not config
+- `.\enterprise\tenant_auth.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: cd93a09f7a02b55577c173b3182760cd141383a2e694cd07912a53e6bffb4c86
+  - Reason: No references, not legacy, not config
+- `.\enterprise\tenant_manager.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 0e6f679c404f88f101ac01c8958c9c1eab96a2fff9c86718bacddb96c5802b7b
+  - Reason: No references, not legacy, not config
+- `.\enterprise\web_interface.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: a2685ef24e87cc426a7bf150eee746ebd75d1c4e6fcfef1a3620886d5facf8af
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\api_endpoints.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 956541ff0dcb127dae5c904b2ecb1d5ce092ec08d780e70260caa3816308e624
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\deploy.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 971d6fe8e370f5180cc03d3dcb16b2916329cfd43de4324c475f368c4fdf99a0
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\DEPLOYMENT_STATUS.md`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 93bbcd73fadc47a9073108a92f79f08ea4ea5ff0d1b3d8c0c0d459a0510d3e7d
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\index.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 767d02d843a7b3cafdec29d960c52a4ada4a7e7dd9c9bff807ce13099ece282c
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\monitor.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: bf1dc0614cf0b393463363a1a75d7f669fad0938a02c9a28ad9f4904d49ecc1a
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\README.md`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: c1a16fc3e84388c817af28f83552830e89eb7d5b5ab73bd365ad40983b120e27
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\router.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 3d51a75ae6446dffe3c914d1b72338fb6ee0911ae1eca4d10634e75337d1fc3b
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\service_integration.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: dec9074615f42e204e80b60a8b0734e01ff729e3c230da1034a79414a312fe99
+  - Reason: No references, not legacy, not config
+- `.\enterprise\context\protocols\schema.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 3cd22198f78c76a99006858f3255a45e3048bab6c58c3d36f527b0057d9cd8bc
+  - Reason: No references, not legacy, not config
+- `.\enterprise\tests\context\test_contextforge.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 3fee5be08f1a6de1f1d8f090d0845fad96fbe256044f2461a2dd36dff80e88bd
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\App.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 94e1a2a064a263cbb7e83a4c7bbd0fbe23bd14c449f9187ed955bd3964b4ba81
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\index.css`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 09b65360fd130cdd89ebc0862e6680895622bdbfd2feaca12457b0f606d6e622
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\index.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 7486fa6167cbc9e9dc13c749a93a59614d9f4755c1e38d0f08105596a7d149df
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\components\Analytics.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: e076e15b1eda989e7e3c8858179a849d2592957ca44ba25e886811b9fc5627a9
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\components\Dashboard.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: ead63f748518a543bfe052df7ed6eab97f4e13216c3c5226ab04b909b9f1c099
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\components\Login.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 98620f093c1e515cc9a5337620120299a2d6e0b786a6b055c8883e37da30f974
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\components\Security.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 15cd48a2ef480f79fc7024107ab22f214dd42c06d9b195c5b2f5b22df0001032
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\components\Settings.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 4ad631c3391558e704b59882cb72770420d2626c2120e63082f42152d1f8029c
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\contexts\SocketContext.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 54883a8c5a99a216ae2161ebf870f43dbb86903e00964409f90feddbc04cf57c
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\services\api.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: ce11b19f22a519c310117fd55fb2d74422b259e908d07c411109280d1ed811cc
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\store\authStore.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: e447282e39a70ee8a8344b3be8e83d711c0874d095464e6b271dfa44654d16d3
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\store\themeStore.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 39c9ca830977cb04a86574f16c1ef669c8de806f1aeb3a80004a98945b2a2816
+  - Reason: No references, not legacy, not config
+- `.\frontend\src\utils\formatters.js`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: b9d488192c8dd2f916b6c30232b60c6b63477c0872f0fd351572866c6fb1a5d8
+  - Reason: No references, not legacy, not config
+- `.\gate6_dashboard\comprehensive_progress_report.md`
+  - Last Modified: 2025-07-18T12:05:51.555883
+  - Hash: de6f146155a730d3f0a4419f6dd87dac287c6ced868a2c610335e3b570ca805b
+  - Reason: No references, not legacy, not config
+- `.\gate6_preparation\gate6_checklist.md`
+  - Last Modified: 2025-07-18T12:00:57.136061
+  - Hash: 1c44d6ce9c18f1d058cae1268afc3da0db1e5eef171cf09529ed821675983693
+  - Reason: No references, not legacy, not config
+- `.\generated_plugins\example_plugin_skeleton\CHANGELOG.md`
+  - Last Modified: 2025-07-18T19:53:29.439242
+  - Hash: 97615a8362f16d388909a4afa27157e507499fe57a5885b2ad44a1e18170e96d
+  - Reason: No references, not legacy, not config
+- `.\generated_plugins\example_plugin_skeleton\main.py`
+  - Last Modified: 2025-07-18T19:53:29.433243
+  - Hash: 5593986cee220373b38679bea292f0871756f453b7c4ec69e84e8e7405062e23
+  - Reason: No references, not legacy, not config
+- `.\generated_plugins\example_plugin_skeleton\README.md`
+  - Last Modified: 2025-07-18T19:53:29.435243
+  - Hash: 53fdbfed0247940369b0254ecfc1cd5cda4474cc921749b36480e76a8ae2d376
+  - Reason: No references, not legacy, not config
+- `.\generated_plugins\example_plugin_skeleton\tests\test_main.py`
+  - Last Modified: 2025-07-18T19:53:29.438243
+  - Hash: ba20fcfa939b1cc4b11c5eb1ce0dbc64f2542068735c963fe3e937273c8806d4
+  - Reason: No references, not legacy, not config
+- `.\integration\RLVR_NoxPanel_Gate5_Integration_Report.md`
+  - Last Modified: 2025-07-18T11:44:15.770418
+  - Hash: a070514cf91d36302bb090e8e8ec65258fc48e464bfe970ed74ee25cc073a984
+  - Reason: No references, not legacy, not config
+- `.\integration\Unified_System_Status_Report.md`
+  - Last Modified: 2025-07-18T11:46:05.523504
+  - Hash: 19fe70775b05a66e63278024681013ea932d3155861887acee1c3708a3bd9492
+  - Reason: No references, not legacy, not config
+- `.\integration\ai_bridge\rlvr_noxpanel_ai_bridge.py`
+  - Last Modified: 2025-07-18T13:14:53.776328
+  - Hash: 954447b2d79ae4302633dedd4146c7255bc0d734ca4772e5831fcee1d9c0369d
+  - Reason: No references, not legacy, not config
+- `.\integration\monitoring\integrated_dashboard.py`
+  - Last Modified: 2025-07-18T12:48:07.966655
+  - Hash: 43ccbb0d949e3134f888649b3b5ffc0a1ca9b978b4de5d3453208e1c5f6c20cc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\__init__.py`
+  - Last Modified: 2025-07-20T01:22:55.975500
+  - Hash: cd043b35af185a2d0837ce8850a1330c026dc95a577495d80e4439dfa71a5224
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\__main__.py`
+  - Last Modified: 2025-07-20T01:22:55.976506
+  - Hash: 5b36e11d74db484ea0058d7d98d37d9b8b39a3fdfae4b3af4d84a0aa06dd0611
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\__pip-runner__.py`
+  - Last Modified: 2025-07-20T01:22:55.977507
+  - Hash: 24ea04653c2bb6fee345a5c1920490280134e323727c59861f1aa91e2187bcbd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\build_env.py`
+  - Last Modified: 2025-07-20T01:22:55.992044
+  - Hash: eb4fdeb292c8f57dc2d9d6f75b0da021cca3364d9c00f35c73982c54ee033aa8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cache.py`
+  - Last Modified: 2025-07-20T01:22:55.994034
+  - Hash: 4a38492b50ba35ba27ad4e00c985ca4ce1f40863a4e5c26b62deb499100d9cf3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\configuration.py`
+  - Last Modified: 2025-07-20T01:22:55.995541
+  - Hash: f8a3a893a8e1de11735cc3d014f275fc416306902c81ef914ab790b8b1cb9b3a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\exceptions.py`
+  - Last Modified: 2025-07-20T01:22:55.996548
+  - Hash: c29135d47d1ee0bf46e801fbd2c446d78f73f365fbc17e77d072bef5e03f0c84
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\main.py`
+  - Last Modified: 2025-07-20T01:22:55.998553
+  - Hash: afe52751ef072e8e57149cfc8a74dc38e4e2bbfb313618076fa57094652594e2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\pyproject.py`
+  - Last Modified: 2025-07-20T01:22:56.000556
+  - Hash: 18b27aad6452e7fda7a0a75a8e88682f20edcb9ed9ed05e17140188219939d67
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\self_outdated_check.py`
+  - Last Modified: 2025-07-20T01:22:56.012070
+  - Hash: d4f16db6dbcb01ec82551ded3e806adac3a53c3d0827e292a94e9b7351d493d7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\wheel_builder.py`
+  - Last Modified: 2025-07-20T01:22:56.013070
+  - Hash: 67967600d0036ca7521d8f411eac3dcc6e7ed40c6cb4ee9833a9bdc8b59eed5c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\__init__.py`
+  - Last Modified: 2025-07-20T01:22:55.981512
+  - Hash: 31f7283a5b8367c40c08561a974e08a8e27daba9b657b6b468eb2723e58ec54a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\autocompletion.py`
+  - Last Modified: 2025-07-20T01:22:56.031108
+  - Hash: 7ecd16cb5e866b9b57d4864abf0c390438bb8b9cf2cdf08fbeeedc8179605f2b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\base_command.py`
+  - Last Modified: 2025-07-20T01:22:56.032109
+  - Hash: d00f18b895498766325d4f29756d1e89d2e0d5e925096e5c534d66a48f850310
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\cmdoptions.py`
+  - Last Modified: 2025-07-20T01:22:56.034108
+  - Hash: fbf57882331ad1cdd4f3ebd7280c9be71555889373140c41237671ffa0ece7e8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\command_context.py`
+  - Last Modified: 2025-07-20T01:22:56.034108
+  - Hash: 4478083f0b4e6e1e4a84cadddd8653925f336d51bee8e92697b61b157e04860d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\index_command.py`
+  - Last Modified: 2025-07-20T01:22:56.035613
+  - Hash: 929964bac520099cbbe63342a3e7ad6839921bc52fa9c4765b9d002c3766e9d9
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\main.py`
+  - Last Modified: 2025-07-20T01:22:56.037626
+  - Hash: d5b5c2eee2f7b5d6ff11994654ab3afd38330bdb65294ef384066c6d903e2336
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\main_parser.py`
+  - Last Modified: 2025-07-20T01:22:56.039627
+  - Hash: 72166a3660ae3bf258b7cca7042ba687872b511691a17059d11c68498408c02c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\parser.py`
+  - Last Modified: 2025-07-20T01:22:56.054143
+  - Hash: 54232d76ecc409457ceca68736efb127ec0b34bf36c93df1d7a5785c1c4e02a2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\progress_bars.py`
+  - Last Modified: 2025-07-20T01:22:56.055649
+  - Hash: afd043e13dbe7a07089c1d5487d263c3710ff45dc8372e646611b049e3e6f63a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\req_command.py`
+  - Last Modified: 2025-07-20T01:22:56.056656
+  - Hash: d727ecb01be750a35eafc0fb893dce1ea74924d742a918700ea5055a089ea699
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\spinners.py`
+  - Last Modified: 2025-07-20T01:22:56.058660
+  - Hash: 84827cdc67ab74580509da1b200db726081eb5e825fee0b84a9e7cea7cc56cf1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\status_codes.py`
+  - Last Modified: 2025-07-20T01:22:56.059660
+  - Hash: b0414751a5096eabfc880acbdc702d733b5666618e157d358537ac4b2b43121d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\cli\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.030108
+  - Hash: 22a83fb4a03bef55ee30ed4fe2dfec0c79d228fce451bf43d03aae9c09b0fe4a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\cache.py`
+  - Last Modified: 2025-07-20T01:22:56.062661
+  - Hash: 20e7b34e27078c6139b16741c769f03d581b8ee247337b3e059124a592de9ae6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\check.py`
+  - Last Modified: 2025-07-20T01:22:56.064663
+  - Hash: 1ebff87a231df5c8150e012f8ed21dc3dd793662fb44e2165bc7a792bf2c94f4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\completion.py`
+  - Last Modified: 2025-07-20T01:22:56.067177
+  - Hash: 5bd4054133cb8f2dad3c0089ff2de0f44801d696ec87ba6f0945fca1cb8874f8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\configuration.py`
+  - Last Modified: 2025-07-20T01:22:56.069183
+  - Hash: 9fdf1e9f0a7acb46f91ba7e24508da668e3716524a62f7bf75a32137ee0144d7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\download.py`
+  - Last Modified: 2025-07-20T01:22:56.073181
+  - Hash: d2a0749f2b3a6443eca20e39d650ec8cbe41c7b67deedf81f34a0564a869cca3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\freeze.py`
+  - Last Modified: 2025-07-20T01:22:56.074183
+  - Hash: 616f9a326033cce681596a1ba3d8380cf2ae5a9d1d4c2df695632a5f32852f31
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\hash.py`
+  - Last Modified: 2025-07-20T01:22:56.075689
+  - Hash: 11554ebaf1ada0f11d162f1236799daa5090ae10b157e909b1dc2d75c0a75c64
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\help.py`
+  - Last Modified: 2025-07-20T01:22:56.077700
+  - Hash: 81c73a40391c80730eb809f9531699c004adb1106b9c64a7ff2c634b9ec92283
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\index.py`
+  - Last Modified: 2025-07-20T01:22:56.078700
+  - Hash: f14b9c155c31e8598cf1c35b68f63c888e6465d5777fa8e1a836be4bc6868298
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\inspect.py`
+  - Last Modified: 2025-07-20T01:22:56.079702
+  - Hash: 3c6ad8f53453442337cb9325f01764f0310e5eab9645fb1caf80d1a352ce4cf7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\install.py`
+  - Last Modified: 2025-07-20T01:22:56.082700
+  - Hash: 491b222e979a77b03c6cb77132ac53009337b14147b6037dce0053f7c510cf91
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\list.py`
+  - Last Modified: 2025-07-20T01:22:56.083700
+  - Hash: 470b5ff01d1dd3e5ab90ced0b2fe35f9d5a0f08febf412ee655df4c125a7ce05
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\lock.py`
+  - Last Modified: 2025-07-20T01:22:56.084700
+  - Hash: 6d462baf229aefaf545cceb58a6a23a1e55581cff56472bef5ad212099a69428
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\search.py`
+  - Last Modified: 2025-07-20T01:22:56.086209
+  - Hash: 22b7efc5c4424a8658f40e57025085d70b65ff2d873dc5ec950747723cf030d9
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\show.py`
+  - Last Modified: 2025-07-20T01:22:56.088221
+  - Hash: 621e6b198851d88a394e42f47c508c584d55aaa338c613c78e16dd4b742011a7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\uninstall.py`
+  - Last Modified: 2025-07-20T01:22:56.089221
+  - Hash: ee9391ede9caefa8229b2c506f3c5c1b53acc8b5cbdc3bd7f77f7198cf05bed8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.091222
+  - Hash: 3447da545e1fe355413529fddd12fc8247c210399d1a16cff71bbf744e9c7549
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\commands\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.061660
+  - Hash: df8d392b216fe25d2bbb1785ebda28b056a7c4d41c0bf7c7046bfb469b743d78
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\distributions\base.py`
+  - Last Modified: 2025-07-20T01:22:56.094221
+  - Hash: 41e07daaf2970c88cb74f0431397cc8297c6a8c302afe828be7ba84271ae885f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\distributions\installed.py`
+  - Last Modified: 2025-07-20T01:22:56.096735
+  - Hash: 4229c715b58043ca04d296c3f0c1595a4c259df5354184dc700d6f9e1ae560e5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\distributions\sdist.py`
+  - Last Modified: 2025-07-20T01:22:56.097740
+  - Hash: 3e570fe1aebe47a73df179ce33e6fa2e46f7aecbe1f621b8a24f2c85a6a7af3b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\distributions\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.099741
+  - Hash: 4c70587e7bfb555b7c99884c614b47d774b513b143c2d0f20df994725f1a8b41
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\distributions\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.094221
+  - Hash: 1eaea4b7a8170608cd8ade614d358b03378234e2a807e374a46612a9e86b962f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\index\collector.py`
+  - Last Modified: 2025-07-20T01:22:56.102741
+  - Hash: 45d3ced092c0966c8158f0166073f24681a3cf718d01e4e78023646c67b2fe61
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\index\package_finder.py`
+  - Last Modified: 2025-07-20T01:22:56.104740
+  - Hash: 468851cf32c4c685e5ed00dd4e2ab2c4869011c1d49fa50d3abf4acc2d6f8cbd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\index\sources.py`
+  - Last Modified: 2025-07-20T01:22:56.107252
+  - Hash: 94f04b2b95e2cbc43a210322a36e9697ba1c7d938a9201a494804dc94276ddf2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\index\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.101741
+  - Hash: b73c0c1ff7e141eb9bc0ca877528af6ac83571181349b360d8288c567ccc9b25
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\locations\base.py`
+  - Last Modified: 2025-07-20T01:22:56.113258
+  - Hash: 45088f8b5778155336071934e1d4215d9d8faa47a58c42f67d967d498a8843bf
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\locations\_distutils.py`
+  - Last Modified: 2025-07-20T01:22:56.111259
+  - Hash: c7a9f254b8fb5f5d58e2484875ffa6165c4c97615669db5512079bf2ea5cfd62
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\locations\_sysconfig.py`
+  - Last Modified: 2025-07-20T01:22:56.112258
+  - Hash: 206cddb3ad2ab059de468802fa8781698edb121de53edfefe3b90c2428505ec5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\locations\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.109258
+  - Hash: bef4cc3718214f46845eb49daa936db910c6c74f1bcc9c5f0c05147d0d156f40
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\base.py`
+  - Last Modified: 2025-07-20T01:22:56.119777
+  - Hash: 8c26f374873c3205a73d1e2b7ebbd2421495cd2a0ec8a397863df17bc0681bc7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\pkg_resources.py`
+  - Last Modified: 2025-07-20T01:22:56.121776
+  - Hash: 534ec44c020d4867924417d6506f77138b5965b696fdfecf1b312a64dd21ba57
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\_json.py`
+  - Last Modified: 2025-07-20T01:22:56.117777
+  - Hash: 7b3ac861acc708834cd90524d5e03dc0400c8f769e19678356019a9605332a97
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.115764
+  - Hash: 9c65ae66f8d09481ee765333ffe6ec52cd8b0c0d9928d3c67af66810671deb86
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\importlib\_compat.py`
+  - Last Modified: 2025-07-20T01:22:56.123779
+  - Hash: 73a6aff2c3fc0418c066e152268c358967f28145cd337c514c29f99eac3a07d3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\importlib\_dists.py`
+  - Last Modified: 2025-07-20T01:22:56.125776
+  - Hash: 7ed9988b27d41942239d5c2de96f888ec8a6cb9736f0a8265e5cb9439210d8fe
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\importlib\_envs.py`
+  - Last Modified: 2025-07-20T01:22:56.127289
+  - Hash: 5fadc291d00f24260f85e7d848b890ccf7fd8a33179b99cbfc0fd9ebcca9dbec
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\metadata\importlib\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.122776
+  - Hash: 8d4522768c671dc7c84c71da0161b51b68b97dd058925bffb89723a36c7b5581
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\candidate.py`
+  - Last Modified: 2025-07-20T01:22:56.131297
+  - Hash: cf380546ec3f9163e32a91b0ecb0b4654303d8243611b7ab50862cf22ce37420
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\direct_url.py`
+  - Last Modified: 2025-07-20T01:22:56.133294
+  - Hash: 949d5f2154e0939506e52cd3351d05a604860108c28651fede8b60884240848b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\format_control.py`
+  - Last Modified: 2025-07-20T01:22:56.134293
+  - Hash: c2db10a922bd1da522371404b81f82eb67958a6c3a1b8fd5405c55f7efca0c11
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\index.py`
+  - Last Modified: 2025-07-20T01:22:56.135798
+  - Hash: b589cbf28c468b8692356babd261bc0c03fbac2eb2ba16bf33024ef31c3472b2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\installation_report.py`
+  - Last Modified: 2025-07-20T01:22:56.137812
+  - Hash: cd1559a1acfedafb2b7b38ff1f784b3a131908af5ced36f35a00be8ce6a50f4d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\link.py`
+  - Last Modified: 2025-07-20T01:22:56.138810
+  - Hash: c08020c618aed39c9c2e16ed0226e49d75f92fa5fd8eefcf3cb56731cbe1f41e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\pylock.py`
+  - Last Modified: 2025-07-20T01:22:56.140811
+  - Hash: 9f7f88dba6dfdaff8a9faa9cc7801307f65e97648b85a5316419ac31e1a0600a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\scheme.py`
+  - Last Modified: 2025-07-20T01:22:56.142812
+  - Hash: 3da9261c93377bc38e592645b5fcf5033edfd6678e3499e41ae431165b77c011
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\search_scope.py`
+  - Last Modified: 2025-07-20T01:22:56.143811
+  - Hash: ebb3449ec618f38efce12f8c33b7a442ea3d2972c7fbb333167b578daa6f028d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\selection_prefs.py`
+  - Last Modified: 2025-07-20T01:22:56.146318
+  - Hash: a9a15f0ecddc8aaa173e0eb1c78e4dd633cba9c70b270e0dd2ce0fd0fc874d0f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\target_python.py`
+  - Last Modified: 2025-07-20T01:22:56.150329
+  - Hash: d97687dab679645f8ae707096c4306125ed2aab4d3a030cd92bb50daffefffe4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.152330
+  - Hash: d743544d72118dfd8ff287b55b3a25bfca14bfbf98babace76e54550868385d3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\models\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.129295
+  - Hash: 023982101c57fcc1fd7ff8d58c818d08524a60261e4847b5f32caf371e2e44a4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\auth.py`
+  - Last Modified: 2025-07-20T01:22:56.155834
+  - Hash: 0f88004a352baa80c5952b7a810efaeca0008efe8f532254d29b839615cd5511
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\cache.py`
+  - Last Modified: 2025-07-20T01:22:56.156841
+  - Hash: 246613f8151a48c744070208fcad5413aab2048b73ee1cc69322e5fc94739016
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\download.py`
+  - Last Modified: 2025-07-20T01:22:56.158849
+  - Hash: e88759ca8111588b175c55052ff87f7bfc62f19d06d1496992874fcbca8abf65
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\lazy_wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.160846
+  - Hash: 3c176832835040803ce058609dedfc8d6179d96e31fcab6c1e3c60bf876444a0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\session.py`
+  - Last Modified: 2025-07-20T01:22:56.162846
+  - Hash: 9ac3387acd7a2e698d118364ad8ca0f1f4dcee00076ca165b5ac1f28fdbb2ce2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\utils.py`
+  - Last Modified: 2025-07-20T01:22:56.163847
+  - Hash: 2276b17a5f8dc41bb83d05a48f212b7677dec2c1427201e987b773475f856e86
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\xmlrpc.py`
+  - Last Modified: 2025-07-20T01:22:56.166359
+  - Hash: 8d6f680d259a98c95dde264e3bd45ba27542f194ad907ca9a42b33a1ebe4b898
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\network\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.154330
+  - Hash: 14ccb4e8ffffcba8cc8d473ccf765c41d285fa9999db3335e3fbc17873c68542
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\check.py`
+  - Last Modified: 2025-07-20T01:22:56.169365
+  - Hash: e1c9c3ff67a096c0dee6cd82a189310ede077118ad4f2c332cc7d367eb464385
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\freeze.py`
+  - Last Modified: 2025-07-20T01:22:56.170366
+  - Hash: d7f33bf630102a70b15abf8a082987b955ce54519a5091e6a162df173821ecae
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\prepare.py`
+  - Last Modified: 2025-07-20T01:22:56.173366
+  - Hash: fa2f5d630c0926337b87ab194da6dccfce2d8b3827ec402c634b079cb01fb374
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\install\editable_legacy.py`
+  - Last Modified: 2025-07-20T01:22:56.192408
+  - Hash: 4c8eb04fcb0ba834e9ad664b60438139eedaebed41f6ec0a6fb9130712c86966
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\install\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.194408
+  - Hash: e0d61243dca997af6289dba1e6050f08add6358aa8b931d9d2b317a15824899c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\operations\install\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.191408
+  - Hash: 6a4f941137103ca94565a5a860a5aee505576e9141be0d2c5dcde2d0ee2f4986
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\constructors.py`
+  - Last Modified: 2025-07-20T01:22:56.210958
+  - Hash: bf5ab308dd66225770c7e9c2acf73c24ee25c649b716ff0ce515afb7c2c84a37
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\req_dependency_group.py`
+  - Last Modified: 2025-07-20T01:22:56.213960
+  - Hash: e4f1ae66276ac037931d990fe2d9cdae53eb6ac7ef24138d7750794b4d78eb3b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\req_file.py`
+  - Last Modified: 2025-07-20T01:22:56.215468
+  - Hash: 7b2b3cd8c72068808e1a27365194478c3ef6d2988a24fc2679261d5e55b097ac
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\req_install.py`
+  - Last Modified: 2025-07-20T01:22:56.217475
+  - Hash: 80ca056a4f73ae18c794768e4313c585e1cab48a1ba69160ab55ab29e97f9d31
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\req_set.py`
+  - Last Modified: 2025-07-20T01:22:56.218481
+  - Hash: 8f77ac1b4b3a4b3a1545e5fdad69f8ae960db72113fdfc316f024f4629af471a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\req_uninstall.py`
+  - Last Modified: 2025-07-20T01:22:56.220481
+  - Hash: 3d0e92ca8703c9c518b0b02c4e98e46ddc0efea8dda3ecbc06f41f67902f76bc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\req\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.208959
+  - Hash: 757d901a57c3c04a84e692e339e33e7f6a84817167e9fd95762ff3207018cb59
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\base.py`
+  - Last Modified: 2025-07-20T01:22:56.224482
+  - Hash: aa59a1df6e520557ef1ba31ef6073936c879b1dc07070cc706ae9a117b4ab0b0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\legacy\resolver.py`
+  - Last Modified: 2025-07-20T01:22:56.228007
+  - Hash: dc766224145dd454cdea3429238a913bcf936cb61e21b5134ba3c5bd79d7b36c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\base.py`
+  - Last Modified: 2025-07-20T01:22:56.232007
+  - Hash: 0c27faebd16cab2418e6ea9779e3c31d06357b840efa9073587f0ed2cf7e2bde
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py`
+  - Last Modified: 2025-07-20T01:22:56.234010
+  - Hash: 537429f378e133f46226f8b2ae53c28a36e9b3ac183ba56c4c36939c27ff077a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\factory.py`
+  - Last Modified: 2025-07-20T01:22:56.244531
+  - Hash: 142bc773d33c509ffb894eb742d3e21eeabf0667dd9c188c27c59a0c124d1719
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\found_candidates.py`
+  - Last Modified: 2025-07-20T01:22:56.261587
+  - Hash: ea5005fe92d0dbf674081387205c46a7a35fbd3d6ec08a42ba2e9ef86808e6d9
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\provider.py`
+  - Last Modified: 2025-07-20T01:22:56.262588
+  - Hash: f29b5838e8df6b7dfa0f8159ef9d444074742c3abc8c98481895c3a2ef02bfc6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\reporter.py`
+  - Last Modified: 2025-07-20T01:22:56.264589
+  - Hash: 1302401ce8d667c7931d05acb3bcc98e64048faa283faa164b0c155c5b60a6a4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\requirements.py`
+  - Last Modified: 2025-07-20T01:22:56.266093
+  - Hash: ec91b867bd9ee58938bd4d12e6e946bdba93cb814c406621639cd0857f734ed6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\resolver.py`
+  - Last Modified: 2025-07-20T01:22:56.269108
+  - Hash: f73711e1ced4655d63d882d399bebc0a4ff91ddbd0bdfe1c993044d9b58790a8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\appdirs.py`
+  - Last Modified: 2025-07-20T01:22:56.278630
+  - Hash: ceb2084829f6431957630fb32596414eb14d4f2cbfd1634a888f933a837ac09a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\compat.py`
+  - Last Modified: 2025-07-20T01:22:56.279630
+  - Hash: 724905bde0626108d15a390db1a8edfe858f4b9eed26f13c5f1a02e0e2188026
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\compatibility_tags.py`
+  - Last Modified: 2025-07-20T01:22:56.281635
+  - Hash: ab95bb22b365a82e647b402a5911ba697e698a68aa87efb1b8f08237008a3ec5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\datetime.py`
+  - Last Modified: 2025-07-20T01:22:56.283632
+  - Hash: 1addbd325e13a0f48cf3c8f9e22bb8dd62adad4f40fa6a0fe1098c8a2ab379d5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\deprecation.py`
+  - Last Modified: 2025-07-20T01:22:56.284630
+  - Hash: 93b420fd404069a4ddcaaf3661501103a0fb4667064d71afedf9df7208a08f84
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\direct_url_helpers.py`
+  - Last Modified: 2025-07-20T01:22:56.286140
+  - Hash: af6311b64543002bfd006a983830540bd0a3c20b6c514d6cebc86681f08932d0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\egg_link.py`
+  - Last Modified: 2025-07-20T01:22:56.288158
+  - Hash: d0578f6685182afe11190dadeb1ef0e59e36ef06c0fd4a375999c092b82cbaaa
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\entrypoints.py`
+  - Last Modified: 2025-07-20T01:22:56.289158
+  - Hash: e0285e67cd4e04f3cb6f71a7f97fd610fb6595489ba700d5ce5550e11161ecf3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\filesystem.py`
+  - Last Modified: 2025-07-20T01:22:56.291157
+  - Hash: 6a3bc0faae28725896f643e9f18aae87ee2fb2c5dbbbe50a6e8e4557d5785fae
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\filetypes.py`
+  - Last Modified: 2025-07-20T01:22:56.292156
+  - Hash: 3823f3531ab701aea4ffde4c888f0362090eceeb53b38edf03ebfebd8509a7d1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\glibc.py`
+  - Last Modified: 2025-07-20T01:22:56.294158
+  - Hash: bd4916abfd6926ecdc60d70628b9509800685228ac2bc9e8618d7273c5aae30e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\hashes.py`
+  - Last Modified: 2025-07-20T01:22:56.295664
+  - Hash: 5c618b2f4006f3e4615a7cb3f3bc45e8c159fbe04a69d1d4df90f8ede02908a2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\misc.py`
+  - Last Modified: 2025-07-20T01:22:56.298678
+  - Hash: 0d69d8c41508b63469ee1871120e2287a3fa6292abca433ce9d6e2fc4714f124
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\packaging.py`
+  - Last Modified: 2025-07-20T01:22:56.299676
+  - Hash: 0a324ea8b344356f94f3ca233a59552f8d1fd5a6f65b6066dca1c26afc0d35fc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\retry.py`
+  - Last Modified: 2025-07-20T01:22:56.301677
+  - Hash: 9a115bca45e38539d97e0cdebb2faf97d73c9c40a7627fc232dc0d257dad6334
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\setuptools_build.py`
+  - Last Modified: 2025-07-20T01:22:56.302675
+  - Hash: 27d13245a9ed560bb857ec52fea7d0cb699c3cb55433b03edb6ed074a1946420
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\subprocess.py`
+  - Last Modified: 2025-07-20T01:22:56.304677
+  - Hash: 12cbea49189230717df13f13c66bba34b53753ef8ca534d08ed36028fd0ffbe3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\unpacking.py`
+  - Last Modified: 2025-07-20T01:22:56.307703
+  - Hash: e320aa951008db3c65e6d7f19672e858b35c127fa4d5cdef69eb7fa1a278da22
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\urls.py`
+  - Last Modified: 2025-07-20T01:22:56.309704
+  - Hash: a9c7923996f995b343ac736cbfbfd2e0be18b6cce36b93703ca50c9d91db6273
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\virtualenv.py`
+  - Last Modified: 2025-07-20T01:22:56.311885
+  - Hash: 4ba7fb72c628ad1a620fa72f9f78c849961cdc8f0f242e371f988c1694401035
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.313482
+  - Hash: 30739b627e9ded5c992f5d22f96d71a09676853e7ec01d5690823bd00b18504f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\utils\_jaraco_text.py`
+  - Last Modified: 2025-07-20T01:22:56.276624
+  - Hash: 335e6e50f221e4da4fd6d754181c516aeeaad59004b48f3e5f22c4113b1c15f1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\bazaar.py`
+  - Last Modified: 2025-07-20T01:22:56.317714
+  - Hash: 10a4ad71068aa4dbb434ae29e50d7439ce316f70d4c45c34db85eb272e346c54
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\git.py`
+  - Last Modified: 2025-07-20T01:22:56.319349
+  - Hash: dca2cfacab032fdc597219b3e07d4e6e8f1f336161f0286b86d0c75a36e48fe2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\mercurial.py`
+  - Last Modified: 2025-07-20T01:22:56.320939
+  - Hash: a142ce8732765227bed3a775a2690bfbf19cea6786694932a20bea1bd642c8fb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\subversion.py`
+  - Last Modified: 2025-07-20T01:22:56.323041
+  - Hash: 75d4ee80706a1f357779b2a55394171cf378814aa5c976cec7cabc3605cabecf
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\versioncontrol.py`
+  - Last Modified: 2025-07-20T01:22:56.324735
+  - Hash: 72f7fffa19d302340b5c9dddd7b14c36141f70ed4070a594175d2d7eb6323fe7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_internal\vcs\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.316112
+  - Hash: 500aafce96e2d156d9a3751beac904799030fa8a08651fb35ff5a909bc720a85
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\typing_extensions.py`
+  - Last Modified: 2025-07-20T01:22:56.329998
+  - Hash: 8a928750fb590aa2fa73e1dfbc697ef6dd28a6c5dc48bef6cb81988f2257b3f8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.327367
+  - Hash: 5b3bac3d319620c790416495274876ada7c69154daf56289d874fedbe12866b5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\adapter.py`
+  - Last Modified: 2025-07-20T01:22:56.336493
+  - Hash: f32eab4cf5cecd51e60ca096e4247db22bcb56e0eff9ca5d19c65875158d68fc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\cache.py`
+  - Last Modified: 2025-07-20T01:22:56.337557
+  - Hash: 397c2fec59f60309ca3626a12479e3b6f68a2e776f54bbfffb33be96d955f6a2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\controller.py`
+  - Last Modified: 2025-07-20T01:22:56.339151
+  - Hash: 731d0797cc4b66052e5eecbbf068a1f406230adaaeae6623549c72038c96b7bc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\filewrapper.py`
+  - Last Modified: 2025-07-20T01:22:56.340201
+  - Hash: da4b5734f1342aa9f2cc5db868eb0a080e7c1d0ab5c5e0ba97683aff3c238217
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\heuristics.py`
+  - Last Modified: 2025-07-20T01:22:56.341746
+  - Hash: 82a31753cc34810b8442249dbb7620fb4bddf645bb9eb58a6cb71aef9ae17861
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\serialize.py`
+  - Last Modified: 2025-07-20T01:22:56.343256
+  - Hash: 1d0776225950d391f33e454b3174c5dae5f99a31108c3064c42a94254383a599
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\wrapper.py`
+  - Last Modified: 2025-07-20T01:22:56.345777
+  - Hash: 86c19cee0f101904d3fb87fcb60cf700ce6ac12720e853b405274b491744be95
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\_cmd.py`
+  - Last Modified: 2025-07-20T01:22:56.335440
+  - Hash: 8a2b2dd84a7326f0d5221300c57abc8859d306c89901dea2a65c5f98d6e83729
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.333871
+  - Hash: c7d79c5248b036f0067c4de0d1e691c7756b2599d958096e0362d172f69bdc74
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\caches\file_cache.py`
+  - Last Modified: 2025-07-20T01:22:56.429416
+  - Hash: 77cba9166cbfcf06829a56d61150652d715d76df19c3c739485a7178e66c75fc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\caches\redis_cache.py`
+  - Last Modified: 2025-07-20T01:22:56.430418
+  - Hash: f6b9aac2d62efe58d5916ebfa0ba9b0bb11a5ff6bc613ff22ee9daf9e4b4760a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\cachecontrol\caches\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.407822
+  - Hash: 76daebae82b90670034751968c2675f5a674b45b0c7ef141b4b410535b29fda8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\certifi\core.py`
+  - Last Modified: 2025-07-20T01:22:56.438937
+  - Hash: d92453e6b21c4028450db7b7ec141afa450bc40809f2a37a9758dfa93a781c8b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\certifi\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.433418
+  - Hash: 9de21a01fec1337eb28264029b2f99b12ca39ef8d682115ebb5df0c040278e3d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\certifi\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.434418
+  - Hash: d64dc2afde6f0b1c464460e58eb5b7c0c76965d2f73617f4bb59fe936a9db026
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\_implementation.py`
+  - Last Modified: 2025-07-20T01:22:56.443442
+  - Hash: 1aa6f60e54042d16a478794a7fa42d4125b433e6dc1289b11f0e09b2f203d65b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\_lint_dependency_groups.py`
+  - Last Modified: 2025-07-20T01:22:56.444448
+  - Hash: ca9f830ea297b5b9034cd6b489f6be166380f2b6b6e253d91177ed5be47902e2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\_pip_wrapper.py`
+  - Last Modified: 2025-07-20T01:22:56.445955
+  - Hash: 9ee556ff0fe7b55c69136e842c4be780c634374e2c14bb228d747265944e146f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\_toml_compat.py`
+  - Last Modified: 2025-07-20T01:22:56.446961
+  - Hash: 0479d79c569c9b70dea25b00df91a323aaa40c0a6fb9afb5176d24bf705f6561
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.440939
+  - Hash: 0b7385bb4346c03cd0e0b3a69923853ec452be46c19fe99d7788ffe58a89c3eb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\dependency_groups\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.441936
+  - Hash: 50d4ccecfe667d5b53ef00e2f643935d6815ddfbb77bc6d3aedd50a758ef8caa
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\compat.py`
+  - Last Modified: 2025-07-20T01:22:56.480091
+  - Hash: da34528d1238a3ebe55de4cad8108621486473a7bd646852b1a711339a2c793c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\database.py`
+  - Last Modified: 2025-07-20T01:22:56.483092
+  - Hash: 987cbf2f189722c21545bf93d3e89d06b54bc3715f8a3e6d7870a96e3989f585
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\index.py`
+  - Last Modified: 2025-07-20T01:22:56.484092
+  - Hash: 9536f0dbaf2b4618fc770d6c89bdd567fd048521a0a093b714a27348530e69e0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\locators.py`
+  - Last Modified: 2025-07-20T01:22:56.486610
+  - Hash: a0178066916e3d0498d3d3203672df4061805d7bd53bde8116967228cb8ae2d3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\manifest.py`
+  - Last Modified: 2025-07-20T01:22:56.488616
+  - Hash: dea7e6026570c51a94d68db70257d7ad0199ce1ea0fc61b34c03ff1dbf42e734
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\markers.py`
+  - Last Modified: 2025-07-20T01:22:56.490616
+  - Hash: 5fab03be41467184bc8145bc85fb16b8a10a02a85064027b89738c2f14588d89
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\metadata.py`
+  - Last Modified: 2025-07-20T01:22:56.492616
+  - Hash: ce2977b20d8451f2d75628258d8d9dff4dc826df894acee75feef77c408c5f6b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\resources.py`
+  - Last Modified: 2025-07-20T01:22:56.494616
+  - Hash: 2f06cf92c73403524c6e2e979ee3dd301527f375fb04fb85356a8f184288ebdf
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\scripts.py`
+  - Last Modified: 2025-07-20T01:22:56.497128
+  - Hash: 04996268301969507b580930a24802dc75f02c3da25a21da548e741fb0ba786f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\util.py`
+  - Last Modified: 2025-07-20T01:22:56.511217
+  - Hash: bcc3c6bec4b88fd845e98f64dd3ca89b569a1cb6f4ac5999004cb378075e97dc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\version.py`
+  - Last Modified: 2025-07-20T01:22:56.512219
+  - Hash: b39548b3cc019f47f1cc6c5633f680d99672c79db91dc65b32f713953c99dd18
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\wheel.py`
+  - Last Modified: 2025-07-20T01:22:56.523739
+  - Hash: 0c521582e1101c27719d27403b475f16c80c72f5598ad83b6c23ae2f067b03fb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distlib\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.478091
+  - Hash: 75cc2060660642a0046b00573c3b48c7cd033bfddc3a616ff074dcf093339274
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distro\distro.py`
+  - Last Modified: 2025-07-20T01:22:56.529259
+  - Hash: 5ea6de7da7008434f8cebfedae76c0d79798f2f74ae064e08609af506ac433fe
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distro\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.526245
+  - Hash: d9f1e317e49f80fbe3c8d67588787fc23a96751fd8a393831f0642d232c13e17
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\distro\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.528258
+  - Hash: 6eef5ddd389fa0a72264572a441bb2815dc64ae4e19d50ff9b620ae1ccfde95b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\codec.py`
+  - Last Modified: 2025-07-20T01:22:56.592397
+  - Hash: 3c47b0dc8b70ce35b887299b6ac9edcb6376397bcd7201c1f898eb06ec473d86
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\compat.py`
+  - Last Modified: 2025-07-20T01:22:56.594396
+  - Hash: 4732f2e90402765f7bf3868585bd845fd10a1822638343f73e294675e5d7731f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\core.py`
+  - Last Modified: 2025-07-20T01:22:56.595395
+  - Hash: 60963200c9f089010f8d50b8f85aaefe9e0227ac8a2ae0c69a9a41350350a45b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\idnadata.py`
+  - Last Modified: 2025-07-20T01:22:56.623459
+  - Hash: 5b7d067081afb4e598c008d98f8663ba8b94bad0ba7df80dbb28c9cbb7d9fa5a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\intranges.py`
+  - Last Modified: 2025-07-20T01:22:56.624460
+  - Hash: 6a652d91d8587101bc66bf82a0c33f91545a731922bc2d568313756fadca29d5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\package_data.py`
+  - Last Modified: 2025-07-20T01:22:56.626972
+  - Hash: ab9f52dce5ec739548f23eaf483d2c18133293acd9e2f58544413cf3208960ab
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\uts46data.py`
+  - Last Modified: 2025-07-20T01:22:56.630975
+  - Hash: aedf742bd278d20512c29a433c2ae18e08b9000ea958ceb974419149feab2213
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\idna\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.533259
+  - Hash: 30fa8d0cb65b5ea19a35d5f1005862a853ca1105e3bb68cd42109ecbafb97893
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\msgpack\exceptions.py`
+  - Last Modified: 2025-07-20T01:22:56.633976
+  - Hash: 7424d67a2f1da64accb100dc8d093be004e5f47b08047d326edf3338f36a3187
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\msgpack\ext.py`
+  - Last Modified: 2025-07-20T01:22:56.637492
+  - Hash: 92d789bf4de7f6d633779a28df1628a554e8e2f45a031a27050409857a21659a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\msgpack\fallback.py`
+  - Last Modified: 2025-07-20T01:22:56.639498
+  - Hash: d20d4fce9d2fb66044989e70f45decffe24c55444ff114b81b571ce5345a02c2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\msgpack\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.632981
+  - Hash: ade45a88eb44cd28cf9ebed3a718e022f6df967e6957ae8586b89c02cd9e0be8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\markers.py`
+  - Last Modified: 2025-07-20T01:22:56.664536
+  - Hash: 3f4c1edbb8e6d71533806309c418ed50508859e0714ec31e253389e9c8599806
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\metadata.py`
+  - Last Modified: 2025-07-20T01:22:56.667054
+  - Hash: f08644aea4109cd9b9ddd659b98ab8146538fdda728a731e1f540504858891f1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\requirements.py`
+  - Last Modified: 2025-07-20T01:22:56.669059
+  - Hash: 818c9148075bac8c8a0d8ebaba02035108d132fc641f600b8a84e65f7b672faa
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\specifiers.py`
+  - Last Modified: 2025-07-20T01:22:56.671059
+  - Hash: c9cf43fccc9c2449b052966f72cd4e64bf477e23459b2c3445969e1d134790fc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\tags.py`
+  - Last Modified: 2025-07-20T01:22:56.672058
+  - Hash: e35b3ded6f596adaead8477b45cdea7810da1def2928abd8ab69868f06a17d79
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\utils.py`
+  - Last Modified: 2025-07-20T01:22:56.673058
+  - Hash: d05dc787d385b9182b8538066549792b6d85bf560fdad665d73ff680eea42620
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\version.py`
+  - Last Modified: 2025-07-20T01:22:56.759243
+  - Hash: a221eacd352ffe9d768698e0b0b0d571a179853ee90da48e56250d303e064d6d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_elffile.py`
+  - Last Modified: 2025-07-20T01:22:56.643498
+  - Hash: 524adb0ed5bb69eab7aaaa007d4d7aa23c87675c6c4ef1a47bf5aa31328029dd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_manylinux.py`
+  - Last Modified: 2025-07-20T01:22:56.644498
+  - Hash: b78cbff9d4ce71faf7ea02d8fb3b623a9c7124518eda2902d751e07f2b06c623
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_musllinux.py`
+  - Last Modified: 2025-07-20T01:22:56.659536
+  - Hash: a7d66a35888e22d19e7bc29c64578717f61c76157018774aeabfbc9608b1bc64
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_parser.py`
+  - Last Modified: 2025-07-20T01:22:56.660536
+  - Hash: 8187e78f4a511df955738447662b75dca353c8df62895714d915021a2db60703
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_structures.py`
+  - Last Modified: 2025-07-20T01:22:56.661534
+  - Hash: ab77953666d62461bf4b40e2b7f4b7028f2a42acffe4f6135c500a0597b9cabe
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\_tokenizer.py`
+  - Last Modified: 2025-07-20T01:22:56.663535
+  - Hash: 398cedeea2b1ca538027eab45f22b5a80c9cc8f4582df30f74640a4579195b22
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.641498
+  - Hash: ff470388f55fd92f9b35f566660bb1c739ab2185a5c804b1a6aa61e2ab095947
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\licenses\_spdx.py`
+  - Last Modified: 2025-07-20T01:22:56.762238
+  - Hash: a009b5ced3c5c25b2608a7bb94002cbff38839f4b57160eef5b34191ebbeda7b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\packaging\licenses\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.761239
+  - Hash: ddbc7e82bca8e2c46fe4bb2bc00a68bb2eb9548b37bba8ab48e449cc02e4af35
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pkg_resources\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.765743
+  - Hash: 8eb84345b3ae6cfef842e3d7c5ded4ecfa38d8f1f697e2d9d977dc3bb965a59e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\android.py`
+  - Last Modified: 2025-07-20T01:22:56.786786
+  - Hash: af40ec85505ff913b58d72465fc0b84e297b1755d6b7e6e47563209af1226988
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\api.py`
+  - Last Modified: 2025-07-20T01:22:56.787791
+  - Hash: 53d133237118c5c5d6502b48191965aab70df7d8b62d26359aadbe1adb14c044
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\macos.py`
+  - Last Modified: 2025-07-20T01:22:56.789792
+  - Hash: 5256f2159f11ceedf19dd0aa4041eb7ec613787c187456a9d48a33fb2c6f793e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\unix.py`
+  - Last Modified: 2025-07-20T01:22:56.791791
+  - Hash: 5999a4500fbe2f724d4469b3df6b37e587e80f789c6bac4a20f74257f1e12dcb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\version.py`
+  - Last Modified: 2025-07-20T01:22:56.792792
+  - Hash: d1f9f0e258dab1cc7b3b93df21e676ca3eb0de9024ab0a74f7dbc3722bf1baf6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\windows.py`
+  - Last Modified: 2025-07-20T01:22:56.793791
+  - Hash: 205a62a21501c313ed0b39722b036dc725b8264f2169ae96f28e7d99fac35d5a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.784273
+  - Hash: 51f7921d697c01e4ed6ce04ea070312b874e0ce5a466d7f2fa6fe2edc59d27c7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\platformdirs\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.785780
+  - Hash: 8c127ccdbecca71e5e6dca85f37c6ba4ef7831a782a4d18755ff5cbc337624b8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\console.py`
+  - Last Modified: 2025-07-20T01:22:56.797309
+  - Hash: 01a8035aac1e6b6c8159fd74282f69b4180ca4c8f12a9f3200102687e3503959
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\filter.py`
+  - Last Modified: 2025-07-20T01:22:56.799314
+  - Hash: 60bb694e7662bb4ee7637a0af677d1e84f58d4504784fe4f5fc82f90959c7da8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\formatter.py`
+  - Last Modified: 2025-07-20T01:22:56.813363
+  - Hash: 29940c9b2a3fc643889101bc83ae8b6049018756f1edad07c8608172f848f44c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\lexer.py`
+  - Last Modified: 2025-07-20T01:22:56.819886
+  - Hash: fe406b389fcd4f94e5d0854cd2b03d73c7b2b0febfcab946cc4408d1e55807e0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\modeline.py`
+  - Last Modified: 2025-07-20T01:22:56.820884
+  - Hash: 2b9792911f064b5af93a45d74c739c57468cffac6993d7963442005be38e2768
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\plugin.py`
+  - Last Modified: 2025-07-20T01:22:56.822884
+  - Hash: b4fc74ac9093219f62a1180b3581b8a627c26c0c1345465d76f2f0f8d7c0936c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\regexopt.py`
+  - Last Modified: 2025-07-20T01:22:56.885512
+  - Hash: c1768ff468e9fe1280767202aa80e447100e40949ce2fdd7ea6731c77cfe4cdb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\scanner.py`
+  - Last Modified: 2025-07-20T01:22:56.886518
+  - Hash: 9cd7044d1475b51ba24da1e61d24d310255814f70b7fa98366ed5ee2ef7503d1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\sphinxext.py`
+  - Last Modified: 2025-07-20T01:22:56.888527
+  - Hash: e71ed987d62553a212277d5d33076e89a6a76f97566672a0dccc8442cb1e3674
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\style.py`
+  - Last Modified: 2025-07-20T01:22:56.889527
+  - Hash: 3e5399aa5b274d5779f111b2e74be403671743f94fe5b1791063040539e8e830
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\token.py`
+  - Last Modified: 2025-07-20T01:22:56.891528
+  - Hash: 59b7561a1626fd5a2c6f40c3c56f651cd3e02135df593b10987b7a732f516dc3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\unistring.py`
+  - Last Modified: 2025-07-20T01:22:56.894527
+  - Hash: 6a5fbfac17a646e1af8a7b2b33a6ad36c1d3989e8351bc36e2ad8ed91bb57017
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\util.py`
+  - Last Modified: 2025-07-20T01:22:56.896034
+  - Hash: a11b52a62028e6333dba59ed92f55b81751d8805b9ee39ee60607bb7d7d8ba17
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.794791
+  - Hash: a8c9bbf8a62a36932b9a3ca665aa9f1feffd889b639dec402a87646fd1b90f98
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.796301
+  - Hash: 5ab9dda527ba8b57245ff490d4a6b10fd093286cc3d04b82385c5c6f0169a0b5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\filters\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.898051
+  - Hash: e14e23b40d17de23fcdee42707df9323e1c34b0f04f32f333181dad148db6da2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\formatters\_mapping.py`
+  - Last Modified: 2025-07-20T01:22:56.903049
+  - Hash: d42c37ec5b9094d69c9f144a9ad94f5f89f22e85fdfedb64a39670b1c354659e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\formatters\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.901048
+  - Hash: 293c019a75e56a8a498500ce7a6547607b24883821baafb4f18b4feb13cd24f8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\lexers\python.py`
+  - Last Modified: 2025-07-20T01:22:56.910080
+  - Hash: bf18e7d5c38772520a24ac68ca206c41363ae461db919b5946e290d8054229ac
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\lexers\_mapping.py`
+  - Last Modified: 2025-07-20T01:22:56.909079
+  - Hash: 978b425ccf1ef5a3c2d810fab2322bd1d793f89fb3e6d1e00b02fea757d2d0f1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\lexers\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.905558
+  - Hash: c1b20c137e461fb6c8d41f6b34f245a964fe8a3fd102964360f52567271a2f30
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\styles\_mapping.py`
+  - Last Modified: 2025-07-20T01:22:56.914078
+  - Hash: ea5a2f154136f6dcfa12c5775d8638860a3327bab524bedc7cedd43a58274bcc
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pygments\styles\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.913080
+  - Hash: c7d79b72d7f2bc2005a4c4e5309e58c7070d601ce382aeb325a2a4366efcaf83
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pyproject_hooks\_impl.py`
+  - Last Modified: 2025-07-20T01:22:56.919598
+  - Hash: 8d8fab6b19e6c91c81e7baee022b6b25153311ec6e021193a6033282ac7aed9e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pyproject_hooks\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.917593
+  - Hash: 70f07f6bd2d7cf9c6fb116d7d68daac807632dab5925d43f2dce4c70d5fe5fb6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py`
+  - Last Modified: 2025-07-20T01:22:56.929115
+  - Hash: a9c5cc866c7ffcc209ab5d201875b7980e1397c772f18cc731c7309cda0a970d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.927110
+  - Hash: 30934fa5f23170ef85821c6905bc641b5ac58907fa1ce51b5785399aad07167b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\adapters.py`
+  - Last Modified: 2025-07-20T01:22:56.936638
+  - Hash: 27b55e571281bdac1bb655f60c4455a34e49f415d371660b30735dd4169af9b9
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\api.py`
+  - Last Modified: 2025-07-20T01:22:56.938653
+  - Hash: fd96fd39aeedcd5222cd32b016b3e30c463d7a3b66fce9d2444467003c46b10b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\auth.py`
+  - Last Modified: 2025-07-20T01:22:56.940653
+  - Hash: 905ef9b6a9cb72d67d31ffe19bd4d9223e1c4169cde6ec51cfca16b31e70991d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\certs.py`
+  - Last Modified: 2025-07-20T01:22:56.942652
+  - Hash: 9070e590afdb7ae1d778c3dce63b5adb0825f2074a7945ade5fda74c356bbedf
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\compat.py`
+  - Last Modified: 2025-07-20T01:22:56.944655
+  - Hash: 328f5ff7166979fa1df199be9fdfd2b497154e6c12ba45d1da9dc8432c955ef5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\cookies.py`
+  - Last Modified: 2025-07-20T01:22:56.946163
+  - Hash: 6cd8be8aa123e0d3d9d34fa86feac7bf392f39bccdde5129830de0ea9692dd7c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\exceptions.py`
+  - Last Modified: 2025-07-20T01:22:56.948181
+  - Hash: 0f5c2acd85a77b5992dab538ded3fd09e3751bb400cbb7aa2fda3582877a123c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\help.py`
+  - Last Modified: 2025-07-20T01:22:56.950180
+  - Hash: 85129a7fdbb41bb7ddc2ba8c1ed177a06d7a44a92d45fe8a8b0b52ab6168d7fd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\hooks.py`
+  - Last Modified: 2025-07-20T01:22:56.952178
+  - Hash: 0a2bb2b221c0dfd57951f702057148c7cdc8ac3a6ec1f37d45c4d482fdbc7ed4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\models.py`
+  - Last Modified: 2025-07-20T01:22:56.954179
+  - Hash: c782b80a61fe942d25d8a6fe88f7cc3787515f11c471b39a11604bfe2d3d0302
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\packages.py`
+  - Last Modified: 2025-07-20T01:22:56.956698
+  - Hash: fd94030894c9f123f79155ae9d2a81b1164d3f38f673558556a6ddaf4f29cf75
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\sessions.py`
+  - Last Modified: 2025-07-20T01:22:56.957696
+  - Hash: ca44c8f145864a5b4e7c7d3b1caa25947ee44c11b0e168620556901a67244f0e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\status_codes.py`
+  - Last Modified: 2025-07-20T01:22:56.960704
+  - Hash: 889500780db96da4ddc3ee8f7c3d1e178aa1a48343251248fb268cab1b382c42
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\structures.py`
+  - Last Modified: 2025-07-20T01:22:56.962704
+  - Hash: f886e6855cf4e92fb968f499b94b6167afba0fd5ce8d1b935c739a6d8d38d573
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\utils.py`
+  - Last Modified: 2025-07-20T01:22:56.964704
+  - Hash: 2fbf6f9c56f32774852cab49c29a167b8d53a338b746566ff78a58d53148ca8c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\_internal_utils.py`
+  - Last Modified: 2025-07-20T01:22:56.934118
+  - Hash: 9cc4329abe21b37d93a95a3901b0ab99c24486f3d487bc57965bb2ab0b252e24
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.931117
+  - Hash: 1e507f1f386bcc6b5f0ff69a614c14875cd65cb67be7f6022f28adef9774573f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\requests\__version__.py`
+  - Last Modified: 2025-07-20T01:22:56.933116
+  - Hash: 1557e09606663509e660f5e93a8843539f05e4451bffe5674936807ac4b5f3b8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\providers.py`
+  - Last Modified: 2025-07-20T01:22:56.969228
+  - Hash: a485896c874927d185b4d6edc131f421ae37563ea16021098f60ce2ee7b5e453
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\reporters.py`
+  - Last Modified: 2025-07-20T01:22:56.972227
+  - Hash: f0135aec6f5c296e0b89ee0184385ded9e7b27f5656f50983c64a054dd9eacc0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\structs.py`
+  - Last Modified: 2025-07-20T01:22:56.974227
+  - Hash: a6ef84262476201213af649078d3d16b4ad7863952b5f98efc6120021af7d34e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.967220
+  - Hash: e0b701587307df5ec42849295795cb567aa253596b9828b2823b000ee0a0cf8b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\resolvers\abstract.py`
+  - Last Modified: 2025-07-20T01:22:56.977750
+  - Hash: 8d9381562804e0f52e6fd8b717e6d3bc1c1a2175fc4bd114dc2180481bc5a845
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\resolvers\criterion.py`
+  - Last Modified: 2025-07-20T01:22:56.979611
+  - Hash: 95c9991afe6c2873a7143fd1cd9c2f9464a3d7d31e03ee6b08ca5d7f64a0c3b6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\resolvers\exceptions.py`
+  - Last Modified: 2025-07-20T01:22:56.980676
+  - Hash: 967fe3690b602e545448563adbbca21c6da00fb020697cd129a12515587b7c34
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\resolvers\resolution.py`
+  - Last Modified: 2025-07-20T01:22:56.982881
+  - Hash: c907a032e3a697300494b2e9803fa4e8d6cf0cc0907f6f6b5a18850b6e8e7643
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.976743
+  - Hash: 18c62e86b6d2b184c88ce8a3d2db8928bbe593a5179a9de75d07ad9f6b0ebe94
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\abc.py`
+  - Last Modified: 2025-07-20T01:22:57.025334
+  - Hash: 38df84f99a924a1799f3c56b297d8cdcf5e915b18451464f31afc07f497ee1fd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\align.py`
+  - Last Modified: 2025-07-20T01:22:57.026916
+  - Hash: 461fb769d9c368dd40a34ec48d1d8f86013ad8f18b3e03bc48cc09064bb5bab4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\ansi.py`
+  - Last Modified: 2025-07-20T01:22:57.028527
+  - Hash: 02fb352c76d275cc8ebc339da442d952850b7018987b063be9e341a7ab85061b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\bar.py`
+  - Last Modified: 2025-07-20T01:22:57.030189
+  - Hash: 95d6d51cecca24e9df95536ebf5c52ee0e9d2d7d84df03275e474f6e9cc94dcb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\box.py`
+  - Last Modified: 2025-07-20T01:22:57.032689
+  - Hash: 9ebe5f608520841fe250212aeb2d19dcb9424fc8053c3af337dbb6927eed265e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\cells.py`
+  - Last Modified: 2025-07-20T01:22:57.034326
+  - Hash: 2ab4248f9f8b821082a492d23502320198e775ce1b9c4a8e1268b962e67d5026
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\color.py`
+  - Last Modified: 2025-07-20T01:22:57.036388
+  - Hash: dc74942d50e3eea4245d47455afefc24e8926737f2e72d6791c6219dadbde95d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\color_triplet.py`
+  - Last Modified: 2025-07-20T01:22:57.038043
+  - Hash: de585091d25bbd63e82c33be0276089805a626f579765818342559f7b39168de
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\columns.py`
+  - Last Modified: 2025-07-20T01:22:57.041050
+  - Hash: 1d45f429c326f5db0a362d757d36e233f876883b65f3248269573195a944ceaf
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\console.py`
+  - Last Modified: 2025-07-20T01:22:57.043050
+  - Hash: fd1262cc14089fdab1af82e7ed0fd20b937d7a43d63c0c47d0a195c6c820ebd6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\constrain.py`
+  - Last Modified: 2025-07-20T01:22:57.043050
+  - Hash: d5520fb82f0082d296adc9dc42b8c1758a80dc9556cacbba8d9a35aeb87b73b4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\containers.py`
+  - Last Modified: 2025-07-20T01:22:57.044051
+  - Hash: 73fe7a4f171e74662a0dea4704c4ee65d5088a38ad010827a31f9075ed19d6aa
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\control.py`
+  - Last Modified: 2025-07-20T01:22:57.046565
+  - Hash: 0d29074d440ba2b7d211100a13fa1300450579f667669e1b41be2af2b1db2b0b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\default_styles.py`
+  - Last Modified: 2025-07-20T01:22:57.047567
+  - Hash: 921405aaa6a80ecddba6b32a5a91f0f273b95291b60cde90b6e4dde8bcd9c187
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\diagnose.py`
+  - Last Modified: 2025-07-20T01:22:57.049583
+  - Hash: 58d3e3536a4476b3c8089db828e6930ff8733fcdfda80ae9985d4920ce71fc44
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\emoji.py`
+  - Last Modified: 2025-07-20T01:22:57.052576
+  - Hash: a264c5f5ab1a027b0ce322d8f78791ffd7604514a6d651d4b335f6d03d726024
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\errors.py`
+  - Last Modified: 2025-07-20T01:22:57.054573
+  - Hash: e693f729ce5de1027f734285b31adfca18e23d57bb275ccea9215b140cdc57e6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\filesize.py`
+  - Last Modified: 2025-07-20T01:22:57.057086
+  - Hash: fe2cfd948a5182f5bb30d49e0999cb83e1f0cdb3f81844e0e78dd6a83f1216cd
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\file_proxy.py`
+  - Last Modified: 2025-07-20T01:22:57.056079
+  - Hash: 4e5f531cc0d9f8f9395a6f2c23580683f5390e1bac9b10fe159d1f51b714d16d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\highlighter.py`
+  - Last Modified: 2025-07-20T01:22:57.058095
+  - Hash: 1bfb27fbc0ca8ccd6c1232c6fe8738a2f9169a25295af8fc6d78b4c9e7762e76
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\json.py`
+  - Last Modified: 2025-07-20T01:22:57.060093
+  - Hash: bd512829d6b0a094630056b23f05e43013cbcbb4524ecf9fe38c124034769c9d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\jupyter.py`
+  - Last Modified: 2025-07-20T01:22:57.061092
+  - Hash: 432a0aa04ffc21d09baed8921e9f53b1348dc931d8d053b9c2113b8ce4ddf541
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\layout.py`
+  - Last Modified: 2025-07-20T01:22:57.062093
+  - Hash: 6a3912140b4456ff44153705b3ec38b997dfb7b9c45e13732fb655760ad3e6b2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\live.py`
+  - Last Modified: 2025-07-20T01:22:57.063096
+  - Hash: 0e1cc03c49e34f142eabdff4636c61d8c53041c3ff6863e47a72df2844ec9703
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\live_render.py`
+  - Last Modified: 2025-07-20T01:22:57.064096
+  - Hash: cc9b41e3bd631b3881b44c31739e31d76c0442d1f806e42bd5203cbfd914f36c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\markup.py`
+  - Last Modified: 2025-07-20T01:22:57.068628
+  - Hash: ddeb8628fe6ce353424306928d39c9c6eb398993078f1a483345ba7c2c6b6b7f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\measure.py`
+  - Last Modified: 2025-07-20T01:22:57.070626
+  - Hash: 1e6ac8257f2c5914c76e087c33111acbff37564a8d5bfef4b3c68a3f965c608f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\padding.py`
+  - Last Modified: 2025-07-20T01:22:57.071627
+  - Hash: 295108ded3b0a3db202b560d4ae1fffccd7f8d45a62d9c11555fca98eb55cf23
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\pager.py`
+  - Last Modified: 2025-07-20T01:22:57.073627
+  - Hash: 48efc44c114a6e0de7fc080ecd79b8d52bf7e98c57032237fd1f8a398dbfb927
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\palette.py`
+  - Last Modified: 2025-07-20T01:22:57.074626
+  - Hash: 9489ef4753830d3d9fdd464c7cbd60aeaedd63fa4374a1f0e1b75480e19a3386
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\panel.py`
+  - Last Modified: 2025-07-20T01:22:57.076130
+  - Hash: 4940da6b7cf8314eef223cef6e2d125ee73a06c943cc00f0758d405f84db4dd6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\pretty.py`
+  - Last Modified: 2025-07-20T01:22:57.077137
+  - Hash: 832dd2ef6bb8151836cada28ecdd590d60c8bc1e2e9dbcdde625067609bef1f7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\progress.py`
+  - Last Modified: 2025-07-20T01:22:57.079143
+  - Hash: 32d9828d3939cd853f5ed447c511d30041c6ea117d3de17b10c59b10f95e202d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\progress_bar.py`
+  - Last Modified: 2025-07-20T01:22:57.080142
+  - Hash: 9994cfa4953071f71d8100934f3de4c98f9f73bf5d74bc2dc7a1a18717e8d3ae
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\prompt.py`
+  - Last Modified: 2025-07-20T01:22:57.082660
+  - Hash: 974461414fb45154d5f5ed3cc56d416c88f426ad885f20a15f8942d2514dcede
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\protocol.py`
+  - Last Modified: 2025-07-20T01:22:57.084658
+  - Hash: e611c70c3347724764f22587e7311b8becee215485e616d4da3228e3b47b9531
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\region.py`
+  - Last Modified: 2025-07-20T01:22:57.087175
+  - Hash: acd4fdc59ad56536085d90b43589f8d42250c1835b47e29e70f3b14e042f07c6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\repr.py`
+  - Last Modified: 2025-07-20T01:22:57.089182
+  - Hash: e4c64966638d802ea4b9df905befe6d68917c0bd9a47abbacbea54714089cf6f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\rule.py`
+  - Last Modified: 2025-07-20T01:22:57.090183
+  - Hash: d1f35a4bf68445add43117374f958ca4dfecba6b43c5f6a8af6cb7a1fd5fb419
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\scope.py`
+  - Last Modified: 2025-07-20T01:22:57.091182
+  - Hash: 4cc514f2aa35eed872a9008faa30cb62983f514d64e6a55df96c2226f9c955ab
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\screen.py`
+  - Last Modified: 2025-07-20T01:22:57.093188
+  - Hash: 628791784494871ef882ba9bd264926fd960861cac5a6147621b1b3154235cef
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\segment.py`
+  - Last Modified: 2025-07-20T01:22:57.095778
+  - Hash: a2d9ca78a18457e591950568b1f2557850dc0f100a1e9bc9fe12f34aee65ba63
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\spinner.py`
+  - Last Modified: 2025-07-20T01:22:57.119868
+  - Hash: 3d3e6a8173c6dd9a6a463ee7dc4650e8d5b9ea6c7795d66a64253b804332664e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\status.py`
+  - Last Modified: 2025-07-20T01:22:57.121869
+  - Hash: 9243e987761e019068f97fb8c0fa7c813a99c94e3ae8d2f06410383d94d37b0a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\style.py`
+  - Last Modified: 2025-07-20T01:22:57.123867
+  - Hash: c698f8b8c05932db8db8da267d489a9a2825de9d6c0ef4c2670ac6d6d71355e8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\styled.py`
+  - Last Modified: 2025-07-20T01:22:57.124868
+  - Hash: 799367cc6ac8e248bfe78a606373a3d13fb1de5c5d5d3621e3faf20c1db8c015
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\syntax.py`
+  - Last Modified: 2025-07-20T01:22:57.127383
+  - Hash: aaa0271146782b9ecfa3cd7fe510719ecb94e0a47349dbc33c084ac3c99aff71
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\table.py`
+  - Last Modified: 2025-07-20T01:22:57.137480
+  - Hash: 6664fb57b30c08e60ac3b4c663d4992f26037fa25d33e5957f4ec5755b958532
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\terminal_theme.py`
+  - Last Modified: 2025-07-20T01:22:57.139491
+  - Hash: d63e7eb9f25f9ef940a3942c8bf0026625c39b0317cea826141c8e6d3f7ec896
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\text.py`
+  - Last Modified: 2025-07-20T01:22:57.140490
+  - Hash: 00eec93c2cfafa068dd6d8552d73019ed1260cf55816014d1b5a0ceb5fec6a75
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\theme.py`
+  - Last Modified: 2025-07-20T01:22:57.163532
+  - Hash: a0dca15e119a82d0e56c3c9eded56eddeb16396934bcd92ec45c3efee9e568ad
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\themes.py`
+  - Last Modified: 2025-07-20T01:22:57.165533
+  - Hash: d318132e8cdf69b79b62d709b43742e50917e4855411abe2a83509261e185459
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\traceback.py`
+  - Last Modified: 2025-07-20T01:22:57.167052
+  - Hash: 640f10ebb0f23f96bfb2da4887a18f7fd2225e3fecddd0210c8afa65b7e46a19
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\tree.py`
+  - Last Modified: 2025-07-20T01:22:57.180585
+  - Hash: c969d0eab02f446277a991aa06bc52d925b64ca05336b3f449d63c4313853eec
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_cell_widths.py`
+  - Last Modified: 2025-07-20T01:22:56.988708
+  - Hash: 7db99ec9eb447478f313f571da5d6e2bbb673ce84cb365f59497cedefb0a0e90
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_emoji_codes.py`
+  - Last Modified: 2025-07-20T01:22:56.991918
+  - Hash: 86ed552fd9db55da6926b5688a356c85195c4517bfbf7763bb7326776b0a65d6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_emoji_replace.py`
+  - Last Modified: 2025-07-20T01:22:56.993089
+  - Hash: 9fe91c7adb04531d99526850adf78c35cfad79e1a1a6e490e45f153c1b32bc3a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_export_format.py`
+  - Last Modified: 2025-07-20T01:22:56.995192
+  - Hash: 448d3ca52ae6e6d052ccf32f9db4ea6c3f5621a95a3a837977833545398bab56
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_extension.py`
+  - Last Modified: 2025-07-20T01:22:56.996794
+  - Hash: 5ede3b41a7022b062bbb38c38be80e06aef6e0945e0e3f429bdc548b97ebfb7e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_fileno.py`
+  - Last Modified: 2025-07-20T01:22:56.998409
+  - Hash: 1d66713f90b66a331b1ebcaf01066c79f9557d0a06cec28e1f3286b0b0fcca74
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_inspect.py`
+  - Last Modified: 2025-07-20T01:22:57.000478
+  - Hash: 40cd399441671684da16aa676f1fb304423a93ca082ab0f772f8c43903612a28
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_loop.py`
+  - Last Modified: 2025-07-20T01:22:57.004600
+  - Hash: 855ffa08b7683e6d2f6b6d96a70e332aa334458b33dd36715e3d0fa12fbd7834
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_null_file.py`
+  - Last Modified: 2025-07-20T01:22:57.006701
+  - Hash: 00318aa75cadfa4ef414c295ead9ea0aa79c07ead2273a7e590b03ecb3cbfa48
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_palettes.py`
+  - Last Modified: 2025-07-20T01:22:57.008290
+  - Hash: 71d7afd4940a67426f960b95f62a478339d3767be52335050c16f422dd8fce32
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_pick.py`
+  - Last Modified: 2025-07-20T01:22:57.009341
+  - Hash: 7af0edf10378945e428b0ad421794e2429ed8ad0423ac23764b3c42005512c95
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_ratio.py`
+  - Last Modified: 2025-07-20T01:22:57.011413
+  - Hash: 66de7c6a9b3323a84001c5cfa607562a9bb7737d5405679b39e47899bca9b6f5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_spinners.py`
+  - Last Modified: 2025-07-20T01:22:57.012927
+  - Hash: 536af5fe0ff5cd28ec8e251d00449cda200c7378b8ae2fd2f0f60fea4439cf52
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_stack.py`
+  - Last Modified: 2025-07-20T01:22:57.013934
+  - Hash: f82f0e2bbaf19f7b0851d570c59041a5e1e12335f4788f9533731e9987da5e6d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_timer.py`
+  - Last Modified: 2025-07-20T01:22:57.015987
+  - Hash: cde9716d3ea83c566736bc163e973592d51e013f957387ee15c4592d018bb4c2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_win32_console.py`
+  - Last Modified: 2025-07-20T01:22:57.018009
+  - Hash: 05268344833004b2139ff9b499344b3ea304e6afaab8675232e60ca587982707
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_windows.py`
+  - Last Modified: 2025-07-20T01:22:57.020007
+  - Hash: 681c1a0ff4b9e926e0a2922f6b2566a64d18dbcbb06360b905a6f5c25dc1a7e2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_windows_renderer.py`
+  - Last Modified: 2025-07-20T01:22:57.021512
+  - Hash: b7be192f7c6e0c23f79e64e9f691f52f92e223671a909b9045095e1c225eae59
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\_wrap.py`
+  - Last Modified: 2025-07-20T01:22:57.023073
+  - Hash: 1654aca26e445f42d5900dca5b2df8c879c27cbb6a5fe6487a95ca87eef4ae97
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.984892
+  - Hash: 751c6320bf926c5558d2adc88d232b7e00531eb9b52d90e02ceca0541c226197
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\rich\__main__.py`
+  - Last Modified: 2025-07-20T01:22:56.987118
+  - Hash: 78eec2abc267ae01bccd5a1e226880b3ddaade15cd3087e9d30e6532c3bb4366
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli\_parser.py`
+  - Last Modified: 2025-07-20T01:22:57.184587
+  - Hash: f70f0b1b48c1edfc26659581d2f5576de7a30c7725e00348271076b1c1270e50
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli\_re.py`
+  - Last Modified: 2025-07-20T01:22:57.186092
+  - Hash: b21e2c0434603bde0a259c0d22b81d73257fa906acb79d18bf3380506a510ca0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli\_types.py`
+  - Last Modified: 2025-07-20T01:22:57.188107
+  - Hash: f864c6d9552a929c7032ace654ee05ef26ca75d21b027b801d77e65907138b74
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.182585
+  - Hash: 3e1370fdec8b81d9fb31c27a9eb00df32226ddd5c2ef9bebd6c546555c034a90
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli_w\_writer.py`
+  - Last Modified: 2025-07-20T01:22:57.193107
+  - Hash: 76c89f152db161fd62efa9a64727f3f72d76e710bb67f1d0f38e592a126c617b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\tomli_w\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.191108
+  - Hash: d05f320ed5f1dd4ba7866f3be0aac070fefab2bb0cf7ccbb5b21d0c02ba565ba
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\_api.py`
+  - Last Modified: 2025-07-20T01:22:57.198627
+  - Hash: e34234a233b60e7213887bce9d462f2756df40c04a1ce91c8b5e27a0dc449c2b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\_macos.py`
+  - Last Modified: 2025-07-20T01:22:57.200629
+  - Hash: 9d994b90e9accd413483aaf2470055198e423b33f2b9d72c889b4359aacce4b4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\_openssl.py`
+  - Last Modified: 2025-07-20T01:22:57.202627
+  - Hash: 2cb519ed919a8a8fa2e5da4a2a328249e4ae7e69fa4fca62f650dc167bd2caad
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\_ssl_constants.py`
+  - Last Modified: 2025-07-20T01:22:57.203627
+  - Hash: 3540f87d529d483d36ae2efe75bd2d9ced15a8b3fd687bb3992b5c5bbb40974f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\_windows.py`
+  - Last Modified: 2025-07-20T01:22:57.206133
+  - Hash: ac01f22980fc33bb7e6d77c6f1580e55add3a5f85585bb78ad94253b8e58b8ff
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\truststore\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.196621
+  - Hash: db04525628e34733cb5575335aabdd64b36c10e8437e8a4a2ddd8428060bc0a5
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\connection.py`
+  - Last Modified: 2025-07-20T01:22:57.280354
+  - Hash: b6d200f74f41adb4d4cf092a11efd3cd9561e0938e8fb83ad58b1e8b69abc068
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\connectionpool.py`
+  - Last Modified: 2025-07-20T01:22:57.282357
+  - Hash: 7b67a203035b14d08ac63e1bc0328d2bec3b1c8752cf73a633153f4c8b7e7af4
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\exceptions.py`
+  - Last Modified: 2025-07-20T01:22:57.284356
+  - Hash: d0c9e7a372874cd7d745f63beb7f0db9f38f9146fa9973a6f8baa3fb8c76c3c0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\fields.py`
+  - Last Modified: 2025-07-20T01:22:57.285865
+  - Hash: 92f2c30a0fc9987d652e3514118fc52d2f14858ee106f0cfb951136d8f2676b3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\filepost.py`
+  - Last Modified: 2025-07-20T01:22:57.286876
+  - Hash: e5bfeaaa04475652fbb8bb5d018073061f861e653901f255b7fd8dd174b73de6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\poolmanager.py`
+  - Last Modified: 2025-07-20T01:22:57.288886
+  - Hash: 696ca15d1b4d3b82549c249556a29329077c1174ef526d5537da60b366dc38da
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\request.py`
+  - Last Modified: 2025-07-20T01:22:57.291886
+  - Hash: 61358536bed023087b1355bd75d7bd2ccefbbf65564c9e55efc5ee4d3c3b0f50
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\response.py`
+  - Last Modified: 2025-07-20T01:22:57.293883
+  - Hash: 7e60c9005906ef5b854e7fac5524e1d88c345a6717418aa46d18e286fc018d4f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\_collections.py`
+  - Last Modified: 2025-07-20T01:22:57.276340
+  - Hash: a72012249856ef074ea6a263f50240f05c8645fafc13cb94521a94be1174ef6f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\_version.py`
+  - Last Modified: 2025-07-20T01:22:57.278354
+  - Hash: b7dc0607aa283935d782263ae8ad66e81652d422725c7014f04a160d37ba4a19
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.208647
+  - Hash: 8972dc6222724a7d0635b58e3990c30298012f52603f8e0467c8b5efad12f0c7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\appengine.py`
+  - Last Modified: 2025-07-20T01:22:57.300410
+  - Hash: 551ebc780544d77ee5c53823043c029dae5488165338a6b4d408fffb905a0b3e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\ntlmpool.py`
+  - Last Modified: 2025-07-20T01:22:57.301405
+  - Hash: 3657e45bb58c756f338aab9da298c7a16dbdf688350535a2d0878889baae1709
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\pyopenssl.py`
+  - Last Modified: 2025-07-20T01:22:57.303403
+  - Hash: 843261e0c87263fa7ea0a9457187106954110efe86326046b96f728f1c9e7a33
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\securetransport.py`
+  - Last Modified: 2025-07-20T01:22:57.305911
+  - Hash: 15e7f5208514147aa97afcd78833db20690329c858d8554a79578b191d50ab78
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\socks.py`
+  - Last Modified: 2025-07-20T01:22:57.307927
+  - Hash: 6918bd7965e8f5911bf795d4c5e7f8676d421659e78db122028f473ac7a832de
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\_appengine_environ.py`
+  - Last Modified: 2025-07-20T01:22:57.298404
+  - Hash: 6c36f2384856d8228b25c42a00a032ac41cdf9a925b321c52aaeaf17c645b269
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\_securetransport\bindings.py`
+  - Last Modified: 2025-07-20T01:22:57.311433
+  - Hash: e1793ae2a2243c1b74f40e6af9120552e0e135cf665e29556a99bb5a7627cd1c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\_securetransport\low_level.py`
+  - Last Modified: 2025-07-20T01:22:57.313434
+  - Hash: 076241076fcd44fd36c4ae8309ad4f6bd22ec6b3f0c730f365b8b14246fb53d3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\packages\six.py`
+  - Last Modified: 2025-07-20T01:22:57.317966
+  - Hash: 6fd2ccd30057bfb13b4ab6c28c09b8c3037e86b1fe88dc6fd7c2e058d30c28fa
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\packages\backports\makefile.py`
+  - Last Modified: 2025-07-20T01:22:57.320963
+  - Hash: 9dbcedde2d1a80f54fd3b8eaaa08e16988cc9ae022fd6e44d04cb0662bd53bc1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\packages\backports\weakref_finalize.py`
+  - Last Modified: 2025-07-20T01:22:57.322967
+  - Hash: b5109a97938084d491c9bd03847a7edfc02d2250ac44ff01c45dcd5feeaba880
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\connection.py`
+  - Last Modified: 2025-07-20T01:22:57.326479
+  - Hash: e4bc760753d6dbd2b1067d93d3190dd420604416b780654904aa10a11a201159
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\proxy.py`
+  - Last Modified: 2025-07-20T01:22:57.328487
+  - Hash: cd4bcf3c226ba7a74e17437818055b39c97aa3ee2e5ca4ab1a24e492be6f512e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\queue.py`
+  - Last Modified: 2025-07-20T01:22:57.330487
+  - Hash: 9d1817f3f797fbf564bf1a17d3de905a8cfc3ecd101d4004c482c263fecf9dc3
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\request.py`
+  - Last Modified: 2025-07-20T01:22:57.331488
+  - Hash: 0b4394b76b5c53a2d189027b61834ff46bcfad2be5ef388805e910fb99e50599
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\response.py`
+  - Last Modified: 2025-07-20T01:22:57.333488
+  - Hash: 189a60dc4822f6a6895d1c01879c2ff8c36e4566a7e4122ee34a117a8c563f6f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\retry.py`
+  - Last Modified: 2025-07-20T01:22:57.335487
+  - Hash: e8436f399f0f043ce1f24822c69aa5f6522b6f67711fe93b66605a9c9176360e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\ssltransport.py`
+  - Last Modified: 2025-07-20T01:22:57.341012
+  - Hash: 340faee6b313ac3143142f10cd129410a306d39eb584e0f8a814ebdd9e29bfa1
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\ssl_.py`
+  - Last Modified: 2025-07-20T01:22:57.337004
+  - Hash: 403bae4f13d20a3d6b62d678c690fb531fabdb44c3e74687caa2b2850ec1ab80
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\ssl_match_hostname.py`
+  - Last Modified: 2025-07-20T01:22:57.339014
+  - Hash: 22be1c65512398093c8140081d64a2ef0b4e3bcdd4098001636c450f5425fd60
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\timeout.py`
+  - Last Modified: 2025-07-20T01:22:57.343013
+  - Hash: 730ab874c93cee624748192d2b59a2609fbce46fb74f74664f6d2fed2142a67a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\url.py`
+  - Last Modified: 2025-07-20T01:22:57.344013
+  - Hash: 942004ecce66c80f040dd5b4b09bb2c9985507d2bf8f7f258d684702715a5a81
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\wait.py`
+  - Last Modified: 2025-07-20T01:22:57.345521
+  - Hash: 7ce5f4fdf6a8cc6d8fee25688d0a04d666f277078dc93726fa15c47c5ad3b4b2
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\pip\_vendor\urllib3\util\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.323964
+  - Hash: 2449929a6aaa2f26b0f0fe75814226661f06c20f62d7349ef83a2a022b67da77
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\asyncio.py`
+  - Last Modified: 2025-07-20T01:23:11.520683
+  - Hash: 2a9dab4a43517fd291a9adddf58a6079943b2fb1197f62a2e1b49ced43c8ca8a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\auto.py`
+  - Last Modified: 2025-07-20T01:23:11.522684
+  - Hash: 9c365f963ea9db32a48c108d068babae14bcd7361f672d7f750bdb724add5bca
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\autonotebook.py`
+  - Last Modified: 2025-07-20T01:23:11.524684
+  - Hash: 61bf45e6e6a204f85f6c30c5a5bb681bc236614c37b9027cf6b5032db7d1eb0b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\cli.py`
+  - Last Modified: 2025-07-20T01:23:11.526190
+  - Hash: 49b2a537c432676a207a7aadfb04ffa7afecc7638e7428c2ca1a190459e59b22
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\dask.py`
+  - Last Modified: 2025-07-20T01:23:11.837832
+  - Hash: f448b9f1e56a4e8b2c44b8407d6c9414276e5d82a398b9b091a5c8cbe08761fb
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\gui.py`
+  - Last Modified: 2025-07-20T01:23:11.838831
+  - Hash: 493201dcaf220f30e090d52a588a6f708feed0e1ad6c6372e4dc2900b5e17d6b
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\keras.py`
+  - Last Modified: 2025-07-20T01:23:11.840838
+  - Hash: a29f6c0646faaba73a770db0274483d99c293caef233555b838975422cb7308a
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\notebook.py`
+  - Last Modified: 2025-07-20T01:23:11.841838
+  - Hash: 1ad67721aa4b2f5bfc58d0da4d2bcfc346c9193c9fa7bd557f3e470e7033c753
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\rich.py`
+  - Last Modified: 2025-07-20T01:23:11.842837
+  - Hash: 63230f9041d5c98515511dda74929b557dba89398d2a934c7f70c4aa69be9bad
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\std.py`
+  - Last Modified: 2025-07-20T01:23:11.843836
+  - Hash: b568f3ebe4026bdd9aa988f3ecf21d90b50201f8b2fa525985e06d672208c8ed
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\tk.py`
+  - Last Modified: 2025-07-20T01:23:11.845836
+  - Hash: 1aed2ec17c0b0863d1187391762dd6bc12c68ac794a7fc715ff87f829f55a4ad
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\utils.py`
+  - Last Modified: 2025-07-20T01:23:11.849360
+  - Hash: e84d01430dd283bb8658a04cfdc0e7dcfe36b57b30461ce48206e10602c38e5f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\version.py`
+  - Last Modified: 2025-07-20T01:23:11.851360
+  - Hash: fb5c968dfbb73f47a0855b32b071f4edf6f376200335177346d60fa8e6aa4760
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_dist_ver.py`
+  - Last Modified: 2025-07-20T01:23:11.510162
+  - Hash: 9b901d608fa307ebfa3f4549ffbd22b07fe9db813348e192c15bee0199a498a6
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_main.py`
+  - Last Modified: 2025-07-20T01:23:11.511162
+  - Hash: f724af8268bfd92c38080a395035b44367717d3af26e8116187a217c2273d2c0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_monitor.py`
+  - Last Modified: 2025-07-20T01:23:11.512161
+  - Hash: 524bbe0cf5a0cc9edd3b908ad3cc4a24af84fc5eaa43e241de4b2e5dccd2611d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_tqdm.py`
+  - Last Modified: 2025-07-20T01:23:11.513161
+  - Hash: 2df2c2b89e9ba6c568f718a59ad057c849b5bc69d4085ae5896f398f727e9c3e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_tqdm_gui.py`
+  - Last Modified: 2025-07-20T01:23:11.515162
+  - Hash: d371dcf0a6b2c49bde89e239fb4fb6346883a4bbf0f6365e9287c9515ec20b09
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_tqdm_notebook.py`
+  - Last Modified: 2025-07-20T01:23:11.516669
+  - Hash: 06e1e22eec6eeae11f64568f256dd13e93dac5a55cb44400de47522520cbd61c
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_tqdm_pandas.py`
+  - Last Modified: 2025-07-20T01:23:11.517675
+  - Hash: 73d8e9b5482280de9ac510e145de1189ff7c4e6c5ea297359c5345848a5b1541
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\_utils.py`
+  - Last Modified: 2025-07-20T01:23:11.519685
+  - Hash: ff813bddb7c38f87f5b37b0ce3634b1cdad90ce9228d9a16abe9fac562e4759f
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\__init__.py`
+  - Last Modified: 2025-07-20T01:23:11.508154
+  - Hash: f6640d6124aa3fdf496acb9b102d4f3892cc9a1924047e9c259c4f211e46da94
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\__main__.py`
+  - Last Modified: 2025-07-20T01:23:11.509156
+  - Hash: 6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\bells.py`
+  - Last Modified: 2025-07-20T01:23:11.855360
+  - Hash: 631d47a860a61eb1120803bbd348f9c04fff24295e34e0c9c5e761d628cf2c3d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\concurrent.py`
+  - Last Modified: 2025-07-20T01:23:11.855360
+  - Hash: 2b5ca3968292e5644d1728cb46d8740e65393c09c36c5d00f860f6ecdf89e1af
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\discord.py`
+  - Last Modified: 2025-07-20T01:23:11.856864
+  - Hash: 32d5482f5b3f7711f6d46e2c2fc141810e167a2db7868f449394fe0289a6bcd7
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\itertools.py`
+  - Last Modified: 2025-07-20T01:23:11.858872
+  - Hash: 59d28a414e5e4b3b2a1eedbd48dfe81f5da1b98668d098a1aa88bdfa7561c33e
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\slack.py`
+  - Last Modified: 2025-07-20T01:23:11.861877
+  - Hash: 78ffccaf9b10a27627887c7140d1ae7b78e4d899083e63d6159a886319ceba2d
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\telegram.py`
+  - Last Modified: 2025-07-20T01:23:11.862877
+  - Hash: be7ffd4804cc6dbc27d8f01bcd20f2397e9abf7781074d5006e835d4fe07f8e8
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\utils_worker.py`
+  - Last Modified: 2025-07-20T01:23:11.864878
+  - Hash: 1c93f9333d52d71cb31247b625aa89dac60b1d7003628a367a94f9033437f1e0
+  - Reason: No references, not legacy, not config
+- `.\Lib\site-packages\tqdm\contrib\__init__.py`
+  - Last Modified: 2025-07-20T01:23:11.853359
+  - Hash: 3a04b05579bebe50c9fb68a6b6843dcfca9da26e2c9cc491ced1fbd8a300f360
+  - Reason: No references, not legacy, not config
+- `.\logs\TASK_2_PLUGIN_FRAMEWORK_V2_COMPLETED.md`
+  - Last Modified: 2025-07-19T13:01:47.525380
+  - Hash: c6ca83c126bb73d8cd0629c62b98fb769a154e6fa7bad8c02fe397be614a2a99
+  - Reason: No references, not legacy, not config
+- `.\logs\TASK_3_SYSADMIN_COPILOT_V2_COMPLETED.md`
+  - Last Modified: 2025-07-19T13:28:02.788682
+  - Hash: 3e05dc4e7221c0d857fb6bb9eeff3a7ca75a893f9dda74109329535857ee80ed
+  - Reason: No references, not legacy, not config
+- `.\multi_tenant\tenant_system_report.md`
+  - Last Modified: 2025-07-18T12:02:40.838492
+  - Hash: ed78a12821dda0f30a221ec852d1c69e3e64f0b3625b4e06e06537857de353a6
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\audit_result.md`
+  - Last Modified: 2025-07-18T12:49:19.593122
+  - Hash: 8ee0cfab5e10f4e0f91c2b87f2389d2ad6830b7d17cd43ae15cea681995b72d9
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\main.py`
+  - Last Modified: 2025-07-18T12:43:30.063100
+  - Hash: f69d133ce1955f99e2987b77b9e980f60a17c2eb0012838cae7d121376261aa6
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\plugins_status.md`
+  - Last Modified: 2025-07-18T12:49:19.622206
+  - Hash: ebed9e79400beefdae36e6a00dbc2fcc488d3266597e6be1e3c2953baec3b94d
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\README.md`
+  - Last Modified: 2025-07-18T12:49:19.733662
+  - Hash: 8eb839b027c231a772f9f3126119f985ab3121bcae6d9d21f2b825110988f835
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\run_all_tests.py`
+  - Last Modified: 2025-07-18T12:43:30.106694
+  - Hash: c5dc9b37c237430315cce571d63db66d58f8153e456b25e6e5644f35acdbbed2
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\auth.py`
+  - Last Modified: 2025-07-18T12:48:08.054380
+  - Hash: b66f24af9c64320fb96d0abc9373f50080bd9517d5b7f9347f7643a8c8abfc7b
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\database.py`
+  - Last Modified: 2025-07-18T12:48:09.199354
+  - Hash: f4179b83fc32c48ee09b2ad5d069e683155181fb14595045296e491f8de7e74d
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\runner.py`
+  - Last Modified: 2025-07-18T12:48:09.232939
+  - Hash: f2f751a3ae17eb082b4e960b34f88a3f742cd93b3766e8d54df945c98e1e5ca2
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\ai\nox_assistant.py`
+  - Last Modified: 2025-07-18T12:48:23.226446
+  - Hash: 8b284251eeaf60230e4b9e357ad6b1d2b01220fc0c22e9dadb8c0ab7eb20cde3
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\ai\ollama_client.py`
+  - Last Modified: 2025-07-18T12:48:24.456820
+  - Hash: 77cf705ae2647f6184486d675d19be7758a28d025b02d5ad8082be6bfee76f4f
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\ai\task_registry.py`
+  - Last Modified: 2025-07-18T12:48:25.368011
+  - Hash: c83e8decd8c9ec3368457daf6526ecc7491e05be76c8cf7987a73ee214f6cba9
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\ai\__init__.py`
+  - Last Modified: 2025-07-17T15:33:39.993469
+  - Hash: d2f59aea0686477ec6ca3804b581a7091d8e1b859e447efd8d903f0cc121fdc7
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\security\auth_manager.py`
+  - Last Modified: 2025-07-18T12:48:26.599587
+  - Hash: 4bfdad12778c1763f281614abba61f3b853167bb67675c4e40621afb237a8458
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\tasks\manager.py`
+  - Last Modified: 2025-07-18T12:48:27.428502
+  - Hash: 8c6cde4a5230a368dcba20d420f10e394f68ce286637be097f0e4316e8ac3080
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\tasks\__init__.py`
+  - Last Modified: 2025-07-17T15:33:39.993469
+  - Hash: f044892ec19b1d47c6341255279b576f5c2a299acad2d1b2caee0dd32fd84715
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\utils\password_utils.py`
+  - Last Modified: 2025-07-18T12:48:27.498154
+  - Hash: ef8bf55f32fe0abb13f26330c61c21b52229bb7d23081b4d5c2ef3f07c2a9042
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\voice\speech_engine.py`
+  - Last Modified: 2025-07-18T12:48:28.843717
+  - Hash: 3550debf2ece09ff5cd4b095d9587f48b540921e802366940aeb4bd0132c7a9e
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\voice\tts_engine.py`
+  - Last Modified: 2025-07-18T12:48:30.333816
+  - Hash: d6f713605f2cfa96e086c0469744e3d4af1250536d5adf2cc3e30abb90eb6f24
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\voice\wake_word_detector.py`
+  - Last Modified: 2025-07-18T12:48:30.454109
+  - Hash: 1559e1fc14855290ae36ca1fd975e5691f804654240ae907d27619324b7ffbe5
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\voice\__init__.py`
+  - Last Modified: 2025-07-17T15:33:39.994468
+  - Hash: 50e71a2137bf41a74fb6cd7f306aa2b1e7e361417083c3282555a0d4b3259e4e
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\websocket\manager.py`
+  - Last Modified: 2025-07-18T12:48:30.554873
+  - Hash: 1b2fa27d618b4996dbff3410b4d8bbfe97f1fdc09d1e86362db9a67dc707f538
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\noxcore\websocket\__init__.py`
+  - Last Modified: 2025-07-17T15:33:39.993469
+  - Hash: b403cf15483fb9b5eb3c68fb06cc922531357e9cbe57d376f5d9106981ea053e
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\autoimport.py`
+  - Last Modified: 2025-07-18T12:48:10.057515
+  - Hash: 412ee5071c0eefd2033e3c4d112fd5e44ec6028fb3c058f951ae9d1b365779c2
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\auto_test_runner.py`
+  - Last Modified: 2025-07-18T12:48:12.102199
+  - Hash: 04295be67080d0c5bc735892e4eaf56ee66bcfb4a8ee08ffe7a92e07836cd8dd
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\bootstrap.py`
+  - Last Modified: 2025-07-18T12:48:13.465070
+  - Hash: 08c8d574b1a0ce3b4bae53741e74ef0ed37bd56d3b1dd0346c64bd43350cdfa5
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\critical_fix.py`
+  - Last Modified: 2025-07-18T12:48:13.550280
+  - Hash: 95bfdc1efb68df3c8df2b5d2f4d637351ec93438a51adbced944fcbe2c53adfc
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\example_script.py`
+  - Last Modified: 2025-07-18T12:48:13.572826
+  - Hash: e12cbe5e124272d96abcf0603ca90df762b8c6e9f31e05b429b71cf32c66cb34
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\final_validation.py`
+  - Last Modified: 2025-07-18T12:48:13.722202
+  - Hash: d85fe7c456ee2511289fbefc34599adb54f078f25c6e194903abd24a3b1fe2f2
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\fix_python_test.py`
+  - Last Modified: 2025-07-18T12:48:13.768336
+  - Hash: ac4cf6aa94e672737395da81f124c52b465cd034ba507ca8c12f6239772b822c
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\healthcheck.py`
+  - Last Modified: 2025-07-18T12:48:13.879634
+  - Hash: e24c2a7ca25dc564f78c319b73f3134e8573d8b85aec3dc8633288a5ee16d096
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\phase2_initiate.py`
+  - Last Modified: 2025-07-18T12:48:15.619538
+  - Hash: e06b2d28074cc389c1c3822b584df77869446561b3e4f39009e278f790e3bf66
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\prepare_phase2.py`
+  - Last Modified: 2025-07-18T12:48:16.964790
+  - Hash: 84aa00e1f97cccf5d0be5f003c2284e0a5f5ef54461ffa177dd339bd9b69f163
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\scripts\system_status_check.py`
+  - Last Modified: 2025-07-18T12:48:17.552746
+  - Hash: ca791e30f3bd20fabb0a17a4fb711a25b1bfa7a71f8215515b2de4e81ab78f9a
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\tests\test_runner.py`
+  - Last Modified: 2025-07-18T10:43:34.709969
+  - Hash: 3c0e7f2be5cf9a4a338efe3531feb4cf7ebb1e06412782b112c064f97727fbc4
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\tests\test_security.py`
+  - Last Modified: 2025-07-18T12:48:19.306588
+  - Hash: b782b4d533ef7937ed51f2eef5ceb29f97cc355a49705f06bbf4bd6ae50c18f4
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\webpanel\app.py`
+  - Last Modified: 2025-07-18T12:48:21.921958
+  - Hash: 0ce078a9d2c8e9e3eaaf40ab2347569344f7cce040cfebc4cc1ea81bd40bd59c
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\webpanel\static\css\style.css`
+  - Last Modified: 2025-07-17T15:33:39.992467
+  - Hash: 136584f3952309f664e39b1c50b7a0cc3efd65ea6388922877460d750c9f152c
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\webpanel\static\js\dashboard.js`
+  - Last Modified: 2025-07-18T12:49:04.708070
+  - Hash: 9933668fd40a7b02775930ef33b26949f1c6d62f8dbd7d1c25e74c99246c05c8
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\webpanel\static\js\socket.io.min.js`
+  - Last Modified: 2025-07-17T15:33:39.995469
+  - Hash: 97f9ecbac6dbaaf756eba3d9790e6aec1ec431ddeeb5ae1039d343216e0b5980
+  - Reason: No references, not legacy, not config
+- `.\NoxPanel\webpanel\templates\dashboard.html`
+  - Last Modified: 2025-07-17T15:33:39.992467
+  - Hash: c74c61a5e57aee9fe577414a49aa55a0f984994b0bf7e8d30f71d626066796dc
+  - Reason: No references, not legacy, not config
+- `.\noxvalidator\NOXPANEL_COMPLETE_GUIDE.md`
+  - Last Modified: 2025-07-18T12:49:19.756241
+  - Hash: 9c49497a51c0e1bcc7c8dc04c42f5935a95d85547cb53f60455af7ffe7b53839
+  - Reason: No references, not legacy, not config
+- `.\nox_assistant\assistant.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: 89309d5d7f65de46ceaa7fe048a2108ef817a1952e61eddc80782b377e61890c
+  - Reason: No references, not legacy, not config
+- `.\nox_assistant\llm_wrapper.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: cacd09c1aa796da5905b811161527e419d1f37b700f485f0cac0efe0c6aca940
+  - Reason: No references, not legacy, not config
+- `.\nox_assistant\voice_interface.py`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: b1b3c49d424cf0462f6731c45ce19ce7da75ebddcf6bba25c4bddc2aa5604142
+  - Reason: No references, not legacy, not config
+- `.\plugins\example_security_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 06b0032cfb19ffcc8bd5f47d16fcb97c14fdf33dae2490b9b6384567c88f6ac7
+  - Reason: No references, not legacy, not config
+- `.\plugins\example_service_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 89be28bffe48b7cfa26f7cf7584230118cc97285155ae673418d5506673c4e14
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_config_example.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: efe6e4475c8fac1b8bb46a8d8c15c17a3539a163b483f47b6d707d2f8626432d
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: a821bb1f911c289096617cde0f9aecb38aaa480ada70d9b7a64bcb60548faef1
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_resilience.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 7554ac49fa2e71af0364cc0bd68c2c60040a1151ebcb584a0850091b5d344fcc
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_setup.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 65017a0c1478446663ea3c33e1ba786f3f6b9f3066157642cc669b4b9e799c5e
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_ux.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 4c7f3aba95f981ed1eb52279ac96876cd295dc34f7417e971249960ae0ea445f
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_web.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 57b3cf9807f5a49da2a5fcf8684c1ee7f7c11679621af71733de70d5eb00b65c
+  - Reason: No references, not legacy, not config
+- `.\plugins\keepass_helper.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 861f2533d5701d0511f934963836c1077dd4be945dc2485be496c64d9877eeae
+  - Reason: No references, not legacy, not config
+- `.\plugins\network_monitor_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: 552356e24d771933d860e2cbbfc97cf328b7f5bb167900b1dbfb1338b3b481e3
+  - Reason: No references, not legacy, not config
+- `.\plugins\roaming_tracker.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 368e76cde29d32bd7b5bf960e31a62ea7a46d0f1e5edfe62fb7e8f3701959c90
+  - Reason: No references, not legacy, not config
+- `.\plugins\router_registry.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 3550543aa8a71b0c497f3a3f6d4a53a9f2c564c9dd7ed01c029ce55081e137b7
+  - Reason: No references, not legacy, not config
+- `.\plugins\sample_secure_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 4590cc3dfa32b948392ae69b788cf7d30d35d8aa5d1071fe1f4de7880ccd88b2
+  - Reason: No references, not legacy, not config
+- `.\plugins\security_scanner_plugin.py`
+  - Last Modified: 2025-07-19T23:34:16.091222
+  - Hash: b6fc36ed01f04f9cdec6c7dfbae7cb5301525f991179873a6ada26f0caab9a70
+  - Reason: No references, not legacy, not config
+- `.\plugins\test_fritzwatcher_comprehensive.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 725cb30e54028e08f41079ac8a51a7ca6e9f9e222c144ec1edbb6aeda3b45210
+  - Reason: No references, not legacy, not config
+- `.\plugins\test_fritzwatcher_integration.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: cb77a4e2d7242c86a48fce563f3e5858416be1f770e93518c6024f0f596e8fbf
+  - Reason: No references, not legacy, not config
+- `.\plugins\test_fritzwatcher_ux.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: b12e2d14accdeeae6795110ba2ff4153e9cd90160a6b31836c496d21ae4ae05e
+  - Reason: No references, not legacy, not config
+- `.\plugins\test_keepass_selection.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 09c7141dbfe69215a6052ccae600b7f0d7edacf463d3168eba1ed2cfcc41a553
+  - Reason: No references, not legacy, not config
+- `.\plugins\fritzwatcher_plugin\README.md`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 8cde790bb1502d1a0cf4fa020c53ef5926d5eb1a8832e51cceac8eda14ebe865
+  - Reason: No references, not legacy, not config
+- `.\predictive_analytics\analytics_report.md`
+  - Last Modified: 2025-07-18T12:04:09.606446
+  - Hash: 04b2447b13cbde22aca0b82ff6a953ab4b514f7a22f9f5f8e5f1d7b5910893f4
+  - Reason: No references, not legacy, not config
+- `.\rlvr\coverage\rlvr_coverage_map.md`
+  - Last Modified: 2025-07-18T12:49:31.757718
+  - Hash: da0bc46c7898d9c913552af186736ac6e0fca2f26e008f7b5bd59aac0d24d5e7
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\api_jwk_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.761904
+  - Hash: dfa48bbdafc07b6d32cb01cd34347ad80dfa8a41a63ef9d507d3ad991fb15037
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\api_jws_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.675535
+  - Hash: a11b467d644f03fa94418155babe45695e2511147e9a28213c0f1a77afba3a6c
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\api_jwt_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.660998
+  - Hash: 012976c928b0d5aff72185c7cb2b2f7b0c2d1f546f978001d352ee00295aee0d
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\api_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.774439
+  - Hash: 028b3d849fd84a33fef5d03a77d62832e881a5bbddc9e5f32e8b28f17914985f
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\controller_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.652476
+  - Hash: 06627a09e5b62644b1c10d0bd202c8f320f8569538a775669ef6d3d8d0040340
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\core_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.778430
+  - Hash: 60c9d96f46edca9562bf068a17420a8e99de254957d030779eaf879787ce8123
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase4\optimization_results\main_optimized.py`
+  - Last Modified: 2025-07-18T11:13:54.752373
+  - Hash: f1f9792f863aaf93926be29b0ef6804c0c57c76742927c777e048eb0978c1a69
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase5\ultimate_optimization\api_ultimate.py`
+  - Last Modified: 2025-07-18T11:16:38.176176
+  - Hash: 35d39747fab9fba1576d0c4ab4d4ae53bd79b136780ac4cbb454c91cb3a7aa3b
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase5\ultimate_optimization\controller_ultimate.py`
+  - Last Modified: 2025-07-18T11:16:38.161148
+  - Hash: b31dd75fe972a7823c4300e3b1ce68ce66c0d28475a834d1df10cff65e98fda5
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase5\ultimate_optimization\core_ultimate.py`
+  - Last Modified: 2025-07-18T12:48:30.665165
+  - Hash: 4abedde48bbd2f17ebd581ed1a50057d68e0f71dfe125d9756c88548ac63cfca
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase5\ultimate_optimization\main_ultimate.py`
+  - Last Modified: 2025-07-18T11:16:38.167664
+  - Hash: 6b0f5a1f877f136bd5677552ddc0fec6066ab9fb7462ff21c16abcc0b08a4016
+  - Reason: No references, not legacy, not config
+- `.\rlvr\phase5\ultimate_optimization\manager_ultimate.py`
+  - Last Modified: 2025-07-18T12:48:30.786423
+  - Hash: a58ca86bd5baac55f88f69252b6c01c263ece289986f17a148970f69484d137e
+  - Reason: No references, not legacy, not config
+- `.\scripts\audit_system.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: a61039f77891d69ddb5ad343755d1d25a049c49a3e3c9e8e4567637bf7f5f350
+  - Reason: No references, not legacy, not config
+- `.\scripts\enforce_structure.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 5d4e6b1e2775e8fe01e6a4f1f3ddfa3e828bf9385a135b281637d17cb5cb6fe2
+  - Reason: No references, not legacy, not config
+- `.\scripts\init_project_safely.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: dc7e12139d380943c57359ac642d08018baefb6e3cbf30c2cc67ea815da7f3f8
+  - Reason: No references, not legacy, not config
+- `.\scripts\msp_awareness_validator.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 6ba663f760e264b6cd587f92dad023ce2f1d81d3f19e0750d49e83845cb911cd
+  - Reason: No references, not legacy, not config
+- `.\scripts\msp_operational_status.py`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: 53aa14b7fb7665a0392020e9cac171e857b2edcf5a6b88072b2910075b178d27
+  - Reason: No references, not legacy, not config
+- `.\scripts\setup_development_environment.py`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 87d5c3b0bbc5c4fb8f7464aa8d32a4beec3dca7f7833a9f4eae7c0f2f466da67
+  - Reason: No references, not legacy, not config
+- `.\scripts\update_memory.py`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: 23a204a090b6c2d1c1d975383877b4a8034d933ffe195c7ed9df1ddf7c98571c
+  - Reason: No references, not legacy, not config
+- `.\scripts\watch_legacy_reentry.py`
+  - Last Modified: 2025-07-19T16:09:37.295669
+  - Hash: 7f093247437bc3e060c4389ee90f3ce02b52e1bb6a77e7223176aac988c4c976
+  - Reason: No references, not legacy, not config
+- `.\security\vault_rotator.py`
+  - Last Modified: 2025-07-18T12:43:36.808160
+  - Hash: e381aec0ad098a845afc293e4de6ed1d03f732f62f7b241e170e2976a6480817
+  - Reason: No references, not legacy, not config
+- `.\templates\ultimate_dashboard_v10.html`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 840f51ceb8c658b6d9e088c998ba01b6fe9b352aabcc8f5a837aeced63bd6076
+  - Reason: No references, not legacy, not config
+- `.\tests\aethercore\test_aethercore.py`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: c18abf856290fdc160f8f6390c6ccafe0d4ffd696d04b2ad054df00d13bb2472
+  - Reason: No references, not legacy, not config
+- `.\v52_enhancement\monitoring\post_cert_system_map_v5.2.md`
+  - Last Modified: 2025-07-18T11:39:27.406178
+  - Hash: f3f17e4a17aa5728d4b2b4525c5d4ed66fe5e7cce46f9273516edd96eab5693d
+  - Reason: No references, not legacy, not config
+- `.\v52_enhancement\monitoring\system_monitoring_checklist_v5.2.md`
+  - Last Modified: 2025-07-18T11:39:27.405178
+  - Hash: 393fa1e6dd811f3eb6a83cc1c549e9422a5d26dcdc1d1d438edd8013ce8aedea
+  - Reason: No references, not legacy, not config
+- `.\v52_enhancement\plugins\forecasting\ai-accelerator\ai-accelerator.py`
+  - Last Modified: 2025-07-18T12:48:44.424166
+  - Hash: 9cd0756d3bcf05c4575782248423ee5e27f66abf57dd1e9f8e36416c6c65bf38
+  - Reason: No references, not legacy, not config
+- `.\v52_enhancement\plugins\forecasting\performance-monitor\performance-monitor.py`
+  - Last Modified: 2025-07-18T12:48:44.448213
+  - Hash: 05e7ca12a58a3b03faf477c511f54a4174847565cc28dfee9d9fd5e928d5035a
+  - Reason: No references, not legacy, not config
+- `.\v52_enhancement\webhooks\rlvr_guardian_webhook.py`
+  - Last Modified: 2025-07-18T12:48:44.390085
+  - Hash: cce5905aad85e39f06d68590d1db0c76d9bd77962e19b880158b8728e5066d70
+  - Reason: No references, not legacy, not config
+- `.\voice\tts_system.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 3117dec9cd5b17a2ae1bae71dcdd27f4e94bb1dcd770b88012076ef0f7e8f634
+  - Reason: No references, not legacy, not config
+- `.\webpanel\templates\fritzwatcher\dashboard.html`
+  - Last Modified: 2025-07-19T00:15:09.197179
+  - Hash: a8e6fdad1c9f998bb8e06c59d30f8da83400ad6bf3ff00ecbf5c30e5450f3bd4
+  - Reason: No references, not legacy, not config
+- `.\webrtc\webrtc_system.py`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 62c595d8d760acd9ed6e75e8152cdd6de7c7c901a124c40956ff50ca8079452f
+  - Reason: No references, not legacy, not config
+
+## Keep Referenced
+
+## Migration Candidate
+- `.\cleanup_todo_20250720_012355.md`
+  - Last Modified: 2025-07-20T01:25:27.215858
+  - Hash: 45c2223c85ff5fd2f80f7c2d3bd8624aa488d070d3c8949124db941221f81a1e
+  - Reason: Legacy naming pattern
+- `.\project_state_backup.json`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 9e3c3f00c4146ed069ed110629d8879f0efbdb3e96bc77037b3a4ad6f4643163
+  - Reason: Legacy naming pattern
+- `.\rollback_20250720_012355.py`
+  - Last Modified: 2025-07-20T01:25:27.218861
+  - Hash: 72ea5fe020d20a7b533abdde1fe301e3eec1388fa031c5b20074c075380794c8
+  - Reason: Legacy naming pattern
+- `.\VALIDATION_COMPLETE_20250719.md`
+  - Last Modified: 2025-07-19T15:32:01.507174
+  - Hash: 2c6b5f558f00101ec829471b24fd122dc35932d1524baec5cca8af746609efe9
+  - Reason: Legacy naming pattern
+- `.\AI\archive\v7_consolidation\ARCHIVE_INDEX.md`
+  - Last Modified: 2025-07-15T20:08:51.152258
+  - Hash: 614bb9c9364de8e2c10b5c61ba6dca25ccb15c5ded46339125d36bdcaed54a6d
+  - Reason: Legacy naming pattern
+- `.\AI\archive\v7_consolidation\archive_manifest.json`
+  - Last Modified: 2025-07-15T20:08:51.153260
+  - Hash: b6fde0a06e6d7697ee0f5b01568e00a4ed5dfeabbf3212fab888cf4c5f5e562c
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\cleanup_report_20250716_105225.json`
+  - Last Modified: 2025-07-16T10:52:43.177276
+  - Hash: 413b79090f7692b42b40db1882fe8facabccbbb774019eb124530eee641cf0f4
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\cleanup_report_20250716_105322.json`
+  - Last Modified: 2025-07-16T10:53:30.656148
+  - Hash: 07d98c44f7fcbd1317aeea2c7de6cde543b87de4fd8db89a5eeccafae5e96598
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\ultimate_project_archiver.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: b8357a98b28fd723126799e854551d34db85dbce6cc62fbdd95956fee2490740
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\ultimate_suite_audit_report_20250715_211347.json`
+  - Last Modified: 2025-07-15T21:13:47.776977
+  - Hash: f930311c977a33d039bc5fe67bb78378c7b3367cd572902766ac25435cac099c
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\validation_report_20250716_105442.json`
+  - Last Modified: 2025-07-16T10:54:42.669136
+  - Hash: 6de8881cf7fb14d7a258f5d93a67aefa976b505e1ae6cd3b8c73e10aa1690247
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\validation_report_20250716_105552.json`
+  - Last Modified: 2025-07-16T10:55:52.492882
+  - Hash: 33d82d4d3b68af9f47f82be9f876ea9c1d8c4e95639a2fb58f25e4bc4694ad49
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\app_backup.py`
+  - Last Modified: 2025-07-18T12:47:30.369250
+  - Hash: 846dd37f3ce19427f61fbb6d612356794fef7533d69f1da2a9a8f65fcc2737a0
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\app_v5_backup.py`
+  - Last Modified: 2025-07-18T12:47:34.641940
+  - Hash: 6deee115f28e5946ac7dcbe0ca3dc1944cb6201e8b8bfa320b4d7c7d55e506b3
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\backups_routes.py`
+  - Last Modified: 2025-07-18T12:47:34.699078
+  - Hash: 7f0fc8b4b248262c5c69859473191e8a2ade7ee7ef356c71e3b90edf90c893e5
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\enhanced_application_backup.py`
+  - Last Modified: 2025-07-18T12:47:36.284906
+  - Hash: d2302bd26afc43953f281c61c3b621d9492ad2c491d525d42698f696f480717e
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\simple_noxpanel_backup.py`
+  - Last Modified: 2025-07-18T12:47:39.948923
+  - Hash: 69b7ac6001e36dccc94ec12e3529367962818dba711a4e3772dae2b263071bc4
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\backups\ultimate_webapp_v9_backup.py`
+  - Last Modified: 2025-07-18T12:47:42.057276
+  - Hash: b33bef4af6884a7582fd9493ced615804e00a34519bc54f017fc44c123251095
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\deprecated\index_old.html`
+  - Last Modified: 2025-07-14T21:00:10.851069
+  - Hash: 96fb92f8d2bab88d9724b90a506fc45a7c55022b493c78419696f7de40ce5c6b
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\test_results\stability_test_results_1752608292.json`
+  - Last Modified: 2025-07-15T21:38:12.618874
+  - Hash: 43bc33ec101496a30ace9340c2a4a9480a87d9f4ab4c91c33b5d6324772a8c41
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\archive\test_results\stability_test_results_1752608559.json`
+  - Last Modified: 2025-07-15T21:42:39.496287
+  - Hash: 107e6c1ad19a4e71d4fd7a5da1103a6b2b6c3d6bc77f2687310365cebd70115b
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250715_235157.json`
+  - Last Modified: 2025-07-15T23:51:57.175114
+  - Hash: ee7d3f85c5a3740bf545c4ea56603c74b8b6b590d95bec2c60442aafe7db7166
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_100018.json`
+  - Last Modified: 2025-07-16T10:00:18.178432
+  - Hash: daf931a6505221de20b872132c21bde59ed2577aa93874d0178da11f13e4588f
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_105810.json`
+  - Last Modified: 2025-07-16T10:58:10.382542
+  - Hash: f149f22bff9d4fa78dae1b4b271c9b9e742b2932e615719ee17e276e148ea65f
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_203641.json`
+  - Last Modified: 2025-07-16T20:36:41.131974
+  - Hash: 56d34c793e2ad1124c8296e21446c5e0bf398778b0530a487049a991c17764a7
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_205741.json`
+  - Last Modified: 2025-07-16T20:57:41.870353
+  - Hash: 5a80f0c44716f8d44317499984280d328418baf581611f8d6fee91e55f803a1b
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_210756.json`
+  - Last Modified: 2025-07-16T21:07:56.117862
+  - Hash: 2fdbea7eccafea3dd237ead714ecf5010c14c9d8b68375f5d4ce8e6e7f14dc0a
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_211400.json`
+  - Last Modified: 2025-07-16T21:14:00.190328
+  - Hash: cfc3a02a4b3ad687843fffbf5818018d5ed8bc2e65e2724e097cc07a3bf1d49a
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_211927.json`
+  - Last Modified: 2025-07-16T21:19:27.147080
+  - Hash: d41fdaea45a102f413383b6dc60cd35eabe2890fc55cf3a5e489fde8240a3b7a
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_230316.json`
+  - Last Modified: 2025-07-16T23:03:16.852621
+  - Hash: 89b369903404b656cf37ef7348e35784f77dc413f91735bb11cc6106c9366743
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250716_234550.json`
+  - Last Modified: 2025-07-16T23:45:50.232267
+  - Hash: f87c9e8827b4e401e2e33ce287f483b0a520dc9ff7cd9f355c8d781105ba2799
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250717_153615.json`
+  - Last Modified: 2025-07-17T15:36:15.468596
+  - Hash: 6d1ed05d7f7999c43a4abe7710731cb7e26205ac625a92cb7c4a6fa79dac155e
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_3_performance_20250717_153642.json`
+  - Last Modified: 2025-07-17T15:36:42.219881
+  - Hash: 9e47dead0c87c8b5f3c9ac418fb9f85d039cf5c14e6072529436834bf2d77940
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_100246.json`
+  - Last Modified: 2025-07-16T10:02:46.344338
+  - Hash: fde37375aa95c2f0719f69c6f21a11449d2596483d5979fdbdcad7424576c4b9
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_110048.json`
+  - Last Modified: 2025-07-16T11:00:48.631113
+  - Hash: d6fd78041088cbb216eae2aff20bea669b7c363be8f6d6588a7c24680e1977bb
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_230528.json`
+  - Last Modified: 2025-07-16T23:05:28.697901
+  - Hash: 3a71147fd63c7726da2e1fadafd5bbe6b23cc97072ed844b1d1c8315d00fdad5
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_232828.json`
+  - Last Modified: 2025-07-16T23:28:28.702054
+  - Hash: d2b9fab761c823029ec6835e8f7cb313f9e0c68135f4474e58f25af93feab75c
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_233459.json`
+  - Last Modified: 2025-07-16T23:34:59.246982
+  - Hash: c19dc7fc5d23583c3e85d404886ebe6efd8bd780842e93597eea1e32d190bacf
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_234159.json`
+  - Last Modified: 2025-07-16T23:42:00.053139
+  - Hash: d2056f249d61d06ee7ba4b40b7aa6c81f6f601657b240da04d735b3c13d851b0
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250716_234525.json`
+  - Last Modified: 2025-07-16T23:45:25.892585
+  - Hash: db3b37a485818195cb5f94a9aed2aa8a5c7f779b12630672b10302416570fce2
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_000413.json`
+  - Last Modified: 2025-07-17T00:04:13.067748
+  - Hash: 3a26a2522eea75bc009e1a43572b88cb35d6cb0cc9904509f6a880f511ce4e46
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_000721.json`
+  - Last Modified: 2025-07-17T00:07:21.885057
+  - Hash: 5271658d92eea4787d25123b180af4e1ea5b4d0de0e2cbf129eeb65f91c124f0
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_001323.json`
+  - Last Modified: 2025-07-17T00:13:24.417565
+  - Hash: 3f1bdf01379a9ec11ae00691a7d3df6b93fcb9848d2022c6a2a6ba0fea242ce3
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_153651.json`
+  - Last Modified: 2025-07-17T15:36:51.909903
+  - Hash: f059e9990b6ea5c92a64695680e069a85613c635dbdeae2a6c1e5a2675026aca
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_155431.json`
+  - Last Modified: 2025-07-17T15:54:31.165835
+  - Hash: 635c3f19683d8e94d3d163d8642b2d86823bfb5642e25d7965421e796a25b6b7
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_155659.json`
+  - Last Modified: 2025-07-17T15:56:59.429046
+  - Hash: 1320db82f7e2c4b87b5801b835f49fc82138efd675ee157428368bd49870e92d
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_155721.json`
+  - Last Modified: 2025-07-17T15:57:21.815979
+  - Hash: c4401086d7193464d0665e079108daaca79bb667ede34d56d7655cb0ada2d1ec
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_160250.json`
+  - Last Modified: 2025-07-17T16:02:50.759173
+  - Hash: 408a795e2d7aa55dd195c2c2295dfd57a7006ea71f9da9030649e9de868f00ac
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_162647.json`
+  - Last Modified: 2025-07-17T16:26:47.905149
+  - Hash: ea4a242996b5adf93f8f59c6598388c1912ffb6559b369eb59c61dea0b6d9783
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\data\audit_reports\gate_4_security_20250717_162841.json`
+  - Last Modified: 2025-07-17T16:28:41.939255
+  - Hash: d3a605428dbfd3a7cc4c6f7b8d3202ea41e08fc1cb821ef2e52e95c56083233a
+  - Reason: Legacy naming pattern
+- `.\AI\NoxPanel\webpanel\app_v5_backup.py`
+  - Last Modified: 2025-07-18T12:47:16.681710
+  - Hash: 6503254f7557323c7cfb791ecc34cf95c004621263d288a84fc34ee4af15c281
+  - Reason: Legacy naming pattern
+- `.\archive\ARCHIVE_INDEX.md`
+  - Last Modified: 2025-07-18T12:49:08.272380
+  - Hash: cb5a997213525da25acc2dc6066c1b798b56a096a1f58c1cbacb5f113b182c28
+  - Reason: Legacy naming pattern
+- `.\data\status_snapshots\status_20250717_220709.json`
+  - Last Modified: 2025-07-17T22:07:09.250071
+  - Hash: 2c56572b5a19562f90c92bdcba5802cea18c97dfc9ab3bb35105824fdf07375e
+  - Reason: Legacy naming pattern
+- `.\data\status_snapshots\status_20250717_220742.json`
+  - Last Modified: 2025-07-17T22:07:42.611232
+  - Hash: 6cff8fd8a8af406054b54546ef97bc32012fa5c1388afa2bb63bc2079926f4e5
+  - Reason: Legacy naming pattern
+- `.\data\status_snapshots\status_20250717_220745.json`
+  - Last Modified: 2025-07-17T22:07:45.783601
+  - Hash: b6b8ddeb6a020ecc8a2c7cbb72cc8d6dd5a33007e9cf0220fd4c55f8e047138d
+  - Reason: Legacy naming pattern
+- `.\docs\ARCHIVE_REFERENCE_INDEX.md`
+  - Last Modified: 2025-07-19T15:57:21.388749
+  - Hash: fa696de310b61fe6eefd22b043707b70baba347e6279d14785b5acbd345e0eb7
+  - Reason: Legacy naming pattern
+- `.\docs\PERFORMANCE_HEALTH_CHECK_20250719.md`
+  - Last Modified: 2025-07-19T15:16:12.728835
+  - Hash: 0dedd50438147a940d4b8dd4071467cad3f2cc68c8f69cf65751fcc20e82c7f7
+  - Reason: Legacy naming pattern
+- `.\docs\VALIDATION_COMPLETE_20250719.md`
+  - Last Modified: 2025-07-19T15:55:43.089019
+  - Hash: a39a270c5f16b8bcda4b2e55bf1e2a0c3b65369faa6d90d83e06918e41f7bbcd
+  - Reason: Legacy naming pattern
+- `.\logs\plugin_framework_v2_test_report_20250719_125950.json`
+  - Last Modified: 2025-07-19T12:59:50.975436
+  - Hash: 1df7536341f73b00284d80b6ee8a186b5c6721aacecab48c4c7dfdf43e60c7ef
+  - Reason: Legacy naming pattern
+- `.\logs\plugin_framework_v2_test_report_20250719_130102.json`
+  - Last Modified: 2025-07-19T13:01:02.451033
+  - Hash: 64c4bb53994753ccea5d43a65c89f9346b58faa04a6ad1aedeec25ed37ae125f
+  - Reason: Legacy naming pattern
+- `.\logs\production_validation_20250718_232729.json`
+  - Last Modified: 2025-07-18T23:27:29.828387
+  - Hash: a559498ab9705602d564e8aa9bd12efe88e0ab77a392310017bbaa9ab06c72db
+  - Reason: Legacy naming pattern
+- `.\NoxPanel\data\logs\test_report_test_1752744933.json`
+  - Last Modified: 2025-07-17T11:35:34.946723
+  - Hash: 7a7a7497ef257797c931e725ddf3cdb2adae2ce688569242864e579a0aa91c66
+  - Reason: Legacy naming pattern
+- `.\NoxPanel\data\logs\test_report_test_1752745125.json`
+  - Last Modified: 2025-07-17T11:38:46.741409
+  - Hash: 45197d6f55a7de1466dbc95e0d01dee1c15f3b5eccef476ce1d751950a91c48c
+  - Reason: Legacy naming pattern
+- `.\NoxPanel\data\logs\test_report_test_1752751958.json`
+  - Last Modified: 2025-07-17T13:32:40.476100
+  - Hash: 0b76fa53fd9b84039cde1b4dde62c7dc2fe770f307ec25a06d9c00305dde5c58
+  - Reason: Legacy naming pattern
+- `.\NoxPanel\data\logs\test_report_test_1752752314.json`
+  - Last Modified: 2025-07-17T13:38:36.047084
+  - Hash: 810a780a8599053e1cb1654307bde4708296b6b75844f4f273159bd8ace9af7a
+  - Reason: Legacy naming pattern
+- `.\NoxPanel\data\logs\test_report_test_1752752322.json`
+  - Last Modified: 2025-07-17T13:38:43.972673
+  - Hash: 84e07971368b714871780ab7123cdb6c489369a886fa1314daf0512d0bc7a633
+  - Reason: Legacy naming pattern
+- `.\reports\post_certification_status_20250718_112943.json`
+  - Last Modified: 2025-07-18T11:29:43.332717
+  - Hash: f7fb159eac08984bb8b6a0b55a3cbbc27c71ddbfd324175a2a1c9a4ffc8293d0
+  - Reason: Legacy naming pattern
+- `.\reports\rlvr_emergency_remediation_20250718_104334.json`
+  - Last Modified: 2025-07-18T10:43:34.850869
+  - Hash: 0b3b9d85944eac6fe47b6da02357f224db3b7b701217d181ac9c124538418c23
+  - Reason: Legacy naming pattern
+- `.\rlvr\master_system_achievement_report_20250718_111127.json`
+  - Last Modified: 2025-07-18T11:11:28.280780
+  - Hash: e0c67caa80a746670d6d50bfcb1556de6433be54ddcd71af0eb3752000d8e58e
+  - Reason: Legacy naming pattern
+- `.\rlvr\phase3_completion_report_20250718_111023.json`
+  - Last Modified: 2025-07-18T11:10:23.320451
+  - Hash: b39c111ca8dc1ed8db34eaebb3c70d210175bf6aedb592990f69d43db9a1822a
+  - Reason: Legacy naming pattern
+- `.\rlvr\ultimate_success_achievement_report_20250718_111745.json`
+  - Last Modified: 2025-07-18T11:17:45.498689
+  - Hash: 7c897a9f8739ae2d59291edb7c524f8f22b49a6692d5c45026c4fad971674e94
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\app_backup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.855661
+  - Hash: 70422a46c9c68dba1e0f6b21b48d154e3309b6c6b9e12cdaa455faf390439be0
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\app_v5_backup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:44.667582
+  - Hash: 133c9f0a29620b8844eaae3730077debc28309b163f863e67c20e54a0ed1efa4
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\backups_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:44.935664
+  - Hash: d39d12c2a2337c3f90f57bd592b1cf8227786adb5995fc66858c4386c4fd3531
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\enhanced_application_backup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:45.400228
+  - Hash: 9aa231fbcb57594dd478463cab4ee63db0b0388cef9e3c7c0806eea5cbc4b8b5
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\simple_noxpanel_backup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:45.421282
+  - Hash: 0a6f4988301d644df18b66975cf3ed8d9ad2cdbcd2c8d9cc04c9a3ea54ce9b5d
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\ultimate_project_archiver_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.201908
+  - Hash: 23dcfa067830a461c2ffb2784723f5a1bb510bed6bdaeae77267e7dc271943f7
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\ultimate_webapp_v9_backup2_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.347958
+  - Hash: e20647b931b8c01fc21ef85fa41d31f55947350b0173d501e680a562dd751244
+  - Reason: Legacy naming pattern
+- `.\rlvr\logs\ultimate_webapp_v9_backup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:45.889404
+  - Hash: 8ffc7fd99eb5d9d8554a2acfd919fe5326d7ea779f368f7d2b943abe7e224830
+  - Reason: Legacy naming pattern
+- `.\rlvr\phase3\advanced_logs\enhanced_application_backup_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.531798
+  - Hash: fd61eef4bfbd7ab755338a2323fff401b681b4ce59252464326757386f9dc73a
+  - Reason: Legacy naming pattern
+- `.\rlvr\phase3\reports\phase3_advanced_report_20250718_110926.json`
+  - Last Modified: 2025-07-18T11:09:26.670586
+  - Hash: 725e18b6844243ec9b057a85b7641db0b19ca36c7f0dd8d89ba480d7a151bb45
+  - Reason: Legacy naming pattern
+- `.\rlvr\phase4\reports\phase4_deployment_report_20250718_111401.json`
+  - Last Modified: 2025-07-18T11:14:01.726319
+  - Hash: 02ecebe994971448832bc820d815927bfa44ed4798649249a65b41787b4475fa
+  - Reason: Legacy naming pattern
+- `.\rlvr\phase5\reports\phase5_ultimate_deployment_report_20250718_111638.json`
+  - Last Modified: 2025-07-18T11:16:38.179181
+  - Hash: b884eda3b965fec1e0c740db7691e77102587a0f6dccd23f6009c355f48e9abc
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\app_backup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.854149
+  - Hash: a49a9cb27a6c85333273d891e972a282419d9365398bfd317f79c2d68a9e7c85
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\app_v5_backup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:44.665569
+  - Hash: e97b4746a84eae9b2f54c6cef2c74905d0843dc7da4ce6b94f7957fe6dbc1990
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\backups_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:44.933663
+  - Hash: bf79a9aa65d825fb490adaf681fa136d8da30610347ab08b025e5aa4c9f2b3bf
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\enhanced_application_backup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:45.398225
+  - Hash: 9d6071e7a526c026c6fdad0be2e79dc1ac68f9563f199bda36646efbc31e4fb7
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\ultimate_project_archiver.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:28.200909
+  - Hash: c02ac8687c586024671deb7a20a43689f2030cee43be7615c215f17f439d687d
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\ultimate_webapp_v9_backup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:45.887397
+  - Hash: 202d2fb0453b7ad55560413064416e4dcb8b7556ac4434e56568ed0b6d721a46
+  - Reason: Legacy naming pattern
+- `.\rlvr\test\ultimate_webapp_v9_backup2.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.336433
+  - Hash: 0949868d08f60ea174b213a0e6bf13de1e5d20fcb84ddf0d9dfa03e2be3f01b2
+  - Reason: Legacy naming pattern
+- `.\scripts\verify_archive_linkage.py`
+  - Last Modified: 2025-07-19T15:57:50.172960
+  - Hash: 6641f9e037ca6531e14300ad1312f02403138eaab217145784df2cf214c1b236
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_enhanced_plugin_system.py`
+  - Last Modified: 2025-07-18T12:48:32.500973
+  - Hash: 1efbb73b49fae6256a3a907b24ed74e56110a29aa64724374781e9400a3ca384
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_git_plugin_system.py`
+  - Last Modified: 2025-07-18T12:48:33.888625
+  - Hash: 3ca8a7d48263c12234fb3da18ce0d3f29396744bc7b43fe7d98c9121be925ffe
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin.py`
+  - Last Modified: 2025-07-18T10:43:34.507414
+  - Hash: a83f68f1b95440c07351a6d2fc43eab22d2cd26da73985cfb39e2ffa5a52b8cf
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugins.py`
+  - Last Modified: 2025-07-18T12:48:34.868237
+  - Hash: f2f1ee11cff991872b29cc937f25d22b4d7288d840b54d5cb930c6a082c72b88
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_architecture.py`
+  - Last Modified: 2025-07-18T12:48:37.436510
+  - Hash: 1210710aec0f0cb4324041b8c389e62c5bc606822448fbb1be1a30e5c4d3d02c
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_framework.py`
+  - Last Modified: 2025-07-18T12:48:38.938565
+  - Hash: 6ae7379dd94ad3b9d785a66b164707e3898b21bd49e2b131d1e1d564fa46b6c2
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_loader.py`
+  - Last Modified: 2025-07-18T12:48:39.677831
+  - Hash: 5f9ad5dcf8162c77bdc412defdd4e22cd82f92b5531d897bcd6d9410d4b108c1
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_marketplace.py`
+  - Last Modified: 2025-07-18T12:48:39.717916
+  - Hash: 8723d072048049dac34840000c761f9fa9b3108ce3760878231094defd7d9283
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_routes.py`
+  - Last Modified: 2025-07-18T12:48:39.743986
+  - Hash: 1a70451cc674919e085763fa6d883d68cd57543c2e929373f12312ca48252373
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_sandbox.py`
+  - Last Modified: 2025-07-18T12:48:41.060839
+  - Hash: 54cdefaa9179a34cd35dc506f4cc0d30876b798080e1bca779ec1e44c0221e4d
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_system.py`
+  - Last Modified: 2025-07-18T12:48:42.033638
+  - Hash: db8425531d3e93ca067498768bd649cfff7df13302eaa5751316072b9788cd56
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_plugin_validator.py`
+  - Last Modified: 2025-07-18T12:48:43.312282
+  - Hash: aef67d7212cb5f2b3128353a4276162735d35015882f116333c7edf2b6a82ed9
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108_sample_plugin.py`
+  - Last Modified: 2025-07-18T12:48:43.875359
+  - Hash: 3be7278882e85d69108eeb7c4ade7edd9154c06e37e14264810f9ba60d591900
+  - Reason: Legacy naming pattern
+- `.\security\quarantine\quarantined_20250718_120108___init__.py`
+  - Last Modified: 2025-07-18T12:48:44.366036
+  - Hash: dd7773aebf0ecd14991c9732dda2056257d5b28cedf07aa68a048a6c5ef73752
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.902005
+  - Hash: ce2495325772b1be93ec8781873c213d092560aa76b66e66a463c2652c463396
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_135508.json`
+  - Last Modified: 2025-07-19T13:55:09.043697
+  - Hash: 406ca262fa57d36e1beaf273453403de6e36c7c87261880a892fba8092605287
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_135612.json`
+  - Last Modified: 2025-07-19T13:56:12.492130
+  - Hash: 30ebadad2e3e9574bf1c43043a690d07d652e2198ca71b9ab2fa4933521f3b03
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_135727.json`
+  - Last Modified: 2025-07-19T13:57:27.405578
+  - Hash: 1c4b1c88520caa9b266ad18529e0e252e72a5ad15755b1cdce6a48e47fac09b6
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_135920.json`
+  - Last Modified: 2025-07-19T13:59:20.434368
+  - Hash: 81e3b4535f17224cb1e0e77ba66a497fd1a3163962bbc4fac36f0c3026736b00
+  - Reason: Legacy naming pattern
+- `.\test_reports\combined_test_report_20250719_140030.json`
+  - Last Modified: 2025-07-19T14:00:30.804688
+  - Hash: 728681da38990cd428d06d8a99dd0ca9af3d4090278ef28579c0477417e4d652
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_135205.json`
+  - Last Modified: 2025-07-19T13:52:05.663792
+  - Hash: f7875785c327e466886004a5a0b541cdf2dc219b3326835e081d042dabec6dc3
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_135508.json`
+  - Last Modified: 2025-07-19T13:55:08.956025
+  - Hash: 96379ea01a5477d5fbf07dfb672ee0108544fb45d27420f5a68e99deca2a9cda
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_135612.json`
+  - Last Modified: 2025-07-19T13:56:12.395386
+  - Hash: 53c5a53797b63512a90a4c29186a2536b0a268aa349eccfdb812e1043c69fa0c
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_135727.json`
+  - Last Modified: 2025-07-19T13:57:27.392064
+  - Hash: 10126685465737c1178f722fe75239f0b3938b9fa369fbc569a8986e3551cd41
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_135920.json`
+  - Last Modified: 2025-07-19T13:59:20.341000
+  - Hash: 97b4a97fccfd9e663a04c49e082eb96b44845eb3bece5f85bbca5ae35c41e345
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests - Task 5_20250719_140030.json`
+  - Last Modified: 2025-07-19T14:00:30.718442
+  - Hash: 2c6f36178b182318e91922d4d4bd7567c6a7d956576762dc50169e59b50900d6
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Enhanced Sandbox Isolation Tests_20250719_135004.json`
+  - Last Modified: 2025-07-19T13:50:04.439001
+  - Hash: afabca2ca6dde544d27b8c885841d609a148ba3c82c62de6d93b1e8075ada956
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.886962
+  - Hash: cadfa472eeacce3c0fa75228b831024b36d3e97fc4d6a17a08902416d589072a
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_135507.json`
+  - Last Modified: 2025-07-19T13:55:07.325732
+  - Hash: 02a57e3bc29e0c5ddef4789558bb14fc1ae243328d8b5e82828f4ce7a4b238d8
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_135610.json`
+  - Last Modified: 2025-07-19T13:56:10.742171
+  - Hash: 9fe6341203bef019c186c850963b1d51bd756c234799119b8e621f2585820951
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_135725.json`
+  - Last Modified: 2025-07-19T13:57:25.773710
+  - Hash: 212fe147dec2d595d55f726b09fb162a8d001b0849e5e992520e130f0acd8125
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_135918.json`
+  - Last Modified: 2025-07-19T13:59:18.676978
+  - Hash: 582f2f139ebc02927852e397cab9ce1bbafe29b5bce9820906853256efeb27cb
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Performance Tests_20250719_140029.json`
+  - Last Modified: 2025-07-19T14:00:29.080796
+  - Hash: d290cc4f1ab8fc0d3a1fb0fe68b41e250382f2eea2af30149d57e4a1ca6dfeea
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_133230.json`
+  - Last Modified: 2025-07-19T13:32:30.386963
+  - Hash: 5a0c32608e903d2c4935019af5cc6c37a75f5ab37b8f44052527b6fb134f54c1
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.504426
+  - Hash: 715a80d5b80e6a81b05cff6d177159f4d70f98ca12478b02b444762686abdf4a
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135505.json`
+  - Last Modified: 2025-07-19T13:55:05.421833
+  - Hash: 80d97c8988ebbc579c6b8642c38c79ded835cb497714128a87992ec80169f2ce
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135506.json`
+  - Last Modified: 2025-07-19T13:55:06.863242
+  - Hash: c917403203a9ec82bbd71cb5760a13aba6d7c7d0ce0d1d0a6fa147a8baf0be49
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135608.json`
+  - Last Modified: 2025-07-19T13:56:08.816894
+  - Hash: 63ac581c16667d3af0ccdc4e4a2b21bc617337862de2cd729377cfd72f6da3ca
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135610.json`
+  - Last Modified: 2025-07-19T13:56:10.268709
+  - Hash: e064e5940089e639894a6e29768ad66f9ca5adcafd54836e5dfd089a635b15d0
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135723.json`
+  - Last Modified: 2025-07-19T13:57:23.941571
+  - Hash: 512e9f0a92c3f7b27152c26f401861e9e11c60fb170327bd265f0e2acdf354c5
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135725.json`
+  - Last Modified: 2025-07-19T13:57:25.381713
+  - Hash: 91eb06b2a5bc4b4863148fc3d74f031ddaa9fce8a055b02f42dfd25f8a4d88c4
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135916.json`
+  - Last Modified: 2025-07-19T13:59:16.678478
+  - Hash: af0163df6b24ed919ee80007977de52f5e24909b37d587803bfd6bfe06e20b3a
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_135918.json`
+  - Last Modified: 2025-07-19T13:59:18.131849
+  - Hash: e12e26baeb65d77d77150c9b7af0b230cea713c8f082275ebcdd13517d2c8ac6
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_140027.json`
+  - Last Modified: 2025-07-19T14:00:27.263584
+  - Hash: 6df40cc7b8d5fb4ef109a106532f7b16d9db4f3c65210b810a184c666bbbef58
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Plugin Framework v2.0 Tests_20250719_140028.json`
+  - Last Modified: 2025-07-19T14:00:28.707515
+  - Hash: df55c486c1031ec61ab0179737b6d5705a7b89e7f34b84fe0bd3b32a1da85ece
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.897484
+  - Hash: b5ddcd4bebe761df6e39105e9aab40d82eeb909cef69dd94889035aada0051f7
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_135507.json`
+  - Last Modified: 2025-07-19T13:55:07.336248
+  - Hash: 581d382711d63ba6a70ae6d5a86782b4bf52716f2d093ba44b3bb0485a86c644
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_135610.json`
+  - Last Modified: 2025-07-19T13:56:10.752699
+  - Hash: cce5ec2b652c208586f8748e47238e06df44c51373a1f6a656b4313abd601bc4
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_135725.json`
+  - Last Modified: 2025-07-19T13:57:25.784240
+  - Hash: fd15236f6dcc32db4301ceaaa2f94af72a6ebedaaf421c6268ba26de97f9df9b
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_135918.json`
+  - Last Modified: 2025-07-19T13:59:18.692535
+  - Hash: ec6085a81d812cc7771db5694ea0d578100688bb5e8cd0c8344e2dbe9271127b
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_Security Tests_20250719_140029.json`
+  - Last Modified: 2025-07-19T14:00:29.092824
+  - Hash: 605d2b815bc7299e9fde25485b36589154405dcf1ea657fb31f68d66c77c563a
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.640276
+  - Hash: c89236b0fb980d1014ba16c40b29529ea94dfb169f23d48ae988ccb1bf8b321c
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_135507.json`
+  - Last Modified: 2025-07-19T13:55:07.081706
+  - Hash: cf2c1140d43eb0794d8101b6362c35f54d8a17780def6bca84a3466fec1bec7b
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_135610.json`
+  - Last Modified: 2025-07-19T13:56:10.493444
+  - Hash: 5c6c125129751685e024bbaa22b518889d0658de899bdd1774136bf32f1f9d2c
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_135725.json`
+  - Last Modified: 2025-07-19T13:57:25.509534
+  - Hash: dfd9aa1ca95d1dacb4610fe7922e777f3670718b04a6583a51fc0f6b38396938
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_135918.json`
+  - Last Modified: 2025-07-19T13:59:18.358903
+  - Hash: 6713726708d75a5810a91a8953cb68f4f7e869641c6a7e67cafcf079610d7243
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_SysAdmin Copilot v2.0 Tests_20250719_140028.json`
+  - Last Modified: 2025-07-19T14:00:28.836307
+  - Hash: 469f698ea1a7141f8058f948e7eee263dbca4e4680086952f0854ffec43b9a78
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_133231.json`
+  - Last Modified: 2025-07-19T13:32:31.761664
+  - Hash: 6640e9537568f163654cfc0844a5ea1e0b75f788d62ba41128e3f7bb5508d74a
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_135507.json`
+  - Last Modified: 2025-07-19T13:55:07.203948
+  - Hash: d21f055749f6ce86c9d70e71de5aee72898658d8cc9d0ba03adb3bc7b81b57b5
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_135610.json`
+  - Last Modified: 2025-07-19T13:56:10.618387
+  - Hash: d46cb5cc7e11692b89edbb08a2aa64fca7c9c5bd86eabd62e6c79235e458fbe6
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_135725.json`
+  - Last Modified: 2025-07-19T13:57:25.639881
+  - Hash: f5c3a4990397ddfe1a9488648924503c472a8a92db3d2be728b65340815f8322
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_135918.json`
+  - Last Modified: 2025-07-19T13:59:18.521996
+  - Hash: c8a121a7d4b5ac841831e9b67d9b20ed1cd5430b9fb386f85c8627d614c433c1
+  - Reason: Legacy naming pattern
+- `.\test_reports\test_report_System Integration Tests_20250719_140028.json`
+  - Last Modified: 2025-07-19T14:00:28.958544
+  - Hash: 99be991ea82a557b5e83b49a614512c03dddf4f1a9644ad0ae0a3945ac825141
+  - Reason: Legacy naming pattern
+- `.\v52_enhancement\telemetry\telemetry_20250718_113926.json`
+  - Last Modified: 2025-07-18T11:39:26.868983
+  - Hash: 8448ee3a5f7b9b786ee76875a637a7d3ea0da01accc38e53775cd4a69a7d8608
+  - Reason: Legacy naming pattern
+
+## Unused Config
+- `.\aethercore_status.json`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: a51222c862b6ba52b6cfbe540db608f1e1914bf3a6a1064d0b9c8385de18c83a
+  - Reason: Config file not referenced
+- `.\agent_collaboration_config.json`
+  - Last Modified: 2025-07-20T00:09:21.734401
+  - Hash: eecdf595c81885072b2dcaa89e95f57b1a4153dd7f8f3d16feef76264051f502
+  - Reason: Config file not referenced
+- `.\agent_collaboration_status.json`
+  - Last Modified: 2025-07-19T23:34:16.096224
+  - Hash: 642a0dad0613e2a466d5bb2e51d40886767b26ecfc72132abbdbd3ee335c2dd8
+  - Reason: Config file not referenced
+- `.\agent_coordination_results.json`
+  - Last Modified: 2025-07-20T00:09:31.391185
+  - Hash: 55035d06329396d79fcb19c732207ab8638a911d860671f2ffabfdcb40b0afc4
+  - Reason: Config file not referenced
+- `.\agent_status.json`
+  - Last Modified: 2025-07-20T00:09:31.359630
+  - Hash: 66a93960394e5e4e069a76571537eadde960f976affdfac3e73e20c953bf2db0
+  - Reason: Config file not referenced
+- `.\ai_memory.json`
+  - Last Modified: 2025-07-18T17:47:09.931884
+  - Hash: 91ad1a448257266ed7d5f57c942f1d77e468a3a753eca1eb5c16c5dcb6418355
+  - Reason: Config file not referenced
+- `.\compliance_report.json`
+  - Last Modified: 2025-07-18T16:52:44.519218
+  - Hash: 3e80576971c3260ef20ad745c6a43a18cc498726efce27a3af332a9559709a89
+  - Reason: Config file not referenced
+- `.\copilot_context.json`
+  - Last Modified: 2025-07-18T17:47:09.934299
+  - Hash: 9330b9e56c184649a7eea69606e3344661bd6e6204264c8dd2df6ca272e826ce
+  - Reason: Config file not referenced
+- `.\docker-compose-optimized.yml`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: eabe678b450781ec23b374fdc83205373aec0dbdbb6a0c0f9a647bf1e8e108b6
+  - Reason: Config file not referenced
+- `.\docker-compose-production.yml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: ea454cb43198fd9b4a1dbe346151a33385c281bde7a0540c41e5a0f7fd7c6c62
+  - Reason: Config file not referenced
+- `.\docker-compose-simple.yml`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: da2c7e22014980b437fb60c18302a313bde7a058699003113eafaad854ab7dd6
+  - Reason: Config file not referenced
+- `.\docker-compose.dev-networking.yml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: eec77db9055a37775e9824a6e9fe78dd619e523c9091cd5b34cce04507a72ee3
+  - Reason: Config file not referenced
+- `.\docker-compose.dev.yml`
+  - Last Modified: 2025-07-19T16:44:09.091771
+  - Hash: 57857536ee9ee3ed0f36666caaba2cbcde924303efd70ab14c6955eaa52dc7d9
+  - Reason: Config file not referenced
+- `.\docker-compose.override.yml`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: dea76c5e32fe7f7979df5ca629c802516a25668074aad37a45cc95d54ae5f0bc
+  - Reason: Config file not referenced
+- `.\docker-compose.production.yml`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 2201c0869bf168f308ca2addfe12a9b189044abdabd84c8b8c659f4bffcc2910
+  - Reason: Config file not referenced
+- `.\docker-compose.yml`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: d64dcf3f5348b91a4e7489fc06b702687ffe8ae777cba2273effa5ce81a087a8
+  - Reason: Config file not referenced
+- `.\orchestration_report_10.json`
+  - Last Modified: 2025-07-18T12:49:04.710069
+  - Hash: 4f1aa3f91f618202c8d25541742c665d6e735df3005114a2d99e0480978215df
+  - Reason: Config file not referenced
+- `.\package-lock.json`
+  - Last Modified: 2025-07-19T14:56:15.936121
+  - Hash: 37bf6eb278b6c30da3d564c3683081b3172a6e52739c2c9641c1650f368025ec
+  - Reason: Config file not referenced
+- `.\package.json`
+  - Last Modified: 2025-07-19T14:55:51.742752
+  - Hash: ecbb733647e826cb9eac92fe706cf3b72116c714047dd17e8423e3519ff374de
+  - Reason: Config file not referenced
+- `.\project_meta.json`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 66dfff81124926765e4ad01005d728bd9010e6481c83ee728da272272c38c6a3
+  - Reason: Config file not referenced
+- `.\project_state.json`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: f2137c1d13179fd8bfad52c1693db739a0f3debfb97547884b189c5f2232f6d5
+  - Reason: Config file not referenced
+- `.\prometheus.yml`
+  - Last Modified: 2025-07-18T13:14:53.773316
+  - Hash: 39d01220f03f4d42e6a720e1b4eed55ccc89eb81530eb675ca9827f7fc9b5e01
+  - Reason: Config file not referenced
+- `.\rlvr_deployment_summary.json`
+  - Last Modified: 2025-07-18T09:49:09.145243
+  - Hash: 5e9057c847eafb2e26e197bdb5f9d3e40c21b6c8b251e6240ee558fdc484759e
+  - Reason: Config file not referenced
+- `.\rlvr_suite_audit_v3.json`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 6b73c6c1777e31c4735bc993c21d78b56cd4ba6b707791180e550eae12980c58
+  - Reason: Config file not referenced
+- `.\rlvr_suite_final_validation_v11.json`
+  - Last Modified: 2025-07-18T13:14:53.775329
+  - Hash: dc972ee629e914d4485efcbbc51c27c19824346d8e95d9f37a6be4746de63702
+  - Reason: Config file not referenced
+- `.\sync_report.json`
+  - Last Modified: 2025-07-18T17:47:09.936703
+  - Hash: c0500d4822026b0018eb8b26e6ca32b2a1dd9711f773cbacfcaa565b99bd29e0
+  - Reason: Config file not referenced
+- `.\validation_results.json`
+  - Last Modified: 2025-07-17T21:55:40.417902
+  - Hash: 14c96272e566666c25e4030e9fd4373a711ed7083b024b7cb572ada9262c3fb8
+  - Reason: Config file not referenced
+- `.\.devcontainer\devcontainer.json`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 9a70a4e4f8659a0e577baa82544739efe998567b27809af83de8b409735ee9a0
+  - Reason: Config file not referenced
+- `.\.devcontainer\aethercore\devcontainer.json`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 81820ea4f97d49fe30b0f4f23c47b60db118cc19a2e17ca6e586ffab4172ccd3
+  - Reason: Config file not referenced
+- `.\.github\ISSUE_TEMPLATE\config.yml`
+  - Last Modified: 2025-07-15T18:02:17.763035
+  - Hash: 0318c85eb4caab7355e1cc5e56b26db2c40d07c4f2cb387e4618dd56c6302044
+  - Reason: Config file not referenced
+- `.\.github\workflows\ci-cd.yml`
+  - Last Modified: 2025-07-19T23:34:16.090224
+  - Hash: c13304b5268f2941ba2484a3e6505ddd8d21fb234a8de495a52618308b369f5c
+  - Reason: Config file not referenced
+- `.\.github\workflows\ci.yml`
+  - Last Modified: 2025-07-15T18:05:14.374285
+  - Hash: cac6cf1f806588df3ad469433046cc555002757bd96237a1376a974463bcd43d
+  - Reason: Config file not referenced
+- `.\.github\workflows\production.yml`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: e23c0118fca2cbc1e55c4048a33c12cdfbbca631f5533e5d8ccc41a48da688a5
+  - Reason: Config file not referenced
+- `.\.github\workflows\rlvr_validate.yml`
+  - Last Modified: 2025-07-18T11:24:46.468465
+  - Hash: 8b7d91e82f48b63fce677f3b6ab750a6d874b3fc4066505607410698ad9c0b46
+  - Reason: Config file not referenced
+- `.\.vscode\settings.json`
+  - Last Modified: 2025-07-20T00:12:09.258022
+  - Hash: 318d9d9b07a6fe180348565599f22b64675645f28396faa7e8733c9045759701
+  - Reason: Config file not referenced
+- `.\.vscode\tasks.json`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 1b043f390892e9969999a3704cadf7849455adb71dfe3c997282e99932de0c62
+  - Reason: Config file not referenced
+- `.\aethercore\docker-compose.yml`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: f945038ceb19d92bee8fbade2a230d40d47de52b33f1bba9ff01a37af277c1b4
+  - Reason: Config file not referenced
+- `.\agents\agent_switch.json`
+  - Last Modified: 2025-07-19T23:42:59.802911
+  - Hash: 5c1c7914ed03390cbd947a1d69a4a23dd4281d5df671c4bb81f86ab219e43cd0
+  - Reason: Config file not referenced
+- `.\agents\langflow_config.json`
+  - Last Modified: 2025-07-19T23:43:00.129910
+  - Hash: 612828079c6dcef4f6c932e92364ef48fe6db741c6e18f17a92d7b6b26f2fc1e
+  - Reason: Config file not referenced
+- `.\agents\project_context.json`
+  - Last Modified: 2025-07-19T23:42:59.802911
+  - Hash: da96ff6365d985a3f9dc014a5107d631aa28e6303b75269c7e01b3e695dc1bbe
+  - Reason: Config file not referenced
+- `.\agents\supaermaven_tasks.json`
+  - Last Modified: 2025-07-19T23:43:00.129910
+  - Hash: 19c424b35a519cfe40d95f05be204d719cf0f8fb257e8afa487c8b604c082cdf
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\docker-compose.yml`
+  - Last Modified: 2025-07-15T19:28:12.836690
+  - Hash: e912d5eac77bb50bc9c200fc8cc0a9fc09610d5d3cddfb899d8cfe1834ea4979
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\FINAL_POST_AUDIT_IMPLEMENTATION_REPORT.json`
+  - Last Modified: 2025-07-15T11:46:20.649892
+  - Hash: 43ae0ba06a44f14a9c4dfb53194e4878b85a77ce49d2d894acad70a49069a020
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\frontend_backend_linkmap.json`
+  - Last Modified: 2025-07-19T23:34:16.069223
+  - Hash: 3fcd0ce47acfe77debe4888a8d2925dc3a0ff8e4a6abeb8f366c62963b089ef8
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\implementation_status_report.json`
+  - Last Modified: 2025-07-15T12:42:57.380855
+  - Hash: 9800f6c613f9ead993c838b0f3cddf347bb5fb78059ad068e968042e0ff9ecde
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\integration_report.json`
+  - Last Modified: 2025-07-15T21:35:33.921367
+  - Hash: 400321c779d999aee74995e30aad6f74f60a8a3b0806790059ec5a8a7e2e4e62
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\NOXPANEL_AUDIT_RESULTS.json`
+  - Last Modified: 2025-07-18T13:14:53.770786
+  - Hash: 8f0f19d32fa67936b13b3240a02fdc7c4778f3c3ce4998160f87274599cde4f0
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\noxpanel_enhancement_report.json`
+  - Last Modified: 2025-07-15T12:03:21.922832
+  - Hash: b1b9f98d6421004f0ec6256ed5c7d0192c7967d129cce5bab6b986ea13d19425
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\noxpanel_status_report.json`
+  - Last Modified: 2025-07-14T22:15:03.612706
+  - Hash: 4c675a38422f2925e473ae79ed94d1c6f0abe66893f0d12ae11b7e27ac568c9f
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\phase5_gate7_completion_report.json`
+  - Last Modified: 2025-07-18T13:40:48.486164
+  - Hash: 3604ab1e96da189f4cdc39a101ffc130c05bac07d2ca2d44c553b0684a258a9f
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\system_validation_results.json`
+  - Last Modified: 2025-07-18T13:19:26.338649
+  - Hash: 06cdd108e8a6dafb2987a6d0af3bb2d2e2140a25e4b337045e8f0114f832a845
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\ultimate_config.json`
+  - Last Modified: 2025-07-15T21:13:47.759942
+  - Hash: 4bdc6f526cb9e7ebf8f90361fff62b6b99cc1a4b2006dca079522e709eae3718
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\version.json`
+  - Last Modified: 2025-07-15T18:47:50.468436
+  - Hash: ec7057c44c47983a59dd6712f252e4dd70add31101700ea92647807ac9220983
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\.github\workflows\ci-cd.yml`
+  - Last Modified: 2025-07-15T17:37:37.606858
+  - Hash: 3d7985a225b32d55fe05e550a08203f968defa6f747a2f46eb5a597bbc90a823
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\analytics\analytics_config.json`
+  - Last Modified: 2025-07-18T12:34:14.100408
+  - Hash: a9cfd8665a0ba5eb1209c671319df90872677ef4e3d3cbc99b2ba2f9b593029d
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\cleanup_report.json`
+  - Last Modified: 2025-07-15T23:29:37.721959
+  - Hash: 63f80c045c338ef85d6eccad06661d675f3e17dfd19f3061df69ddd1b1279448
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\quick_fixes_results.json`
+  - Last Modified: 2025-07-15T21:29:22.684300
+  - Hash: d526d9a8928068e5af831bd1ca2405584db2e0774007ec778d278ab5c23e1b9b
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\route_test_results.json`
+  - Last Modified: 2025-07-15T11:24:14.979872
+  - Hash: 7fb8d50fb2d3cdc94398b5fbfe9b8d2947ff0e4be74760d2d6f8a7aa5d90fbce
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\simple_ui_results.json`
+  - Last Modified: 2025-07-15T11:43:36.405862
+  - Hash: 710722b39d771339166b3a1461c8347525b9f40fcd83d394be8b781f17ffed07
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\test_results.json`
+  - Last Modified: 2025-07-14T17:16:19.774765
+  - Hash: 8e3ea4496ca19fe2dfd1a14484f4b581ea5cfd5c68a04d6f8dfd9870201c357c
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\test_results_ai_monitor.json`
+  - Last Modified: 2025-07-14T17:52:30.285714
+  - Hash: 7a6edffea61c4284ba631c4be9a336b0bbbc8bff5d43926ed01b39dbfc1b9fbf
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\test_results_v5.json`
+  - Last Modified: 2025-07-15T19:35:04.645262
+  - Hash: 9209a677ebc019c2af847a8af72e21391860a536c1ee83a5693f8707dfd07681
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\archive\test_results\version_audit_results.json`
+  - Last Modified: 2025-07-15T18:36:18.029642
+  - Hash: a69f5638380613716b4675f5daa2fd677a7efca331d4ed53a81608d78ac62ca6
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\access_control.json`
+  - Last Modified: 2025-07-15T19:42:03.691787
+  - Hash: ae02399b6ad1bb73b313b683a3e3c9b7f53fa046aa7f311fc217e1986c087adb
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\advanced_database.json`
+  - Last Modified: 2025-07-15T19:46:42.595384
+  - Hash: a11c0d17834dc683958128691a2ecb86d7e946b2f0c1eba283f30cb6368ed1aa
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\advanced_security_headers.json`
+  - Last Modified: 2025-07-15T19:42:03.686256
+  - Hash: a8866fa5434c01cf4f7d3c1a52209014ee560b4dd1209d3982353136d2f78a2c
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\ai_models.json`
+  - Last Modified: 2025-07-15T17:37:37.604861
+  - Hash: f75871446e7b729dd6dbe8be0f06a9afaff750d6f3a70a2bcf5d602a6f028bd9
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\ai_monitor_config.json`
+  - Last Modified: 2025-07-14T17:55:53.701190
+  - Hash: 07b68d204c7c79a6d29b765f1bb1583761afb11cfca73a199fa80db1aed0515c
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\assets.json`
+  - Last Modified: 2025-07-15T19:42:03.626581
+  - Hash: a58552907a8031c23ba8847697828f35ecd6ac61ddfd8e95cb0a54669565b6ff
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\cache.json`
+  - Last Modified: 2025-07-15T19:42:03.621579
+  - Hash: aeb80ca7e317c96b358f11065f537ff0b201482c2aad9f29deb8494108501ba8
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\cicd_excellence.json`
+  - Last Modified: 2025-07-15T19:46:42.662602
+  - Hash: 4ea7e7cb1076d31c4d8f3afd32c27c5d5815b41721697b4a602c614206f99fc0
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\concurrency_optimization.json`
+  - Last Modified: 2025-07-15T19:46:42.607917
+  - Hash: 46d635031e089fadf5bc4c00216e19897e43207453ea58ee9443aab6bcdd25a7
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\container_optimization.json`
+  - Last Modified: 2025-07-15T19:46:42.655066
+  - Hash: 5aa0d111db182222cd3c69d9805c5b299a7a1804d46bad1f621c364ad04f59b0
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\database.json`
+  - Last Modified: 2025-07-15T19:42:03.049217
+  - Hash: 92d81320a5a908a0a0dd81d0b8f0e032b32fdfe40508d8ca5020229a0c78b06f
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\database_monitoring.json`
+  - Last Modified: 2025-07-15T19:46:42.599907
+  - Hash: 42de8ac94b2e05cde4c8d80e34c0283cf2c9036367c6e4d82e05d1e02f7c8aa5
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\database_optimization.json`
+  - Last Modified: 2025-07-15T19:46:42.597897
+  - Hash: 47c737689c66f6e523cb207087eea194b970acab3d4e98692d169f602eb9bbb4
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\devops_config.json`
+  - Last Modified: 2025-07-17T19:39:05.282415
+  - Hash: 505f1e0486212d537931075ba18aad07293c9a6f29d115009312d63f621c7ec5
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\docs_api_documentation_completeness.json`
+  - Last Modified: 2025-07-15T19:46:42.631509
+  - Hash: c9e793a1352cbd53a3ada0dad7b3a1da4dc4ef350f2323db4fd3f5840635f06e
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\encryption.json`
+  - Last Modified: 2025-07-15T19:42:03.693795
+  - Hash: 06aaa4a67124d6c20fc7195d5d45b7f46332cc857abfbbcd0dde5ec976ff2ea7
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\integration_tests.json`
+  - Last Modified: 2025-07-15T19:42:03.647157
+  - Hash: 9b9e5ca1cde3773edb238dfa9ab45e8b17a8e46dcbb840ac270178b6b0aeb1ff
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\llm_config.json`
+  - Last Modified: 2025-07-14T17:22:12.309774
+  - Hash: cc57677ccb74a6687e9dbedb65a16535120d9877d5496f660f55d7c84085d7fe
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\memory_optimization.json`
+  - Last Modified: 2025-07-15T19:46:42.605916
+  - Hash: 4735f23d681f2da2c5c9aa7a2721b160b3eb4db37259122177846c0b42b36ea0
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\model_config.json`
+  - Last Modified: 2025-07-14T17:22:12.310766
+  - Hash: 6b202daa48735cf7520ae5c53799e5809c581b8263331f230f85bdb9b0a5fef2
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\monitoring_excellence.json`
+  - Last Modified: 2025-07-15T19:46:42.665604
+  - Hash: 41529a7725a7eef45b011ea9400138767c5e134144084491b3f866623704a7c7
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\performance_benchmarks.json`
+  - Last Modified: 2025-07-15T19:42:03.681251
+  - Hash: fbe20769756282e42d14193dad46d2e8df727879314e468bb665dc8a2794edad
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\performance_monitoring.json`
+  - Last Modified: 2025-07-15T19:43:40.254997
+  - Hash: c5e7f4d0bf639a9fc110b38e2cbb5bfe7f4bf114c1ee0a730a18020b8da4e6a9
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\plugins.json`
+  - Last Modified: 2025-07-14T22:39:04.131721
+  - Hash: 8aeb2ffd48da383ce3430d6446056b73bf59976c3111a12f062e4c92a69122a6
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\quality_assurance.json`
+  - Last Modified: 2025-07-15T19:46:42.614451
+  - Hash: e148f28c2ebbcea357d486072f4d5d8928a24a0d963a22ac41ac21aee2d6b89f
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\quality_gates.json`
+  - Last Modified: 2025-07-15T19:42:03.683252
+  - Hash: 7ef2b40b505bae6b7aa871a2a73daaafc823bdf790eac5016fa2d03be94fbc26
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\response_optimization.json`
+  - Last Modified: 2025-07-15T19:46:42.602914
+  - Hash: 8fff46d45705e4eff80f844c767799de54f1f3b4de094cf096d3559d08470128
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\security_advanced_threat_detection.json`
+  - Last Modified: 2025-07-15T19:46:42.617961
+  - Hash: eacd80e77e281f53b8fb2571c95cb17988c616e8342f53c6465f5f38990b8a30
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\security_automation.json`
+  - Last Modified: 2025-07-15T19:42:03.663208
+  - Hash: 3749919999d99104071b90c2fb646e495ac6ae01f1e16e413a9d9ebb28e3a431
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\security_monitoring.json`
+  - Last Modified: 2025-07-15T19:42:03.688761
+  - Hash: 5c1b0fd8c69bcf15effaf08aa6ff199a30fb292a362708a54600c8a6f0c382a1
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\system.json`
+  - Last Modified: 2025-07-15T17:37:37.602840
+  - Hash: 39a00235e7a2636e513c30a602fa4f831d7ad86a6c68345443fa0041cdc034cb
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\test_automation.json`
+  - Last Modified: 2025-07-15T19:46:42.612458
+  - Hash: 9480d05098fc82599dd900de5c4172f78ff4c3d746ca519b3b8d468e0ce5b0fd
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\test_coverage.json`
+  - Last Modified: 2025-07-15T19:46:42.610456
+  - Hash: 7352594c847c87e9eba073aec06a56c59622be28c5fbc348cc06a91e9b61fdeb
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\config\vulnerability_scanning.json`
+  - Last Modified: 2025-07-15T19:42:03.690784
+  - Hash: c5bae9600786d1ae67d39261d266884638b65438b033c3ce7610f2d5e04158fe
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\data\logs\final_system_report.json`
+  - Last Modified: 2025-07-14T23:01:52.407718
+  - Hash: 4e62a15a37b31d52b9c8cd27a20437c31e6f3b4d95a33f9b186943c023858fb4
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\data\temp\sample_conversations.json`
+  - Last Modified: 2025-07-14T20:42:09.711411
+  - Hash: 2211482a3c109da19d4cfbbaa2ddf52efbb51fcb840d10385b856956418721df
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\deployment_artifacts\docker-compose.yml`
+  - Last Modified: 2025-07-17T19:39:06.316544
+  - Hash: 5130138eea15aefb834e0b5208acdaee934506a77d108d700dc63cb675397aaf
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\docker\docker-compose.cloud.yml`
+  - Last Modified: 2025-07-18T12:30:58.173593
+  - Hash: 14dfa4ff6ee719862ff80c7b2561eeb4a8043690a71d094b855478fe055151c8
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\docker\docker-compose.yml`
+  - Last Modified: 2025-07-15T23:10:33.457485
+  - Hash: 655a804a9f674f1cb7f81314c6068daa8cf7a2d7f4368056afe4000422540fcc
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\docs\audit_results_1.json`
+  - Last Modified: 2025-07-15T23:31:11.983360
+  - Hash: bc39a0b50114a2a33bc8667faaee35ba6ef433515c02e577f3c6f73a6908f8e8
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\docs\audit_results_2.json`
+  - Last Modified: 2025-07-15T23:35:31.387891
+  - Hash: 79c23825731b2029e58ee2509663ecd4d6c11e17cd7611403f7ede6d3704406a
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\external_plugins\sample_plugin\metadata.json`
+  - Last Modified: 2025-07-15T09:30:24.214109
+  - Hash: 8d60562f126e9ae69dabf491b8e9f1d8c4d8b781fb05645ec6f9396332c94c1d
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\frontend\package-lock.json`
+  - Last Modified: 2025-07-15T12:24:38.699835
+  - Hash: a4c91bdf3b92204117da238954735563d666835f9be61c3d6d49530c210bd261
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\frontend\package.json`
+  - Last Modified: 2025-07-15T17:37:37.605861
+  - Hash: a59c8d80addfc25d3bd9e20827e35ccc75908f32549f19a36a71c5e0ce61147b
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\frontend\public\manifest.json`
+  - Last Modified: 2025-07-18T12:49:05.217722
+  - Hash: 665fd4f56b4d7de1298198521dbc85ff27b6d6c656313fd2c3b4f8e6857f679a
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\k8s\deployment.yaml`
+  - Last Modified: 2025-07-18T12:30:58.854311
+  - Hash: 5c36e03ae547354df5a61cac9bbbb9fca11db85cbf766939be0bbe8cd9fd12d0
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\k8s\namespace.yaml`
+  - Last Modified: 2025-07-18T12:30:58.850803
+  - Hash: e93dcdbf49e5142eff322b5d8c55ceab7ddea772bcc23a63f1e496769e584c68
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\k8s\service.yaml`
+  - Last Modified: 2025-07-18T12:30:58.856324
+  - Hash: f632290ff29a80753892f8a8955ed1b4f270a12938d18efcd122c6e0e36eb94b
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\manifests\development.json`
+  - Last Modified: 2025-07-18T12:30:58.864842
+  - Hash: 7b79910cf193a80eb50ab70dd2116fc04a5d2675717127a40148bfc366d9393e
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\manifests\production.json`
+  - Last Modified: 2025-07-18T12:30:58.860323
+  - Hash: 344a2be7e9f14e88680d50a26738d9ef1f06dabb37d81efd10374ae6a9b35fa6
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\manifests\staging.json`
+  - Last Modified: 2025-07-18T12:30:58.862325
+  - Hash: 86ab6a8900826d46f6afbc79c6ead94de046735dfeab89cdd246395d2d151024
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\marketplace\marketplace_db.json`
+  - Last Modified: 2025-07-18T12:34:14.039767
+  - Hash: 11953227a36f7a1eb715ba8f2b6769670e5ba89192aedd968f37bcc4d2679a50
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\plugins\sample_plugin\metadata.json`
+  - Last Modified: 2025-07-15T09:30:24.209103
+  - Hash: 4f242a088278efd161c93006fb18be0495f36462ff2333ee9f0e8e86c862f0d1
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\scripts\access_map.json`
+  - Last Modified: 2025-07-15T10:41:32.337426
+  - Hash: 8ce0b67a1609053373f7efe9053267b6913b53aabdd4fe7aa5330d79577688c6
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\scripts\port_architecture_analysis.json`
+  - Last Modified: 2025-07-15T10:34:35.738892
+  - Hash: 10d52430ad36223450de8c3f78c4d5041e2b31ad596ae89f46e5f41e500b17d1
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\scripts\ultra_port_analysis.json`
+  - Last Modified: 2025-07-15T11:59:43.978018
+  - Hash: 13e4034e2bf3605a2400bc7243dba7e75d342199845a45f8f2b247d4d6cf3f50
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\scripts\docs\audit_results_1.json`
+  - Last Modified: 2025-07-15T23:15:28.033847
+  - Hash: c708e2bb5d17783fbaaf44289233c059b5a58bd199ef07d43491095d88d24da4
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\security\plugin_security.json`
+  - Last Modified: 2025-07-18T12:34:14.096903
+  - Hash: 385c3dfab62d52ceb2b4e316c99475cd5fdee1c8a3949369d9ed5830901d4bfd
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\test_data\test_plugin\plugin.json`
+  - Last Modified: 2025-07-15T19:35:01.971686
+  - Hash: 56b2bddf8e48755703f25f4bd1334700efe0f45dd1a5bdfd7894763a9f6c58ba
+  - Reason: Config file not referenced
+- `.\AI\NoxPanel\unified_architecture\consolidation_strategy.json`
+  - Last Modified: 2025-07-15T10:47:20.694017
+  - Hash: 50cfb1bbe2fe9934de0b97ff920412853eae28d97f82a01cde774ffe4f7d6469
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\plugin_manifest_template.yml`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: d41232118203950c72bc3804fce4c6c923f673042486fe96c67bd3df514137f9
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\agent_resolution_log.json`
+  - Last Modified: 2025-07-18T13:09:07.569474
+  - Hash: 74a2c0e391fba8369f4d01570f75cf59e5fc1becaf6c309a6044da206ae86654
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostics_log.json`
+  - Last Modified: 2025-07-18T13:09:07.573977
+  - Hash: 9b7fac48a101d973a95072a144513437db92445e36b14bc62d4f5265e4cff2e3
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostic_report.json`
+  - Last Modified: 2025-07-14T22:11:58.694705
+  - Hash: 80360d97e685232348c0bead344c7a0164e85b42685e21836d8986506c302e92
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\phase3_diagnostics_report.json`
+  - Last Modified: 2025-07-18T13:25:51.153015
+  - Hash: b4a9aa74a675cc2ff815ae938dec23054ff25cde8161123800485fa215c0d035
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\phase4_diagnostics_report.json`
+  - Last Modified: 2025-07-18T13:35:14.335086
+  - Hash: 8b494c291d11cf2326a21da3f99e582e01b262c2a711af147cb195ab9931e94d
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostics\agent_resolution_log.json`
+  - Last Modified: 2025-07-18T12:49:34.186244
+  - Hash: a78f736c85f5274a9c23f62ee65a4bc1f74ad8959de33846db2ec1be5c1da820
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\AI\NoxPanel\diagnostics\diagnostics_log.json`
+  - Last Modified: 2025-07-18T12:49:33.308807
+  - Hash: e569db31b91318ccfc38881f146a0e3364a0fa5223a7d3e0da63c8059df63d57
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\archive\cleanup_20250719_122135\cleanup_log.json`
+  - Last Modified: 2025-07-19T12:23:25.950333
+  - Hash: dff630bcd22b1c00ec4735657c912442c9231b051c5c6db91a61f31b510f4666
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\debug_response_time_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.948775
+  - Hash: a5464559776d8a69b9492ffbef15d821b593ccc61c5369a09d2d7ed0215d13d7
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\debug_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:16.649148
+  - Hash: ed5102a18cf0c3d059caadd2f670c69e1ec9d43494881bef10d5c8284e83f047
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\diagnostic_repair_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.645021
+  - Hash: 9b344740f093962359690342d54a9c529887eb2790b476a2aba445a21f5fd1c3
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\fix_logging_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.167567
+  - Hash: ff8783dab449489be1a491713ab65aaddf90d868de17bccc5237f1c2708bfb55
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\git_template_integrator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:35.439439
+  - Hash: 9d021645a9aaad640a224450da607e1ffb2a1aa212e9fb87f17aae785bf7ef88
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\logs\system_diagnostic_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:53.174536
+  - Hash: 23824bb37439709a84198859b7354b7d579241f181a5fd1d068af2e3e5e4bd58
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\phase3\advanced_logs\system_diagnostic_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.615083
+  - Hash: 7e803d0fac7c60c7b072548fcfe55c6435c46d7f859be1031e0dd48162ef2fb7
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\debug_response_time.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:08.946774
+  - Hash: e6bd97fc52ea23b72e4823afcae77662c569e87fb07e74df0132e3af2cd993aa
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\debug_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:16.648149
+  - Hash: d9956c35936e0665a9e1069748754a0299f2b41d2a08229d8ff2ee4fee628d3f
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\diagnostic_repair.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:17.644018
+  - Hash: e1cc054e17d440c0388a6b352a27bcc8ebfcae7706b73f042bc47aa0c392441d
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\fix_logging.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:20.165559
+  - Hash: fcf0c45ee5690d4285d1844af7a2a28cfdd52b9ee0ef73fa6edd6901755644fb
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\git_template_integrator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:35.438449
+  - Hash: dfb874148cedf86b99b9448fc95ab0fb0c7611d387f8e82d6b06a3d726993dbe
+  - Reason: Config file not referenced
+- `.\backup_20250720_012355\rlvr\test\system_diagnostic.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:53.173529
+  - Hash: 797e07ba42f1cfa7281e6a2804ddd559e5cde2d90862a41c3be41ba386776111
+  - Reason: Config file not referenced
+- `.\compliance\rlvr_guardian_report.json`
+  - Last Modified: 2025-07-18T11:24:45.034362
+  - Hash: 2fd47c9573fa1adf9b2ad7c67e5b76731d2467b72c8b1c8b3ce750369f3bff52
+  - Reason: Config file not referenced
+- `.\config\heimnetz_unified.json`
+  - Last Modified: 2025-07-15T17:41:40.403917
+  - Hash: eb4e95798e1aec589cbe71f3532c321a0034e8ee4a8573c99a494a76178d39b5
+  - Reason: Config file not referenced
+- `.\config\plugin_config_schema.json`
+  - Last Modified: 2025-07-19T23:34:16.095223
+  - Hash: 7ad2f9f5d78ba4d1ac298a372953774324af555f7dcf694db7bb1824a1fd63e6
+  - Reason: Config file not referenced
+- `.\copilot\workspaceState.json`
+  - Last Modified: 2025-07-19T15:00:46.779693
+  - Hash: cc004abc7d3796129d9a635bccd4f375ecf5b5a54f78fae041e84eb3693397c1
+  - Reason: Config file not referenced
+- `.\dashboard\data\rlvr.json`
+  - Last Modified: 2025-07-18T11:02:53.218126
+  - Hash: 467a5f4cd8eb7fbd1a1e8d1e61096a3e94ca4057cd0cdf822f0043cc23581614
+  - Reason: Config file not referenced
+- `.\data\status_snapshots\latest_status.json`
+  - Last Modified: 2025-07-17T22:19:48.950849
+  - Hash: 052bbf0fe274348d3d3230a2ee3beb49b15a8af16c1d68a460f62d1051f2aa39
+  - Reason: Config file not referenced
+- `.\docker\heimnetz_docker.json`
+  - Last Modified: 2025-07-15T18:06:38.360986
+  - Hash: 6a2f73b0cea90e6de9159e1846c927dd79c6ea0e747cf078f56e5a65630de995
+  - Reason: Config file not referenced
+- `.\docker\prometheus-dev.yml`
+  - Last Modified: 2025-07-19T16:59:21.567063
+  - Hash: 840bff299a6f370b5400e96c5c2a4460c1531db77f66a7017fcc0cae73488656
+  - Reason: Config file not referenced
+- `.\docs\audit-v3.1.0.json`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: a8c3b89b3a89c08f920c26cbb27fd0167b164cf8c9d90cec54baf3038c194f76
+  - Reason: Config file not referenced
+- `.\docs\audit-v3.1.1.json`
+  - Last Modified: 2025-07-18T13:14:53.745727
+  - Hash: 6e8366344c550fdd7f6ea5fc315e7d06c4f1d9d94b939405c1071f4d9edbf70c
+  - Reason: Config file not referenced
+- `.\enterprise\ai_config.json`
+  - Last Modified: 2025-07-18T20:47:58.974163
+  - Hash: 2fb0292b03077c0e2cffba21f56b0dfdfde64632455545deecf2752b0a240af6
+  - Reason: Config file not referenced
+- `.\enterprise\analytics_config.json`
+  - Last Modified: 2025-07-18T21:03:28.299688
+  - Hash: ab22c245ef5a16a3a62eb0ee4c95d44b04c98cb02b319739ac71af66bcbe9a55
+  - Reason: Config file not referenced
+- `.\enterprise\enterprise_config.json`
+  - Last Modified: 2025-07-18T20:35:05.354759
+  - Hash: 38db2699877597bfb408596f6b7fa15e465bd47b573e763f9c8a3b3f5b32c582
+  - Reason: Config file not referenced
+- `.\enterprise\global_config.json`
+  - Last Modified: 2025-07-18T20:59:56.518349
+  - Hash: a96bf38e773679932bcde99c73b756fb1012b90cc9c8ef7c29ab6bb59ee1a887
+  - Reason: Config file not referenced
+- `.\enterprise\library_assessment.json`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: aefc6a87f719492c48417fa6cfeb20048eacd97c4db1e10ffa2c888c0e5a110e
+  - Reason: Config file not referenced
+- `.\enterprise\context\context_registry.json`
+  - Last Modified: 2025-07-19T23:34:16.093225
+  - Hash: 3946341dea7ffae2f2dce2746888bb8e4d9b284c6a8bf2f97ac608e2b91f3cb3
+  - Reason: Config file not referenced
+- `.\envs\windows_config.json`
+  - Last Modified: 2025-07-18T11:26:09.079551
+  - Hash: 40bbd6648895ba8b6d01a9170702f1aa25d182e803f49bb5b03cf2358dcb79dc
+  - Reason: Config file not referenced
+- `.\frontend\package.json`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: a69d3778ea126013eae06a495dcb639db5bd150abb6d19550e77fcd0fac06f64
+  - Reason: Config file not referenced
+- `.\generated_plugins\example_plugin_skeleton\plugin.json`
+  - Last Modified: 2025-07-18T19:53:29.434242
+  - Hash: d318cd33611a5135614cf2005603b55b4b215bf5f88fc7c7950a26c6600188d4
+  - Reason: Config file not referenced
+- `.\generated_plugins\example_plugin_skeleton\dev_env\.pre-commit-config.yaml`
+  - Last Modified: 2025-07-18T19:53:29.477322
+  - Hash: c6d98b7bcdfcfb961a7c4449d7338f16eb8f1df08f3926d49a9652452de46f3a
+  - Reason: Config file not referenced
+- `.\generated_plugins\example_plugin_skeleton\dev_env\dev_config.json`
+  - Last Modified: 2025-07-18T19:53:29.476322
+  - Hash: aaff08b97d05fa7185826a24ab043ebd8bbfd7992ea796a6d4cb13e728d3c5ab
+  - Reason: Config file not referenced
+- `.\helm\heimnetz\Chart.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: ccbb236a2e251cbe764a011eab58b1f22791bbc3733b6f769b73aa5ff9a5473c
+  - Reason: Config file not referenced
+- `.\helm\heimnetz\values.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: f85174a5bdf25d577d33707d7b071e4170057b20eccbdae907d10855e50351ae
+  - Reason: Config file not referenced
+- `.\integration\compliance\compliance_framework.json`
+  - Last Modified: 2025-07-18T11:44:15.766419
+  - Hash: 63eff6fa86fc8717cb8eac40edc9c936f669af1030f51be66c2afc72bcbb9f0e
+  - Reason: Config file not referenced
+- `.\integration\security\gate5_security_config.json`
+  - Last Modified: 2025-07-18T11:44:15.759894
+  - Hash: 0719a7c57414d459a4e7674ecb5d4da3dbba89d93f8c7c50e9bd02347f05da36
+  - Reason: Config file not referenced
+- `.\integration\security\zero_trust_config.json`
+  - Last Modified: 2025-07-18T11:44:15.764419
+  - Hash: 64437253591ca29242cc0c2cb454e6a5cd10f2294df45999f679701a8c708493
+  - Reason: Config file not referenced
+- `.\k8s\deployment.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 3b9bc464be82a6ad08551a78bd20726345a6523dbd7b7af3b2dbf0b21c8cbb40
+  - Reason: Config file not referenced
+- `.\k8s\deployment.yml`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 6a16a91c07f9de37b80d67ae0ecbe77f092affc3c1acef49fb255e1dca957345
+  - Reason: Config file not referenced
+- `.\k8s\fastapi.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 2db85dd2be061396752de6da72f41ff2be2265244b65d00b161d49b92c10689b
+  - Reason: Config file not referenced
+- `.\k8s\grafana.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 64bd89197ef990b8b218e623296c001da90ac04f0fbcf33df1908f54538be3cc
+  - Reason: Config file not referenced
+- `.\k8s\hpa.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 2a8c6ff1305e912402c3421591f3cd3ced6ddb9dcecc8b089f872508bf4e8e19
+  - Reason: Config file not referenced
+- `.\k8s\ingress.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 270bedb88c06334494fef3124f99297c5ffd6f7d7d58dc86568a59c57539e6a0
+  - Reason: Config file not referenced
+- `.\k8s\namespace-config.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 5076c6c6f6f7b99029425a14c2164ad7d6234dd0f34f491fce16e8e2274088f3
+  - Reason: Config file not referenced
+- `.\k8s\namespace.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: c3053bf203a0956032c23508ddd93ff0d21b6488e46a208d8185c2ef7673bbea
+  - Reason: Config file not referenced
+- `.\k8s\prometheus.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 89de7997b7c1e6b38cdff90fd873defd98f8fd70d3f53794c9c7dd6cb0bf7125
+  - Reason: Config file not referenced
+- `.\k8s\redis-deployment.yaml`
+  - Last Modified: 2025-07-19T23:34:16.089222
+  - Hash: 5143942a80006f92ff22493391b9edecd3651d2fdd6204fb1a55761460f04558
+  - Reason: Config file not referenced
+- `.\k8s\redis.yaml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: c94c84523b44218b895694823fd566dfd9d791f8acabe4ba74450aa8fd9a971b
+  - Reason: Config file not referenced
+- `.\logs\cleanup_validation.json`
+  - Last Modified: 2025-07-19T12:44:42.516990
+  - Hash: 6ccce9e7588b092ad42493fdf91dd245ed5a01a14899284c868cc51ec6da9b16
+  - Reason: Config file not referenced
+- `.\monitoring\prometheus-export.json`
+  - Last Modified: 2025-07-18T11:39:27.196151
+  - Hash: e5d37bb51d6e58cd190b6ffe209575c87d1c35976e5bbcef3b45ef45b7f78f07
+  - Reason: Config file not referenced
+- `.\multi_tenant\tenants\tenant_4aa4f2b6\tenant_config.json`
+  - Last Modified: 2025-07-18T12:02:40.730738
+  - Hash: 9b5f5b7ccb818952ad79677f05c409fa44969485f6e8b4511d35b68e7633bab0
+  - Reason: Config file not referenced
+- `.\multi_tenant\tenants\tenant_4b433286\tenant_config.json`
+  - Last Modified: 2025-07-18T12:02:40.779354
+  - Hash: f896399a1287176f2a5fc31565ffaffdaa5ef42b16e7d366d59ab7f6896315bc
+  - Reason: Config file not referenced
+- `.\multi_tenant\tenants\tenant_b6f869fc\tenant_config.json`
+  - Last Modified: 2025-07-18T12:02:40.758300
+  - Hash: 0d47e89509e8d37cbee00a97cbc197c40af845fdceae035d189902ab3e95bd97
+  - Reason: Config file not referenced
+- `.\NoxPanel\test_results.json`
+  - Last Modified: 2025-07-17T15:39:11.792756
+  - Hash: d134d101212733812110c0a1dbe7f1f498f749d081e9d089d563bf8981ead4b2
+  - Reason: Config file not referenced
+- `.\NoxPanel\config\task_registry.yaml`
+  - Last Modified: 2025-07-17T15:14:12.591465
+  - Hash: fbeed533f9dd785adf964ac07170a268c34e721549bc126ce333ec66e55e34ee
+  - Reason: Config file not referenced
+- `.\nox_assistant\task_registry.yaml`
+  - Last Modified: 2025-07-19T15:00:46.776678
+  - Hash: 1eab5be8ddbf02961fb85c375de9858d787102c7ee9d8577c372cbdd8c0c10dd
+  - Reason: Config file not referenced
+- `.\plugins\FRITZWATCHER_INTEGRATION_REPORT.json`
+  - Last Modified: 2025-07-19T00:15:09.631349
+  - Hash: 3d6e27f686b30a5dcb402c5e9f236ed99d4a7b9ad5a89d9357b937ee9f771bf1
+  - Reason: Config file not referenced
+- `.\plugins\plugin.json`
+  - Last Modified: 2025-07-19T23:34:16.092225
+  - Hash: 4187db736ef8e8addd4c4e78dd58e546b6b9a5bb3a7518cf55a0b7007d1ff38e
+  - Reason: Config file not referenced
+- `.\plugins\fritzwatcher_plugin\manifest.json`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: c2b953f026433f9a7fa3f0c1b3a592da69b9323eaa0146d3109a2a2bcce8d7ca
+  - Reason: Config file not referenced
+- `.\plugins\fritzwatcher_plugin\plugin_config_schema.json`
+  - Last Modified: 2025-07-19T23:34:16.094224
+  - Hash: c3ab8363fb98386d1e2d8372e47715bcc375737f25feeba1fd98d6ab7d31604f
+  - Reason: Config file not referenced
+- `.\prometheus\prometheus.yml`
+  - Last Modified: 2025-07-18T13:14:53.774329
+  - Hash: 14f9a3f0d5d5f6da694ca1f0ed8b93a12617d6ba07537348ea831375451c4284
+  - Reason: Config file not referenced
+- `.\reports\rlvr_compliance_initial.json`
+  - Last Modified: 2025-07-18T10:45:01.746007
+  - Hash: 5599db8b02ed98e47298155dc1cb2ea1461a8d8861d049dbb9bc9a26c6d545f2
+  - Reason: Config file not referenced
+- `.\reports\rlvr_improvement_plan.json`
+  - Last Modified: 2025-07-18T10:43:34.856885
+  - Hash: 8304ec57462a6309093ba63a955eaf735b312be7d9fa6e634b95d32317208cbc
+  - Reason: Config file not referenced
+- `.\rlvr\logs\access_map_generator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.106730
+  - Hash: a13922715435563f6110e17e3fc7eac3548befdea6e7cd7febfb2e0fed276c31
+  - Reason: Config file not referenced
+- `.\rlvr\logs\admin_blueprint_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.120486
+  - Hash: 472980ad1e34f1d114dc66eeea53924e54e6e7e21b9b94c4a44f51d1e75e00b9
+  - Reason: Config file not referenced
+- `.\rlvr\logs\admin_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.177622
+  - Hash: 552bc5c379cacde0a1e4c00462fc4f66c4e01d9174185f41cff35c108c41abfd
+  - Reason: Config file not referenced
+- `.\rlvr\logs\advanced_ai_orchestrator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:13.254592
+  - Hash: 824c4f8d461bcc1b268e98d0ccbd60a1074619961a30c770e68cac098f03bd65
+  - Reason: Config file not referenced
+- `.\rlvr\logs\advanced_analytics_dashboard_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:13.717202
+  - Hash: 5dca7a2adac9afe910b4a35564bb9e4ef629cd2e56620389ab294c67ccf2e978
+  - Reason: Config file not referenced
+- `.\rlvr\logs\advanced_security_monitor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:13.721211
+  - Hash: f700d5116214c5dfc5e51f9b6a3b7858f7c389c844ce95b44468dee7e18b97e1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_advisor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.230119
+  - Hash: ed5fa59d028af4e27d96af3d3963ac0907af0e3912afd26f16e49997001c4ade
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_context_config_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.627093
+  - Hash: 9db3e3ff1cac121fa242119f7218933be9bc4d8292f1d87af3f83b71abe139c0
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_model_integration_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:07.922934
+  - Hash: 410e871eadccbc9a11f126f90c14dfb6a68d9e3c4d522228130ce9163910bed3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_monitor_api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.372588
+  - Hash: c581a80557637c985b0e58795c1a0b33f86bc927a497b7acb9d95562f02f06af
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_monitor_direct_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.493343
+  - Hash: d3321f8ace519c9f0e44a12da30d08b0647c227f3cd901acb070e863959f411f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_monitor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.719334
+  - Hash: cd50026f7ddc06c89e7bbb1504aef90dfe436c12912cf3efc7eb7bf17f51db56
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_monitor_simple_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.575603
+  - Hash: d35d27872d00ad5ed7c9082eb3bc073630c9f7cf3ebccd2974748997cf3861be
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ai_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:15.295141
+  - Hash: 269b93fe096c21057a74c1e1e9c93aedd43bfb888c4fb003b05bd3edc3ef96aa
+  - Reason: Config file not referenced
+- `.\rlvr\logs\analytics_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.675338
+  - Hash: 621ba047b0c4727b17e73f0e159e7ffe6c96d2c5e2bf6154d35f427015b12463
+  - Reason: Config file not referenced
+- `.\rlvr\logs\api_bridge_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:07.937473
+  - Hash: 646a4d49d6042f44c95fd8fbf53f406cf489a0aa49db61c123fa82c2952941af
+  - Reason: Config file not referenced
+- `.\rlvr\logs\api_docs_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.678355
+  - Hash: a61d0de64b6a1d7a4f14cb93e3cd514b6e5d397fe0f85c723989845a031d3e80
+  - Reason: Config file not referenced
+- `.\rlvr\logs\api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.501256
+  - Hash: 0bf4dea7b3f8c4ff66829477293ff56fdc5056f93dacf3120bda866b901104f2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\api_test_utils_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.747909
+  - Hash: 422a5b4025281b78028b23de0b94010f4824df59d37140443469c6da9372eb28
+  - Reason: Config file not referenced
+- `.\rlvr\logs\app_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:51.178214
+  - Hash: d978c27b1db070c328d0fb14aeab4722ae03b68b204aba0a47f95b24cb5cc25b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\app_factory_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.769967
+  - Hash: 07255ed0916ebb22dfc48ae6145b8c49148550c796227a7697331827d1340eb6
+  - Reason: Config file not referenced
+- `.\rlvr\logs\app_v5_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.683358
+  - Hash: 4fa838730b90075132fb83358254db2c82e0e22e188a890011b1cdc3f89280cb
+  - Reason: Config file not referenced
+- `.\rlvr\logs\assistant_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.730136
+  - Hash: d8d2138fe70f86dc588c51ae0f41e864bed0e1d5fe0f343659dc7119ba462486
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_1_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.392999
+  - Hash: baa77f0ce8a6f2854e4d1e445bdd6eb88f977b7e97ed8ddc1bb7d7b3ffe9a107
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_2_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.531336
+  - Hash: 210feea1fed1ae1ce51a7d58220eff805b67b5c63ae087a2da605f4ae6802a64
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_3_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.730785
+  - Hash: b555752b6bb630c6221d8f9d2d042a9650760ab0e0981c848288f2f69dff3903
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_4_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.907251
+  - Hash: a83ebdf47e714daff87b5a496c2dca8de3f6baccdae068d6d334e33b6877edac
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_launcher_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.910251
+  - Hash: f5b0be3ae9bbb6b2fa4f8f82aabc82249c610b37ac517579e19ea759eeebd812
+  - Reason: Config file not referenced
+- `.\rlvr\logs\audit_report_generator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.391829
+  - Hash: b7b509256566da4adaacf6a51d480582ca5af6cc3961b96290cecc3796adc160
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auth_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.506105
+  - Hash: 694bb3ee801cae84a9ad89839af57585a4111b122215731c1a53792e7f0e117d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auth_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.126034
+  - Hash: 9634eb30e636a064b8b34b531aa1fafa0cce6e9d167cf1ecca24c964878809b2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\autoimport_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.134997
+  - Hash: 48733ba4f4dfa2e67ceee59ae35e5c17fb5a1605d6000339d94870dc491d0e19
+  - Reason: Config file not referenced
+- `.\rlvr\logs\autonomous_system_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.606093
+  - Hash: 7d808911a8ad34b7e309889c794048139593fa8f76f9e41170f3ba594fc9dfcb
+  - Reason: Config file not referenced
+- `.\rlvr\logs\autoscaler_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.756866
+  - Hash: d911ce0fab156d291117e7be760f4d3578382fa612e4b3455e9ecdc808f8cc56
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auto_healing_monitor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.710807
+  - Hash: 2ccbb6b122491f76877274298fe90e529bf67d5b098466605fe9ad084c00fd0f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auto_status_saver_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.848056
+  - Hash: d8fa21e2e66588b9748df4de2897f3ec51e545d3a4a4596d51e7d52288c512d5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auto_status_saver_windows_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.937747
+  - Hash: d216d81c397449c05049e7e7f67827a979909f7bc9f791298330b6547005fdbe
+  - Reason: Config file not referenced
+- `.\rlvr\logs\auto_test_runner_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.139519
+  - Hash: da67fb89b2c978cd519313e0d4b28bfebd944583bd175f94401cf46bc3a72c56
+  - Reason: Config file not referenced
+- `.\rlvr\logs\blueprint_registry_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.885731
+  - Hash: e6a6a870f4af4dd8468c82a8ecf3245ea53b8d2d9d9e5680a012a3ccb403b53d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\blue_green_deployment_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.694249
+  - Hash: 2af13d969f3672db9948d79395f0d1a72b88feeba1ea808e3d5f5a30d9c96338
+  - Reason: Config file not referenced
+- `.\rlvr\logs\bootstrap_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.343920
+  - Hash: ca51e1b3544b5bfed362fa9353f90c17c520e34b3750553f8c3b36bd59b7e738
+  - Reason: Config file not referenced
+- `.\rlvr\logs\certs_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.726485
+  - Hash: 363cf6b3a39279f4a70c3bde3c5734fbf77b8797bc57675310748277674f0a0b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\chatbot_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.833199
+  - Hash: 2a6bc7941b3b197ad942cff7e33ca5f46f55d101950b2383bce872090b92f530
+  - Reason: Config file not referenced
+- `.\rlvr\logs\chatbot_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:40.883798
+  - Hash: 40a4ee916f00fae88d185ea9a65c44c22dc5718d9a70a7c05f9c51972eed3b98
+  - Reason: Config file not referenced
+- `.\rlvr\logs\chatgpt_infrastructure_integration_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:16.273184
+  - Hash: 1495ebdb9559cf364e331c3509e30c0cfcafc61e14dbba47d6ad28e7ce36dd75
+  - Reason: Config file not referenced
+- `.\rlvr\logs\check_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:33.927287
+  - Hash: 4fd3c07513b166f9acf9621d7c3f9905211950630f7ee8203913617892cf6004
+  - Reason: Config file not referenced
+- `.\rlvr\logs\cleanup_project_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:34.123204
+  - Hash: b92872f3170e3236b0d95dd54937d096b9bcb3038a01d4dd5b5623b8832c433a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\clean_start_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:16.410511
+  - Hash: a71035a65ea9544b256ae11fd7cdcff05f49e309046661fec468ffe6447f877a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\cloud_native_deployment_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.942255
+  - Hash: 56cf9708e66df4afa1d55708b42459874985d71287fb32537a8c6376df6d2a4d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\code_reviewer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.544370
+  - Hash: a66860cf2737b5e1a47c4a0af9e573c2aec885a409bd8c6525ca2122b7b53c0a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\comprehensive_launcher_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:16.414026
+  - Hash: 5bf577071fe5a4da4e5562d45d4000f33005af365f25141f47b1df3408bc2281
+  - Reason: Config file not referenced
+- `.\rlvr\logs\config_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.314935
+  - Hash: 613de1ace6b6bc225430c8e420e62b8c8b82f6058de8ace55f88a63c71098bd3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\conftest_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.119959
+  - Hash: bbfe79bb5633dc99489877f667a5ae45619cdb5f234189eb0e6c25cef702567b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\connection_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.888739
+  - Hash: e52079e609be1c33eb730ab050d251c53969cd86b86b836001dfcc14f44bb878
+  - Reason: Config file not referenced
+- `.\rlvr\logs\context_loader_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.891738
+  - Hash: 9389c3aa55c5f818e699df4505172da0cdb29ace8e4bf846e3d28c622817fa44
+  - Reason: Config file not referenced
+- `.\rlvr\logs\conversation_processor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:16.643134
+  - Hash: 7f2493e5b3aa1fc4928a869d16417d609149af73fe8f4b2ab52fa2942541cb7d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\core_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.534336
+  - Hash: 8d85306132c22addda2c94bdaf42918381445724a575de3ad2a01e8d233e3690
+  - Reason: Config file not referenced
+- `.\rlvr\logs\critical_fix_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.417089
+  - Hash: 8117cdae3f5b8b783b246c661ddfb83bd090690ec84c006d767d7eb8f79db300
+  - Reason: Config file not referenced
+- `.\rlvr\logs\critical_implementation_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:34.503702
+  - Hash: 40d1d4a12ab20f0c0cf595c36c4582159b3165f01549bed1daa75527c1bc609d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\database_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.664483
+  - Hash: fb3a1d1fa40c55fa210496803f4c63c60d383c70bbe830541cd31760c76482f4
+  - Reason: Config file not referenced
+- `.\rlvr\logs\database_pool_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.892738
+  - Hash: 36cdc23c3cd9e35db49ebb5f4f7c835d926e221233c9b0a16e0d224d5834b84f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deep_analysis_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.044025
+  - Hash: ff2071189b2ff1f652a25b510316e88fff35d4645b8d2877e35465934ae93f0c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deep_analysis_web_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.046035
+  - Hash: ad361059781e16527aeb1a3f5fd650370bb7ec41099ff0d2a3f3cdc7705be56f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\definitive_excellence_achiever_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:34.699121
+  - Hash: 826b7e57dc0b5139f2848dcc2e35326be1c212be571645a087bba9b525f1398c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\demo_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.094144
+  - Hash: d1eb8875829aba8b08d577daa3628d9b32f62e3b2a16390cb0861c0a88696b79
+  - Reason: Config file not referenced
+- `.\rlvr\logs\demo_ultimate_suite_v9_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.181823
+  - Hash: 5f8505bc6aef32a0f5d9f1142ba69351dcf504246cc9070ff655802925ecb52e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deploy_and_validate_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.631094
+  - Hash: 91fe1d72fe91642f479d244751a890be0d34a72ce4d15ab8d12be1d6852c0150
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deploy_kubernetes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.956302
+  - Hash: 5d0cfca560e44aad6a615eee25e38ed4a1322f7a3bf807b301e4fcece3b58586
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deploy_production_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.959302
+  - Hash: 14a8500fad6efc0e560cec2abd9fab6b238fc7f9bbcf7fe445968bd8f0d9935e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\deploy_simple_production_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.962810
+  - Hash: affa99884ea7658d388c706235689112767cde65ac948c610a981d5b5ae0758a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\devops_automation_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.360341
+  - Hash: 7547f0bbbd932f9db35c9dcc3adda066b09ee76058ee0720100402be67f15a55
+  - Reason: Config file not referenced
+- `.\rlvr\logs\dev_scanner_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.371356
+  - Hash: 0de7a06a4358a3d64bf2f56cf3403f42ccf987c35257117196a537f1af1eddd8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\direct_test_v9_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:17.648029
+  - Hash: 1aceccc6c3867ef305adab4a2277a5edb8b1b9f3fb14b04ab4f79e38f20de7db
+  - Reason: Config file not referenced
+- `.\rlvr\logs\distributed_computing_framework_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.979372
+  - Hash: 722b2b07b152e68c55f28000e671b397c9261b9a880f8eae25c5c2f0b7cb8c10
+  - Reason: Config file not referenced
+- `.\rlvr\logs\editable_legacy_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.353958
+  - Hash: 29caee81a44c0b25c5062d0db2c0035f5f9f265a02848ddc1fa10c8eafb9afb9
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_admin_panel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:19.404307
+  - Hash: d4d73f47aab5cfaad2156547450c33227ca5196ec9a788bb161cdf71963d0ebd
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_gateway_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:19.408316
+  - Hash: a1bf9011672b6651c7625b9d02b061de73f6575fdc533e91dcadfcd2ce293c01
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_knowledge_api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:41.028656
+  - Hash: cb939b0feb84d954ec3cf1195256585733772dd37ed158f9f47b20f558ffdb57
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_master_dashboard_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.077875
+  - Hash: d812bc5cac625811e886da0c5b455cae1cb06cd5387aa9cab9f491bd3c9da1ec
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_network_scanner_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.081877
+  - Hash: 53ab2bdcd1bebfac49d75bd5342d8c03abdf4cbef578c96fc64787d3d3a36303
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_plugin_system_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.085399
+  - Hash: 992a462613c5423069614d2ec90865f7a4e7b2fffbe75ea864c231d15b878987
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enhanced_sysadmin_copilot_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.152534
+  - Hash: fcf83b16b23da7ceeacc73979477661b81f8f553afeac738dd14516d07807691
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enterprise_monitoring_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.715331
+  - Hash: 0c09ecc68ad3f32863f46bfadc956b3946fccfec7b8039ef322d6aeac74126c5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enterprise_security_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.989891
+  - Hash: 2b951a25fa2339d7f1741ff2a0082fb73b4926627eb9d482e5c3bc14b8275770
+  - Reason: Config file not referenced
+- `.\rlvr\logs\enterprise_session_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:37.332839
+  - Hash: 04c0c9acb5bff1bb47326159e33052aea3f162fe6c54e945dd1b358b7d80f7be
+  - Reason: Config file not referenced
+- `.\rlvr\logs\example_script_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.424095
+  - Hash: e8839513e24fb4a1ffa7490dd77dc0ee419a8f025d29c1dcd502b6877a6624fe
+  - Reason: Config file not referenced
+- `.\rlvr\logs\final_implementation_report_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:34.736213
+  - Hash: f5f5ddfe8d741d061c637654cb89f76f503105dc547d1535eeeec7a2f142248a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\final_validation_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.501796
+  - Hash: 7a82693121b024ecb8934b8ac87fa7fe42869e4dfa856007d11834f34e663d25
+  - Reason: Config file not referenced
+- `.\rlvr\logs\fixed_system_metrics_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:20.160045
+  - Hash: 4178730a87ebc1b76ee7b939f37c8e2ee3e23d669a76ba4a812278a042fd0eaa
+  - Reason: Config file not referenced
+- `.\rlvr\logs\fix_python_test_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.532380
+  - Hash: a9e09e4311e7cde5f6e3658a3f78f07c9cd4ae5fb9a890c63eee3822d698e8a2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\frontend_backend_integrator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:34.955731
+  - Hash: 1bc365b539eba1b434241caacffa37073b672ebdf81f7a4b166f96b1e2a0a30e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\gate5_progression_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:21.388440
+  - Hash: 7f35d338844758c45cae6d9d53928f320ca512bfaff0a335cc860ccc76398c06
+  - Reason: Config file not referenced
+- `.\rlvr\logs\git_plugin_system_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:21.406474
+  - Hash: 5d82c938cd2a246bea2d62926b3dc513922968d0f8586f3616883f7006a85672
+  - Reason: Config file not referenced
+- `.\rlvr\logs\healthcheck_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.600552
+  - Hash: 61976b963fa4c3faaad8449db69a72ee19085e9a509d1d31c1d79d26029cc971
+  - Reason: Config file not referenced
+- `.\rlvr\logs\implementation_status_analyzer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:35.636888
+  - Hash: 5b661ae7dc6a7accebf5813040abaf8f2bd6ac36123b5567d69c5055e0071613
+  - Reason: Config file not referenced
+- `.\rlvr\logs\infrastructure_discovery_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:21.662117
+  - Hash: 956f05ac9c032d642adfa8b2a7337075db5126f5e2e77367861b00a6e60b14f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\infrastructure_discovery_simple_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:21.931220
+  - Hash: 4a06cb5f9ea39869c3625948fd105b4554057c07ec24886fa32d686b40d19565
+  - Reason: Config file not referenced
+- `.\rlvr\logs\init_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:22.563994
+  - Hash: 2e43fb4a91542b737fafb90001a379e2a68423ff4b4c59088b9e2679c089f578
+  - Reason: Config file not referenced
+- `.\rlvr\logs\init_noxvalidator_advanced_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:13.884176
+  - Hash: 9e3bf29f93f525b5dc5e06a3be5f7da9ab97a5aa2ecc31fc7480a0da9ea9c86d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\init_noxvalidator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.995425
+  - Hash: a2ee88039616cb2ee4082ada04d0a4652c2ac2624f7ca97b138ab93308de4295
+  - Reason: Config file not referenced
+- `.\rlvr\logs\install_ultimate_suite_v9_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.002038
+  - Hash: a2a4548549f3efd67c9f02dd8b25575321c2be6d31d2671c82a6474064c3e7d6
+  - Reason: Config file not referenced
+- `.\rlvr\logs\install_unified_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.186924
+  - Hash: 58d3d6c833473bbe0ccecb14f245b895451c277d12c0169e3dc0ab9c1a01831b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\integrated_web_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:08.999430
+  - Hash: 144b722e981edef21730508dfc1be84b2a20cccf231224f118034dc7613d99a0
+  - Reason: Config file not referenced
+- `.\rlvr\logs\integrate_heimnetz_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.220073
+  - Hash: d3db004dfa4b64639ee8e2d1d5b15b6d03f5b2df60ef5adb689ad644e814d9dd
+  - Reason: Config file not referenced
+- `.\rlvr\logs\integration_demo_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.278825
+  - Hash: fa559eff6de5718820014df689b2814b379d425037a62c055ae91e5ed700e855
+  - Reason: Config file not referenced
+- `.\rlvr\logs\job_scheduler_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:41.332830
+  - Hash: 73664bb9af5d9bce3903c782d5a29bd0718e21183edf63439ce02f574ad9a0d3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\knowledge_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.898263
+  - Hash: 1bd97c463340fa43d320d84fe94c43572f01f358efd61fcbee5a2f44a559d246
+  - Reason: Config file not referenced
+- `.\rlvr\logs\knowledge_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:41.625067
+  - Hash: a9d52c7e5f7ed7f6ded62abe2dac0a6fc4876b054f786b56246a29081ab9ea90
+  - Reason: Config file not referenced
+- `.\rlvr\logs\launch_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.533735
+  - Hash: f20b968262ca5e7b21d701d4ed34046327373b7596bd7f0a1db413366c1a7fd3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\launch_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.222582
+  - Hash: f0f456b379710d40a06196132f5f8abb5dadc830b4dca08171407b78fa133057
+  - Reason: Config file not referenced
+- `.\rlvr\logs\launch_ultimate_suite_v9_fixed_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.629005
+  - Hash: a10888e70da38f8a17e3d5a478f20c870fc4626ff04125d6e6583dd585c6485c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\launch_ultimate_suite_v9_safe_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.640535
+  - Hash: eb3c2e558b72c3f9026bc040a676b4a52c42ae0b2f8a8d4fa69046e6a83ef2d7
+  - Reason: Config file not referenced
+- `.\rlvr\logs\llm_integration_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.905295
+  - Hash: 1e04ba8e4e9ee55c091cf9471fa059d47beeff515791220d32c54a86f581ba62
+  - Reason: Config file not referenced
+- `.\rlvr\logs\llm_wrapper_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.898057
+  - Hash: 13aeb3d414a0f46d98f0554e261739f2ea9ace84d3df4bc9bfcfc80c5a36cf30
+  - Reason: Config file not referenced
+- `.\rlvr\logs\main_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.359242
+  - Hash: 706da382dc75f36bc3db9e0bacc63ea9d5bd1097ad21d396ef6876ba57b4f111
+  - Reason: Config file not referenced
+- `.\rlvr\logs\manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:53.154469
+  - Hash: 97c795224d0e2ef537def3f4dd518a95ad4bc38e4d5bc872f58278e61f24d432
+  - Reason: Config file not referenced
+- `.\rlvr\logs\manage_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:23.882602
+  - Hash: d80ef4938f4da36a6089186eb03a97c4dfc403506d1fb1ce0a661df0179e8dcf
+  - Reason: Config file not referenced
+- `.\rlvr\logs\master_control_system_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:24.276961
+  - Hash: 7b33c51dc9973ba8876b526997cd3014fca56d55542ac12f711ed6486c4df121
+  - Reason: Config file not referenced
+- `.\rlvr\logs\media_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:41.737346
+  - Hash: becb0cfbcdbea6079c01c5a4fd4c24296dc54b015f77223074ecb5a924d36a96
+  - Reason: Config file not referenced
+- `.\rlvr\logs\metadata_legacy_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.384519
+  - Hash: e764a55ac75acea5e481d4e8b1bbd897e309f3bfca3e727a1ca01a3622b7c075
+  - Reason: Config file not referenced
+- `.\rlvr\logs\microservices_architecture_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.569524
+  - Hash: 49b78a26db3b53fd0134d94badd4f21b29a2f66a344ea2100036017c66dd719b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\models_direct_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.445956
+  - Hash: 5d0d46ecf9a02b5495f47a7cee5562fe16040287ac368ffbeca1e42da4aba5f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\models_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:41.952339
+  - Hash: 855d1c8e795c1a91c4182b0e3b355eb18f87950a50c55b3ac2c9477f57e9d95b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\models_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.495552
+  - Hash: 3f0ec5b54ff433759254d16384abe1e7c275f5be3db681acaa63f16de2bdd008
+  - Reason: Config file not referenced
+- `.\rlvr\logs\model_detector_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.907306
+  - Hash: 015fa13c1bc992d34aa7d1019e44224f7cfedae8d4b1b94f67672fc1fb118a07
+  - Reason: Config file not referenced
+- `.\rlvr\logs\network_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.527652
+  - Hash: 5749503a579e2de890c9455387ebb3666c2d417a9fb891e64c62b795b091268d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\network_scanner_fixes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:24.315561
+  - Hash: d6e3f63005c26f9bb01ad2898ab2f23661e8a8d185819d535cc72aefbe0b8ffb
+  - Reason: Config file not referenced
+- `.\rlvr\logs\nlp_processor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.910306
+  - Hash: 6cb9ec8f243102c358774e72a9a4b32b56153eb85c8cc39fe4c51238d6b371b2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\notifications_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.623895
+  - Hash: 8efb7fecddfb55ffc4a8ef7531c35bc0a2127202552361dcebe22c2fde2f091c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\noxcrawler_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:24.490566
+  - Hash: a61396f1b5245be87f6819fce2ad705bdbdcf0d1fc60ad7891b2e8b6a6654d6b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\noxpanel_unified_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:25.140576
+  - Hash: 2dc20eb96e8ef89675fa9d02a0dc6d92cf97d72bb782b580d1bc477129893912
+  - Reason: Config file not referenced
+- `.\rlvr\logs\noxpanel_v5_fixed_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.301137
+  - Hash: 636ee3568c82656a49fd62ead128fed844df2cc412fd76ced58728f97b724505
+  - Reason: Config file not referenced
+- `.\rlvr\logs\nox_assistant_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:51.449863
+  - Hash: dbc1b1ba27b1e74a875571485d509c0d0e249dd697fe8d1a28f0316b039e14c2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\nox_bootstrap_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.076164
+  - Hash: 595430adc02c07df9573fff5ce7d4e41340c0a18595c6ef38025dec162c0b706
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ollama_client_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:51.646297
+  - Hash: 12ce54b746d6745bda4e2918acc245deff40c35d3fcece09bfce46d8f4934dcf
+  - Reason: Config file not referenced
+- `.\rlvr\logs\optimized_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.689248
+  - Hash: 0e4edc5dddaf34757f316f332e24d13d6b311e692a93eb53abbb330f5edc22ab
+  - Reason: Config file not referenced
+- `.\rlvr\logs\password_utils_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.341486
+  - Hash: 8a3ea38e98f868ebeb385b80d1f4e812a2b86a7f6f65c989601a03ac0cc397a6
+  - Reason: Config file not referenced
+- `.\rlvr\logs\performance_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.571525
+  - Hash: 4cb47723536065b1573394ff6344ed3ab08c96497f823b21e4251d27e9908fea
+  - Reason: Config file not referenced
+- `.\rlvr\logs\phase2_initiate_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:49.961387
+  - Hash: 3b36cc84806b8391c73a986a6ece1ba36a439feb06318fcf683a795f734d21f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\phase3_testing_executor_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:35.640891
+  - Hash: 529828e053b56219aa074ba86693e4cfb6ccb1e1808077972f49a77d12969b0a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\phase3_web_consolidation_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:35.864918
+  - Hash: 323bc78a413fcd2cb830ed014b27bf6932489d017bc4ce31fa91696e77387df5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\phase4b_final_push_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:35.989712
+  - Hash: fd8fdd80a62f5f2a6ac1c9bca89150281ce7a1d95dbe8849b919a32026d363ca
+  - Reason: Config file not referenced
+- `.\rlvr\logs\phase4_excellence_optimizer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.293905
+  - Hash: bddedd3ee4824da8d1a5b9c516621489aec147eae94c5315d78489ec34c45513
+  - Reason: Config file not referenced
+- `.\rlvr\logs\pi_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.711571
+  - Hash: 8ec33a10d274e90e997f2c25532da73a0bce410cc028f9f5b6e7fa4642e6fb87
+  - Reason: Config file not referenced
+- `.\rlvr\logs\platforms_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.803756
+  - Hash: 988e1dec65042385164bac63b630cf1f5eec71c85e65df602ef7445d35e21c99
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugins_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.848350
+  - Hash: 1561a153c52e972ef67fc449be68d628fac9708980b21afb3a72e938fba03e95
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_architecture_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.576047
+  - Hash: 0ef3446906f150433346dd1902d8ddddf86094276dbed967051821e88f1c4535
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_framework_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.304640
+  - Hash: 6786b6c35e3ed675378499c04aa7d4fcefd42106efbe2ef6a9bca1b034b64626
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_loader_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.807268
+  - Hash: ac6770d0501c4eba8438b7deec60b7768179f8a73ded295a5c0f51b94871c6dc
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_marketplace_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.337229
+  - Hash: 0ddc128f248f4413f2a8f1d8f124aa7fd875549a60184a794e529279f968d80a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.809274
+  - Hash: cb24a4c39bc14d6589cf420153edacf3a4af54936097bf7412421821ab928e77
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_sandbox_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.921835
+  - Hash: d96c02d5c3c7a670befbcfcbd44499910fd392d618ee5c3d3e073b38fefc7059
+  - Reason: Config file not referenced
+- `.\rlvr\logs\plugin_system_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.341227
+  - Hash: 04df4af2eeaa9f20ec98467b20cb2b290326626c786399dda50f6f4dbe0dce50
+  - Reason: Config file not referenced
+- `.\rlvr\logs\port_mapper_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.304929
+  - Hash: f125fa931ac023ac74eb28b65ac5ce144d5a0623ea82d7c1473ba1c660de76ad
+  - Reason: Config file not referenced
+- `.\rlvr\logs\post_audit_optimization_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.308441
+  - Hash: e4b3ac1e2ded879b02a04507531e498a333467a5da760b202ba1bd37af09fc87
+  - Reason: Config file not referenced
+- `.\rlvr\logs\prepare_phase2_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:50.180880
+  - Hash: 663e3d0fcd94438e8a69dc4495b0c19872f8d4e69554f6a5380f168f4c7dd60f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\process_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.925349
+  - Hash: 863396cf9c98b1a11d5c7ec55b21ffab443e3bf4001834539565221058aac47c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\proxy_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.895458
+  - Hash: 4fe4ff201430ea79327dba20c145cf218d85df8aba2ca82dca24bb68494d532e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\quick_setup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.553719
+  - Hash: 23055de762fe95ad95f4c5b70a9b881d4629e27d4164edba4adcb258db546216
+  - Reason: Config file not referenced
+- `.\rlvr\logs\quick_start_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.687506
+  - Hash: a4a4eb29f8579d4bdfe57d08c27330fb242b4301445b4c636b02c5ae710258e8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\quick_test_v9_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.695038
+  - Hash: 90951ec75abdc2389418faf98954500deb020210e759635fa32a76f8a9e1817a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rate_limiter_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.927358
+  - Hash: f005b4463d5f42ddb3811671cab9aec0ac30abccf9a18e7a39f4184035d11def
+  - Reason: Config file not referenced
+- `.\rlvr\logs\restart_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.702043
+  - Hash: 3597fb6984756a38c987ad7178b4ca51b99ce17071925e9e3ba7aa4e922660e5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_autoscaler_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.623664
+  - Hash: b48c7d2d5b6cb7be89b96f0905532169171b9c7e91fa520649abede6fc84a3c3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_comprehensive_test_framework_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:09.967427
+  - Hash: 40d10da879cdda859a5e25af1240b66269119b15bb1defc4767ec0fa5e28117c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_emergency_remediation_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.091250
+  - Hash: 9bca6bc2446629204cb8abf5ea3fc815c58c1581003011ca3c52552601c1602f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_enhanced_autoscaler_v3_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.247163
+  - Hash: 1010326816f3dc8a546cc1c44ffde07145a8cc48904d2693d346092cae5b539c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_enhanced_deployer_v3_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.446681
+  - Hash: dcc3fbca8db2625f9c846aa599cefed4863b5ec39b9315b6124965fdeac21dcf
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_intelligent_monitor_v3_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.608112
+  - Hash: f628e115ad864064e8451cb9ac249d0189ee82d458a21ccb0a6262f7995baa1a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_master_dashboard_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.611113
+  - Hash: c419786b11a08e33068bf686dfaa919760659cc342b2c78a178617b7318c07d7
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_master_dashboard_fixed_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.757059
+  - Hash: 49bc0d3c2b4b88bf921bb55877356e23a1e4c7a874539f8b98af83220c070554
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_master_dashboard_v4_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.887367
+  - Hash: f87d3f2d9886310dd1ea8746e14db4662e8417a51ac1ad30e693984b4ff13703
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_orchestration_controller_v3_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:10.965039
+  - Hash: b7749d4637283658bd0fc17a87500e138ef851e7f6210ba09de0ac9e165e8920
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_phase2_enhancer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.134433
+  - Hash: ea02a9807ea8edb7f24dc9ac30cd01feb9b49e1257bc148a44f3b5ef8d0ab431
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_production_deployer_corrected_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.271267
+  - Hash: c7fa8499307963c46552d19cd385aadbb4e62dfca1bcfc125b123f670184845a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_production_deployer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.204621
+  - Hash: 0c02874e53a3a3326e8cccaf2f05efd587bc4d17256c72217e8691438522e6c2
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_validator_agent_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.401604
+  - Hash: 375626289cee560c1af81eb8a17368c6dcb5f873f797cabcf3cd84ac9bdf668f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\rlvr_windows_compatible_test_framework_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.620187
+  - Hash: 62889815dad71c023f51947056bc07ad0b4f7fc2a72ef418e157c804c568ab2f
+  - Reason: Config file not referenced
+- `.\rlvr\logs\routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.322320
+  - Hash: 62cf776532b7785664c6f714e3f2fed9c9d326264c0151ab7e6159302d633fd0
+  - Reason: Config file not referenced
+- `.\rlvr\logs\route_tester_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.312447
+  - Hash: a6468096f8c17b1404942c5b724963d8ce88d96b7decb883a0b1966c19683c05
+  - Reason: Config file not referenced
+- `.\rlvr\logs\runner_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.854365
+  - Hash: 8a6c7b2e105f1463b1a5f8206692989b6f97573d303b55c8b714b1acd6a04ee8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\run_all_tests_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.396346
+  - Hash: 676b459cf8a6a3bdc3460ca1276813219756ec5aaad3d65bee86ed0792fc9242
+  - Reason: Config file not referenced
+- `.\rlvr\logs\run_tests_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.281822
+  - Hash: 968fa11f225680b6ff985b036eac0d78c851d709997d76280bbd85333f070d8b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\sample_plugin_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.960105
+  - Hash: d6f14285a37a2d182dd1e294a834d6037a9bc139340e254d79db0f895e92e3ba
+  - Reason: Config file not referenced
+- `.\rlvr\logs\scheduler_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:42.927549
+  - Hash: 53205c3b7491e650d6a74e645157d5d4096b75b178f0b5ea72d1e620521583de
+  - Reason: Config file not referenced
+- `.\rlvr\logs\scripts_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.154121
+  - Hash: 9c0a4484efb1b712df905736f1f0db815fc64e3be41db2780e279dd9cec02276
+  - Reason: Config file not referenced
+- `.\rlvr\logs\script_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.941871
+  - Hash: d887e016dce846229d690460e6eee17b3dc9fdd8389343ccb4bc51b68e286711
+  - Reason: Config file not referenced
+- `.\rlvr\logs\security_config_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.944379
+  - Hash: 645da5d8b3769bc3f69b71a8616c0deaff7d67afe2de56f47904c8c1c340a0e3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\security_headers_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:32.947392
+  - Hash: 037fce8c07c8eee1bf1d892d900d2e78adea48998e1c8d71bf426cc97174d128
+  - Reason: Config file not referenced
+- `.\rlvr\logs\security_manager_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:37.913297
+  - Hash: c2bbd6545c9e5a376895f46939109b3d6836899233115c691525966dea791510
+  - Reason: Config file not referenced
+- `.\rlvr\logs\security_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.233815
+  - Hash: 2c854031781585938870f96e6668b06f1d2aae5b651ec91806a501822dfb08d4
+  - Reason: Config file not referenced
+- `.\rlvr\logs\security_test_suite_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.341208
+  - Hash: 24485eeb627e1c838c75ee14de14e169a168817001b52052fb8f03b216ee956c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\setup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.686815
+  - Hash: 46083865c1244ce21e3fe658e3747a7d0489d53b53ef224dbff9275ee0bf0ee4
+  - Reason: Config file not referenced
+- `.\rlvr\logs\setup_knowledge_base_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.756178
+  - Hash: a577dede1926ba208444cf65c370d8f4a361276a089b4b309c803552f6108d69
+  - Reason: Config file not referenced
+- `.\rlvr\logs\setup_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.317501
+  - Hash: 14c4f7560089f2bbd22ba1f83ca98e30908c847a49c46b0b61c1588bec1f37d3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\setup_simple_kb_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:26.764696
+  - Hash: 8b6d1aa03470d59f6c13d8ad634129da55e122dcbea70f4dc37ab44419aa11be
+  - Reason: Config file not referenced
+- `.\rlvr\logs\simple_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:27.139957
+  - Hash: a8d4f98dd8de5eaeddaf8e90e77275db2f1868f7075957b6a4a2ade9dc02c483
+  - Reason: Config file not referenced
+- `.\rlvr\logs\simple_noxpanel_fixed_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:27.510310
+  - Hash: 6b21332edafcf171daebc2c2a06826465a71440f867600009384e85957f6eda8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\simple_status_saver_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.845276
+  - Hash: 37dba8b1e6b133f053adf8dd8171e451e0aaf640c87f79cfb587c0cfa0c36497
+  - Reason: Config file not referenced
+- `.\rlvr\logs\simple_ui_validator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.317974
+  - Hash: bb2cb032191cad0c35d52f49d8c1d4ccf02d59cba3ae56919afcb2738e81baf5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\speech_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.543000
+  - Hash: 654493ebc3a64d3dff7fbc0ed49c46dbd570288f408c38326a8342357fe73ba7
+  - Reason: Config file not referenced
+- `.\rlvr\logs\start_consolidated_web_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:14.094203
+  - Hash: fb10de53e4537be41e971e8f34bb6e098b7a0816e2892facf4e4234882893e64
+  - Reason: Config file not referenced
+- `.\rlvr\logs\start_secure_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.848277
+  - Hash: a382b31a6a91abc92d7d89261fd36b3a281e9e150d3203a6d6f616f5fa1b6d9d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\start_status_service_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.858797
+  - Hash: ef4da479f68b85a1d24e0ab45badca4c2ff732e2679a511cf56b9bb4c8f15f84
+  - Reason: Config file not referenced
+- `.\rlvr\logs\status_saver_service_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.882854
+  - Hash: e724da443f170ef635ee5cfd401a07398fdc0fe839dc49085d7da8ef14100a3a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\sysadmin_copilot_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:27.841049
+  - Hash: f6e8c4684bde554900f363794f177c2a8afe23c0d63fa9966b4ff36d908d1d6a
+  - Reason: Config file not referenced
+- `.\rlvr\logs\system_demonstration_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:27.975834
+  - Hash: 98fb237091f135bc62e6ef91ddf721ee8bc75c9126a75f023882f7dd3bfddf79
+  - Reason: Config file not referenced
+- `.\rlvr\logs\system_info_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.677663
+  - Hash: 99a926320c7a03b904f2faa190235360bb195a9fc24a31258a06dc0b9c02ce37
+  - Reason: Config file not referenced
+- `.\rlvr\logs\system_status_check_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:50.281596
+  - Hash: a6f1923462ad939d68bc3f0c50ba5c2e1fb8542bd4ef011319384c381d45e339
+  - Reason: Config file not referenced
+- `.\rlvr\logs\system_status_report_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.004940
+  - Hash: f2bb145ae91c058e3f3e2b879b20086bc60904cc608056693fa07ae2e3241e64
+  - Reason: Config file not referenced
+- `.\rlvr\logs\task_registry_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:51.857290
+  - Hash: 1de1addcd403ec8aaa323b617cbc65996a457d0699711bd89442a3a861e7e2b7
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_ai_context_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.006940
+  - Hash: fff8fd00858755cad799eaea25e46a9c083bfaec07583dd2c617d5182ced05e5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_ai_monitor_direct_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.008941
+  - Hash: db465bc070bce74e2dababe7cc62a13b4cd5590861635201f1a402b7631c2675
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_ai_monitor_full_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.016484
+  - Hash: f83a473e9ad98b602493b975cc686e93b109837d1e26004789a6ff99f83bf439
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_api_endpoints_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.328494
+  - Hash: 98c8936dc38622add9fc665c9663838c09d3b7c81c40e71a0b25b7f9237e09c6
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_app_factory_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.691823
+  - Hash: d616c899b6ca6544a5ea0016ed6be8a286b803ed5c31fc4a9b404de4e6f80684
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_auth_api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.236988
+  - Hash: ea462b62680c97da2debeda3e6b025d3d5c171140108a6bbbf7db7319366b996
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_crawler_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.019484
+  - Hash: 48b11b5493a465f8d1f08223f2ee684feed1deccbbf384b6c5de65b2ff800abe
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_device_api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.240993
+  - Hash: 8cbc0736f17501aeb02b5e060d6daf7e68f2aaf10409de5ba9e0a1e1bd376aed
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_infrastructure_validation_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:38.707878
+  - Hash: f259b84975c34aa3deeebf00335cf0426fbf39332375464dc60038d4752a7d43
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_load_testing_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.255516
+  - Hash: fa40c92e1e5eee55ebaafb332a054b544ea37ea0f964172a4a816d0213ff49c4
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_localhost_vs_ip_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.886381
+  - Hash: b0b5fed6f026950a9f82e3679948a2ed9b1583436856e591e9d587030575102e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_noxpanel_v4_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.022482
+  - Hash: efa184f251ca510ac20defd4641226a85ff01653f494f38dee1c9abe0c21c59e
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_noxpanel_v5_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.024996
+  - Hash: f870739659e14e97548f9255c2b28f633b808ed5079fa1845514110ec5fc5857
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_runner_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:50.283597
+  - Hash: 38c57d152121602bbb827448756842cff1691ed361efd366a177fea15a123646
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_security_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:50.601871
+  - Hash: 67cd2d9b4a6bf5a081e850228b1abb8f6b519410ba729c5bb9c8b7fbe56376d0
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.028003
+  - Hash: c0e9f287146c1b8014cfde6ee401ac4dea058bedb5ed51a437ed2f7b26884bd3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_server_optimized_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.032002
+  - Hash: bfd9bebd3a90add0d4eb87979410634a8ea90b8deda5e11c13fb0ec8f4da6b44
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_server_simple_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.034511
+  - Hash: 3346beae0ffd81c7397aa07d865ca2d4fb3e04e96f1b6ad2ed9fc9e217ac0acb
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_server_startup_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:11.889378
+  - Hash: 517156df4e7f218a2b40dfd85ca27f0debf17c8b6457554e05d374d1dd341c59
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_smoke_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.242995
+  - Hash: 4f5397c326580a6e6bff871478fda2a9221feff34707e5a564729c30ce39f6c3
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_theme_system_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.038524
+  - Hash: eeb72b204ce0f64b33adca833312caa7dd353949e91602028be7e4081d4a9e48
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_theme_validation_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.042523
+  - Hash: f50dffeecfdfcf875d1a6e41505e6833a91dbd29fb2d46d5ec9642a6851db0b8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_user_journeys_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:48.249520
+  - Hash: 8869c01132c4dd7f779a4e2b6538e7ea29b55a594f739bd9eb0edf256cc3a90b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\test_validator_advanced_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:39.572048
+  - Hash: 4fe475efbc6c3f7e3986f276df36731072a025028b00a16de3ebd428e90409f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\text_summarizer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.595496
+  - Hash: 0262f177fd161d8cd2be45206ebc964a2883d2f6054ba09d1d2d550baedc4e53
+  - Reason: Config file not referenced
+- `.\rlvr\logs\tts_engine_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.847708
+  - Hash: 32cd4ad4b15d97e35dbb0d8eb35d64650b47aade1abe7489236237d6a63a14ca
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ui_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.585444
+  - Hash: cbced45396561b39c0031c0d0e90bceaa8b60acfb98635ac735035d5a2395695
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ui_validator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.331494
+  - Hash: 3f3513b9f0db7eea16e7d98cecc5bdd91c5acf7aa8e633f292e58cbb9c781a05
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_enhanced_v10_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:12.241349
+  - Hash: 6320e0e450e4fb5d4724c1bc35075b0677da1d2f38646422aae5f2057ecdcbdc
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_integrator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.431983
+  - Hash: 5fc92b3ca71d5d8c15aa549f3f4d03174689132b2eb6ddb42f02478722b372cc
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_optimizer_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:12.260402
+  - Hash: 6f3377249929d4bddaae647f4f7341edc29fa203725fbae1d4812c527b23aff5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_quick_fixes_corrected_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.562279
+  - Hash: ecce3c938fd1b4fd07efb81e62cf8786d641622e8078663c88254b3866c7851d
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_quick_fixes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.448020
+  - Hash: 214791dde76e3f6c2e94aab4bdd9256a87dfd3819905908cead6914c00230133
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_stability_tester_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.567797
+  - Hash: 9766418183d1fb72260afbdb01dbf419f3ad9150f26d26b3932d7b5ba26f8519
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_suite_v9_audit_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:28.865978
+  - Hash: 128d7ce1881b952417fb3ed9c92b5512aa723c01627cf10b2bfa4b98786527ee
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_webapp_v10_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:12.792893
+  - Hash: f286587c1498275305fa3dd67681a3c74446c71cb68e3d07c007c65e8dfd7064
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_webapp_v7_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:29.344015
+  - Hash: 0a6b9b16b4c4fa0099e0e7c3e89b6530826fb74c55c9de7b36aa7d79f095b9c5
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_webapp_v8_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:30.076469
+  - Hash: 5d40f56daf23ae88991655c69553557f52b45a2b713025a8bb0bc0c59ee0c775
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultimate_webapp_v9_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:30.088990
+  - Hash: 807f8ac9eaeca1d505e95e044318855150a7759f63c6f0572b6140c119f767ef
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultra_fast_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:30.097519
+  - Hash: 897dbc4ca93d9e2ddb6bf7c415a1fb4986054af80dc6b59f247b08e850923248
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultra_optimized_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:31.838697
+  - Hash: a398e2ddee4f60c563b8d77a2e0d65c720ef2449f177bb78662a5ce94b9505e8
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultra_port_mapper_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:36.885310
+  - Hash: ef8135d1518c48b123bc6fba3954c022f4782e8522909d3dca8608a6a7b4a0f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\ultra_secure_server_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:12.805942
+  - Hash: 739d7d6d34c5bddb681895c3c098c73c1103c19d05ddf78c3c8db096d28a20f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\unified_architecture_generator_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:37.132397
+  - Hash: e70463d49623ccba4cc3830e4ecde294f7dc81f33081eca3e7b05f630e111325
+  - Reason: Config file not referenced
+- `.\rlvr\logs\unified_noxpanel_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:39.773612
+  - Hash: df3fce5ef1eb96cab44661a42111c93312f5608e9214e691c0cd2e48b2ed99e4
+  - Reason: Config file not referenced
+- `.\rlvr\logs\updates_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.411726
+  - Hash: 59618fe6d20e7a634b5534b48f754b0fb529542b5f82a3c52ddfc9cd76f94209
+  - Reason: Config file not referenced
+- `.\rlvr\logs\validate_optimization_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:12.865643
+  - Hash: d4ab882f79be35db8643c380d2c54b64838a71298ec05c705ae81ef03c0e5ffb
+  - Reason: Config file not referenced
+- `.\rlvr\logs\validate_v5_simple_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:31.931914
+  - Hash: 433fb7f096df30a3582b87b4a53a45befd41b879afc578cbae809fe7f611dcde
+  - Reason: Config file not referenced
+- `.\rlvr\logs\version_audit_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:37.173486
+  - Hash: 6f43ebe3d59e575ace301f62d92da27cf33b10aa8a514e45063f26cabe0424ee
+  - Reason: Config file not referenced
+- `.\rlvr\logs\version_tagger_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:37.316306
+  - Hash: 15b54538a6d90ded79fb7406f1b38dc27f9ba72bc1c5732ec939b1d810dca0f1
+  - Reason: Config file not referenced
+- `.\rlvr\logs\vm_routes_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:43.507455
+  - Hash: 2a7027a4d33c025d94b0ad576e2a2bb9a76d796fe9302e8c339b1fe203cba27b
+  - Reason: Config file not referenced
+- `.\rlvr\logs\voice_api_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.051009
+  - Hash: b7181ced87cf7d629751fef298fdd15b6a3350aca7c6c9b5da1bfbf327ec5d3c
+  - Reason: Config file not referenced
+- `.\rlvr\logs\voice_interface_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:15.099555
+  - Hash: 6bd0e078ad47ffc3c2f483c63e75bc8516b09d8a4366cbbb753d01f0c1c51d03
+  - Reason: Config file not referenced
+- `.\rlvr\logs\voice_web_integration_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.113151
+  - Hash: fbe20ee8d9bf2f82fbe70604dde0413889ab6c152ca996fc7edb48366066a925
+  - Reason: Config file not referenced
+- `.\rlvr\logs\voxtral_service_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:47.314787
+  - Hash: 66d612f9a95538fda5f143da4bf0019c2f237e2bc7d7f4d3bde044fcd0604021
+  - Reason: Config file not referenced
+- `.\rlvr\logs\wake_word_detector_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:52.997110
+  - Hash: 173fce5c28d365a18809958429f3dc881f7496086aaa4c6682eb870095e1be44
+  - Reason: Config file not referenced
+- `.\rlvr\logs\wheel_legacy_enhancement.json`
+  - Last Modified: 2025-07-18T11:02:46.429107
+  - Hash: eb8812f5f1a5335b9e48b3c3651f8ee2861eef2174d0c0897666ee5da3653486
+  - Reason: Config file not referenced
+- `.\rlvr\logs\__init___enhancement.json`
+  - Last Modified: 2025-07-18T11:02:53.156985
+  - Hash: 1decf8ca93e6916e3c8c17a719b150f2fe920880d584b9bddb862ab3eeaadb03
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\phase3_advanced_report.json`
+  - Last Modified: 2025-07-18T12:49:05.221719
+  - Hash: cedccfc780232ab451766c2cca8d9a3504a21750a886f2a899d1e9bdf4d35a42
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\advanced_ai_orchestrator_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.111631
+  - Hash: 8f39929af7dd1e556c4ac4771c5fe0e6e605fc87c7885edac134d6906f92b977
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\advanced_analytics_dashboard_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.118154
+  - Hash: 07ff919b9cd8d1fcc0535446595f2182aee11a118840b7ee9272d4ed7cf5b313
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\advanced_security_monitor_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.124666
+  - Hash: a93693fb4b8e9204e9161b99cb0c3cfc50066bb91c2d1f17d5ff057ede279059
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\ai_model_integration_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.814950
+  - Hash: 44790d0960a8819704e750e5bd623d258d6acd37425e4044553b25ddbb40abba
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\ai_monitor_api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.495688
+  - Hash: 0ed76ba4dd510e8519cc812bfae843bd04e785d3bb0135367d0dfa5a1e187515
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.540327
+  - Hash: fc1a9e3913dc1da159e08bbf1a05dabe405376b30b1b77468542cd016e60a78c
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\api_bridge_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.820957
+  - Hash: 0ff3efa1ae5fb3c6376788777fe8634e8977327628d886192093e06e3b846dfb
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\api_docs_routes_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.508206
+  - Hash: 4e40e4ed127b15c75d9285bff2acf6ca93508083883129e1947a6dd333ca0fc5
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\api_test_utils_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.397933
+  - Hash: 9338d9c0fdb106ccb32b8c637ed283c640609f8517784bf57bb7615fdbb5aaaa
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\autonomous_system_manager_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.928206
+  - Hash: 5cf3f99ef9d94d221e5e96074ba2b0fec00dfe3a27f1f15c052bbaa904fb363f
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\chatgpt_infrastructure_integration_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.147715
+  - Hash: 30f914e0c2c1c35a69912ae63942edcc260050c6be2b6b7f0be86c77651be40d
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\core_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.545863
+  - Hash: ccddf98276c5341cf845bb61e20e737d2d39bef3ed6d34cc055db24f62da7901
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\deploy_production_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.939737
+  - Hash: 1c8084496ee76f9e5a17613a5a639e25d2cbe349e0ea7791c6b45b0e34567c28
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\deploy_simple_production_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.947259
+  - Hash: c27fce07133184233526533b94c386fd7bab6910f3a8814c2a026fbb331e2e27
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\distributed_computing_framework_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.955776
+  - Hash: 9ee953be59c86f92d61976d1f9b0af3a8da466d77f2858c58ad0240e9a14187b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_admin_panel_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.159233
+  - Hash: 67e8a447a6f651940f5122c5919551dd0155a89c65d0b203991dfe3e0dee0f3e
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_gateway_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.170746
+  - Hash: 10c51c461144d6bad30b25ca6815a2866785da4da9fd9c15b724d272ec2803ca
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_knowledge_api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.520324
+  - Hash: 5e75ecbda755d9266fdbd0d3b0b7f42f36772b06f47dba2b4cc19b00725cc586
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_master_dashboard_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.178265
+  - Hash: 03c93df0f3d6371e05070db5c5ac481ccee172d9a2fd71adf7cfd183c5e19594
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_network_scanner_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.185788
+  - Hash: 14c87b1bad309d69b3351f4ac42cdadaad4649e078decb3711d14045459c87ea
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_plugin_system_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.191787
+  - Hash: afb43edadc67d68a71441bd6f1995b824c3cbc1684da0fb1e5b764d2abd57211
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enhanced_sysadmin_copilot_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.211370
+  - Hash: 8dcc507f5398be73f08774a031074096cf2ad5fe6092623f957c16b6c160a68b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enterprise_monitoring_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.375886
+  - Hash: 1509e97627cce7dea9475c57892d9e83c77cf935290b2b0aa9f9ded611bbc14b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enterprise_security_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.972800
+  - Hash: 45ff78290254ee780e3198ea8fa0d34abde4bec26cb47a99df677dfb097141e4
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\enterprise_session_manager_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.459595
+  - Hash: 3e3269e993e8d9f5cef1cea6e16e15b522b72126da149f17b5181e257a41fb31
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\fixed_system_metrics_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.219892
+  - Hash: b1687ff7e84d9fd9d55d726784135e7866856ad2dd174a573e58729f84fc5b07
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\git_plugin_system_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.229416
+  - Hash: d1b1ad7e438d09db879a15ff20dd2a96fdc8e79bb0eb4fe94a8743853e2cbcde
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\init_noxvalidator_advanced_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.140196
+  - Hash: f3297953aa0a423bf73adf3d2f69bffb6622f06a17fd8eec1bd6dd65af7e6155
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\integration_demo_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.472114
+  - Hash: 1a7f79c8e4b1c0205ae6c4ed1f38e28969992432c7ae88768fa1e83324546e4c
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\llm_integration_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.405456
+  - Hash: b32f53730eaf0d9fa0e381c14f1473b6a4edb1c6899bf0a0b943f485728b098b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\master_control_system_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.240951
+  - Hash: 93d759f4c78df19b31e2965ffcea1d860f67c156374b082a0b2ca2660292a305
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\microservices_architecture_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.981814
+  - Hash: 32adb0d2e78f1896122c499ae9f7ed541dcd3ebfa5d58cc3e6a034f67aaca8c1
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\plugin_architecture_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.990331
+  - Hash: 32100b5dd3112c9b1b3f253c8eeed48ec62197677bcc190cdf241d6773f551dc
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\plugin_framework_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.259999
+  - Hash: d21a65c58c38cc7aa710acca7b578f42f07897392a1f1f57d6f82e989587c695
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\plugin_system_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.281058
+  - Hash: ec8c490916dbd1147125aa3b358b4307917957025f4cbe5ccc1e9d190df33e5a
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_comprehensive_test_framework_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:17.997855
+  - Hash: d27599e95d232e788288de6aab5517c48030940fb799769fc2f0f8a5125d1d6c
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_enhanced_autoscaler_v3_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.004372
+  - Hash: 462d78a97e5a5d2c38b10efac364f61b27732f7b35649ec1eef6e12efdac9258
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_enhanced_deployer_v3_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.014419
+  - Hash: 23ae8cf2269c26acb29a143b43f124b4b821ee6bb58f9009dea6759b785fb125
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_orchestration_controller_v3_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.026947
+  - Hash: 1f92403adeae2c4b6e92af6cea77a481398bcede875de78ca2592107406f212b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_phase3_advanced_enhancer_advanced_analysis.json`
+  - Last Modified: 2025-07-18T12:49:05.224239
+  - Hash: f789ec5f09ba403a1bb855dba0221d4c75970f6960afffc80dad4d0d7d01ba76
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_production_deployer_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.063012
+  - Hash: 0b460d42fcd568050792226deca38c4d40d5fc9ae57932b9dd5595f882bb6624
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_production_deployer_corrected_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.069030
+  - Hash: e1ec83c17263eb8559795f2c23a4e8908b6442145973c82a7bfd9f52e6e402b9
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\rlvr_windows_compatible_test_framework_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.080545
+  - Hash: b21d52b301a43caa4597c691d7a776befa9b95859bd016d938875dd198b778f1
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\start_status_service_advanced_analysis.json`
+  - Last Modified: 2025-07-18T12:49:05.227267
+  - Hash: fd19138ea61772e765b6cfeff985a4bb36efc24629c437de0db258fb1c2648eb
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\status_saver_service_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.094590
+  - Hash: 02ca5a739d9343d1fa0c675c390140b7c281b6f66354221c53e4dabf155ec24a
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\system_demonstration_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.294108
+  - Hash: 214261f9b4f3ee34c0af2c97a2bd70622ec0b3b2b1d0c91deb909b4c9e41b880
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\system_status_check_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.610567
+  - Hash: daa6553237d00f7acceb813886cfe34c401757bacdf8b5fa249d8350f9d1f492
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\system_status_report_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.305643
+  - Hash: f040f3f5406a46acaf7c9f3681cb759c281789722a28117134110de8f4f0bf9a
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\test_api_endpoints_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.434523
+  - Hash: 6743c03982be87b58552ab7c822a97d89561540c5a2d8478fed824e6de4d828a
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\test_auth_api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.597523
+  - Hash: badc09e3fb0173a7d3abe204ea938b142759ec802c0bbd9050cbb4212ce9b85b
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\test_device_api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.604039
+  - Hash: 7151dcad4b8d6a0102561ef2bd6e2794f73872442b8c5123c652ea03aa1de2c4
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\test_theme_system_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.325229
+  - Hash: fa7b5bc8943c0e767b3c0889cfbc91d7f5aa9ded14f2a8f6c5fcfa54e96c8283
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\test_validator_advanced_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.485155
+  - Hash: e663a803414058f4d4be0c8ab0467d5ffbc21c425eabfcd0c30882ec7f5d5793
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\ultimate_suite_enhanced_v10_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.101597
+  - Hash: c6ab645e25eaf84e0ecc20faea99b93cab4d0cc807ff7e1b3ce3a8d46ba2f0d6
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\unified_architecture_generator_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.452071
+  - Hash: 28aefd93a90d6ecf5f6652abb7d4fa012a06751c9d5f977c7affbefa4551f1f6
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\voice_api_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.551867
+  - Hash: 4c1551ae98ade1470241265753e003abc4a4d72cad245a7dddf681d994cd9804
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\voice_web_integration_advanced_analysis.json`
+  - Last Modified: 2025-07-18T12:49:05.229274
+  - Hash: 030bac53634256f0e78f2e7773d521b4a096cafabda7b7f4b77a76b32b5b0fa0
+  - Reason: Config file not referenced
+- `.\rlvr\phase3\advanced_logs\voxtral_service_advanced_analysis.json`
+  - Last Modified: 2025-07-18T11:06:18.567932
+  - Hash: 4454f4e2a486b7ff4f63d70b5002c70ef0a28a9edc1dd74b91a6e3fdbd36b5dc
+  - Reason: Config file not referenced
+- `.\rlvr\report\phase2_comprehensive_report.json`
+  - Last Modified: 2025-07-18T11:02:53.196083
+  - Hash: 338c228359c7c2d3de5d96a0773e6d8d30372acdcc5e5194ad81cf23b54265dd
+  - Reason: Config file not referenced
+- `.\rlvr\test\access_map_generator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.104718
+  - Hash: efaa13c38bbdc7fff6f01e28fd05b0af605af1f73263f51b0bd7fd062585f196
+  - Reason: Config file not referenced
+- `.\rlvr\test\admin_blueprint.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.118486
+  - Hash: 04656a29df43b8bfa8492e969d4ae514bbdecc74126d0ecdcd4910432e3c31ff
+  - Reason: Config file not referenced
+- `.\rlvr\test\admin_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.175097
+  - Hash: 68d961ff7d0b9005201814e260030b244f2c064e63501df6277378fcc026a450
+  - Reason: Config file not referenced
+- `.\rlvr\test\advanced_ai_orchestrator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:13.236543
+  - Hash: 57d0bf91c413e270db75d54737b629341b49fcbc5953a3653495c775024a5794
+  - Reason: Config file not referenced
+- `.\rlvr\test\advanced_analytics_dashboard.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:13.715203
+  - Hash: 034b3ee82471eebf87fb4d89959331556f425cbe229c059aff07bc632868acc2
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_advisor.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:32.216603
+  - Hash: c23c8d1e9bc88f14b8e60c9e0c2b1b0bd45ea24276503c3021d6ddad2cd2483b
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_model_integration.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:07.921426
+  - Hash: 83e1cf0cbb2b6199ebe56f96ab968b4e701a4d76cd2d82c14e476c05d6cc2abd
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_monitor_api.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.370584
+  - Hash: e9114e6177e2a52380b88a8161fbd6ff5f490cd5300adefc7c941ec5f07308df
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_monitor_direct.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.491342
+  - Hash: c7af6e0547890723137e22ef901958232d73d8fc064cd8c737cf250d5dd11f60
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_monitor_simple.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.570094
+  - Hash: e6d36d0a8aed60c6aeefbbf9a949dc753fa7bbe2dc79603f960786f7fde65ed2
+  - Reason: Config file not referenced
+- `.\rlvr\test\ai_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:15.288626
+  - Hash: 02cbab5e764bb9fecbf21a2748d54cde6e3948bade660967788781ad4b0f015d
+  - Reason: Config file not referenced
+- `.\rlvr\test\analytics_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.673830
+  - Hash: 34341c54c4d8bfdee27581003a9b810af28ba7b1c557fcffa1d51bae41980e47
+  - Reason: Config file not referenced
+- `.\rlvr\test\api.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.499256
+  - Hash: bd2a4021b56cb8bdcae9681d3f3700630b0a87634d42d675378a53521c76f6ce
+  - Reason: Config file not referenced
+- `.\rlvr\test\api_test_utils.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:32.746907
+  - Hash: bca64e3ed5c0c39e26e51dcbe430e142c425b0667c301045952a1cfd4671bdfd
+  - Reason: Config file not referenced
+- `.\rlvr\test\app.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:51.171698
+  - Hash: e6849414265bf17281ef3a9a2f280af86b4e2aff25f33ce2bfef285aeba7f4d6
+  - Reason: Config file not referenced
+- `.\rlvr\test\app_factory.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:32.768966
+  - Hash: 5861dda7cf511a351a14f714ac66f55ac732c459a9b294d677c010244f7a9f79
+  - Reason: Config file not referenced
+- `.\rlvr\test\assistant.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:14.729133
+  - Hash: d0dba408802fbee069edca92f7805aedddaaea3198a57f98bfc0fd9cee9057e8
+  - Reason: Config file not referenced
+- `.\rlvr\test\audit_1.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.385993
+  - Hash: 38ca31d327d99f05caab1c9659e0fac131b2a28ec2d05b027a3da46418d5a05d
+  - Reason: Config file not referenced
+- `.\rlvr\test\audit_2.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.530333
+  - Hash: 0af87c61f26515120c61ec248d75d485d64aa6c5beb3303ef2e5ec64fe302d24
+  - Reason: Config file not referenced
+- `.\rlvr\test\audit_3.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.728785
+  - Hash: b407f9b7de9525a517a4cbb664c69439c7d8f9346df36cc6c76a5a8da658ae22
+  - Reason: Config file not referenced
+- `.\rlvr\test\audit_4.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.905236
+  - Hash: 21b6196f14fdb5d1dab59a0417b4cf0bab31b3b94a2420b3e71d7e2d163bfca6
+  - Reason: Config file not referenced
+- `.\rlvr\test\audit_report_generator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:14.389827
+  - Hash: bffa20713ccd9821fb8220b4c1264f3fd1ef73bfcc59f006dbde44b4e5f33c1f
+  - Reason: Config file not referenced
+- `.\rlvr\test\auth.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.503597
+  - Hash: 06870fc996cfd8fa662a88108c4693445a6a8a933b05fbf706150e7419ef0024
+  - Reason: Config file not referenced
+- `.\rlvr\test\auth_manager.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.114992
+  - Hash: c6de50df3a436cc180451c8601fcfe3734b9c9c5db64785fe85b90ea56a5fffb
+  - Reason: Config file not referenced
+- `.\rlvr\test\autoimport.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.126992
+  - Hash: 0037ce2308f518b3c5a98ed54019921f7bf8254e54dbc20dd08a9bf8b70236bc
+  - Reason: Config file not referenced
+- `.\rlvr\test\autonomous_system_manager.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:08.604085
+  - Hash: d949959269485a782925af8a1cace038d8a5dd2c27b098560daf716e577fbc07
+  - Reason: Config file not referenced
+- `.\rlvr\test\autoscaler.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:08.751350
+  - Hash: 4fe88f71bc38de1337d42b5efd2ac011871370e47e5a68e42b2478f41fc89979
+  - Reason: Config file not referenced
+- `.\rlvr\test\auto_status_saver.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:08.846057
+  - Hash: 44d38b78d65829d4192f3e810bae09021b1d9a5709ffa43f86a7fe06fcd70f57
+  - Reason: Config file not referenced
+- `.\rlvr\test\auto_status_saver_windows.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:08.923208
+  - Hash: 8e441f9ce7e10d50af7612257f478544df9c636665d3d77684da953532401aa7
+  - Reason: Config file not referenced
+- `.\rlvr\test\bootstrap.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.342919
+  - Hash: 8d849e997d508a5263bd1b2b3437af335a7f6812242ddd5cad554003273332d8
+  - Reason: Config file not referenced
+- `.\rlvr\test\certs_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.723971
+  - Hash: 45a6c5caec89b8ace4afc3ca38465f672a190093ac8e8e0a6d4182223dfd0b9d
+  - Reason: Config file not referenced
+- `.\rlvr\test\chatbot.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.829198
+  - Hash: 2d30424763bca82afee26a9a7826a73c988fd1ae8e52ef59fa390f5be85b0ea2
+  - Reason: Config file not referenced
+- `.\rlvr\test\chatbot_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:40.881797
+  - Hash: 4be80875cfa79a2131e4be9d12c6fabb418b7c87b451b4586b1dc69eab0d9949
+  - Reason: Config file not referenced
+- `.\rlvr\test\chatgpt_infrastructure_integration.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:16.271184
+  - Hash: f798c14eb0755e97d450f21c30ab1795a0fba8e36b7f3361d84d4ce26f4655d0
+  - Reason: Config file not referenced
+- `.\rlvr\test\check_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:33.925274
+  - Hash: 9127d47c48bdbfdddb9c132dd3c1a6c3ec4d94b8f2e12c3b03c7b2604b967621
+  - Reason: Config file not referenced
+- `.\rlvr\test\cleanup_project.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:34.121205
+  - Hash: ac95defc0a3222b66feb5fb998e531384f053716dffed84e5a3824726bc3b14a
+  - Reason: Config file not referenced
+- `.\rlvr\test\clean_start.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:16.408513
+  - Hash: a27f693d1b9991c4ff70100fb1494ba0b012e8db2a2ae9d540af5fd0561aabc0
+  - Reason: Config file not referenced
+- `.\rlvr\test\code_reviewer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.542369
+  - Hash: 3a7b061f95911bc3632ebb3b4c8da52cb56d26862eb0c32b98281374f4a101f2
+  - Reason: Config file not referenced
+- `.\rlvr\test\config.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.312943
+  - Hash: cbb2003e9c6c71482c18424e24de0389253d508991fc357d690d11aaa3b00311
+  - Reason: Config file not referenced
+- `.\rlvr\test\conftest.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:38.113439
+  - Hash: 403620f4cbdadb0f2ca680aa816f8c1340f45d9fbc8e2d1867f783047d3d722f
+  - Reason: Config file not referenced
+- `.\rlvr\test\conversation_processor.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:16.632103
+  - Hash: b5465195aff349f34348568108c7e034273e44f3fb3b06d42ef3c7b92b532752
+  - Reason: Config file not referenced
+- `.\rlvr\test\core.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.532330
+  - Hash: 30decb87a49a23cdb4b6b8986f3b90b171807ead50848d864fb1ce7b007f74ba
+  - Reason: Config file not referenced
+- `.\rlvr\test\critical_fix.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.415575
+  - Hash: ccdd8166eb6871c8fe88927b6d575e964a22da8bc6e6a35de78d455209367d7e
+  - Reason: Config file not referenced
+- `.\rlvr\test\critical_implementation_engine.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:34.316224
+  - Hash: 004697ce3ccd0ae5140472284e113d69b0834b5a2a9eaaa811606c548b5df5de
+  - Reason: Config file not referenced
+- `.\rlvr\test\database.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.662484
+  - Hash: e696ec7296be509d485503641ff96034abb5a1a2e9c6403a48e29e2e482c1e19
+  - Reason: Config file not referenced
+- `.\rlvr\test\deep_analysis_engine.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:17.039502
+  - Hash: ea4190ffbc6b7a8650faa5a9d452d98a414779ec6127fefaf41e85b30a4dae64
+  - Reason: Config file not referenced
+- `.\rlvr\test\definitive_excellence_achiever.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:34.693602
+  - Hash: c0f1b7be80b8d84d7f635856510108db2a97cd487891cadcce23aa5d1d6e83c3
+  - Reason: Config file not referenced
+- `.\rlvr\test\demo_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:17.093138
+  - Hash: c0cd7c2f8c2c2919fa0b624ca39d1d73734f780649e00748f601161ea15c6d8f
+  - Reason: Config file not referenced
+- `.\rlvr\test\demo_ultimate_suite_v9.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:17.180824
+  - Hash: 92f70e9aff4988f7987af1cf06a747ac11bc900890c4009299ab9ebb1fa91cfa
+  - Reason: Config file not referenced
+- `.\rlvr\test\devops_automation_engine.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:17.358341
+  - Hash: 156fc8b51eb067326e0728cd0d494c26fd60856c422455ad274db1415580b2ad
+  - Reason: Config file not referenced
+- `.\rlvr\test\editable_legacy.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.352958
+  - Hash: f716798f9b59ac8f426f830c2774a06b1b8b6a0a96a4884baed578135ff41ba5
+  - Reason: Config file not referenced
+- `.\rlvr\test\enhanced_admin_panel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:19.401793
+  - Hash: 1010baf1e991e22765604e1b3ebe2150f16129eb1d5d78dcd1c06aa13e0d2c1d
+  - Reason: Config file not referenced
+- `.\rlvr\test\enhanced_knowledge_api.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:41.015613
+  - Hash: b8f61a6c46ac433bd6ebd239c51382dbf96ba69c455133f6ba784875bcf22431
+  - Reason: Config file not referenced
+- `.\rlvr\test\enhanced_master_dashboard.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:20.075874
+  - Hash: 95b987aab6704aca358c7139fb84e65f0f7aa97c4982b9c1e00fdb26f20058ef
+  - Reason: Config file not referenced
+- `.\rlvr\test\enhanced_sysadmin_copilot.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:20.150525
+  - Hash: cd3b9025e317db7c1b3bc3d77943ec685c0a545410c907f01f08acef8c7907c0
+  - Reason: Config file not referenced
+- `.\rlvr\test\example_script.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.422096
+  - Hash: ff5b4c0b0c0d80edf2caf678f000bc752e9f22e02d06229cbd42a333af41baa8
+  - Reason: Config file not referenced
+- `.\rlvr\test\final_implementation_report.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:34.733696
+  - Hash: 4f88f51c3f43ca8363aa4c5cec0b9934904a523de479865cc441464059ba2d6a
+  - Reason: Config file not referenced
+- `.\rlvr\test\final_validation.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.499796
+  - Hash: ee1e5a5715186cb0039b50f7b97ffa01ebff696265d73eee18e893eb841bd22a
+  - Reason: Config file not referenced
+- `.\rlvr\test\fixed_system_metrics.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:20.157047
+  - Hash: e5fea420b0b1436e4784663ee251586631ccabf625043303c96c635796ef74a2
+  - Reason: Config file not referenced
+- `.\rlvr\test\frontend_backend_integrator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:34.941698
+  - Hash: 58c83357d6ade5d68c1cb09cac36ae79dad64a4781e938e18a74d6d0aa489ab6
+  - Reason: Config file not referenced
+- `.\rlvr\test\gate5_progression.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:21.386449
+  - Hash: 5b1dff0b106fe43c2c79e9ac3a2bcd6429d40e41b65353abf49aefcdccc8e45b
+  - Reason: Config file not referenced
+- `.\rlvr\test\healthcheck.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.598551
+  - Hash: 57fef371a45d2884d05d6e032da895ceed1e59e32b418f587c8003499097ed1f
+  - Reason: Config file not referenced
+- `.\rlvr\test\implementation_status_analyzer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:35.622855
+  - Hash: 895a980f566447514f20324762e8f1ec5a7d654b0081a76b37c6a33069aa22ad
+  - Reason: Config file not referenced
+- `.\rlvr\test\infrastructure_discovery.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:21.660116
+  - Hash: 03b8ea9c4912485b2d44b2b01c95ac14257a47b5be48d6fe286d38d021b9cac8
+  - Reason: Config file not referenced
+- `.\rlvr\test\infrastructure_discovery_simple.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:21.922699
+  - Hash: 76332eca75b57873dcca0fd48f4f509c20e486b37de3e28c5b05bd27102594b1
+  - Reason: Config file not referenced
+- `.\rlvr\test\init_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:22.561484
+  - Hash: 98c48f00d4345a2fbaa3eb236f8e529243c02ce2d55e7b4754e5cd76b05042fd
+  - Reason: Config file not referenced
+- `.\rlvr\test\install_ultimate_suite_v9.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:22.991517
+  - Hash: 88583ef4fdae4e93997c84aa554595a5be775b4491e1a64263ccf2471a9cba89
+  - Reason: Config file not referenced
+- `.\rlvr\test\install_unified.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:23.184918
+  - Hash: 72143905b23bcb40a03b0562af1bce9c5eb12cbedfc3594d45a97d2d298a0f10
+  - Reason: Config file not referenced
+- `.\rlvr\test\integrate_heimnetz.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:09.207559
+  - Hash: 11255a41c075ec11705e63352630b65566d73017e9f7a5b07134651f2df959b3
+  - Reason: Config file not referenced
+- `.\rlvr\test\integration_demo.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:38.276818
+  - Hash: f260535c692de90a66c2cae65aa1ccde949574c4c815209d0a8b48e5751f2883
+  - Reason: Config file not referenced
+- `.\rlvr\test\job_scheduler.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:41.330830
+  - Hash: d7baa87ecdb7724fd621ce67029d572a287851823583d01a55fb228a45303eef
+  - Reason: Config file not referenced
+- `.\rlvr\test\knowledge_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:41.609515
+  - Hash: 7e19d632590245ae4915a1a79d4acc9f8a0f1df915ef4182de15b856c262b3db
+  - Reason: Config file not referenced
+- `.\rlvr\test\launch_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:23.531226
+  - Hash: 3f3372a067771293147fdb10337254610845c7c1a103667a27bd8468b27ed116
+  - Reason: Config file not referenced
+- `.\rlvr\test\launch_ultimate_suite_v9_fixed.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:23.620480
+  - Hash: 1f2373a495d357b13c55630151650ee9f3d512fb465b5c55bd18a5f411328a15
+  - Reason: Config file not referenced
+- `.\rlvr\test\llm_wrapper.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:14.896059
+  - Hash: d3fcc52a61af983f98bf521822e5e17ec2a377dea5497cd5d0de447bf4c4ba74
+  - Reason: Config file not referenced
+- `.\rlvr\test\main.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.358241
+  - Hash: b291b7d125f4c352c1fe23b59c4d48f5a055ae971cccc299ced55eab7c6b1997
+  - Reason: Config file not referenced
+- `.\rlvr\test\manage.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:23.880595
+  - Hash: 2fb0a843b63dc2d541c849a0053a62733f23d5a92c9729e3bb94a2993e1ce6ab
+  - Reason: Config file not referenced
+- `.\rlvr\test\manager.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:53.152470
+  - Hash: 94740b3118c43d6e1c5ee9136d5c32ef181d86a5077ccf065f4f9e4ba69da7d7
+  - Reason: Config file not referenced
+- `.\rlvr\test\master_control_system.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:24.273947
+  - Hash: fad9cbba2bf9057399f9212030dc6376d9cf2bf19b68b56ece4078b497ea89ea
+  - Reason: Config file not referenced
+- `.\rlvr\test\media_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:41.736337
+  - Hash: c623b33c690a25683a592dd2dc556db37d66997b02f1ce7397510411bcd4cb07
+  - Reason: Config file not referenced
+- `.\rlvr\test\metadata_legacy.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.381517
+  - Hash: e7604629bc809d8c58225fdb0d6a252ba6a6c023d505c3eaaf9c292185c726ba
+  - Reason: Config file not referenced
+- `.\rlvr\test\microservices_architecture.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:09.556000
+  - Hash: 9f2e6affbbca5df0898f4830b6b592f258365ed951cd21a82f270b1418908222
+  - Reason: Config file not referenced
+- `.\rlvr\test\models.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:41.934299
+  - Hash: 3ff048658ba32267653c2c0b22720caf4c6a0ac81bb9a9c79bb19b9431876544
+  - Reason: Config file not referenced
+- `.\rlvr\test\models_direct.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.444445
+  - Hash: 72cff3d5f0412b1d4777f90bf8fa611d4e0e766cc8671f0e54b0b4b38f85d75f
+  - Reason: Config file not referenced
+- `.\rlvr\test\models_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.489047
+  - Hash: 7fce6b6e48285aa9bcef35ac87188bc0a19189cf7f2688d729a2ce4d9e460a21
+  - Reason: Config file not referenced
+- `.\rlvr\test\network_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.525638
+  - Hash: 43554c6ceb1c111921a1e3b644b8516150eabf9b4819bd9afc8b98c5d9bad039
+  - Reason: Config file not referenced
+- `.\rlvr\test\network_scanner_fixes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:24.313552
+  - Hash: f7dd4dc6fd4642237bf717e650f244fde0dd8da581438ce1f849b7205b75d4b9
+  - Reason: Config file not referenced
+- `.\rlvr\test\notifications_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.616371
+  - Hash: 480f30836231de2cbe942cd12f5ee3533fe1305e66ed20c4d5109d616704ed0b
+  - Reason: Config file not referenced
+- `.\rlvr\test\noxcrawler.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:24.488564
+  - Hash: 1a70960b4161a91a8c11c2e89d7d9e6abd81d16824755fac38ad06fd549bb994
+  - Reason: Config file not referenced
+- `.\rlvr\test\noxpanel_unified.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:25.138570
+  - Hash: d7145491c14635b1bb2b900f23dba7c7f6abede15b30f6e2f2fcffa0d85eb619
+  - Reason: Config file not referenced
+- `.\rlvr\test\noxpanel_v5_fixed.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.299135
+  - Hash: 4dd134d11d08e28343c5425009d34260b32e03825a827c99a84a08b5113230a2
+  - Reason: Config file not referenced
+- `.\rlvr\test\nox_assistant.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:51.446856
+  - Hash: 7d717e52d84b79cba12c7aa36342828020af104a167866e9884e11ba726ae34a
+  - Reason: Config file not referenced
+- `.\rlvr\test\nox_bootstrap.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:14.075164
+  - Hash: 1f3798722c2c64b7d53d79aca4509cfc2a25d07d54c8138eb5c57fa9ad8c0de8
+  - Reason: Config file not referenced
+- `.\rlvr\test\ollama_client.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:51.632737
+  - Hash: 13ab977985688d0e5a574f39964cb2e4e9190229db1b7df147135c454421b95f
+  - Reason: Config file not referenced
+- `.\rlvr\test\optimized_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:32.675715
+  - Hash: 3511865b1e61c22bb63e26e00772ccfba754c2156608fe84a1fe178f62b040c1
+  - Reason: Config file not referenced
+- `.\rlvr\test\password_utils.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.329970
+  - Hash: 05831c517b57c36f180d02f6af53f9bc83d3e0a1e282b574cb11317300d62d18
+  - Reason: Config file not referenced
+- `.\rlvr\test\phase2_initiate.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:49.782012
+  - Hash: a018b5ac934b9490f020e854a31d0fa25b1f6ac55195d02c229a12328a200ff9
+  - Reason: Config file not referenced
+- `.\rlvr\test\phase3_web_consolidation.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:35.863412
+  - Hash: 04211e336ead0a421aeccc1a34a3c533c05bf728e4adb043474b81a9fa2d55b4
+  - Reason: Config file not referenced
+- `.\rlvr\test\phase4b_final_push.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:35.987710
+  - Hash: e7b5c41367f5ed268f228a9068c6486ffc8a7084b56817fee6f7e675854ceefe
+  - Reason: Config file not referenced
+- `.\rlvr\test\phase4_excellence_optimizer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:36.292905
+  - Hash: 3da4b494922928cc4935e3753a71fb24176b496c5ce648443baca9c8da98dbc9
+  - Reason: Config file not referenced
+- `.\rlvr\test\pi_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.709572
+  - Hash: a0d67df1370fed0d5773ef44821ab00da62b175a48c7c222b43e622b25940dc3
+  - Reason: Config file not referenced
+- `.\rlvr\test\platforms_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.790228
+  - Hash: e73aea7b0f5d6a88958e7b732e02c0c9ff1df0c3161891af8aced2271c59df3c
+  - Reason: Config file not referenced
+- `.\rlvr\test\plugins.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.845835
+  - Hash: 4a3748b3f11133481ceeba68c5e8c6b71e016cc8a32d1e409dc7e7f875d00bbb
+  - Reason: Config file not referenced
+- `.\rlvr\test\plugin_marketplace.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.335222
+  - Hash: 201f2c6478e0c8241f094699b115876066085d5b1bbdff45276d51600c015955
+  - Reason: Config file not referenced
+- `.\rlvr\test\prepare_phase2.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:50.179879
+  - Hash: cb9a698af0fcb9dfad760a483a4fe82e5da1d5b584d86b69d135a58cdd48d807
+  - Reason: Config file not referenced
+- `.\rlvr\test\proxy_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.890953
+  - Hash: 6b27aa2cdb916fcd6194bf515da742bfd843ee92cb7195ab7b2cf7810461c8f8
+  - Reason: Config file not referenced
+- `.\rlvr\test\quick_setup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.551214
+  - Hash: ca92869fd299a5c8001522da05e06cbcd0f5ebe2afe5eebdfc5920a0b7e72778
+  - Reason: Config file not referenced
+- `.\rlvr\test\quick_start.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.685996
+  - Hash: 8b829a68788417f354495eee858393a864ce8dd83269b619edd59737ee479e54
+  - Reason: Config file not referenced
+- `.\rlvr\test\restart_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.700046
+  - Hash: 6242a4f1796d36af63addea7240f67d2d0f7ef3405b4ba5a5019530fc3ca7787
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_autoscaler.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:09.616152
+  - Hash: 41e5d98997ce7d4593106926229f0b202143c94c00712436f0b3b8eb6865f145
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_comprehensive_test_framework.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:09.966425
+  - Hash: 847c57a658e3ed47d6aeabf682937e587a839305573a69ec601771e5739fffbf
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_emergency_remediation.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.083234
+  - Hash: f60ba99811f046734f9ee0c028c2041635a26d8ec7d0abb4bce61fa3881e7b10
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_enhanced_autoscaler_v3.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.245162
+  - Hash: e9b3d2a78967a51d46086b86b6624b47b976cb5451bcef0ea71823a2ecc53daf
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_enhanced_deployer_v3.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.439162
+  - Hash: 69ff2876f35acaaed05de3e746b9b7bd30a6ba38b94dbb1737a082f76c76afb4
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_intelligent_monitor_v3.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.606112
+  - Hash: 3f25af222965c0ac247d2b8346c7697f46db4c14f62c589c7ef98f550e2008b9
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_master_dashboard_fixed.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.755057
+  - Hash: 41a0627dece15bcd2b4e6a0f613f03e989089ec2d5c038af1934f7938ee980a0
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_master_dashboard_v4.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.886365
+  - Hash: af45908886c83d26aededd2e40f3028ec6fa49c8d1634b8d7571f088a19679a3
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_orchestration_controller_v3.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:10.963027
+  - Hash: ec69d2658d78afb2d40a44a040fb474fab06b40035687f6c24e051239b263d20
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_phase2_enhancer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.132426
+  - Hash: 972e64bf30b4c511f14f43d317fa2bbe2ed59fbcc147d587799cf7a2376ee640
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_production_deployer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.201097
+  - Hash: b0256644b0a50afbd5b5770c51dbe90ae55b8017115b6b7b374e703c994f5a94
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_production_deployer_corrected.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.270267
+  - Hash: 4428c7a7b4cc2e89a2e1165238b0e2855de4c7437aafd5f50a806a0f9fda03a4
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_validator_agent.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.399606
+  - Hash: 4777d4003f44bf17c0c40b410a93e5410f1ad1bacea5955743faa11eb55f9a8a
+  - Reason: Config file not referenced
+- `.\rlvr\test\rlvr_windows_compatible_test_framework.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.608673
+  - Hash: 6bb1ff4b56d69ad360af2a2e0fe2e489bb1e1a98aea18b77cbe0cd681e5e48fb
+  - Reason: Config file not referenced
+- `.\rlvr\test\runner.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.852356
+  - Hash: 768ebcc4905cf1034f4250da7f9d912c63e997d51ddb8c60244b8f95d437ffce
+  - Reason: Config file not referenced
+- `.\rlvr\test\sample_plugin.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.958104
+  - Hash: 192a935b42007f1fbded549f101cf0a6a6993db06aa8bfa364a1af8a49a1403b
+  - Reason: Config file not referenced
+- `.\rlvr\test\scheduler_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:42.926544
+  - Hash: 1fa7c32cceba5b679297d2edb0a83d66c00c417a76c602553d39593f34ff6d13
+  - Reason: Config file not referenced
+- `.\rlvr\test\scripts_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.139604
+  - Hash: c7e81b998b9b587fbb63f1de86f552e8e65f78e4263620e810a291bd9b6debac
+  - Reason: Config file not referenced
+- `.\rlvr\test\security_manager.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:37.911781
+  - Hash: 7394dcecabba76693a7fb2fe6446ceec3f49a03ed975c49ebaadab2814ec6ba6
+  - Reason: Config file not referenced
+- `.\rlvr\test\security_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.231813
+  - Hash: af05cb33225133c6f9bb5cb8692a8d5a21852f134b9c41bf534d3196eab8e9df
+  - Reason: Config file not referenced
+- `.\rlvr\test\security_test_suite.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.339208
+  - Hash: aa3960e818b104896987b1667a7b5cf6fa5af07f5584fbcb78ce158897766926
+  - Reason: Config file not referenced
+- `.\rlvr\test\setup.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:38.684807
+  - Hash: 3a668ce3ed8536d0fcdfbd582b9a1721e838d91e0bb002c381ae39ceec81a5a8
+  - Reason: Config file not referenced
+- `.\rlvr\test\setup_knowledge_base.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.754167
+  - Hash: 1128c1cc7e6066fdf65e4e22912ddd3811e8f7a45a0d344268d08bcabb75a547
+  - Reason: Config file not referenced
+- `.\rlvr\test\setup_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.313980
+  - Hash: ff4e55504bb8f65bbc91121fea6020a985017ef70b26a58aafd76b624628e280
+  - Reason: Config file not referenced
+- `.\rlvr\test\setup_simple_kb.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:26.762178
+  - Hash: a280fde7e308531493d46f7104532d9d7a3d6ccd83710c91bed0e0db64918d3d
+  - Reason: Config file not referenced
+- `.\rlvr\test\simple_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:27.123915
+  - Hash: 487b2c782812582b220febe41eaae87ecdd383f84b25aa6b4a474c4bba82ace8
+  - Reason: Config file not referenced
+- `.\rlvr\test\simple_noxpanel_fixed.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:27.508309
+  - Hash: 7d2d103e9b7f39d49d596a27c8158921f4ecb786396e7cd7d3346f374f7bf640
+  - Reason: Config file not referenced
+- `.\rlvr\test\simple_status_saver.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.836756
+  - Hash: 8c55cbd36ab809958fff63835b360a5dd45d3a03c63ee57700741ee7a6b73620
+  - Reason: Config file not referenced
+- `.\rlvr\test\speech_engine.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.541000
+  - Hash: b46ada08443336cf8d32e2de519aa7c2eb3d65a1b9e30936c6ed9123aa6f0f63
+  - Reason: Config file not referenced
+- `.\rlvr\test\start_consolidated_web.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:14.079165
+  - Hash: 4e210a5d54af6036ab42f50825d6233dd302b73a0260951d6f0efd947f9b2c38
+  - Reason: Config file not referenced
+- `.\rlvr\test\start_status_service.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.853790
+  - Hash: e8a5664c52bcefdaaf8c57bd1ec902572e6ed17e5d325788b1bd993719c8d115
+  - Reason: Config file not referenced
+- `.\rlvr\test\status_saver_service.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:11.879847
+  - Hash: 79a64fb94b56d02f857698ae87a217f5bc0aca3f35a3ebd977ddc84b25e5ee02
+  - Reason: Config file not referenced
+- `.\rlvr\test\sysadmin_copilot.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:27.826526
+  - Hash: ef9c0b3693931c7ba79d2325fbb4b07f5a725c193eb651f27f31cc7eb82d3a11
+  - Reason: Config file not referenced
+- `.\rlvr\test\system_demonstration.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:27.974834
+  - Hash: dcb209a9a87db7582e0773729522608cea3ba402599d317735e2ee679edc4399
+  - Reason: Config file not referenced
+- `.\rlvr\test\system_info.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.676663
+  - Hash: 0b796596afda1a2cea9bbfefaaaab65a9093324c54fb4d59b2f2d99e2864d15c
+  - Reason: Config file not referenced
+- `.\rlvr\test\system_status_check.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:50.272069
+  - Hash: 338697f2a13dab088c33d43b324a0ad9331c16c20695e15cb99ce830c10e2385
+  - Reason: Config file not referenced
+- `.\rlvr\test\system_status_report.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:28.002406
+  - Hash: a433fb795702e9f09e29d83aff10ee08764cff38e634ce1ebe2df3b5d74472b8
+  - Reason: Config file not referenced
+- `.\rlvr\test\task_registry.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:51.854779
+  - Hash: dd3661ef603d2e14c3ce7385d6ba0a004ccb4c00ba1cd36011db5588b1cdbd98
+  - Reason: Config file not referenced
+- `.\rlvr\test\test_app_factory.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:38.689821
+  - Hash: 57d594dc3c6dbfabc00e4a97873765800af2e4e48b09f1376ff075660907f1a5
+  - Reason: Config file not referenced
+- `.\rlvr\test\test_auth_api.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:48.235476
+  - Hash: 4374fddb08f3d42fbc2d8ad33ef49d21eb4143ad67189c67e3c642767349e6d9
+  - Reason: Config file not referenced
+- `.\rlvr\test\test_security.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:50.599871
+  - Hash: f7620007678f3019f879d0323aaed18f6cc0baf5c992d3d082b0c89b70df3e90
+  - Reason: Config file not referenced
+- `.\rlvr\test\test_validator_advanced.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:39.570058
+  - Hash: 2e87ae50b15c3e442106d809df9e37496b61558c46a1f656b45c2314474c4b31
+  - Reason: Config file not referenced
+- `.\rlvr\test\text_summarizer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.593990
+  - Hash: d6dc969c104c0f9709adcb576132d8f62ad1bee0259d4aaf6bc2761d500493db
+  - Reason: Config file not referenced
+- `.\rlvr\test\tts_engine.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.838188
+  - Hash: c8bfe3a213c582b762f4ab9af926d02383108580f2a814be393c21a78f86d741
+  - Reason: Config file not referenced
+- `.\rlvr\test\ui.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.583938
+  - Hash: c4ac6d441e88433c30f02d0c1b4e1fc68b43c4983ac6483b0033663c52ab09c3
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_suite_enhanced_v10.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:12.239350
+  - Hash: 9cd0db5327854d2b8c3224cc94cf8c89e15b797b1bf0bf4660129a7b6c25504d
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_suite_integrator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:28.430982
+  - Hash: 17e24436ebbb4acd4788881972fdae42f51a6a17c48a51a698377f34558f9654
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_suite_optimizer.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:12.250871
+  - Hash: 8bfe55866217488067ee032fd3a78e89f90b782627631038d3605854e85ae99c
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_suite_quick_fixes_corrected.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:28.561280
+  - Hash: 6c56c2b2f496a6bc86245fbd95b72b86d4b2d8069f184504a69ca06cfdc1e51f
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_suite_v9_audit.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:28.863971
+  - Hash: 71e1e6b61289cc8774812f467973905b49df1fb347cb7f9de5ef13b27c94c799
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_webapp_v10.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:12.791891
+  - Hash: 6aae594dd1aebd09b80ec7d84c19a54f64c4aa781bd46ad1542be3fe11e0f58d
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_webapp_v7.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:29.342507
+  - Hash: 0682e85c8cf4c215f161277082ee28190cf4b8f454268bb33823c078f34c09ce
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultimate_webapp_v8.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:30.072937
+  - Hash: 5abdef6706a3d58e084735bc420837af0cfa475e245c005a8944412ea1c56859
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultra_optimized_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:31.833187
+  - Hash: 619ccee695a6f4d6d4457d0870a54e79ff70910aac6d5ee8d3b2fa828f853ee6
+  - Reason: Config file not referenced
+- `.\rlvr\test\ultra_port_mapper.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:36.882802
+  - Hash: 2a0eb8b47022aeb992edde0d93519891644b5e765555d8f1d2a2071d7db7b2cb
+  - Reason: Config file not referenced
+- `.\rlvr\test\unified_architecture_generator.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:37.131396
+  - Hash: a74e56240ddf572776102af09554471f351eef874cdddffa837076d1ff1d9778
+  - Reason: Config file not referenced
+- `.\rlvr\test\unified_noxpanel.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:39.772623
+  - Hash: 27705912ba65ec5818e7f47225e419ff060fe8a8f48f4d9240a21a54cda1cb89
+  - Reason: Config file not referenced
+- `.\rlvr\test\updates_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.410724
+  - Hash: 691617de9f66f014d45c8688f3f77e987cb45da4ae7dc31552f8a9345bc55f58
+  - Reason: Config file not referenced
+- `.\rlvr\test\validate_optimization.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:12.864638
+  - Hash: 88d8c40a813f9411fcbe0b453abda06c42675838062161cf268e401846c6460a
+  - Reason: Config file not referenced
+- `.\rlvr\test\validate_v5_simple.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:31.926907
+  - Hash: 5fa4886b18429b3ed27dcae95569902fa395d3690dd1f0681ca358b52251d5ae
+  - Reason: Config file not referenced
+- `.\rlvr\test\version_audit.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:37.173486
+  - Hash: 4f24e413efd7e873f4639aee7c075df7fe73c438921940e85df829c05bbc9f4a
+  - Reason: Config file not referenced
+- `.\rlvr\test\version_tagger.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:37.314795
+  - Hash: 98d9620bd13862a99c1372eb8cfa3120901dd03aa3129211d146c65b1d17017a
+  - Reason: Config file not referenced
+- `.\rlvr\test\vm_routes.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:43.501941
+  - Hash: 4247b4a604b776b5c91601cf785ac8b65a4ee1e01258c5ddfb29941f5866e319
+  - Reason: Config file not referenced
+- `.\rlvr\test\voice_api.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.041483
+  - Hash: f71b00830979143e1186b1e8501054257bc8086412d0ba783613d0de2c4b0ce2
+  - Reason: Config file not referenced
+- `.\rlvr\test\voice_interface.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:15.097555
+  - Hash: 4526ad5c6808a487d9ff4820b12418cb18371ef927f31d2d385a4310f87eca7e
+  - Reason: Config file not referenced
+- `.\rlvr\test\voice_web_integration.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.111150
+  - Hash: d1ee05a7b3a107896ef603752ca57db79d6e7700f479773cf16ae28ccc54bf85
+  - Reason: Config file not referenced
+- `.\rlvr\test\voxtral_service.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.310786
+  - Hash: bc45e1683c3caa03f445804dadc8dc42e0c7ed70c924e056a16cfdaec814d3d6
+  - Reason: Config file not referenced
+- `.\rlvr\test\wake_word_detector.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:52.994591
+  - Hash: 821176b248a5df5ccf6378dd2476644129e2776d222ecba1c2d40b7f64afe6ca
+  - Reason: Config file not referenced
+- `.\rlvr\test\wheel_legacy.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:46.427100
+  - Hash: 968bd5c6428ced8736721adca0eac30f3a27c3ba9dd7dff3b0d59fd26e9db9c1
+  - Reason: Config file not referenced
+- `.\rlvr\test\__init__.rlvr.test.json`
+  - Last Modified: 2025-07-18T11:02:47.451146
+  - Hash: 29c5838d362a39105cad062b0af7f4066c67321397f91a157d1a1cc81da445b5
+  - Reason: Config file not referenced
+- `.\scripts\msp_operational_status.json`
+  - Last Modified: 2025-07-18T23:18:04.363790
+  - Hash: 91cf43a0d46ab3da96ca0bc292d69cf0229e061ffc18a65ccc3321f8bc6c46ac
+  - Reason: Config file not referenced
+- `.\tests\audit_test_architecture_design_reasoning.json`
+  - Last Modified: 2025-07-18T10:20:38.508718
+  - Hash: 4158c150bdb95b1e767a1471feda70d3f40c7eb185c1bd16a29862e4f9824059
+  - Reason: Config file not referenced
+- `.\tests\audit_test_architecture_design_reasoning_windows_windows.json`
+  - Last Modified: 2025-07-18T10:23:32.751698
+  - Hash: 531e5a334dc449ae008d77434634cc779207b9156a148426a35fa160f43b86e7
+  - Reason: Config file not referenced
+- `.\tests\audit_test_auto_scaling_reasoning.json`
+  - Last Modified: 2025-07-18T10:20:38.554796
+  - Hash: e50eb2892dcb5bfdd46ec8a6a108966d49171f5a4b8a99c9402b07f54575979a
+  - Reason: Config file not referenced
+- `.\tests\audit_test_complete_deployment_chain_windows_windows.json`
+  - Last Modified: 2025-07-18T10:23:32.836377
+  - Hash: c1326aa6f20f32031ca12e097c912cdc93793616f2a594c41a89d223428ad8a2
+  - Reason: Config file not referenced
+- `.\tests\audit_test_complete_deployment_reasoning_chain.json`
+  - Last Modified: 2025-07-18T10:20:38.613444
+  - Hash: ba4590f4c8b4f094cb867bb3a48b05c238eb4c9d8713cf4bad09c7799880d44f
+  - Reason: Config file not referenced
+- `.\tests\audit_test_load_balancer_configuration_reasoning.json`
+  - Last Modified: 2025-07-18T10:20:38.662556
+  - Hash: 9193b791f8b365baa9465aed2d8d00bd084e694ebdc0f2c11894ec1e06a6eb48
+  - Reason: Config file not referenced
+- `.\tests\audit_test_load_balancer_configuration_windows_windows.json`
+  - Last Modified: 2025-07-18T10:23:32.917542
+  - Hash: 6098c70ca4d066a2167b01b02a7811c71785df4b33bbdcd110717af221397659
+  - Reason: Config file not referenced
+- `.\tests\audit_test_reasoning_failure_handling.json`
+  - Last Modified: 2025-07-18T10:20:38.678595
+  - Hash: 3df4d891eb479e55ee6c65cac284fae43704ab2ab5017c3987f2a1966aaa18b2
+  - Reason: Config file not referenced
+- `.\tests\audit_test_reasoning_validation_integrity.json`
+  - Last Modified: 2025-07-18T10:20:38.699636
+  - Hash: eba69524ab69b996dffe6594d598cca582a2e2ea55f1e05e33f136e7e592dd0e
+  - Reason: Config file not referenced
+- `.\tests\audit_test_reasoning_validation_integrity_windows_windows.json`
+  - Last Modified: 2025-07-18T10:23:32.937088
+  - Hash: bcdf027fbb946c2283983ad45097928cdf5da91cf78125a603962929cdb6154d
+  - Reason: Config file not referenced
+- `.\tests\rlvr_comprehensive_test_report.json`
+  - Last Modified: 2025-07-18T10:20:38.758750
+  - Hash: b73766298bc3ce0cba559375ed84e0abdfbf9ed9bb4217c80583806b18e0bd3d
+  - Reason: Config file not referenced
+- `.\tests\rlvr_windows_compatible_test_report.json`
+  - Last Modified: 2025-07-18T10:23:32.940597
+  - Hash: a8e22e620d9fa052c13fc544eabc26792bde0a2c1aebb93376b880578a978bcc
+  - Reason: Config file not referenced
+- `.\updates\plugin_registry.yml`
+  - Last Modified: 2025-07-18T11:24:46.462935
+  - Hash: 354d61d48b47a7f0b534545108fb31454c52d5bcfb398acd6b283ac44f479b01
+  - Reason: Config file not referenced
+- `.\v52_enhancement\ci_adaptation\ci_config_development.json`
+  - Last Modified: 2025-07-18T11:39:27.243280
+  - Hash: 07572e41e1ba93b07e1f3f41628a85b89cf93237d6230fa1a32dbf60fb440ad1
+  - Reason: Config file not referenced
+- `.\v52_enhancement\monitoring\plugin_test_matrix.json`
+  - Last Modified: 2025-07-18T11:39:27.407686
+  - Hash: 5f7239afd379949f77e5333e2f50dbab0ac0b9dba34c5993bd8523527497d91b
+  - Reason: Config file not referenced
+
+## Duplicate
+- `.\CONSOLIDATION_CHECKLIST.md`
+  - Last Modified: 2025-07-18T14:23:02.495038
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\FINAL_IMPLEMENTATION_REPORT.md`
+  - Last Modified: 2025-07-18T14:23:03.717276
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\NOXPANEL_COMPLETE_GUIDE.md`
+  - Last Modified: 2025-07-18T14:23:01.926354
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\PROJECT_REFOCUS_ANALYSIS.md`
+  - Last Modified: 2025-07-18T14:23:02.183744
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\SUPERMAVEN_COLLABORATION_PROMPTS.md`
+  - Last Modified: 2025-07-20T00:09:21.736411
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\COMPLETE_ENHANCEMENT_REPORT.md`
+  - Last Modified: 2025-07-18T14:22:56.593246
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T14:22:55.703448
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\CRITICAL_SECURITY_AUDIT_FINAL.md`
+  - Last Modified: 2025-07-18T14:23:00.233931
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\deep_analysis_web.py`
+  - Last Modified: 2025-07-15T17:37:37.581275
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\DEEP_STABILITY_AUDIT_REPORT.md`
+  - Last Modified: 2025-07-18T14:22:58.582701
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\enhanced_application.py`
+  - Last Modified: 2025-07-18T14:22:56.078961
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\ENHANCED_GATEWAY_REPORT.md`
+  - Last Modified: 2025-07-18T14:22:56.904517
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\ERROR_AUDIT.md`
+  - Last Modified: 2025-07-18T14:22:55.028960
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\git_plugin_system.py`
+  - Last Modified: 2025-07-18T14:22:55.289460
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\IMPLEMENTATION_SUMMARY.md`
+  - Last Modified: 2025-07-18T14:22:46.451743
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\launch_ultimate_suite_v9_safe.py`
+  - Last Modified: 2025-07-15T21:13:47.760942
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\PHASE3_DIAGNOSTICS_REPORT.md`
+  - Last Modified: 2025-07-18T13:25:51.157525
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\PHASE_1_STRUCTURAL_AUDIT_COMPLETE.md`
+  - Last Modified: 2025-07-18T14:22:51.545507
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\PHASE_2A_COMPLETION_REPORT.md`
+  - Last Modified: 2025-07-18T14:22:52.634185
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\simple_noxpanel_fixed.py`
+  - Last Modified: 2025-07-18T12:45:05.991965
+  - Hash: 7293e119a2952450d9d4aee12d84760b32accd5b03858991d4d11359854033bc
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\test_server_optimized.py`
+  - Last Modified: 2025-07-19T15:00:46.780694
+  - Hash: 9cc6a86d10b8a2e06ff12cc26de159d6834880ba4befd5528d21c6a3cb753260
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\unified_plugin_system.py`
+  - Last Modified: 2025-07-19T23:34:16.088222
+  - Hash: 1da5a70ea8a2516dd9e2c5374e008572395106605fb57c30a643d3730173fee4
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\archive\backups\ultimate_webapp_v9_backup2.py`
+  - Last Modified: 2025-07-18T12:47:44.242900
+  - Hash: b33bef4af6884a7582fd9493ced615804e00a34519bc54f017fc44c123251095
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\archive\reports\setup_report.md`
+  - Last Modified: 2025-07-15T14:47:47.359330
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\docs_best_practices_documentation.json`
+  - Last Modified: 2025-07-15T19:46:42.652066
+  - Hash: c9e793a1352cbd53a3ada0dad7b3a1da4dc4ef350f2323db4fd3f5840635f06e
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\docs_developer_onboarding_guides.json`
+  - Last Modified: 2025-07-15T19:46:42.636511
+  - Hash: c9e793a1352cbd53a3ada0dad7b3a1da4dc4ef350f2323db4fd3f5840635f06e
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\docs_troubleshooting_guides.json`
+  - Last Modified: 2025-07-15T19:46:42.640031
+  - Hash: c9e793a1352cbd53a3ada0dad7b3a1da4dc4ef350f2323db4fd3f5840635f06e
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\docs_user_guide_comprehensiveness.json`
+  - Last Modified: 2025-07-15T19:46:42.634508
+  - Hash: c9e793a1352cbd53a3ada0dad7b3a1da4dc4ef350f2323db4fd3f5840635f06e
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\security_automated_security_monitoring.json`
+  - Last Modified: 2025-07-15T19:46:42.623987
+  - Hash: eacd80e77e281f53b8fb2571c95cb17988c616e8342f53c6465f5f38990b8a30
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\security_comprehensive_encryption.json`
+  - Last Modified: 2025-07-15T19:46:42.625980
+  - Hash: eacd80e77e281f53b8fb2571c95cb17988c616e8342f53c6465f5f38990b8a30
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\security_security_compliance.json`
+  - Last Modified: 2025-07-15T19:46:42.628490
+  - Hash: eacd80e77e281f53b8fb2571c95cb17988c616e8342f53c6465f5f38990b8a30
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\config\security_zero_trust_architecture.json`
+  - Last Modified: 2025-07-15T19:46:42.620981
+  - Hash: eacd80e77e281f53b8fb2571c95cb17988c616e8342f53c6465f5f38990b8a30
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\noxcore\utils\__init__.py`
+  - Last Modified: 2025-07-14T14:00:08.752375
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\plugins\network_monitor\__init__.py`
+  - Last Modified: 2025-07-18T13:14:53.359978
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\templates\ai.html`
+  - Last Modified: 2025-07-15T08:42:48.396069
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\templates\knowledge\index_new.html`
+  - Last Modified: 2025-07-15T17:37:37.718125
+  - Hash: 2478c9a61731213e6f24b05cb72258e36c7a242c90ee8cb7ab0cd5f2bfe8db4e
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\tests\ENHANCEMENT_SUMMARY.md`
+  - Last Modified: 2025-07-18T14:23:01.763723
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\tests\e2e\__init__.py`
+  - Last Modified: 2025-07-15T14:47:34.817968
+  - Hash: da89426260cd95d74be847c956428b0d4825227f466599f7611ea92b0d15eb54
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\tests\performance\__init__.py`
+  - Last Modified: 2025-07-15T14:47:34.818476
+  - Hash: da89426260cd95d74be847c956428b0d4825227f466599f7611ea92b0d15eb54
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\app.py`
+  - Last Modified: 2025-07-18T14:22:45.414806
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\plugin_loader.py`
+  - Last Modified: 2025-07-18T14:22:50.552303
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\static\css\ultimate-dashboard.css`
+  - Last Modified: 2025-07-15T19:53:55.009620
+  - Hash: 8ea25441ffca29a035140f329df68e0332c434a3444f20477cda4a3195368dc0
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\admin.html`
+  - Last Modified: 2025-07-18T14:22:47.635847
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\ai_features.html`
+  - Last Modified: 2025-07-18T14:22:48.146594
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\ai_monitor.html`
+  - Last Modified: 2025-07-18T14:22:49.900837
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\chat.html`
+  - Last Modified: 2025-07-18T14:22:46.120009
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\dashboard_fixed.html`
+  - Last Modified: 2025-07-18T14:22:47.221706
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\heimnetz_interface.html`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 09b8a084c67cac3ac4a68df7f26eaed175bf3daa3fa9f189480ab48d9bb782f4
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\noxguard_interface.html`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 39157ae861ffac56e3d4a6970fdd353942fb3760b34f606d34ee2f0600528ad7
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\noxpanel_interface.html`
+  - Last Modified: 2025-07-19T15:00:46.777686
+  - Hash: 9d6a5f67d115bb70527f26b4c9649b912a5bfcdd556aa30d6e7b2e003b99655b
+  - Reason: SHA256 matches another file
+- `.\AI\NoxPanel\webpanel\templates\theme_demo.html`
+  - Last Modified: 2025-07-18T14:22:48.734441
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\backup_20250720_012355\NoxPanel\scripts\samples\system_diagnostic.py`
+  - Last Modified: 2025-07-18T12:48:30.618546
+  - Hash: 47fcf8f9c7f8c0be0dcfd17ca28193b0ddb763cc23bf88549ec10f090c929364
+  - Reason: SHA256 matches another file
+- `.\ci\auto_validate.yml`
+  - Last Modified: 2025-07-18T11:24:46.466449
+  - Hash: 8b7d91e82f48b63fce677f3b6ab750a6d874b3fc4066505607410698ad9c0b46
+  - Reason: SHA256 matches another file
+- `.\data\status_snapshots\status_20250717_221948.json`
+  - Last Modified: 2025-07-17T22:19:48.947255
+  - Hash: 052bbf0fe274348d3d3230a2ee3beb49b15a8af16c1d68a460f62d1051f2aa39
+  - Reason: SHA256 matches another file
+- `.\enterprise\monitoring_dashboard.py`
+  - Last Modified: 2025-07-18T20:43:22.095428
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_internal\operations\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.167359
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_internal\resolution\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.222482
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_internal\resolution\legacy\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.226999
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_internal\resolution\resolvelib\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.230009
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_internal\utils\__init__.py`
+  - Last Modified: 2025-07-20T01:22:56.275615
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.296387
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_vendor\urllib3\contrib\_securetransport\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.310434
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_vendor\urllib3\packages\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.315944
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\Lib\site-packages\pip\_vendor\urllib3\packages\backports\__init__.py`
+  - Last Modified: 2025-07-20T01:22:57.319963
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\logs\cleanup_validation_report.md`
+  - Last Modified: 2025-07-19T12:54:50.792778
+  - Hash: 6ccce9e7588b092ad42493fdf91dd245ed5a01a14899284c868cc51ec6da9b16
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\.pytest_cache\README.md`
+  - Last Modified: 2025-07-17T15:39:08.840656
+  - Hash: 420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\config\README.md`
+  - Last Modified: 2025-07-14T17:06:17.386477
+  - Hash: 480e92c2a3de242d7c6a81acc36edddb72d5bc5849a224cec91aae0a901277a6
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\noxcore\__init__.py`
+  - Last Modified: 2025-07-14T17:06:17.373437
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\noxcore\utils\config.py`
+  - Last Modified: 2025-07-18T12:48:27.479111
+  - Hash: 33eea22f9b3173e40d49cbdaa30ac160b9c22b421642df432f96f0571f0e059d
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\noxcore\utils\__init__.py`
+  - Last Modified: 2025-07-14T17:06:17.375948
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\tests\__init__.py`
+  - Last Modified: 2025-07-14T17:06:17.386477
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\NoxPanel\webpanel\Untitled-1.md`
+  - Last Modified: 2025-07-17T15:33:46.366193
+  - Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - Reason: SHA256 matches another file
+- `.\security\quarantine\quarantined_20250718_120108_routes.py`
+  - Last Modified: 2025-07-18T10:43:34.442221
+  - Hash: 5c46768518aaeeeec3ec70c1d3e5d7ae58a442c0ae80c2da585d7d9d98b967ef
+  - Reason: SHA256 matches another file
+
+## Performance Metrics
+- scan_time_sec: 39.53
+- total_files_scanned: 2253
+- candidates_found: 1459
+- actions_taken: 0

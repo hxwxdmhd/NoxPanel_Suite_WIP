@@ -1,0 +1,12 @@
+plugins:
+  adaptive-intelligence:
+    compliance_impact: medium
+    description: Adaptive strategy adjustment system
+    status: active
+    version: 1.0.0
+  rlvr-guardian:
+    compliance_impact: high
+    description: Post-certification monitoring system
+    status: active
+    version: 1.0.0
+version: '11.0'

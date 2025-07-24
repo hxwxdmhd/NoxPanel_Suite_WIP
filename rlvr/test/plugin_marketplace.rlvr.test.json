@@ -1,0 +1,97 @@
+{
+  "module": "AI\\NoxPanel\\plugin_marketplace.py",
+  "timestamp": "2025-07-18T11:02:26.334212",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test___init___positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self",
+        "plugins_dir": "valid_plugins_dir"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test___init___edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self",
+        "plugins_dir": "edge_plugins_dir"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test___init___error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self",
+        "plugins_dir": "invalid_plugins_dir"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_discover_plugins_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self",
+        "category": "valid_category"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_discover_plugins_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self",
+        "category": "edge_category"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_discover_plugins_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self",
+        "category": "invalid_category"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_install_plugin_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self",
+        "plugin_id": "valid_plugin_id"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_install_plugin_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self",
+        "plugin_id": "edge_plugin_id"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_install_plugin_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self",
+        "plugin_id": "invalid_plugin_id"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

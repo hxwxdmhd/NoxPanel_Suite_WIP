@@ -1,0 +1,33 @@
+{
+  "enabled": true,
+  "metrics": {
+    "response_time": {
+      "enabled": true,
+      "target_ms": 200,
+      "warning_ms": 300,
+      "critical_ms": 500
+    },
+    "memory_usage": {
+      "enabled": true,
+      "target_mb": 100,
+      "warning_mb": 150,
+      "critical_mb": 200
+    },
+    "concurrent_users": {
+      "enabled": true,
+      "target": 50,
+      "warning": 75,
+      "critical": 100
+    }
+  },
+  "alerts": {
+    "email_notifications": true,
+    "dashboard_alerts": true,
+    "log_warnings": true
+  },
+  "reporting": {
+    "daily_reports": true,
+    "weekly_analysis": true,
+    "performance_trends": true
+  }
+}

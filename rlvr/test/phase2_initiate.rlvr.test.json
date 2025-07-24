@@ -1,0 +1,274 @@
+{
+  "module": "NoxPanel\\scripts\\phase2_initiate.py",
+  "timestamp": "2025-07-18T11:02:49.781012",
+  "total_functions": 10,
+  "test_cases": [
+    {
+      "name": "test_main_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_main_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_main_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test___init___positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self",
+        "project_root": "valid_project_root"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test___init___edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self",
+        "project_root": "edge_project_root"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test___init___error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self",
+        "project_root": "invalid_project_root"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_setup_logging_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_setup_logging_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_setup_logging_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_verify_phase1_completion_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_verify_phase1_completion_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_verify_phase1_completion_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_install_phase2_dependencies_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_install_phase2_dependencies_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_install_phase2_dependencies_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_websocket_foundation_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_websocket_foundation_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_websocket_foundation_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_background_task_system_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_background_task_system_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_background_task_system_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_plugin_architecture_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_plugin_architecture_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_plugin_architecture_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_update_project_metadata_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_update_project_metadata_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_update_project_metadata_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_initiate_phase2_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_initiate_phase2_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_initiate_phase2_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

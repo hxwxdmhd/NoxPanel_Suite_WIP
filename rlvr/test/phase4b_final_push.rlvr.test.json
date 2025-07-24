@@ -1,0 +1,202 @@
+{
+  "module": "AI\\NoxPanel\\scripts\\phase4b_final_push.py",
+  "timestamp": "2025-07-18T11:02:35.982190",
+  "total_functions": 7,
+  "test_cases": [
+    {
+      "name": "test___init___positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test___init___edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test___init___error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__create_app_factory_wrapper_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__create_app_factory_wrapper_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__create_app_factory_wrapper_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__test_response_times_fixed_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__test_response_times_fixed_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__test_response_times_fixed_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__test_memory_usage_fixed_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__test_memory_usage_fixed_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__test_memory_usage_fixed_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__test_concurrent_load_fixed_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__test_concurrent_load_fixed_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__test_concurrent_load_fixed_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__setup_performance_monitoring_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__setup_performance_monitoring_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__setup_performance_monitoring_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test__generate_final_report_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "self": "valid_self",
+        "final_score": "valid_final_score",
+        "performance_score": "valid_performance_score"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__generate_final_report_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "self": "edge_self",
+        "final_score": "edge_final_score",
+        "performance_score": "edge_performance_score"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__generate_final_report_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "self": "invalid_self",
+        "final_score": "invalid_final_score",
+        "performance_score": "invalid_performance_score"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

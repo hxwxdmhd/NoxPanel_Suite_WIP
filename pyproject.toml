@@ -1,0 +1,153 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "noxpanel-heimnetz"
+version = "2.0.0"
+description = "Comprehensive ADHD-friendly network management and monitoring system"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "NoxPanel Team", email = "dev@noxpanel.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Flask",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Networking :: Monitoring",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=2.3.0",
+    "redis>=4.5.0",
+    "psycopg2-binary>=2.9.0",
+    "requests>=2.31.0",
+    "pyyaml>=6.0",
+    "prometheus-client>=0.17.0",
+    "docker>=6.1.0",
+    "paramiko>=3.2.0",
+    "schedule>=1.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.12.0",
+    "isort>=5.13.0",
+    "flake8>=7.0.0",
+    "mypy>=1.8.0",
+    "bandit>=1.7.5",
+    "safety>=2.3.0",
+    "pre-commit>=3.6.0",
+]
+ai = [
+    "torch>=2.1.0",
+    "transformers>=4.35.0",
+    "ollama>=0.1.7",
+    "speechrecognition>=3.10.0",
+    "pyttsx3>=2.90",
+]
+enterprise = [
+    "ldap3>=2.9.1",
+    "celery>=5.3.0",
+    "flower>=2.0.1",
+    "elasticsearch>=8.11.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/noxpanel/heimnetz"
+Documentation = "https://docs.noxpanel.com"
+Repository = "https://github.com/noxpanel/heimnetz"
+Issues = "https://github.com/noxpanel/heimnetz/issues"
+
+[project.scripts]
+noxpanel = "NoxPanel.webpanel.app:main"
+noxpanel-admin = "NoxPanel.noxcore.database_admin:main"
+noxpanel-analyze = "run_code_analysis:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | archive
+  | deprecated
+  | backup_.*
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+skip_glob = ["archive/*", "deprecated/*", "backup_*/*"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503", "E501"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "archive",
+    "deprecated",
+    "backup_*",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # Gradually enable
+exclude = [
+    "archive/",
+    "deprecated/",
+    "backup_.*/"
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "archive", "deprecated"]
+skips = ["B101"]  # Skip assert_used test
+
+[tool.pytest.ini_options]
+testpaths = ["NoxPanel/tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=NoxPanel",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]

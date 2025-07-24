@@ -1,0 +1,176 @@
+{
+  "timestamp": "2025-07-15T21:37:47.346422",
+  "test_suite_version": "1.0",
+  "webapp_version": "9.0",
+  "tests_executed": [
+    {
+      "test_name": "web_interface_responsiveness",
+      "status": "failed",
+      "start_time": 1752608277.4060292,
+      "response_times": {
+        "main_dashboard": {
+          "response_time_ms": 8.515357971191406,
+          "status_code": 200,
+          "success": true
+        },
+        "api_status": {
+          "response_time_ms": 3.007173538208008,
+          "status_code": 200,
+          "success": true
+        },
+        "system_metrics": {
+          "response_time_ms": 21.53635025024414,
+          "status_code": 404,
+          "success": false
+        },
+        "network_status": {
+          "response_time_ms": 4.518985748291016,
+          "status_code": 404,
+          "success": false
+        },
+        "plugin_marketplace": {
+          "response_time_ms": 27.064085006713867,
+          "status_code": 404,
+          "success": false
+        }
+      },
+      "errors": [
+        "/api/v9/system-metrics: HTTP 404",
+        "/api/v9/network-status: HTTP 404",
+        "/api/v9/plugins/marketplace: HTTP 404"
+      ],
+      "average_response_time_ms": 5.761265754699707,
+      "duration": 0.06464195251464844
+    },
+    {
+      "test_name": "system_metrics_collection",
+      "status": "failed",
+      "start_time": 1752608277.471672,
+      "metrics_samples": [],
+      "errors": [
+        "Sample 1: HTTP 404",
+        "Sample 2: HTTP 404",
+        "Sample 3: HTTP 404",
+        "Sample 4: HTTP 404",
+        "Sample 5: HTTP 404",
+        "Only 0 valid samples out of 5"
+      ],
+      "duration": 5.035164833068848
+    },
+    {
+      "test_name": "network_scanner_functionality",
+      "status": "failed",
+      "start_time": 1752608282.5073438,
+      "scanner_tests": {
+        "quick_status": {
+          "success": false,
+          "error": "HTTP 404"
+        },
+        "basic_scan": {
+          "success": false,
+          "error": "HTTP 404"
+        }
+      },
+      "errors": [
+        "Quick status failed: HTTP 404",
+        "Only 0/2 scanner tests passed"
+      ],
+      "duration": 0.024059057235717773
+    },
+    {
+      "test_name": "enhanced_copilot",
+      "status": "failed",
+      "start_time": 1752608282.5329103,
+      "copilot_tests": {
+        "issue_analysis": {
+          "success": false,
+          "error": "HTTP 404"
+        }
+      },
+      "errors": [
+        "Copilot analysis failed: HTTP 404",
+        "Copilot analysis test failed"
+      ],
+      "duration": 0.0035109519958496094
+    },
+    {
+      "test_name": "plugin_marketplace",
+      "status": "failed",
+      "start_time": 1752608282.5364213,
+      "marketplace_tests": {
+        "plugin_discovery": {
+          "success": false,
+          "error": "HTTP 404"
+        }
+      },
+      "errors": [
+        "Plugin marketplace failed: HTTP 404",
+        "Plugin marketplace tests failed"
+      ],
+      "duration": 0.0050048828125
+    },
+    {
+      "test_name": "error_handling",
+      "status": "passed",
+      "start_time": 1752608282.5424268,
+      "error_tests": {
+        "/api/invalid-endpoint": {
+          "success": true,
+          "status_code": 404,
+          "proper_error_response": true
+        },
+        "/api/v9/nonexistent": {
+          "success": true,
+          "status_code": 404,
+          "proper_error_response": true
+        },
+        "/api/v9/copilot/analyze": {
+          "success": true,
+          "status_code": 404,
+          "proper_error_response": true
+        }
+      },
+      "errors": [],
+      "duration": 0.011043787002563477
+    },
+    {
+      "test_name": "performance_metrics",
+      "status": "passed",
+      "start_time": 1752608282.554476,
+      "performance_data": {
+        "average_cpu_percent": 0.0,
+        "average_memory_mb": 102.3984375,
+        "sample_count": 5,
+        "performance_acceptable": true
+      },
+      "errors": [],
+      "duration": 10.002201557159424
+    },
+    {
+      "test_name": "concurrent_access",
+      "status": "failed",
+      "start_time": 1752608292.5566776,
+      "concurrent_tests": {},
+      "errors": [
+        "No successful concurrent requests"
+      ],
+      "duration": 0.03912663459777832
+    }
+  ],
+  "tests_passed": 2,
+  "tests_failed": 6,
+  "total_tests": 8,
+  "performance_metrics": {},
+  "errors": [],
+  "recommendations": [
+    "\u26a0\ufe0f Low test pass rate - review failed tests before production deployment",
+    "\ud83c\udf10 Optimize web interface performance - consider caching and response compression",
+    "\ud83d\udcca Review system metrics collection - ensure psutil dependencies are working",
+    "\ud83d\udce1 Network scanner needs attention - verify scanning capabilities and permissions",
+    "\ud83e\udd16 SysAdmin Copilot integration issues - check AI model availability",
+    "\ud83d\udd0c Plugin marketplace requires fixes - verify plugin discovery functionality",
+    "\ud83d\udc65 Concurrent access issues - consider adding load balancing or connection pooling"
+  ],
+  "overall_status": "failed",
+  "test_completion_time": "2025-07-15T21:38:12.616871"
+}

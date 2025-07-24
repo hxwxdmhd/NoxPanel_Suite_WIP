@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8b5cf6">
+    <title>🤖 NoxPanel v7.0.0 — Enhanced AI Command Center with ADHD-Friendly Design</title>
+    
+    <!-- Core Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Enhanced Theme System -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/version-banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visual-enhancements.css') }}">
+    
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Dashboard-specific styling integrated with enhanced themes */
+        .dashboard-grid {
+            display: grid;
+            gap: var(--chunk-spacing, 20px);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin-top: var(--chunk-spacing, 20px);
+        }
+        
+        .dashboard-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--visual-rhythm, 12px);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            transition: var(--theme-transition);
+        }
+        
+        .dashboard-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        /* ADHD-friendly card enhancements */
+        [data-adhd-mode="true"] .dashboard-card {
+            border-width: 3px;
+            margin-bottom: calc(var(--chunk-spacing, 20px) * 1.5);
+        }
+        
+        .card-header {
+            align-items: center;
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon {
+            align-items: center;
+            border-radius: var(--visual-rhythm, 8px);
+            display: flex;
+            font-size: 1.2em;
+            height: 40px;
+            justify-content: center;
+            margin-right: 12px;
+            width: 40px;
+        }
+        
+        .scripts-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .ai-icon { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .system-icon { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .logs-icon { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-action-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85em;
+            transition: var(--theme-transition);
+            cursor: pointer;
+        }
+        
+        .quick-action-btn:hover {
+            background-color: var(--bg-button);
+            color: var(--text-inverse);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        
+        .sidebar {
+            background-color: var(--bg-sidebar);
+            min-height: 100vh;
+            padding: 20px 15px;
+        }
+        
+        .nav-link {
+            color: var(--text-inverse);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            padding: 12px 16px;
+            transition: var(--theme-transition);
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--text-inverse);
+        }
+        
+        .nav-link.active {
+            background-color: var(--bg-button);
+            color: var(--text-inverse);
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .status-online {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .recent-activity {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .activity-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            flex-shrink: 0;
+        }
+        
+        .activity-success { background-color: rgba(34, 197, 94, 0.1); color: #22c55e; }
+        .activity-info { background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .activity-warning { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 500;
+            margin-bottom: 2px;
+            color: var(--text-primary);
+        }
+        
+        .activity-time {
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+        
+        .script-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .script-item {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .script-item:last-child {
+            border-bottom: none;
+        }
+        
+        .script-name {
+            flex: 1;
+            font-family: monospace;
+            color: var(--text-primary);
+        }
+        
+        .script-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-xs {
+            padding: 2px 8px;
+            font-size: 0.75em;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="container-fluid">
+        <!-- Version 4.3 Feature Announcement Banner -->
+        <div class="version-banner">
+            <span class="version-tag">🚀 NEW v4.3</span>
+            <strong>ADHD-Friendly AI Command Center Now Live!</strong>
+            <span class="feature-highlight">🧠 Cognitive Load Optimization</span>
+            <span class="feature-highlight">⚡ Real-time Command Execution</span>
+            <span class="feature-highlight">🎨 Visual Processing Enhancement</span>
+            <a href="/ai-features">→ Explore AI Features Panel</a>
+        </div>
+        
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="sidebar-sticky pt-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="text-white mb-0">🌌 NoxPanel<span class="nav-version-indicator">v4.3</span></h5>
+                        <button id="theme-toggle" class="btn btn-sm btn-outline-light" title="Toggle theme">
+                            <span class="theme-icon">🌓</span>
+                        </button>
+                    </div>
+                    
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">
+                                🏠 Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/chat">
+                                🤖 AI Assistant
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="executeScript('system_diagnostic.py')">
+                                🔍 System Diagnostic
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/models/status" target="_blank">
+                                🧠 AI Models
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin" target="_blank">
+                                🔧 Admin Panel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ai-features">
+                                🤖 AI Features
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/theme-demo">
+                                🎨 Theme Demo <span class="feature-badge new">v4.3</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <hr class="text-white-50">
+                    <h6 class="text-white-50">Quick Commands</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('run system_diagnostic.py')">
+                                📊 System Check
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('show disk usage')">
+                                💾 Disk Usage
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('list running services')">
+                                ⚙️ Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('generate report')">
+                                📄 Generate Report
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <hr class="text-white-50">
+                    <h6 class="text-white-50">AI Features<span class="adhd-friendly-indicator">ADHD-Optimized</span></h6>
+                    <ul class="nav flex-column small">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('run system check')">• Natural language commands<span class="feature-badge new">NEW</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="executeScript('system_diagnostic.py')">• Script execution & analysis<span class="feature-badge">ENHANCED</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('show disk usage')">• System diagnostics<span class="feature-badge">REAL-TIME</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ai-features">• Code assistance & review<span class="feature-badge new">v4.3</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="quickCommand('generate report')">• Automated task scheduling<span class="feature-badge">ADHD</span></a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-3">
+                        <span class="status-badge status-online">
+                            <i class="fas fa-circle"></i>
+                            System Online
+                        </span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div>
+                        <h1 class="h2">🤖 NoxPanel v7.0.0 Dashboard</h1>
+                        <p class="text-muted mb-0">ADHD-Friendly AI Command Center • Process Management • Script Execution</p>
+                    </div>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <a href="/ai-features" class="btn btn-sm btn-success">🚀 AI Features<span class="feature-badge new">v4.3</span></a>
+                            <button class="btn btn-sm btn-primary" onclick="refreshDashboard()">🔄 Refresh</button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="showSystemInfo()">ℹ️ System Info</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Scripts Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon scripts-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Script Library</h5>
+                                <p class="mb-0 text-muted">Available automation scripts</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-value" id="script-count">{{ scripts|length if scripts else 0 }}</div>
+                        <div class="stat-label">Scripts Available</div>
+                        
+                        {% if scripts %}
+                            <div class="script-list mt-3">
+                                {% for script in scripts %}
+                                <div class="script-item">
+                                    <div class="script-name">{{ script }}</div>
+                                    <div class="script-actions">
+                                        <button class="btn btn-primary btn-xs" onclick="runScript('{{ script }}')">
+                                            ▶️ Run
+                                        </button>
+                                        <button class="btn btn-outline-secondary btn-xs" onclick="viewScript('{{ script }}')">
+                                            👁️ View
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="quick-actions">
+                                <span class="text-muted small">No scripts found in /scripts directory</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- AI Assistant Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon ai-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">AI Assistant</h5>
+                                <p class="mb-0 text-muted">Intelligent automation helper</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-value" id="ai-status">Ready</div>
+                        <div class="stat-label">Assistant Status</div>
+                        
+                        <div class="quick-actions">
+                            <a href="/chat" class="quick-action-btn">💬 Open Chat</a>
+                            <a href="/ai-features" class="quick-action-btn" style="background-color: #28a745; color: white;">🚀 AI Features</a>
+                            <button class="quick-action-btn" onclick="quickCommand('run system check')" style="background-color: #17a2b8; color: white;">⚡ System Check</button>
+                            <button class="quick-action-btn" onclick="quickCommand('show disk usage')" style="background-color: #fd7e14; color: white;">� Disk Usage</button>
+                            <a href="/api/models/status" target="_blank" class="quick-action-btn">🧠 Models</a>
+                        </div>
+                    </div>
+
+                    <!-- System Metrics Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon system-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">System Metrics</h5>
+                                <p class="mb-0 text-muted">Real-time system status</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div id="cpu-gauge-small"></div>
+                            </div>
+                            <div class="col-4">
+                                <div id="memory-gauge-small"></div>
+                            </div>
+                            <div class="col-4">
+                                <div id="disk-gauge-small"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Real-time metrics display -->
+                        <div class="metrics-summary mt-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">
+                                    <i class="fas fa-clock"></i> Last updated: <span id="last-update">--</span>
+                                </small>
+                                <div class="realtime-indicator">
+                                    <div class="realtime-dot"></div>
+                                    Live monitoring
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="refreshMetrics()">🔄 Refresh</button>
+                            <button class="quick-action-btn" onclick="executeScript('system_diagnostic.py')">📊 Full Report</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon logs-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Recent Activity</h5>
+                                <p class="mb-0 text-muted">Latest system events</p>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-activity" id="recent-activity">
+                            <div class="activity-item">
+                                <div class="activity-icon activity-success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">System initialized</div>
+                                    <div class="activity-time">Just now</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon activity-info">
+                                    <i class="fas fa-info"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">AI providers detected</div>
+                                    <div class="activity-time">1 minute ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="refreshActivity()">🔄 Refresh</button>
+                            <button class="quick-action-btn" onclick="viewLogs()">📋 View Logs</button>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Visual Metrics Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Visual Analytics <span class="feature-badge new">v4.3</span></h5>
+                                <p class="mb-0 text-muted">ADHD-Friendly visual data representation</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Visual Metrics Grid -->
+                        <div id="enhanced-metrics-grid"></div>
+                        
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="generateVisualReport()" style="background-color: #6f42c1; color: white;">
+                                📊 Visual Report
+                            </button>
+                            <button class="quick-action-btn" onclick="showPerformanceChart()" style="background-color: #e83e8c; color: white;">
+                                📈 Performance Chart
+                            </button>
+                            <button class="quick-action-btn" onclick="quickCommand('check processes')" style="background-color: #20c997; color: white;">
+                                🔍 Process Analysis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced Dashboard JavaScript
+        
+        function runScript(scriptName) {
+            // Redirect to chat with script execution command
+            const command = `run ${scriptName}`;
+            window.location.href = `/chat?message=${encodeURIComponent(command)}`;
+        }
+        
+        function viewScript(scriptName) {
+            window.open(`/api/scripts/${scriptName}`, '_blank');
+        }
+        
+        function executeScript(scriptName) {
+            runScript(scriptName);
+        }
+        
+        function quickCommand(command) {
+            // Show loading indicator
+            addActivity(`Executing: ${command}`, 'info');
+            
+            // Execute command via AI API
+            fetch('/api/ai/command', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Display result in a modal or activity feed
+                    showCommandResult(command, data.result);
+                    addActivity(`✅ Completed: ${command}`, 'success');
+                } else {
+                    addActivity(`❌ Failed: ${command} - ${data.error}`, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error executing command:', error);
+                addActivity(`❌ Error executing: ${command}`, 'error');
+            });
+        }
+        
+        function showCommandResult(command, result) {
+            // Use enhanced visual display
+            if (window.noxVisuals) {
+                window.noxVisuals.showEnhancedCommandResult(command, result, 'success');
+            } else {
+                // Fallback to original method
+                let resultArea = document.getElementById('command-result-area');
+                if (!resultArea) {
+                    resultArea = document.createElement('div');
+                    resultArea.id = 'command-result-area';
+                    resultArea.className = 'command-result-area';
+                    document.querySelector('.dashboard-grid').parentNode.insertBefore(resultArea, document.querySelector('.dashboard-grid'));
+                }
+                
+                resultArea.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6><i class="fas fa-terminal"></i> Command: ${command}</h6>
+                            <pre style="white-space: pre-wrap; font-size: 0.9em;">${result}</pre>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="this.parentElement.parentElement.style.display='none'">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                resultArea.style.display = 'block';
+            }
+        }
+        
+        function quickDiagnostic() {
+            runScript('system_diagnostic.py');
+        }
+        
+        function refreshMetrics() {
+            // Simulate fetching system metrics
+            const cpuUsage = Math.floor(Math.random() * 100);
+            const memoryUsage = Math.floor(Math.random() * 100);
+            const diskUsage = Math.floor(Math.random() * 100);
+            
+            // Update traditional display (fallback)
+            const cpuElement = document.getElementById('cpu-usage');
+            const memoryElement = document.getElementById('memory-usage');
+            const diskElement = document.getElementById('disk-usage');
+            
+            if (cpuElement) cpuElement.textContent = cpuUsage + '%';
+            if (memoryElement) memoryElement.textContent = memoryUsage + '%';
+            if (diskElement) diskElement.textContent = diskUsage + '%';
+            
+            // Create visual gauges if visual enhancements are available
+            if (window.noxVisuals) {
+                // Create small gauges for dashboard
+                window.noxVisuals.createGauge('cpu-gauge-small', cpuUsage, 'CPU', '#007bff');
+                window.noxVisuals.createGauge('memory-gauge-small', memoryUsage, 'Memory', '#28a745');
+                window.noxVisuals.createGauge('disk-gauge-small', diskUsage, 'Disk', '#ffc107');
+            }
+            
+            // Update last update time
+            const lastUpdateElement = document.getElementById('last-update');
+            if (lastUpdateElement) {
+                lastUpdateElement.textContent = new Date().toLocaleTimeString();
+            }
+            
+            addActivity('System metrics updated', 'info');
+        }
+        
+        function refreshDashboard() {
+            refreshMetrics();
+            refreshActivity();
+            checkAIStatus();
+            generateEnhancedMetrics();
+            addActivity('Dashboard refreshed', 'info');
+        }
+        
+        function generateEnhancedMetrics() {
+            // Create enhanced visual metrics
+            if (window.noxVisuals) {
+                const metrics = [
+                    {
+                        type: 'cpu',
+                        value: Math.floor(Math.random() * 100) + '%',
+                        label: 'CPU Usage'
+                    },
+                    {
+                        type: 'memory',
+                        value: Math.floor(Math.random() * 100) + '%',
+                        label: 'Memory Usage'
+                    },
+                    {
+                        type: 'disk',
+                        value: Math.floor(Math.random() * 100) + '%',
+                        label: 'Disk Usage'
+                    },
+                    {
+                        type: 'network',
+                        value: Math.floor(Math.random() * 1000) + ' MB/s',
+                        label: 'Network I/O'
+                    }
+                ];
+                
+                window.noxVisuals.createMetricsGrid('enhanced-metrics-grid', metrics);
+            }
+        }
+        
+        function generateVisualReport() {
+            addActivity('Generating visual system report...', 'info');
+            quickCommand('generate report');
+        }
+        
+        function showPerformanceChart() {
+            // Create a performance chart
+            if (window.noxVisuals) {
+                const chartData = {
+                    used: Math.floor(Math.random() * 100),
+                    total: 100
+                };
+                
+                // Show command result with chart
+                const result = `Performance Chart Generated\n\nCPU: ${chartData.used}%\nMemory: ${Math.floor(Math.random() * 100)}%\nDisk I/O: ${Math.floor(Math.random() * 100)} MB/s`;
+                window.noxVisuals.showEnhancedCommandResult('Performance Analysis', result, 'success');
+            }
+            addActivity('Performance chart generated', 'success');
+        }
+        
+        function refreshActivity() {
+            addActivity('Activity log refreshed', 'info');
+        }
+        
+        function addActivity(message, type = 'info') {
+            const activityContainer = document.getElementById('recent-activity');
+            const activityItem = document.createElement('div');
+            activityItem.className = 'activity-item';
+            
+            const iconClass = type === 'success' ? 'fas fa-check' : 
+                             type === 'warning' ? 'fas fa-exclamation-triangle' : 
+                             'fas fa-info';
+            const iconBg = type === 'success' ? 'activity-success' : 
+                          type === 'warning' ? 'activity-warning' : 
+                          'activity-info';
+            
+            activityItem.innerHTML = `
+                <div class="activity-icon ${iconBg}">
+                    <i class="${iconClass}"></i>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-title">${message}</div>
+                    <div class="activity-time">Just now</div>
+                </div>
+            `;
+            
+            activityContainer.insertBefore(activityItem, activityContainer.firstChild);
+            
+            // Keep only the latest 5 activities
+            while (activityContainer.children.length > 5) {
+                activityContainer.removeChild(activityContainer.lastChild);
+            }
+        }
+        
+        function checkAIStatus() {
+            fetch('/api/chat/status')
+                .then(response => response.json())
+                .then(data => {
+                    const statusElement = document.getElementById('ai-status');
+                    if (data.status === 'success') {
+                        statusElement.textContent = 'Ready';
+                        statusElement.className = 'stat-value';
+                    } else {
+                        statusElement.textContent = 'Offline';
+                        statusElement.className = 'stat-value text-warning';
+                    }
+                })
+                .catch(error => {
+                    const statusElement = document.getElementById('ai-status');
+                    statusElement.textContent = 'Error';
+                    statusElement.className = 'stat-value text-danger';
+                });
+        }
+        
+        function showSystemInfo() {
+            alert('NoxPanel v7.0.0\nAI-Powered Automation Platform\n\nFeatures:\n• Script execution\n• AI assistant\n• System monitoring\n• Theme support');
+        }
+        
+        function viewLogs() {
+            // Implementation for viewing logs
+            alert('Log viewer: Check data/logs/noxpanel.log for detailed logs');
+        }
+        
+        // Initialize dashboard on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme system
+            if (typeof ThemeManager !== 'undefined') {
+                const themeManager = new ThemeManager();
+                themeManager.init();
+                
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        themeManager.toggleTheme();
+                    });
+                }
+            } else {
+                // Fallback theme toggle
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function() {
+                        const body = document.body;
+                        const currentTheme = body.getAttribute('data-theme') || 'light';
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                        body.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                    });
+                }
+            }
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            
+            // Initial data load
+            refreshMetrics();
+            checkAIStatus();
+            
+            // Initialize enhanced visuals after a short delay
+            setTimeout(() => {
+                generateEnhancedMetrics();
+            }, 1000);
+            
+            // Update metrics every 30 seconds
+            setInterval(refreshMetrics, 30000);
+            
+            // Update enhanced metrics every 45 seconds
+            setInterval(generateEnhancedMetrics, 45000);
+            
+            // Check AI status every 60 seconds
+            setInterval(checkAIStatus, 60000);
+        });
+    </script>
+    
+    <!-- Include Chart.js for visual enhancements -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Include enhanced visual components -->
+    <script src="{{ url_for('static', filename='js/visual-enhancements.js') }}"></script>
+    
+    <!-- Include enhanced theme management system -->
+    <script src="{{ url_for('static', filename='js/enhanced-theme-manager.js') }}" onerror="console.log('Enhanced theme manager not available, falling back to basic')"></script>
+    <script src="{{ url_for('static', filename='js/theme-manager.js') }}" onerror="console.log('Basic theme manager not available')"></script>
+    
+    <!-- Initialize enhanced theme system -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize enhanced theme manager if available
+            if (typeof EnhancedThemeManager !== 'undefined') {
+                window.themeManager = new EnhancedThemeManager();
+                console.log('✅ Enhanced Theme Manager initialized');
+                
+                // Add theme change listener for visual components
+                document.addEventListener('themeChanged', function(e) {
+                    console.log('🎨 Theme changed to:', e.detail.theme);
+                    
+                    // Refresh charts if visual enhancements are available
+                    if (window.noxVisuals) {
+                        window.noxVisuals.refreshCharts();
+                    }
+                });
+            } else if (typeof ThemeManager !== 'undefined') {
+                window.themeManager = new ThemeManager();
+                console.log('⚠️ Using fallback theme manager');
+            } else {
+                console.warn('❌ No theme manager available');
+            }
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

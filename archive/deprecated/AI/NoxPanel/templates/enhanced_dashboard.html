@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+
+{% block title %}NoxPanel Enhanced v6.0{% endblock %}
+
+{% block extra_css %}
+<style>
+.platform-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    overflow: hidden;
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.platform-header {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%);
+    color: white;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.platform-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--bs-primary);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-bottom: 0.5rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.status-healthy { background: #28a745; }
+.status-warning { background: #ffc107; }
+.status-error { background: #dc3545; }
+.status-info { background: #17a2b8; }
+
+@media (max-width: 768px) {
+    .stats-grid, .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .platform-header {
+        padding: 1rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="platform-header text-center">
+                <h1 class="display-4 mb-3">
+                    <i class="fas fa-rocket me-3"></i>NoxPanel Enhanced v6.0
+                </h1>
+                <p class="lead mb-0">Unified AI & Infrastructure Management Platform</p>
+                <small class="opacity-75">All features deployed and operational</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.cpu_percent|default(0)|round(1) }}%</div>
+            <div class="text-muted">CPU Usage</div>
+            <div class="progress mt-2" style="height: 6px;">
+                <div class="progress-bar" style="width: {{ stats.cpu_percent|default(0) }}%"></div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.memory_percent|default(0)|round(1) }}%</div>
+            <div class="text-muted">Memory Usage</div>
+            <div class="progress mt-2" style="height: 6px;">
+                <div class="progress-bar bg-success" style="width: {{ stats.memory_percent|default(0) }}%"></div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.disk_percent|default(0)|round(1) }}%</div>
+            <div class="text-muted">Disk Usage</div>
+            <div class="progress mt-2" style="height: 6px;">
+                <div class="progress-bar bg-warning" style="width: {{ stats.disk_percent|default(0) }}%"></div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.features_available|default(13) }}</div>
+            <div class="text-muted">Features Available</div>
+            <div class="text-success small mt-1">
+                <i class="fas fa-check-circle me-1"></i>All Operational
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Features -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="mb-3">
+                <i class="fas fa-th-large me-2"></i>Platform Features
+            </h3>
+        </div>
+    </div>
+
+    <div class="feature-grid">
+        <!-- VM Manager -->
+        <div class="feature-card">
+            <div class="feature-icon status-info">
+                <i class="fas fa-server"></i>
+            </div>
+            <h5>VM Manager</h5>
+            <p class="text-muted small">Proxmox VM management interface</p>
+            <a href="/vm" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- SSL/Proxy Manager -->
+        <div class="feature-card">
+            <div class="feature-icon status-healthy">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h5>SSL/Proxy Manager</h5>
+            <p class="text-muted small">Certificate and reverse proxy configurator</p>
+            <a href="/proxy" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Script Runner -->
+        <div class="feature-card">
+            <div class="feature-icon status-warning">
+                <i class="fas fa-terminal"></i>
+            </div>
+            <h5>Script Runner</h5>
+            <p class="text-muted small">Enhanced script execution with logging</p>
+            <a href="/scripts" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Media Center -->
+        <div class="feature-card">
+            <div class="feature-icon status-error">
+                <i class="fas fa-film"></i>
+            </div>
+            <h5>Media Center</h5>
+            <p class="text-muted small">Seedbox and download manager</p>
+            <a href="/media" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Pi Monitor -->
+        <div class="feature-card">
+            <div class="feature-icon status-healthy">
+                <i class="fas fa-microchip"></i>
+            </div>
+            <h5>Pi Node Monitor</h5>
+            <p class="text-muted small">Raspberry Pi monitoring and control</p>
+            <a href="/pi" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Setup Wizard -->
+        <div class="feature-card">
+            <div class="feature-icon status-info">
+                <i class="fas fa-magic"></i>
+            </div>
+            <h5>Setup Wizard</h5>
+            <p class="text-muted small">First-time setup and configuration</p>
+            <a href="/setup" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Analytics -->
+        <div class="feature-card">
+            <div class="feature-icon status-healthy">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h5>Analytics Dashboard</h5>
+            <p class="text-muted small">System metrics and AI logs</p>
+            <a href="/analytics" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Security Center -->
+        <div class="feature-card">
+            <div class="feature-icon status-warning">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h5>Security Center</h5>
+            <p class="text-muted small">Security monitoring and controls</p>
+            <a href="/security" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Platform Switcher -->
+        <div class="feature-card">
+            <div class="feature-icon status-info">
+                <i class="fas fa-th-large"></i>
+            </div>
+            <h5>Platform Switcher</h5>
+            <p class="text-muted small">Visual platform navigation</p>
+            <a href="/platforms" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Updates Manager -->
+        <div class="feature-card">
+            <div class="feature-icon status-healthy">
+                <i class="fas fa-sync"></i>
+            </div>
+            <h5>Updates Manager</h5>
+            <p class="text-muted small">Git auto-update and versioning</p>
+            <a href="/updates" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Backup Manager -->
+        <div class="feature-card">
+            <div class="feature-icon status-healthy">
+                <i class="fas fa-archive"></i>
+            </div>
+            <h5>Backup Manager</h5>
+            <p class="text-muted small">Backup status and restore</p>
+            <a href="/backups" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+
+        <!-- Notifications -->
+        <div class="feature-card">
+            <div class="feature-icon status-info">
+                <i class="fas fa-bell"></i>
+            </div>
+            <h5>Notifications Center</h5>
+            <p class="text-muted small">Notification management</p>
+            <a href="/notifications" class="btn btn-outline-primary btn-sm">Access</a>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>Quick Access</h5>
+                    <div class="btn-group flex-wrap" role="group">
+                        <a href="/knowledge" class="btn btn-outline-primary">
+                            <i class="fas fa-brain me-1"></i>Knowledge Base
+                        </a>
+                        <a href="/admin" class="btn btn-outline-success">
+                            <i class="fas fa-cog me-1"></i>Admin Panel
+                        </a>
+                        <a href="/plugins" class="btn btn-outline-info">
+                            <i class="fas fa-plug me-1"></i>Plugin Manager
+                        </a>
+                        <a href="/api/health" class="btn btn-outline-warning">
+                            <i class="fas fa-heartbeat me-1"></i>Health Check
+                        </a>
+                        <a href="/api/docs" class="btn btn-outline-secondary">
+                            <i class="fas fa-code me-1"></i>API Docs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Auto-refresh stats every 30 seconds
+function refreshStats() {
+    fetch('/api/stats')
+        .then(response => response.json())
+        .then(data => {
+            // Update CPU
+            const cpuPercent = data.system.cpu.percent;
+            document.querySelector('.stat-card:nth-child(1) .stat-value').textContent = cpuPercent.toFixed(1) + '%';
+            document.querySelector('.stat-card:nth-child(1) .progress-bar').style.width = cpuPercent + '%';
+            
+            // Update Memory
+            const memPercent = data.system.memory.percent;
+            document.querySelector('.stat-card:nth-child(2) .stat-value').textContent = memPercent.toFixed(1) + '%';
+            document.querySelector('.stat-card:nth-child(2) .progress-bar').style.width = memPercent + '%';
+            
+            // Update Disk
+            const diskPercent = (data.system.disk.used / data.system.disk.total) * 100;
+            document.querySelector('.stat-card:nth-child(3) .stat-value').textContent = diskPercent.toFixed(1) + '%';
+            document.querySelector('.stat-card:nth-child(3) .progress-bar').style.width = diskPercent + '%';
+        })
+        .catch(error => console.log('Stats refresh error:', error));
+}
+
+// Refresh every 30 seconds
+setInterval(refreshStats, 30000);
+
+// Show loading animation on feature cards
+document.querySelectorAll('.feature-card a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Loading...';
+    });
+});
+</script>
+{% endblock %}

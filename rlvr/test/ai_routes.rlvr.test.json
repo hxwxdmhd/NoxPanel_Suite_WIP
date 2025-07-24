@@ -1,0 +1,295 @@
+{
+  "module": "AI\\NoxPanel\\ai_routes.py",
+  "timestamp": "2025-07-18T11:02:15.287625",
+  "total_functions": 12,
+  "test_cases": [
+    {
+      "name": "test_dashboard_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_dashboard_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_dashboard_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_status_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_status_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_status_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_test_model_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "provider": "valid_provider"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_test_model_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "provider": "edge_provider"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_test_model_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "provider": "invalid_provider"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_restart_model_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "provider": "valid_provider"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_restart_model_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "provider": "edge_provider"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_restart_model_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "provider": "invalid_provider"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_api_health_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_api_health_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_api_health_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_test_model_ui_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "provider": "valid_provider"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_test_model_ui_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "provider": "edge_provider"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_test_model_ui_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "provider": "invalid_provider"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_restart_model_ui_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "provider": "valid_provider"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_restart_model_ui_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "provider": "edge_provider"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_restart_model_ui_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "provider": "invalid_provider"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_view_logs_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_view_logs_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_view_logs_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_settings_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_settings_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_settings_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_update_settings_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_update_settings_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_update_settings_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_not_found_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "error": "valid_error"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_not_found_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "error": "edge_error"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_not_found_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "error": "invalid_error"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_server_error_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "error": "valid_error"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_server_error_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "error": "edge_error"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_server_error_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "error": "invalid_error"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

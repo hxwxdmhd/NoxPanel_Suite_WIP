@@ -1,0 +1,30 @@
+{
+  "plugins": {
+    "external_repositories": [
+      {
+        "name": "nox-system-monitor",
+        "repo": "https://github.com/noxguard-samples/system-monitor",
+        "type": "flask-blueprint",
+        "auto_update": true,
+        "security_level": "sandboxed",
+        "description": "System monitoring dashboard plugin",
+        "enabled": false
+      },
+      {
+        "name": "media-automation",
+        "repo": "https://github.com/noxguard-samples/media-scripts",
+        "type": "script-bundle",
+        "auto_update": false,
+        "security_level": "trusted",
+        "description": "Media server automation scripts",
+        "enabled": false
+      }
+    ],
+    "settings": {
+      "auto_install_dependencies": false,
+      "allow_system_access": false,
+      "max_plugin_memory_mb": 256,
+      "plugin_timeout_seconds": 30
+    }
+  }
+}

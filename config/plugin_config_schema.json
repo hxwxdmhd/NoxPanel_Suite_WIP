@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NoxPanel Plugin Configuration Schema",
+  "type": "object",
+  "required": ["name", "version", "type", "entry_point"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "minLength": 3,
+      "maxLength": 50,
+      "description": "Plugin identifier (lowercase, underscores only)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version (X.Y.Z)"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["security", "monitoring", "integration", "utility", "system"],
+      "description": "Plugin category"
+    },
+    "entry_point": {
+      "type": "string",
+      "description": "Main plugin file (relative to plugin directory)"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Brief plugin description"
+    },
+    "author": {
+      "type": "string",
+      "description": "Plugin author information"
+    },
+    "license": {
+      "type": "string",
+      "description": "Plugin license"
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "python": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required Python packages"
+        },
+        "plugins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required other plugins"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required external services"
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires network access"
+        },
+        "filesystem": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires file system access"
+        },
+        "system": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires system-level access"
+        },
+        "database": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires database access"
+        }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "object",
+          "description": "JSON schema for plugin configuration"
+        },
+        "defaults": {
+          "type": "object",
+          "description": "Default configuration values"
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "method"],
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "API endpoint path"
+              },
+              "method": {
+                "type": "string",
+                "enum": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+                "description": "HTTP method"
+              },
+              "description": {
+                "type": "string",
+                "description": "Endpoint description"
+              }
+            }
+          }
+        }
+      }
+    },
+    "health_check": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "interval": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 3600,
+          "default": 60,
+          "description": "Health check interval in seconds"
+        },
+        "timeout": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120,
+          "default": 10,
+          "description": "Health check timeout in seconds"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "homepage": {
+          "type": "string",
+          "format": "uri",
+          "description": "Plugin homepage URL"
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source code repository URL"
+        },
+        "documentation": {
+          "type": "string",
+          "format": "uri",
+          "description": "Documentation URL"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Plugin tags for categorization"
+        }
+      }
+    }
+  }
+}

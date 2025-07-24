@@ -1,0 +1,15 @@
+{
+  "version": "7.0.0",
+  "last_updated": "2025-07-15T18:47:50.467926",
+  "components": {
+    "core": "7.0.0",
+    "webpanel": "7.0.0",
+    "ai_context": "7.0.0",
+    "plugins": "7.0.0"
+  },
+  "build_info": {
+    "updated_by": "version_tagger.py",
+    "files_updated": 11,
+    "errors": 0
+  }
+}

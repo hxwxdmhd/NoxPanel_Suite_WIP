@@ -1,0 +1,30 @@
+apiVersion: v2
+name: heimnetz
+description: Heimnetz Ultimate Suite v11.0 - Production Kubernetes Deployment
+type: application
+version: 11.0.0
+appVersion: "11.0"
+home: https://github.com/heimnetz/ultimate-suite
+sources:
+  - https://github.com/heimnetz/ultimate-suite
+maintainers:
+  - name: Heimnetz Team
+    email: admin@heimnetz.com
+keywords:
+  - heimnetz
+  - web-server
+  - production
+  - enterprise
+  - security
+annotations:
+  category: WebServer
+  licenses: MIT
+dependencies:
+  - name: redis
+    version: "^17.0.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: redis.enabled
+  - name: postgresql
+    version: "^12.0.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled

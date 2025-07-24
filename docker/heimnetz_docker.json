@@ -1,0 +1,50 @@
+{
+  "web": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "secret_key": "docker-secret-key-change-in-production"
+  },
+  "ai": {
+    "enabled": true,
+    "ollama_url": "http://ollama:11434",
+    "default_model": "codellama:7b",
+    "fallback_enabled": true
+  },
+  "voice": {
+    "enabled": false,
+    "wake_word": "hey nox",
+    "language": "en-US"
+  },
+  "network": {
+    "scan_timeout": 30,
+    "ping_timeout": 3,
+    "discovery_interval": 300
+  },
+  "security": {
+    "enable_auth": true,
+    "session_timeout": 3600,
+    "max_login_attempts": 5
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "/app/logs/heimnetz.log",
+    "max_size": "10MB",
+    "backup_count": 5
+  },
+  "data": {
+    "storage_path": "/app/data",
+    "backup_enabled": true,
+    "backup_interval": 86400
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics_endpoint": "/metrics",
+    "health_endpoint": "/health"
+  },
+  "docker": {
+    "container_mode": true,
+    "redis_url": "redis://redis:6379/0",
+    "postgres_url": "postgresql://heimnetz:heimnetz_db_password@postgres:5432/heimnetz"
+  }
+}

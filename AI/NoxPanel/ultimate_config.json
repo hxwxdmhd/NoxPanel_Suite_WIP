@@ -1,0 +1,11 @@
+{
+  "suite_version": "9.0",
+  "debug_mode": true,
+  "host": "127.0.0.1",
+  "port": 5000,
+  "ai_enabled": true,
+  "plugin_system_enabled": true,
+  "sysadmin_copilot_enabled": true,
+  "created_by": "audit_system",
+  "created_at": "2025-07-15T21:13:47.758938"
+}

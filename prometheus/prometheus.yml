@@ -1,0 +1,82 @@
+# Prometheus Configuration for Ultimate Suite v11.0 Production
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'ultimate-suite-monitor'
+    environment: 'production'
+
+rule_files:
+  - "alert_rules.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    scrape_interval: 10s
+
+  # FastAPI application servers
+  - job_name: 'fastapi-servers'
+    static_configs:
+      - targets:
+          - '172.20.0.11:8000'
+          - '172.20.0.12:8000'
+          - '172.20.0.13:8000'
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # Redis monitoring
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['172.20.0.10:6379']
+    scrape_interval: 15s
+
+  # System metrics via Node Exporter
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+    scrape_interval: 15s
+
+  # Container metrics via cAdvisor
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+    scrape_interval: 15s
+
+  # NGINX metrics (if enabled)
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['172.20.0.5:9113']
+    scrape_interval: 15s
+
+  # ElasticSearch metrics
+  - job_name: 'elasticsearch'
+    static_configs:
+      - targets: ['elasticsearch:9200']
+    metrics_path: '/_prometheus/metrics'
+    scrape_interval: 30s
+
+  # Custom application metrics
+  - job_name: 'ultimate-suite-custom'
+    static_configs:
+      - targets:
+          - '172.20.0.11:8000'
+          - '172.20.0.12:8000'
+          - '172.20.0.13:8000'
+    metrics_path: '/custom-metrics'
+    scrape_interval: 30s
+    honor_labels: true
+
+  # Auto-scaler metrics
+  - job_name: 'autoscaler'
+    static_configs:
+      - targets: ['autoscaler:8080']
+    scrape_interval: 30s

@@ -1,0 +1,358 @@
+version: '3.8'
+
+services:
+  # Main Heimnetz Application
+  heimnetz:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hobelab/heimnetz:latest
+    container_name: heimnetz-app
+    restart: unless-stopped
+
+    # Environment variables
+    environment:
+      - HEIMNETZ_DOCKER=true
+      - HEIMNETZ_CONFIG_PATH=/app/config
+      - HEIMNETZ_DATA_PATH=/app/data
+      - HEIMNETZ_LOG_LEVEL=INFO
+      - HEIMNETZ_WEB_HOST=0.0.0.0
+      - HEIMNETZ_WEB_PORT=5000
+      - AETHERCORE_URL=http://aethercore:8001
+      - CONTEXTFORGE_URL=http://contextforge:8000
+
+    # Port mapping
+    ports:
+      - "5000:5000"
+
+    # Volume mounts for persistence
+    volumes:
+      - heimnetz-config:/app/config
+      - heimnetz-data:/app/data
+      - heimnetz-logs:/app/logs
+
+    # Network configuration
+    networks:
+      - heimnetz-network
+
+    depends_on:
+      - aethercore
+      - contextforge
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 512M
+          cpus: '0.2'
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # AetherCore MSP Server
+  aethercore:
+    build:
+      context: ./aethercore
+      dockerfile: Dockerfile
+    image: hobelab/aethercore:latest
+    container_name: aethercore-msp
+    restart: unless-stopped
+
+    environment:
+      - AETHERCORE_HOST=0.0.0.0
+      - AETHERCORE_PORT=8001
+      - AETHERCORE_LOG_LEVEL=INFO
+      - AETHERCORE_REDIS_URL=redis://redis:6379
+      - AETHERCORE_MAX_WORKERS=4
+      - AETHERCORE_MODEL_CACHE_SIZE=1000
+
+    ports:
+      - "8001:8001"
+
+    volumes:
+      - aethercore-models:/app/models
+      - aethercore-logs:/app/logs
+      - aethercore-cache:/app/cache
+
+    networks:
+      - heimnetz-network
+
+    depends_on:
+      - redis
+
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ContextForge MCP Server
+  contextforge:
+    build:
+      context: ./enterprise/context
+      dockerfile: Dockerfile
+    image: hobelab/contextforge:latest
+    container_name: contextforge-mcp
+    restart: unless-stopped
+
+    environment:
+      - CONTEXTFORGE_HOST=0.0.0.0
+      - CONTEXTFORGE_PORT=8000
+      - CONTEXTFORGE_LOG_LEVEL=INFO
+      - CONTEXTFORGE_REDIS_URL=redis://redis:6379
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - contextforge-data:/app/data
+      - contextforge-logs:/app/logs
+
+    networks:
+      - heimnetz-network
+
+    depends_on:
+      - redis
+
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/context/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis for caching and session storage (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: heimnetz-redis
+    restart: unless-stopped
+
+    environment:
+      - REDIS_PASSWORD=heimnetz_redis_password
+
+    volumes:
+      - heimnetz-redis:/data
+
+    networks:
+      - heimnetz-network
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.1'
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Ollama for local AI models (optional)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: heimnetz-ollama
+    restart: unless-stopped
+
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_PORT=11434
+
+    ports:
+      - "11434:11434"
+
+    volumes:
+      - heimnetz-ollama:/root/.ollama
+
+    networks:
+      - heimnetz-network
+
+    # GPU support (uncomment if you have NVIDIA GPU)
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+  # PostgreSQL database (optional, for advanced features)
+  postgres:
+    image: postgres:15-alpine
+    container_name: heimnetz-postgres
+    restart: unless-stopped
+
+    environment:
+      - POSTGRES_DB=heimnetz
+      - POSTGRES_USER=heimnetz
+      - POSTGRES_PASSWORD=heimnetz_db_password
+
+    volumes:
+      - heimnetz-postgres:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+    networks:
+      - heimnetz-network
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.3'
+
+    # Health check
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U heimnetz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Nginx reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: heimnetz-nginx
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+      - heimnetz-logs:/var/log/nginx
+
+    networks:
+      - heimnetz-network
+
+    depends_on:
+      - heimnetz
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Prometheus monitoring (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: heimnetz-prometheus
+    restart: unless-stopped
+
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - heimnetz-prometheus:/prometheus
+
+    networks:
+      - heimnetz-network
+
+  # Grafana dashboards (optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: heimnetz-grafana
+    restart: unless-stopped
+
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=grafana_admin_password
+      - GF_USERS_ALLOW_SIGN_UP=false
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - heimnetz-grafana:/var/lib/grafana
+      - ./docker/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning:ro
+
+    networks:
+      - heimnetz-network
+
+    depends_on:
+      - prometheus
+
+# Networks
+networks:
+  heimnetz-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Volumes
+volumes:
+  heimnetz-config:
+    driver: local
+  heimnetz-data:
+    driver: local
+  heimnetz-logs:
+    driver: local
+  heimnetz-redis:
+    driver: local
+  heimnetz-ollama:
+    driver: local
+  heimnetz-postgres:
+    driver: local
+  heimnetz-prometheus:
+    driver: local
+  heimnetz-grafana:
+    driver: local
+  # AetherCore volumes
+  aethercore-models:
+    driver: local
+  aethercore-logs:
+    driver: local
+  aethercore-cache:
+    driver: local
+  # ContextForge volumes
+  contextforge-data:
+    driver: local
+  contextforge-logs:
+    driver: local

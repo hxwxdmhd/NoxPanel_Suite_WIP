@@ -1,0 +1,67 @@
+# FastAPI API Gateway Dockerfile
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python dependencies
+COPY requirements-microservices.txt .
+RUN pip install --no-cache-dir -r requirements-microservices.txt
+RUN pip install fastapi uvicorn[standard] redis
+
+# Copy application code
+COPY microservices_architecture.py .
+COPY enterprise_security.py .
+
+# Create optimized FastAPI gateway
+RUN cat > gateway_app.py << 'EOF'
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+import redis
+import asyncio
+from microservices_architecture import APIGateway, InMemoryServiceRegistry
+
+app = FastAPI(title="Ultimate Suite API Gateway", version="11.0.0")
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Initialize components
+registry = InMemoryServiceRegistry()
+api_gateway = APIGateway(registry, port=8080)
+
+@app.on_event("startup")
+async def startup_event():
+    await api_gateway.service_mesh.initialize()
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "service": "api-gateway", "version": "11.0.0"}
+
+@app.get("/services")
+async def list_services():
+    return await api_gateway.list_services(None)
+
+# Proxy all other requests to microservices
+@app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
+async def proxy_request(path: str, request):
+    return await api_gateway.proxy_request(request)
+
+if __name__ == "__main__":
+    uvicorn.run("gateway_app:app", host="0.0.0.0", port=8080, reload=False)
+EOF
+
+EXPOSE 8080
+
+CMD ["python", "gateway_app.py"]

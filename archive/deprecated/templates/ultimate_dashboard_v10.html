@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Suite v10.0 - Advanced AI Orchestration</title>
+    
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ultimate-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visual-enhancements.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ultimate-dashboard-v8.css') }}">
+    
+    <!-- New Advanced Styles -->
+    <style>
+        :root {
+            --ai-primary: #007acc;
+            --ai-secondary: #005a9e;
+            --success-color: #00d4aa;
+            --warning-color: #ff9500;
+            --error-color: #ff4757;
+            --info-color: #3742fa;
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        .advanced-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .ai-orchestrator-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .ai-model-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid var(--ai-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .ai-model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 122, 204, 0.3);
+        }
+
+        .ai-model-name {
+            font-weight: bold;
+            color: var(--ai-primary);
+            margin-bottom: 5px;
+        }
+
+        .ai-model-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .analytics-dashboard {
+            grid-column: span 2;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--ai-primary);
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .health-score {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+
+        .health-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--success-color) 0deg,
+                var(--success-color) calc(var(--health-percentage) * 3.6deg),
+                rgba(255, 255, 255, 0.1) calc(var(--health-percentage) * 3.6deg),
+                rgba(255, 255, 255, 0.1) 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .health-circle::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--bg-color);
+        }
+
+        .health-value {
+            position: relative;
+            z-index: 1;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .security-monitor {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .security-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 212, 170, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .security-icon {
+            font-size: 2rem;
+            color: var(--success-color);
+        }
+
+        .threat-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 15px 0;
+        }
+
+        .threat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 71, 87, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--error-color);
+        }
+
+        .ai-chat-enhanced {
+            grid-column: span 3;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .chat-interface {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: var(--ai-primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .ai-message {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--ai-primary);
+            box-shadow: 0 0 10px rgba(0, 122, 204, 0.3);
+        }
+
+        .model-selector {
+            padding: 8px 15px;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .send-button {
+            padding: 12px 20px;
+            background: var(--ai-primary);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            background: var(--ai-secondary);
+            transform: scale(1.05);
+        }
+
+        .voice-controls-enhanced {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 15px 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .voice-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: var(--ai-primary);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .voice-button:hover {
+            background: var(--ai-secondary);
+            transform: scale(1.1);
+        }
+
+        .voice-button.recording {
+            background: var(--error-color);
+            animation: pulse 1s infinite;
+        }
+
+        .performance-charts {
+            grid-column: span 3;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .chart-container {
+            height: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--ai-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert-badge {
+            background: var(--error-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+
+        .feature-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .status-online {
+            color: var(--success-color);
+        }
+
+        .status-warning {
+            color: var(--warning-color);
+        }
+
+        .status-error {
+            color: var(--error-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .advanced-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .analytics-dashboard {
+                grid-column: span 2;
+            }
+            
+            .ai-chat-enhanced {
+                grid-column: span 2;
+            }
+            
+            .performance-charts {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .advanced-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .analytics-dashboard,
+            .ai-chat-enhanced,
+            .performance-charts {
+                grid-column: span 1;
+            }
+            
+            .voice-controls-enhanced {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with enhanced title -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1>🚀 Ultimate Suite v10.0 - Advanced AI Orchestration</h1>
+            <div class="header-status">
+                <span class="status-indicator status-online">●</span>
+                <span>All Systems Operational</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        
+        <!-- Advanced Features Grid -->
+        <div class="advanced-container">
+            
+            <!-- AI Orchestrator Panel -->
+            <div class="ai-orchestrator-panel">
+                <h3>🧠 AI Orchestrator Status</h3>
+                <div id="ai-orchestrator-status" class="ai-status-grid">
+                    {% if advanced_ai_available %}
+                        <!-- AI models will be populated by JavaScript -->
+                    {% else %}
+                        <div class="feature-disabled">
+                            <p>⚠️ Advanced AI features not available</p>
+                            <p>Install dependencies to enable full functionality</p>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="orchestrator-metrics">
+                    <div class="metric-item">
+                        <span>Active Tasks:</span>
+                        <span id="active-tasks">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Queue Size:</span>
+                        <span id="queue-size">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Completed:</span>
+                        <span id="completed-tasks">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Dashboard -->
+            <div class="analytics-dashboard">
+                <h3>📊 System Analytics</h3>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">System Health</div>
+                        <div class="health-score">
+                            <div class="health-circle" style="--health-percentage: 85">
+                                <div class="health-value" id="health-score">85%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">CPU Usage</div>
+                        <div class="metric-value" id="cpu-usage">0%</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">Memory Usage</div>
+                        <div class="metric-value" id="memory-usage">0%</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">Active Connections</div>
+                        <div class="metric-value" id="active-connections">0</div>
+                    </div>
+                </div>
+                
+                <div class="trend-indicators">
+                    <h4>Performance Trends</h4>
+                    <div id="trend-analysis">
+                        <div class="trend-item">
+                            <span>CPU Trend:</span>
+                            <span id="cpu-trend" class="status-online">Stable</span>
+                        </div>
+                        <div class="trend-item">
+                            <span>Memory Trend:</span>
+                            <span id="memory-trend" class="status-online">Stable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Monitor -->
+            <div class="security-monitor">
+                <h3>🔒 Security Monitor</h3>
+                
+                <div class="security-status">
+                    <div class="security-icon">🛡️</div>
+                    <div>
+                        <div class="status-title">System Secure</div>
+                        <div class="status-detail" id="security-detail">No threats detected</div>
+                    </div>
+                </div>
+                
+                <div class="security-metrics">
+                    <div class="metric-item">
+                        <span>Active Threats:</span>
+                        <span id="active-threats">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Blocked IPs:</span>
+                        <span id="blocked-ips">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Monitoring:</span>
+                        <span id="monitoring-status" class="status-online">Active</span>
+                    </div>
+                </div>
+                
+                <div class="threat-list" id="threat-list">
+                    <!-- Threats will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Enhanced AI Chat Interface -->
+            <div class="ai-chat-enhanced">
+                <h3>💬 AI Assistant - Multi-Model Chat</h3>
+                
+                <div class="chat-interface">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="ai-message">
+                            <strong>AI Assistant:</strong> Hello! I'm your Advanced AI Assistant powered by multiple models. How can I help you today?
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <select class="model-selector" id="model-selector">
+                            <option value="gpt-4">GPT-4 (Conversational)</option>
+                            <option value="claude-3">Claude-3 (Analytical)</option>
+                            <option value="gemini-pro">Gemini Pro (Creative)</option>
+                            <option value="mistral-large">Mistral (Technical)</option>
+                            <option value="security-ai">Security AI</option>
+                        </select>
+                        
+                        <input type="text" class="chat-input" id="chat-input" 
+                               placeholder="Ask me anything..." 
+                               onkeypress="if(event.key==='Enter') sendMessage()">
+                        
+                        <button class="send-button" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Charts Section -->
+        <div class="performance-charts">
+            <h3>📈 Real-time Performance Analytics</h3>
+            
+            <div class="chart-controls">
+                <select id="chart-metric">
+                    <option value="cpu_percent">CPU Usage</option>
+                    <option value="memory_percent">Memory Usage</option>
+                    <option value="network_io">Network I/O</option>
+                    <option value="active_connections">Active Connections</option>
+                </select>
+                
+                <select id="chart-timeframe">
+                    <option value="1">Last Hour</option>
+                    <option value="6">Last 6 Hours</option>
+                    <option value="24">Last 24 Hours</option>
+                </select>
+                
+                <button onclick="updateChart()">Update Chart</button>
+            </div>
+            
+            <div class="chart-container" id="chart-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Voice Controls -->
+    {% if voice_available %}
+    <div class="voice-controls-enhanced">
+        <button class="voice-button" id="voice-record" onclick="toggleVoiceRecording()" title="Voice Commands">
+            🎤
+        </button>
+        <button class="voice-button" onclick="toggleADHDMode()" title="ADHD Mode">
+            🧠
+        </button>
+        <div id="voice-status" class="voice-status">Ready</div>
+    </div>
+    {% endif %}
+
+    <!-- JavaScript for Enhanced Functionality -->
+    <script src="{{ url_for('static', filename='js/ultimate-suite-v8.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enhanced-theme-manager.js') }}"></script>
+    
+    <script>
+        // Enhanced Dashboard Manager for v10.0
+        class AdvancedDashboardManager {
+            constructor() {
+                this.updateInterval = 5000; // 5 seconds
+                this.chartUpdateInterval = 30000; // 30 seconds
+                this.voiceRecording = false;
+                this.adhdMode = false;
+                
+                this.initializeDashboard();
+                this.startDataUpdates();
+                this.setupEventListeners();
+            }
+            
+            initializeDashboard() {
+                this.updateAIOrchestrator();
+                this.updateAnalytics();
+                this.updateSecurity();
+                this.updateChart();
+            }
+            
+            startDataUpdates() {
+                // Regular updates for real-time data
+                setInterval(() => {
+                    this.updateAnalytics();
+                    this.updateSecurity();
+                }, this.updateInterval);
+                
+                // Less frequent updates for charts
+                setInterval(() => {
+                    this.updateChart();
+                }, this.chartUpdateInterval);
+                
+                // AI orchestrator status updates
+                setInterval(() => {
+                    this.updateAIOrchestrator();
+                }, 10000); // 10 seconds
+            }
+            
+            setupEventListeners() {
+                // Chat input enter key
+                document.getElementById('chat-input').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+                
+                // Model selector change
+                document.getElementById('model-selector').addEventListener('change', (e) => {
+                    this.selectedModel = e.target.value;
+                });
+            }
+            
+            async updateAIOrchestrator() {
+                try {
+                    const response = await fetch('/api/ai/orchestrator/status');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.displayAIStatus(data);
+                    }
+                } catch (error) {
+                    console.warn('AI orchestrator status unavailable:', error);
+                }
+            }
+            
+            displayAIStatus(data) {
+                const container = document.getElementById('ai-orchestrator-status');
+                
+                if (data.available_models) {
+                    container.innerHTML = data.available_models.map(model => `
+                        <div class="ai-model-card">
+                            <div class="ai-model-name">${model}</div>
+                            <div class="ai-model-status">
+                                <div class="status-indicator"></div>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+                
+                // Update metrics
+                document.getElementById('active-tasks').textContent = data.active_tasks || 0;
+                document.getElementById('queue-size').textContent = data.queue_size || 0;
+                document.getElementById('completed-tasks').textContent = data.completed_tasks || 0;
+            }
+            
+            async updateAnalytics() {
+                try {
+                    // Get performance metrics
+                    const perfResponse = await fetch('/api/system/performance');
+                    if (perfResponse.ok) {
+                        const perfData = await perfResponse.json();
+                        this.displayPerformanceMetrics(perfData);
+                    }
+                    
+                    // Get health score
+                    const healthResponse = await fetch('/api/analytics/health');
+                    if (healthResponse.ok) {
+                        const healthData = await healthResponse.json();
+                        this.updateHealthScore(healthData.health_score);
+                    }
+                    
+                } catch (error) {
+                    console.warn('Analytics update error:', error);
+                }
+            }
+            
+            displayPerformanceMetrics(data) {
+                document.getElementById('cpu-usage').textContent = `${data.cpu_percent?.toFixed(1) || 0}%`;
+                document.getElementById('memory-usage').textContent = `${data.memory_percent?.toFixed(1) || 0}%`;
+                document.getElementById('active-connections').textContent = data.active_connections || 0;
+                
+                // Update trend indicators
+                this.updateTrendIndicators(data);
+            }
+            
+            updateHealthScore(score) {
+                const healthElement = document.getElementById('health-score');
+                const healthCircle = document.querySelector('.health-circle');
+                
+                healthElement.textContent = `${score}%`;
+                healthCircle.style.setProperty('--health-percentage', score);
+                
+                // Update color based on score
+                const color = score > 80 ? 'var(--success-color)' : 
+                             score > 60 ? 'var(--warning-color)' : 'var(--error-color)';
+                healthElement.style.color = color;
+            }
+            
+            updateTrendIndicators(data) {
+                // Simple trend analysis (would be more sophisticated in real implementation)
+                const cpuTrend = data.cpu_percent > 80 ? 'High' : 'Stable';
+                const memoryTrend = data.memory_percent > 85 ? 'High' : 'Stable';
+                
+                document.getElementById('cpu-trend').textContent = cpuTrend;
+                document.getElementById('memory-trend').textContent = memoryTrend;
+                
+                // Update trend colors
+                document.getElementById('cpu-trend').className = cpuTrend === 'High' ? 'status-warning' : 'status-online';
+                document.getElementById('memory-trend').className = memoryTrend === 'High' ? 'status-warning' : 'status-online';
+            }
+            
+            async updateSecurity() {
+                try {
+                    const response = await fetch('/api/security/status');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.displaySecurityStatus(data);
+                    }
+                } catch (error) {
+                    console.warn('Security status update error:', error);
+                }
+            }
+            
+            displaySecurityStatus(data) {
+                document.getElementById('active-threats').textContent = data.active_threats || 0;
+                document.getElementById('blocked-ips').textContent = data.blacklisted_ips || 0;
+                document.getElementById('monitoring-status').textContent = data.monitoring_status || 'Unknown';
+                
+                // Update security detail
+                const detail = data.active_threats > 0 ? 
+                    `${data.active_threats} threats detected` : 
+                    'No threats detected';
+                document.getElementById('security-detail').textContent = detail;
+            }
+            
+            async updateChart() {
+                const metric = document.getElementById('chart-metric').value;
+                const timeframe = document.getElementById('chart-timeframe').value;
+                
+                try {
+                    const response = await fetch(`/api/analytics/chart/${metric}?hours=${timeframe}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.displayChart(data.chart);
+                    }
+                } catch (error) {
+                    console.warn('Chart update error:', error);
+                }
+            }
+            
+            displayChart(chartData) {
+                const container = document.getElementById('chart-container');
+                
+                if (chartData) {
+                    container.innerHTML = `<img src="data:image/png;base64,${chartData}" style="max-width: 100%; height: 100%; object-fit: contain;">`;
+                } else {
+                    container.innerHTML = '<div class="loading-spinner"></div>';
+                }
+            }
+            
+            async sendMessage() {
+                const input = document.getElementById('chat-input');
+                const messages = document.getElementById('chat-messages');
+                const model = document.getElementById('model-selector').value;
+                
+                const message = input.value.trim();
+                if (!message) return;
+                
+                // Add user message
+                const userMsg = document.createElement('div');
+                userMsg.className = 'chat-message user-message';
+                userMsg.innerHTML = `<strong>You:</strong> ${message}`;
+                messages.appendChild(userMsg);
+                
+                // Clear input
+                input.value = '';
+                
+                // Add loading message
+                const loadingMsg = document.createElement('div');
+                loadingMsg.className = 'chat-message ai-message';
+                loadingMsg.innerHTML = '<strong>AI:</strong> <div class="loading-spinner" style="width: 20px; height: 20px; display: inline-block;"></div> Thinking...';
+                messages.appendChild(loadingMsg);
+                
+                // Scroll to bottom
+                messages.scrollTop = messages.scrollHeight;
+                
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            model: model
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        // Replace loading message with response
+                        loadingMsg.innerHTML = `
+                            <strong>${data.model_used || model}:</strong> ${data.response}
+                            <div style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
+                                Confidence: ${(data.confidence * 100).toFixed(1)}% | 
+                                Time: ${data.processing_time?.toFixed(2)}s
+                            </div>
+                        `;
+                    } else {
+                        loadingMsg.innerHTML = '<strong>AI:</strong> Sorry, I encountered an error. Please try again.';
+                    }
+                } catch (error) {
+                    loadingMsg.innerHTML = '<strong>AI:</strong> Connection error. Please try again.';
+                }
+                
+                // Scroll to bottom
+                messages.scrollTop = messages.scrollHeight;
+            }
+            
+            toggleVoiceRecording() {
+                const button = document.getElementById('voice-record');
+                const status = document.getElementById('voice-status');
+                
+                this.voiceRecording = !this.voiceRecording;
+                
+                if (this.voiceRecording) {
+                    button.classList.add('recording');
+                    status.textContent = 'Listening...';
+                    this.startVoiceRecording();
+                } else {
+                    button.classList.remove('recording');
+                    status.textContent = 'Ready';
+                    this.stopVoiceRecording();
+                }
+            }
+            
+            startVoiceRecording() {
+                // Voice recording implementation
+                console.log('Voice recording started');
+            }
+            
+            stopVoiceRecording() {
+                // Stop voice recording implementation
+                console.log('Voice recording stopped');
+            }
+            
+            toggleADHDMode() {
+                this.adhdMode = !this.adhdMode;
+                
+                fetch('/api/voice/adhd-mode', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        enabled: this.adhdMode
+                    })
+                }).then(response => response.json())
+                  .then(data => {
+                      console.log('ADHD mode:', data.adhd_mode ? 'enabled' : 'disabled');
+                  })
+                  .catch(error => console.warn('ADHD mode toggle error:', error));
+            }
+        }
+        
+        // Global functions for backward compatibility
+        function sendMessage() {
+            dashboardManager.sendMessage();
+        }
+        
+        function toggleVoiceRecording() {
+            dashboardManager.toggleVoiceRecording();
+        }
+        
+        function toggleADHDMode() {
+            dashboardManager.toggleADHDMode();
+        }
+        
+        function updateChart() {
+            dashboardManager.updateChart();
+        }
+        
+        // Initialize the enhanced dashboard
+        const dashboardManager = new AdvancedDashboardManager();
+        
+        // Theme integration
+        if (typeof themeManager !== 'undefined') {
+            themeManager.initialize();
+        }
+        
+        console.log('🚀 Ultimate Suite v10.0 Dashboard Loaded - Advanced AI Orchestration Active');
+    </script>
+</body>
+</html>

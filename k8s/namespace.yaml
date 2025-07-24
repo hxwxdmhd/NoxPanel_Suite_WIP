@@ -1,0 +1,9 @@
+# Ultimate Suite v11.0 - Kubernetes Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ultimate-suite
+  labels:
+    app: ultimate-suite
+    version: v11.0
+    environment: production

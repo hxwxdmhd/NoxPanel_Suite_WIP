@@ -1,0 +1,36 @@
+{
+  "environment": "staging",
+  "created": "2025-07-18T12:30:58.861323",
+  "configuration": {
+    "replicas": 2,
+    "resources": {
+      "cpu": "500m",
+      "memory": "1Gi"
+    },
+    "environment": "staging",
+    "security": "medium"
+  },
+  "services": {
+    "api": {
+      "image": "noxpanel/api:staging",
+      "replicas": 2,
+      "resources": {
+        "cpu": "500m",
+        "memory": "1Gi"
+      }
+    },
+    "dashboard": {
+      "image": "noxpanel/dashboard:staging",
+      "replicas": 2,
+      "resources": {
+        "cpu": "500m",
+        "memory": "1Gi"
+      }
+    }
+  },
+  "ingress": {
+    "enabled": true,
+    "host": "noxpanel-staging.example.com",
+    "tls": false
+  }
+}

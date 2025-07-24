@@ -1,0 +1,46 @@
+{
+  "critical_issues": [],
+  "issues": [
+    {
+      "severity": "WARNING",
+      "component": "Database",
+      "issue": "Missing table: knowledge_items",
+      "solution": "",
+      "timestamp": "2025-07-14 22:11:58.683175"
+    },
+    {
+      "severity": "WARNING",
+      "component": "Database",
+      "issue": "Missing table: tags",
+      "solution": "",
+      "timestamp": "2025-07-14 22:11:58.683175"
+    },
+    {
+      "severity": "WARNING",
+      "component": "Database",
+      "issue": "Missing table: conversations",
+      "solution": "",
+      "timestamp": "2025-07-14 22:11:58.684180"
+    },
+    {
+      "severity": "WARNING",
+      "component": "Database",
+      "issue": "Missing table: sessions",
+      "solution": "",
+      "timestamp": "2025-07-14 22:11:58.684180"
+    }
+  ],
+  "repairs": [
+    {
+      "component": "Static",
+      "action": "Created basic CSS",
+      "result": "SUCCESS",
+      "timestamp": "2025-07-14 22:11:58.691691"
+    }
+  ],
+  "summary": {
+    "total_issues": 4,
+    "critical_issues": 0,
+    "repairs_applied": 1
+  }
+}

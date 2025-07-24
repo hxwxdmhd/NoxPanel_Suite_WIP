@@ -1,0 +1,352 @@
+# Kubernetes Deployment Configuration
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heimnetz-deployment
+  namespace: heimnetz
+  labels:
+    app: heimnetz
+    version: v1.0.0
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: heimnetz
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: heimnetz
+        tier: backend
+        version: v1.0.0
+    spec:
+      containers:
+      - name: heimnetz
+        image: heimnetz:production
+        ports:
+        - containerPort: 5000
+          name: http
+        env:
+        - name: HEIMNETZ_ENV
+          value: "production"
+        - name: FLASK_ENV
+          value: "production"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: heimnetz-secrets
+              key: database-url
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: heimnetz-secrets
+              key: redis-url
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: heimnetz-secrets
+              key: secret-key
+        - name: SSL_ENABLED
+          value: "true"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: MONITORING_ENABLED
+          value: "true"
+        - name: PROMETHEUS_ENABLED
+          value: "true"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+          readOnly: true
+        - name: logs-volume
+          mountPath: /app/logs
+        - name: data-volume
+          mountPath: /app/data
+      volumes:
+      - name: config-volume
+        configMap:
+          name: heimnetz-config
+      - name: logs-volume
+        emptyDir: {}
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: heimnetz-data-pvc
+      imagePullSecrets:
+      - name: registry-secret
+      serviceAccountName: heimnetz-service-account
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - heimnetz
+              topologyKey: kubernetes.io/hostname
+      tolerations:
+      - key: "heimnetz-dedicated"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+
+---
+# Service Configuration
+apiVersion: v1
+kind: Service
+metadata:
+  name: heimnetz-service
+  namespace: heimnetz
+  labels:
+    app: heimnetz
+    tier: backend
+spec:
+  selector:
+    app: heimnetz
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+    name: http
+  type: ClusterIP
+
+---
+# Horizontal Pod Autoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: heimnetz-hpa
+  namespace: heimnetz
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: heimnetz-deployment
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+      - type: Pods
+        value: 4
+        periodSeconds: 15
+      selectPolicy: Max
+
+---
+# ConfigMap for application configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: heimnetz-config
+  namespace: heimnetz
+data:
+  app.conf: |
+    [DEFAULT]
+    debug = false
+    log_level = INFO
+    max_workers = 4
+    timeout = 30
+    
+    [database]
+    pool_size = 20
+    max_overflow = 30
+    pool_timeout = 30
+    
+    [redis]
+    max_connections = 100
+    socket_keepalive = true
+    
+    [security]
+    ssl_enabled = true
+    csrf_enabled = true
+    rate_limit_enabled = true
+    
+    [monitoring]
+    prometheus_enabled = true
+    health_check_enabled = true
+    metrics_port = 8080
+
+---
+# Secret for sensitive configuration
+apiVersion: v1
+kind: Secret
+metadata:
+  name: heimnetz-secrets
+  namespace: heimnetz
+type: Opaque
+data:
+  database-url: cG9zdGdyZXNxbDovL3VzZXI6cGFzc3dvcmRAcG9zdGdyZXM6NTQzMi9oZWltbmV0eg==
+  redis-url: cmVkaXM6Ly9yZWRpczoyMDAwMDA2Mzc5
+  secret-key: c3VwZXItc2VjcmV0LWtleS1mb3ItcHJvZHVjdGlvbg==
+
+---
+# PersistentVolumeClaim for data storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: heimnetz-data-pvc
+  namespace: heimnetz
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: fast-ssd
+
+---
+# ServiceAccount for RBAC
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: heimnetz-service-account
+  namespace: heimnetz
+
+---
+# Role for RBAC
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: heimnetz-role
+  namespace: heimnetz
+rules:
+- apiGroups: [""]
+  resources: ["configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list", "watch"]
+
+---
+# RoleBinding for RBAC
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: heimnetz-rolebinding
+  namespace: heimnetz
+subjects:
+- kind: ServiceAccount
+  name: heimnetz-service-account
+  namespace: heimnetz
+roleRef:
+  kind: Role
+  name: heimnetz-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# Network Policy for security
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: heimnetz-network-policy
+  namespace: heimnetz
+spec:
+  podSelector:
+    matchLabels:
+      app: heimnetz
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: nginx-ingress
+    - podSelector:
+        matchLabels:
+          app: nginx-ingress
+    ports:
+    - protocol: TCP
+      port: 5000
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+    ports:
+    - protocol: TCP
+      port: 53
+    - protocol: UDP
+      port: 53
+  - to:
+    - podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - podSelector:
+        matchLabels:
+          app: redis
+    ports:
+    - protocol: TCP
+      port: 6379
+
+---
+# PodDisruptionBudget for high availability
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: heimnetz-pdb
+  namespace: heimnetz
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: heimnetz
+      tier: backend

@@ -1,0 +1,1095 @@
+﻿{
+    "Mode":  "EXECUTION",
+    "ItemsProcessed":  97,
+    "TotalSaved":  28209875,
+    "StartTime":  {
+                      "value":  "\/Date(1752656002987)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Mittwoch, 16. Juli 2025 10:53:22"
+                  },
+    "Actions":  [
+                    {
+                        "Path":  "k:\\Project Heimnetz\\NoxPanel\\venv",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005553)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  15.79
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005618)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.37
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\noxcore\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005697)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.27
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\webpanel\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005733)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.3
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\tests\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005756)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.14
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\tests\\.pytest_cache",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005781)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005798)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\.pytest_cache",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005814)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\NoxPanel\\webpanel\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005822)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\NoxPanel\\noxcore\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656005823)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:25"
+                                      },
+                        "Status":  "NOT_FOUND",
+                        "Action":  "SKIP",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\critical_optimized_noxpanel\\blueprints\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008624)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\tests\\backend\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008737)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.13
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\bcrypt\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008747)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\blinker\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008768)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\certifi\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008787)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\charset_normalizer\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008804)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.13
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\charset_normalizer\\cli\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008818)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.01
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\click\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008849)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.41
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\colorama\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008862)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\colorama\\tests\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008891)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\dotenv\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008924)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\flask\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008969)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.24
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\flask\\json\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656008989)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:28"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\flask\\sansio\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009000)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.09
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\flask_cors\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009027)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\idna\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009058)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.27
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\itsdangerous\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009093)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\jinja2\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009138)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.64
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\jwt\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009159)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.09
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\markupsafe\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009187)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009198)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009249)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.11
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\cli\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009287)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.1
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\commands\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009308)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.14
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\distributions\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009327)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\index\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009338)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.07
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\locations\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009359)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009370)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.06
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009383)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\models\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009400)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.06
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\network\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009430)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.07
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009462)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009486)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.01
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\install\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009497)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\req\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009511)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.12
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009527)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009539)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009563)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.11
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\utils\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009602)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.15
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_internal\\vcs\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009622)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.07
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009632)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.14
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009663)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009675)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.01
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\certifi\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009688)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009705)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.45
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\distro\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009721)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\idna\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009740)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.27
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009751)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009771)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.17
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\licenses\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009781)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009791)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.15
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009807)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.08
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009845)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.16
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filters\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009866)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatters\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009890)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.16
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009911)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.12
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\styles\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009922)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.01
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009932)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009944)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\requests\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009966)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.2
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009982)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\compat\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656009991)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:29"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010091)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  1.08
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010104)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010118)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010135)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.16
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010155)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.08
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010177)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010190)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.04
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010203)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.01
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010222)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.1
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\psutil\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010247)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.35
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\psutil\\tests\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010272)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.7
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\requests\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010313)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.2
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\urllib3\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010338)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.22
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\urllib3\\contrib\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010350)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.03
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010369)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\urllib3\\http2\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010380)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.02
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\urllib3\\util\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010398)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.1
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010433)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.33
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\datastructures\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010462)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.17
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\debug\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010486)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.06
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\middleware\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010510)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.06
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\routing\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010534)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.11
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\sansio\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010547)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.08
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\venv\\Lib\\site-packages\\werkzeug\\wrappers\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010558)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.06
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\nox_assistant\\__pycache__",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010583)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0.05
+                    },
+                    {
+                        "Path":  "k:\\Project Heimnetz\\AI\\AI",
+                        "Timestamp":  {
+                                          "value":  "\/Date(1752656010604)\/",
+                                          "DisplayHint":  2,
+                                          "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                                      },
+                        "Status":  "SUCCESS",
+                        "Action":  "REMOVE",
+                        "SizeMB":  0
+                    }
+                ],
+    "EndTime":  {
+                    "value":  "\/Date(1752656010618)\/",
+                    "DisplayHint":  2,
+                    "DateTime":  "Mittwoch, 16. Juli 2025 10:53:30"
+                }
+}

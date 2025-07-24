@@ -1,0 +1,1 @@
+{"name": "test_plugin", "version": "1.0.0", "description": "Test plugin for validation", "security": {"limits": {"max_memory_mb": 50, "max_execution_time_seconds": 5, "allowed_modules": ["json", "time"]}, "permissions": {"can_read_files": false, "can_write_files": false, "can_access_network": false}}}

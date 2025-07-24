@@ -1,0 +1,17 @@
+{
+  "agents": [
+    {
+      "name": "Supermaven",
+      "specialty": "Local code completion, refactoring, syntax, documentation, VS Code integration",
+      "context_pointer": "project_context.json",
+      "task_ownership": "local_edit, code_completion, syntax_fix, import_organization, variable_rename"
+    },
+    {
+      "name": "Langflow",
+      "specialty": "Orchestration, multi-step workflows, architecture, plugin/AI integration, cloud LLMs",
+      "context_pointer": "project_context.json",
+      "task_ownership": "feature_implementation, architecture_design, multi_file_refactor, integration_testing, performance_optimization, dashboard_updates, plugin_development, ai_enhancement, workflow_automation, documentation_generation"
+    }
+  ],
+  "protocol": "Tasks assigned based on type/complexity. Agents update context and log actions. Ownership can switch dynamically."
+}

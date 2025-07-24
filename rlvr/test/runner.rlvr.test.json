@@ -1,0 +1,37 @@
+{
+  "module": "NoxPanel\\noxcore\\runner.py",
+  "timestamp": "2025-07-18T11:02:48.852356",
+  "total_functions": 1,
+  "test_cases": [
+    {
+      "name": "test_run_script_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "script_path": "valid_script_path",
+        "args": "valid_args"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_run_script_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "script_path": "edge_script_path",
+        "args": "edge_args"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_run_script_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "script_path": "invalid_script_path",
+        "args": "invalid_args"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

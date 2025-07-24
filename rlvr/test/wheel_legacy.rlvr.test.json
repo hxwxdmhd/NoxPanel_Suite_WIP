@@ -1,0 +1,118 @@
+{
+  "module": "AI\\NoxPanel\\archive\\deprecated\\wheel_legacy.py",
+  "timestamp": "2025-07-18T11:02:46.426093",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test_format_command_result_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "command_args": "valid_command_args",
+        "command_output": "valid_command_output"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_format_command_result_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "command_args": "edge_command_args",
+        "command_output": "edge_command_output"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_format_command_result_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "command_args": "invalid_command_args",
+        "command_output": "invalid_command_output"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_get_legacy_build_wheel_path_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "names": "valid_names",
+        "temp_dir": "valid_temp_dir",
+        "name": "valid_name",
+        "command_args": "valid_command_args",
+        "command_output": "valid_command_output"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_get_legacy_build_wheel_path_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "names": "edge_names",
+        "temp_dir": "edge_temp_dir",
+        "name": "edge_name",
+        "command_args": "edge_command_args",
+        "command_output": "edge_command_output"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_get_legacy_build_wheel_path_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "names": "invalid_names",
+        "temp_dir": "invalid_temp_dir",
+        "name": "invalid_name",
+        "command_args": "invalid_command_args",
+        "command_output": "invalid_command_output"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_build_wheel_legacy_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "name": "valid_name",
+        "setup_py_path": "valid_setup_py_path",
+        "source_dir": "valid_source_dir",
+        "global_options": "valid_global_options",
+        "build_options": "valid_build_options",
+        "tempd": "valid_tempd"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_build_wheel_legacy_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "name": "edge_name",
+        "setup_py_path": "edge_setup_py_path",
+        "source_dir": "edge_source_dir",
+        "global_options": "edge_global_options",
+        "build_options": "edge_build_options",
+        "tempd": "edge_tempd"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_build_wheel_legacy_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "name": "invalid_name",
+        "setup_py_path": "invalid_setup_py_path",
+        "source_dir": "invalid_source_dir",
+        "global_options": "invalid_global_options",
+        "build_options": "invalid_build_options",
+        "tempd": "invalid_tempd"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

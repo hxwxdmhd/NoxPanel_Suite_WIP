@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "default_timeout": 300,
+  "max_entries": 1000,
+  "cache_type": "simple"
+}

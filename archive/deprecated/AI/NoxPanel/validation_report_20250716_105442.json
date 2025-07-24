@@ -1,0 +1,99 @@
+﻿{
+    "Timestamp":  {
+                      "value":  "\/Date(1752656070556)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Mittwoch, 16. Juli 2025 10:54:30"
+                  },
+    "SystemHealth":  [
+
+                     ],
+    "Recommendations":  [
+                            "CRITICAL: Restore missing files before proceeding"
+                        ],
+    "Phase":  "POST_CLEANUP",
+    "ConfigurationStatus":  [
+
+                            ],
+    "CriticalFiles":  [
+                          {
+                              "Size":  19561,
+                              "Description":  "Main Application Entry Point",
+                              "Path":  "k:\\Project Heimnetz\\main.py",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  2993,
+                              "Description":  "API Bridge Module",
+                              "Path":  "k:\\Project Heimnetz\\api_bridge.py",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  9963,
+                              "Description":  "Integrated Web Server",
+                              "Path":  "k:\\Project Heimnetz\\integrated_web_server.py",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  416,
+                              "Description":  "Python Dependencies",
+                              "Path":  "k:\\Project Heimnetz\\requirements.txt",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  902,
+                              "Description":  "Unified Configuration",
+                              "Path":  "k:\\Project Heimnetz\\config\\heimnetz_unified.json",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  1145,
+                              "Description":  "Docker Configuration",
+                              "Path":  "k:\\Project Heimnetz\\docker\\heimnetz_docker.json",
+                              "Required":  false,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  236,
+                              "Description":  "Active NoxPanel Entry Point",
+                              "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\main.py",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  108,
+                              "Description":  "NoxPanel Dependencies",
+                              "Path":  "k:\\Project Heimnetz\\AI\\NoxPanel\\requirements.txt",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          },
+                          {
+                              "Size":  0,
+                              "Description":  "Master Documentation v10.0",
+                              "Path":  "k:\\Project Heimnetz\\HEIMNETZ_ULTIMATE_DOCUMENTATION_v10.0.md",
+                              "Required":  true,
+                              "Exists":  false,
+                              "Status":  "MISSING_CRITICAL"
+                          },
+                          {
+                              "Size":  11738,
+                              "Description":  "Project README",
+                              "Path":  "k:\\Project Heimnetz\\README.md",
+                              "Required":  true,
+                              "Exists":  true,
+                              "Status":  "FOUND"
+                          }
+                      ]
+}

@@ -1,0 +1,46 @@
+# Voice/TTS System Requirements
+# ============================
+
+# Core TTS and Speech Recognition
+pyttsx3>=2.90
+SpeechRecognition>=3.10.0
+gTTS>=2.4.0
+pyaudio>=0.2.11
+
+# Audio processing
+numpy>=1.24.0
+wave>=0.0.2
+
+# Optional cloud TTS services
+azure-cognitiveservices-speech>=1.30.0
+google-cloud-texttospeech>=2.14.0
+openai>=1.0.0
+
+# Audio file handling
+pydub>=0.25.1
+
+# Natural language processing (optional)
+nltk>=3.8.1
+spacy>=3.6.0
+
+# WebRTC support (optional)
+aiortc>=1.6.0
+
+# Installation instructions:
+# 1. Install system dependencies first:
+#    - Windows: Download and install Microsoft Visual C++ Build Tools
+#    - Linux: sudo apt-get install portaudio19-dev python3-pyaudio
+#    - macOS: brew install portaudio
+#
+# 2. Install Python packages:
+#    pip install -r voice_requirements.txt
+#
+# 3. For Azure TTS, set environment variables:
+#    - AZURE_SPEECH_KEY
+#    - AZURE_SPEECH_REGION
+#
+# 4. For Google Cloud TTS, set up service account and:
+#    - GOOGLE_APPLICATION_CREDENTIALS
+#
+# 5. For OpenAI TTS, set:
+#    - OPENAI_API_KEY

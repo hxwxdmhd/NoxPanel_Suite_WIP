@@ -1,0 +1,13 @@
+# 📋 Issue Template Configuration
+
+blank_issues_enabled: false
+contact_links:
+  - name: 🆘 Community Support
+    url: https://discord.gg/hobelab
+    about: Join our Discord community for general questions and discussions
+  - name: 🔒 Security Vulnerability
+    url: mailto:security@hobelab.dev
+    about: Report security vulnerabilities privately to our security team
+  - name: 💬 GitHub Discussions
+    url: https://github.com/HobeLab-Projects/Heimnetz/discussions
+    about: For feature discussions, Q&A, and community conversations

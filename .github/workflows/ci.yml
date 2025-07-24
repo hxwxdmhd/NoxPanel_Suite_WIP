@@ -1,0 +1,451 @@
+name: 🧪 CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: "3.9"
+
+jobs:
+  # 🔍 Code Quality and Linting
+  lint:
+    name: 🔍 Code Quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black flake8 isort mypy bandit safety
+          pip install -r requirements.txt
+
+      - name: 🎨 Check code formatting (Black)
+        run: black --check --diff .
+
+      - name: 🔤 Check import sorting (isort)
+        run: isort --check-only --diff .
+
+      - name: 📏 Lint with flake8
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: 🔍 Type checking (MyPy)
+        run: mypy --install-types --non-interactive .
+        continue-on-error: true
+
+      - name: 🔒 Security scanning (Bandit)
+        run: bandit -r . -x tests/
+
+      - name: 🛡️ Dependency vulnerability check
+        run: safety check
+
+  # 🧪 Test Suite
+  test:
+    name: 🧪 Tests
+    needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        exclude:
+          # Exclude some combinations to speed up CI
+          - os: macos-latest
+            python-version: "3.8"
+          - os: windows-latest
+            python-version: "3.8"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov pytest-xdist pytest-mock
+          pip install -r requirements.txt
+
+      - name: 🧪 Run tests with coverage
+        run: |
+          pytest tests/ -v --cov=. --cov-report=xml --cov-report=html -n auto
+
+      - name: 📊 Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+  # 🌐 Web Interface Tests
+  web-tests:
+    name: 🌐 Web Interface Tests
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium pytest playwright
+          pip install -r requirements.txt
+
+      - name: 🎭 Install Playwright browsers
+        run: playwright install
+
+      - name: 🌐 Start web server
+        run: |
+          python main.py --web &
+          sleep 10  # Wait for server to start
+
+      - name: 🧪 Run web interface tests
+        run: pytest tests/web/ -v
+
+      - name: 📸 Upload screenshots on failure
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: screenshots
+          path: tests/screenshots/
+
+  # ♿ Accessibility Tests
+  accessibility:
+    name: ♿ Accessibility Tests
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🌐 Start web server
+        run: |
+          python main.py --web &
+          sleep 10
+
+      - name: 🔍 Install accessibility testing tools
+        run: |
+          npm install -g @axe-core/cli pa11y lighthouse
+
+      - name: ♿ Run accessibility tests
+        run: |
+          axe http://localhost:5000 --save accessibility-report.json
+          pa11y http://localhost:5000 --reporter json > pa11y-report.json
+          lighthouse http://localhost:5000 --only-categories=accessibility --output json --output-path lighthouse-accessibility.json
+
+      - name: 📊 Upload accessibility reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: accessibility-reports
+          path: |
+            accessibility-report.json
+            pa11y-report.json
+            lighthouse-accessibility.json
+
+  # 🤖 AI Features Tests
+  ai-tests:
+    name: 🤖 AI Features Tests
+    needs: lint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🤖 Test AI assistant (mock mode)
+        run: |
+          export HEIMNETZ_AI_MODE=mock
+          python -m pytest tests/ai/ -v
+
+      - name: 🎤 Test voice interface (mock mode)
+        run: |
+          export HEIMNETZ_VOICE_MODE=mock
+          python -m pytest tests/voice/ -v
+
+  # 🔒 Security Tests
+  security:
+    name: 🔒 Security Tests
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔍 SAST Scanning
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_PYTHON_BLACK: false  # Already handled in lint job
+
+      - name: 🛡️ Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'Heimnetz'
+          path: '.'
+          format: 'ALL'
+
+      - name: 📊 Upload security reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-reports
+          path: reports/
+
+  # 📦 Build and Package
+  build:
+    name: 📦 Build Package
+    needs: [test, web-tests]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'release'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: 🏗️ Build package
+        run: python -m build
+
+      - name: 🔍 Check package
+        run: twine check dist/*
+
+      - name: 📤 Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+  # 🐳 Docker Build
+  docker:
+    name: 🐳 Docker Build
+    needs: [test, web-tests]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'release'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔑 Login to Docker Hub
+        if: github.event_name == 'release'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: 🐳 Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name == 'release' }}
+          tags: |
+            hobelab/heimnetz:latest
+            hobelab/heimnetz:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # 🚀 Deploy to GitHub Releases
+  release:
+    name: 🚀 GitHub Release
+    needs: [build, docker]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+
+    steps:
+      - name: 📥 Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+      - name: 🚀 Upload to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: 📎 Attach assets to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+
+  # 📊 Performance Benchmarks
+  performance:
+    name: 📊 Performance Tests
+    needs: lint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest-benchmark memory_profiler
+          pip install -r requirements.txt
+
+      - name: 📊 Run performance benchmarks
+        run: pytest tests/performance/ -v --benchmark-json=benchmark.json
+
+      - name: 📈 Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          tool: 'pytest'
+          output-file-path: benchmark.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+
+  # 📝 Documentation Build
+  docs:
+    name: 📝 Documentation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install sphinx sphinx-rtd-theme myst-parser
+          pip install -r requirements.txt
+
+      - name: 📚 Build documentation
+        run: |
+          cd docs/
+          make html
+
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
+
+  # 🎯 Integration Tests
+  integration:
+    name: 🎯 Integration Tests
+    needs: [test, web-tests]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    services:
+      redis:
+        image: redis:alpine
+        ports:
+          - 6379:6379
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🎯 Run integration tests
+        run: pytest tests/integration/ -v
+
+# 📊 Status Badge Updates
+  update-readme:
+    name: 📊 Update README Badges
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔄 Update status badges
+        run: |
+          # This would update README.md with latest CI status
+          echo "Badges updated automatically by CI"

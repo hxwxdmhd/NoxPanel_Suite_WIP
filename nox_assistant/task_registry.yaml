@@ -1,0 +1,131 @@
+# 🤖 NoxAssistant Task Registry
+# Available commands and their corresponding modules
+
+diagnostics:
+  commands: ["diagnose", "health", "status", "check", "diagnostic", "system"]
+  description: "Run comprehensive system diagnostics and health checks"
+  module: "diagnostics"
+  examples:
+    - "Run full system diagnostic"
+    - "Check system health"
+    - "Show system status"
+
+network:
+  commands: ["scan", "devices", "network", "ping", "discover", "topology"]
+  description: "Network scanning, device discovery, and connectivity testing"
+  module: "network_scanner"
+  examples:
+    - "Scan network for devices"
+    - "Show all connected devices"
+    - "Check network connectivity"
+
+security:
+  commands: ["security", "vulnerabilities", "threats", "audit", "firewall", "ports"]
+  description: "Security analysis, vulnerability scanning, and threat detection"
+  module: "security_analyzer"
+  examples:
+    - "Run security audit"
+    - "Check for vulnerabilities"
+    - "Analyze security threats"
+
+performance:
+  commands: ["performance", "optimize", "speed", "bandwidth", "cpu", "memory", "resources"]
+  description: "Performance analysis, optimization, and resource monitoring"
+  module: "performance_monitor"
+  examples:
+    - "Analyze system performance"
+    - "Optimize system resources"
+    - "Check CPU and memory usage"
+
+monitoring:
+  commands: ["monitor", "logs", "alerts", "notifications", "watch"]
+  description: "System monitoring, log analysis, and alert management"
+  module: "monitoring_system"
+  examples:
+    - "Show system logs"
+    - "Check for alerts"
+    - "Monitor system activity"
+
+automation:
+  commands: ["automate", "script", "task", "schedule", "routine"]
+  description: "Task automation, scheduling, and routine management"
+  module: "automation_engine"
+  examples:
+    - "Automate network scans"
+    - "Schedule system checks"
+    - "Create maintenance routine"
+
+backup:
+  commands: ["backup", "restore", "archive", "save", "export"]
+  description: "Data backup, restoration, and archival operations"
+  module: "backup_manager"
+  examples:
+    - "Create system backup"
+    - "Restore from backup"
+    - "Archive old data"
+
+configuration:
+  commands: ["config", "settings", "configure", "setup", "preferences"]
+  description: "System configuration and settings management"
+  module: "config_manager"
+  examples:
+    - "Show current configuration"
+    - "Update system settings"
+    - "Reset to defaults"
+
+documentation:
+  commands: ["docs", "help", "manual", "guide", "documentation"]
+  description: "Access documentation, help, and user guides"
+  module: "help_system"
+  examples:
+    - "Show help documentation"
+    - "Open user guide"
+    - "Get command reference"
+
+ai_models:
+  commands: ["ai", "models", "llm", "ollama", "intelligence"]
+  description: "AI model management and local LLM operations"
+  module: "ai_manager"
+  examples:
+    - "List available AI models"
+    - "Check AI model status"
+    - "Update local models"
+
+# Voice-specific commands
+voice_commands:
+  wake_words: ["hey nox", "nox", "assistant", "jarvis"]
+  stop_words: ["exit", "quit", "bye", "goodbye", "stop", "end"]
+  confirmation_words: ["yes", "confirm", "proceed", "continue"]
+  negative_words: ["no", "cancel", "abort", "stop"]
+
+# Command aliases for natural language processing
+aliases:
+  "what's my status": "diagnostics"
+  "how's my system": "diagnostics" 
+  "check my network": "network"
+  "find devices": "network"
+  "security check": "security"
+  "am i secure": "security"
+  "speed test": "performance"
+  "system performance": "performance"
+  "show logs": "monitoring"
+  "what's happening": "monitoring"
+  "help me": "documentation"
+  "what can you do": "documentation"
+
+# Response templates for ADHD-friendly formatting
+response_templates:
+  success: "✅ {message}"
+  error: "❌ {message}"
+  warning: "⚠️ {message}"
+  info: "ℹ️ {message}"
+  progress: "⏳ {message}"
+  completed: "🎉 {message}"
+
+# AI model preferences for different tasks
+ai_model_routing:
+  diagnostics: "llama2:7b"
+  security: "mistral"
+  performance: "orca-mini"
+  code_analysis: "codellama"
+  general: "neural-chat"

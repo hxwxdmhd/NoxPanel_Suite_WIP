@@ -1,0 +1,19 @@
+{
+  "module": "start_status_service.py",
+  "timestamp": "2025-07-18T11:06:18.085066",
+  "phase": "Phase 3 Advanced Enhancement",
+  "functions_analyzed": 0,
+  "advanced_enhancements": 1,
+  "enterprise_patterns_applied": 0,
+  "performance_optimizations": 0,
+  "security_enhancements": 0,
+  "ai_enhancement_score": 30.0,
+  "enterprise_readiness_score": 50.0,
+  "processing_time": 0.0,
+  "status": "success",
+  "file_path": "K:\\Project Heimnetz\\start_status_service.py",
+  "total_functions": 1,
+  "complex_functions": 0,
+  "enterprise_candidates": 1,
+  "patterns_detected": [
+

@@ -1,0 +1,5 @@
+{"role": "system", "content": "You are an AI assistant helping with NoxPanel development."}
+{"role": "user", "content": "How do I create a Flask blueprint for NoxPanel?"}
+{"role": "assistant", "content": "To create a Flask blueprint for NoxPanel, define it with Blueprint() and register routes using @bp.route decorators."}
+{"role": "user", "content": "What's the best way to handle database connections in NoxPanel?"}
+{"role": "assistant", "content": "NoxPanel uses a connection pool pattern with SQLite. Use the DatabaseConnectionPool class for efficient connection management."}

@@ -1,0 +1,10 @@
+{
+  "session_id": "copilot_diag_1752836934",
+  "start_time": "2025-07-18T13:08:54.416351",
+  "end_time": "2025-07-18T13:09:07.573472",
+  "problems_analyzed": 240,
+  "problems_fixed": 50,
+  "problems_deferred": 80,
+  "fix_success_rate": 20.833333333333336,
+  "session_complete": true
+}

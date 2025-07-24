@@ -1,0 +1,200 @@
+# Development Docker Compose with Redis Networking Solutions
+version: '3.8'
+
+services:
+  # Main Heimnetz Application (Development Mode)
+  heimnetz-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hobelab/heimnetz:dev
+    container_name: heimnetz-dev
+    restart: unless-stopped
+
+    # Environment variables optimized for development
+    environment:
+      - HEIMNETZ_DOCKER=true
+      - HEIMNETZ_DEBUG=true
+      - HEIMNETZ_LOG_LEVEL=DEBUG
+      - HEIMNETZ_CONFIG_PATH=/app/config
+      - HEIMNETZ_DATA_PATH=/app/data
+      - HEIMNETZ_WEB_HOST=0.0.0.0
+      - HEIMNETZ_WEB_PORT=5000
+      - REDIS_URL=redis://redis-dev:6379
+      - REDIS_PASSWORD=dev_redis_password
+      - FLASK_ENV=development
+
+    # Port mapping for development
+    ports:
+      - "5000:5000"
+      - "5001:5001"  # Advanced server port
+      - "5002:5002"  # Development server port
+
+    # Volume mounts for live development
+    volumes:
+      - .:/app
+      - heimnetz-dev-config:/app/config
+      - heimnetz-dev-data:/app/data
+      - heimnetz-dev-logs:/app/logs
+
+    # Network configuration with host access
+    networks:
+      - heimnetz-dev-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    # Depends on Redis for full functionality
+    depends_on:
+      redis-dev:
+        condition: service_healthy
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis for development (with exposed port for host access)
+  redis-dev:
+    image: redis:7-alpine
+    container_name: heimnetz-redis-dev
+    restart: unless-stopped
+
+    # Command with development-friendly settings
+    command: >
+      redis-server
+      --requirepass dev_redis_password
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --save 60 1000
+
+    # Expose Redis port to host for direct access
+    ports:
+      - "6379:6379"
+
+    environment:
+      - REDIS_PASSWORD=dev_redis_password
+
+    volumes:
+      - heimnetz-redis-dev:/data
+
+    networks:
+      - heimnetz-dev-network
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "dev_redis_password", "ping"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Redis Commander for development (Web UI)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: heimnetz-redis-commander
+    restart: unless-stopped
+
+    environment:
+      - REDIS_HOSTS=dev:redis-dev:6379:0:dev_redis_password
+
+    ports:
+      - "8081:8081"
+
+    networks:
+      - heimnetz-dev-network
+
+    depends_on:
+      redis-dev:
+        condition: service_healthy
+
+  # Standalone Redis for host access testing
+  redis-host:
+    image: redis:7-alpine
+    container_name: heimnetz-redis-host
+    restart: unless-stopped
+
+    # Use host networking for direct host access
+    network_mode: "host"
+
+    command: >
+      redis-server
+      --port 6380
+      --requirepass host_redis_password
+      --appendonly yes
+      --maxmemory 128mb
+      --maxmemory-policy allkeys-lru
+
+    volumes:
+      - heimnetz-redis-host:/data
+
+  # Development utilities container
+  dev-utils:
+    image: alpine:latest
+    container_name: heimnetz-dev-utils
+    restart: unless-stopped
+
+    command: >
+      sh -c "
+        apk add --no-cache curl redis netcat-openbsd &&
+        echo 'Development utilities ready' &&
+        tail -f /dev/null
+      "
+
+    networks:
+      - heimnetz-dev-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    volumes:
+      - .:/workspace
+
+  # Network testing service
+  network-test:
+    image: nicolaka/netshoot
+    container_name: heimnetz-network-test
+    restart: unless-stopped
+
+    command: tail -f /dev/null
+
+    networks:
+      - heimnetz-dev-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    # Privileged mode for network diagnostics
+    privileged: true
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+# Development network with custom configuration
+networks:
+  heimnetz-dev-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+          gateway: 172.28.0.1
+    driver_opts:
+      com.docker.network.bridge.name: "heimnetz-dev"
+      com.docker.network.bridge.enable_icc: "true"
+      com.docker.network.bridge.enable_ip_masquerade: "true"
+      com.docker.network.bridge.host_binding_ipv4: "0.0.0.0"
+
+# Development volumes
+volumes:
+  heimnetz-dev-config:
+    driver: local
+  heimnetz-dev-data:
+    driver: local
+  heimnetz-dev-logs:
+    driver: local
+  heimnetz-redis-dev:
+    driver: local
+  heimnetz-redis-host:
+    driver: local

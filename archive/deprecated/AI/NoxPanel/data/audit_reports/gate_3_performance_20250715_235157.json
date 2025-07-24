@@ -1,0 +1,57 @@
+{
+  "gate": 3,
+  "title": "Performance Benchmarks",
+  "timestamp": "2025-07-15T23:51:57.173111",
+  "score": 65,
+  "max_score": 100,
+  "passing_score": 80,
+  "passed": false,
+  "percentage": 65.0,
+  "results": [
+    {
+      "test": "Response Time Performance",
+      "status": "FAIL",
+      "points": 0,
+      "max_points": 0,
+      "details": "Avg: 2048.25ms, Max: 2061.03ms, Success: 4/4",
+      "timestamp": "2025-07-15T23:51:50.079472"
+    },
+    {
+      "test": "Memory Usage Optimization",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "Memory: 42.11MB, System%: 0.26%",
+      "timestamp": "2025-07-15T23:51:50.089988"
+    },
+    {
+      "test": "Database Query Performance",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "Avg: 2.13ms, Max: 4.00ms",
+      "timestamp": "2025-07-15T23:51:50.115028"
+    },
+    {
+      "test": "Concurrent User Handling",
+      "status": "PASS",
+      "points": 5,
+      "max_points": 5,
+      "details": "Success: 100.0%, Avg: 2057.01ms, Max: 2076.03ms",
+      "timestamp": "2025-07-15T23:51:54.241307"
+    },
+    {
+      "test": "Resource Cleanup Verification",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "Memory: +-0.27MB, Threads: +0, FDs: +0",
+      "timestamp": "2025-07-15T23:51:57.173111"
+    }
+  ],
+  "summary": {
+    "total_tests": 5,
+    "passed_tests": 4,
+    "failed_tests": 1
+  }
+}

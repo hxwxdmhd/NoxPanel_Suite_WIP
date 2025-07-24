@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Monitor - NoxPanel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --info-color: #3498db;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .monitor-header {
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .status-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .status-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .status-online {
+            border-left: 5px solid var(--success-color);
+        }
+        
+        .status-offline {
+            border-left: 5px solid var(--danger-color);
+        }
+        
+        .status-healing {
+            border-left: 5px solid var(--warning-color);
+        }
+        
+        .status-unknown {
+            border-left: 5px solid var(--info-color);
+        }
+        
+        .metric-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .action-button {
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .log-container {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .model-status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        
+        .refresh-indicator {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .auto-refresh-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="monitor-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-heartbeat me-3"></i>AI Model Monitor</h1>
+                    <p class="mb-0">Real-time monitoring and healing for local AI models</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button class="btn btn-light action-button" onclick="refreshStatus()">
+                            <i class="fas fa-sync-alt me-2"></i>Refresh
+                        </button>
+                        <button class="btn btn-warning action-button" onclick="emergencyHeal()">
+                            <i class="fas fa-ambulance me-2"></i>Emergency Heal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Metrics Row -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="metric-box">
+                    <div class="metric-value" id="total-models">-</div>
+                    <div class="metric-label">Total Models</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box">
+                    <div class="metric-value text-success" id="online-models">-</div>
+                    <div class="metric-label">Online</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box">
+                    <div class="metric-value text-danger" id="offline-models">-</div>
+                    <div class="metric-label">Offline</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box">
+                    <div class="metric-value" id="monitoring-status">-</div>
+                    <div class="metric-label">Monitoring</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-cogs me-2"></i>Control Panel</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Monitoring Control</h6>
+                                <div class="d-flex gap-2 mb-3">
+                                    <button class="btn btn-success action-button" onclick="startMonitoring()">
+                                        <i class="fas fa-play me-2"></i>Start
+                                    </button>
+                                    <button class="btn btn-secondary action-button" onclick="stopMonitoring()">
+                                        <i class="fas fa-stop me-2"></i>Stop
+                                    </button>
+                                    <button class="btn btn-info action-button" onclick="toggleDebugMode()">
+                                        <i class="fas fa-bug me-2"></i>Debug Mode
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Healing Actions</h6>
+                                <div class="d-flex gap-2 mb-3">
+                                    <button class="btn btn-warning action-button" onclick="healAllModels()">
+                                        <i class="fas fa-medkit me-2"></i>Heal All
+                                    </button>
+                                    <button class="btn btn-danger action-button" onclick="emergencyHeal()">
+                                        <i class="fas fa-ambulance me-2"></i>Emergency
+                                    </button>
+                                    <button class="btn btn-outline-primary action-button" onclick="showLogs()">
+                                        <i class="fas fa-file-alt me-2"></i>View Logs
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Models Status -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-robot me-2"></i>Model Status</h5>
+                    </div>
+                    <div class="card-body" id="models-container">
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading model status...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Log -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-history me-2"></i>Activity Log</h5>
+                        <div>
+                            <select class="form-select form-select-sm" id="log-type" onchange="refreshLogs()">
+                                <option value="both">All Logs</option>
+                                <option value="monitor">Monitor Only</option>
+                                <option value="recovery">Recovery Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="log-container" id="log-container">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-file-alt fa-2x mb-2"></i>
+                                <p>Click "View Logs" to load recent activity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refresh Indicator -->
+    <div class="refresh-indicator" id="refresh-indicator">
+        <i class="fas fa-sync-alt fa-spin me-2"></i>Refreshing...
+    </div>
+
+    <!-- Auto-refresh Toggle -->
+    <div class="auto-refresh-toggle">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="auto-refresh" checked>
+            <label class="form-check-label" for="auto-refresh">
+                Auto-refresh (30s)
+            </label>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let autoRefreshInterval;
+        let debugMode = false;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshStatus();
+            setupAutoRefresh();
+        });
+
+        function setupAutoRefresh() {
+            const checkbox = document.getElementById('auto-refresh');
+            
+            function startAutoRefresh() {
+                autoRefreshInterval = setInterval(refreshStatus, 30000); // 30 seconds
+            }
+            
+            function stopAutoRefresh() {
+                if (autoRefreshInterval) {
+                    clearInterval(autoRefreshInterval);
+                }
+            }
+            
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    startAutoRefresh();
+                } else {
+                    stopAutoRefresh();
+                }
+            });
+            
+            // Start auto-refresh by default
+            if (checkbox.checked) {
+                startAutoRefresh();
+            }
+        }
+
+        function showRefreshIndicator() {
+            document.getElementById('refresh-indicator').style.display = 'block';
+        }
+
+        function hideRefreshIndicator() {
+            document.getElementById('refresh-indicator').style.display = 'none';
+        }
+
+        async function apiCall(endpoint, options = {}) {
+            try {
+                const response = await fetch(`/api/ai-monitor${endpoint}`, {
+                    ...options,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                throw error;
+            }
+        }
+
+        async function refreshStatus() {
+            showRefreshIndicator();
+            try {
+                const [statusData, modelsData] = await Promise.all([
+                    apiCall('/status'),
+                    apiCall('/models')
+                ]);
+                
+                updateMetrics(statusData.data, modelsData);
+                updateModelsDisplay(modelsData.models);
+                
+            } catch (error) {
+                console.error('Failed to refresh status:', error);
+                showAlert('Failed to refresh status: ' + error.message, 'danger');
+            } finally {
+                hideRefreshIndicator();
+            }
+        }
+
+        function updateMetrics(statusData, modelsData) {
+            document.getElementById('total-models').textContent = modelsData.total_models || 0;
+            
+            const onlineCount = Object.values(modelsData.models || {})
+                .filter(m => m.status === 'online').length;
+            const offlineCount = Object.values(modelsData.models || {})
+                .filter(m => m.status === 'offline' || m.status === 'failed').length;
+            
+            document.getElementById('online-models').textContent = onlineCount;
+            document.getElementById('offline-models').textContent = offlineCount;
+            
+            const monitoringElement = document.getElementById('monitoring-status');
+            if (statusData.monitoring_active) {
+                monitoringElement.textContent = 'Active';
+                monitoringElement.className = 'metric-value text-success';
+            } else {
+                monitoringElement.textContent = 'Inactive';
+                monitoringElement.className = 'metric-value text-secondary';
+            }
+        }
+
+        function updateModelsDisplay(models) {
+            const container = document.getElementById('models-container');
+            
+            if (!models || Object.keys(models).length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-muted">
+                        <i class="fas fa-robot fa-3x mb-3"></i>
+                        <h5>No models configured</h5>
+                        <p>Add AI model endpoints to start monitoring</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const modelsHtml = Object.entries(models).map(([name, model]) => {
+                const statusClass = getStatusClass(model.status);
+                const statusIcon = getStatusIcon(model.status);
+                const lastCheck = model.last_check ? 
+                    new Date(model.last_check).toLocaleTimeString() : 'Never';
+                
+                return `
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card status-card ${statusClass}">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h6 class="card-title mb-0">${name}</h6>
+                                    <span class="model-status-badge bg-${getBadgeColor(model.status)} text-white">
+                                        ${statusIcon} ${model.status.toUpperCase()}
+                                    </span>
+                                </div>
+                                <p class="card-text small text-muted mb-2">${model.url}</p>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <small class="text-muted">Last Check</small><br>
+                                        <strong>${lastCheck}</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Restarts</small><br>
+                                        <strong>${model.restart_count || 0}</strong>
+                                    </div>
+                                </div>
+                                ${model.response_time ? `
+                                    <div class="mt-2">
+                                        <small class="text-muted">Response Time: <strong>${model.response_time}ms</strong></small>
+                                    </div>
+                                ` : ''}
+                                ${model.error_message ? `
+                                    <div class="mt-2">
+                                        <small class="text-danger">${model.error_message}</small>
+                                    </div>
+                                ` : ''}
+                                <div class="mt-3 d-flex gap-2">
+                                    <button class="btn btn-sm btn-outline-warning" onclick="healModel('${name}')">
+                                        <i class="fas fa-medkit"></i> Heal
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-${model.enabled ? 'secondary' : 'primary'}" 
+                                            onclick="toggleModel('${name}', ${model.enabled})">
+                                        <i class="fas fa-${model.enabled ? 'pause' : 'play'}"></i> 
+                                        ${model.enabled ? 'Disable' : 'Enable'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = `<div class="row">${modelsHtml}</div>`;
+        }
+
+        function getStatusClass(status) {
+            const statusMap = {
+                'online': 'status-online',
+                'offline': 'status-offline',
+                'failed': 'status-offline',
+                'healing': 'status-healing',
+                'unknown': 'status-unknown'
+            };
+            return statusMap[status] || 'status-unknown';
+        }
+
+        function getStatusIcon(status) {
+            const iconMap = {
+                'online': '<i class="fas fa-check-circle"></i>',
+                'offline': '<i class="fas fa-times-circle"></i>',
+                'failed': '<i class="fas fa-exclamation-triangle"></i>',
+                'healing': '<i class="fas fa-heartbeat"></i>',
+                'unknown': '<i class="fas fa-question-circle"></i>'
+            };
+            return iconMap[status] || '<i class="fas fa-question-circle"></i>';
+        }
+
+        function getBadgeColor(status) {
+            const colorMap = {
+                'online': 'success',
+                'offline': 'danger',
+                'failed': 'danger',
+                'healing': 'warning',
+                'unknown': 'secondary'
+            };
+            return colorMap[status] || 'secondary';
+        }
+
+        async function startMonitoring() {
+            try {
+                const result = await apiCall('/start', { method: 'POST' });
+                showAlert(result.message, 'success');
+                refreshStatus();
+            } catch (error) {
+                showAlert('Failed to start monitoring: ' + error.message, 'danger');
+            }
+        }
+
+        async function stopMonitoring() {
+            try {
+                const result = await apiCall('/stop', { method: 'POST' });
+                showAlert(result.message, 'info');
+                refreshStatus();
+            } catch (error) {
+                showAlert('Failed to stop monitoring: ' + error.message, 'danger');
+            }
+        }
+
+        async function healAllModels() {
+            try {
+                showAlert('Healing all models...', 'info');
+                const result = await apiCall('/heal', { method: 'POST' });
+                
+                const successCount = Object.values(result.results || {})
+                    .filter(r => r === true).length;
+                const totalCount = Object.keys(result.results || {}).length;
+                
+                showAlert(`Healing completed: ${successCount}/${totalCount} successful`, 'success');
+                refreshStatus();
+            } catch (error) {
+                showAlert('Failed to heal models: ' + error.message, 'danger');
+            }
+        }
+
+        async function emergencyHeal() {
+            try {
+                showAlert('🚨 Emergency healing in progress...', 'warning');
+                const result = await apiCall('/heal-now', { method: 'POST' });
+                
+                const offlineCount = result.offline_models.length;
+                if (offlineCount === 0) {
+                    showAlert('✅ All models are already online!', 'success');
+                } else {
+                    showAlert(`🚨 Emergency healing completed for ${offlineCount} offline models`, 'success');
+                }
+                refreshStatus();
+            } catch (error) {
+                showAlert('Emergency healing failed: ' + error.message, 'danger');
+            }
+        }
+
+        async function healModel(modelName) {
+            try {
+                showAlert(`Healing ${modelName}...`, 'info');
+                const result = await apiCall('/heal', {
+                    method: 'POST',
+                    body: JSON.stringify({ model: modelName })
+                });
+                
+                showAlert(result.message, result.success ? 'success' : 'warning');
+                refreshStatus();
+            } catch (error) {
+                showAlert(`Failed to heal ${modelName}: ` + error.message, 'danger');
+            }
+        }
+
+        async function toggleModel(modelName, currentlyEnabled) {
+            try {
+                const action = currentlyEnabled ? 'disable' : 'enable';
+                const result = await apiCall(`/models/${modelName}/${action}`, { method: 'POST' });
+                
+                showAlert(result.message, 'success');
+                refreshStatus();
+            } catch (error) {
+                showAlert(`Failed to toggle ${modelName}: ` + error.message, 'danger');
+            }
+        }
+
+        async function toggleDebugMode() {
+            try {
+                debugMode = !debugMode;
+                const result = await apiCall('/debug', {
+                    method: 'POST',
+                    body: JSON.stringify({ enabled: debugMode })
+                });
+                
+                showAlert(result.message, debugMode ? 'warning' : 'info');
+                
+                // Update button appearance
+                const button = event.target.closest('button');
+                if (debugMode) {
+                    button.classList.remove('btn-info');
+                    button.classList.add('btn-warning');
+                } else {
+                    button.classList.remove('btn-warning');
+                    button.classList.add('btn-info');
+                }
+            } catch (error) {
+                showAlert('Failed to toggle debug mode: ' + error.message, 'danger');
+            }
+        }
+
+        async function showLogs() {
+            try {
+                const logType = document.getElementById('log-type').value;
+                const result = await apiCall(`/logs?type=${logType}&lines=100`);
+                
+                const container = document.getElementById('log-container');
+                let logContent = '';
+                
+                if (result.logs.monitor) {
+                    logContent += '<div class="text-info">==== MONITOR LOGS ====</div>\n';
+                    logContent += result.logs.monitor.join('');
+                }
+                
+                if (result.logs.recovery) {
+                    logContent += '<div class="text-warning">==== RECOVERY LOGS ====</div>\n';
+                    logContent += result.logs.recovery.join('');
+                }
+                
+                if (!logContent) {
+                    logContent = '<div class="text-muted">No logs available</div>';
+                }
+                
+                container.innerHTML = `<pre>${logContent}</pre>`;
+                container.scrollTop = container.scrollHeight;
+                
+            } catch (error) {
+                showAlert('Failed to load logs: ' + error.message, 'danger');
+            }
+        }
+
+        async function refreshLogs() {
+            if (document.getElementById('log-container').querySelector('pre')) {
+                await showLogs();
+            }
+        }
+
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 70px; right: 20px; z-index: 1050; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "snapshot_info": {
+    "timestamp": "2025-07-17T22:07:42.710605",
+    "version": "Ultimate Suite v11.0",
+    "interval_minutes": 12.0
+  },
+  "system": {
+    "timestamp": "2025-07-17T22:07:43.717095",
+    "cpu_percent": 17.6,
+    "memory_total_gb": 15.95,
+    "memory_used_percent": 79.3,
+    "disk_free_gb": 0,
+    "disk_used_percent": 0
+  },
+  "services": {
+    "fastapi": {
+      "status": "OK",
+      "response_ms": 2051.16
+    },
+    "prometheus": {
+      "status": "OK",
+      "response_ms": 5.08
+    },
+    "grafana": {
+      "status": "OK",
+      "response_ms": 5.2
+    }
+  },
+  "containers": {
+    "error": "module 'docker' has no attribute 'from_env'"
+  },
+  "gpu": {
+    "available": true,
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 2070"
+  },
+  "summary": {
+    "cpu_percent": 17.6,
+    "memory_percent": 79.3,
+    "healthy_services": "3/3",
+    "running_containers": 0,
+    "gpu_available": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "total_tests": 7,
+  "successful_tests": 4,
+  "failed_tests": 3,
+  "success_rate": 57.14285714285714,
+  "total_execution_time": 3.774212121963501,
+  "average_test_time": 0.5391731602805001,
+  "test_results": [
+    {
+      "name": "Security Configuration",
+      "success": true,
+      "time": 0.0,
+      "error": null
+    },
+    {
+      "name": "Database Connection Pool",
+      "success": true,
+      "time": 0.152144193649292,
+      "error": null
+    },
+    {
+      "name": "Blueprint Registry",
+      "success": false,
+      "time": 0.9504966735839844,
+      "error": "'BlueprintRegistry' object has no attribute 'get_blueprint_info'"
+    },
+    {
+      "name": "Plugin Sandbox",
+      "success": false,
+      "time": 0.016061782836914062,
+      "error": "Plugin loading failed"
+    },
+    {
+      "name": "Rate Limiter",
+      "success": true,
+      "time": 2.5221505165100098,
+      "error": null
+    },
+    {
+      "name": "Security Headers",
+      "success": false,
+      "time": 0.0009989738464355469,
+      "error": "CSP header missing"
+    },
+    {
+      "name": "System Integration",
+      "success": true,
+      "time": 0.13235998153686523,
+      "error": null
+    }
+  ]
+}

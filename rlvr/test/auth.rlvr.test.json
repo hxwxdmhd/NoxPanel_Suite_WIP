@@ -1,0 +1,208 @@
+{
+  "module": "NoxPanel\\noxcore\\auth.py",
+  "timestamp": "2025-07-18T11:02:48.503597",
+  "total_functions": 7,
+  "test_cases": [
+    {
+      "name": "test_hash_password_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "password": "valid_password"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_hash_password_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "password": "edge_password"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_hash_password_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "password": "invalid_password"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_verify_password_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "password": "valid_password",
+        "hashed": "valid_hashed"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_verify_password_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "password": "edge_password",
+        "hashed": "edge_hashed"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_verify_password_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "password": "invalid_password",
+        "hashed": "invalid_hashed"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_generate_token_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "user_data": "valid_user_data"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_generate_token_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "user_data": "edge_user_data"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_generate_token_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "user_data": "invalid_user_data"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_verify_token_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "token": "valid_token"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_verify_token_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "token": "edge_token"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_verify_token_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "token": "invalid_token"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_auth_required_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "f": "valid_f"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_auth_required_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "f": "edge_f"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_auth_required_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "f": "invalid_f"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_user_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "username": "valid_username",
+        "password": "valid_password",
+        "role": "valid_role"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_user_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "username": "edge_username",
+        "password": "edge_password",
+        "role": "edge_role"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_user_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "username": "invalid_username",
+        "password": "invalid_password",
+        "role": "invalid_role"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_verify_user_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "username": "valid_username",
+        "password": "valid_password"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_verify_user_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "username": "edge_username",
+        "password": "edge_password"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_verify_user_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "username": "invalid_username",
+        "password": "invalid_password"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

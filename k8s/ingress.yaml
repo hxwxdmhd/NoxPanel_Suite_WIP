@@ -1,0 +1,63 @@
+# Ingress for Heimnetz Production Server
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: heimnetz-ingress
+  namespace: heimnetz
+  labels:
+    app: heimnetz-production
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      add_header X-Frame-Options "SAMEORIGIN" always;
+      add_header X-Content-Type-Options "nosniff" always;
+      add_header X-XSS-Protection "1; mode=block" always;
+      add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - heimnetz.production.com
+    - api.heimnetz.production.com
+    secretName: heimnetz-tls
+  rules:
+  - host: heimnetz.production.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: heimnetz-production-service
+            port:
+              number: 80
+  - host: api.heimnetz.production.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: heimnetz-production-service
+            port:
+              number: 80
+---
+# Certificate for SSL/TLS
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: heimnetz-tls
+  namespace: heimnetz
+spec:
+  secretName: heimnetz-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - heimnetz.production.com
+  - api.heimnetz.production.com

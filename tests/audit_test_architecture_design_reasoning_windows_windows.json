@@ -1,0 +1,38 @@
+{
+  "test_name": "ProductionDeployer",
+  "reasoning_chain": [
+    {
+      "timestamp": "2025-07-18T10:23:32.714113",
+      "step": "Test Environment Setup (Windows)",
+      "logic": "Initialize isolated test environment with Windows-compatible encoding",
+      "evidence": "Windows terminal requires ASCII-compatible output for stable test execution",
+      "confidence": 0.95,
+      "test_name": "ProductionDeployer"
+    },
+    {
+      "timestamp": "2025-07-18T10:23:32.717112",
+      "step": "Windows Architecture Design Test",
+      "logic": "Validate architecture decisions with Windows file system compatibility",
+      "evidence": "Sound architecture decisions work across all operating systems",
+      "confidence": 0.85,
+      "test_name": "ProductionDeployer"
+    }
+  ],
+  "validations": [
+    {
+      "timestamp": "2025-07-18T10:23:32.749186",
+      "type": "Architecture Configuration Test",
+      "result": true,
+      "details": "All 6 services configured with correct ports",
+      "test_name": "ProductionDeployer"
+    },
+    {
+      "timestamp": "2025-07-18T10:23:32.749186",
+      "type": "Test Cleanup",
+      "result": true,
+      "details": "Test completed in 0.03s with proper cleanup",
+      "test_name": "ProductionDeployer"
+    }
+  ],
+  "generated_at": "2025-07-18T10:23:32.750692"
+}

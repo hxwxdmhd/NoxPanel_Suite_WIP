@@ -1,0 +1,56 @@
+# WebRTC Real-Time Communication Requirements
+# ==========================================
+
+# Core WebRTC
+aiortc>=1.6.0
+websockets>=11.0.0
+
+# Media processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+pillow>=10.0.0
+
+# Audio processing
+pyaudio>=0.2.11
+sounddevice>=0.4.6
+
+# Video processing
+av>=10.0.0
+
+# Networking
+aiohttp>=3.8.0
+aiofiles>=23.0.0
+
+# STUN/TURN server (optional)
+coturn>=4.5.0
+
+# Recording and streaming
+ffmpeg-python>=0.2.0
+
+# Installation instructions:
+# 1. Install system dependencies:
+#    - Windows: 
+#      - Download and install Visual Studio Build Tools
+#      - Download and install FFmpeg
+#      - Add FFmpeg to PATH
+#    - Linux:
+#      - sudo apt-get install libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libswresample-dev libavfilter-dev
+#      - sudo apt-get install portaudio19-dev
+#      - sudo apt-get install ffmpeg
+#    - macOS:
+#      - brew install ffmpeg
+#      - brew install portaudio
+#
+# 2. Install Python packages:
+#    pip install -r webrtc_requirements.txt
+#
+# 3. For STUN/TURN server setup:
+#    - Install coturn: sudo apt-get install coturn
+#    - Configure /etc/turnserver.conf
+#    - Start service: sudo systemctl start coturn
+#
+# 4. Environment variables (optional):
+#    - STUN_SERVER=stun:your-stun-server.com:3478
+#    - TURN_SERVER=turn:your-turn-server.com:3478
+#    - TURN_USERNAME=username
+#    - TURN_PASSWORD=password

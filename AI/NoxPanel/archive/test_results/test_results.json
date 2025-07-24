@@ -1,0 +1,92 @@
+{
+  "summary": {
+    "total": 15,
+    "passed": 14,
+    "failed": 1,
+    "success_rate": 93.33333333333333,
+    "overall_status": "\u2705 GOOD"
+  },
+  "results": [
+    {
+      "test": "Server accessibility: /",
+      "status": "PASS",
+      "details": "HTTP 200, 38,337 bytes"
+    },
+    {
+      "test": "Server accessibility: /theme-demo",
+      "status": "PASS",
+      "details": "HTTP 200, 16,798 bytes"
+    },
+    {
+      "test": "Server accessibility: /ai-features",
+      "status": "PASS",
+      "details": "HTTP 200, 20,640 bytes"
+    },
+    {
+      "test": "Server accessibility: /static/css/enhanced-themes.css",
+      "status": "PASS",
+      "details": "HTTP 200, 19,123 bytes"
+    },
+    {
+      "test": "Server accessibility: /static/js/enhanced-theme-manager.js",
+      "status": "PASS",
+      "details": "HTTP 200, 16,398 bytes"
+    },
+    {
+      "test": "Server accessibility: /static/css/visual-enhancements.css",
+      "status": "PASS",
+      "details": "HTTP 200, 15,620 bytes"
+    },
+    {
+      "test": "CSS Theme Variables",
+      "status": "FAIL",
+      "details": "Themes: 4/5, Variables: 7/8, ADHD: 3/4"
+    },
+    {
+      "test": "JavaScript Theme Manager",
+      "status": "PASS",
+      "details": "Components: 7/7, Themes: 5/5, ADHD: 3/3"
+    },
+    {
+      "test": "Visual Enhancements",
+      "status": "PASS",
+      "details": "Features: 7/7, Integration: 4/4"
+    },
+    {
+      "test": "HTML integration: Dashboard",
+      "status": "PASS",
+      "details": "CSS: 2/2, JS: 1/1, Attrs: 2/2"
+    },
+    {
+      "test": "HTML integration: Theme Demo",
+      "status": "PASS",
+      "details": "CSS: 2/2, JS: 1/1, Attrs: 1/2"
+    },
+    {
+      "test": "HTML integration: AI Features",
+      "status": "PASS",
+      "details": "CSS: 2/2, JS: 1/1, Attrs: 2/2"
+    },
+    {
+      "test": "File size: Enhanced Themes CSS",
+      "status": "PASS",
+      "details": "Size: 19,123 bytes (minimum: 15,000)"
+    },
+    {
+      "test": "File size: Theme Manager JS",
+      "status": "PASS",
+      "details": "Size: 16,398 bytes (minimum: 10,000)"
+    },
+    {
+      "test": "File size: Visual Enhancements CSS",
+      "status": "PASS",
+      "details": "Size: 15,620 bytes (minimum: 10,000)"
+    }
+  ],
+  "timestamp": "2025-07-14 17:16:19",
+  "test_environment": {
+    "base_url": "http://localhost:5000",
+    "python_version": "3.x",
+    "test_type": "Server-side validation"
+  }
+}

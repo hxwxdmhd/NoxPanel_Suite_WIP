@@ -1,0 +1,30 @@
+{
+  "metrics": {
+    "collection_interval": 30,
+    "retention_days": 90,
+    "aggregation_windows": [
+      300,
+      3600,
+      86400
+    ]
+  },
+  "bi": {
+    "cache_ttl": 3600,
+    "max_cached_reports": 100,
+    "report_formats": [
+      "json",
+      "csv",
+      "pdf"
+    ]
+  },
+  "graphql": {
+    "max_query_depth": 10,
+    "query_timeout": 30,
+    "introspection_enabled": true
+  },
+  "analytics": {
+    "real_time_processing": true,
+    "machine_learning": true,
+    "predictive_analytics": true
+  }
+}

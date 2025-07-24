@@ -1,0 +1,7 @@
+{
+  "target_response_time_ms": 150,
+  "caching_enabled": true,
+  "compression_enabled": true,
+  "minification_enabled": true,
+  "cdn_optimization": true
+}

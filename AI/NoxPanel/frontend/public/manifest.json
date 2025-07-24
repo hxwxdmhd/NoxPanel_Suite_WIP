@@ -1,0 +1,65 @@
+{
+  "short_name": "NoxPanel",
+  "name": "NoxPanel - System Management Console",
+  "description": "Advanced system management and monitoring console",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#3498db",
+  "background_color": "#f8f9fa",
+  "orientation": "landscape-primary",
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View system dashboard",
+      "url": "/dashboard",
+      "icons": [{ "src": "/icons/dashboard-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Scripts",
+      "short_name": "Scripts",
+      "description": "Manage system scripts",
+      "url": "/scripts",
+      "icons": [{ "src": "/icons/scripts-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Monitoring",
+      "short_name": "Monitor",
+      "description": "System monitoring",
+      "url": "/monitoring",
+      "icons": [{ "src": "/icons/monitor-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}

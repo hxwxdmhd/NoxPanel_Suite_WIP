@@ -1,0 +1,40 @@
+{
+  "mfa": {
+    "enabled": true,
+    "methods": [
+      "TOTP",
+      "SMS",
+      "Hardware_Token"
+    ],
+    "enforcement": "MANDATORY",
+    "grace_period": 0
+  },
+  "rbac": {
+    "roles": {
+      "admin": [
+        "full_access",
+        "user_management",
+        "system_config"
+      ],
+      "operator": [
+        "read_access",
+        "basic_operations",
+        "monitoring"
+      ],
+      "viewer": [
+        "read_access",
+        "monitoring"
+      ]
+    },
+    "enforcement": "STRICT",
+    "audit_logging": true
+  },
+  "encryption": {
+    "data_at_rest": "AES-256-GCM",
+    "data_in_transit": "TLS_1.3",
+    "key_management": "HSM_BACKED",
+    "rotation_policy": "90_DAYS"
+  },
+  "compliance_level": "ENTERPRISE",
+  "implemented": "2025-07-18T11:44:15.759893"
+}

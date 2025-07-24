@@ -1,0 +1,93 @@
+{
+  "system": {
+    "name": "NoxPanel Unified",
+    "version": "6.0.0",
+    "port": 5004,
+    "host": "127.0.0.1",
+    "debug": false,
+    "auto_refresh": 30,
+    "default_theme": "gateway",
+    "secret_key": "noxpanel-unified-v6-enhanced"
+  },
+  "features": {
+    "vm_manager": {
+      "enabled": true,
+      "priority": "high"
+    },
+    "proxy_manager": {
+      "enabled": true,
+      "priority": "high"
+    },
+    "script_runner": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "media_center": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "pi_monitor": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "setup_wizard": {
+      "enabled": true,
+      "priority": "high"
+    },
+    "analytics": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "security_center": {
+      "enabled": true,
+      "priority": "high"
+    },
+    "platform_switcher": {
+      "enabled": true,
+      "priority": "low"
+    },
+    "updates_manager": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "backup_manager": {
+      "enabled": true,
+      "priority": "medium"
+    },
+    "notifications": {
+      "enabled": true,
+      "priority": "low"
+    },
+    "api_docs": {
+      "enabled": true,
+      "priority": "low"
+    },
+    "ai_monitor": {
+      "enabled": true,
+      "priority": "high",
+      "auto_start": true,
+      "check_interval": 60,
+      "max_restart_attempts": 3
+    }
+  },
+  "paths": {
+    "data": "data",
+    "logs": "data/logs",
+    "templates": "templates",
+    "static": "static",
+    "config": "config",
+    "cache": "cache",
+    "uploads": "uploads"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "data/logs/noxpanel_unified.log",
+    "max_size": "10MB",
+    "backup_count": 5
+  },
+  "security": {
+    "csrf_protection": true,
+    "secure_cookies": false,
+    "session_timeout": 3600
+  }
+}

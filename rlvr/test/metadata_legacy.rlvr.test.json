@@ -1,0 +1,73 @@
+{
+  "module": "AI\\NoxPanel\\archive\\deprecated\\metadata_legacy.py",
+  "timestamp": "2025-07-18T11:02:46.380516",
+  "total_functions": 2,
+  "test_cases": [
+    {
+      "name": "test__find_egg_info_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "directory": "valid_directory"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test__find_egg_info_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "directory": "edge_directory"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test__find_egg_info_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "directory": "invalid_directory"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_generate_metadata_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "build_env": "valid_build_env",
+        "setup_py_path": "valid_setup_py_path",
+        "source_dir": "valid_source_dir",
+        "isolated": "valid_isolated",
+        "details": "valid_details"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_generate_metadata_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "build_env": "edge_build_env",
+        "setup_py_path": "edge_setup_py_path",
+        "source_dir": "edge_source_dir",
+        "isolated": "edge_isolated",
+        "details": "edge_details"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_generate_metadata_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "build_env": "invalid_build_env",
+        "setup_py_path": "invalid_setup_py_path",
+        "source_dir": "invalid_source_dir",
+        "isolated": "invalid_isolated",
+        "details": "invalid_details"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

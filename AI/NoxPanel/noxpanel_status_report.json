@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-07-14T22:15:03.484832",
+  "base_url": "http://127.0.0.1:5002",
+  "test_results": [
+    {
+      "endpoint": "/",
+      "url": "http://127.0.0.1:5002/",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "response_size": 4589
+    },
+    {
+      "endpoint": "/health",
+      "url": "http://127.0.0.1:5002/health",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "application/json",
+      "response_size": 194
+    },
+    {
+      "endpoint": "/knowledge",
+      "url": "http://127.0.0.1:5002/knowledge",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "response_size": 3345
+    },
+    {
+      "endpoint": "/admin",
+      "url": "http://127.0.0.1:5002/admin",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "response_size": 3294
+    },
+    {
+      "endpoint": "/ai-features",
+      "url": "http://127.0.0.1:5002/ai-features",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "response_size": 3318
+    },
+    {
+      "endpoint": "/api/models",
+      "url": "http://127.0.0.1:5002/api/models",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "application/json",
+      "response_size": 282
+    },
+    {
+      "endpoint": "/api/chat/status",
+      "url": "http://127.0.0.1:5002/api/chat/status",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "application/json",
+      "response_size": 121
+    },
+    {
+      "endpoint": "/api/health",
+      "url": "http://127.0.0.1:5002/api/health",
+      "status_code": 200,
+      "status": "OK",
+      "content_type": "application/json",
+      "response_size": 177
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Heimnetz/NoxPanel/NoxGuard Suite v8.0 - AI & Network Enhanced</title>
+    
+    <!-- Enhanced CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/enhanced-themes.css" rel="stylesheet">
+    <link href="/static/css/visual-enhancements.css" rel="stylesheet">
+    <link href="/static/css/ultimate-dashboard-v8.css" rel="stylesheet">
+    
+    <!-- Chart.js for network visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    
+    <!-- PWA Meta -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#6366f1">
+</head>
+<body>
+    <!-- Enhanced Header with AI & Network Status -->
+    <header class="header-glass">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-0">
+                        <i class="fas fa-brain text-primary me-2"></i>
+                        Ultimate Suite v8.0
+                        <span class="badge bg-gradient-primary ms-2">AI Enhanced</span>
+                    </h1>
+                    <small class="text-muted">Heimnetz • NoxPanel • NoxGuard with Advanced AI & Network Features</small>
+                </div>
+                <div class="col-md-6 text-end">
+                    <!-- AI Status Indicator -->
+                    <div class="d-inline-block me-3">
+                        <span class="badge bg-success" id="ai-status">
+                            <i class="fas fa-robot me-1"></i>
+                            AI: <span id="ai-models-count">0</span> Models
+                        </span>
+                    </div>
+                    
+                    <!-- Network Status Indicator -->
+                    <div class="d-inline-block me-3">
+                        <span class="badge bg-info" id="network-status">
+                            <i class="fas fa-network-wired me-1"></i>
+                            Network: <span id="devices-count">0</span> Devices
+                        </span>
+                    </div>
+                    
+                    <!-- Theme Controls -->
+                    <div class="theme-controls-header">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown">
+                                <i class="fas fa-palette me-1"></i> Themes
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><button class="dropdown-item" onclick="setTheme('light')"><i class="fas fa-sun me-2"></i>Light</button></li>
+                                <li><button class="dropdown-item" onclick="setTheme('dark')"><i class="fas fa-moon me-2"></i>Dark</button></li>
+                                <li><button class="dropdown-item" onclick="setTheme('purple')"><i class="fas fa-star me-2"></i>Purple</button></li>
+                                <li><button class="dropdown-item" onclick="setTheme('purple-dark')"><i class="fas fa-star-half-alt me-2"></i>Purple Dark</button></li>
+                                <li><button class="dropdown-item" onclick="setTheme('purple-light')"><i class="fas fa-sparkles me-2"></i>Purple Light</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-fluid mt-4">
+        
+        <!-- Enhanced Status Cards Row -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card status-card ai-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-title text-muted mb-1">AI Models</h6>
+                                <h3 class="mb-0" id="total-ai-models">Loading...</h3>
+                            </div>
+                            <div class="status-icon">
+                                <i class="fas fa-robot fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <small class="text-success">
+                            <i class="fas fa-arrow-up me-1"></i>
+                            <span id="ai-status-text">Initializing...</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card status-card network-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-title text-muted mb-1">Network Devices</h6>
+                                <h3 class="mb-0" id="total-devices">Loading...</h3>
+                            </div>
+                            <div class="status-icon">
+                                <i class="fas fa-network-wired fa-2x text-info"></i>
+                            </div>
+                        </div>
+                        <small class="text-info">
+                            <i class="fas fa-sync-alt me-1"></i>
+                            <span id="network-status-text">Scanning...</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card status-card security-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-title text-muted mb-1">Security Score</h6>
+                                <h3 class="mb-0" id="security-score">Loading...</h3>
+                            </div>
+                            <div class="status-icon">
+                                <i class="fas fa-shield-alt fa-2x text-success"></i>
+                            </div>
+                        </div>
+                        <small class="text-success">
+                            <i class="fas fa-check me-1"></i>
+                            <span id="security-status-text">Protected</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card status-card vulnerability-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-title text-muted mb-1">Vulnerabilities</h6>
+                                <h3 class="mb-0" id="vulnerability-count">Loading...</h3>
+                            </div>
+                            <div class="status-icon">
+                                <i class="fas fa-exclamation-triangle fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                        <small class="text-warning">
+                            <i class="fas fa-eye me-1"></i>
+                            <span id="vulnerability-status-text">Monitoring</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Main Content Grid -->
+        <div class="row">
+            <!-- AI Chat Interface -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-comments me-2 text-primary"></i>AI Assistant</h5>
+                        <div class="btn-group btn-group-sm">
+                            <select class="form-select form-select-sm" id="ai-model-select" style="width: auto;">
+                                <option value="">Select AI Model...</option>
+                            </select>
+                            <button class="btn btn-primary btn-sm" onclick="refreshAIModels()">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="chat-container flex-grow-1 mb-3" id="chat-container">
+                            <div class="chat-message system-message">
+                                <i class="fas fa-robot me-2"></i>
+                                <strong>AI Assistant:</strong> Hello! I'm your enhanced AI assistant with access to multiple language models. I can analyze your network, provide security insights, and help with various tasks. How can I help you today?
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="ai-prompt" placeholder="Ask me anything about your network, security, or get AI assistance...">
+                            <button class="btn btn-primary" type="button" onclick="sendAIQuery()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Network Visualization -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-sitemap me-2 text-info"></i>Network Topology</h5>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-info btn-sm" onclick="performComprehensiveScan()">
+                                <i class="fas fa-search-plus me-1"></i>Deep Scan
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="refreshNetworkData()">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="network-topology" class="network-visualization">
+                            <!-- Network topology will be rendered here -->
+                        </div>
+                        <div class="mt-3">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <span class="badge bg-success">Online</span>
+                                    <div class="fw-bold" id="online-devices">-</div>
+                                </div>
+                                <div class="col-4">
+                                    <span class="badge bg-warning">Services</span>
+                                    <div class="fw-bold" id="total-services">-</div>
+                                </div>
+                                <div class="col-4">
+                                    <span class="badge bg-danger">Risks</span>
+                                    <div class="fw-bold" id="security-risks">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Device List and Security Analysis -->
+        <div class="row">
+            <!-- Device List with Enhanced Details -->
+            <div class="col-lg-8 mb-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-list me-2 text-primary"></i>Network Devices</h5>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-primary btn-sm" onclick="exportDeviceList()">
+                                <i class="fas fa-download me-1"></i>Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="devices-table">
+                                <thead>
+                                    <tr>
+                                        <th>IP Address</th>
+                                        <th>Hostname</th>
+                                        <th>Device Type</th>
+                                        <th>Services</th>
+                                        <th>Security Score</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="devices-list">
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Loading devices...</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Security Analysis Panel -->
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-brain me-2 text-warning"></i>AI Security Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="ai-analysis-container">
+                            <div class="text-center">
+                                <div class="spinner-border text-warning" role="status">
+                                    <span class="visually-hidden">Analyzing network...</span>
+                                </div>
+                                <p class="mt-2 text-muted">AI is analyzing your network security...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Panel -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-sm" onclick="quickNetworkScan()">
+                                <i class="fas fa-search me-1"></i>Quick Network Scan
+                            </button>
+                            <button class="btn btn-outline-warning btn-sm" onclick="securityAudit()">
+                                <i class="fas fa-shield-alt me-1"></i>Security Audit
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="generateReport()">
+                                <i class="fas fa-file-alt me-1"></i>Generate Report
+                            </button>
+                            <button class="btn btn-outline-success btn-sm" onclick="optimizeNetwork()">
+                                <i class="fas fa-cogs me-1"></i>AI Optimization
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Interface Navigation -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-th-large me-2"></i>Suite Interfaces</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-3">
+                                <div class="interface-card" onclick="loadInterface('noxpanel')">
+                                    <i class="fas fa-robot fa-3x text-primary mb-2"></i>
+                                    <h6>NoxPanel</h6>
+                                    <small class="text-muted">AI Model Management</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="interface-card" onclick="loadInterface('heimnetz')">
+                                    <i class="fas fa-network-wired fa-3x text-info mb-2"></i>
+                                    <h6>Heimnetz</h6>
+                                    <small class="text-muted">Network Management</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="interface-card" onclick="loadInterface('noxguard')">
+                                    <i class="fas fa-shield-alt fa-3x text-success mb-2"></i>
+                                    <h6>NoxGuard</h6>
+                                    <small class="text-muted">Security Suite</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="interface-card" onclick="loadInterface('analytics')">
+                                    <i class="fas fa-chart-line fa-3x text-warning mb-2"></i>
+                                    <h6>Analytics</h6>
+                                    <small class="text-muted">AI-Powered Insights</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Enhanced JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/enhanced-theme-manager.js"></script>
+    <script src="/static/js/ultimate-suite-v8.js"></script>
+    
+    <!-- AI & Network Enhanced Features -->
+    <script>
+        // Global state
+        let aiModels = [];
+        let networkDevices = [];
+        let currentTheme = localStorage.getItem('theme') || 'purple';
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Ultimate Suite v8.0 - AI & Network Enhanced - Initializing...');
+            
+            // Apply saved theme
+            setTheme(currentTheme);
+            
+            // Load initial data
+            loadAIModels();
+            loadNetworkDevices();
+            loadSecurityStatus();
+            
+            // Setup auto-refresh
+            setInterval(refreshDashboard, 30000); // Every 30 seconds
+            
+            console.log('✅ Ultimate Suite v8.0 initialized successfully');
+        });
+        
+        // Enhanced AI Functions
+        async function loadAIModels() {
+            try {
+                const response = await fetch('/api/models');
+                const data = await response.json();
+                
+                aiModels = data.models || [];
+                updateAIStatus(aiModels);
+                populateAIModelSelect(aiModels);
+                
+                document.getElementById('total-ai-models').textContent = aiModels.length;
+                document.getElementById('ai-models-count').textContent = aiModels.length;
+                document.getElementById('ai-status-text').textContent = `${aiModels.filter(m => m.status === 'ready').length} Active`;
+                
+            } catch (error) {
+                console.error('Failed to load AI models:', error);
+                document.getElementById('ai-status-text').textContent = 'Error loading models';
+            }
+        }
+        
+        function populateAIModelSelect(models) {
+            const select = document.getElementById('ai-model-select');
+            select.innerHTML = '<option value="">Select AI Model...</option>';
+            
+            models.forEach(model => {
+                if (model.status === 'ready') {
+                    const option = document.createElement('option');
+                    option.value = model.id;
+                    option.textContent = `${model.name} (${model.provider})`;
+                    select.appendChild(option);
+                }
+            });
+        }
+        
+        async function sendAIQuery() {
+            const promptInput = document.getElementById('ai-prompt');
+            const modelSelect = document.getElementById('ai-model-select');
+            const chatContainer = document.getElementById('chat-container');
+            
+            const prompt = promptInput.value.trim();
+            const selectedModel = modelSelect.value;
+            
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+            
+            if (!selectedModel) {
+                alert('Please select an AI model');
+                return;
+            }
+            
+            // Add user message to chat
+            addChatMessage('user', prompt);
+            promptInput.value = '';
+            
+            // Add loading message
+            const loadingDiv = addChatMessage('assistant', 'Thinking...');
+            loadingDiv.classList.add('loading-message');
+            
+            try {
+                const response = await fetch('/api/ai/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        model: selectedModel,
+                        prompt: prompt,
+                        context: 'Network management and security analysis context'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // Remove loading message
+                loadingDiv.remove();
+                
+                if (data.error) {
+                    addChatMessage('assistant', `Error: ${data.error}`);
+                } else {
+                    addChatMessage('assistant', data.response);
+                }
+                
+            } catch (error) {
+                loadingDiv.remove();
+                addChatMessage('assistant', `Error: ${error.message}`);
+            }
+        }
+        
+        function addChatMessage(type, message) {
+            const chatContainer = document.getElementById('chat-container');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${type}-message`;
+            
+            if (type === 'user') {
+                messageDiv.innerHTML = `<i class="fas fa-user me-2"></i><strong>You:</strong> ${message}`;
+            } else {
+                messageDiv.innerHTML = `<i class="fas fa-robot me-2"></i><strong>AI:</strong> ${message}`;
+            }
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            return messageDiv;
+        }
+        
+        // Enhanced Network Functions
+        async function loadNetworkDevices() {
+            try {
+                const response = await fetch('/api/network/devices');
+                const data = await response.json();
+                
+                networkDevices = data.devices || [];
+                updateNetworkStatus(networkDevices);
+                updateDevicesTable(networkDevices);
+                updateNetworkVisualization(networkDevices);
+                
+                document.getElementById('total-devices').textContent = networkDevices.length;
+                document.getElementById('devices-count').textContent = networkDevices.length;
+                document.getElementById('network-status-text').textContent = `${networkDevices.length} devices found`;
+                
+            } catch (error) {
+                console.error('Failed to load network devices:', error);
+                document.getElementById('network-status-text').textContent = 'Scan failed';
+            }
+        }
+        
+        async function performComprehensiveScan() {
+            document.getElementById('network-status-text').textContent = 'Deep scanning...';
+            
+            try {
+                const response = await fetch('/api/network/scan');
+                const data = await response.json();
+                
+                networkDevices = data.devices || [];
+                updateDevicesTable(networkDevices);
+                updateNetworkVisualization(networkDevices);
+                
+                // Update AI analysis if available
+                if (data.ai_analysis) {
+                    updateAIAnalysis(data.ai_analysis);
+                }
+                
+                // Update statistics
+                if (data.statistics) {
+                    updateSecurityStatistics(data.statistics);
+                }
+                
+                document.getElementById('network-status-text').textContent = 'Deep scan completed';
+                
+            } catch (error) {
+                console.error('Comprehensive scan failed:', error);
+                document.getElementById('network-status-text').textContent = 'Deep scan failed';
+            }
+        }
+        
+        function updateDevicesTable(devices) {
+            const tbody = document.getElementById('devices-list');
+            tbody.innerHTML = '';
+            
+            if (devices.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No devices found</td></tr>';
+                return;
+            }
+            
+            devices.forEach(device => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <span class="text-primary fw-bold">${device.ip}</span>
+                        <br><small class="text-muted">${device.mac_address || 'Unknown'}</small>
+                    </td>
+                    <td>${device.hostname || 'Unknown'}</td>
+                    <td>
+                        <span class="badge bg-info">${device.device_type || 'Unknown'}</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-secondary">${(device.services && Object.keys(device.services).length) || 0} Services</span>
+                        ${device.open_ports ? `<br><small class="text-muted">${device.open_ports.length} ports</small>` : ''}
+                    </td>
+                    <td>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar ${getSecurityScoreColor(device.security_score || 50)}" 
+                                 style="width: ${device.security_score || 50}%">
+                                ${device.security_score || 50}%
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" onclick="analyzeDevice('${device.ip}')">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function getSecurityScoreColor(score) {
+            if (score >= 80) return 'bg-success';
+            if (score >= 60) return 'bg-warning';
+            return 'bg-danger';
+        }
+        
+        function updateNetworkVisualization(devices) {
+            const container = document.getElementById('network-topology');
+            container.innerHTML = '';
+            
+            // Simple network visualization
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', '100%')
+                .attr('height', '300px');
+                
+            // Add network nodes
+            const nodes = devices.map((device, index) => ({
+                id: device.ip,
+                name: device.hostname || device.ip,
+                type: device.device_type || 'unknown',
+                x: Math.random() * 400 + 50,
+                y: Math.random() * 200 + 50
+            }));
+            
+            // Draw connections
+            svg.selectAll('line')
+                .data(nodes.slice(1))
+                .enter()
+                .append('line')
+                .attr('x1', nodes[0].x)
+                .attr('y1', nodes[0].y)
+                .attr('x2', d => d.x)
+                .attr('y2', d => d.y)
+                .attr('stroke', '#6366f1')
+                .attr('stroke-width', 2)
+                .attr('opacity', 0.3);
+                
+            // Draw nodes
+            svg.selectAll('circle')
+                .data(nodes)
+                .enter()
+                .append('circle')
+                .attr('cx', d => d.x)
+                .attr('cy', d => d.y)
+                .attr('r', 15)
+                .attr('fill', d => getDeviceColor(d.type))
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 2);
+                
+            // Add labels
+            svg.selectAll('text')
+                .data(nodes)
+                .enter()
+                .append('text')
+                .attr('x', d => d.x)
+                .attr('y', d => d.y + 25)
+                .attr('text-anchor', 'middle')
+                .attr('font-size', '10px')
+                .attr('fill', '#333')
+                .text(d => d.name);
+                
+            // Update statistics
+            document.getElementById('online-devices').textContent = devices.length;
+            document.getElementById('total-services').textContent = devices.reduce((sum, d) => sum + (d.services ? Object.keys(d.services).length : 0), 0);
+            document.getElementById('security-risks').textContent = devices.filter(d => (d.security_score || 50) < 60).length;
+        }
+        
+        function getDeviceColor(type) {
+            const colors = {
+                'router': '#f59e0b',
+                'server': '#10b981',
+                'computer': '#3b82f6',
+                'mobile': '#8b5cf6',
+                'iot': '#ef4444',
+                'unknown': '#6b7280'
+            };
+            return colors[type] || colors.unknown;
+        }
+        
+        function updateAIAnalysis(analysis) {
+            const container = document.getElementById('ai-analysis-container');
+            container.innerHTML = `
+                <div class="ai-analysis">
+                    <h6 class="text-warning mb-3">
+                        <i class="fas fa-brain me-2"></i>
+                        AI Analysis (${analysis.model_used})
+                    </h6>
+                    <div class="analysis-content">
+                        ${analysis.analysis}
+                    </div>
+                    <small class="text-muted mt-2 d-block">
+                        Confidence: ${analysis.confidence} | ${new Date(analysis.timestamp).toLocaleString()}
+                    </small>
+                </div>
+            `;
+        }
+        
+        // Enhanced Security Functions
+        async function loadSecurityStatus() {
+            try {
+                const response = await fetch('/api/security/status');
+                const data = await response.json();
+                
+                document.getElementById('security-score').textContent = data.overall_score || 0;
+                document.getElementById('vulnerability-count').textContent = data.vulnerability_scan?.vulnerabilities_found || 0;
+                document.getElementById('security-status-text').textContent = 'All systems protected';
+                
+            } catch (error) {
+                console.error('Failed to load security status:', error);
+                document.getElementById('security-status-text').textContent = 'Status unknown';
+            }
+        }
+        
+        // Utility Functions
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+            currentTheme = themeName;
+            
+            // Update theme dropdown
+            const dropdownItems = document.querySelectorAll('#themeDropdown + .dropdown-menu .dropdown-item');
+            dropdownItems.forEach(item => item.classList.remove('active'));
+            
+            const activeItem = Array.from(dropdownItems).find(item => 
+                item.onclick.toString().includes(`'${themeName}'`)
+            );
+            if (activeItem) activeItem.classList.add('active');
+        }
+        
+        function refreshDashboard() {
+            loadAIModels();
+            loadNetworkDevices();
+            loadSecurityStatus();
+        }
+        
+        function refreshAIModels() {
+            loadAIModels();
+        }
+        
+        function refreshNetworkData() {
+            loadNetworkDevices();
+        }
+        
+        // Quick Action Functions
+        function quickNetworkScan() {
+            loadNetworkDevices();
+        }
+        
+        function securityAudit() {
+            alert('Security audit initiated - this would perform a comprehensive security check');
+        }
+        
+        function generateReport() {
+            alert('Report generation - this would create a detailed network and security report');
+        }
+        
+        function optimizeNetwork() {
+            alert('AI Optimization - this would use AI to suggest network optimizations');
+        }
+        
+        function analyzeDevice(ip) {
+            alert(`Device analysis for ${ip} - this would show detailed device information`);
+        }
+        
+        function exportDeviceList() {
+            const csv = convertDevicesToCSV(networkDevices);
+            downloadCSV(csv, 'network-devices.csv');
+        }
+        
+        function convertDevicesToCSV(devices) {
+            const headers = ['IP Address', 'Hostname', 'Device Type', 'MAC Address', 'Status'];
+            const rows = devices.map(device => [
+                device.ip,
+                device.hostname || 'Unknown',
+                device.device_type || 'Unknown',
+                device.mac_address || 'Unknown',
+                device.status || 'Unknown'
+            ]);
+            
+            return [headers, ...rows].map(row => row.join(',')).join('\n');
+        }
+        
+        function downloadCSV(csv, filename) {
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', filename);
+            a.click();
+        }
+        
+        function loadInterface(interfaceName) {
+            console.log(`Loading ${interfaceName} interface...`);
+            // This would load specific interface components
+            alert(`Loading ${interfaceName} interface - this would show the specialized interface`);
+        }
+        
+        // Enhanced keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey) {
+                switch(e.key) {
+                    case 'r':
+                        e.preventDefault();
+                        refreshDashboard();
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        document.getElementById('ai-prompt').focus();
+                        break;
+                    case 'n':
+                        e.preventDefault();
+                        performComprehensiveScan();
+                        break;
+                }
+            }
+        });
+        
+        // Enhanced Enter key support for AI chat
+        document.getElementById('ai-prompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendAIQuery();
+            }
+        });
+    </script>
+</body>
+</html>

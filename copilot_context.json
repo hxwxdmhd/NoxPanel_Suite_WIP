@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-07-18T17:47:09.933231",
+  "copilot_mode": "COMPLIANCE_ENFORCED",
+  "system_status": {
+    "phase": "audit_2_preparation",
+    "compliance_score": 100,
+    "violations": 18,
+    "server_status": "OPERATIONAL"
+  },
+  "architectural_boundaries": {
+    "enforce_single_server": true,
+    "prevent_competing_implementations": true,
+    "validate_against_merge_plan": true,
+    "require_audit_compliance": true
+  },
+  "validation_rules": {
+    "before_file_creation": [
+      "check_for_competing_implementations",
+      "validate_architectural_compliance",
+      "verify_audit_phase_permissions"
+    ],
+    "before_feature_implementation": [
+      "check_feature_lock_status",
+      "validate_current_phase_permissions",
+      "verify_merge_plan_compliance"
+    ]
+  },
+  "prompt_injection": {
+    "prefix": "[U.A.C.M.S. ACTIVE] Current Phase: audit_2_preparation | Compliance: 100% | Violations: 18",
+    "architectural_context": "3 unified files architecture enforced",
+    "locked_features": [
+      "tts_voice_assistant",
+      "llm_integration",
+      "analytics_panel",
+      "advanced_rtc"
+    ],
+    "available_operations": [
+      "feature_enhancement_within_phase",
+      "bug_fixes",
+      "performance_optimization",
+      "documentation_updates",
+      "test_improvements",
+      "plugin_architecture_development",
+      "api_endpoint_creation",
+      "security_validation_setup",
+      "performance_benchmarking"
+    ]
+  },
+  "fail_safe_triggers": [
+    "new_server_creation",
+    "competing_implementations",
+    "locked_feature_implementation",
+    "architectural_violations"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "automation": {
+    "enabled": true,
+    "auto_deploy": false,
+    "monitoring_interval": 60,
+    "backup_enabled": true,
+    "rollback_enabled": true
+  },
+  "containers": {
+    "docker_enabled": true,
+    "k8s_enabled": false,
+    "registry": "localhost:5000",
+    "default_namespace": "noxpanel"
+  },
+  "monitoring": {
+    "prometheus_enabled": false,
+    "grafana_enabled": false,
+    "alert_thresholds": {
+      "cpu_threshold": 80.0,
+      "memory_threshold": 85.0,
+      "disk_threshold": 90.0
+    }
+  },
+  "ci_cd": {
+    "git_integration": true,
+    "auto_test": true,
+    "auto_build": false,
+    "deployment_strategy": "rolling"
+  }
+}

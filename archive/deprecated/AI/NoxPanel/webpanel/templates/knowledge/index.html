@@ -1,0 +1,717 @@
+{% extends "base.html" %}
+
+{% block title %}Knowledge Management{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Enhanced Header with User Context -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="mb-2">
+                        <i class="fas fa-brain"></i> Knowledge Management
+                        <small class="text-muted">NoxPanel Documentation Hub</small>
+                    </h1>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-user"></i> Welcome back! 
+                        <span class="badge badge-success">Database Connected</span>
+                        <span class="badge badge-info">Authentication Active</span>
+                    </p>
+                </div>
+                <div class="text-right">
+                    <div class="small text-muted">
+                        Last updated: <span id="last-updated">{{ moment().format('HH:mm:ss') }}</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary" onclick="refreshStats()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Statistics Cards with Real-time Updates -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-gradient-primary text-white shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0" id="total-items">{{ stats.get('total_items', 0) }}</h4>
+                            <p class="mb-0">Total Items</p>
+                            <small class="opacity-75">
+                                +{{ stats.get('items_today', 0) }} today
+                            </small>
+                        </div>
+                        <div>
+                            <i class="fas fa-database fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-gradient-success text-white shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0" id="featured-items">{{ stats.get('featured_items', 0) }}</h4>
+                            <p class="mb-0">Featured</p>
+                            <small class="opacity-75">
+                                {{ ((stats.get('featured_items', 0) / (stats.get('total_items', 1) or 1)) * 100)|round(1) }}% of total
+                            </small>
+                        </div>
+                        <div>
+                            <i class="fas fa-star fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-gradient-info text-white shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0" id="total-tags">{{ stats.get('total_tags', 0) }}</h4>
+                            <p class="mb-0">Tags</p>
+                            <small class="opacity-75">
+                                Avg {{ ((stats.get('total_tags', 0) / (stats.get('total_items', 1) or 1))|round(1)) }} per item
+                            </small>
+                        </div>
+                        <div>
+                            <i class="fas fa-tags fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-gradient-warning text-white shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0" id="code-snippets">{{ (stats.get('by_type', {}).get('code', 0)) }}</h4>
+                            <p class="mb-0">Code Snippets</p>
+                            <small class="opacity-75">
+                                {{ stats.get('languages_count', 0) }} languages
+                            </small>
+                        </div>
+                        <div>
+                            <i class="fas fa-code fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Search and Actions with Database Features -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-search"></i> Advanced Search
+                        <small class="text-muted">- Database-powered indexing</small>
+                    </h5>
+                    <form method="GET" action="{{ url_for('knowledge.search') }}">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" name="q" 
+                                       placeholder="Search titles, content, and tags..." 
+                                       value="{{ request.args.get('q', '') }}"
+                                       autocomplete="off"
+                                       id="search-input">
+                                <div id="search-suggestions" class="dropdown-menu w-100" style="display: none;">
+                                    <!-- Dynamic suggestions will be populated here -->
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-control" name="type">
+                                    <option value="">All Types</option>
+                                    <option value="code">Code Snippets</option>
+                                    <option value="documentation">Documentation</option>
+                                    <option value="script">Scripts</option>
+                                    <option value="note">Notes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-control" name="language">
+                                    <option value="">All Languages</option>
+                                    {% for lang in stats.get('by_language', {}).keys() %}
+                                    <option value="{{ lang }}">{{ lang.title() }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="btn-group w-100">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="clearSearch()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="exact_match" id="exact-match">
+                                    <label class="form-check-label" for="exact-match">Exact match</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="include_content" id="include-content" checked>
+                                    <label class="form-check-label" for="include-content">Search content</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="featured_only" id="featured-only">
+                                    <label class="form-check-label" for="featured-only">Featured only</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-cogs"></i> Actions
+                        <small class="text-muted">- Authenticated access</small>
+                    </h5>
+                    <div class="btn-group-vertical w-100">
+                        <a href="{{ url_for('knowledge.add') }}" class="btn btn-success mb-2">
+                            <i class="fas fa-plus"></i> Add Item
+                        </a>
+                        <a href="{{ url_for('knowledge.import_conversations') }}" class="btn btn-info mb-2">
+                            <i class="fas fa-file-import"></i> Import Data
+                        </a>
+                        <a href="{{ url_for('knowledge.code_snippets') }}" class="btn btn-warning mb-2">
+                            <i class="fas fa-code"></i> Code Snippets
+                        </a>
+                        <a href="{{ url_for('knowledge.analytics') }}" class="btn btn-secondary">
+                            <i class="fas fa-chart-line"></i> Analytics
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Items -->
+    {% if featured_items %}
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-star text-warning"></i> Featured Items
+                    </h5>
+                    <div class="row">
+                        {% for item in featured_items %}
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ item.title }}</h6>
+                                    <p class="card-text">{{ item.content[:100] }}...</p>
+                                    <div class="mb-2">
+                                        {% for tag in item.tags %}
+                                        <span class="badge badge-secondary">{{ tag }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <a href="{{ url_for('knowledge.view_item', item_id=item.id) }}" 
+                                       class="btn btn-sm btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Recent Items -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-clock"></i> Recent Items
+                    </h5>
+                    {% if recent_items %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Language</th>
+                                    <th>Tags</th>
+                                    <th>Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in recent_items %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ item.title }}</strong>
+                                        {% if item.is_featured %}
+                                        <i class="fas fa-star text-warning ml-1"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-info">{{ item.content_type }}</span>
+                                    </td>
+                                    <td>
+                                        {% if item.language %}
+                                        <span class="badge badge-dark">{{ item.language }}</span>
+                                        {% else %}
+                                        <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% for tag in item.tags[:3] %}
+                                        <span class="badge badge-secondary">{{ tag }}</span>
+                                        {% endfor %}
+                                        {% if item.tags|length > 3 %}
+                                        <span class="text-muted">+{{ item.tags|length - 3 }} more</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-muted">
+                                        {{ moment(item.updated_at).fromNow() }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ url_for('knowledge.view_item', item_id=item.id) }}" 
+                                           class="btn btn-sm btn-outline-primary" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{{ url_for('knowledge.edit_item', item_id=item.id) }}" 
+                                           class="btn btn-sm btn-outline-secondary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No items found</h5>
+                        <p class="text-muted">Start building your knowledge base by adding your first item.</p>
+                        <a href="{{ url_for('knowledge.add') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Your First Item
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats by Language -->
+    {% if stats.get('by_language') %}
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-chart-bar"></i> Items by Language
+                    </h5>
+                    <div class="row">
+                        {% for language, count in stats.get('by_language', {}).items() %}
+                        <div class="col-md-2 col-sm-4 col-6 mb-2">
+                            <div class="text-center">
+                                <div class="h4 mb-0">{{ count }}</div>
+                                <small class="text-muted">{{ language.title() }}</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+/* Enhanced styles for Database & Authentication features */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.15s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Gradient backgrounds for stat cards */
+.bg-gradient-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(45deg, #ffc107, #e0a800);
+}
+
+/* Search suggestions dropdown */
+#search-suggestions {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-top: 2px;
+}
+
+#search-suggestions .dropdown-item {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search-suggestions .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+#search-suggestions .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+/* Enhanced badges */
+.badge {
+    font-size: 0.75em;
+    font-weight: 500;
+    padding: 0.375rem 0.5rem;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+}
+
+/* Table enhancements */
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.075);
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Opacity utilities */
+.opacity-75 {
+    opacity: 0.75;
+}
+
+/* Enhanced form controls */
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button group enhancements */
+.btn-group-vertical .btn {
+    border-radius: 0.25rem !important;
+    margin-bottom: 0.5rem;
+}
+
+.btn-group-vertical .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* Animation for stat updates */
+@keyframes countUp {
+    from { transform: scale(0.8); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.stat-update {
+    animation: countUp 0.3s ease-out;
+}
+
+/* Enhanced search input */
+#search-input {
+    position: relative;
+}
+
+/* Loading spinner */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .card-body h4 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-group-vertical .btn {
+        margin-bottom: 0.25rem;
+    }
+    
+    #search-suggestions {
+        position: fixed;
+        left: 15px;
+        right: 15px;
+        top: auto;
+    }
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.status-connected {
+    background-color: #28a745;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.3);
+}
+
+.status-authenticated {
+    background-color: #17a2b8;
+    box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.3);
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Enhanced JavaScript with Database & Authentication Features
+
+let statsUpdateInterval;
+let searchTimeout;
+
+// Real-time stats updates using authenticated API
+function refreshStats() {
+    const lastUpdatedEl = document.getElementById('last-updated');
+    lastUpdatedEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    
+    fetch('/api/knowledge/stats', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            // Authentication headers handled automatically by session
+        },
+        credentials: 'include'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Update stats cards with animation
+        updateStatCard('total-items', data.total_items || 0);
+        updateStatCard('featured-items', data.featured_items || 0);
+        updateStatCard('total-tags', data.total_tags || 0);
+        updateStatCard('code-snippets', data.by_type?.code || 0);
+        
+        lastUpdatedEl.textContent = new Date().toLocaleTimeString();
+        
+        // Show success feedback
+        showNotification('Stats updated successfully', 'success');
+    })
+    .catch(error => {
+        console.error('Error updating stats:', error);
+        lastUpdatedEl.textContent = 'Error updating';
+        showNotification('Failed to update stats', 'error');
+    });
+}
+
+// Animated counter for stat cards
+function updateStatCard(elementId, newValue) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    const currentValue = parseInt(element.textContent) || 0;
+    if (currentValue === newValue) return;
+    
+    const duration = 1000; // 1 second
+    const steps = 20;
+    const stepValue = (newValue - currentValue) / steps;
+    const stepDuration = duration / steps;
+    
+    let step = 0;
+    const interval = setInterval(() => {
+        step++;
+        const value = Math.round(currentValue + (stepValue * step));
+        element.textContent = value;
+        
+        if (step >= steps) {
+            clearInterval(interval);
+            element.textContent = newValue;
+        }
+    }, stepDuration);
+}
+
+// Advanced search with suggestions
+function setupAdvancedSearch() {
+    const searchInput = document.getElementById('search-input');
+    const suggestionsEl = document.getElementById('search-suggestions');
+    
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        const query = this.value.trim();
+        
+        if (query.length < 2) {
+            suggestionsEl.style.display = 'none';
+            return;
+        }
+        
+        searchTimeout = setTimeout(() => {
+            fetchSearchSuggestions(query);
+        }, 300);
+    });
+    
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionsEl.contains(e.target)) {
+            suggestionsEl.style.display = 'none';
+        }
+    });
+}
+
+// Fetch search suggestions from database
+function fetchSearchSuggestions(query) {
+    fetch(`/api/knowledge/suggestions?q=${encodeURIComponent(query)}`, {
+        credentials: 'include'
+    })
+    .then(response => response.json())
+    .then(data => {
+        displaySuggestions(data.suggestions || []);
+    })
+    .catch(error => {
+        console.error('Error fetching suggestions:', error);
+    });
+}
+
+// Display search suggestions
+function displaySuggestions(suggestions) {
+    const suggestionsEl = document.getElementById('search-suggestions');
+    
+    if (suggestions.length === 0) {
+        suggestionsEl.style.display = 'none';
+        return;
+    }
+    
+    suggestionsEl.innerHTML = suggestions.map(suggestion => 
+        `<a class="dropdown-item" href="#" onclick="selectSuggestion('${suggestion.text}', '${suggestion.type}')">
+            <i class="fas fa-${suggestion.icon}"></i> ${suggestion.text}
+            <small class="text-muted">${suggestion.type}</small>
+        </a>`
+    ).join('');
+    
+    suggestionsEl.style.display = 'block';
+}
+
+// Select a search suggestion
+function selectSuggestion(text, type) {
+    document.getElementById('search-input').value = text;
+    if (type) {
+        document.querySelector('[name="type"]').value = type;
+    }
+    document.getElementById('search-suggestions').style.display = 'none';
+}
+
+// Clear search form
+function clearSearch() {
+    document.getElementById('search-input').value = '';
+    document.querySelector('[name="type"]').value = '';
+    document.querySelector('[name="language"]').value = '';
+    document.getElementById('exact-match').checked = false;
+    document.getElementById('include-content').checked = true;
+    document.getElementById('featured-only').checked = false;
+    document.getElementById('search-suggestions').style.display = 'none';
+}
+
+// Show notification messages
+function showNotification(message, type = 'info') {
+    const alertClass = type === 'error' ? 'alert-danger' : 
+                      type === 'success' ? 'alert-success' : 'alert-info';
+    
+    const notification = document.createElement('div');
+    notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+    notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    notification.innerHTML = `
+        ${message}
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 5000);
+}
+
+// Initialize enhanced features when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+    setupAdvancedSearch();
+    
+    // Auto-refresh stats every 30 seconds
+    statsUpdateInterval = setInterval(refreshStats, 30000);
+    
+    // Initial stats load
+    setTimeout(refreshStats, 1000);
+});
+
+// Clean up intervals when page unloads
+window.addEventListener('beforeunload', function() {
+    if (statsUpdateInterval) {
+        clearInterval(statsUpdateInterval);
+    }
+});
+</script>
+{% endblock %}

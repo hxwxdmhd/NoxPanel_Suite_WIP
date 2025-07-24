@@ -1,0 +1,21 @@
+{
+  "zero_trust": {
+    "never_trust_always_verify": true,
+    "least_privilege_access": true,
+    "assume_breach": true,
+    "verify_explicitly": true,
+    "continuous_monitoring": true
+  },
+  "network_segmentation": {
+    "micro_segmentation": true,
+    "network_policies": "STRICT",
+    "traffic_encryption": "END_TO_END",
+    "access_control": "GRANULAR"
+  },
+  "iam": {
+    "identity_verification": "MULTI_FACTOR",
+    "device_trust": "CERTIFICATE_BASED",
+    "conditional_access": true,
+    "risk_assessment": "CONTINUOUS"
+  }
+}

@@ -1,0 +1,541 @@
+import os
+import sys
+import logging
+from pathlib import Path
+from flask import Flask, render_template, request, jsonify, Blueprint
+from flask_cors import CORS
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from noxcore.runner import run_script
+from noxcore.auth import auth_required, create_user, verify_user
+from dotenv import load_dotenv
+import secrets
+
+# Add chatbot integration
+try:
+    from webpanel.chatbot import register_chatbot_routes
+    CHATBOT_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Chatbot module not available: {e}")
+    CHATBOT_AVAILABLE = False
+
+# Add model detection
+try:
+    from noxcore.model_detector import ModelDetector
+    MODEL_DETECTION_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Model detection not available: {e}")
+    MODEL_DETECTION_AVAILABLE = False
+
+# Add models API (direct routes instead of blueprint)
+try:
+    from webpanel.models_direct import register_models_api
+    MODELS_DIRECT_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Direct models API not available: {e}")
+    MODELS_DIRECT_AVAILABLE = False
+
+# Add AI monitor API
+try:
+    from webpanel.ai_monitor_direct import register_ai_monitor_direct_routes
+    AI_MONITOR_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"AI monitor API not available: {e}")
+    AI_MONITOR_AVAILABLE = False
+
+# Add admin panel
+try:
+    from webpanel.admin_blueprint import admin_bp
+    ADMIN_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Admin panel not available: {e}")
+    ADMIN_AVAILABLE = False
+
+# Add job scheduler
+try:
+    from webpanel.job_scheduler import scheduler_bp
+    SCHEDULER_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Job scheduler not available: {e}")
+    SCHEDULER_AVAILABLE = False
+
+# Add plugin loader
+try:
+    from webpanel.plugin_loader import plugin_bp
+    PLUGIN_LOADER_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Plugin loader not available: {e}")
+    PLUGIN_LOADER_AVAILABLE = False
+
+load_dotenv()
+
+# Ensure log directory exists
+log_dir = Path("data/logs")
+log_dir.mkdir(parents=True, exist_ok=True)
+
+# Configure logging
+logging.basicConfig(
+    level=getattr(logging, os.getenv("LOG_LEVEL", "INFO")),
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("data/logs/noxpanel.log"),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
+SCRIPTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../scripts"))
+
+app = Flask(__name__, template_folder="templates", static_folder="static")
+app.secret_key = os.getenv("SECRET_KEY", secrets.token_hex(32))
+
+# CORS configuration
+CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:3000"])
+
+# Register blueprints
+if ADMIN_AVAILABLE:
+    try:
+        app.register_blueprint(admin_bp)
+        logger.info("✅ Admin panel blueprint registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register admin blueprint: {e}")
+        ADMIN_AVAILABLE = False
+
+if SCHEDULER_AVAILABLE:
+    try:
+        app.register_blueprint(scheduler_bp)
+        logger.info("✅ Job scheduler blueprint registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register scheduler blueprint: {e}")
+        SCHEDULER_AVAILABLE = False
+
+if PLUGIN_LOADER_AVAILABLE:
+    try:
+        app.register_blueprint(plugin_bp)
+        logger.info("✅ Plugin loader blueprint registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register plugin blueprint: {e}")
+        PLUGIN_LOADER_AVAILABLE = False
+
+# Register AI modules if available
+if CHATBOT_AVAILABLE:
+    try:
+        register_chatbot_routes(app)
+        logger.info("✅ Chatbot routes registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register chatbot routes: {e}")
+        CHATBOT_AVAILABLE = False
+
+if MODELS_DIRECT_AVAILABLE:
+    try:
+        register_models_api(app)
+        logger.info("✅ Models API routes registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register models API routes: {e}")
+        MODELS_DIRECT_AVAILABLE = False
+
+if AI_MONITOR_AVAILABLE:
+    try:
+        from webpanel.ai_monitor_simple import register_ai_monitor_direct_routes
+        register_ai_monitor_direct_routes(app)
+        logger.info("✅ AI Monitor API routes registered successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to register AI monitor API routes: {e}")
+        import traceback
+        logger.error(f"Full error: {traceback.format_exc()}")
+        AI_MONITOR_AVAILABLE = False
+
+# Log available features
+logger.info(f"🤖 AI Features Status:")
+logger.info(f"   • Chatbot: {'✅ Available' if CHATBOT_AVAILABLE else '❌ Disabled'}")
+logger.info(f"   • Models API: {'✅ Available' if MODELS_DIRECT_AVAILABLE else '❌ Disabled'}")
+logger.info(f"   • AI Monitor: {'✅ Available' if AI_MONITOR_AVAILABLE else '❌ Disabled'}")
+logger.info(f"   • Model Detection: {'✅ Available' if MODEL_DETECTION_AVAILABLE else '❌ Disabled'}")
+
+logger.info(f"🔧 System Modules Status:")
+logger.info(f"   • Admin Panel: {'✅ Available' if ADMIN_AVAILABLE else '❌ Disabled'}")
+logger.info(f"   • Job Scheduler: {'✅ Available' if SCHEDULER_AVAILABLE else '❌ Disabled'}")
+logger.info(f"   • Plugin Loader: {'✅ Available' if PLUGIN_LOADER_AVAILABLE else '❌ Disabled'}")
+
+@app.errorhandler(404)
+def not_found(error):
+    # Log the attempted URL for debugging
+    logger.warning(f"404 error for URL: {request.url} | Path: {request.path}")
+    return jsonify({"status": "error", "message": "Endpoint not found", "path": request.path}), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    logger.error(f"Internal server error: {error}")
+    return jsonify({"status": "error", "message": "Internal server error"}), 500
+
+@app.route("/")
+def dashboard():
+    """Main dashboard view"""
+    try:
+        scripts = [f for f in os.listdir(SCRIPTS_DIR) if f.endswith(".py")]
+        return render_template("dashboard.html", scripts=scripts)
+    except Exception as e:
+        logger.error(f"Dashboard error: {e}")
+        return render_template("dashboard.html", scripts=[], error=str(e))
+
+@app.route("/api/health")
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        "status": "ok", 
+        "service": "NoxPanel",
+        "version": "1.0.0"
+    })
+
+@app.route("/api/scripts")
+def list_scripts():
+    """API endpoint to list available scripts"""
+    try:
+        scripts = [f for f in os.listdir(SCRIPTS_DIR) if f.endswith(".py")]
+        return jsonify({"status": "ok", "scripts": scripts})
+    except Exception as e:
+        logger.error(f"Error listing scripts: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route("/run/<script_name>", methods=["POST"])
+@auth_required
+def run_script_route(script_name):
+    """Execute a script (requires authentication in production)"""
+    try:
+        script_path = os.path.join(SCRIPTS_DIR, script_name)
+        args = []
+        if request.is_json and request.json:
+            args = request.json.get("args", [])
+        
+        if not os.path.exists(script_path):
+            return jsonify({"status": "error", "message": "Script not found"}), 404
+        
+        stdout, stderr, returncode = run_script(script_path, args)
+        
+        return jsonify({
+            "status": "ok" if returncode == 0 else "error",
+            "stdout": stdout,
+            "stderr": stderr,
+            "returncode": returncode
+        })
+    except Exception as e:
+        logger.error(f"Script execution error: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route("/api/login", methods=["POST"])
+def login():
+    """User authentication endpoint"""
+    try:
+        data = request.get_json()
+        username = data.get("username")
+        password = data.get("password")
+        
+        if not username or not password:
+            return jsonify({"status": "error", "message": "Username and password required"}), 400
+        
+        # For development, use default credentials
+        if username == os.getenv("ADMIN_USER", "admin") and password == os.getenv("ADMIN_PASS", "admin123!"):
+            token = secrets.token_urlsafe(32)
+            return jsonify({"status": "ok", "token": token})
+        
+        return jsonify({"status": "error", "message": "Invalid credentials"}), 401
+    except Exception as e:
+        logger.error(f"Login error: {e}")
+        return jsonify({"status": "error", "message": "Login failed"}), 500
+
+@app.route("/run-script", methods=["POST"])
+def run_script_endpoint():
+    """Execute a script and return the results"""
+    try:
+        data = request.get_json()
+        if not data or "script" not in data:
+            return jsonify({"status": "error", "message": "No script specified"}), 400
+        
+        script_name = data["script"]
+        
+        # Security check - ensure script is in allowed directory
+        script_path = os.path.join(SCRIPTS_DIR, script_name)
+        if not os.path.exists(script_path):
+            return jsonify({"status": "error", "message": f"Script '{script_name}' not found"}), 404
+        
+        # Run the script
+        stdout, stderr, returncode = run_script(script_path)
+        
+        if returncode == 0:
+            return jsonify({
+                "status": "success",
+                "output": stdout,
+                "script": script_name
+            })
+        else:
+            return jsonify({
+                "status": "error",
+                "message": "Script execution failed",
+                "output": stderr or stdout,
+                "script": script_name,
+                "returncode": returncode
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Script execution error: {e}")
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+# Add missing API endpoints
+@app.route("/api/scripts/<script_name>")
+def view_script(script_name):
+    """View contents of a specific script"""
+    try:
+        script_path = os.path.join(SCRIPTS_DIR, script_name)
+        if not os.path.exists(script_path):
+            return jsonify({"status": "error", "message": "Script not found"}), 404
+        
+        with open(script_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        return f"""<html>
+<head><title>{script_name}</title></head>
+<body style="font-family: monospace; white-space: pre-wrap; margin: 20px;">
+<h2>{script_name}</h2>
+<hr>
+{content}
+</body>
+</html>"""
+    except Exception as e:
+        logger.error(f"Error viewing script {script_name}: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route("/models")
+def models_page():
+    """Models management page"""
+    if not MODEL_DETECTION_AVAILABLE:
+        return jsonify({
+            "status": "error",
+            "message": "Model detection not available"
+        }), 503
+    
+    try:
+        detector = ModelDetector()
+        scan_results = detector.scan_all_providers()
+        
+        html_content = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Models - NoxPanel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {{ background-color: #f8f9fa; }}
+        .model-card {{ margin: 10px 0; }}
+        .provider-header {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }}
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h1>🧠 AI Models Status</h1>
+    <p class="lead">Detected AI providers and available models</p>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Summary</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Total Providers:</strong> {len(scan_results['providers'])}</p>
+                    <p><strong>Available Providers:</strong> {len(scan_results['available_providers'])}</p>
+                    <p><strong>Total Models:</strong> {scan_results['total_models']}</p>
+                    <p><strong>Last Scan:</strong> {scan_results.get('scan_timestamp', 'Unknown')}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+"""
+        
+        for provider_name, provider_data in scan_results['providers'].items():
+            status_class = "success" if provider_data.get('installed') else "secondary"
+            model_count = len(provider_data.get('models', []))
+            
+            html_content += f"""
+        <div class="col-md-6">
+            <div class="card model-card">
+                <div class="card-header provider-header text-white">
+                    <h6>{provider_name.title()} 
+                        <span class="badge bg-{status_class}">{provider_data.get('status', 'unknown')}</span>
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <p><strong>Models:</strong> {model_count}</p>
+                    <p><strong>Status:</strong> {provider_data.get('status', 'unknown')}</p>
+"""
+            
+            if provider_data.get('models'):
+                html_content += "<ul class='list-group list-group-flush'>"
+                for model in provider_data['models'][:5]:  # Show first 5 models
+                    model_name = model.get('name', 'Unknown') if isinstance(model, dict) else str(model)
+                    html_content += f"<li class='list-group-item small'>{model_name}</li>"
+                if model_count > 5:
+                    html_content += f"<li class='list-group-item small text-muted'>... and {model_count - 5} more</li>"
+                html_content += "</ul>"
+            
+            html_content += """
+                </div>
+            </div>
+        </div>
+"""
+        
+        html_content += """
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="/" class="btn btn-primary">← Back to Dashboard</a>
+            <a href="/chat" class="btn btn-success">💬 AI Chat</a>
+            <button onclick="location.reload()" class="btn btn-outline-secondary">🔄 Refresh</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+"""
+        
+        return html_content
+        
+    except Exception as e:
+        logger.error(f"Error generating models page: {e}")
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+# Chat interface route
+@app.route("/chat")
+def chat_interface():
+    """Enhanced chat interface with AI provider detection"""
+    provider_info = {"name": "None", "model": "Not available"}
+    
+    # Get pre-filled message from URL parameter
+    pre_message = request.args.get('message', '')
+    
+    if MODEL_DETECTION_AVAILABLE:
+        try:
+            detector = ModelDetector()
+            scan_results = detector.scan_all_providers()
+            
+            # Find the first available provider
+            for provider_name, provider_data in scan_results['providers'].items():
+                if provider_data.get('installed') and provider_data.get('models'):
+                    provider_info = {
+                        "name": provider_name,
+                        "model": provider_data['models'][0]['name'] if provider_data['models'] else "Unknown"
+                    }
+                    break
+        except Exception as e:
+            logger.warning(f"Error detecting AI providers: {e}")
+    
+    return render_template("chat.html", provider=provider_info, pre_message=pre_message)
+
+@app.route("/test-route")
+def test_route():
+    """Test route to verify routing is working"""
+    return jsonify({"status": "success", "message": "Test route working"})
+
+@app.route("/debug/routes")
+def list_routes():
+    """Debug: List all registered routes"""
+    routes = []
+    for rule in app.url_map.iter_rules():
+        routes.append({
+            'endpoint': rule.endpoint,
+            'methods': list(rule.methods),
+            'rule': str(rule)
+        })
+    
+    return jsonify({
+        'status': 'success',
+        'total_routes': len(routes),
+        'routes': routes
+    })
+
+@app.route("/api/test-direct")
+def test_direct():
+    """Direct route test (not in blueprint)"""
+    return jsonify({"status": "success", "message": "Direct route working"})
+
+@app.route("/api/debug-test")
+def debug_test():
+    """Ultimate debug test route"""
+    return jsonify({"status": "success", "message": "Debug test working", "timestamp": "2025-07-14"})
+
+@app.route("/admin")
+def admin_panel():
+    """Admin panel for system management"""
+    # Simple authentication check (in production, use proper authentication)
+    auth_header = request.headers.get('Authorization')
+    # For now, just serve the admin panel (add proper auth later)
+    
+    return render_template("admin.html")
+
+# Theme demo route
+@app.route("/theme-demo")
+def theme_demo():
+    """Enhanced theme system demonstration page"""
+    try:
+        return render_template("theme_demo.html")
+    except Exception as e:
+        logger.error(f"Error rendering theme demo: {e}")
+        return jsonify({
+            "status": "error", 
+            "message": "Failed to load theme demo",
+            "error": str(e)
+        }), 500
+
+# AI Features route
+@app.route("/ai-features")
+def ai_features():
+    """AI Features interface"""
+    try:
+        return render_template("ai_features.html")
+    except Exception as e:
+        logger.error(f"Error rendering AI features: {e}")
+        return jsonify({
+            "status": "error",
+            "message": "Failed to load AI features",
+            "error": str(e)
+        }), 500
+
+# AI Monitor Dashboard route
+@app.route("/ai-monitor")
+def ai_monitor_dashboard():
+    """AI Model Monitor Dashboard"""
+    try:
+        return render_template("ai_monitor.html")
+    except Exception as e:
+        logger.error(f"Error rendering AI monitor dashboard: {e}")
+        return jsonify({
+            "status": "error",
+            "message": "Failed to load AI monitor dashboard",
+            "error": str(e)
+        }), 500
+
+def start_webpanel():
+    """Start the NoxPanel web application"""
+    host = "0.0.0.0"
+    port = 5000
+    
+    # Security: Only bind to localhost in production
+    if os.getenv("NOXPANEL_ENV") == "production":
+        host = "127.0.0.1"
+    
+    logger.info(f"Starting NoxPanel on {host}:{port}")
+    app.run(host=host, port=port, debug=os.getenv("NOXPANEL_ENV") == "development")
+
+if __name__ == "__main__":
+    start_webpanel()

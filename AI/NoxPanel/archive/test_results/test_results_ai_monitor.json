@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-07-14 17:52:30",
+  "test_version": "NoxPanel v4.3 Self-Healing Monitor",
+  "success_rate": 21.428571428571427,
+  "elapsed_time": 8.224858522415161,
+  "total_tests": 14,
+  "passed_tests": 3,
+  "failed_tests": 11,
+  "test_details": {
+    "Dashboard Access": {
+      "success": true,
+      "details": "Status: 200"
+    },
+    "Health Check": {
+      "success": true,
+      "details": "Service: NoxPanel"
+    },
+    "AI Monitor Dashboard": {
+      "success": false,
+      "details": "Status: 404"
+    },
+    "Monitor Status": {
+      "success": false,
+      "details": "Active: None"
+    },
+    "Models List": {
+      "success": false,
+      "details": "Total models: 0"
+    },
+    "Monitor Config": {
+      "success": false,
+      "details": "Debug mode: None"
+    },
+    "Start Monitoring": {
+      "success": false,
+      "details": "Endpoint not found"
+    },
+    "Stop Monitoring": {
+      "success": false,
+      "details": "Endpoint not found"
+    },
+    "Heal All Models": {
+      "success": false,
+      "details": "Results: 0 models processed"
+    },
+    "Emergency Heal": {
+      "success": false,
+      "details": "Offline models: 0"
+    },
+    "Enable Debug Mode": {
+      "success": false,
+      "details": "Endpoint not found"
+    },
+    "Disable Debug Mode": {
+      "success": false,
+      "details": "Endpoint not found"
+    },
+    "Log Access": {
+      "success": false,
+      "details": "Available logs: []"
+    },
+    "Models API Access": {
+      "success": true,
+      "details": "Status: 200"
+    }
+  }
+}

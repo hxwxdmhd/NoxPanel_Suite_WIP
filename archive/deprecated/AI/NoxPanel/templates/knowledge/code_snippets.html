@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Code Snippets - Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h1><i class="fas fa-code"></i> Code Snippets</h1>
+        </div>
+    </div>
+
+    <!-- Language Filter -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <label class="me-3"><strong>Filter by Language:</strong></label>
+                        <div class="btn-group flex-wrap">
+                            <a href="{{ url_for('knowledge.code_snippets') }}" 
+                               class="btn {% if not selected_language %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                                All Languages
+                            </a>
+                            {% for lang in languages %}
+                            <a href="{{ url_for('knowledge.code_snippets', language=lang) }}" 
+                               class="btn {% if selected_language == lang %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                                {{ lang.title() }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snippets Grid -->
+    <div class="row">
+        {% for snippet in snippets %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h6 class="mb-0">{{ snippet.title }}</h6>
+                        <div class="text-end">
+                            <span class="badge bg-secondary">{{ snippet.language.value if snippet.language else 'text' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <pre class="code-preview"><code class="language-{{ snippet.language.value if snippet.language else 'text' }}">{{ snippet.content[:200] }}{% if snippet.content|length > 200 %}...{% endif %}</code></pre>
+                    
+                    <div class="mt-3">
+                        {% if snippet.topic %}
+                        <span class="badge bg-info">{{ snippet.topic }}</span>
+                        {% endif %}
+                        {% for tag in snippet.tags[:2] %}
+                        <span class="badge bg-light text-dark">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="small text-muted">
+                            ⭐ {{ snippet.rating }} | 👁 {{ snippet.usage_count }}
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary" onclick="copySnippet('{{ snippet.id }}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <a href="{{ url_for('knowledge.view_item', item_id=snippet.id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if not snippets %}
+    <div class="text-center py-5">
+        <i class="fas fa-code fa-3x text-muted mb-3"></i>
+        <h5 class="text-muted">No code snippets found</h5>
+        <p class="text-muted">
+            {% if selected_language %}
+            No {{ selected_language }} snippets available. Try a different language or add some code snippets.
+            {% else %}
+            Start by importing conversations or manually adding code snippets.
+            {% endif %}
+        </p>
+        <div class="mt-3">
+            <a href="{{ url_for('knowledge.add_item') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Code Snippet
+            </a>
+            <a href="{{ url_for('knowledge.import_conversations') }}" class="btn btn-success">
+                <i class="fas fa-upload"></i> Import Conversations
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Copy confirmation modal -->
+<div class="modal fade" id="copyModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                <p>Code copied to clipboard!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Syntax highlighting
+    if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+    }
+});
+
+function copySnippet(snippetId) {
+    // Get snippet content via API
+    fetch(`/knowledge/api/item/${snippetId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.item) {
+                navigator.clipboard.writeText(data.item.content).then(() => {
+                    showCopyConfirmation();
+                }).catch(err => {
+                    console.error('Error copying to clipboard:', err);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching snippet:', error);
+        });
+}
+
+function showCopyConfirmation() {
+    const modal = new bootstrap.Modal(document.getElementById('copyModal'));
+    modal.show();
+    setTimeout(() => {
+        modal.hide();
+    }, 1500);
+}
+</script>
+
+<!-- Include highlight.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<style>
+.code-preview {
+    max-height: 200px;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    font-size: 0.85em;
+}
+
+.code-preview code {
+    color: #d4d4d4;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+}
+</style>
+{% endblock %}

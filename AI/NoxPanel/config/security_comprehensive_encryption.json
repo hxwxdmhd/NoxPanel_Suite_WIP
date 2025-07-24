@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "level": "enterprise",
+  "monitoring": true,
+  "alerts": true,
+  "compliance": "SOC2"
+}

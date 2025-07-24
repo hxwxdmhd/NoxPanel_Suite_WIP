@@ -1,0 +1,151 @@
+{
+  "folders": [
+    {
+      "name": "🏠 NoxPanel Core",
+      "path": "./src"
+    },
+    {
+      "name": "🧠 AI & NoxPanel",
+      "path": "./AI/NoxPanel"
+    },
+    {
+      "name": "🔌 Plugin System", 
+      "path": "./plugins"
+    },
+    {
+      "name": "⚙️ AetherCore",
+      "path": "./aethercore"
+    },
+    {
+      "name": "🐳 Docker & Config",
+      "path": "./docker"
+    },
+    {
+      "name": "📚 Documentation",
+      "path": "./docs"
+    },
+    {
+      "name": "🔧 Scripts & Tools",
+      "path": "./scripts"
+    }
+  ],
+  "settings": {
+    // Global performance settings
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/venv": true,
+      "**/docker/volumes": true,
+      "**/logs": true,
+      "**/archive": true,
+      "**/test_reports": true,
+      "**/monitoring": true,
+      "**/prometheus_data": true,
+      "**/grafana_data": true
+    },
+    
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.venv/**": true,
+      "**/__pycache__/**": true,
+      "**/docker/volumes/**": true,
+      "**/logs/**": true,
+      "**/archive/**": true,
+      "**/test_reports/**": true,
+      "**/monitoring/**": true,
+      "**/*.log": true
+    },
+    
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/docker/volumes": true,
+      "**/logs": true,
+      "**/archive": true,
+      "**/test_reports": true,
+      "**/monitoring": true
+    },
+    
+    // Python LSP optimized for workspace
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.indexing": true,
+    "python.analysis.memory.keepLibraryAst": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.include": [
+      "./src/**",
+      "./AI/NoxPanel/**",
+      "./plugins/**",
+      "./aethercore/**"
+    ],
+    "python.analysis.exclude": [
+      "**/node_modules/**",
+      "**/archive/**",
+      "**/logs/**",
+      "**/test_reports/**"
+    ],
+    
+    // TypeScript LSP optimization
+    "typescript.preferences.maxInlayHintLength": 30,
+    "typescript.suggest.autoImports": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.tsserver.maxTsServerMemory": 3072,
+    "typescript.include": [
+      "./AI/NoxPanel/frontend/**",
+      "./src/frontend/**"
+    ],
+    
+    // PHP LSP (Intelephense) per-folder configuration
+    "intelephense.files.maxSize": 5000000,
+    "intelephense.environment.includePaths": [
+      "./src",
+      "./AI/NoxPanel"
+    ],
+    "intelephense.files.exclude": [
+      "**/vendor/**",
+      "**/node_modules/**",
+      "**/cache/**",
+      "**/logs/**",
+      "**/archive/**"
+    ],
+    "intelephense.completion.maxItems": 100,
+    
+    // Git performance optimization
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "scm.autoReveal": false,
+    "git.enabled": true,
+    "git.path": "git",
+    
+    // Editor performance
+    "editor.suggest.filterGraceful": false,
+    "editor.suggest.localityBonus": true,
+    "editor.wordBasedSuggestions": "off",
+    "editor.semanticHighlighting.enabled": true,
+    
+    // Extension-specific optimizations
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "telemetry.telemetryLevel": "off"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylint",
+      "ms-python.flake8", 
+      "ms-vscode.vscode-typescript-next",
+      "bmewburn.vscode-intelephense-client",
+      "ms-azuretools.vscode-docker",
+      "github.copilot",
+      "github.copilot-chat"
+    ],
+    "unwantedRecommendations": [
+      "ms-python.python-preview",
+      "ms-vscode.vscode-typescript-nightly"
+    ]
+  }
+}

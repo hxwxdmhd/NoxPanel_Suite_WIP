@@ -1,0 +1,75 @@
+{
+  "execution_id": "56c491448b3f",
+  "suite_name": "Enhanced Sandbox Isolation Tests - Task 5",
+  "start_time": "2025-07-19T13:55:07.337253",
+  "end_time": "2025-07-19T13:55:08.953506",
+  "total_duration_seconds": 1.616253,
+  "summary": {
+    "total": 4,
+    "passed": 3,
+    "failed": 1,
+    "error": 0,
+    "skipped": 0,
+    "timeout": 0,
+    "success_rate_percent": 75.0
+  },
+  "environment": {
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32",
+    "working_directory": "K:\\Project Heimnetz",
+    "environment_variables": {}
+  },
+  "performance_summary": {
+    "total_execution_time": 1.611274,
+    "average_test_duration": 0.5370913333333334,
+    "fastest_test": 0.008519,
+    "slowest_test": 1.008731,
+    "tests_over_expected_duration": 0
+  },
+  "test_results": [
+    {
+      "test_case_id": "enhanced_sandbox_init",
+      "test_case_name": "Enhanced Sandbox Initialization",
+      "test_type": "integration",
+      "priority": "critical",
+      "status": "passed",
+      "duration_seconds": 0.008519,
+      "output": "{'status': 'passed', 'enhanced_framework_initialized': True, 'isolation_level': 'standard', 'monitoring_enabled': True}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "enhanced_isolation_features",
+      "test_case_name": "Enhanced Isolation Features",
+      "test_type": "security",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 0.0,
+      "output": "{'status': 'passed', 'isolation_features_tested': True, 'process_isolation': True, 'network_isolation': True, 'filesystem_isolation': True}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "enhanced_resource_monitoring",
+      "test_case_name": "Enhanced Resource Monitoring",
+      "test_type": "performance",
+      "priority": "high",
+      "status": "failed",
+      "duration_seconds": 0.594024,
+      "output": "",
+      "error_message": "Enhanced resource monitoring test failed: ",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "sandbox_auto_recovery",
+      "test_case_name": "Sandbox Auto Recovery",
+      "test_type": "system",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 1.008731,
+      "output": "{'status': 'passed', 'auto_recovery_tested': True, 'recovery_successful': True, 'recovery_history_count': 1}",
+      "error_message": "",
+      "retry_attempts": 0
+    }
+  ]
+}

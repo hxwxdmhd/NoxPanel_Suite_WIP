@@ -1,0 +1,750 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - NoxPanel{% endblock %}
+
+{% block page_title %}⚙️ Administration{% endblock %}
+
+{% block page_actions %}
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-outline-primary" onclick="refreshAdmin()">
+        <i class="bi bi-arrow-clockwise"></i> Refresh
+    </button>
+    <button type="button" class="btn btn-outline-success" onclick="addUser()">
+        <i class="bi bi-person-plus"></i> Add User
+    </button>
+    <button type="button" class="btn btn-outline-warning" onclick="systemMaintenance()">
+        <i class="bi bi-tools"></i> Maintenance
+    </button>
+    <button type="button" class="btn btn-outline-danger" onclick="systemRestart()">
+        <i class="bi bi-arrow-clockwise"></i> Restart
+    </button>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="row" data-auto-refresh="true">
+    <!-- System Overview -->
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-speedometer2"></i> System Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <i class="bi bi-cpu text-success" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">CPU Usage</h6>
+                                <span class="badge bg-success" id="cpuUsage">25%</span>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-success" style="width: 25%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <i class="bi bi-memory text-info" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Memory</h6>
+                                <span class="badge bg-info" id="memoryUsage">4.2GB / 16GB</span>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-info" style="width: 26%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-warning">
+                            <div class="card-body">
+                                <i class="bi bi-hdd text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Disk Space</h6>
+                                <span class="badge bg-warning" id="diskUsage">75% Used</span>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-warning" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-primary">
+                            <div class="card-body">
+                                <i class="bi bi-clock text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Uptime</h6>
+                                <span class="badge bg-primary" id="systemUptime">7d 14h 32m</span>
+                                <div class="mt-2">
+                                    <small class="text-muted">Since last restart</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Management -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-people"></i> User Management
+                </h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary active" onclick="showUserType('all')">All</button>
+                    <button class="btn btn-outline-primary" onclick="showUserType('admin')">Admins</button>
+                    <button class="btn btn-outline-primary" onclick="showUserType('user')">Users</button>
+                    <button class="btn btn-outline-primary" onclick="showUserType('guest')">Guests</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2">
+                                            A
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">admin</div>
+                                            <small class="text-muted">System Administrator</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-danger">Admin</span>
+                                </td>
+                                <td>
+                                    <div>Now</div>
+                                    <small class="text-muted">Current session</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <span class="status-indicator status-online"></span>
+                                        Online
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-outline-info" onclick="editUser('admin')">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-outline-warning" onclick="resetPassword('admin')">
+                                            <i class="bi bi-key"></i>
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="viewSessions('admin')">
+                                            <i class="bi bi-clock-history"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-2">
+                                            J
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">john_doe</div>
+                                            <small class="text-muted">Power User</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">User</span>
+                                </td>
+                                <td>
+                                    <div>2 hours ago</div>
+                                    <small class="text-muted">192.168.1.150</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">
+                                        <span class="status-indicator status-offline"></span>
+                                        Offline
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-outline-info" onclick="editUser('john_doe')">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-outline-warning" onclick="resetPassword('john_doe')">
+                                            <i class="bi bi-key"></i>
+                                        </button>
+                                        <button class="btn btn-outline-danger" onclick="deleteUser('john_doe')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-2">
+                                            G
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">guest</div>
+                                            <small class="text-muted">Read-only access</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">Guest</span>
+                                </td>
+                                <td>
+                                    <div>Never</div>
+                                    <small class="text-muted">-</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning">
+                                        <span class="status-indicator status-warning"></span>
+                                        Disabled
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-outline-success" onclick="enableUser('guest')">
+                                            <i class="bi bi-check-circle"></i>
+                                        </button>
+                                        <button class="btn btn-outline-info" onclick="editUser('guest')">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Logs -->
+        <div class="card mt-4">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-file-text"></i> System Logs
+                </h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary" onclick="clearLogs()">
+                        <i class="bi bi-trash"></i> Clear
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="downloadLogs()">
+                        <i class="bi bi-download"></i> Download
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <select class="form-select form-select-sm" id="logTypeFilter" onchange="filterLogs()">
+                        <option value="all">All Logs</option>
+                        <option value="error">Errors</option>
+                        <option value="warning">Warnings</option>
+                        <option value="info">Info</option>
+                        <option value="debug">Debug</option>
+                    </select>
+                </div>
+                
+                <div class="bg-dark text-light p-3 rounded" style="height: 300px; overflow-y: auto; font-family: monospace; font-size: 0.875rem;" id="logOutput">
+2025-07-15 08:46:09,827 - INFO - ✅ Generated 7 files
+2025-07-15 08:46:09,827 - INFO - NoxPanel DevScanner completed successfully
+2025-07-15 08:42:48,808 - INFO - ✅ Created unified admin template
+2025-07-15 08:42:48,814 - INFO - ✅ Created unified error template
+2025-07-15 08:42:09,133 - INFO - 🚀 AI Model Monitor v2.0 initialized
+2025-07-15 08:42:09,136 - INFO - 🧠 AI Model Monitor integrated successfully
+2025-07-15 08:42:09,190 - INFO - ✅ Registered: AI Model Monitor
+2025-07-15 08:42:09,276 - INFO - * Running on http://127.0.0.1:5004
+2025-07-15 08:42:13,180 - WARNING - ⚠️ Ollama port 11434 not accessible
+2025-07-15 08:42:13,180 - WARNING - ⚠️ LM Studio port 1234 not accessible
+2025-07-15 08:42:13,180 - WARNING - ⚠️ LocalAI port 8080 not accessible
+2025-07-15 08:42:13,194 - INFO - 🔄 Attempting restart 1/3 for Ollama
+2025-07-15 08:42:13,205 - INFO - 🔄 Restarting Ollama...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions & Settings -->
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightning"></i> Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" onclick="backupSystem()">
+                        <i class="bi bi-shield-check"></i> Backup System
+                    </button>
+                    <button class="btn btn-success" onclick="updateSystem()">
+                        <i class="bi bi-arrow-up-circle"></i> Check Updates
+                    </button>
+                    <button class="btn btn-info" onclick="systemDiagnostic()">
+                        <i class="bi bi-search"></i> Run Diagnostic
+                    </button>
+                    <button class="btn btn-warning" onclick="cleanupSystem()">
+                        <i class="bi bi-broom"></i> Cleanup System
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportConfig()">
+                        <i class="bi bi-download"></i> Export Config
+                    </button>
+                    <button class="btn btn-outline-primary" onclick="importConfig()">
+                        <i class="bi bi-upload"></i> Import Config
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Status -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-puzzle"></i> Module Status
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-robot text-primary"></i>
+                            AI Monitor
+                        </div>
+                        <div>
+                            <span class="badge bg-success">Active</span>
+                            <button class="btn btn-sm btn-outline-secondary ms-1" onclick="toggleModule('ai_monitor')">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-diagram-3 text-info"></i>
+                            Network Monitor
+                        </div>
+                        <div>
+                            <span class="badge bg-success">Active</span>
+                            <button class="btn btn-sm btn-outline-secondary ms-1" onclick="toggleModule('network')">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-play-circle text-warning"></i>
+                            Media Center
+                        </div>
+                        <div>
+                            <span class="badge bg-success">Active</span>
+                            <button class="btn btn-sm btn-outline-secondary ms-1" onclick="toggleModule('media')">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-pc-display text-success"></i>
+                            VM Manager
+                        </div>
+                        <div>
+                            <span class="badge bg-warning">Partial</span>
+                            <button class="btn btn-sm btn-outline-secondary ms-1" onclick="toggleModule('vm')">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-shield-check text-danger"></i>
+                            Security Center
+                        </div>
+                        <div>
+                            <span class="badge bg-danger">Offline</span>
+                            <button class="btn btn-sm btn-outline-secondary ms-1" onclick="toggleModule('security')">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security & Access -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-shield-lock"></i> Security & Access
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Session Timeout (minutes):</label>
+                    <input type="number" class="form-control form-control-sm" value="30" id="sessionTimeout">
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="enableMFA" checked>
+                    <label class="form-check-label" for="enableMFA">
+                        Enable Two-Factor Authentication
+                    </label>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="enableAuditLog" checked>
+                    <label class="form-check-label" for="enableAuditLog">
+                        Enable Audit Logging
+                    </label>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="enableSSL">
+                    <label class="form-check-label" for="enableSSL">
+                        Force HTTPS/SSL
+                    </label>
+                </div>
+                
+                <button class="btn btn-sm btn-primary w-100" onclick="saveSecuritySettings()">
+                    <i class="bi bi-shield-check"></i> Save Security Settings
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-person-plus"></i> Add New User
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="mb-3">
+                        <label class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="newUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="newUserEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="newUserPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role:</label>
+                        <select class="form-control" id="newUserRole">
+                            <option value="guest">Guest (Read-only)</option>
+                            <option value="user">User (Standard access)</option>
+                            <option value="power_user">Power User (Advanced access)</option>
+                            <option value="admin">Admin (Full access)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="sendWelcomeEmail">
+                        <label class="form-check-label" for="sendWelcomeEmail">
+                            Send welcome email
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveNewUser()">Create User</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Admin Panel JavaScript
+function refreshAdmin() {
+    showToast('Refreshing admin data...', 'info');
+    
+    fetch('/admin/api/status')
+        .then(response => response.json())
+        .then(data => {
+            updateSystemStats(data);
+            showToast('Admin data refreshed', 'success');
+        })
+        .catch(error => {
+            showToast('Failed to refresh admin data', 'danger');
+        });
+}
+
+function updateSystemStats(data) {
+    if (data.system) {
+        document.getElementById('cpuUsage').textContent = data.system.cpu + '%';
+        document.getElementById('memoryUsage').textContent = data.system.memory_used + ' / ' + data.system.memory_total;
+        document.getElementById('diskUsage').textContent = data.system.disk_percent + '% Used';
+        document.getElementById('systemUptime').textContent = data.system.uptime;
+    }
+}
+
+function addUser() {
+    const modal = new bootstrap.Modal(document.getElementById('addUserModal'));
+    modal.show();
+}
+
+function saveNewUser() {
+    const username = document.getElementById('newUsername').value;
+    const email = document.getElementById('newUserEmail').value;
+    const password = document.getElementById('newUserPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const role = document.getElementById('newUserRole').value;
+    
+    if (password !== confirmPassword) {
+        showToast('Passwords do not match', 'danger');
+        return;
+    }
+    
+    const userData = {
+        username: username,
+        email: email,
+        password: password,
+        role: role,
+        send_welcome: document.getElementById('sendWelcomeEmail').checked
+    };
+    
+    fetch('/admin/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('User created successfully', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
+            refreshAdmin();
+        } else {
+            showToast('Failed to create user: ' + data.error, 'danger');
+        }
+    })
+    .catch(error => {
+        showToast('Error creating user', 'danger');
+    });
+}
+
+function systemMaintenance() {
+    if (confirm('This will put the system in maintenance mode. Continue?')) {
+        showToast('Entering maintenance mode...', 'warning');
+        
+        fetch('/admin/api/maintenance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({action: 'enable'})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Maintenance mode enabled', 'warning');
+            } else {
+                showToast('Failed to enable maintenance mode', 'danger');
+            }
+        });
+    }
+}
+
+function systemRestart() {
+    if (confirm('This will restart the NoxPanel system. All users will be disconnected. Continue?')) {
+        showToast('Restarting system...', 'warning');
+        
+        fetch('/admin/api/restart', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('System restart initiated', 'info');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 5000);
+            } else {
+                showToast('Failed to restart system', 'danger');
+            }
+        });
+    }
+}
+
+function showUserType(type) {
+    // Update active button
+    document.querySelectorAll('.btn-group .btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Filter table rows (placeholder implementation)
+    const rows = document.querySelectorAll('#usersTable tr');
+    rows.forEach(row => {
+        const badge = row.querySelector('.badge');
+        if (type === 'all' || 
+            (type === 'admin' && badge && badge.textContent === 'Admin') ||
+            (type === 'user' && badge && badge.textContent === 'User') ||
+            (type === 'guest' && badge && badge.textContent === 'Guest')) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function editUser(username) {
+    showToast(`Editing user: ${username}`, 'info');
+    // TODO: Implement user editing
+}
+
+function resetPassword(username) {
+    if (confirm(`Reset password for user: ${username}?`)) {
+        showToast(`Resetting password for ${username}`, 'warning');
+        // TODO: Implement password reset
+    }
+}
+
+function deleteUser(username) {
+    if (confirm(`Delete user: ${username}? This action cannot be undone.`)) {
+        showToast(`Deleting user: ${username}`, 'danger');
+        // TODO: Implement user deletion
+    }
+}
+
+function enableUser(username) {
+    showToast(`Enabling user: ${username}`, 'success');
+    // TODO: Implement user enabling
+}
+
+function viewSessions(username) {
+    showToast(`Viewing sessions for: ${username}`, 'info');
+    // TODO: Implement session viewer
+}
+
+function filterLogs() {
+    const filterType = document.getElementById('logTypeFilter').value;
+    showToast(`Filtering logs: ${filterType}`, 'info');
+    // TODO: Implement log filtering
+}
+
+function clearLogs() {
+    if (confirm('Clear all system logs? This action cannot be undone.')) {
+        showToast('Clearing logs...', 'warning');
+        // TODO: Implement log clearing
+    }
+}
+
+function downloadLogs() {
+    showToast('Downloading logs...', 'info');
+    // TODO: Implement log download
+}
+
+function backupSystem() {
+    showToast('Starting system backup...', 'info');
+    // TODO: Implement system backup
+}
+
+function updateSystem() {
+    showToast('Checking for updates...', 'info');
+    // TODO: Implement update checker
+}
+
+function systemDiagnostic() {
+    showToast('Running system diagnostic...', 'info');
+    // TODO: Implement system diagnostic
+}
+
+function cleanupSystem() {
+    if (confirm('Clean up temporary files and logs?')) {
+        showToast('Cleaning up system...', 'warning');
+        // TODO: Implement system cleanup
+    }
+}
+
+function exportConfig() {
+    showToast('Exporting configuration...', 'info');
+    // TODO: Implement config export
+}
+
+function importConfig() {
+    showToast('Select configuration file to import...', 'info');
+    // TODO: Implement config import
+}
+
+function toggleModule(moduleName) {
+    showToast(`Configuring module: ${moduleName}`, 'info');
+    // TODO: Implement module configuration
+}
+
+function saveSecuritySettings() {
+    const settings = {
+        session_timeout: document.getElementById('sessionTimeout').value,
+        enable_mfa: document.getElementById('enableMFA').checked,
+        enable_audit_log: document.getElementById('enableAuditLog').checked,
+        enable_ssl: document.getElementById('enableSSL').checked
+    };
+    
+    fetch('/admin/api/security', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(settings)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Security settings saved', 'success');
+        } else {
+            showToast('Failed to save security settings', 'danger');
+        }
+    });
+}
+
+// Auto-refresh admin data
+setInterval(() => {
+    if (document.querySelector('[data-auto-refresh="true"]')) {
+        refreshAdmin();
+    }
+}, 30000);
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    refreshAdmin();
+});
+</script>
+
+<style>
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: bold;
+}
+</style>
+{% endblock %}

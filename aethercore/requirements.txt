@@ -1,0 +1,52 @@
+# AetherCore MSP Server Requirements
+# Core dependencies for AetherCore Model Serving Protocol Server
+
+# Web framework
+fastapi>=0.116.0
+uvicorn[standard]>=0.35.0
+
+# Data validation and serialization
+pydantic>=2.11.0
+
+# HTTP client
+httpx>=0.25.0
+
+# Authentication
+PyJWT>=2.8.0
+
+# Database and caching
+redis>=5.0.0
+psycopg2-binary>=2.9.0
+
+# Logging
+loguru>=0.7.0
+
+# System monitoring
+psutil>=5.9.0
+
+# Scientific computing
+numpy>=1.24.0
+
+# Machine learning frameworks
+torch>=2.0.0
+transformers>=4.30.0
+onnxruntime>=1.15.0
+
+# Optional ML frameworks
+tensorflow>=2.13.0
+scikit-learn>=1.3.0
+
+# Model management
+mlflow>=2.5.0
+huggingface-hub>=0.16.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+httpx-testclient>=0.1.0
+
+# Monitoring and observability
+prometheus-client>=0.17.0
+opentelemetry-api>=1.19.0
+opentelemetry-sdk>=1.19.0

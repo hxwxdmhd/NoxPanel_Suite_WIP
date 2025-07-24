@@ -1,0 +1,53 @@
+# Ultimate Suite v11.0 - AI Model Integration Dependencies
+# Sub-Milestone 3/5 Requirements
+
+# Core ML/AI Libraries
+numpy>=1.24.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Deep Learning Frameworks
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+huggingface-hub>=0.15.0
+
+# ONNX Support
+onnx>=1.14.0
+onnxruntime>=1.15.0
+onnxruntime-gpu>=1.15.0  # Optional for GPU support
+
+# Model Serving
+tritonclient[http]>=2.34.0  # NVIDIA Triton client
+grpcio>=1.54.0
+protobuf>=4.23.0
+
+# Data Storage & Caching
+redis>=4.5.0
+boto3>=1.26.0  # AWS S3 support
+google-cloud-storage>=2.9.0  # GCS support
+
+# Model Management & Tracking
+mlflow>=2.4.0
+wandb>=0.15.0
+dvc>=3.0.0  # Data version control
+
+# Web Framework (shared with microservices)
+aiohttp>=3.8.0
+
+# Async & Concurrency
+asyncio-mqtt>=0.11.0
+
+# Additional ML utilities
+scipy>=1.10.0
+pandas>=2.0.0
+pillow>=9.5.0  # Image processing
+opencv-python>=4.7.0  # Computer vision
+
+# Model Optimization
+tensorrt>=8.6.0  # NVIDIA TensorRT (optional)
+openvino>=2023.0.0  # Intel OpenVINO (optional)
+
+# Development & Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0

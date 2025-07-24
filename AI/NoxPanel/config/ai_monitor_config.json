@@ -1,0 +1,82 @@
+{
+  "check_interval": 30,
+  "debug_mode": false,
+  "models": [
+    {
+      "name": "Ollama",
+      "url": "http://localhost:11434",
+      "health_endpoint": "/api/tags",
+      "process_name": "ollama",
+      "start_command": [
+        "ollama.exe",
+        "serve"
+      ],
+      "stop_command": [
+        "taskkill",
+        "/F",
+        "/IM",
+        "ollama.exe"
+      ],
+      "port": 11434,
+      "expected_response": null,
+      "timeout": 10,
+      "restart_delay": 10,
+      "max_restart_attempts": 3,
+      "enabled": true
+    },
+    {
+      "name": "LM_Studio",
+      "url": "http://localhost:1234",
+      "health_endpoint": "/v1/models",
+      "process_name": "lmstudio",
+      "start_command": [
+        "lmstudio.exe",
+        "server",
+        "start"
+      ],
+      "stop_command": null,
+      "port": 1234,
+      "expected_response": null,
+      "timeout": 5,
+      "restart_delay": 10,
+      "max_restart_attempts": 3,
+      "enabled": true
+    },
+    {
+      "name": "LocalAI",
+      "url": "http://localhost:8080",
+      "health_endpoint": "/v1/models",
+      "process_name": "local-ai",
+      "start_command": [
+        "local-ai.exe",
+        "--address",
+        ":8080"
+      ],
+      "stop_command": null,
+      "port": 8080,
+      "expected_response": null,
+      "timeout": 5,
+      "restart_delay": 10,
+      "max_restart_attempts": 3,
+      "enabled": true
+    },
+    {
+      "name": "Oobabooga",
+      "url": "http://localhost:5000",
+      "health_endpoint": "/api/v1/model",
+      "process_name": "python",
+      "start_command": [
+        "python",
+        "server.py",
+        "--api"
+      ],
+      "stop_command": null,
+      "port": 5000,
+      "expected_response": null,
+      "timeout": 8,
+      "restart_delay": 10,
+      "max_restart_attempts": 3,
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+/* Ultimate Dashboard v8.0 - AI & Network Enhanced Styling */
+
+:root {
+    /* Enhanced color palette for v8.0 */
+    --ai-primary: #8b5cf6;
+    --ai-secondary: #a78bfa;
+    --network-primary: #06b6d4;
+    --network-secondary: #67e8f9;
+    --security-primary: #10b981;
+    --security-secondary: #34d399;
+    --warning-primary: #f59e0b;
+    --warning-secondary: #fbbf24;
+    
+    /* Enhanced glass morphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --glass-blur: 16px;
+    
+    /* Animation durations */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+}
+
+/* Enhanced Header Styling */
+.header-glass {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1) 0%, 
+        rgba(6, 182, 212, 0.1) 50%, 
+        rgba(16, 185, 129, 0.1) 100%);
+    backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-glass h1 {
+    background: linear-gradient(135deg, var(--ai-primary), var(--network-primary), var(--security-primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Status Cards */
+.status-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-normal) ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.status-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: all var(--transition-normal) ease;
+}
+
+.status-card.ai-card::before {
+    background: linear-gradient(90deg, var(--ai-primary), var(--ai-secondary));
+}
+
+.status-card.network-card::before {
+    background: linear-gradient(90deg, var(--network-primary), var(--network-secondary));
+}
+
+.status-card.security-card::before {
+    background: linear-gradient(90deg, var(--security-primary), var(--security-secondary));
+}
+
+.status-card.vulnerability-card::before {
+    background: linear-gradient(90deg, var(--warning-primary), var(--warning-secondary));
+}
+
+.status-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.status-card .status-icon {
+    opacity: 0.8;
+    transition: all var(--transition-normal) ease;
+}
+
+.status-card:hover .status-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Enhanced Card Styling */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-normal) ease;
+}
+
+.card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.05) 0%, 
+        rgba(6, 182, 212, 0.05) 100%);
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 16px 16px 0 0 !important;
+    font-weight: 600;
+}
+
+/* Enhanced AI Chat Interface */
+.chat-container {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: rgba(248, 250, 252, 0.5);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    animation: slideInMessage var(--transition-normal) ease;
+}
+
+.chat-message.user-message {
+    background: linear-gradient(135deg, var(--ai-primary), var(--ai-secondary));
+    color: white;
+    margin-left: 2rem;
+    text-align: right;
+}
+
+.chat-message.assistant-message {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    margin-right: 2rem;
+}
+
+.chat-message.system-message {
+    background: linear-gradient(135deg, var(--security-primary), var(--security-secondary));
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.chat-message.loading-message {
+    background: var(--warning-primary);
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes slideInMessage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Enhanced Network Visualization */
+.network-visualization {
+    min-height: 300px;
+    background: linear-gradient(135deg, 
+        rgba(6, 182, 212, 0.05) 0%, 
+        rgba(139, 92, 246, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.network-visualization svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Enhanced Theme Controls */
+.theme-controls-header .dropdown-menu {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: var(--glass-shadow);
+}
+
+.theme-controls-header .dropdown-item {
+    transition: all var(--transition-fast) ease;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.theme-controls-header .dropdown-item:hover {
+    background: var(--ai-primary);
+    color: white;
+    transform: translateX(4px);
+}
+
+.theme-controls-header .dropdown-item.active {
+    background: linear-gradient(135deg, var(--ai-primary), var(--ai-secondary));
+    color: white;
+}
+
+/* Enhanced Interface Cards */
+.interface-card {
+    padding: 2rem 1rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal) ease;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.interface-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1) 0%, 
+        rgba(6, 182, 212, 0.1) 100%);
+}
+
+.interface-card i {
+    transition: all var(--transition-normal) ease;
+}
+
+.interface-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Enhanced Table Styling */
+.table {
+    background: transparent;
+}
+
+.table thead th {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1) 0%, 
+        rgba(6, 182, 212, 0.1) 100%);
+    border: none;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table tbody tr {
+    transition: all var(--transition-fast) ease;
+}
+
+.table tbody tr:hover {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    transform: scale(1.01);
+}
+
+.table tbody td {
+    border: none;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+/* Enhanced Progress Bars */
+.progress {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: all var(--transition-slow) ease;
+    background: linear-gradient(90deg, var(--security-primary), var(--security-secondary));
+    border-radius: 10px;
+}
+
+.progress-bar.bg-warning {
+    background: linear-gradient(90deg, var(--warning-primary), var(--warning-secondary));
+}
+
+.progress-bar.bg-danger {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+/* Enhanced Badges */
+.badge {
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.badge.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--ai-primary), var(--ai-secondary));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, var(--security-primary), var(--security-secondary));
+}
+
+.badge.bg-info {
+    background: linear-gradient(135deg, var(--network-primary), var(--network-secondary));
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, var(--warning-primary), var(--warning-secondary));
+}
+
+/* Enhanced Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all var(--transition-normal) ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow) ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--ai-primary), var(--ai-secondary));
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+.btn-info {
+    background: linear-gradient(135deg, var(--network-primary), var(--network-secondary));
+    box-shadow: 0 4px 16px rgba(6, 182, 212, 0.3);
+}
+
+.btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--security-primary), var(--security-secondary));
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning-primary), var(--warning-secondary));
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+}
+
+.btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+}
+
+/* Enhanced Form Controls */
+.form-control, .form-select {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    transition: all var(--transition-normal) ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--ai-primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Enhanced AI Analysis Panel */
+.ai-analysis {
+    background: linear-gradient(135deg, 
+        rgba(245, 158, 11, 0.05) 0%, 
+        rgba(139, 92, 246, 0.05) 100%);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid var(--glass-border);
+}
+
+.analysis-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Enhanced Dropdown Animations */
+.dropdown-menu {
+    animation: dropdownSlide var(--transition-normal) ease;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Loading States */
+.spinner-border {
+    animation: spinner-grow 1s linear infinite;
+}
+
+@keyframes spinner-grow {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header-glass h1 {
+        font-size: 1.2rem;
+    }
+    
+    .status-card {
+        margin-bottom: 1rem;
+    }
+    
+    .chat-container {
+        max-height: 250px;
+    }
+    
+    .network-visualization {
+        min-height: 200px;
+    }
+    
+    .interface-card {
+        height: 120px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .interface-card i {
+        font-size: 2rem !important;
+    }
+    
+    .table-responsive {
+        border-radius: 12px;
+    }
+}
+
+/* Enhanced Dark Theme Support */
+[data-theme="dark"] {
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-color: #e2e8f0;
+}
+
+[data-theme="dark"] .chat-container {
+    background: rgba(30, 41, 59, 0.5);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+/* Enhanced Purple Theme Support */
+[data-theme="purple"], 
+[data-theme="purple-dark"], 
+[data-theme="purple-light"] {
+    --ai-primary: #8b5cf6;
+    --ai-secondary: #a78bfa;
+    --network-primary: #6366f1;
+    --network-secondary: #818cf8;
+}
+
+/* Enhanced Accessibility Features */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-high-contrast: high) {
+    .card, .status-card {
+        border: 2px solid currentColor;
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Enhanced Focus States for Keyboard Navigation */
+.btn:focus,
+.form-control:focus,
+.form-select:focus,
+.dropdown-item:focus {
+    outline: 2px solid var(--ai-primary);
+    outline-offset: 2px;
+}
+
+/* Enhanced Status Indicators */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.online {
+    background: var(--security-primary);
+}
+
+.status-indicator.offline {
+    background: #ef4444;
+}
+
+.status-indicator.warning {
+    background: var(--warning-primary);
+}
+
+/* Enhanced Tooltip Styling */
+.tooltip {
+    font-size: 0.8rem;
+}
+
+.tooltip-inner {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* Enhanced Success States */
+.alert-success {
+    background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.1) 0%, 
+        rgba(34, 197, 94, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--security-primary);
+    border-radius: 12px;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, 
+        rgba(245, 158, 11, 0.1) 0%, 
+        rgba(251, 191, 36, 0.1) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: var(--warning-primary);
+    border-radius: 12px;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, 
+        rgba(239, 68, 68, 0.1) 0%, 
+        rgba(248, 113, 113, 0.1) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border-radius: 12px;
+}

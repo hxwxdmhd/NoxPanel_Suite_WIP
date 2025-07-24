@@ -1,0 +1,259 @@
+
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">
+    Ultimate Suite v11.0 - System Architecture Map
+  </text>
+  
+  <!-- Core System Layer -->
+  <g id="core-system">
+    <!-- Main Server -->
+    <rect x="500" y="100" width="200" height="80" rx="10" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" filter="url(#glow)"/>
+    <text x="600" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Main Server</text>
+    <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">main_unified.py</text>
+    <text x="600" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#C8E6C9">Status: ACTIVE</text>
+    
+    <!-- Database Layer -->
+    <rect x="300" y="220" width="180" height="60" rx="8" fill="#2196F3" stroke="#1976D2" stroke-width="2" filter="url(#shadow)"/>
+    <text x="390" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Database Layer</text>
+    <text x="390" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#BBDEFB">models_unified.py</text>
+    
+    <!-- Plugin System -->
+    <rect x="720" y="220" width="180" height="60" rx="8" fill="#FF9800" stroke="#F57C00" stroke-width="2" filter="url(#shadow)"/>
+    <text x="810" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Plugin System</text>
+    <text x="810" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFE0B2">unified_plugin_system.py</text>
+  </g>
+  
+  <!-- API Layer -->
+  <g id="api-layer">
+    <!-- REST API -->
+    <rect x="200" y="320" width="140" height="50" rx="6" fill="#9C27B0" stroke="#7B1FA2" stroke-width="2"/>
+    <text x="270" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">REST API</text>
+    <text x="270" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#E1BEE7">13 Endpoints</text>
+    
+    <!-- WebSocket API -->
+    <rect x="360" y="320" width="140" height="50" rx="6" fill="#E91E63" stroke="#C2185B" stroke-width="2"/>
+    <text x="430" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">WebSocket API</text>
+    <text x="430" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#F8BBD9">Real-time</text>
+    
+    <!-- GraphQL API -->
+    <rect x="520" y="320" width="140" height="50" rx="6" fill="#607D8B" stroke="#455A64" stroke-width="2"/>
+    <text x="590" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">GraphQL API</text>
+    <text x="590" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CFD8DC">Flexible</text>
+    
+    <!-- Authentication -->
+    <rect x="680" y="320" width="140" height="50" rx="6" fill="#795548" stroke="#5D4037" stroke-width="2"/>
+    <text x="750" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Authentication</text>
+    <text x="750" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#D7CCC8">JWT + 2FA</text>
+    
+    <!-- Rate Limiting -->
+    <rect x="840" y="320" width="140" height="50" rx="6" fill="#FF5722" stroke="#D84315" stroke-width="2"/>
+    <text x="910" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Rate Limiting</text>
+    <text x="910" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFCCBC">Security</text>
+  </g>
+  
+  <!-- Frontend Layer -->
+  <g id="frontend-layer">
+    <!-- Web Interface -->
+    <rect x="100" y="420" width="200" height="80" rx="10" fill="#00BCD4" stroke="#0097A7" stroke-width="2" filter="url(#glow)"/>
+    <text x="200" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Web Interface</text>
+    <text x="200" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">React + TypeScript</text>
+    <text x="200" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#B2EBF2">Status: INTEGRATED</text>
+    
+    <!-- Mobile App -->
+    <rect x="320" y="420" width="180" height="60" rx="8" fill="#8BC34A" stroke="#689F38" stroke-width="2" filter="url(#shadow)"/>
+    <text x="410" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Mobile App</text>
+    <text x="410" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#DCEDC8">React Native</text>
+    
+    <!-- Desktop App -->
+    <rect x="520" y="420" width="180" height="60" rx="8" fill="#673AB7" stroke="#512DA8" stroke-width="2" filter="url(#shadow)"/>
+    <text x="610" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Desktop App</text>
+    <text x="610" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#D1C4E9">Electron</text>
+    
+    <!-- Admin Dashboard -->
+    <rect x="720" y="420" width="180" height="60" rx="8" fill="#FFC107" stroke="#F57F17" stroke-width="2" filter="url(#shadow)"/>
+    <text x="810" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Admin Dashboard</text>
+    <text x="810" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFF8E1">Vue.js</text>
+    
+    <!-- Real-time Dashboard -->
+    <rect x="920" y="420" width="180" height="60" rx="8" fill="#F44336" stroke="#D32F2F" stroke-width="2" filter="url(#shadow)"/>
+    <text x="1010" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Real-time Dashboard</text>
+    <text x="1010" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFCDD2">WebSocket</text>
+  </g>
+  
+  <!-- Services Layer -->
+  <g id="services-layer">
+    <!-- Monitoring Service -->
+    <rect x="150" y="520" width="130" height="45" rx="6" fill="#3F51B5" stroke="#303F9F" stroke-width="2"/>
+    <text x="215" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Monitoring</text>
+    <text x="215" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#C5CAE9">System Health</text>
+    
+    <!-- Logging Service -->
+    <rect x="300" y="520" width="130" height="45" rx="6" fill="#009688" stroke="#00695C" stroke-width="2"/>
+    <text x="365" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Logging</text>
+    <text x="365" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#B2DFDB">Audit Trail</text>
+    
+    <!-- Notification Service -->
+    <rect x="450" y="520" width="130" height="45" rx="6" fill="#FF9800" stroke="#F57C00" stroke-width="2"/>
+    <text x="515" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Notifications</text>
+    <text x="515" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFE0B2">Alerts</text>
+    
+    <!-- Backup Service -->
+    <rect x="600" y="520" width="130" height="45" rx="6" fill="#795548" stroke="#5D4037" stroke-width="2"/>
+    <text x="665" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Backup</text>
+    <text x="665" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#D7CCC8">Data Safety</text>
+    
+    <!-- Cache Service -->
+    <rect x="750" y="520" width="130" height="45" rx="6" fill="#E91E63" stroke="#C2185B" stroke-width="2"/>
+    <text x="815" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Cache</text>
+    <text x="815" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#F8BBD9">Redis</text>
+    
+    <!-- Security Service -->
+    <rect x="900" y="520" width="130" height="45" rx="6" fill="#607D8B" stroke="#455A64" stroke-width="2"/>
+    <text x="965" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Security</text>
+    <text x="965" y="552" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CFD8DC">Encryption</text>
+  </g>
+  
+  <!-- Data Layer -->
+  <g id="data-layer">
+    <!-- Primary Database -->
+    <rect x="200" y="620" width="160" height="60" rx="8" fill="#2196F3" stroke="#1976D2" stroke-width="2" filter="url(#glow)"/>
+    <text x="280" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Primary Database</text>
+    <text x="280" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#BBDEFB">PostgreSQL</text>
+    
+    <!-- Cache Database -->
+    <rect x="380" y="620" width="160" height="60" rx="8" fill="#FF5722" stroke="#D84315" stroke-width="2" filter="url(#shadow)"/>
+    <text x="460" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Cache Database</text>
+    <text x="460" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFCCBC">Redis</text>
+    
+    <!-- Search Database -->
+    <rect x="560" y="620" width="160" height="60" rx="8" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" filter="url(#shadow)"/>
+    <text x="640" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Search Database</text>
+    <text x="640" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#C8E6C9">Elasticsearch</text>
+    
+    <!-- File Storage -->
+    <rect x="740" y="620" width="160" height="60" rx="8" fill="#9C27B0" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+    <text x="820" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">File Storage</text>
+    <text x="820" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#E1BEE7">MinIO</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g id="connections" stroke="#666666" stroke-width="2" fill="none">
+    <!-- Main Server to Database -->
+    <line x1="550" y1="180" x2="390" y2="220"/>
+    <!-- Main Server to Plugin System -->
+    <line x1="650" y1="180" x2="810" y2="220"/>
+    <!-- Main Server to API Layer -->
+    <line x1="600" y1="180" x2="520" y2="320"/>
+    <!-- API Layer to Frontend -->
+    <line x1="520" y1="370" x2="400" y2="420"/>
+    <!-- Services to Data Layer -->
+    <line x1="515" y1="565" x2="460" y2="620"/>
+  </g>
+  
+  <!-- Status Indicators -->
+  <g id="status-indicators">
+    <!-- System Status -->
+    <circle cx="50" cy="50" r="8" fill="#4CAF50"/>
+    <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">System Online</text>
+    
+    <!-- Performance -->
+    <circle cx="50" cy="75" r="8" fill="#FF9800"/>
+    <text x="70" y="80" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Performance: 95%</text>
+    
+    <!-- Security -->
+    <circle cx="50" cy="100" r="8" fill="#2196F3"/>
+    <text x="70" y="105" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Security: High</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="1050" y="50" width="140" height="200" rx="5" fill="#333333" stroke="#666666" stroke-width="1"/>
+    <text x="1120" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Legend</text>
+    
+    <!-- Core Systems -->
+    <rect x="1060" y="85" width="15" height="15" fill="#4CAF50"/>
+    <text x="1085" y="96" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Core Systems</text>
+    
+    <!-- API Layer -->
+    <rect x="1060" y="110" width="15" height="15" fill="#9C27B0"/>
+    <text x="1085" y="121" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">API Layer</text>
+    
+    <!-- Frontend -->
+    <rect x="1060" y="135" width="15" height="15" fill="#00BCD4"/>
+    <text x="1085" y="146" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Frontend</text>
+    
+    <!-- Services -->
+    <rect x="1060" y="160" width="15" height="15" fill="#3F51B5"/>
+    <text x="1085" y="171" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Services</text>
+    
+    <!-- Data Layer -->
+    <rect x="1060" y="185" width="15" height="15" fill="#2196F3"/>
+    <text x="1085" y="196" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Data Layer</text>
+    
+    <!-- Active Connection -->
+    <line x1="1060" y1="215" x2="1080" y2="215" stroke="#666666" stroke-width="2"/>
+    <text x="1085" y="219" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Active Connection</text>
+  </g>
+  
+  <!-- Real-time Metrics -->
+  <g id="realtime-metrics">
+    <rect x="50" y="700" width="300" height="80" rx="5" fill="#1a1a1a" stroke="#333333" stroke-width="1"/>
+    <text x="200" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Real-time Metrics</text>
+    
+    <text x="70" y="740" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">CPU Usage: <tspan fill="#4CAF50">23%</tspan></text>
+    <text x="70" y="755" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Memory: <tspan fill="#FF9800">67%</tspan></text>
+    <text x="70" y="770" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Active Users: <tspan fill="#2196F3">1,247</tspan></text>
+    
+    <text x="200" y="740" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Requests/min: <tspan fill="#9C27B0">3,456</tspan></text>
+    <text x="200" y="755" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Response Time: <tspan fill="#00BCD4">12ms</tspan></text>
+    <text x="200" y="770" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Uptime: <tspan fill="#4CAF50">99.9%</tspan></text>
+  </g>
+  
+  <!-- Interactive Elements -->
+  <g id="interactive-elements">
+    <!-- Clickable areas for detailed views -->
+    <rect x="500" y="100" width="200" height="80" fill="transparent" stroke="none" cursor="pointer" onclick="showServerDetails()"/>
+    <rect x="300" y="220" width="180" height="60" fill="transparent" stroke="none" cursor="pointer" onclick="showDatabaseDetails()"/>
+    <rect x="720" y="220" width="180" height="60" fill="transparent" stroke="none" cursor="pointer" onclick="showPluginDetails()"/>
+    <rect x="100" y="420" width="200" height="80" fill="transparent" stroke="none" cursor="pointer" onclick="showFrontendDetails()"/>
+  </g>
+  
+  <!-- Animations -->
+  <g id="animations">
+    <!-- Pulsing indicators for active components -->
+    <circle cx="600" cy="140" r="12" fill="none" stroke="#4CAF50" stroke-width="2" opacity="0.7">
+      <animate attributeName="r" values="12;18;12" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Data flow animation -->
+    <circle cx="0" cy="0" r="3" fill="#00BCD4">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M550,180 Q520,250 390,220"/>
+      </animateMotion>
+    </circle>
+  </g>
+</svg>

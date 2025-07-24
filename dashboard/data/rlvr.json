@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-07-18T11:02:53.197090",
+  "compliance_rate": 0.08179889109453077,
+  "annotated_components": 2390,
+  "total_components": 29218,
+  "phase2_progress": 98.85260370697264,
+  "test_coverage": 296.5578111209179,
+  "auto_remediation_count": 2240
+}

@@ -1,0 +1,15 @@
+{
+  "automated_scans": true,
+  "scan_frequency": "daily",
+  "security_checks": [
+    "dependency_vulnerabilities",
+    "code_security_analysis",
+    "configuration_security",
+    "api_security_testing"
+  ],
+  "alert_thresholds": {
+    "critical": 0,
+    "high": 2,
+    "medium": 10
+  }
+}

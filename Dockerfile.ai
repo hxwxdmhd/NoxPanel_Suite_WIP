@@ -1,0 +1,64 @@
+# AI Model Inference Dockerfile with GPU support
+FROM nvidia/cuda:12.1-runtime-ubuntu22.04
+
+WORKDIR /app
+
+# Install Python and system dependencies
+RUN apt-get update && apt-get install -y \
+    python3.12 \
+    python3-pip \
+    python3-dev \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create symbolic link for python
+RUN ln -s /usr/bin/python3.12 /usr/bin/python
+
+# Copy requirements and install Python dependencies
+COPY requirements-ai.txt .
+RUN pip install --no-cache-dir -r requirements-ai.txt
+
+# Copy application code
+COPY ai_model_integration.py .
+
+# Create model cache directory
+RUN mkdir -p /app/models
+
+# Create optimized AI service
+RUN cat > ai_service.py << 'EOF'
+import asyncio
+import uvicorn
+from fastapi import FastAPI
+from ai_model_integration import ModelRegistry, ModelManager, InferenceEngine, ModelServer
+
+app = FastAPI(title="Ultimate Suite AI Service", version="11.0.0")
+
+# Initialize AI components
+registry = ModelRegistry()
+model_manager = ModelManager(registry)
+inference_engine = InferenceEngine(model_manager)
+model_server = ModelServer(inference_engine, port=8083)
+
+@app.on_event("startup")
+async def startup_event():
+    await inference_engine.start_workers(4)
+
+@app.on_event("shutdown") 
+async def shutdown_event():
+    await inference_engine.stop_workers()
+
+# Mount model server routes
+app.mount("/", model_server.app)
+
+if __name__ == "__main__":
+    uvicorn.run("ai_service:app", host="0.0.0.0", port=8083, reload=False)
+EOF
+
+EXPOSE 8083
+
+# Environment variables for GPU
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+CMD ["python", "ai_service.py"]

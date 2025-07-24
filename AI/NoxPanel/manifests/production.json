@@ -1,0 +1,36 @@
+{
+  "environment": "production",
+  "created": "2025-07-18T12:30:58.858325",
+  "configuration": {
+    "replicas": 3,
+    "resources": {
+      "cpu": "1000m",
+      "memory": "2Gi"
+    },
+    "environment": "production",
+    "security": "high"
+  },
+  "services": {
+    "api": {
+      "image": "noxpanel/api:production",
+      "replicas": 3,
+      "resources": {
+        "cpu": "1000m",
+        "memory": "2Gi"
+      }
+    },
+    "dashboard": {
+      "image": "noxpanel/dashboard:production",
+      "replicas": 3,
+      "resources": {
+        "cpu": "1000m",
+        "memory": "2Gi"
+      }
+    }
+  },
+  "ingress": {
+    "enabled": true,
+    "host": "noxpanel-production.example.com",
+    "tls": true
+  }
+}

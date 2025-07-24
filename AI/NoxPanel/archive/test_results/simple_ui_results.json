@@ -1,0 +1,90 @@
+{
+  "timestamp": "2025-07-15T11:43:36.403848",
+  "base_url": "http://127.0.0.1:5002",
+  "total_pages": 5,
+  "functional_pages": 1,
+  "error_pages": 4,
+  "success_rate": "20.0%",
+  "results": {
+    "dashboard": {
+      "url": "http://127.0.0.1:5002/",
+      "page_title": "NoxPanel - Working",
+      "load_time": 0.006510019302368164,
+      "content_length": 4262,
+      "has_navigation": true,
+      "has_forms": false,
+      "missing_elements": [
+        "CSS stylesheets"
+      ],
+      "accessibility_issues": [],
+      "theme_indicators": [],
+      "is_functional": true,
+      "issues": [],
+      "description": "Main Dashboard"
+    },
+    "chat": {
+      "url": "http://127.0.0.1:5002/ui/chat",
+      "page_title": "Failed to load",
+      "load_time": 0.004008293151855469,
+      "content_length": 0,
+      "has_navigation": false,
+      "has_forms": false,
+      "missing_elements": [],
+      "accessibility_issues": [],
+      "theme_indicators": [],
+      "is_functional": false,
+      "issues": [
+        "HTTP 404"
+      ],
+      "description": "AI Chat Interface"
+    },
+    "admin": {
+      "url": "http://127.0.0.1:5002/ui/admin",
+      "page_title": "Failed to load",
+      "load_time": 0.003504514694213867,
+      "content_length": 0,
+      "has_navigation": false,
+      "has_forms": false,
+      "missing_elements": [],
+      "accessibility_issues": [],
+      "theme_indicators": [],
+      "is_functional": false,
+      "issues": [
+        "HTTP 404"
+      ],
+      "description": "Admin Panel"
+    },
+    "plugins": {
+      "url": "http://127.0.0.1:5002/ui/plugins",
+      "page_title": "Failed to load",
+      "load_time": 0.0030014514923095703,
+      "content_length": 0,
+      "has_navigation": false,
+      "has_forms": false,
+      "missing_elements": [],
+      "accessibility_issues": [],
+      "theme_indicators": [],
+      "is_functional": false,
+      "issues": [
+        "HTTP 404"
+      ],
+      "description": "Plugin Management"
+    },
+    "crawler": {
+      "url": "http://127.0.0.1:5002/ui/crawler",
+      "page_title": "Failed to load",
+      "load_time": 0.004506826400756836,
+      "content_length": 0,
+      "has_navigation": false,
+      "has_forms": false,
+      "missing_elements": [],
+      "accessibility_issues": [],
+      "theme_indicators": [],
+      "is_functional": false,
+      "issues": [
+        "HTTP 404"
+      ],
+      "description": "Web Crawler"
+    }
+  }
+}

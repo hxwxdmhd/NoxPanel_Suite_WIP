@@ -1,0 +1,6 @@
+{
+  "environment": "development",
+  "compliance_threshold": 85.0,
+  "validation_frequency": "relaxed",
+  "timestamp": "2025-07-18T11:39:27.242279"
+}

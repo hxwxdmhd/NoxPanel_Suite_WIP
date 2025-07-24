@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-07-15T10:30:00Z",
+  "ports_found": {},
+  "active_ports": [
+    5000,
+    5001
+  ],
+  "routes_discovered": {
+    "version_tagger.py": {
+      "app_routes": [],
+      "blueprint_routes": [
+        "/",
+        "/api/status"
+      ],
+      "blueprint_definitions": [
+        [
+          "sample",
+          "/sample"
+        ]
+      ]
+    }
+  },
+  "services_identified": {},
+  "consolidation_recommendations": {
+    "port_strategy": "single_port_with_blueprints",
+    "recommended_port": 5000,
+    "consolidation_plan": [],
+    "routing_strategy": {
+      "/": "Main dashboard (existing)",
+      "/chat": "Chatbot interface (existing)",
+      "/admin": "Admin panel blueprint",
+      "/api/*": "All API endpoints",
+      "/plugins": "Plugin management",
+      "/docs": "Documentation viewer"
+    }
+  }
+}
