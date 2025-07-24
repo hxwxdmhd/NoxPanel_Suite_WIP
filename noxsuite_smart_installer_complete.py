@@ -71,6 +71,7 @@ class InstallMode(Enum):
     DRY_RUN = "dry_run"
     SAFE = "safe"
     RECOVERY = "recovery"
+    AUDIT_HEAL = "audit_heal"
 
 class StepStatus(Enum):
     PENDING = "pending"
@@ -1204,6 +1205,1894 @@ class DirectoryScaffold:
             except:
                 pass  # Ignore cleanup errors
 
+@dataclass
+class ValidationFailure:
+    """Represents a validation failure with context and fix suggestions"""
+    check_name: str
+    message: str
+    severity: str  # "error", "warning", "info"
+    auto_fix_available: bool = False
+    auto_fix_suggestion: str = ""
+    context: Dict[str, Any] = None
+
+@dataclass
+class ValidationResult:
+    """Result of comprehensive validation"""
+    all_passed: bool
+    total_checks: int
+    passed_checks: int
+    failures: List[ValidationFailure]
+    platform_specific_issues: List[str] = None
+
+@dataclass 
+class HealingResult:
+    """Result of auto-healing attempts"""
+    healed_count: int
+    failed_count: int
+    healing_details: List[Dict[str, Any]]
+
+class ConfigurationGenerator:
+    """Cross-platform configuration file generator with Windows-specific handling"""
+    
+    def __init__(self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger):
+        self.config = config
+        self.system_info = system_info
+        self.logger = logger
+        self.created_configs = []
+        self.templates = self._load_config_templates()
+    
+    def generate_all_configs(self) -> bool:
+        """Generate all required configuration files"""
+        try:
+            config_generators = [
+                ("main_config", self._generate_main_config),
+                ("docker_compose", self._generate_docker_compose),
+                ("environment_vars", self._generate_env_files),
+                ("database_config", self._generate_database_config),
+                ("ai_config", self._generate_ai_config),
+                ("network_config", self._generate_network_config),
+                ("logging_config", self._generate_logging_config),
+                ("service_configs", self._generate_service_configs)
+            ]
+            
+            success_count = 0
+            for config_name, generator_func in config_generators:
+                try:
+                    self.logger.debug(f"Generating {config_name}...")
+                    if generator_func():
+                        success_count += 1
+                        self.logger.debug(f"✅ {config_name} generated successfully")
+                    else:
+                        self.logger.warning(f"⚠️ {config_name} generation failed")
+                except Exception as e:
+                    self.logger.warning(f"❌ {config_name} generation error: {e}")
+            
+            # Validate generated configs
+            if success_count > 0:
+                self._validate_generated_configs()
+            
+            return success_count >= len(config_generators) * 0.8  # 80% success rate required
+            
+        except Exception as e:
+            self.logger.error(f"Configuration generation failed: {e}")
+            return False
+    
+    def _load_config_templates(self) -> Dict[str, Any]:
+        """Load platform-specific configuration templates"""
+        return {
+            "main_config": {
+                "version": "1.0",
+                "installation": {
+                    "directory": str(self.config.install_directory),
+                    "platform": self.system_info.os_type.value,
+                    "installed_modules": self.config.modules,
+                    "features": {
+                        "ai_enabled": self.config.enable_ai,
+                        "voice_enabled": self.config.enable_voice,
+                        "mobile_enabled": self.config.enable_mobile,
+                        "dev_mode": self.config.dev_mode
+                    }
+                },
+                "system": {
+                    "os_type": self.system_info.os_type.value,
+                    "architecture": self.system_info.architecture,
+                    "python_version": self.system_info.python_version,
+                    "available_memory": self.system_info.available_memory,
+                    "cpu_cores": self.system_info.cpu_cores
+                }
+            },
+            "docker_compose": self._get_docker_compose_template(),
+            "environment": self._get_environment_template(),
+            "database": self._get_database_template(),
+            "ai_models": self._get_ai_config_template(),
+            "network": self._get_network_template(),
+            "logging": self._get_logging_template()
+        }
+    
+    def _generate_main_config(self) -> bool:
+        """Generate main noxsuite.json configuration file"""
+        try:
+            config_file = self.config.install_directory / "config" / "noxsuite.json"
+            config_file.parent.mkdir(parents=True, exist_ok=True)
+            
+            main_config = self.templates["main_config"]
+            
+            # Add Windows-specific configurations
+            if self.system_info.os_type == OSType.WINDOWS:
+                main_config["platform_specific"] = {
+                    "line_endings": "crlf",
+                    "path_separator": "\\",
+                    "service_type": "windows_service",
+                    "docker_desktop": True,
+                    "encoding": "utf-8-sig"  # BOM for Windows compatibility
+                }
+            else:
+                main_config["platform_specific"] = {
+                    "line_endings": "lf", 
+                    "path_separator": "/",
+                    "service_type": "systemd",
+                    "docker_native": True,
+                    "encoding": "utf-8"
+                }
+            
+            # Write config with proper encoding and error handling
+            self._write_config_file_safely(config_file, main_config)
+            self.created_configs.append(str(config_file))
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate main config: {e}")
+            return False
+    
+    def _generate_docker_compose(self) -> bool:
+        """Generate Docker Compose files with platform-specific configurations"""
+        try:
+            docker_dir = self.config.install_directory / "docker"
+            docker_dir.mkdir(parents=True, exist_ok=True)
+            
+            compose_config = self.templates["docker_compose"]
+            
+            # Platform-specific volume mounts
+            if self.system_info.os_type == OSType.WINDOWS:
+                # Use named volumes instead of bind mounts on Windows to avoid path issues
+                compose_config["volumes"] = {
+                    "noxsuite_data": {},
+                    "noxsuite_logs": {},
+                    "noxsuite_config": {}
+                }
+            
+            # Generate main compose file
+            compose_file = docker_dir / "docker-compose.noxsuite.yml"
+            self._write_yaml_file_safely(compose_file, compose_config)
+            self.created_configs.append(str(compose_file))
+            
+            # Generate environment-specific compose files
+            for env in ["development", "production"]:
+                env_compose = docker_dir / f"docker-compose.{env}.yml"
+                env_config = self._get_environment_specific_compose(env)
+                self._write_yaml_file_safely(env_compose, env_config)
+                self.created_configs.append(str(env_compose))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate Docker Compose configs: {e}")
+            return False
+    
+    def _generate_env_files(self) -> bool:
+        """Generate environment variable files"""
+        try:
+            config_dir = self.config.install_directory / "config"
+            
+            # Main .env file
+            env_file = config_dir / ".env"
+            env_vars = self._get_environment_variables()
+            self._write_env_file_safely(env_file, env_vars)
+            self.created_configs.append(str(env_file))
+            
+            # Platform-specific env files
+            platform_env = config_dir / f".env.{self.system_info.os_type.value}"
+            platform_vars = self._get_platform_specific_env_vars()
+            self._write_env_file_safely(platform_env, platform_vars)
+            self.created_configs.append(str(platform_env))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate environment files: {e}")
+            return False
+    
+    def _generate_database_config(self) -> bool:
+        """Generate database configuration files"""
+        try:
+            config_dir = self.config.install_directory / "config"
+            
+            db_config = self.templates["database"]
+            
+            # Platform-specific database paths
+            if self.system_info.os_type == OSType.WINDOWS:
+                db_config["sqlite"]["path"] = str(self.config.install_directory / "data" / "noxsuite.db").replace("\\", "/")
+            else:
+                db_config["sqlite"]["path"] = str(self.config.install_directory / "data" / "noxsuite.db")
+            
+            db_file = config_dir / "database.json"
+            self._write_config_file_safely(db_file, db_config)
+            self.created_configs.append(str(db_file))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate database config: {e}")
+            return False
+    
+    def _generate_ai_config(self) -> bool:
+        """Generate AI model configurations"""
+        if not self.config.enable_ai:
+            return True
+            
+        try:
+            config_dir = self.config.install_directory / "config"
+            ai_dir = config_dir / "ai"
+            ai_dir.mkdir(parents=True, exist_ok=True)
+            
+            ai_config = self.templates["ai_models"]
+            ai_config["models"] = []
+            
+            for model in self.config.ai_models:
+                model_config = {
+                    "name": model,
+                    "enabled": True,
+                    "download_path": str(ai_dir / "models" / model),
+                    "memory_limit": f"{self.system_info.available_memory // len(self.config.ai_models)}GB"
+                }
+                ai_config["models"].append(model_config)
+            
+            ai_file = ai_dir / "models.json"
+            self._write_config_file_safely(ai_file, ai_config)
+            self.created_configs.append(str(ai_file))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate AI config: {e}")
+            return False
+    
+    def _generate_network_config(self) -> bool:
+        """Generate network and port configurations"""
+        try:
+            config_dir = self.config.install_directory / "config"
+            
+            network_config = self.templates["network"]
+            
+            # Platform-specific network settings
+            if self.system_info.os_type == OSType.WINDOWS:
+                # Windows-specific Docker Desktop networking
+                network_config["docker"]["host"] = "host.docker.internal"
+            else:
+                network_config["docker"]["host"] = "localhost"
+            
+            network_file = config_dir / "network.json"
+            self._write_config_file_safely(network_file, network_config)
+            self.created_configs.append(str(network_file))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate network config: {e}")
+            return False
+    
+    def _generate_logging_config(self) -> bool:
+        """Generate logging configurations"""
+        try:
+            config_dir = self.config.install_directory / "config"
+            
+            logging_config = self.templates["logging"]
+            
+            # Platform-specific log paths and formats
+            if self.system_info.os_type == OSType.WINDOWS:
+                logging_config["handlers"]["file"]["filename"] = str(self.config.install_directory / "data" / "logs" / "noxsuite.log").replace("\\", "/")
+                logging_config["formatters"]["detailed"]["format"] = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+            else:
+                logging_config["handlers"]["file"]["filename"] = str(self.config.install_directory / "data" / "logs" / "noxsuite.log")
+            
+            logging_file = config_dir / "logging.json"
+            self._write_config_file_safely(logging_file, logging_config)
+            self.created_configs.append(str(logging_file))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate logging config: {e}")
+            return False
+    
+    def _generate_service_configs(self) -> bool:
+        """Generate service startup and management configurations"""
+        try:
+            scripts_dir = self.config.install_directory / "scripts"
+            scripts_dir.mkdir(parents=True, exist_ok=True)
+            
+            if self.system_info.os_type == OSType.WINDOWS:
+                # Generate Windows batch files
+                start_script = scripts_dir / "start-noxsuite.bat"
+                self._write_windows_start_script(start_script)
+                self.created_configs.append(str(start_script))
+                
+                stop_script = scripts_dir / "stop-noxsuite.bat"
+                self._write_windows_stop_script(stop_script)
+                self.created_configs.append(str(stop_script))
+            else:
+                # Generate Unix shell scripts
+                start_script = scripts_dir / "start-noxsuite.sh"
+                self._write_unix_start_script(start_script)
+                start_script.chmod(0o755)  # Make executable
+                self.created_configs.append(str(start_script))
+                
+                stop_script = scripts_dir / "stop-noxsuite.sh"
+                self._write_unix_stop_script(stop_script)
+                stop_script.chmod(0o755)
+                self.created_configs.append(str(stop_script))
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Failed to generate service configs: {e}")
+            return False
+    
+    def _write_config_file_safely(self, file_path: Path, config_data: Dict[str, Any]):
+        """Write configuration file with atomic operations and encoding safety"""
+        # Use temporary file for atomic write
+        temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
+        
+        try:
+            # Choose encoding based on platform
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            
+            with open(temp_file, 'w', encoding=encoding, newline='\n') as f:
+                json.dump(config_data, f, indent=2, ensure_ascii=False)
+            
+            # Atomic move
+            temp_file.replace(file_path)
+            
+        except Exception as e:
+            # Clean up temp file on error
+            if temp_file.exists():
+                temp_file.unlink()
+            raise e
+    
+    def _write_yaml_file_safely(self, file_path: Path, yaml_data: Dict[str, Any]):
+        """Write YAML file safely (fallback to JSON if yaml not available)"""
+        temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            
+            # Try to use yaml if available, otherwise use JSON
+            try:
+                import yaml
+                with open(temp_file, 'w', encoding=encoding, newline='\n') as f:
+                    yaml.dump(yaml_data, f, default_flow_style=False, allow_unicode=True)
+            except ImportError:
+                # Fallback to JSON with .yml extension
+                with open(temp_file, 'w', encoding=encoding, newline='\n') as f:
+                    json.dump(yaml_data, f, indent=2, ensure_ascii=False)
+            
+            temp_file.replace(file_path)
+            
+        except Exception as e:
+            if temp_file.exists():
+                temp_file.unlink()
+            raise e
+    
+    def _write_env_file_safely(self, file_path: Path, env_vars: Dict[str, str]):
+        """Write environment file with platform-specific line endings"""
+        temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            newline = '\r\n' if self.system_info.os_type == OSType.WINDOWS else '\n'
+            
+            with open(temp_file, 'w', encoding=encoding, newline=newline) as f:
+                for key, value in env_vars.items():
+                    f.write(f"{key}={value}\n")
+            
+            temp_file.replace(file_path)
+            
+        except Exception as e:
+            if temp_file.exists():
+                temp_file.unlink()
+            raise e
+    
+    def _write_windows_start_script(self, script_path: Path):
+        """Generate Windows batch start script"""
+        script_content = f"""@echo off
+REM NoxSuite Windows Start Script
+cd /d "{self.config.install_directory}"
+echo Starting NoxSuite services...
+docker-compose -f docker\\docker-compose.noxsuite.yml up -d
+if %ERRORLEVEL% EQU 0 (
+    echo NoxSuite started successfully
+    echo Web interface: http://localhost:3000
+) else (
+    echo Failed to start NoxSuite
+    pause
+)
+"""
+        with open(script_path, 'w', encoding='utf-8-sig', newline='\r\n') as f:
+            f.write(script_content)
+    
+    def _write_windows_stop_script(self, script_path: Path):
+        """Generate Windows batch stop script"""
+        script_content = f"""@echo off
+REM NoxSuite Windows Stop Script
+cd /d "{self.config.install_directory}"
+echo Stopping NoxSuite services...
+docker-compose -f docker\\docker-compose.noxsuite.yml down
+echo NoxSuite stopped
+pause
+"""
+        with open(script_path, 'w', encoding='utf-8-sig', newline='\r\n') as f:
+            f.write(script_content)
+    
+    def _write_unix_start_script(self, script_path: Path):
+        """Generate Unix shell start script"""
+        script_content = f"""#!/bin/bash
+# NoxSuite Unix Start Script
+cd "{self.config.install_directory}"
+echo "Starting NoxSuite services..."
+docker-compose -f docker/docker-compose.noxsuite.yml up -d
+if [ $? -eq 0 ]; then
+    echo "NoxSuite started successfully"
+    echo "Web interface: http://localhost:3000"
+else
+    echo "Failed to start NoxSuite"
+    exit 1
+fi
+"""
+        with open(script_path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(script_content)
+    
+    def _write_unix_stop_script(self, script_path: Path):
+        """Generate Unix shell stop script"""
+        script_content = f"""#!/bin/bash
+# NoxSuite Unix Stop Script
+cd "{self.config.install_directory}"
+echo "Stopping NoxSuite services..."
+docker-compose -f docker/docker-compose.noxsuite.yml down
+echo "NoxSuite stopped"
+"""
+        with open(script_path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(script_content)
+    
+    def _validate_generated_configs(self):
+        """Validate all generated configuration files"""
+        self.logger.debug("Validating generated configuration files...")
+        
+        invalid_configs = []
+        for config_file in self.created_configs:
+            if not self._validate_single_config(Path(config_file)):
+                invalid_configs.append(config_file)
+        
+        if invalid_configs:
+            self.logger.warning(f"Invalid configurations detected: {len(invalid_configs)} files")
+            for config in invalid_configs:
+                self.logger.warning(f"  • {config}")
+        else:
+            self.logger.debug("All generated configurations are valid")
+    
+    def _validate_single_config(self, config_path: Path) -> bool:
+        """Validate a single configuration file"""
+        try:
+            if not config_path.exists():
+                return False
+            
+            # Basic file size check
+            if config_path.stat().st_size == 0:
+                return False
+            
+            # Try to read the file with proper encoding
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            
+            if config_path.suffix.lower() == '.json':
+                with open(config_path, 'r', encoding=encoding) as f:
+                    json.load(f)  # Validate JSON syntax
+            elif config_path.suffix.lower() in ['.yml', '.yaml']:
+                with open(config_path, 'r', encoding=encoding) as f:
+                    try:
+                        import yaml
+                        yaml.safe_load(f)
+                    except ImportError:
+                        # If no yaml, assume it's JSON in YAML file
+                        f.seek(0)
+                        json.load(f)
+            
+            return True
+            
+        except Exception as e:
+            self.logger.debug(f"Config validation failed for {config_path}: {e}")
+            return False
+    
+    # Template getters for different configuration types
+    def _get_docker_compose_template(self) -> Dict[str, Any]:
+        """Get Docker Compose template"""
+        services = {
+            "noxpanel": {
+                "image": "noxsuite/noxpanel:latest",
+                "ports": ["3000:3000"],
+                "environment": ["NODE_ENV=production"],
+                "depends_on": ["postgres", "redis"]
+            },
+            "postgres": {
+                "image": "postgres:13",
+                "environment": [
+                    "POSTGRES_DB=noxsuite",
+                    "POSTGRES_USER=noxsuite",
+                    "POSTGRES_PASSWORD=noxsuite123"
+                ],
+                "volumes": ["postgres_data:/var/lib/postgresql/data"]
+            },
+            "redis": {
+                "image": "redis:7-alpine",
+                "volumes": ["redis_data:/data"]
+            }
+        }
+        
+        if self.config.enable_ai:
+            services["aethercore"] = {
+                "image": "noxsuite/aethercore:latest",
+                "ports": ["8000:8000"],
+                "environment": ["AI_MODELS=" + ",".join(self.config.ai_models)],
+                "volumes": ["ai_models:/app/models"]
+            }
+        
+        return {
+            "version": "3.8",
+            "services": services,
+            "volumes": {
+                "postgres_data": {},
+                "redis_data": {},
+                "ai_models": {} if self.config.enable_ai else None
+            }
+        }
+    
+    def _get_environment_template(self) -> Dict[str, str]:
+        """Get environment variables template"""
+        return {
+            "NOXSUITE_VERSION": "1.0.0",
+            "NOXSUITE_ENV": "production",
+            "NOXSUITE_DEBUG": "false" if not self.config.dev_mode else "true",
+            "NOXSUITE_PLATFORM": self.system_info.os_type.value,
+            "NOXSUITE_INSTALL_DIR": str(self.config.install_directory)
+        }
+    
+    def _get_database_template(self) -> Dict[str, Any]:
+        """Get database configuration template"""
+        return {
+            "default": "sqlite",
+            "sqlite": {
+                "path": "data/noxsuite.db",
+                "timeout": 30
+            },
+            "postgres": {
+                "host": "localhost",
+                "port": 5432,
+                "database": "noxsuite",
+                "username": "noxsuite",
+                "password": "noxsuite123"
+            }
+        }
+    
+    def _get_ai_config_template(self) -> Dict[str, Any]:
+        """Get AI configuration template"""
+        return {
+            "enabled": self.config.enable_ai,
+            "voice_enabled": self.config.enable_voice,
+            "models": [],
+            "ollama": {
+                "host": "localhost",
+                "port": 11434
+            }
+        }
+    
+    def _get_network_template(self) -> Dict[str, Any]:
+        """Get network configuration template"""
+        return {
+            "ports": {
+                "web": 3000,
+                "api": 8000,
+                "ai": 11434,
+                "monitoring": 3001
+            },
+            "docker": {
+                "network": "noxsuite_network"
+            }
+        }
+    
+    def _get_logging_template(self) -> Dict[str, Any]:
+        """Get logging configuration template"""
+        return {
+            "version": 1,
+            "disable_existing_loggers": False,
+            "formatters": {
+                "detailed": {
+                    "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+                }
+            },
+            "handlers": {
+                "file": {
+                    "class": "logging.FileHandler",
+                    "filename": "data/logs/noxsuite.log",
+                    "formatter": "detailed",
+                    "encoding": "utf-8"
+                },
+                "console": {
+                    "class": "logging.StreamHandler",
+                    "formatter": "detailed"
+                }
+            },
+            "root": {
+                "level": "INFO",
+                "handlers": ["file", "console"]
+            }
+        }
+    
+    def _get_environment_variables(self) -> Dict[str, str]:
+        """Get main environment variables"""
+        env_vars = {
+            "NOXSUITE_VERSION": "1.0.0",
+            "NOXSUITE_ENVIRONMENT": "production",
+            "NOXSUITE_PLATFORM": self.system_info.os_type.value,
+            "NOXSUITE_INSTALL_PATH": str(self.config.install_directory),
+            "NOXSUITE_DEBUG": str(self.config.dev_mode).lower(),
+            "NOXSUITE_AI_ENABLED": str(self.config.enable_ai).lower(),
+            "NOXSUITE_VOICE_ENABLED": str(self.config.enable_voice).lower(),
+            "NOXSUITE_MOBILE_ENABLED": str(self.config.enable_mobile).lower()
+        }
+        
+        # Platform-specific environment variables
+        if self.system_info.os_type == OSType.WINDOWS:
+            env_vars.update({
+                "NOXSUITE_LINE_ENDINGS": "crlf",
+                "NOXSUITE_PATH_SEP": "\\",
+                "NOXSUITE_SHELL": "cmd"
+            })
+        else:
+            env_vars.update({
+                "NOXSUITE_LINE_ENDINGS": "lf",
+                "NOXSUITE_PATH_SEP": "/",
+                "NOXSUITE_SHELL": "bash"
+            })
+        
+        return env_vars
+    
+    def _get_platform_specific_env_vars(self) -> Dict[str, str]:
+        """Get platform-specific environment variables"""
+        if self.system_info.os_type == OSType.WINDOWS:
+            return {
+                "COMPOSE_CONVERT_WINDOWS_PATHS": "1",
+                "DOCKER_BUILDKIT": "1",
+                "NOXSUITE_WINDOWS_SERVICE": "true"
+            }
+        else:
+            return {
+                "DOCKER_BUILDKIT": "1",
+                "NOXSUITE_SYSTEMD": "true"
+            }
+    
+    def _get_environment_specific_compose(self, environment: str) -> Dict[str, Any]:
+        """Get environment-specific Docker Compose configuration"""
+        if environment == "development":
+            return {
+                "version": "3.8",
+                "services": {
+                    "noxpanel": {
+                        "environment": ["NODE_ENV=development", "DEBUG=true"],
+                        "volumes": ["./frontend:/app/src"]
+                    }
+                }
+            }
+        else:  # production
+            return {
+                "version": "3.8",
+                "services": {
+                    "noxpanel": {
+                        "restart": "unless-stopped",
+                        "environment": ["NODE_ENV=production"]
+                    }
+                }
+            }
+
+class InstallationValidator:
+    """Comprehensive installation validator with Windows-specific checks and auto-healing"""
+    
+    def __init__(self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger):
+        self.config = config
+        self.system_info = system_info
+        self.logger = logger
+        self.validation_checks = self._get_validation_checks()
+    
+    def validate_complete_installation(self) -> ValidationResult:
+        """Run comprehensive validation of the entire installation"""
+        self.logger.info("🔍 Running comprehensive installation validation...")
+        
+        failures = []
+        passed_count = 0
+        
+        for check_name, check_func in self.validation_checks:
+            try:
+                self.logger.debug(f"Validating {check_name}...")
+                result = check_func()
+                
+                if result["passed"]:
+                    passed_count += 1
+                    self.logger.debug(f"✅ {check_name}: PASSED")
+                else:
+                    failure = ValidationFailure(
+                        check_name=check_name,
+                        message=result["message"],
+                        severity=result.get("severity", "error"),
+                        auto_fix_available=result.get("auto_fix_available", False),
+                        auto_fix_suggestion=result.get("auto_fix_suggestion", ""),
+                        context=result.get("context", {})
+                    )
+                    failures.append(failure)
+                    self.logger.debug(f"❌ {check_name}: {result['message']}")
+                    
+            except Exception as e:
+                failure = ValidationFailure(
+                    check_name=check_name,
+                    message=f"Validation check failed: {str(e)}",
+                    severity="error",
+                    context={"exception": str(e), "traceback": traceback.format_exc()}
+                )
+                failures.append(failure)
+                self.logger.debug(f"💥 {check_name}: Exception - {e}")
+        
+        total_checks = len(self.validation_checks)
+        all_passed = len(failures) == 0
+        
+        # Identify platform-specific issues
+        platform_issues = self._identify_platform_specific_issues(failures)
+        
+        return ValidationResult(
+            all_passed=all_passed,
+            total_checks=total_checks,
+            passed_checks=passed_count,
+            failures=failures,
+            platform_specific_issues=platform_issues
+        )
+    
+    def attempt_auto_healing(self, failures: List[ValidationFailure]) -> HealingResult:
+        """Attempt to automatically fix validation failures"""
+        self.logger.info("🔧 Attempting auto-healing of validation failures...")
+        
+        healed_count = 0
+        failed_count = 0
+        healing_details = []
+        
+        for failure in failures:
+            if failure.auto_fix_available:
+                try:
+                    self.logger.debug(f"Attempting to heal: {failure.check_name}")
+                    healing_result = self._attempt_healing(failure)
+                    
+                    if healing_result["success"]:
+                        healed_count += 1
+                        healing_details.append({
+                            "check_name": failure.check_name,
+                            "status": "healed",
+                            "method": healing_result.get("method", "unknown"),
+                            "details": healing_result.get("details", "")
+                        })
+                        self.logger.debug(f"✅ Healed: {failure.check_name}")
+                    else:
+                        failed_count += 1
+                        healing_details.append({
+                            "check_name": failure.check_name,
+                            "status": "failed",
+                            "error": healing_result.get("error", "Unknown error"),
+                            "suggestion": healing_result.get("suggestion", "")
+                        })
+                        self.logger.debug(f"❌ Failed to heal: {failure.check_name}")
+                        
+                except Exception as e:
+                    failed_count += 1
+                    healing_details.append({
+                        "check_name": failure.check_name,
+                        "status": "exception",
+                        "error": str(e)
+                    })
+                    self.logger.debug(f"💥 Healing exception for {failure.check_name}: {e}")
+            else:
+                failed_count += 1
+                healing_details.append({
+                    "check_name": failure.check_name,
+                    "status": "no_auto_fix",
+                    "message": "Manual intervention required"
+                })
+        
+        return HealingResult(
+            healed_count=healed_count,
+            failed_count=failed_count,
+            healing_details=healing_details
+        )
+    
+    def _get_validation_checks(self) -> List[Tuple[str, callable]]:
+        """Get list of validation checks to perform"""
+        return [
+            ("directory_structure", self._validate_directory_structure),
+            ("configuration_files", self._validate_configuration_files),
+            ("configuration_syntax", self._validate_configuration_syntax),
+            ("file_permissions", self._validate_file_permissions),
+            ("encoding_consistency", self._validate_encoding_consistency),
+            ("path_compatibility", self._validate_path_compatibility),
+            ("docker_configs", self._validate_docker_configs),
+            ("environment_variables", self._validate_environment_variables),
+            ("startup_scripts", self._validate_startup_scripts),
+            ("database_config", self._validate_database_config),
+            ("network_config", self._validate_network_config),
+            ("ai_config", self._validate_ai_config),
+            ("logging_config", self._validate_logging_config),
+            ("service_dependencies", self._validate_service_dependencies),
+            ("disk_space", self._validate_disk_space),
+            ("platform_compatibility", self._validate_platform_compatibility)
+        ]
+    
+    def _validate_directory_structure(self) -> Dict[str, Any]:
+        """Validate that all required directories exist"""
+        required_dirs = [
+            "config",
+            "config/ai" if self.config.enable_ai else None,
+            "scripts", 
+            "docker",
+            "data",
+            "data/logs"
+        ]
+        required_dirs = [d for d in required_dirs if d is not None]
+        
+        missing_dirs = []
+        for dir_path in required_dirs:
+            full_path = self.config.install_directory / dir_path
+            if not full_path.exists() or not full_path.is_dir():
+                missing_dirs.append(dir_path)
+        
+        if missing_dirs:
+            return {
+                "passed": False,
+                "message": f"Missing directories: {', '.join(missing_dirs)}",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Create missing directories",
+                "context": {"missing_dirs": missing_dirs}
+            }
+        
+        return {"passed": True, "message": "All required directories exist"}
+    
+    def _validate_configuration_files(self) -> Dict[str, Any]:
+        """Validate that all required configuration files exist"""
+        required_configs = [
+            "config/noxsuite.json",
+            "config/.env",
+            f"config/.env.{self.system_info.os_type.value}",
+            "config/database.json",
+            "config/network.json",
+            "config/logging.json",
+            "docker/docker-compose.noxsuite.yml",
+            "docker/docker-compose.development.yml",
+            "docker/docker-compose.production.yml"
+        ]
+        
+        if self.config.enable_ai:
+            required_configs.append("config/ai/models.json")
+        
+        missing_configs = []
+        for config_path in required_configs:
+            full_path = self.config.install_directory / config_path
+            if not full_path.exists() or not full_path.is_file():
+                missing_configs.append(config_path)
+        
+        if missing_configs:
+            return {
+                "passed": False,
+                "message": f"Missing configuration files: {', '.join(missing_configs)}",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate missing configuration files",
+                "context": {"missing_configs": missing_configs}
+            }
+        
+        return {"passed": True, "message": "All required configuration files exist"}
+    
+    def _validate_configuration_syntax(self) -> Dict[str, Any]:
+        """Validate syntax of configuration files"""
+        config_files = []
+        for path in ["config", "docker"]:
+            config_dir = self.config.install_directory / path
+            if config_dir.exists():
+                config_files.extend(config_dir.rglob("*.json"))
+                config_files.extend(config_dir.rglob("*.yml"))
+                config_files.extend(config_dir.rglob("*.yaml"))
+        
+        syntax_errors = []
+        encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+        
+        for config_file in config_files:
+            try:
+                if config_file.suffix.lower() == '.json':
+                    with open(config_file, 'r', encoding=encoding) as f:
+                        json.load(f)
+                elif config_file.suffix.lower() in ['.yml', '.yaml']:
+                    with open(config_file, 'r', encoding=encoding) as f:
+                        try:
+                            import yaml
+                            yaml.safe_load(f)
+                        except ImportError:
+                            # Fallback to JSON validation
+                            f.seek(0)
+                            json.load(f)
+            except Exception as e:
+                syntax_errors.append({
+                    "file": str(config_file.relative_to(self.config.install_directory)),
+                    "error": str(e)
+                })
+        
+        if syntax_errors:
+            return {
+                "passed": False,
+                "message": f"Syntax errors in {len(syntax_errors)} configuration files",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate corrupted configuration files",
+                "context": {"syntax_errors": syntax_errors}
+            }
+        
+        return {"passed": True, "message": "All configuration files have valid syntax"}
+    
+    def _validate_file_permissions(self) -> Dict[str, Any]:
+        """Validate file permissions (especially important on Unix systems)"""
+        permission_issues = []
+        
+        # Check script executability (Unix only)
+        if self.system_info.os_type != OSType.WINDOWS:
+            script_files = [
+                "scripts/start-noxsuite.sh",
+                "scripts/stop-noxsuite.sh"
+            ]
+            
+            for script_path in script_files:
+                full_path = self.config.install_directory / script_path
+                if full_path.exists():
+                    # Check if executable
+                    if not os.access(full_path, os.X_OK):
+                        permission_issues.append({
+                            "file": script_path,
+                            "issue": "not_executable",
+                            "expected": "755",
+                            "actual": oct(full_path.stat().st_mode)[-3:]
+                        })
+        
+        # Check write permissions on data directories
+        data_dirs = ["data", "data/logs"]
+        for dir_path in data_dirs:
+            full_path = self.config.install_directory / dir_path
+            if full_path.exists():
+                test_file = full_path / f".write_test_{int(time.time())}"
+                try:
+                    test_file.write_text("test")
+                    test_file.unlink()
+                except Exception:
+                    permission_issues.append({
+                        "directory": dir_path,
+                        "issue": "not_writable"
+                    })
+        
+        if permission_issues:
+            return {
+                "passed": False,
+                "message": f"Permission issues found: {len(permission_issues)} files/directories",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Fix file permissions",
+                "context": {"permission_issues": permission_issues}
+            }
+        
+        return {"passed": True, "message": "File permissions are correct"}
+    
+    def _validate_encoding_consistency(self) -> Dict[str, Any]:
+        """Validate file encoding consistency (especially important on Windows)"""
+        encoding_issues = []
+        expected_encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+        
+        # Check text configuration files
+        text_files = []
+        for path in ["config", "scripts"]:
+            config_dir = self.config.install_directory / path
+            if config_dir.exists():
+                text_files.extend(config_dir.rglob("*.json"))
+                text_files.extend(config_dir.rglob("*.yml"))
+                text_files.extend(config_dir.rglob("*.yaml"))
+                text_files.extend(config_dir.rglob("*.env"))
+                text_files.extend(config_dir.rglob("*.sh"))
+                text_files.extend(config_dir.rglob("*.bat"))
+        
+        for text_file in text_files:
+            try:
+                # Try reading with expected encoding
+                with open(text_file, 'r', encoding=expected_encoding) as f:
+                    content = f.read()
+                
+                # Check for BOM on Windows
+                if self.system_info.os_type == OSType.WINDOWS:
+                    if not content.startswith('\ufeff') and text_file.suffix.lower() in ['.json', '.yml', '.yaml']:
+                        encoding_issues.append({
+                            "file": str(text_file.relative_to(self.config.install_directory)),
+                            "issue": "missing_bom",
+                            "expected": "utf-8-sig",
+                            "suggestion": "Add BOM for Windows compatibility"
+                        })
+            except UnicodeDecodeError as e:
+                encoding_issues.append({
+                    "file": str(text_file.relative_to(self.config.install_directory)),
+                    "issue": "encoding_error",
+                    "error": str(e),
+                    "expected": expected_encoding
+                })
+        
+        if encoding_issues:
+            return {
+                "passed": False,
+                "message": f"Encoding issues found in {len(encoding_issues)} files",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Fix file encodings",
+                "context": {"encoding_issues": encoding_issues}
+            }
+        
+        return {"passed": True, "message": "File encodings are consistent"}
+    
+    def _validate_path_compatibility(self) -> Dict[str, Any]:
+        """Validate path compatibility (Windows path length limits, reserved names, etc.)"""
+        path_issues = []
+        
+        if self.system_info.os_type == OSType.WINDOWS:
+            # Check for Windows path length limits (260 characters)
+            for root, dirs, files in os.walk(self.config.install_directory):
+                for file in files:
+                    full_path = os.path.join(root, file)
+                    if len(full_path) > 260:
+                        path_issues.append({
+                            "path": full_path,
+                            "issue": "path_too_long",
+                            "length": len(full_path),
+                            "limit": 260
+                        })
+            
+            # Check for reserved names
+            reserved_names = ["CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"]
+            for root, dirs, files in os.walk(self.config.install_directory):
+                for name in dirs + files:
+                    if name.upper().split('.')[0] in reserved_names:
+                        path_issues.append({
+                            "path": os.path.join(root, name),
+                            "issue": "reserved_name",
+                            "name": name.upper().split('.')[0]
+                        })
+        
+        # Check for spaces in paths (can cause Docker issues on Windows)
+        if self.system_info.os_type == OSType.WINDOWS and ' ' in str(self.config.install_directory):
+            path_issues.append({
+                "path": str(self.config.install_directory),
+                "issue": "spaces_in_path",
+                "suggestion": "Avoid spaces in installation path on Windows"
+            })
+        
+        if path_issues:
+            return {
+                "passed": False,
+                "message": f"Path compatibility issues: {len(path_issues)} problems",
+                "severity": "warning",
+                "auto_fix_available": False,
+                "auto_fix_suggestion": "Manual path fixes required",
+                "context": {"path_issues": path_issues}
+            }
+        
+        return {"passed": True, "message": "Paths are compatible with the platform"}
+    
+    def _validate_docker_configs(self) -> Dict[str, Any]:
+        """Validate Docker Compose configurations"""
+        docker_issues = []
+        
+        compose_files = [
+            "docker/docker-compose.noxsuite.yml",
+            "docker/docker-compose.development.yml",
+            "docker/docker-compose.production.yml"
+        ]
+        
+        for compose_file in compose_files:
+            full_path = self.config.install_directory / compose_file
+            if not full_path.exists():
+                continue
+            
+            try:
+                encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+                with open(full_path, 'r', encoding=encoding) as f:
+                    try:
+                        import yaml
+                        compose_data = yaml.safe_load(f)
+                    except ImportError:
+                        # Fallback to JSON
+                        f.seek(0)
+                        compose_data = json.load(f)
+                
+                # Validate Docker Compose structure
+                if not isinstance(compose_data, dict):
+                    docker_issues.append({
+                        "file": compose_file,
+                        "issue": "invalid_structure",
+                        "message": "Docker Compose file must be a dictionary"
+                    })
+                    continue
+                
+                # Check version
+                if "version" not in compose_data:
+                    docker_issues.append({
+                        "file": compose_file,
+                        "issue": "missing_version",
+                        "suggestion": "Add version field to Docker Compose file"
+                    })
+                
+                # Check services
+                if "services" not in compose_data:
+                    docker_issues.append({
+                        "file": compose_file,
+                        "issue": "missing_services",
+                        "message": "Docker Compose file must have services section"
+                    })
+                else:
+                    # Validate service configurations
+                    for service_name, service_config in compose_data["services"].items():
+                        if not isinstance(service_config, dict):
+                            docker_issues.append({
+                                "file": compose_file,
+                                "service": service_name,
+                                "issue": "invalid_service_config",
+                                "message": "Service configuration must be a dictionary"
+                            })
+                        elif "image" not in service_config and "build" not in service_config:
+                            docker_issues.append({
+                                "file": compose_file,
+                                "service": service_name,
+                                "issue": "missing_image_or_build",
+                                "message": "Service must have either 'image' or 'build' field"
+                            })
+                
+            except Exception as e:
+                docker_issues.append({
+                    "file": compose_file,
+                    "issue": "parse_error",
+                    "error": str(e)
+                })
+        
+        if docker_issues:
+            return {
+                "passed": False,
+                "message": f"Docker configuration issues: {len(docker_issues)} problems",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate Docker configurations",
+                "context": {"docker_issues": docker_issues}
+            }
+        
+        return {"passed": True, "message": "Docker configurations are valid"}
+    
+    def _validate_environment_variables(self) -> Dict[str, Any]:
+        """Validate environment variable files"""
+        env_issues = []
+        
+        env_files = [
+            "config/.env",
+            f"config/.env.{self.system_info.os_type.value}"
+        ]
+        
+        for env_file in env_files:
+            full_path = self.config.install_directory / env_file
+            if not full_path.exists():
+                env_issues.append({
+                    "file": env_file,
+                    "issue": "missing_file"
+                })
+                continue
+            
+            try:
+                encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+                with open(full_path, 'r', encoding=encoding) as f:
+                    content = f.read()
+                
+                # Parse environment variables
+                env_vars = {}
+                for line_num, line in enumerate(content.split('\n'), 1):
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        if '=' not in line:
+                            env_issues.append({
+                                "file": env_file,
+                                "line": line_num,
+                                "issue": "invalid_format",
+                                "content": line
+                            })
+                        else:
+                            key, value = line.split('=', 1)
+                            env_vars[key] = value
+                
+                # Check for required environment variables
+                required_vars = [
+                    "NOXSUITE_VERSION",
+                    "NOXSUITE_PLATFORM",
+                    "NOXSUITE_INSTALL_PATH"
+                ]
+                
+                for required_var in required_vars:
+                    if required_var not in env_vars:
+                        env_issues.append({
+                            "file": env_file,
+                            "issue": "missing_required_var",
+                            "variable": required_var
+                        })
+                
+            except Exception as e:
+                env_issues.append({
+                    "file": env_file,
+                    "issue": "read_error",
+                    "error": str(e)
+                })
+        
+        if env_issues:
+            return {
+                "passed": False,
+                "message": f"Environment variable issues: {len(env_issues)} problems",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate environment files",
+                "context": {"env_issues": env_issues}
+            }
+        
+        return {"passed": True, "message": "Environment variables are valid"}
+    
+    def _validate_startup_scripts(self) -> Dict[str, Any]:
+        """Validate startup and management scripts"""
+        script_issues = []
+        
+        if self.system_info.os_type == OSType.WINDOWS:
+            script_files = [
+                "scripts/start-noxsuite.bat",
+                "scripts/stop-noxsuite.bat"
+            ]
+        else:
+            script_files = [
+                "scripts/start-noxsuite.sh",
+                "scripts/stop-noxsuite.sh"
+            ]
+        
+        for script_file in script_files:
+            full_path = self.config.install_directory / script_file
+            if not full_path.exists():
+                script_issues.append({
+                    "file": script_file,
+                    "issue": "missing_file"
+                })
+                continue
+            
+            try:
+                encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+                with open(full_path, 'r', encoding=encoding) as f:
+                    content = f.read()
+                
+                # Check script content
+                if len(content.strip()) == 0:
+                    script_issues.append({
+                        "file": script_file,
+                        "issue": "empty_file"
+                    })
+                    continue
+                
+                # Platform-specific checks
+                if self.system_info.os_type == OSType.WINDOWS:
+                    # Check for proper Windows batch syntax
+                    if not content.startswith('@echo off'):
+                        script_issues.append({
+                            "file": script_file,
+                            "issue": "missing_echo_off",
+                            "suggestion": "Windows batch files should start with '@echo off'"
+                        })
+                else:
+                    # Check for proper shebang
+                    if not content.startswith('#!/bin/bash'):
+                        script_issues.append({
+                            "file": script_file,
+                            "issue": "missing_shebang",
+                            "suggestion": "Unix scripts should start with '#!/bin/bash'"
+                        })
+                    
+                    # Check executability
+                    if not os.access(full_path, os.X_OK):
+                        script_issues.append({
+                            "file": script_file,
+                            "issue": "not_executable",
+                            "suggestion": "Script should be executable (chmod +x)"
+                        })
+                
+            except Exception as e:
+                script_issues.append({
+                    "file": script_file,
+                    "issue": "read_error",
+                    "error": str(e)
+                })
+        
+        if script_issues:
+            return {
+                "passed": False,
+                "message": f"Startup script issues: {len(script_issues)} problems",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate startup scripts",
+                "context": {"script_issues": script_issues}
+            }
+        
+        return {"passed": True, "message": "Startup scripts are valid"}
+    
+    def _validate_database_config(self) -> Dict[str, Any]:
+        """Validate database configuration"""
+        db_config_file = self.config.install_directory / "config" / "database.json"
+        
+        if not db_config_file.exists():
+            return {
+                "passed": False,
+                "message": "Database configuration file missing",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Generate database configuration",
+                "context": {"missing_file": "config/database.json"}
+            }
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            with open(db_config_file, 'r', encoding=encoding) as f:
+                db_config = json.load(f)
+            
+            # Validate database configuration structure
+            if "default" not in db_config:
+                return {
+                    "passed": False,
+                    "message": "Database config missing 'default' field",
+                    "severity": "error",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Regenerate database configuration"
+                }
+            
+            # Check if configured database type exists
+            default_db = db_config["default"]
+            if default_db not in db_config:
+                return {
+                    "passed": False,
+                    "message": f"Default database '{default_db}' configuration not found",
+                    "severity": "error",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Add missing database configuration"
+                }
+            
+            return {"passed": True, "message": "Database configuration is valid"}
+            
+        except Exception as e:
+            return {
+                "passed": False,
+                "message": f"Database configuration error: {str(e)}",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate database configuration",
+                "context": {"error": str(e)}
+            }
+    
+    def _validate_network_config(self) -> Dict[str, Any]:
+        """Validate network configuration"""
+        network_config_file = self.config.install_directory / "config" / "network.json"
+        
+        if not network_config_file.exists():
+            return {
+                "passed": False,
+                "message": "Network configuration file missing",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Generate network configuration"
+            }
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            with open(network_config_file, 'r', encoding=encoding) as f:
+                network_config = json.load(f)
+            
+            # Validate ports
+            if "ports" not in network_config:
+                return {
+                    "passed": False,
+                    "message": "Network config missing 'ports' section",
+                    "severity": "warning",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Add ports configuration"
+                }
+            
+            # Check for port conflicts
+            ports = network_config["ports"]
+            port_conflicts = []
+            
+            for service, port in ports.items():
+                if not isinstance(port, int) or port < 1 or port > 65535:
+                    port_conflicts.append({
+                        "service": service,
+                        "port": port,
+                        "issue": "invalid_port_number"
+                    })
+            
+            if port_conflicts:
+                return {
+                    "passed": False,
+                    "message": f"Invalid port configurations: {len(port_conflicts)} issues",
+                    "severity": "warning",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Fix port configurations",
+                    "context": {"port_conflicts": port_conflicts}
+                }
+            
+            return {"passed": True, "message": "Network configuration is valid"}
+            
+        except Exception as e:
+            return {
+                "passed": False,
+                "message": f"Network configuration error: {str(e)}",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate network configuration"
+            }
+    
+    def _validate_ai_config(self) -> Dict[str, Any]:
+        """Validate AI configuration (if AI is enabled)"""
+        if not self.config.enable_ai:
+            return {"passed": True, "message": "AI disabled, no validation needed"}
+        
+        ai_config_file = self.config.install_directory / "config" / "ai" / "models.json"
+        
+        if not ai_config_file.exists():
+            return {
+                "passed": False,
+                "message": "AI configuration file missing",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Generate AI configuration"
+            }
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            with open(ai_config_file, 'r', encoding=encoding) as f:
+                ai_config = json.load(f)
+            
+            # Validate AI configuration
+            if "enabled" not in ai_config or not ai_config["enabled"]:
+                return {
+                    "passed": False,
+                    "message": "AI configuration shows AI as disabled",
+                    "severity": "warning",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Enable AI in configuration"
+                }
+            
+            if "models" not in ai_config or not ai_config["models"]:
+                return {
+                    "passed": False,
+                    "message": "No AI models configured",
+                    "severity": "warning",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Add AI model configurations"
+                }
+            
+            return {"passed": True, "message": "AI configuration is valid"}
+            
+        except Exception as e:
+            return {
+                "passed": False,
+                "message": f"AI configuration error: {str(e)}",
+                "severity": "error",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate AI configuration"
+            }
+    
+    def _validate_logging_config(self) -> Dict[str, Any]:
+        """Validate logging configuration"""
+        logging_config_file = self.config.install_directory / "config" / "logging.json"
+        
+        if not logging_config_file.exists():
+            return {
+                "passed": False,
+                "message": "Logging configuration file missing",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Generate logging configuration"
+            }
+        
+        try:
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            with open(logging_config_file, 'r', encoding=encoding) as f:
+                logging_config = json.load(f)
+            
+            # Validate logging configuration structure
+            required_sections = ["formatters", "handlers", "root"]
+            missing_sections = []
+            
+            for section in required_sections:
+                if section not in logging_config:
+                    missing_sections.append(section)
+            
+            if missing_sections:
+                return {
+                    "passed": False,
+                    "message": f"Logging config missing sections: {', '.join(missing_sections)}",
+                    "severity": "warning",
+                    "auto_fix_available": True,
+                    "auto_fix_suggestion": "Regenerate logging configuration"
+                }
+            
+            return {"passed": True, "message": "Logging configuration is valid"}
+            
+        except Exception as e:
+            return {
+                "passed": False,
+                "message": f"Logging configuration error: {str(e)}",
+                "severity": "warning",
+                "auto_fix_available": True,
+                "auto_fix_suggestion": "Regenerate logging configuration"
+            }
+    
+    def _validate_service_dependencies(self) -> Dict[str, Any]:
+        """Validate that required services and dependencies are available"""
+        missing_deps = []
+        
+        # Check Docker
+        if not shutil.which("docker"):
+            missing_deps.append({
+                "service": "docker",
+                "severity": "error",
+                "message": "Docker not found in PATH"
+            })
+        
+        # Check Docker Compose
+        has_compose = (
+            shutil.which("docker-compose") is not None or
+            self._check_docker_compose_plugin()
+        )
+        if not has_compose:
+            missing_deps.append({
+                "service": "docker-compose",
+                "severity": "error", 
+                "message": "Docker Compose not available"
+            })
+        
+        # Check Node.js (if mobile enabled)
+        if self.config.enable_mobile and not shutil.which("node"):
+            missing_deps.append({
+                "service": "node",
+                "severity": "warning",
+                "message": "Node.js not found (required for mobile features)"
+            })
+        
+        if missing_deps:
+            return {
+                "passed": False,
+                "message": f"Missing dependencies: {len(missing_deps)} services",
+                "severity": "error",
+                "auto_fix_available": False,
+                "auto_fix_suggestion": "Install missing dependencies manually",
+                "context": {"missing_deps": missing_deps}
+            }
+        
+        return {"passed": True, "message": "All service dependencies are available"}
+    
+    def _validate_disk_space(self) -> Dict[str, Any]:
+        """Validate available disk space"""
+        try:
+            if hasattr(shutil, 'disk_usage'):
+                _, _, free = shutil.disk_usage(self.config.install_directory)
+                free_gb = free / (1024**3)
+                
+                # Estimate space requirements
+                required_gb = 2  # Base requirement
+                if self.config.enable_ai:
+                    required_gb += len(self.config.ai_models) * 4  # ~4GB per model
+                
+                if free_gb < required_gb:
+                    return {
+                        "passed": False,
+                        "message": f"Insufficient disk space: {free_gb:.1f}GB free, {required_gb:.1f}GB required",
+                        "severity": "error",
+                        "auto_fix_available": False,
+                        "auto_fix_suggestion": "Free up disk space or choose different installation directory"
+                    }
+                elif free_gb < required_gb * 1.5:
+                    return {
+                        "passed": False,
+                        "message": f"Low disk space: {free_gb:.1f}GB free, {required_gb * 1.5:.1f}GB recommended",
+                        "severity": "warning",
+                        "auto_fix_available": False,
+                        "auto_fix_suggestion": "Consider freeing up more disk space"
+                    }
+            
+            return {"passed": True, "message": "Sufficient disk space available"}
+            
+        except Exception as e:
+            return {
+                "passed": False,
+                "message": f"Could not check disk space: {str(e)}",
+                "severity": "warning",
+                "auto_fix_available": False,
+                "auto_fix_suggestion": "Check disk space manually"
+            }
+    
+    def _validate_platform_compatibility(self) -> Dict[str, Any]:
+        """Validate platform-specific compatibility issues"""
+        compatibility_issues = []
+        
+        # Windows-specific checks
+        if self.system_info.os_type == OSType.WINDOWS:
+            # Check Windows version (Docker Desktop requirements)
+            try:
+                import winreg
+                # This is a simplified check - real implementation would be more thorough
+                pass
+            except ImportError:
+                pass  # Not on Windows or winreg not available
+            
+            # Check for WSL2 if running Docker Desktop
+            # This is a placeholder for more thorough Windows compatibility checks
+        
+        # Linux-specific checks
+        elif self.system_info.os_type == OSType.LINUX:
+            # Check for systemd (required for service management)
+            if not Path("/run/systemd/system").exists():
+                compatibility_issues.append({
+                    "issue": "no_systemd",
+                    "message": "systemd not detected, service management may not work properly",
+                    "severity": "warning"
+                })
+        
+        if compatibility_issues:
+            return {
+                "passed": False,
+                "message": f"Platform compatibility issues: {len(compatibility_issues)} problems",
+                "severity": "warning",
+                "auto_fix_available": False,
+                "auto_fix_suggestion": "Review platform-specific requirements",
+                "context": {"compatibility_issues": compatibility_issues}
+            }
+        
+        return {"passed": True, "message": "Platform compatibility validated"}
+    
+    def _check_docker_compose_plugin(self) -> bool:
+        """Check if Docker Compose is available as a plugin"""
+        try:
+            result = subprocess.run(
+                ["docker", "compose", "version"],
+                capture_output=True,
+                timeout=10
+            )
+            return result.returncode == 0
+        except:
+            return False
+    
+    def _identify_platform_specific_issues(self, failures: List[ValidationFailure]) -> List[str]:
+        """Identify platform-specific patterns in validation failures"""
+        platform_issues = []
+        
+        # Windows-specific issue patterns
+        if self.system_info.os_type == OSType.WINDOWS:
+            for failure in failures:
+                if "encoding" in failure.message.lower():
+                    platform_issues.append("Windows encoding compatibility")
+                elif "path" in failure.message.lower() and "space" in failure.message.lower():
+                    platform_issues.append("Windows path spaces issue")
+                elif "permission" in failure.message.lower():
+                    platform_issues.append("Windows permission/UAC issue")
+        
+        # Linux-specific issue patterns
+        elif self.system_info.os_type == OSType.LINUX:
+            for failure in failures:
+                if "permission" in failure.message.lower():
+                    platform_issues.append("Linux file permissions")
+                elif "executable" in failure.message.lower():
+                    platform_issues.append("Linux script executability")
+        
+        return list(set(platform_issues))  # Remove duplicates
+    
+    def _attempt_healing(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Attempt to heal a specific validation failure"""
+        try:
+            if failure.check_name == "directory_structure":
+                return self._heal_directory_structure(failure)
+            elif failure.check_name == "configuration_files":
+                return self._heal_configuration_files(failure)
+            elif failure.check_name == "configuration_syntax":
+                return self._heal_configuration_syntax(failure)
+            elif failure.check_name == "file_permissions":
+                return self._heal_file_permissions(failure)
+            elif failure.check_name == "encoding_consistency":
+                return self._heal_encoding_consistency(failure)
+            elif failure.check_name in ["docker_configs", "environment_variables", "database_config", "network_config", "ai_config", "logging_config"]:
+                return self._heal_regenerate_config(failure)
+            else:
+                return {
+                    "success": False,
+                    "error": "No healing method available for this failure type"
+                }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Healing attempt failed: {str(e)}"
+            }
+    
+    def _heal_directory_structure(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal directory structure issues"""
+        try:
+            missing_dirs = failure.context.get("missing_dirs", [])
+            created_dirs = []
+            
+            for dir_path in missing_dirs:
+                full_path = self.config.install_directory / dir_path
+                full_path.mkdir(parents=True, exist_ok=True)
+                created_dirs.append(dir_path)
+            
+            return {
+                "success": True,
+                "method": "create_directories",
+                "details": f"Created {len(created_dirs)} directories: {', '.join(created_dirs)}"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to create directories: {str(e)}"
+            }
+    
+    def _heal_configuration_files(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal missing configuration files by regenerating them"""
+        try:
+            # Use ConfigurationGenerator to regenerate missing configs
+            config_generator = ConfigurationGenerator(self.config, self.system_info, self.logger)
+            success = config_generator.generate_all_configs()
+            
+            if success:
+                return {
+                    "success": True,
+                    "method": "regenerate_configs",
+                    "details": f"Regenerated {len(config_generator.created_configs)} configuration files"
+                }
+            else:
+                return {
+                    "success": False,
+                    "error": "Configuration regeneration failed"
+                }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to regenerate configurations: {str(e)}"
+            }
+    
+    def _heal_configuration_syntax(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal configuration syntax issues by regenerating corrupted files"""
+        try:
+            syntax_errors = failure.context.get("syntax_errors", [])
+            healed_files = []
+            
+            # For now, we'll regenerate all configs if there are syntax errors
+            # A more sophisticated approach would regenerate only the corrupted files
+            config_generator = ConfigurationGenerator(self.config, self.system_info, self.logger)
+            success = config_generator.generate_all_configs()
+            
+            if success:
+                healed_files = [error["file"] for error in syntax_errors]
+                return {
+                    "success": True,
+                    "method": "regenerate_corrupted_configs",
+                    "details": f"Regenerated {len(healed_files)} corrupted configuration files"
+                }
+            else:
+                return {
+                    "success": False,
+                    "error": "Failed to regenerate corrupted configurations"
+                }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to heal syntax errors: {str(e)}"
+            }
+    
+    def _heal_file_permissions(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal file permission issues"""
+        try:
+            permission_issues = failure.context.get("permission_issues", [])
+            fixed_permissions = []
+            
+            for issue in permission_issues:
+                if issue.get("issue") == "not_executable":
+                    file_path = self.config.install_directory / issue["file"]
+                    if file_path.exists():
+                        file_path.chmod(0o755)
+                        fixed_permissions.append(issue["file"])
+            
+            return {
+                "success": True,
+                "method": "fix_permissions",
+                "details": f"Fixed permissions for {len(fixed_permissions)} files"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to fix permissions: {str(e)}"
+            }
+    
+    def _heal_encoding_consistency(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal encoding consistency issues"""
+        try:
+            encoding_issues = failure.context.get("encoding_issues", [])
+            fixed_files = []
+            
+            for issue in encoding_issues:
+                file_path = self.config.install_directory / issue["file"]
+                if file_path.exists() and issue.get("issue") == "missing_bom":
+                    # Re-save file with proper encoding
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    with open(file_path, 'w', encoding='utf-8-sig', newline='\n') as f:
+                        f.write(content)
+                    fixed_files.append(issue["file"])
+            
+            return {
+                "success": True,
+                "method": "fix_encoding",
+                "details": f"Fixed encoding for {len(fixed_files)} files"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to fix encoding: {str(e)}"
+            }
+    
+    def _heal_regenerate_config(self, failure: ValidationFailure) -> Dict[str, Any]:
+        """Heal issues by regenerating specific configuration files"""
+        try:
+            config_generator = ConfigurationGenerator(self.config, self.system_info, self.logger)
+            
+            # Map failure types to regeneration methods
+            regen_methods = {
+                "docker_configs": config_generator._generate_docker_compose,
+                "environment_variables": config_generator._generate_env_files,
+                "database_config": config_generator._generate_database_config,
+                "network_config": config_generator._generate_network_config,
+                "ai_config": config_generator._generate_ai_config,
+                "logging_config": config_generator._generate_logging_config
+            }
+            
+            method = regen_methods.get(failure.check_name)
+            if method and method():
+                return {
+                    "success": True,
+                    "method": f"regenerate_{failure.check_name}",
+                    "details": f"Successfully regenerated {failure.check_name}"
+                }
+            else:
+                return {
+                    "success": False,
+                    "error": f"Failed to regenerate {failure.check_name}"
+                }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to regenerate config: {str(e)}"
+            }
+
 class ConfigurationWizard:
     """Enhanced configuration wizard with preview and validation"""
     
@@ -1776,6 +3665,10 @@ class SmartNoxSuiteInstaller:
     def run_installation(self, mode: InstallMode = InstallMode.GUIDED) -> bool:
         """Run the complete smart installation process"""
         try:
+            # Special handling for audit and self-heal mode
+            if mode == InstallMode.AUDIT_HEAL:
+                return self._run_audit_and_heal_mode()
+            
             self.logger.info("🚀 Starting NoxSuite Smart Installation")
             
             # Step 1: Configuration
@@ -2114,19 +4007,41 @@ class SmartNoxSuiteInstaller:
         return True
     
     def _generate_configurations(self) -> bool:
-        """Generate configuration files"""
+        """Generate comprehensive configuration files with platform-specific handling"""
         if self.config.mode == InstallMode.DRY_RUN:
             self.logger.info("🔍 Dry run: Would generate configuration files")
             return True
         
         self.logger.step_start("generating_configs", "Creating configuration files")
         
-        # This would implement actual configuration generation
-        # For now, simulate the process
-        time.sleep(0.5)
-        
-        self.logger.step_complete("generating_configs")
-        return True
+        try:
+            # Initialize configuration generator
+            config_generator = ConfigurationGenerator(
+                self.config, 
+                self.system_info, 
+                self.logger
+            )
+            
+            # Generate all configuration files
+            success = config_generator.generate_all_configs()
+            
+            if success:
+                self.logger.step_complete("generating_configs", {
+                    "configs_created": len(config_generator.created_configs),
+                    "platform_specific": self.system_info.os_type.value
+                })
+                return True
+            else:
+                self.logger.step_error("generating_configs", 
+                    Exception("Configuration generation failed"))
+                return False
+                
+        except Exception as e:
+            self.logger.step_error("generating_configs", e, {
+                "platform": self.system_info.os_type.value,
+                "install_dir": str(self.config.install_directory)
+            })
+            return False
     
     def _setup_services(self) -> bool:
         """Setup and configure services"""
@@ -2143,39 +4058,71 @@ class SmartNoxSuiteInstaller:
         return True
     
     def _validate_installation(self) -> bool:
-        """Validate that installation completed successfully"""
+        """Comprehensive post-installation validation with detailed diagnostics"""
         if self.config.mode == InstallMode.DRY_RUN:
             self.logger.step_start("validating_installation", "Skipping validation (dry-run mode)")
             self.logger.info("🔍 Dry run: Would validate installation")
             self.logger.step_complete("validating_installation")
             return True
         
-        self.logger.step_start("validating_installation", "Running post-installation validation")
+        self.logger.step_start("validating_installation", "Running comprehensive post-installation validation")
         
-        validation_checks = [
-            ("directory_structure", self._validate_directories),
-            ("configuration_files", self._validate_configs),
-            ("service_health", self._validate_services)
-        ]
-        
-        all_passed = True
-        for check_name, check_func in validation_checks:
-            try:
-                if not check_func():
-                    self.logger.warning(f"❌ Validation failed: {check_name}")
-                    all_passed = False
-                else:
-                    self.logger.debug(f"✅ Validation passed: {check_name}")
-            except Exception as e:
-                self.logger.warning(f"❌ Validation error in {check_name}: {e}")
-                all_passed = False
-        
-        if all_passed:
-            self.logger.step_complete("validating_installation")
-        else:
-            self.logger.step_error("validating_installation", Exception("Some validation checks failed"))
-        
-        return all_passed
+        try:
+            # Initialize comprehensive validator
+            validator = InstallationValidator(
+                self.config,
+                self.system_info,
+                self.logger
+            )
+            
+            # Run comprehensive validation
+            validation_result = validator.validate_complete_installation()
+            
+            if validation_result.all_passed:
+                self.logger.step_complete("validating_installation", {
+                    "total_checks": validation_result.total_checks,
+                    "passed_checks": validation_result.passed_checks,
+                    "platform": self.system_info.os_type.value
+                })
+                return True
+            else:
+                # Log detailed failure information
+                self.logger.warning(f"❌ Validation Summary: {validation_result.passed_checks}/{validation_result.total_checks} checks passed")
+                
+                for failure in validation_result.failures:
+                    self.logger.warning(f"   • {failure.check_name}: {failure.message}")
+                    if failure.auto_fix_available:
+                        self.logger.info(f"     🔧 Auto-fix available: {failure.auto_fix_suggestion}")
+                
+                # Attempt auto-healing if enabled
+                if self.config.mode in [InstallMode.SAFE, InstallMode.RECOVERY]:
+                    self.logger.info("🔧 Attempting auto-healing of failed validations...")
+                    healing_result = validator.attempt_auto_healing(validation_result.failures)
+                    
+                    if healing_result.healed_count > 0:
+                        self.logger.info(f"✅ Successfully healed {healing_result.healed_count} issues")
+                        # Re-run validation after healing
+                        validation_result = validator.validate_complete_installation()
+                        if validation_result.all_passed:
+                            self.logger.step_complete("validating_installation", {
+                                "healed_issues": healing_result.healed_count,
+                                "final_status": "passed_after_healing"
+                            })
+                            return True
+                
+                self.logger.step_error("validating_installation", 
+                    Exception(f"Validation failed: {len(validation_result.failures)} issues"), {
+                        "failed_checks": [f.check_name for f in validation_result.failures],
+                        "auto_healing_attempted": self.config.mode in [InstallMode.SAFE, InstallMode.RECOVERY]
+                    })
+                return False
+                
+        except Exception as e:
+            self.logger.step_error("validating_installation", e, {
+                "platform": self.system_info.os_type.value,
+                "install_dir": str(self.config.install_directory)
+            })
+            return False
     
     def _validate_directories(self) -> bool:
         """Validate directory structure"""
@@ -2256,6 +4203,615 @@ class SmartNoxSuiteInstaller:
 ╚═══════════════════════════════════════════════════════════════════╝
         """)
     
+    def _run_audit_and_heal_mode(self) -> bool:
+        """Run comprehensive audit and self-healing mode"""
+        self.logger.info("🔍 Starting NoxSuite Audit and Self-Heal Mode")
+        
+        audit_banner = """
+╔═══════════════════════════════════════════════════════════════════╗
+║              🩺 NoxSuite Audit & Self-Heal Mode                  ║
+║              Comprehensive Installation Health Check              ║
+╠═══════════════════════════════════════════════════════════════════╣
+║  🔍 Deep System Analysis     🔧 Automatic Fixing                ║
+║  📊 Config Validation        ⚡ Smart Recovery                   ║
+║  🛠️  Self-Healing Operations  📋 Detailed Reporting              ║
+║  🌐 Cross-Platform Checks    💊 Auto-Remediation                ║
+╚═══════════════════════════════════════════════════════════════════╝
+        """
+        print(audit_banner)
+        
+        try:
+            # Step 1: Detect existing installations
+            self.logger.step_start("audit_detection", "Scanning for existing NoxSuite installations")
+            
+            existing_installs = self._detect_existing_installations()
+            if not existing_installs:
+                self.logger.warning("❌ No existing NoxSuite installations found")
+                
+                # Offer to run regular installation
+                run_install = input("\n💡 Would you like to run a fresh installation instead? [Y/n]: ").strip().lower()
+                if run_install != 'n':
+                    self.logger.info("🚀 Switching to guided installation mode...")
+                    return self.run_installation(InstallMode.GUIDED)
+                else:
+                    self.logger.info("❌ Audit mode cancelled - no installation to audit")
+                    return False
+            
+            self.logger.step_complete("audit_detection", {"found_installations": len(existing_installs)})
+            
+            # Step 2: Select installation to audit (if multiple found)
+            target_install = self._select_installation_to_audit(existing_installs)
+            if not target_install:
+                self.logger.info("❌ No installation selected for audit")
+                return False
+            
+            self.logger.info(f"🎯 Auditing installation: {target_install}")
+            
+            # Step 3: Load configuration from existing installation
+            self.logger.step_start("loading_config", "Loading existing installation configuration")
+            
+            try:
+                self.config = self._load_existing_config(Path(target_install))
+                if not self.config:
+                    self.logger.warning("⚠️ Could not load existing configuration, using defaults")
+                    # Create minimal config for audit
+                    self.config = InstallConfig(
+                        install_directory=Path(target_install),
+                        modules=["noxpanel", "noxguard"],
+                        mode=InstallMode.AUDIT_HEAL
+                    )
+                
+                self.logger.step_complete("loading_config")
+            except Exception as e:
+                self.logger.step_error("loading_config", e)
+                return False
+            
+            # Step 4: Run comprehensive audit
+            self.logger.step_start("comprehensive_audit", "Running comprehensive installation audit")
+            
+            validator = InstallationValidator(self.config, self.system_info, self.logger)
+            audit_result = validator.validate_complete_installation()
+            
+            self.logger.step_complete("comprehensive_audit", {
+                "total_checks": audit_result.total_checks,
+                "passed_checks": audit_result.passed_checks,
+                "failed_checks": len(audit_result.failures)
+            })
+            
+            # Step 5: Display detailed audit results
+            self._display_audit_results(audit_result)
+            
+            # Step 6: Auto-healing (if issues found)
+            if not audit_result.all_passed:
+                self.logger.info(f"\n🔧 Found {len(audit_result.failures)} issues to address")
+                
+                # Ask user if they want to attempt auto-healing
+                auto_heal = input("\n💊 Attempt automatic healing of detected issues? [Y/n]: ").strip().lower()
+                
+                if auto_heal != 'n':
+                    self.logger.step_start("auto_healing", "Attempting automatic issue resolution")
+                    
+                    healing_result = validator.attempt_auto_healing(audit_result.failures)
+                    
+                    self.logger.step_complete("auto_healing", {
+                        "healed_count": healing_result.healed_count,
+                        "failed_count": healing_result.failed_count
+                    })
+                    
+                    # Display healing results
+                    self._display_healing_results(healing_result)
+                    
+                    # Re-run validation after healing
+                    if healing_result.healed_count > 0:
+                        self.logger.info("\n🔄 Re-validating installation after healing...")
+                        final_audit = validator.validate_complete_installation()
+                        
+                        if final_audit.all_passed:
+                            self.logger.info("✅ All issues resolved! Installation is now healthy.")
+                        else:
+                            remaining_issues = len(final_audit.failures)
+                            self.logger.warning(f"⚠️ {remaining_issues} issues still require manual attention")
+                            self._display_remaining_issues(final_audit.failures)
+                else:
+                    self.logger.info("ℹ️ Auto-healing skipped by user")
+            else:
+                self.logger.info("🎉 Installation audit completed - no issues found!")
+            
+            # Step 7: Generate comprehensive audit report
+            self._generate_audit_report(audit_result, existing_installs, target_install)
+            
+            return True
+            
+        except Exception as e:
+            self.logger.step_error("audit_and_heal", e, {
+                "mode": "audit_heal",
+                "system_info": asdict(self.system_info)
+            })
+            return False
+    
+    def _detect_existing_installations(self) -> List[str]:
+        """Detect existing NoxSuite installations on the system"""
+        installations = []
+        
+        # Common installation locations
+        search_locations = []
+        
+        if self.system_info.os_type == OSType.WINDOWS:
+            search_locations = [
+                Path.home() / "NoxSuite",
+                Path.home() / "noxsuite",
+                Path("C:/Program Files/NoxSuite"),
+                Path("C:/NoxSuite"),
+                Path.home() / "Documents" / "NoxSuite"
+            ]
+        else:
+            search_locations = [
+                Path.home() / "noxsuite",
+                Path.home() / "NoxSuite",
+                Path("/opt/noxsuite"),
+                Path("/usr/local/noxsuite"),
+                Path("/var/lib/noxsuite")
+            ]
+        
+        # Also check current directory
+        search_locations.append(Path.cwd())
+        
+        for location in search_locations:
+            if self._is_noxsuite_installation(location):
+                installations.append(str(location))
+        
+        # Search for additional installations in common directories
+        additional_locations = self._search_for_noxsuite_markers()
+        installations.extend(additional_locations)
+        
+        # Remove duplicates and sort
+        installations = sorted(list(set(installations)))
+        
+        return installations
+    
+    def _is_noxsuite_installation(self, path: Path) -> bool:
+        """Check if a directory contains a NoxSuite installation"""
+        if not path.exists() or not path.is_dir():
+            return False
+        
+        # Check for NoxSuite markers
+        markers = [
+            "noxsuite.json",
+            "INSTALLATION_SUMMARY.json",
+            "config/noxsuite.json",
+            "docker/docker-compose.noxsuite.yml"
+        ]
+        
+        marker_count = 0
+        for marker in markers:
+            if (path / marker).exists():
+                marker_count += 1
+        
+        # Consider it a NoxSuite installation if at least 2 markers are found
+        return marker_count >= 2
+    
+    def _search_for_noxsuite_markers(self) -> List[str]:
+        """Search filesystem for NoxSuite installation markers"""
+        additional_installs = []
+        
+        # This is a simplified search - in a real implementation,
+        # you might want to search more comprehensively
+        
+        try:
+            # Search in user's home directory tree (limited depth)
+            home_path = Path.home()
+            for item in home_path.iterdir():
+                if item.is_dir() and not item.name.startswith('.'):
+                    try:
+                        if self._is_noxsuite_installation(item):
+                            additional_installs.append(str(item))
+                    except PermissionError:
+                        continue  # Skip directories we can't access
+        except:
+            pass  # Handle any filesystem errors gracefully
+        
+        return additional_installs
+    
+    def _select_installation_to_audit(self, installations: List[str]) -> str:
+        """Let user select which installation to audit (if multiple found)"""
+        if len(installations) == 1:
+            return installations[0]
+        
+        print(f"\n🔍 Multiple NoxSuite installations detected:")
+        print("=" * 60)
+        
+        for i, install_path in enumerate(installations, 1):
+            install_info = self._get_installation_info(Path(install_path))
+            print(f"   {i}. {install_path}")
+            print(f"      Version: {install_info.get('version', 'unknown')}")
+            print(f"      Last Modified: {install_info.get('last_modified', 'unknown')}")
+            print(f"      Size: {install_info.get('size', 'unknown')}")
+            print()
+        
+        while True:
+            try:
+                selection = input(f"Select installation to audit [1-{len(installations)}]: ").strip()
+                index = int(selection) - 1
+                
+                if 0 <= index < len(installations):
+                    return installations[index]
+                else:
+                    print(f"❌ Please enter a number between 1 and {len(installations)}")
+            except ValueError:
+                print("❌ Please enter a valid number")
+            except KeyboardInterrupt:
+                return None
+    
+    def _get_installation_info(self, install_path: Path) -> Dict[str, str]:
+        """Get basic information about an installation"""
+        info = {}
+        
+        try:
+            # Get version from noxsuite.json or INSTALLATION_SUMMARY.json
+            config_files = [
+                install_path / "config" / "noxsuite.json",
+                install_path / "noxsuite.json",
+                install_path / "INSTALLATION_SUMMARY.json"
+            ]
+            
+            for config_file in config_files:
+                if config_file.exists():
+                    try:
+                        with open(config_file, 'r', encoding='utf-8') as f:
+                            config_data = json.load(f)
+                            info['version'] = config_data.get('version', 'unknown')
+                            break
+                    except:
+                        continue
+            
+            # Get last modified time
+            if install_path.exists():
+                last_modified = install_path.stat().st_mtime
+                info['last_modified'] = datetime.fromtimestamp(last_modified).strftime('%Y-%m-%d %H:%M')
+            
+            # Get approximate size
+            total_size = 0
+            try:
+                for root, dirs, files in os.walk(install_path):
+                    for file in files:
+                        file_path = os.path.join(root, file)
+                        try:
+                            total_size += os.path.getsize(file_path)
+                        except:
+                            continue
+                
+                if total_size > 1024**3:
+                    info['size'] = f"{total_size / (1024**3):.1f}GB"
+                elif total_size > 1024**2:
+                    info['size'] = f"{total_size / (1024**2):.1f}MB"
+                else:
+                    info['size'] = f"{total_size / 1024:.1f}KB"
+            except:
+                info['size'] = "unknown"
+        
+        except Exception as e:
+            self.logger.debug(f"Error getting installation info for {install_path}: {e}")
+        
+        return info
+    
+    def _load_existing_config(self, install_path: Path) -> Optional[InstallConfig]:
+        """Load configuration from existing installation"""
+        try:
+            # Try to load from config/noxsuite.json first
+            config_file = install_path / "config" / "noxsuite.json"
+            if not config_file.exists():
+                # Fallback to other possible locations
+                config_file = install_path / "noxsuite.json"
+                if not config_file.exists():
+                    config_file = install_path / "INSTALLATION_SUMMARY.json"
+            
+            if not config_file.exists():
+                self.logger.warning("No configuration file found in installation")
+                return None
+            
+            encoding = "utf-8-sig" if self.system_info.os_type == OSType.WINDOWS else "utf-8"
+            with open(config_file, 'r', encoding=encoding) as f:
+                config_data = json.load(f)
+            
+            # Extract configuration from loaded data
+            installation_data = config_data.get('installation', config_data)
+            
+            # Create InstallConfig from loaded data
+            config = InstallConfig(
+                install_directory=install_path,
+                modules=installation_data.get('installed_modules', installation_data.get('modules', [])),
+                enable_ai=installation_data.get('features', {}).get('ai_enabled', False),
+                enable_voice=installation_data.get('features', {}).get('voice_enabled', False),
+                enable_mobile=installation_data.get('features', {}).get('mobile_enabled', False),
+                dev_mode=installation_data.get('features', {}).get('dev_mode', False),
+                auto_start=installation_data.get('auto_start', True),
+                ai_models=installation_data.get('ai_models', []),
+                mode=InstallMode.AUDIT_HEAL
+            )
+            
+            return config
+            
+        except Exception as e:
+            self.logger.warning(f"Failed to load existing configuration: {e}")
+            return None
+    
+    def _display_audit_results(self, audit_result: ValidationResult):
+        """Display comprehensive audit results"""
+        print(f"\n📊 Audit Results Summary")
+        print("=" * 60)
+        
+        if audit_result.all_passed:
+            print("🎉 Installation Status: HEALTHY")
+            print(f"✅ All {audit_result.total_checks} validation checks passed")
+        else:
+            failed_count = len(audit_result.failures)
+            print(f"⚠️ Installation Status: NEEDS ATTENTION")
+            print(f"✅ Passed: {audit_result.passed_checks}/{audit_result.total_checks}")
+            print(f"❌ Failed: {failed_count}/{audit_result.total_checks}")
+        
+        if audit_result.platform_specific_issues:
+            print(f"\n🔧 Platform-Specific Issues Detected:")
+            for issue in audit_result.platform_specific_issues:
+                print(f"   • {issue}")
+        
+        if audit_result.failures:
+            print(f"\n📋 Detailed Issue Report:")
+            for i, failure in enumerate(audit_result.failures, 1):
+                severity_icon = "🔴" if failure.severity == "error" else "🟡"
+                print(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ').title()}")
+                print(f"   Issue: {failure.message}")
+                print(f"   Severity: {failure.severity.upper()}")
+                
+                if failure.auto_fix_available:
+                    print(f"   🔧 Auto-fix: {failure.auto_fix_suggestion}")
+                else:
+                    print(f"   ⚠️ Manual intervention required")
+                
+                if failure.context:
+                    # Show relevant context information
+                    if 'missing_configs' in failure.context:
+                        missing = failure.context['missing_configs'][:3]  # Show first 3
+                        print(f"   Missing files: {', '.join(missing)}")
+                        if len(failure.context['missing_configs']) > 3:
+                            print(f"   ... and {len(failure.context['missing_configs']) - 3} more")
+    
+    def _display_healing_results(self, healing_result: HealingResult):
+        """Display healing attempt results"""
+        print(f"\n💊 Auto-Healing Results")
+        print("=" * 60)
+        
+        total_attempts = healing_result.healed_count + healing_result.failed_count
+        print(f"✅ Successfully healed: {healing_result.healed_count}/{total_attempts}")
+        print(f"❌ Failed to heal: {healing_result.failed_count}/{total_attempts}")
+        
+        if healing_result.healing_details:
+            print(f"\n📋 Healing Details:")
+            for detail in healing_result.healing_details:
+                status = detail['status']
+                check_name = detail['check_name']
+                
+                if status == 'healed':
+                    print(f"✅ {check_name}: {detail.get('details', 'Successfully healed')}")
+                elif status == 'failed':
+                    print(f"❌ {check_name}: {detail.get('error', 'Healing failed')}")
+                elif status == 'no_auto_fix':
+                    print(f"⚠️ {check_name}: Manual intervention required")
+                elif status == 'exception':
+                    print(f"💥 {check_name}: Healing error - {detail.get('error', 'Unknown error')}")
+    
+    def _display_remaining_issues(self, remaining_failures: List[ValidationFailure]):
+        """Display issues that still need manual attention"""
+        print(f"\n⚠️ Remaining Issues Requiring Manual Attention:")
+        print("-" * 60)
+        
+        for i, failure in enumerate(remaining_failures, 1):
+            severity_icon = "🔴" if failure.severity == "error" else "🟡"
+            print(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ').title()}")
+            print(f"   Issue: {failure.message}")
+            
+            # Provide manual fix suggestions
+            manual_suggestions = self._get_manual_fix_suggestions(failure)
+            if manual_suggestions:
+                print(f"   💡 Manual Fix Suggestions:")
+                for suggestion in manual_suggestions:
+                    print(f"      • {suggestion}")
+    
+    def _get_manual_fix_suggestions(self, failure: ValidationFailure) -> List[str]:
+        """Get manual fix suggestions for validation failures"""
+        suggestions = []
+        
+        if failure.check_name == "service_dependencies":
+            suggestions.extend([
+                "Install Docker Desktop from https://docker.com/get-started",
+                "Install Node.js from https://nodejs.org (if mobile features enabled)",
+                "Restart your terminal/command prompt after installation"
+            ])
+        elif failure.check_name == "path_compatibility":
+            suggestions.extend([
+                "Consider moving installation to a path without spaces",
+                "Use short path names to avoid Windows path length limits",
+                "Avoid reserved Windows filenames (CON, PRN, AUX, etc.)"
+            ])
+        elif failure.check_name == "disk_space":
+            suggestions.extend([
+                "Free up disk space on the installation drive",
+                "Consider installing to a different drive with more space",
+                "Remove old Docker images: docker system prune -a"
+            ])
+        elif failure.check_name == "platform_compatibility":
+            if self.system_info.os_type == OSType.WINDOWS:
+                suggestions.extend([
+                    "Ensure Windows 10/11 with WSL2 support for Docker Desktop",
+                    "Enable Hyper-V and Windows Subsystem for Linux features",
+                    "Update Windows to the latest version"
+                ])
+            elif self.system_info.os_type == OSType.LINUX:
+                suggestions.extend([
+                    "Ensure systemd is available for service management",
+                    "Install Docker using your distribution's package manager",
+                    "Add your user to the docker group: sudo usermod -aG docker $USER"
+                ])
+        
+        # Add generic suggestions if no specific ones found
+        if not suggestions:
+            suggestions.append("Review the installation documentation for platform-specific requirements")
+            suggestions.append("Check the installation logs for more detailed error information")
+        
+        return suggestions
+    
+    def _generate_audit_report(self, audit_result: ValidationResult, installations: List[str], target_install: str):
+        """Generate comprehensive audit report"""
+        self.logger.step_start("generating_report", "Creating comprehensive audit report")
+        
+        try:
+            report_timestamp = datetime.now(timezone.utc)
+            report = {
+                "audit_metadata": {
+                    "timestamp": report_timestamp.isoformat(),
+                    "installer_version": "1.0.0",
+                    "audit_session_id": self.logger.session_id,
+                    "target_installation": target_install,
+                    "all_detected_installations": installations,
+                    "platform": self.system_info.os_type.value,
+                    "system_info": asdict(self.system_info)
+                },
+                "audit_results": {
+                    "overall_status": "healthy" if audit_result.all_passed else "needs_attention",
+                    "total_checks": audit_result.total_checks,
+                    "passed_checks": audit_result.passed_checks,
+                    "failed_checks": len(audit_result.failures),
+                    "platform_specific_issues": audit_result.platform_specific_issues or []
+                },
+                "detailed_failures": [],
+                "configuration_snapshot": asdict(self.config) if self.config else None,
+                "recommendations": []
+            }
+            
+            # Add detailed failure information
+            for failure in audit_result.failures:
+                failure_detail = {
+                    "check_name": failure.check_name,
+                    "message": failure.message,
+                    "severity": failure.severity,
+                    "auto_fix_available": failure.auto_fix_available,
+                    "auto_fix_suggestion": failure.auto_fix_suggestion,
+                    "context": failure.context or {}
+                }
+                report["detailed_failures"].append(failure_detail)
+            
+            # Generate recommendations
+            report["recommendations"] = self._generate_audit_recommendations(audit_result)
+            
+            # Save report
+            report_file = Path(target_install) / "AUDIT_REPORT.json"
+            with open(report_file, 'w', encoding='utf-8') as f:
+                json.dump(report, f, indent=2, ensure_ascii=False)
+            
+            # Save human-readable report
+            readable_report = Path(target_install) / "AUDIT_REPORT.md"
+            self._generate_readable_audit_report(readable_report, report, audit_result)
+            
+            self.logger.step_complete("generating_report", {
+                "report_files": [str(report_file), str(readable_report)]
+            })
+            
+            print(f"\n📄 Audit reports saved:")
+            print(f"   • JSON Report: {report_file}")
+            print(f"   • Readable Report: {readable_report}")
+            
+        except Exception as e:
+            self.logger.step_error("generating_report", e)
+    
+    def _generate_audit_recommendations(self, audit_result: ValidationResult) -> List[str]:
+        """Generate actionable recommendations based on audit results"""
+        recommendations = []
+        
+        if audit_result.all_passed:
+            recommendations.extend([
+                "Installation is healthy - no immediate action required",
+                "Consider running periodic audits to maintain system health",
+                "Keep Docker and other dependencies updated"
+            ])
+        else:
+            # Priority recommendations based on failure types
+            error_failures = [f for f in audit_result.failures if f.severity == "error"]
+            warning_failures = [f for f in audit_result.failures if f.severity == "warning"]
+            
+            if error_failures:
+                recommendations.append(f"PRIORITY: Address {len(error_failures)} critical errors first")
+                
+                critical_checks = [f.check_name for f in error_failures]
+                if "service_dependencies" in critical_checks:
+                    recommendations.append("Install missing Docker/Node.js dependencies")
+                if "configuration_files" in critical_checks:
+                    recommendations.append("Regenerate missing configuration files")
+                if "disk_space" in critical_checks:
+                    recommendations.append("Free up disk space before proceeding")
+            
+            if warning_failures:
+                recommendations.append(f"Consider addressing {len(warning_failures)} warnings for optimal performance")
+            
+            # Platform-specific recommendations
+            if self.system_info.os_type == OSType.WINDOWS:
+                if any("encoding" in f.message.lower() for f in audit_result.failures):
+                    recommendations.append("Windows: Ensure UTF-8 support is properly configured")
+                if any("path" in f.message.lower() for f in audit_result.failures):
+                    recommendations.append("Windows: Avoid spaces and long paths in installation directory")
+            
+            # General recommendations
+            recommendations.extend([
+                "Run the installer with 'recovery' mode to fix common issues",
+                "Check installation logs for detailed error information",
+                "Consider backup before making configuration changes"
+            ])
+        
+        return recommendations
+    
+    def _generate_readable_audit_report(self, report_file: Path, report_data: Dict, audit_result: ValidationResult):
+        """Generate human-readable markdown audit report"""
+        try:
+            with open(report_file, 'w', encoding='utf-8') as f:
+                f.write("# NoxSuite Installation Audit Report\n\n")
+                f.write(f"**Generated:** {report_data['audit_metadata']['timestamp']}\n")
+                f.write(f"**Installation:** {report_data['audit_metadata']['target_installation']}\n")
+                f.write(f"**Platform:** {report_data['audit_metadata']['platform'].title()}\n")
+                f.write(f"**Session ID:** {report_data['audit_metadata']['audit_session_id']}\n\n")
+                
+                # Overall Status
+                f.write("## 📊 Overall Status\n\n")
+                status = "✅ HEALTHY" if audit_result.all_passed else "⚠️ NEEDS ATTENTION"
+                f.write(f"**Status:** {status}\n")
+                f.write(f"**Checks Passed:** {audit_result.passed_checks}/{audit_result.total_checks}\n\n")
+                
+                # Issues Found
+                if audit_result.failures:
+                    f.write("## ❌ Issues Found\n\n")
+                    for i, failure in enumerate(audit_result.failures, 1):
+                        severity_icon = "🔴" if failure.severity == "error" else "🟡"
+                        f.write(f"### {i}. {severity_icon} {failure.check_name.replace('_', ' ').title()}\n\n")
+                        f.write(f"**Issue:** {failure.message}\n")
+                        f.write(f"**Severity:** {failure.severity.upper()}\n")
+                        f.write(f"**Auto-fixable:** {'Yes' if failure.auto_fix_available else 'No'}\n")
+                        
+                        if failure.auto_fix_available:
+                            f.write(f"**Auto-fix:** {failure.auto_fix_suggestion}\n")
+                        
+                        f.write("\n")
+                else:
+                    f.write("## ✅ No Issues Found\n\n")
+                    f.write("All validation checks passed successfully!\n\n")
+                
+                # Recommendations
+                f.write("## 💡 Recommendations\n\n")
+                for rec in report_data["recommendations"]:
+                    f.write(f"- {rec}\n")
+                
+                f.write("\n---\n")
+                f.write("*Report generated by NoxSuite Smart Installer*\n")
+                
+        except Exception as e:
+            self.logger.warning(f"Failed to generate readable report: {e}")
+    
     def _cleanup_on_failure(self):
         """Cleanup on installation failure"""
         self.logger.info("🧹 Cleaning up after installation failure...")
@@ -2277,7 +4833,8 @@ def main():
                 "guided": InstallMode.GUIDED,
                 "dry-run": InstallMode.DRY_RUN,
                 "safe": InstallMode.SAFE,
-                "recovery": InstallMode.RECOVERY
+                "recovery": InstallMode.RECOVERY,
+                "audit-heal": InstallMode.AUDIT_HEAL
             }
             mode = mode_map.get(mode_arg, InstallMode.GUIDED)
         
