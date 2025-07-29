@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-07-29T21:56:02.016814",
+  "upload_type": "langflow_workflows",
+  "total_workflows": 12,
+  "successful_uploads": 0,
+  "success_rate": 0.0,
+  "langflow_url": "http://localhost:7860",
+  "results": {
+    "enhanced_coding_engineer.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "cyber_defense_matrix.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "edge_iot_commander.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "devops_automation_engine.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "autonomous_self_healing.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "copilot_ai_hub.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "devenv_optimizer.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "distributed_orchestrator.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "ai_code_scanner.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "smart_autoscaler.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "security_guardian.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    },
+    "smart_data_pipeline.json": {
+      "success": false,
+      "error": "Alternative upload failed: 405 - {\"detail\":\"Method Not Allowed\"}"
+    }
+  }
+}

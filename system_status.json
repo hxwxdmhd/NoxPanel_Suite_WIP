@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-07-29T19:24:30.224140",
+  "system_info": {
+    "os": "Caption                  Version    OSArchitecture\n-------                  -------    --------------\nMicrosoft Windows 11 Pro 10.0.26100 64-bit",
+    "memory": "TotalVisibleMemorySize FreePhysicalMemory\n---------------------- ------------------\n              16724768            4994424",
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "working_directory": "K:\\NoxGuard---NoxPanel-main",
+    "virtual_env": "None"
+  },
+  "docker_status": {
+    "version": "28.3.2",
+    "containers": {
+      "total": 9,
+      "running": 7,
+      "stopped": 2
+    },
+    "container_details": [
+      {
+        "id": "26221bdf0e35",
+        "name": "noxsuite-langflow",
+        "image": "logspace/langflow:latest",
+        "status": "running"
+      },
+      {
+        "id": "d246c43fd59a",
+        "name": "noxsuite-postgres",
+        "image": "postgres:15",
+        "status": "running"
+      },
+      {
+        "id": "ce04ba130d64",
+        "name": "noxsuite-redis",
+        "image": "redis:7-alpine",
+        "status": "running"
+      },
+      {
+        "id": "9bda649c7cb7",
+        "name": "noxsuite-ollama",
+        "image": "ollama/ollama:latest",
+        "status": "created"
+      },
+      {
+        "id": "ac43c9b1594f",
+        "name": "noxsuite_web",
+        "image": "nginx:alpine",
+        "status": "running"
+      },
+      {
+        "id": "bf42a1bf5268",
+        "name": "recursing_bose",
+        "image": "registry.hf.space/harsh-manvar-llama-2-7b-chat-test:latest",
+        "status": "exited"
+      },
+      {
+        "id": "45f21ba685a2",
+        "name": "ultimate_grafana",
+        "image": "grafana/grafana:latest",
+        "status": "running"
+      },
+      {
+        "id": "c05b8e99af61",
+        "name": "ultimate_redis",
+        "image": "redis:7-alpine",
+        "status": "running"
+      },
+      {
+        "id": "46730a1b3438",
+        "name": "ultimate_prometheus",
+        "image": "prom/prometheus:latest",
+        "status": "running"
+      }
+    ],
+    "noxsuite_status": {
+      "noxsuite-langflow": true,
+      "noxsuite-postgres": true,
+      "noxsuite-redis": true
+    },
+    "all_running": true
+  },
+  "copilot_tools": {
+    "error": "Operation timed out after 10 seconds"
+  },
+  "agent_coordination": {
+    "config": {
+      "agents_configured": 0,
+      "config_timestamp": 1753278173.7512105
+    },
+    "tasks": "Invalid JSON: Expecting value: line 15 column 21 (char 333)"
+  },
+  "resources": {
+    "cpu_usage": 24.0,
+    "disk": "Used         Free\n        ----         ----\n834832900096 164408537088"
+  },
+  "check_completed_at": "2025-07-29T19:24:44.817484"
+}

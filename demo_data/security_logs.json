@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2025-07-29T19:30:15Z",
+    "level": "WARNING",
+    "event": "Multiple failed login attempts",
+    "source_ip": "192.168.1.100",
+    "threat_level": "medium"
+  },
+  {
+    "timestamp": "2025-07-29T19:32:22Z",
+    "level": "CRITICAL",
+    "event": "SQL injection attempt detected",
+    "source_ip": "10.0.0.50",
+    "threat_level": "high"
+  },
+  {
+    "timestamp": "2025-07-29T19:35:10Z",
+    "level": "INFO",
+    "event": "Suspicious file upload",
+    "source_ip": "172.16.0.25",
+    "threat_level": "low"
+  },
+  {
+    "timestamp": "2025-07-29T19:38:45Z",
+    "level": "CRITICAL",
+    "event": "Privilege escalation attempt",
+    "source_ip": "192.168.1.100",
+    "threat_level": "critical"
+  }
+]

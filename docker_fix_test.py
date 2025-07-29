@@ -6,6 +6,7 @@ Diagnoses and repairs Docker SDK issues for NoxSuite MCP Agent
 import subprocess
 import sys
 import os
+import platform
 
 def check_docker_daemon():
     """Check if Docker daemon is running"""
@@ -112,6 +113,59 @@ def get_docker_status():
     
     print("✅ Created Docker status utility")
 
+def check_noxsuite_containers(client):
+    """Check for required NoxSuite containers"""
+    print("\n🔍 Checking NoxSuite containers...")
+    required_containers = {
+        "noxsuite-langflow": False,
+        "noxsuite-postgres": False,
+        "noxsuite-redis": False
+    }
+    
+    try:
+        containers = client.containers.list(all=True)
+        for container in containers:
+            if container.name in required_containers:
+                status = "✅" if container.status == "running" else "⚠️"
+                required_containers[container.name] = container.status == "running"
+                print(f"   {status} {container.name}: {container.status}")
+        
+        # Check for missing containers
+        missing = [name for name, found in required_containers.items() if not found]
+        if missing:
+            print(f"   ❌ Missing required containers: {', '.join(missing)}")
+        
+        return all(required_containers.values())
+    except Exception as e:
+        print(f"   ❌ Error checking containers: {e}")
+        return False
+
+def check_container_networking(client):
+    """Check container networking and connectivity"""
+    print("\n🌐 Verifying container networking...")
+    
+    try:
+        # Check if network exists
+        networks = client.networks.list(names=["noxsuite-network", "noxguard---noxpanel-main_noxsuite-network"])
+        if not networks:
+            print("   ⚠️ NoxSuite network not found")
+            return False
+        
+        network = networks[0]
+        print(f"   ✅ Network found: {network.name}")
+        
+        # Check containers on network
+        connected_containers = network.attrs.get("Containers", {})
+        if not connected_containers:
+            print("   ⚠️ No containers connected to network")
+        else:
+            print(f"   ✅ {len(connected_containers)} containers connected to network")
+        
+        return bool(connected_containers)
+    except Exception as e:
+        print(f"   ❌ Network check failed: {e}")
+        return False
+
 def main():
     """Main diagnosis and repair function"""
     print("🐳 Docker Integration Diagnosis & Repair")
@@ -137,6 +191,44 @@ def main():
             print(f"📊 Running containers: {len(containers)}")
             for container in containers:
                 print(f"   - {container.name}: {container.status}")
+                
+            # Check NoxSuite specific components
+            noxsuite_containers_ok = check_noxsuite_containers(client)
+            networking_ok = check_container_networking(client)
+            
+            # Perform additional diagnostics for VS Code 128 tools limit
+            print("\n🔧 Checking system for resource limits...")
+            try:
+                # Check if we're on Windows or Linux
+                if os.name == 'nt':
+                    print("   🔍 Windows system detected - checking for resource limits")
+                    # On Windows, check handles using powershell
+                    try:
+                        handle_cmd = subprocess.run(
+                            ['powershell', '-Command', 
+                             'Get-Process -Id $PID | Select-Object -ExpandProperty HandleCount'],
+                            capture_output=True, text=True
+                        )
+                        if handle_cmd.returncode == 0:
+                            handle_count = int(handle_cmd.stdout.strip())
+                            if handle_count > 8000:
+                                print(f"   ⚠️ Process handle count is high: {handle_count}")
+                            else:
+                                print(f"   ✅ Process handle count is normal: {handle_count}")
+                    except:
+                        print("   ⚠️ Could not check Windows handle count")
+                else:
+                    # On Linux/Unix, use ulimit
+                    print("   🔍 Unix/Linux system detected - checking ulimit")
+                    ulimit_result = subprocess.run(['ulimit', '-n'], capture_output=True, text=True, shell=True)
+                    if ulimit_result.returncode == 0:
+                        file_limit = int(ulimit_result.stdout.strip())
+                        if file_limit < 8192:
+                            print(f"   ⚠️ ulimit file descriptor limit may be low: {file_limit}")
+                        else:
+                            print(f"   ✅ ulimit file descriptor limit adequate: {file_limit}")
+            except Exception as e:
+                print(f"   ⚠️ Could not check system resource limits: {e}")
         except Exception as e:
             print(f"⚠️ Could not list containers: {e}")
         

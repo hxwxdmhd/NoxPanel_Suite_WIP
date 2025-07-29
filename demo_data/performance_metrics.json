@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-07-29T21:29:34.500010",
+  "metrics": {
+    "cpu_usage": [
+      45,
+      67,
+      89,
+      92,
+      85,
+      78,
+      65
+    ],
+    "memory_usage": [
+      55,
+      72,
+      88,
+      91,
+      87,
+      74,
+      62
+    ],
+    "response_time": [
+      120,
+      250,
+      450,
+      650,
+      520,
+      380,
+      200
+    ],
+    "concurrent_users": [
+      100,
+      200,
+      500,
+      800,
+      600,
+      400,
+      250
+    ]
+  },
+  "scaling_events": [
+    {
+      "time": "10:15",
+      "action": "scale_up",
+      "instances": "2->4"
+    },
+    {
+      "time": "11:30",
+      "action": "scale_up",
+      "instances": "4->6"
+    },
+    {
+      "time": "14:20",
+      "action": "scale_down",
+      "instances": "6->3"
+    }
+  ]
+}

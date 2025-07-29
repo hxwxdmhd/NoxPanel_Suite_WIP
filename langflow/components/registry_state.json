@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-07-29 21:17:41.861999",
+  "components_directory": "K:\\NoxGuard---NoxPanel-main\\langflow\\components",
+  "registered_components": [],
+  "component_metadata": {},
+  "langflow_config": {
+    "custom_components": {},
+    "component_paths": [
+      "K:\\NoxGuard---NoxPanel-main\\langflow\\components"
+    ],
+    "auto_load": true,
+    "noxsuite_integration": {
+      "version": "1.0.0",
+      "emergency_throttling": true,
+      "tool_usage_monitoring": true,
+      "docker_integration": true,
+      "mcp_integration": true
+    }
+  }
+}

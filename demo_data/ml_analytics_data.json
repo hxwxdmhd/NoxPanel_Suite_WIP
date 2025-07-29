@@ -1,0 +1,57 @@
+{
+  "customer_data": [
+    {
+      "id": 1,
+      "age": 25,
+      "purchases": 150,
+      "category": "electronics"
+    },
+    {
+      "id": 2,
+      "age": 34,
+      "purchases": 320,
+      "category": "clothing"
+    },
+    {
+      "id": 3,
+      "age": 45,
+      "purchases": 89,
+      "category": "books"
+    },
+    {
+      "id": 4,
+      "age": 28,
+      "purchases": 445,
+      "category": "electronics"
+    },
+    {
+      "id": 5,
+      "age": 52,
+      "purchases": 67,
+      "category": "home"
+    }
+  ],
+  "anomalies_detected": [
+    {
+      "customer_id": 2,
+      "anomaly_type": "spending_spike",
+      "confidence": 0.85
+    },
+    {
+      "customer_id": 4,
+      "anomaly_type": "unusual_pattern",
+      "confidence": 0.72
+    }
+  ],
+  "predictions": {
+    "next_week_sales": 15600,
+    "churn_risk_customers": [
+      1,
+      5
+    ],
+    "trending_categories": [
+      "electronics",
+      "clothing"
+    ]
+  }
+}

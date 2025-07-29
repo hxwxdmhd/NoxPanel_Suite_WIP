@@ -1,0 +1,164 @@
+{
+  "description": "Proactive Security Threat Detection & Response with real-time monitoring and automated incident response",
+  "name": "NoxSuite_Security_Guardian",
+  "version": "2.0",
+  "langflow_version": "1.0",
+  "noxsuite_integration": true,
+  "flow": {
+    "nodes": [
+      {
+        "id": "threat_detector",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "security",
+          "intrusion_detection": true,
+          "anomaly_detection": true,
+          "log_analysis": true,
+          "network_monitoring": true,
+          "behavioral_analysis": true,
+          "ml_threat_detection": true,
+          "langflow_id": "threat_detector",
+          "display_name": "Threat Detector"
+        }
+      },
+      {
+        "id": "ai_threat_analyzer",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "emergency",
+          "agent_tasks": "{\"threat_classification\": \"analyze_threat_level\", \"impact_assessment\": \"calculate_potential_damage\", \"response_planning\": \"create_mitigation_strategy\"}",
+          "max_concurrent_agents": 5,
+          "ai_security_analysis": true,
+          "threat_intelligence": true,
+          "task_timeout": 15,
+          "langflow_id": "ai_threat_analyzer",
+          "display_name": "Ai Threat Analyzer"
+        }
+      },
+      {
+        "id": "container_security",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "security_lockdown",
+          "isolate_compromised": true,
+          "security_hardening": true,
+          "access_control_enforcement": true,
+          "vulnerability_patching": true,
+          "compliance_check": true,
+          "langflow_id": "container_security",
+          "display_name": "Container Security"
+        }
+      },
+      {
+        "id": "mcp_security_orchestrator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "security_response",
+          "automated_blocking": true,
+          "threat_containment": true,
+          "forensic_data_collection": true,
+          "incident_documentation": true,
+          "stakeholder_notification": true,
+          "langflow_id": "mcp_security_orchestrator",
+          "display_name": "Mcp Security Orchestrator"
+        }
+      },
+      {
+        "id": "recovery_coordinator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "coordination_mode": "sequential",
+          "agent_tasks": "{\"damage_assessment\": \"evaluate_impact\", \"system_recovery\": \"restore_operations\", \"security_hardening\": \"prevent_reoccurrence\"}",
+          "max_concurrent_agents": 3,
+          "disaster_recovery": true,
+          "business_continuity": true,
+          "langflow_id": "recovery_coordinator",
+          "display_name": "Recovery Coordinator"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "threat_detector",
+        "target": "ai_threat_analyzer",
+        "sourceHandle": "threat_alert",
+        "targetHandle": "analysis_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e2",
+        "source": "ai_threat_analyzer",
+        "target": "container_security",
+        "sourceHandle": "security_action",
+        "targetHandle": "lockdown_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e3",
+        "source": "ai_threat_analyzer",
+        "target": "mcp_security_orchestrator",
+        "sourceHandle": "response_plan",
+        "targetHandle": "orchestration_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e4",
+        "source": "container_security",
+        "target": "recovery_coordinator",
+        "sourceHandle": "security_status",
+        "targetHandle": "recovery_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e5",
+        "source": "mcp_security_orchestrator",
+        "target": "recovery_coordinator",
+        "sourceHandle": "incident_report",
+        "targetHandle": "recovery_input",
+        "type": "default",
+        "animated": false
+      }
+    ]
+  },
+  "automation": {
+    "triggers": [
+      "security_anomaly",
+      "intrusion_attempt",
+      "vulnerability_discovery"
+    ],
+    "response_levels": {
+      "low": "monitor_and_log",
+      "medium": "automated_blocking",
+      "high": "system_isolation",
+      "critical": "emergency_shutdown"
+    }
+  },
+  "scenario_description": "Continuously monitors for security threats, analyzes them with AI, and automatically responds with appropriate countermeasures",
+  "updated_at": "2025-07-29T21:55:49.795084",
+  "noxsuite_version": "2.0"
+}

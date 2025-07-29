@@ -1,0 +1,173 @@
+{
+  "description": "Intelligent Data Pipeline with ML Analytics and automated data processing workflows",
+  "name": "NoxSuite_Smart_Data_Pipeline",
+  "version": "2.0",
+  "langflow_version": "1.0",
+  "noxsuite_integration": true,
+  "flow": {
+    "nodes": [
+      {
+        "id": "data_ingestion_monitor",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "data_sources",
+          "watch_directories": [
+            "/data/incoming",
+            "/logs",
+            "/metrics"
+          ],
+          "file_types": [
+            ".csv",
+            ".json",
+            ".log",
+            ".parquet"
+          ],
+          "real_time_processing": true,
+          "data_quality_check": true,
+          "langflow_id": "data_ingestion_monitor",
+          "display_name": "Data Ingestion Monitor"
+        }
+      },
+      {
+        "id": "ml_data_processor",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "parallel",
+          "agent_tasks": "{\"data_cleaning\": \"clean_and_validate\", \"feature_extraction\": \"extract_insights\", \"anomaly_detection\": \"detect_outliers\", \"prediction_models\": \"generate_forecasts\"}",
+          "max_concurrent_agents": 4,
+          "machine_learning": true,
+          "data_analytics": true,
+          "task_timeout": 120,
+          "langflow_id": "ml_data_processor",
+          "display_name": "Ml Data Processor"
+        }
+      },
+      {
+        "id": "docker_ml_cluster",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "ml_cluster_management",
+          "auto_scale_workers": true,
+          "gpu_acceleration": true,
+          "distributed_computing": true,
+          "model_deployment": true,
+          "resource_optimization": true,
+          "langflow_id": "docker_ml_cluster",
+          "display_name": "Docker Ml Cluster"
+        }
+      },
+      {
+        "id": "mcp_analytics_orchestrator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "analytics_pipeline",
+          "data_flow_management": true,
+          "real_time_analytics": true,
+          "batch_processing": true,
+          "model_serving": true,
+          "result_visualization": true,
+          "langflow_id": "mcp_analytics_orchestrator",
+          "display_name": "Mcp Analytics Orchestrator"
+        }
+      },
+      {
+        "id": "insights_generator",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "monitor_type": "business_intelligence",
+          "generate_reports": true,
+          "automated_insights": true,
+          "trend_analysis": true,
+          "predictive_analytics": true,
+          "dashboard_updates": true,
+          "langflow_id": "insights_generator",
+          "display_name": "Insights Generator"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "data_ingestion_monitor",
+        "target": "ml_data_processor",
+        "sourceHandle": "new_data",
+        "targetHandle": "processing_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e2",
+        "source": "ml_data_processor",
+        "target": "docker_ml_cluster",
+        "sourceHandle": "ml_jobs",
+        "targetHandle": "cluster_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e3",
+        "source": "ml_data_processor",
+        "target": "mcp_analytics_orchestrator",
+        "sourceHandle": "pipeline_config",
+        "targetHandle": "orchestration_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e4",
+        "source": "docker_ml_cluster",
+        "target": "insights_generator",
+        "sourceHandle": "ml_results",
+        "targetHandle": "insights_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e5",
+        "source": "mcp_analytics_orchestrator",
+        "target": "insights_generator",
+        "sourceHandle": "analytics_output",
+        "targetHandle": "insights_input",
+        "type": "default",
+        "animated": false
+      }
+    ]
+  },
+  "automation": {
+    "triggers": [
+      "new_data_arrival",
+      "scheduled_analysis",
+      "model_retrain_needed"
+    ],
+    "ml_capabilities": {
+      "anomaly_detection": true,
+      "predictive_modeling": true,
+      "pattern_recognition": true,
+      "automated_feature_engineering": true,
+      "model_optimization": true
+    }
+  },
+  "scenario_description": "Automatically processes incoming data through ML pipelines, generates insights, and provides predictive analytics",
+  "updated_at": "2025-07-29T21:55:49.811255",
+  "noxsuite_version": "2.0"
+}

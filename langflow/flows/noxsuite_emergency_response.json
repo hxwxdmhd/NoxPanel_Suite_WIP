@@ -1,0 +1,138 @@
+{
+  "description": "Emergency Response Workflow with Auto-Healing",
+  "name": "NoxSuite_Emergency_Response",
+  "flow": {
+    "nodes": [
+      {
+        "id": "emergency_detector",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "alerts_only",
+          "cpu_threshold": 90,
+          "memory_threshold": 95,
+          "include_docker": true,
+          "emergency_mode": true
+        }
+      },
+      {
+        "id": "emergency_coordinator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "emergency",
+          "agent_tasks": "{\"docker\": \"auto_heal\", \"mcp\": \"restart_if_needed\", \"monitor\": \"escalate_alerts\"}",
+          "max_concurrent_agents": 5,
+          "tool_usage_aware": true,
+          "task_timeout": 10,
+          "emergency_priority": true
+        }
+      },
+      {
+        "id": "docker_auto_heal",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "auto_heal",
+          "container_filter": "noxsuite",
+          "restart_on_failure": true,
+          "health_check_enabled": true
+        }
+      },
+      {
+        "id": "mcp_recovery",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "emergency_restart",
+          "mcp_endpoint": "http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse",
+          "auto_retry": true,
+          "max_retries": 5,
+          "emergency_mode": true
+        }
+      },
+      {
+        "id": "incident_logger",
+        "type": "TextOutput",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "output_format": "emergency_report"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "emergency_detector",
+        "target": "emergency_coordinator",
+        "sourceHandle": "alert_triggered",
+        "targetHandle": "emergency_input"
+      },
+      {
+        "id": "e2",
+        "source": "emergency_coordinator",
+        "target": "docker_auto_heal",
+        "sourceHandle": "docker_task",
+        "targetHandle": "action_trigger"
+      },
+      {
+        "id": "e3",
+        "source": "emergency_coordinator",
+        "target": "mcp_recovery",
+        "sourceHandle": "mcp_task",
+        "targetHandle": "operation_trigger"
+      },
+      {
+        "id": "e4",
+        "source": "docker_auto_heal",
+        "target": "incident_logger",
+        "sourceHandle": "heal_result",
+        "targetHandle": "text_input"
+      },
+      {
+        "id": "e5",
+        "source": "mcp_recovery",
+        "target": "incident_logger",
+        "sourceHandle": "recovery_result",
+        "targetHandle": "text_input"
+      }
+    ]
+  },
+  "triggers": {
+    "automated": {
+      "condition": "system_alert OR docker_failure OR mcp_disconnection",
+      "frequency": "immediate",
+      "escalation_timeout": "30_seconds"
+    }
+  },
+  "usage_instructions": [
+    "1. This workflow automatically triggers during system emergencies",
+    "2. It coordinates multiple agents for rapid incident response",
+    "3. Auto-healing is prioritized for Docker containers",
+    "4. MCP connections are automatically restored",
+    "5. All actions are logged for incident analysis",
+    "6. Emergency coordination bypasses normal tool usage limits"
+  ],
+  "expected_outputs": {
+    "emergency_detector": "Emergency alerts and system status",
+    "emergency_coordinator": "Coordinated emergency response actions",
+    "docker_auto_heal": "Container healing results",
+    "mcp_recovery": "MCP connection recovery status",
+    "incident_logger": "Comprehensive emergency response report"
+  }
+}

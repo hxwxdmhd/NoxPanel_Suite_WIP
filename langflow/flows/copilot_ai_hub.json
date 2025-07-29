@@ -1,0 +1,167 @@
+{
+  "description": "Advanced Copilot Tool Management & AI Collaboration Hub",
+  "name": "NoxSuite_Copilot_AI_Hub",
+  "flow": {
+    "nodes": [
+      {
+        "id": "tool_usage_monitor",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "copilot_tools",
+          "track_tool_usage": true,
+          "monitor_128_limit": true,
+          "tool_efficiency_analysis": true,
+          "usage_pattern_detection": true,
+          "optimization_opportunities": true,
+          "emergency_throttling": true,
+          "langflow_id": "tool_usage_monitor",
+          "display_name": "Tool Usage Monitor"
+        }
+      },
+      {
+        "id": "ai_collaboration_coordinator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "ai_collaboration",
+          "agent_tasks": "{\"copilot_optimization\": \"optimize_tool_usage\", \"chatgpt_integration\": \"coordinate_ai_responses\", \"workflow_intelligence\": \"enhance_automation\", \"knowledge_synthesis\": \"combine_ai_insights\"}",
+          "max_concurrent_agents": 4,
+          "ai_collaboration": true,
+          "intelligent_routing": true,
+          "context_sharing": true,
+          "task_timeout": 45,
+          "langflow_id": "ai_collaboration_coordinator",
+          "display_name": "Ai Collaboration Coordinator"
+        }
+      },
+      {
+        "id": "emergency_throttler",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "copilot_emergency_management",
+          "throttling_enabled": true,
+          "tool_limit_enforcement": true,
+          "automatic_reset": true,
+          "priority_tool_management": true,
+          "fallback_strategies": true,
+          "performance_optimization": true,
+          "langflow_id": "emergency_throttler",
+          "display_name": "Emergency Throttler"
+        }
+      },
+      {
+        "id": "mcp_ai_orchestrator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "ai_workflow_orchestration",
+          "copilot_workflow_management": true,
+          "ai_tool_coordination": true,
+          "intelligent_task_routing": true,
+          "context_preservation": true,
+          "multi_ai_collaboration": true,
+          "knowledge_graph_integration": true,
+          "langflow_id": "mcp_ai_orchestrator",
+          "display_name": "Mcp Ai Orchestrator"
+        }
+      },
+      {
+        "id": "ai_insights_aggregator",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "monitor_type": "ai_intelligence",
+          "copilot_insights_tracking": true,
+          "ai_performance_metrics": true,
+          "collaboration_effectiveness": true,
+          "tool_optimization_suggestions": true,
+          "ai_workflow_improvements": true,
+          "langflow_id": "ai_insights_aggregator",
+          "display_name": "Ai Insights Aggregator"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "tool_usage_monitor",
+        "target": "ai_collaboration_coordinator",
+        "sourceHandle": "tool_usage_data",
+        "targetHandle": "coordination_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e2",
+        "source": "ai_collaboration_coordinator",
+        "target": "emergency_throttler",
+        "sourceHandle": "throttling_commands",
+        "targetHandle": "emergency_actions",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e3",
+        "source": "ai_collaboration_coordinator",
+        "target": "mcp_ai_orchestrator",
+        "sourceHandle": "orchestration_plan",
+        "targetHandle": "ai_workflow_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e4",
+        "source": "emergency_throttler",
+        "target": "ai_insights_aggregator",
+        "sourceHandle": "throttling_results",
+        "targetHandle": "insights_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e5",
+        "source": "mcp_ai_orchestrator",
+        "target": "ai_insights_aggregator",
+        "sourceHandle": "orchestration_insights",
+        "targetHandle": "insights_input",
+        "type": "default",
+        "animated": false
+      }
+    ]
+  },
+  "automation": {
+    "triggers": [
+      "tool_usage_threshold",
+      "copilot_performance_issue",
+      "ai_collaboration_request",
+      "emergency_limit_reached"
+    ],
+    "copilot_integration": {
+      "tool_management": true,
+      "emergency_handling": true,
+      "performance_optimization": true,
+      "collaborative_intelligence": true
+    }
+  },
+  "scenario_description": "Manages Copilot tool usage, prevents 128 tools limit issues, and creates an intelligent AI collaboration hub for enhanced productivity",
+  "updated_at": "2025-07-29T21:55:49.735514",
+  "langflow_version": "1.0",
+  "noxsuite_version": "2.0"
+}

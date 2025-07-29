@@ -1,0 +1,150 @@
+{
+  "description": "Continuous Development and Deployment Workflow",
+  "name": "NoxSuite_DevOps_Pipeline",
+  "flow": {
+    "nodes": [
+      {
+        "id": "code_monitor",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "development",
+          "watch_files": true,
+          "include_git": true,
+          "development_mode": true
+        }
+      },
+      {
+        "id": "docker_build_test",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "action": "status",
+          "container_filter": "development",
+          "include_build_info": true,
+          "test_mode": true
+        }
+      },
+      {
+        "id": "mcp_validation",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 700,
+          "y": 100
+        },
+        "data": {
+          "operation": "validate_workflow",
+          "mcp_endpoint": "http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse",
+          "validation_mode": true,
+          "test_connections": true
+        }
+      },
+      {
+        "id": "deployment_coordinator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "coordination_mode": "sequential",
+          "agent_tasks": "{\"build\": \"test_containers\", \"validate\": \"mcp_workflows\", \"deploy\": \"production_ready\"}",
+          "max_concurrent_agents": 2,
+          "tool_usage_aware": true,
+          "task_timeout": 120,
+          "deployment_pipeline": true
+        }
+      },
+      {
+        "id": "production_deploy",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 500
+        },
+        "data": {
+          "action": "restart",
+          "container_filter": "production",
+          "graceful_restart": true,
+          "health_check_enabled": true,
+          "rollback_on_failure": true
+        }
+      },
+      {
+        "id": "deployment_report",
+        "type": "TextOutput",
+        "position": {
+          "x": 700,
+          "y": 400
+        },
+        "data": {
+          "output_format": "deployment_summary"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "code_monitor",
+        "target": "docker_build_test",
+        "sourceHandle": "file_changes",
+        "targetHandle": "build_trigger"
+      },
+      {
+        "id": "e2",
+        "source": "docker_build_test",
+        "target": "mcp_validation",
+        "sourceHandle": "build_success",
+        "targetHandle": "validation_trigger"
+      },
+      {
+        "id": "e3",
+        "source": "mcp_validation",
+        "target": "deployment_coordinator",
+        "sourceHandle": "validation_success",
+        "targetHandle": "deploy_trigger"
+      },
+      {
+        "id": "e4",
+        "source": "deployment_coordinator",
+        "target": "production_deploy",
+        "sourceHandle": "deploy_approved",
+        "targetHandle": "deploy_action"
+      },
+      {
+        "id": "e5",
+        "source": "production_deploy",
+        "target": "deployment_report",
+        "sourceHandle": "deploy_result",
+        "targetHandle": "result_input"
+      }
+    ]
+  },
+  "automation": {
+    "triggers": ["file_change", "git_commit", "manual_deploy"],
+    "schedule": "on_demand",
+    "rollback_conditions": ["health_check_fail", "mcp_validation_fail", "container_crash"]
+  },
+  "usage_instructions": [
+    "1. This workflow automates the development-to-production pipeline",
+    "2. It monitors code changes and triggers automated builds",
+    "3. MCP workflows are validated before deployment",
+    "4. Sequential coordination ensures proper deployment order",
+    "5. Automatic rollback on deployment failures",
+    "6. Comprehensive deployment reporting and logging"
+  ],
+  "expected_outputs": {
+    "code_monitor": "File change notifications and git status",
+    "docker_build_test": "Build and test results",
+    "mcp_validation": "MCP workflow validation status",
+    "deployment_coordinator": "Coordinated deployment execution",
+    "production_deploy": "Production deployment results",
+    "deployment_report": "Complete deployment summary and status"
+  }
+}

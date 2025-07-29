@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  langflow-noxsuite:
+    image: logspace/langflow:latest
+    container_name: noxsuite-langflow
+    ports:
+      - "7860:7860"
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://noxsuite:noxsuite_password@postgres:5432/noxsuite_langflow
+      - LANGFLOW_REDIS_URL=redis://redis:6379/0
+      - LANGFLOW_CUSTOM_COMPONENTS_PATH=/app/langflow/components
+      - LANGFLOW_FLOWS_PATH=/app/langflow/flows
+      - LANGFLOW_AUTO_LOGIN=false
+      - LANGFLOW_SUPERUSER=noxsuite_admin
+      - LANGFLOW_SUPERUSER_PASSWORD=noxsuite_secure_2024
+      - LANGFLOW_SECRET_KEY=noxsuite_secret_key_2024_production
+      - NOXSUITE_EMERGENCY_MODE=true
+      - NOXSUITE_TOOL_LIMIT=120
+      - NOXSUITE_MCP_ENDPOINT=http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse
+    volumes:
+      - ./langflow:/app/langflow
+      - ./emergency_copilot_fix.py:/app/emergency_copilot_fix.py
+      - ./autonomous_mcp_agent.py:/app/autonomous_mcp_agent.py
+      - langflow_data:/app/data
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - noxsuite-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: noxsuite-postgres
+    environment:
+      - POSTGRES_DB=noxsuite_langflow
+      - POSTGRES_USER=noxsuite
+      - POSTGRES_PASSWORD=noxsuite_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U noxsuite -d noxsuite_langflow"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - noxsuite-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: noxsuite-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - noxsuite-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: noxsuite-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - langflow-noxsuite
+    restart: unless-stopped
+    networks:
+      - noxsuite-network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  langflow_data:
+    driver: local
+
+networks:
+  noxsuite-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16

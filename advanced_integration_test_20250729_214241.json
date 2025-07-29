@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-07-29T21:42:41.353887",
+  "test_type": "advanced_workflow_integration",
+  "langflow_connectivity": {
+    "connected": true,
+    "langflow_version": "unknown",
+    "status": "healthy"
+  },
+  "workflow_results": [
+    {
+      "workflow": "cyber_defense_matrix.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 6,
+      "noxsuite_nodes": 6
+    },
+    {
+      "workflow": "edge_iot_commander.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 6,
+      "noxsuite_nodes": 6
+    },
+    {
+      "workflow": "devops_automation_engine.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 6,
+      "noxsuite_nodes": 6
+    },
+    {
+      "workflow": "autonomous_self_healing.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 5,
+      "noxsuite_nodes": 5
+    },
+    {
+      "workflow": "copilot_ai_hub.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 5,
+      "noxsuite_nodes": 5
+    },
+    {
+      "workflow": "devenv_optimizer.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 5,
+      "noxsuite_nodes": 5
+    },
+    {
+      "workflow": "distributed_orchestrator.json",
+      "structure_valid": true,
+      "component_compatible": true,
+      "nodes_count": 6,
+      "noxsuite_nodes": 6
+    }
+  ],
+  "summary": {
+    "total_workflows": 7,
+    "passed_workflows": 7,
+    "success_rate": 100.0,
+    "total_nodes": 39,
+    "noxsuite_nodes": 39
+  }
+}

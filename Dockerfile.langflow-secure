@@ -1,0 +1,17 @@
+FROM langflowai/langflow:latest
+
+# Apply security updates
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y --no-install-recommends \
+    security-updates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Remove unnecessary packages
+RUN apt-get autoremove -y
+
+# Set secure permissions
+RUN chmod 755 /app && chown -R langflow:langflow /app
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:7860/health || exit 1

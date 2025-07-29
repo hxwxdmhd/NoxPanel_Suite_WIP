@@ -1,0 +1,168 @@
+{
+  "description": "AI-Powered Code Quality & Security Scanner with intelligent analysis and automated remediation",
+  "name": "NoxSuite_AI_Code_Scanner",
+  "version": "2.0",
+  "langflow_version": "1.0",
+  "noxsuite_integration": true,
+  "flow": {
+    "nodes": [
+      {
+        "id": "code_monitor",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "development",
+          "watch_files": true,
+          "file_extensions": [
+            ".py",
+            ".js",
+            ".ts",
+            ".yml",
+            ".json"
+          ],
+          "scan_patterns": [
+            "security_vulnerabilities",
+            "code_quality",
+            "performance_issues"
+          ],
+          "langflow_id": "code_monitor",
+          "display_name": "Code Monitor"
+        }
+      },
+      {
+        "id": "ai_code_analyzer",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "parallel",
+          "agent_tasks": "{\"security_scan\": \"check_vulnerabilities\", \"quality_check\": \"analyze_code_quality\", \"performance_audit\": \"detect_bottlenecks\"}",
+          "max_concurrent_agents": 3,
+          "tool_usage_aware": true,
+          "ai_powered": true,
+          "task_timeout": 60,
+          "langflow_id": "ai_code_analyzer",
+          "display_name": "Ai Code Analyzer"
+        }
+      },
+      {
+        "id": "docker_security_check",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "security_scan",
+          "container_filter": "all",
+          "vulnerability_check": true,
+          "compliance_scan": true,
+          "generate_report": true,
+          "langflow_id": "docker_security_check",
+          "display_name": "Docker Security Check"
+        }
+      },
+      {
+        "id": "mcp_workflow_validator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "validate_all_workflows",
+          "mcp_endpoint": "http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse",
+          "security_validation": true,
+          "performance_check": true,
+          "auto_fix_issues": true,
+          "langflow_id": "mcp_workflow_validator",
+          "display_name": "Mcp Workflow Validator"
+        }
+      },
+      {
+        "id": "ai_report_generator",
+        "type": "TextProcessor",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "processing_type": "ai_analysis",
+          "generate_recommendations": true,
+          "severity_classification": true,
+          "auto_prioritization": true,
+          "langflow_id": "ai_report_generator",
+          "display_name": "Ai Report Generator"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "code_monitor",
+        "target": "ai_code_analyzer",
+        "sourceHandle": "file_changes",
+        "targetHandle": "analysis_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e2",
+        "source": "ai_code_analyzer",
+        "target": "docker_security_check",
+        "sourceHandle": "security_task",
+        "targetHandle": "scan_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e3",
+        "source": "ai_code_analyzer",
+        "target": "mcp_workflow_validator",
+        "sourceHandle": "validation_task",
+        "targetHandle": "validate_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e4",
+        "source": "docker_security_check",
+        "target": "ai_report_generator",
+        "sourceHandle": "security_report",
+        "targetHandle": "analysis_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e5",
+        "source": "mcp_workflow_validator",
+        "target": "ai_report_generator",
+        "sourceHandle": "validation_report",
+        "targetHandle": "analysis_input",
+        "type": "default",
+        "animated": false
+      }
+    ]
+  },
+  "automation": {
+    "triggers": [
+      "file_save",
+      "git_commit",
+      "schedule_daily"
+    ],
+    "ai_features": {
+      "code_analysis": true,
+      "security_scanning": true,
+      "auto_remediation": true,
+      "learning_from_patterns": true
+    }
+  },
+  "scenario_description": "Automatically scans code changes for security vulnerabilities, quality issues, and performance problems using AI-powered analysis",
+  "updated_at": "2025-07-29T21:55:49.758613",
+  "noxsuite_version": "2.0"
+}

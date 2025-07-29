@@ -1,0 +1,118 @@
+{
+  "description": "NoxSuite Comprehensive System Health Check Workflow",
+  "name": "NoxSuite_System_Health_Check",
+  "flow": {
+    "nodes": [
+      {
+        "id": "system_monitor",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "full_system",
+          "cpu_threshold": 80,
+          "memory_threshold": 85,
+          "include_docker": true
+        }
+      },
+      {
+        "id": "docker_manager",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "health_check",
+          "container_filter": "noxsuite",
+          "log_lines": "20"
+        }
+      },
+      {
+        "id": "mcp_orchestrator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 100,
+          "y": 500
+        },
+        "data": {
+          "operation": "health_monitor",
+          "mcp_endpoint": "http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse",
+          "auto_retry": true
+        }
+      },
+      {
+        "id": "multi_agent_coordinator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "coordination_mode": "priority_based",
+          "agent_tasks": "{\"monitor\": \"alerts\", \"docker\": \"health_check\", \"mcp\": \"check_connection\"}",
+          "max_concurrent_agents": 3,
+          "tool_usage_aware": true,
+          "task_timeout": 30
+        }
+      },
+      {
+        "id": "results_aggregator",
+        "type": "TextCombiner",
+        "position": {
+          "x": 700,
+          "y": 300
+        },
+        "data": {
+          "separator": "\\n---\\n"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "system_monitor",
+        "target": "results_aggregator",
+        "sourceHandle": "monitor_result",
+        "targetHandle": "text_1"
+      },
+      {
+        "id": "e2",
+        "source": "docker_manager",
+        "target": "results_aggregator",
+        "sourceHandle": "result",
+        "targetHandle": "text_2"
+      },
+      {
+        "id": "e3",
+        "source": "mcp_orchestrator",
+        "target": "results_aggregator",
+        "sourceHandle": "mcp_result",
+        "targetHandle": "text_3"
+      },
+      {
+        "id": "e4",
+        "source": "multi_agent_coordinator",
+        "target": "results_aggregator",
+        "sourceHandle": "coordination_result",
+        "targetHandle": "text_4"
+      }
+    ]
+  },
+  "usage_instructions": [
+    "1. This workflow performs a comprehensive health check of the NoxSuite system",
+    "2. It monitors system resources, Docker containers, and MCP connections",
+    "3. The multi-agent coordinator ensures efficient task execution with tool usage awareness",
+    "4. Results are aggregated into a single comprehensive report",
+    "5. Execute this workflow regularly (every 15-30 minutes) for continuous monitoring"
+  ],
+  "expected_outputs": {
+    "system_monitor": "System performance metrics and alerts",
+    "docker_manager": "Docker container health status",
+    "mcp_orchestrator": "MCP connection health and performance",
+    "multi_agent_coordinator": "Coordinated agent execution results",
+    "results_aggregator": "Combined comprehensive system report"
+  }
+}

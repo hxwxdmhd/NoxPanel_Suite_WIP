@@ -1,0 +1,46 @@
+{
+  "context_sharing": {
+    "supermaven": {
+      "role": "Code intelligence and completion",
+      "data_sources": [
+        "code_context",
+        "project_structure",
+        "git_history"
+      ],
+      "sharing_endpoints": [
+        "context_api",
+        "completion_suggestions"
+      ]
+    },
+    "langflow": {
+      "role": "Visual workflow orchestration",
+      "data_sources": [
+        "agent_workflows",
+        "execution_results",
+        "node_configurations"
+      ],
+      "sharing_endpoints": [
+        "workflow_api",
+        "execution_status"
+      ]
+    },
+    "ollama": {
+      "role": "Local AI inference and reasoning",
+      "data_sources": [
+        "model_outputs",
+        "reasoning_chains",
+        "embeddings"
+      ],
+      "sharing_endpoints": [
+        "inference_api",
+        "model_status"
+      ]
+    }
+  },
+  "communication_protocols": {
+    "message_format": "JSON with agent_id, timestamp, action, data fields",
+    "coordination_channel": "agent_coordination_queue",
+    "heartbeat_interval": 30,
+    "timeout_threshold": 120
+  }
+}

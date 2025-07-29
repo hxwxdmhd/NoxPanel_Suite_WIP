@@ -1,0 +1,211 @@
+{
+  "description": "Advanced DevOps CI/CD Pipeline with GitOps & Infrastructure as Code automation and intelligent quality assurance",
+  "name": "NoxSuite_DevOps_Automation_Engine",
+  "version": "2.0",
+  "langflow_version": "1.0",
+  "noxsuite_integration": true,
+  "flow": {
+    "nodes": [
+      {
+        "id": "git_operations_manager",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "monitor_type": "git_operations_monitoring",
+          "repository_monitoring": true,
+          "branch_protection": true,
+          "code_quality_gates": true,
+          "commit_analysis": true,
+          "pull_request_automation": true,
+          "merge_conflict_resolution": true,
+          "code_review_automation": true,
+          "langflow_id": "git_operations_manager",
+          "display_name": "Git Operations Manager"
+        }
+      },
+      {
+        "id": "cicd_orchestrator",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 400,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "cicd_pipeline_automation",
+          "agent_tasks": "{\"build_automation\": \"manage_build_processes\", \"test_execution\": \"run_automated_tests\", \"deployment_coordination\": \"orchestrate_deployments\", \"quality_assurance\": \"enforce_quality_standards\"}",
+          "max_concurrent_agents": 10,
+          "pipeline_optimization": true,
+          "parallel_execution": true,
+          "rollback_automation": true,
+          "task_timeout": 30,
+          "langflow_id": "cicd_orchestrator",
+          "display_name": "Cicd Orchestrator"
+        }
+      },
+      {
+        "id": "infrastructure_manager",
+        "type": "NoxSuiteDockerManager",
+        "position": {
+          "x": 100,
+          "y": 300
+        },
+        "data": {
+          "action": "infrastructure_as_code",
+          "terraform_integration": true,
+          "kubernetes_orchestration": true,
+          "container_registry_management": true,
+          "environment_provisioning": true,
+          "resource_optimization": true,
+          "cost_optimization": true,
+          "disaster_recovery": true,
+          "langflow_id": "infrastructure_manager",
+          "display_name": "Infrastructure Manager"
+        }
+      },
+      {
+        "id": "deployment_orchestrator",
+        "type": "NoxSuiteMCPOrchestrator",
+        "position": {
+          "x": 400,
+          "y": 300
+        },
+        "data": {
+          "operation": "deployment_workflow_orchestration",
+          "blue_green_deployment": true,
+          "canary_releases": true,
+          "feature_flags": true,
+          "rollback_automation": true,
+          "environment_promotion": true,
+          "compliance_validation": true,
+          "performance_monitoring": true,
+          "langflow_id": "deployment_orchestrator",
+          "display_name": "Deployment Orchestrator"
+        }
+      },
+      {
+        "id": "quality_assurance_ai",
+        "type": "NoxSuiteMultiAgentCoordinator",
+        "position": {
+          "x": 700,
+          "y": 100
+        },
+        "data": {
+          "coordination_mode": "quality_assurance_automation",
+          "agent_tasks": "{\"code_analysis\": \"static_code_analysis\", \"security_scanning\": \"vulnerability_assessment\", \"performance_testing\": \"load_testing\", \"compliance_checking\": \"regulatory_compliance\"}",
+          "max_concurrent_agents": 6,
+          "automated_testing": true,
+          "quality_gates": true,
+          "security_integration": true,
+          "performance_analysis": true,
+          "langflow_id": "quality_assurance_ai",
+          "display_name": "Quality Assurance Ai"
+        }
+      },
+      {
+        "id": "devops_intelligence",
+        "type": "NoxSuiteSystemMonitor",
+        "position": {
+          "x": 700,
+          "y": 300
+        },
+        "data": {
+          "monitor_type": "devops_analytics",
+          "deployment_frequency_tracking": true,
+          "lead_time_measurement": true,
+          "mttr_analysis": true,
+          "change_failure_rate": true,
+          "team_productivity_metrics": true,
+          "pipeline_optimization_insights": true,
+          "langflow_id": "devops_intelligence",
+          "display_name": "Devops Intelligence"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "git_operations_manager",
+        "target": "cicd_orchestrator",
+        "sourceHandle": "code_changes",
+        "targetHandle": "pipeline_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e2",
+        "source": "cicd_orchestrator",
+        "target": "infrastructure_manager",
+        "sourceHandle": "infrastructure_requirements",
+        "targetHandle": "provisioning_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e3",
+        "source": "cicd_orchestrator",
+        "target": "deployment_orchestrator",
+        "sourceHandle": "deployment_plan",
+        "targetHandle": "deployment_trigger",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e4",
+        "source": "git_operations_manager",
+        "target": "quality_assurance_ai",
+        "sourceHandle": "code_quality_data",
+        "targetHandle": "qa_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e5",
+        "source": "infrastructure_manager",
+        "target": "devops_intelligence",
+        "sourceHandle": "infrastructure_metrics",
+        "targetHandle": "analytics_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e6",
+        "source": "deployment_orchestrator",
+        "target": "devops_intelligence",
+        "sourceHandle": "deployment_metrics",
+        "targetHandle": "analytics_input",
+        "type": "default",
+        "animated": false
+      },
+      {
+        "id": "e7",
+        "source": "quality_assurance_ai",
+        "target": "devops_intelligence",
+        "sourceHandle": "quality_metrics",
+        "targetHandle": "analytics_input",
+        "type": "default",
+        "animated": false
+      }
+    ]
+  },
+  "automation": {
+    "triggers": [
+      "code_commit",
+      "pull_request",
+      "deployment_request",
+      "quality_gate_failure"
+    ],
+    "devops_features": {
+      "gitops_workflow": true,
+      "infrastructure_as_code": true,
+      "automated_testing": true,
+      "deployment_automation": true,
+      "quality_gates": true
+    }
+  },
+  "scenario_description": "Complete DevOps automation pipeline with GitOps, infrastructure as code, and intelligent quality assurance",
+  "updated_at": "2025-07-29T21:55:49.729289",
+  "noxsuite_version": "2.0"
+}
