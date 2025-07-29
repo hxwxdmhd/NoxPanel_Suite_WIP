@@ -1,0 +1,165 @@
+{
+  "timestamp": "2025-07-15T21:13:42.182014",
+  "suite_version": "9.0",
+  "overall_status": "WARNING",
+  "components": {
+    "ultimate_webapp_v9.py": {
+      "exists": true,
+      "size": 21337,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Main Flask Application",
+      "issues": []
+    },
+    "sysadmin_copilot.py": {
+      "exists": true,
+      "size": 33528,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "SysAdmin Copilot Engine",
+      "issues": []
+    },
+    "plugin_framework.py": {
+      "exists": true,
+      "size": 20155,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Plugin Framework",
+      "issues": []
+    },
+    "install_ultimate_suite_v9.py": {
+      "exists": true,
+      "size": 25545,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Installer",
+      "issues": []
+    },
+    "templates/ultimate_dashboard_v9.html": {
+      "exists": true,
+      "size": 42193,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Main Dashboard Template",
+      "issues": []
+    },
+    "static/css/ultimate-dashboard-v9.css": {
+      "exists": true,
+      "size": 22696,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Main Stylesheet",
+      "issues": []
+    },
+    "static/js/ultimate-suite-v9.js": {
+      "exists": true,
+      "size": 33318,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Main JavaScript",
+      "issues": []
+    },
+    "README_ULTIMATE_V9.md": {
+      "exists": true,
+      "size": 18851,
+      "readable": true,
+      "syntax_valid": true,
+      "description": "Documentation",
+      "issues": []
+    }
+  },
+  "dependencies": {
+    "critical": {
+      "flask": {
+        "status": "OK",
+        "version": "2.3.3"
+      },
+      "flask-cors": {
+        "status": "OK",
+        "version": "6.0.1"
+      },
+      "requests": {
+        "status": "OK",
+        "version": "2.32.4"
+      },
+      "psutil": {
+        "status": "OK",
+        "version": "5.9.5"
+      },
+      "websockets": {
+        "status": "MISSING",
+        "version": null
+      },
+      "numpy": {
+        "status": "MISSING",
+        "version": null
+      },
+      "pandas": {
+        "status": "MISSING",
+        "version": null
+      },
+      "matplotlib": {
+        "status": "MISSING",
+        "version": null
+      },
+      "plotly": {
+        "status": "MISSING",
+        "version": null
+      },
+      "networkx": {
+        "status": "MISSING",
+        "version": null
+      }
+    },
+    "optional": {
+      "openai": {
+        "status": "MISSING",
+        "version": null
+      },
+      "anthropic": {
+        "status": "MISSING",
+        "version": null
+      },
+      "ollama": {
+        "status": "MISSING",
+        "version": null
+      },
+      "scikit-learn": {
+        "status": "MISSING",
+        "version": null
+      },
+      "tensorflow": {
+        "status": "MISSING",
+        "version": null
+      },
+      "torch": {
+        "status": "MISSING",
+        "version": null
+      },
+      "transformers": {
+        "status": "MISSING",
+        "version": null
+      }
+    }
+  },
+  "errors": [
+    "Critical dependency missing: websockets",
+    "Critical dependency missing: numpy",
+    "Critical dependency missing: pandas",
+    "Critical dependency missing: matplotlib",
+    "Critical dependency missing: plotly",
+    "Critical dependency missing: networkx"
+  ],
+  "warnings": [],
+  "recommendations": [
+    "Install missing critical dependencies: websockets, numpy, pandas, matplotlib, plotly, networkx",
+    "Use the generated safe launch script for testing",
+    "Check logs for detailed error information",
+    "Ensure Python 3.8+ is being used",
+    "Verify all file permissions are correct",
+    "Consider running in a virtual environment"
+  ],
+  "auto_fixes_applied": [
+    "Created default configuration file"
+  ]
+}

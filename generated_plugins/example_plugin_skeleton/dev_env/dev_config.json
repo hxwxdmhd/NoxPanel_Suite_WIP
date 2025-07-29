@@ -1,0 +1,6 @@
+{
+  "development": true,
+  "debug": true,
+  "testing": true,
+  "log_level": "DEBUG"
+}

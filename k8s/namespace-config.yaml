@@ -1,0 +1,118 @@
+# Namespace for Heimnetz
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: heimnetz
+  labels:
+    name: heimnetz
+    version: v11.0
+    environment: production
+---
+# ConfigMap for Heimnetz Configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: heimnetz-config
+  namespace: heimnetz
+data:
+  app.properties: |
+    # Heimnetz Production Configuration
+    app.name=Heimnetz Ultimate Suite v11.0
+    app.version=11.0
+    app.environment=production
+    
+    # Flask Configuration
+    flask.host=0.0.0.0
+    flask.port=5004
+    flask.debug=false
+    flask.threaded=true
+    
+    # Redis Configuration
+    redis.host=redis-service
+    redis.port=6379
+    redis.db=0
+    
+    # Database Configuration
+    database.type=sqlite
+    database.path=/data/heimnetz.db
+    database.pool_size=10
+    
+    # Security Configuration
+    security.jwt_expiration=3600
+    security.mfa_enabled=true
+    security.rate_limit=100
+    security.session_timeout=1800
+    
+    # Monitoring Configuration
+    monitoring.enabled=true
+    monitoring.metrics_port=9090
+    monitoring.health_check_interval=30
+    
+    # Logging Configuration
+    logging.level=INFO
+    logging.format=json
+    logging.file=/data/logs/heimnetz.log
+---
+# Secret for Heimnetz
+apiVersion: v1
+kind: Secret
+metadata:
+  name: heimnetz-secrets
+  namespace: heimnetz
+type: Opaque
+data:
+  # Base64 encoded secrets (use: echo -n "your-secret" | base64)
+  secret-key: aGVpbW5ldHotcHJvZHVjdGlvbi1zZWNyZXQta2V5LXYxMS4wLXNlY3VyZQ==
+  jwt-secret: and0LXNlY3JldC1rZXktZm9yLWhlcm1uZXR6LXByb2R1Y3Rpb24tdmVyc2lvbi0xMS4w
+  redis-password: ""
+  database-key: ZGF0YWJhc2UtZW5jcnlwdGlvbi1rZXktZm9yLWhlaW1uZXR6LXByb2R1Y3Rpb24=
+---
+# PersistentVolumeClaim for Heimnetz Data
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: heimnetz-data-pvc
+  namespace: heimnetz
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: fast-ssd
+---
+# ServiceAccount for Heimnetz
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: heimnetz-service-account
+  namespace: heimnetz
+---
+# Role for Heimnetz Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: heimnetz-role
+  namespace: heimnetz
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "watch"]
+---
+# RoleBinding for Heimnetz Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: heimnetz-role-binding
+  namespace: heimnetz
+subjects:
+- kind: ServiceAccount
+  name: heimnetz-service-account
+  namespace: heimnetz
+roleRef:
+  kind: Role
+  name: heimnetz-role
+  apiGroup: rbac.authorization.k8s.io

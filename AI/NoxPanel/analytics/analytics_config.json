@@ -1,0 +1,19 @@
+{
+  "tracking_enabled": true,
+  "metrics_collection": {
+    "usage_statistics": true,
+    "performance_metrics": true,
+    "error_tracking": true,
+    "user_behavior": true
+  },
+  "data_retention": {
+    "raw_data": "30 days",
+    "aggregated_data": "1 year",
+    "error_logs": "90 days"
+  },
+  "reporting": {
+    "daily_reports": true,
+    "weekly_summaries": true,
+    "monthly_analytics": true
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "name": "sample_secure_plugin",
+  "version": "1.0.0",
+  "description": "Sample secure plugin demonstrating best practices for Audit 3 compliance",
+  "author": "Heimnetz Project",
+  "email": "admin@heimnetz.local",
+  "website": "https://github.com/heimnetz/plugins",
+  "repository": "https://github.com/heimnetz/plugins/sample_secure_plugin",
+  "license": "MIT",
+  "api_version": "1.0",
+  "python_version": ">=3.8",
+  "platform": ["any"],
+  "main_module": "sample_secure_plugin.py",
+  "entry_point": "main",
+  "init_function": "initialize",
+  "cleanup_function": "cleanup",
+  "dependencies": [
+    {
+      "name": "psutil",
+      "version": ">=5.8.0",
+      "optional": false,
+      "reason": "System resource monitoring"
+    }
+  ],
+  "system_dependencies": [],
+  "config_options": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable the plugin",
+      "required": true,
+      "validation": {}
+    },
+    {
+      "name": "max_iterations",
+      "type": "integer",
+      "default": 100,
+      "description": "Maximum number of processing iterations",
+      "required": false,
+      "validation": {
+        "minimum": 1,
+        "maximum": 1000
+      }
+    },
+    {
+      "name": "delay_seconds",
+      "type": "float",
+      "default": 1.0,
+      "description": "Delay between processing iterations in seconds",
+      "required": false,
+      "validation": {
+        "minimum": 0.0,
+        "maximum": 60.0
+      }
+    },
+    {
+      "name": "output_format",
+      "type": "string",
+      "default": "json",
+      "description": "Output format for results",
+      "required": false,
+      "validation": {
+        "enum": ["json", "text", "csv"]
+      }
+    },
+    {
+      "name": "log_level",
+      "type": "string",
+      "default": "INFO",
+      "description": "Logging level for the plugin",
+      "required": false,
+      "validation": {
+        "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+      }
+    }
+  ],
+  "config_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {"type": "boolean"},
+      "max_iterations": {"type": "integer", "minimum": 1, "maximum": 1000},
+      "delay_seconds": {"type": "number", "minimum": 0.0, "maximum": 60.0},
+      "output_format": {"type": "string", "enum": ["json", "text", "csv"]},
+      "log_level": {"type": "string", "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]}
+    },
+    "required": ["enabled"]
+  },
+  "permissions": [
+    {
+      "name": "read_config",
+      "description": "Read plugin configuration settings",
+      "required": true,
+      "risk_level": "LOW"
+    },
+    {
+      "name": "write_logs",
+      "description": "Write to plugin log files",
+      "required": true,
+      "risk_level": "LOW"
+    },
+    {
+      "name": "monitor_system",
+      "description": "Monitor system resources (CPU, memory)",
+      "required": true,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "name": "write_metrics",
+      "description": "Write performance metrics to files",
+      "required": false,
+      "risk_level": "LOW"
+    }
+  ],
+  "security_level": "MEDIUM",
+  "sandbox_required": true,
+  "network_access": false,
+  "file_access": [
+    "performance_metrics_*.json",
+    "*.log"
+  ],
+  "provides_api": false,
+  "api_endpoints": [],
+  "max_memory": 52428800,
+  "max_cpu": 10.0,
+  "max_execution_time": 30,
+  "tags": [
+    "sample",
+    "secure",
+    "demo",
+    "audit3"
+  ],
+  "category": "utility",
+  "keywords": [
+    "plugin",
+    "secure",
+    "template",
+    "example",
+    "best-practices"
+  ],
+  "auto_start": false,
+  "restart_policy": "never",
+  "health_check": {
+    "enabled": true,
+    "interval": 60,
+    "timeout": 10,
+    "retries": 3,
+    "endpoint": "get_health_status"
+  },
+  "readme": "README.md",
+  "changelog": "CHANGELOG.md",
+  "documentation_url": "https://docs.heimnetz.local/plugins/sample_secure_plugin",
+  "examples": [
+    "examples/basic_usage.py",
+    "examples/advanced_config.py"
+  ],
+  "manifest_version": "1.0",
+  "created_at": "2024-12-19T10:00:00Z",
+  "updated_at": "2024-12-19T10:00:00Z"
+}

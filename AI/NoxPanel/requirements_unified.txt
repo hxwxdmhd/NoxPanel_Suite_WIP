@@ -1,0 +1,33 @@
+# NoxPanel Unified System v6.0 - Requirements
+# ===========================================
+
+# Core Web Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# System Monitoring
+psutil==5.9.5
+
+# Data Processing
+requests==2.31.0
+python-dateutil==2.8.2
+
+# Configuration Management
+PyYAML==6.0.1
+
+# Logging and Utilities
+colorama==0.4.6
+
+# Optional: Database Support
+# SQLAlchemy==2.0.20
+# sqlite3 (built-in)
+
+# Optional: Enhanced Features
+# APScheduler==3.10.4  # For job scheduling
+# cryptography==41.0.4  # For SSL/TLS
+# paramiko==3.3.1  # For SSH connections
+
+# Development Dependencies (optional)
+# pytest==7.4.2
+# black==23.7.0
+# flake8==6.0.0

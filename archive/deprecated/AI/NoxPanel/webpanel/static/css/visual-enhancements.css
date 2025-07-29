@@ -1,0 +1,651 @@
+/* NoxPanel v4.3 - Enhanced Visual Components System
+ * Integrated with Enhanced Theme System and ADHD-Friendly Design
+ * Compatible with Light, Dark, and Purple theme variants
+ */
+
+/* Chart container styling */
+.chart-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--visual-rhythm, 12px);
+    box-shadow: var(--shadow-md);
+    height: 300px;
+    margin: var(--chunk-spacing, 1rem) 0;
+    padding: 1.5rem;
+    position: relative;
+    transition: var(--theme-transition);
+}
+
+.chart-container:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.chart-canvas {
+    max-height: 250px;
+}
+
+/* Enhanced command result display with theme integration */
+.command-result-area {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+    border: 2px solid var(--border-primary);
+    border-radius: var(--visual-rhythm, 16px);
+    box-shadow: var(--shadow-md);
+    margin: var(--chunk-spacing, 1rem) 0;
+    padding: 1.5rem;
+    transition: var(--theme-transition);
+    animation: slideInUp 0.5s var(--animation-easing, ease);
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Visual metrics cards with enhanced theming */
+.metric-card {
+    background: linear-gradient(135deg, var(--bg-button-primary) 0%, var(--bg-button-secondary) 100%);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--visual-rhythm, 16px);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-inverse);
+    margin: 0.5rem;
+    overflow: hidden;
+    padding: 1.5rem;
+    position: relative;
+    transition: var(--theme-transition);
+}
+
+.metric-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    content: '';
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.6s var(--animation-easing, ease);
+    width: 100%;
+}
+
+.metric-card:hover::before {
+    left: 100%;
+}
+
+.metric-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* ADHD-friendly metric card enhancements */
+[data-adhd-mode="true"] .metric-card {
+    border-width: 3px;
+    box-shadow: var(--shadow-xl), var(--focus-ring);
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.metric-label {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.metric-icon {
+    font-size: 3rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+/* Progress bars with animation and theme integration */
+.progress-bar-animated {
+    background: linear-gradient(45deg, var(--bg-button-success), var(--bg-button-warning), var(--bg-button-primary), var(--bg-button-primary));
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Enhanced quick action buttons with theme support */
+.quick-action-btn {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+    border: 2px solid var(--border-primary);
+    border-radius: var(--visual-rhythm, 20px);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    gap: 0.5rem;
+    margin: 0.25rem;
+    overflow: hidden;
+    padding: 0.75rem 1.5rem;
+    position: relative;
+    text-decoration: none;
+    transition: var(--theme-transition);
+}
+
+.quick-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: all 0.5s ease;
+}
+
+.quick-action-btn:hover::before {
+    left: 100%;
+}
+
+.quick-action-btn:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-accent);
+    transform: translateY(-3px);
+}
+
+.quick-action-btn:active {
+    transform: translateY(-1px);
+}
+
+/* System status indicators with theme integration */
+.status-indicator {
+    align-items: center;
+    border-radius: 25px;
+    display: inline-flex;
+    font-size: 0.9rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.status-good {
+    background: linear-gradient(135deg, var(--bg-button-success), var(--bg-button-success));
+    color: var(--text-inverse);
+}
+
+.status-warning {
+    background: linear-gradient(135deg, var(--bg-button-warning), var(--bg-button-warning));
+    color: var(--text-inverse);
+}
+
+.status-danger {
+    background: linear-gradient(135deg, var(--bg-button-danger), var(--bg-button-danger));
+    color: var(--text-inverse);
+}
+
+/* Disk usage visual with theme integration */
+.disk-usage-visual {
+    align-items: center;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--border-accent);
+    border-radius: var(--visual-rhythm, 12px);
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    padding: 1rem;
+}
+
+.disk-info {
+    flex: 1;
+}
+
+.disk-progress {
+    background: var(--bg-tertiary);
+    border-radius: var(--visual-rhythm, 4px);
+    height: 8px;
+    overflow: hidden;
+    width: 200px;
+}
+
+.disk-progress-bar {
+    background: linear-gradient(90deg, var(--bg-button-success), var(--bg-button-warning), var(--bg-button-danger));
+    border-radius: var(--visual-rhythm, 4px);
+    height: 100%;
+    transition: width 0.5s var(--animation-easing, ease);
+}
+
+/* Process table styling with enhanced theming */
+.process-table {
+    background: var(--bg-secondary);
+    border-radius: var(--visual-rhythm, 12px);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.process-table th {
+    background: linear-gradient(135deg, var(--bg-button-secondary), var(--bg-button-secondary-hover));
+    border: none;
+    color: var(--text-inverse);
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.process-table td {
+    border-bottom: 1px solid var(--border-primary);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+.process-table tr:hover {
+    background: var(--bg-hover);
+}
+
+/* CPU/Memory gauges */
+.gauge-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 1rem auto;
+}
+
+.gauge-svg {
+    transform: rotate(-90deg);
+}
+
+.gauge-background {
+    fill: none;
+    stroke: #e9ecef;
+    stroke-width: 8;
+}
+
+.gauge-progress {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s ease;
+}
+
+.gauge-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Network status indicators */
+.network-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin: 0.25rem;
+}
+
+.network-connected {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.network-disconnected {
+    background: linear-gradient(135deg, #dc3545, #e83e8c);
+    color: white;
+}
+
+.network-checking {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Responsive grid for metrics */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .metric-card {
+        margin: 0.25rem;
+        padding: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 2rem;
+    }
+    
+    .quick-action-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+    
+    .disk-usage-visual {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .disk-progress {
+        width: 100%;
+    }
+}
+
+/* Loading states */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.command-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.command-loading .quick-action-btn {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+/* Success/Error states */
+.command-success {
+    border-left: 4px solid #28a745;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+}
+
+.command-error {
+    border-left: 4px solid #dc3545;
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+}
+
+/* Real-time update indicators */
+.realtime-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: #28a745;
+    font-weight: 600;
+}
+
+.realtime-dot {
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* ===== ADHD-FRIENDLY VISUAL ENHANCEMENTS ===== */
+
+/* Enhanced visual chunking for ADHD mode */
+[data-adhd-mode="true"] .chart-container,
+[data-adhd-mode="true"] .command-result-area,
+[data-adhd-mode="true"] .metric-card {
+    border-width: 3px;
+    box-shadow: var(--shadow-lg), 0 0 0 2px var(--border-accent);
+    margin-bottom: calc(var(--chunk-spacing, 1.5rem) * 1.5);
+}
+
+/* Enhanced focus indicators for ADHD mode */
+[data-adhd-mode="true"] .quick-action-btn:focus,
+[data-adhd-mode="true"] .enhanced-focus {
+    animation: pulse-focus 1.5s ease-in-out infinite;
+    box-shadow: var(--focus-ring);
+    outline: none;
+    transform: scale(1.02);
+}
+
+@keyframes pulse-focus {
+    0%, 100% { 
+        box-shadow: var(--focus-ring);
+    }
+    50% { 
+        box-shadow: var(--focus-ring), 0 0 0 6px rgba(139, 92, 246, 0.1);
+    }
+}
+
+/* Color-coded status system for quick recognition */
+[data-adhd-mode="true"] .status-good::before {
+    content: "✅ ";
+    font-size: 1.2em;
+}
+
+[data-adhd-mode="true"] .status-warning::before {
+    content: "⚠️ ";
+    font-size: 1.2em;
+}
+
+[data-adhd-mode="true"] .status-danger::before {
+    content: "❌ ";
+    font-size: 1.2em;
+}
+
+/* Enhanced loading states for ADHD mode */
+[data-adhd-mode="true"] .loading-indicator {
+    border-width: 4px;
+    border-top-color: var(--bg-button-primary);
+    height: 32px;
+    width: 32px;
+}
+
+/* Visual progress feedback */
+[data-adhd-mode="true"] .progress-bar-animated {
+    animation: gradientShift 2s ease infinite, pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+    }
+    50% { 
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced command result visibility */
+[data-adhd-mode="true"] .command-result-area {
+    border-left: 6px solid var(--border-accent);
+    position: relative;
+}
+
+[data-adhd-mode="true"] .command-result-area::before {
+    background: var(--bg-button-primary);
+    border-radius: 50%;
+    color: var(--text-inverse);
+    content: "💻";
+    font-size: 1.2em;
+    height: 32px;
+    left: -16px;
+    line-height: 32px;
+    position: absolute;
+    text-align: center;
+    top: 1rem;
+    width: 32px;
+}
+
+/* Responsive adjustments for ADHD mode */
+@media (max-width: 768px) {
+    [data-adhd-mode="true"] .metric-card {
+        margin-bottom: calc(var(--chunk-spacing, 1rem) * 2);
+        padding: 2rem 1.5rem;
+    }
+    
+    [data-adhd-mode="true"] .chart-container {
+        padding: 2rem 1rem;
+    }
+}
+
+/* ===== ACCESSIBILITY AND MOTION PREFERENCES ===== */
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .chart-container,
+    .command-result-area,
+    .metric-card,
+    .quick-action-btn {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .chart-container:hover,
+    .metric-card:hover,
+    .quick-action-btn:hover {
+        transform: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .chart-container,
+    .command-result-area,
+    .metric-card {
+        border-width: 3px;
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* ===== PURPLE THEME SPECIFIC ENHANCEMENTS ===== */
+
+/* Purple theme metric cards */
+[data-theme*="purple"] .metric-card {
+    background: linear-gradient(135deg, var(--bg-button-primary) 0%, #9333ea 100%);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+[data-theme*="purple"] .quick-action-btn:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-lg), 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+[data-theme*="purple"] .chart-container {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+    border-color: var(--border-accent);
+}
+
+/* Purple theme animations */
+[data-theme*="purple"] .progress-bar-animated {
+    background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc, #ddd6fe);
+}
+
+[data-theme*="purple"] .disk-progress-bar {
+    background: linear-gradient(90deg, #10b981, #8b5cf6, #ef4444);
+}
+
+/* ===== ENHANCED INTERACTIVE ELEMENTS ===== */
+
+/* Interactive metric cards */
+.metric-card.interactive {
+    cursor: pointer;
+    user-select: none;
+}
+
+.metric-card.interactive:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.metric-card.interactive:active {
+    transform: translateY(-4px) scale(1.01);
+}
+
+/* Enhanced button states */
+.quick-action-btn.loading {
+    pointer-events: none;
+    position: relative;
+}
+
+.quick-action-btn.loading::after {
+    animation: spin 1s linear infinite;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    content: "";
+    height: 16px;
+    margin-left: 0.5rem;
+    width: 16px;
+}
+
+/* Visual feedback for command execution */
+.command-executing {
+    animation: pulse-execute 1s ease-in-out infinite;
+}
+
+@keyframes pulse-execute {
+    0%, 100% {
+        background-color: var(--bg-card);
+    }
+    50% {
+        background-color: var(--bg-active);
+    }
+}
+
+/* ===== RESPONSIVE VISUAL GRID SYSTEM ===== */
+
+.visual-grid {
+    display: grid;
+    gap: var(--chunk-spacing, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: calc(var(--chunk-spacing, 1.5rem) * 2);
+}
+
+@media (max-width: 768px) {
+    .visual-grid {
+        grid-template-columns: 1fr;
+        gap: var(--chunk-spacing, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .visual-grid {
+        gap: calc(var(--chunk-spacing, 1rem) * 0.5);
+    }
+    
+    .chart-container {
+        height: 250px;
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+}

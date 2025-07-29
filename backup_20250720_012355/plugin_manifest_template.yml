@@ -1,0 +1,215 @@
+# Plugin Manifest Template
+# ========================
+# This is a comprehensive template for plugin.json manifest files
+# Use this template to create standardized plugin specifications
+
+name: "{{plugin_name}}"
+version: "{{plugin_version}}"
+description: "{{plugin_description}}"
+author: "{{plugin_author}}"
+email: "{{plugin_email}}"
+website: "{{plugin_website}}"
+repository: "{{plugin_repository}}"
+license: "{{plugin_license}}"
+
+# API Compatibility
+api_version: "1.0"
+python_version: ">=3.8"
+platform: 
+  - "any"
+
+# Entry Points
+main_module: "{{plugin_name}}.py"
+entry_point: "main"
+init_function: "initialize"
+cleanup_function: "cleanup"
+
+# Dependencies
+dependencies:
+  - name: "{{dependency_name}}"
+    version: "{{dependency_version}}"
+    optional: false
+    reason: "{{dependency_reason}}"
+
+system_dependencies: []
+
+# Configuration Schema
+config_options:
+  - name: "enabled"
+    type: "boolean"
+    default: true
+    description: "Enable/disable the plugin"
+    required: true
+    validation:
+      type: "boolean"
+  
+  - name: "{{config_option_name}}"
+    type: "{{config_option_type}}"
+    default: "{{config_option_default}}"
+    description: "{{config_option_description}}"
+    required: false
+    validation:
+      type: "{{config_option_type}}"
+      # Add validation rules based on type
+      # For string: minLength, maxLength, pattern
+      # For number: minimum, maximum
+      # For array: minItems, maxItems
+      # For object: properties, required
+
+config_schema:
+  type: "object"
+  properties:
+    enabled:
+      type: "boolean"
+    # Add other config properties here
+  required: ["enabled"]
+
+# Security Configuration
+permissions:
+  - name: "read_config"
+    description: "Read plugin configuration settings"
+    required: true
+    risk_level: "LOW"
+  
+  - name: "{{permission_name}}"
+    description: "{{permission_description}}"
+    required: "{{permission_required}}"
+    risk_level: "{{permission_risk_level}}"
+
+security_level: "{{security_level}}"  # LOW, MEDIUM, HIGH, CRITICAL
+sandbox_required: true
+network_access: false
+file_access: []
+
+# API Endpoints (if plugin provides API)
+provides_api: false
+api_endpoints:
+  - path: "/{{endpoint_path}}"
+    method: "{{endpoint_method}}"
+    description: "{{endpoint_description}}"
+    parameters: []
+    response_schema: {}
+    requires_auth: false
+
+# Resource Limits
+max_memory: 52428800    # 50MB in bytes
+max_cpu: 10.0          # 10% CPU usage
+max_execution_time: 30  # 30 seconds
+
+# Metadata
+tags:
+  - "{{tag1}}"
+  - "{{tag2}}"
+  - "{{tag3}}"
+
+category: "{{plugin_category}}"  # service, middleware, security, feature, utility, monitoring, analytics
+
+keywords:
+  - "{{keyword1}}"
+  - "{{keyword2}}"
+  - "{{keyword3}}"
+
+# Lifecycle
+auto_start: false
+restart_policy: "never"  # never, on-failure, always
+
+health_check:
+  enabled: true
+  interval: 60
+  timeout: 10
+  retries: 3
+  endpoint: "get_health_status"
+
+# Documentation
+readme: "README.md"
+changelog: "CHANGELOG.md"
+documentation_url: "{{documentation_url}}"
+
+examples:
+  - "examples/basic_usage.py"
+  - "examples/advanced_config.py"
+
+# Manifest Metadata
+manifest_version: "1.0"
+created_at: "{{current_timestamp}}"
+updated_at: "{{current_timestamp}}"
+
+# Template Variables Reference
+# ============================
+# {{plugin_name}} - The name of your plugin (alphanumeric, underscores, hyphens)
+# {{plugin_version}} - Version following semantic versioning (e.g., 1.0.0)
+# {{plugin_description}} - Brief description of what the plugin does
+# {{plugin_author}} - Author name
+# {{plugin_email}} - Author email address
+# {{plugin_website}} - Plugin website URL
+# {{plugin_repository}} - Git repository URL
+# {{plugin_license}} - License type (MIT, Apache-2.0, GPL-3.0, etc.)
+# {{dependency_name}} - Name of required dependency
+# {{dependency_version}} - Version constraint for dependency
+# {{dependency_reason}} - Why this dependency is needed
+# {{config_option_name}} - Name of configuration option
+# {{config_option_type}} - Type of config option (string, integer, boolean, float, array, object)
+# {{config_option_default}} - Default value for config option
+# {{config_option_description}} - Description of config option
+# {{permission_name}} - Name of required permission
+# {{permission_description}} - Description of what permission allows
+# {{permission_required}} - Whether permission is required (true/false)
+# {{permission_risk_level}} - Risk level of permission (LOW, MEDIUM, HIGH, CRITICAL)
+# {{security_level}} - Overall security level of plugin
+# {{endpoint_path}} - API endpoint path (if plugin provides API)
+# {{endpoint_method}} - HTTP method for endpoint (GET, POST, PUT, DELETE)
+# {{endpoint_description}} - Description of API endpoint
+# {{tag1}}, {{tag2}}, {{tag3}} - Tags for categorization
+# {{plugin_category}} - Main category of plugin
+# {{keyword1}}, {{keyword2}}, {{keyword3}} - Keywords for search
+# {{documentation_url}} - URL to plugin documentation
+# {{current_timestamp}} - Current timestamp in ISO format
+
+# Security Levels Guide
+# =====================
+# LOW: Basic plugins with minimal system access
+# MEDIUM: Plugins that need moderate system resources
+# HIGH: Plugins with significant system access or network usage
+# CRITICAL: Plugins with full system access or security implications
+
+# Permission Risk Levels
+# ======================
+# LOW: Safe operations (read config, write logs)
+# MEDIUM: Moderate operations (system monitoring, file read)
+# HIGH: Significant operations (file write, network access)
+# CRITICAL: Dangerous operations (system commands, admin access)
+
+# Configuration Types
+# ===================
+# string: Text values
+# integer: Whole numbers
+# boolean: true/false values
+# float: Decimal numbers
+# array: List of values
+# object: Nested configuration object
+
+# Validation Rules
+# ================
+# String: minLength, maxLength, pattern (regex)
+# Number: minimum, maximum, multipleOf
+# Array: minItems, maxItems, uniqueItems
+# Object: properties, required, additionalProperties
+# Boolean: No validation rules needed
+
+# Example Usage
+# =============
+# 1. Copy this template to your plugin directory
+# 2. Replace all {{variable}} placeholders with actual values
+# 3. Remove unused sections (like api_endpoints if not providing API)
+# 4. Validate the resulting JSON using the plugin manifest validator
+# 5. Test your plugin with the complete manifest
+
+# Best Practices
+# ==============
+# - Keep security_level as low as possible
+# - Only request permissions you actually need
+# - Set reasonable resource limits
+# - Provide comprehensive documentation
+# - Use semantic versioning
+# - Test all configuration options
+# - Validate input data thoroughly

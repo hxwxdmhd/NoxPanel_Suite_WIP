@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}Knowledge Management - NoxPanel{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+<style>
+    .knowledge-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-left: 4px solid transparent;
+    }
+    .knowledge-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .knowledge-card.code-snippet { border-left-color: #28a745; }
+    .knowledge-card.documentation { border-left-color: #007bff; }
+    .knowledge-card.script { border-left-color: #ffc107; }
+    .knowledge-card.conversation_summary { border-left-color: #17a2b8; }
+    
+    .stat-card {
+        background: linear-gradient(135deg, var(--bs-primary), #0056b3);
+        border: none;
+        color: white;
+    }
+    .stat-card.success { background: linear-gradient(135deg, var(--bs-success), #1e7e34); }
+    .stat-card.info { background: linear-gradient(135deg, var(--bs-info), #138496); }
+    .stat-card.warning { background: linear-gradient(135deg, var(--bs-warning), #e0a800); }
+    
+    .code-preview {
+        background: #f8f9fa;
+        border-radius: 0.375rem;
+        padding: 0.75rem;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.875rem;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+    }
+    
+    .search-section {
+        background: #f8f9fa;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1><i class="fas fa-brain text-primary"></i> Knowledge Management</h1>
+                    <p class="text-muted mb-0">Comprehensive repository of conversations, code snippets, and documentation</p>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ url_for('knowledge.add_item') }}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Item
+                    </a>
+                    <a href="{{ url_for('knowledge.import_conversations') }}" class="btn btn-info">
+                        <i class="fas fa-upload"></i> Import
+                    </a>
+                    <a href="{{ url_for('knowledge.export_knowledge') }}" class="btn btn-success">
+                        <i class="fas fa-download"></i> Export
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Search -->
+    <div class="search-section">
+        <form method="GET" action="{{ url_for('knowledge.search') }}" class="d-flex mb-3">
+            <input type="text" name="q" class="form-control form-control-lg" 
+                   placeholder="Search knowledge base..." value="{{ request.args.get('q', '') }}">
+            <button type="submit" class="btn btn-primary btn-lg ms-2">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        
+        <div class="d-flex flex-wrap gap-2">
+            <span class="text-muted me-2">Quick filters:</span>
+            <a href="{{ url_for('knowledge.search', type='code_snippet') }}" class="btn btn-outline-success btn-sm">
+                <i class="fas fa-code"></i> Code
+            </a>
+            <a href="{{ url_for('knowledge.search', type='script') }}" class="btn btn-outline-warning btn-sm">
+                <i class="fas fa-file-code"></i> Scripts
+            </a>
+            <a href="{{ url_for('knowledge.search', language='python') }}" class="btn btn-outline-primary btn-sm">
+                Python
+            </a>
+            <a href="{{ url_for('knowledge.search', language='powershell') }}" class="btn btn-outline-primary btn-sm">
+                PowerShell
+            </a>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">{{ stats.get('total_items', 0) }}</h4>
+                            <p class="mb-0">Total Items</p>
+                        </div>
+                        <i class="fas fa-database fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">{{ stats.get('by_type', {}).get('code_snippet', 0) }}</h4>
+                            <p class="mb-0">Code Snippets</p>
+                        </div>
+                        <i class="fas fa-code fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card info">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">{{ stats.get('by_type', {}).get('script', 0) }}</h4>
+                            <p class="mb-0">Scripts</p>
+                        </div>
+                        <i class="fas fa-file-code fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">{{ stats.get('by_type', {}).get('conversation_summary', 0) }}</h4>
+                            <p class="mb-0">Conversations</p>
+                        </div>
+                        <i class="fas fa-comments fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-clock text-primary"></i> Recent Items</h5>
+                    <a href="{{ url_for('knowledge.search') }}" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    {% if recent_items %}
+                        {% for item in recent_items %}
+                        <div class="knowledge-card card {{ item.content_type }} mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">
+                                        <a href="{{ url_for('knowledge.view_item', item_id=item.id) }}" 
+                                           class="text-decoration-none">{{ item.title }}</a>
+                                    </h6>
+                                    {% if item.language %}
+                                    <span class="badge bg-primary">{{ item.language }}</span>
+                                    {% endif %}
+                                </div>
+                                
+                                {% if item.content_type == 'code_snippet' %}
+                                <div class="code-preview">
+                                    <code>{{ item.content[:200] }}{% if item.content|length > 200 %}...{% endif %}</code>
+                                </div>
+                                {% else %}
+                                <p class="card-text text-muted">
+                                    {{ item.content[:150] }}{% if item.content|length > 150 %}...{% endif %}
+                                </p>
+                                {% endif %}
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <div>
+                                        {% if item.tags %}
+                                            {% for tag in item.tags.split(',')[:3] %}
+                                            <span class="badge bg-secondary me-1">{{ tag.strip() }}</span>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <small class="text-muted">{{ item.created_at[:10] }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No items in knowledge base yet</h5>
+                            <p class="text-muted">Start by importing your conversations.json or adding items manually.</p>
+                            <a href="{{ url_for('knowledge.import_conversations') }}" class="btn btn-primary">
+                                <i class="fas fa-upload"></i> Import Conversations
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <!-- Content Distribution -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="fas fa-chart-pie text-info"></i> Content Distribution</h6>
+                </div>
+                <div class="card-body">
+                    {% if stats.get('by_type') %}
+                        {% for content_type, count in stats.get('by_type', {}).items() %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-capitalize">{{ content_type.replace('_', ' ') }}</span>
+                            <span class="badge bg-primary">{{ count }}</span>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted mb-0">No data available</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Popular Languages -->
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="fas fa-code text-success"></i> Popular Languages</h6>
+                </div>
+                <div class="card-body">
+                    {% if stats.get('by_language') %}
+                        {% for language, count in stats.get('by_language', {}).items() %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-capitalize">{{ language }}</span>
+                            <span class="badge bg-success">{{ count }}</span>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted mb-0">No language data available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    hljs.highlightAll();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.title }} - Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('knowledge.index') }}">Knowledge Base</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('knowledge.search', type=item.content_type.value) }}">{{ item.content_type.value.replace('_', ' ').title() }}</a></li>
+                    <li class="breadcrumb-item active">{{ item.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h4>{{ item.title }}</h4>
+                            <div class="small text-muted">
+                                Created: {{ item.created_at.strftime('%Y-%m-%d %H:%M') }}
+                                {% if item.author %}by {{ item.author }}{% endif %}
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <div class="rating-display mb-2">
+                                {% for i in range(1, 6) %}
+                                <i class="fas fa-star {% if i <= item.rating %}text-warning{% else %}text-muted{% endif %}"></i>
+                                {% endfor %}
+                                <span class="small text-muted">({{ item.rating }}/5)</span>
+                            </div>
+                            <div class="small text-muted">
+                                👁 {{ item.usage_count }} views
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Tags and Metadata -->
+                    <div class="mb-4">
+                        <span class="badge bg-primary">{{ item.content_type.value }}</span>
+                        {% if item.language %}
+                        <span class="badge bg-secondary">{{ item.language.value }}</span>
+                        {% endif %}
+                        {% if item.topic %}
+                        <span class="badge bg-info">{{ item.topic }}</span>
+                        {% endif %}
+                        {% if item.category %}
+                        <span class="badge bg-warning text-dark">{{ item.category }}</span>
+                        {% endif %}
+                        {% if item.is_featured %}
+                        <span class="badge bg-success">⭐ Featured</span>
+                        {% endif %}
+                        {% for tag in item.tags %}
+                        <span class="badge bg-light text-dark">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="content-display">
+                        {% if item.content_type.value == 'code_snippet' or item.language %}
+                        <pre><code class="language-{{ item.language.value if item.language else 'text' }}">{{ item.content }}</code></pre>
+                        {% else %}
+                        <div class="content-text">
+                            {{ item.content|replace('\n', '<br>')|safe }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Rate this item:</h6>
+                                <div class="rating-buttons">
+                                    {% for i in range(1, 6) %}
+                                    <button class="btn btn-outline-warning btn-sm rate-btn" data-rating="{{ i }}">
+                                        {{ i }} ⭐
+                                    </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn btn-outline-primary btn-sm" onclick="copyToClipboard()">
+                                    <i class="fas fa-copy"></i> Copy Content
+                                </button>
+                                <button class="btn btn-outline-success btn-sm" onclick="shareItem()">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metadata Card -->
+            {% if item.metadata %}
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-info-circle"></i> Metadata</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for key, value in item.metadata.items() %}
+                        <div class="col-md-6 mb-2">
+                            <strong>{{ key.replace('_', ' ').title() }}:</strong>
+                            {% if value is string and (value.startswith('http') or value.startswith('www')) %}
+                            <a href="{{ value }}" target="_blank">{{ value }}</a>
+                            {% else %}
+                            {{ value }}
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <!-- Quick Actions -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-tools"></i> Quick Actions</h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('knowledge.search', topic=item.topic) }}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-tags"></i> More from "{{ item.topic }}"
+                        </a>
+                        <a href="{{ url_for('knowledge.search', type=item.content_type.value) }}" class="btn btn-outline-info btn-sm">
+                            <i class="fas fa-list"></i> Similar Items
+                        </a>
+                        {% if item.language %}
+                        <a href="{{ url_for('knowledge.code_snippets', language=item.language.value) }}" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-code"></i> More {{ item.language.value.title() }}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dependencies -->
+            {% if item.dependencies %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-link"></i> Dependencies</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for dep in item.dependencies %}
+                        <li><i class="fas fa-arrow-right text-muted"></i> {{ dep }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Related Items -->
+            {% if related_items %}
+            <div class="card">
+                <div class="card-header">
+                    <h6><i class="fas fa-sitemap"></i> Related Items</h6>
+                </div>
+                <div class="card-body">
+                    {% for related in related_items %}
+                    <div class="border-bottom pb-2 mb-2">
+                        <h6 class="mb-1">
+                            <a href="{{ url_for('knowledge.view_item', item_id=related.id) }}" class="text-decoration-none">
+                                {{ related.title }}
+                            </a>
+                        </h6>
+                        <div class="small text-muted">
+                            <span class="badge bg-primary">{{ related.content_type.value }}</span>
+                            ⭐ {{ related.rating }} | 👁 {{ related.usage_count }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Statistics -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-chart-line"></i> Statistics</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="h5 mb-0">{{ item.rating }}</div>
+                            <div class="small text-muted">Rating</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="h5 mb-0">{{ item.usage_count }}</div>
+                            <div class="small text-muted">Views</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="h5 mb-0">{{ item.tags|length }}</div>
+                            <div class="small text-muted">Tags</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Copy Modal -->
+<div class="modal fade" id="copyModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Content Copied</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>The content has been copied to your clipboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Rating functionality
+    document.querySelectorAll('.rate-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const rating = this.dataset.rating;
+            
+            fetch(`/knowledge/api/item/{{ item.id }}/rate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ rating: parseInt(rating) })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update rating display
+                    updateRatingDisplay(rating);
+                    // Show success message
+                    showToast('Rating updated successfully!', 'success');
+                } else {
+                    showToast('Error updating rating', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Error updating rating', 'error');
+            });
+        });
+    });
+
+    // Syntax highlighting for code
+    if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+    }
+});
+
+function updateRatingDisplay(newRating) {
+    const stars = document.querySelectorAll('.rating-display .fas');
+    stars.forEach((star, index) => {
+        if (index < newRating) {
+            star.classList.remove('text-muted');
+            star.classList.add('text-warning');
+        } else {
+            star.classList.remove('text-warning');
+            star.classList.add('text-muted');
+        }
+    });
+}
+
+function copyToClipboard() {
+    const content = `{{ item.content|replace('\n', '\\n')|replace('"', '\\"') }}`;
+    navigator.clipboard.writeText(content).then(() => {
+        const modal = new bootstrap.Modal(document.getElementById('copyModal'));
+        modal.show();
+    }).catch(err => {
+        console.error('Error copying to clipboard:', err);
+        showToast('Error copying to clipboard', 'error');
+    });
+}
+
+function shareItem() {
+    const shareData = {
+        title: '{{ item.title }}',
+        text: '{{ item.content|truncate_words(20) }}',
+        url: window.location.href
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData);
+    } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href);
+        showToast('URL copied to clipboard', 'success');
+    }
+}
+
+function showToast(message, type) {
+    // Simple toast notification
+    const toast = document.createElement('div');
+    toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+    toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999;';
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+</script>
+
+<!-- Include highlight.js for syntax highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+{% endblock %}

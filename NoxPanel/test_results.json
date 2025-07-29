@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-07-17T15:39:00.721376",
+  "version": "2.0.0",
+  "tests": {
+    "Python Unit Tests": {
+      "passed": false,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.10, pytest-8.4.1, pluggy-1.6.0 -- C:\\Users\\wsAdmin\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\python.exe\ncachedir: .pytest_cache\nrootdir: K:\\Project Heimnetz\\NoxPanel\nplugins: anyio-4.9.0, Faker-37.4.0, asyncio-1.0.0, cov-6.2.1\nasyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 13 items\n\ntests/test_security.py::TestNoxAuthManager::test_token_generation PASSED [  7%]\ntests/test_security.py::TestNoxAuthManager::test_token_expiry PASSED     [ 15%]\ntests/test_security.py::TestNoxAuthManager::test_password_hashing PASSED [ 23%]\ntests/test_security.py::TestNoxAuthManager::test_rate_limiting PASSED    [ 30%]\ntests/test_security.py::TestNoxAuthManager::test_input_sanitization PASSED [ 38%]\ntests/test_security.py::TestNoxAuthManager::test_input_validation PASSED [ 46%]\ntests/test_security.py::TestSecurityDecorators::test_protected_route_without_token PASSED [ 53%]\ntests/test_security.py::TestSecurityDecorators::test_protected_route_with_valid_token PASSED [ 61%]\ntests/test_security.py::TestSecurityDecorators::test_role_based_access PASSED [ 69%]\ntests/test_security.py::TestSecurityVulnerabilities::test_sql_injection_prevention FAILED [ 76%]\ntests/test_security.py::TestSecurityVulnerabilities::test_xss_prevention FAILED [ 84%]\ntests/test_security.py::TestSecurityVulnerabilities::test_timing_attack_resistance PASSED [ 92%]\ntests/test_security.py::TestSecurityIntegration::test_complete_authentication_flow PASSED [100%]\n\n================================== FAILURES ===================================\n__________ TestSecurityVulnerabilities.test_sql_injection_prevention __________\ntests\\test_security.py:187: in test_sql_injection_prevention\n    assert \"--\" not in sanitized\nE   AssertionError: assert '--' not in 'DROP TABLE users --'\nE     \nE     '--' is contained here:\nE       DROP TABLE users --\nE     ?                  ++\n_______________ TestSecurityVulnerabilities.test_xss_prevention _______________\ntests\\test_security.py:205: in test_xss_prevention\n    assert \"javascript:\" not in sanitized\nE   AssertionError: assert 'javascript:' not in 'javascript:alertxss'\nE     \nE     'javascript:' is contained here:\nE       javascript:alertxss\n============================== warnings summary ===============================\ntests/test_security.py::TestNoxAuthManager::test_token_generation\ntests/test_security.py::TestNoxAuthManager::test_token_expiry\ntests/test_security.py::TestSecurityDecorators::test_protected_route_with_valid_token\ntests/test_security.py::TestSecurityDecorators::test_role_based_access\ntests/test_security.py::TestSecurityDecorators::test_role_based_access\ntests/test_security.py::TestSecurityIntegration::test_complete_authentication_flow\n  K:\\Project Heimnetz\\NoxPanel\\noxcore\\security\\auth_manager.py:47: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    'exp': datetime.utcnow() + self.token_expiry,\n\ntests/test_security.py::TestNoxAuthManager::test_token_generation\ntests/test_security.py::TestNoxAuthManager::test_token_expiry\ntests/test_security.py::TestSecurityDecorators::test_protected_route_with_valid_token\ntests/test_security.py::TestSecurityDecorators::test_role_based_access\ntests/test_security.py::TestSecurityDecorators::test_role_based_access\ntests/test_security.py::TestSecurityIntegration::test_complete_authentication_flow\n  K:\\Project Heimnetz\\NoxPanel\\noxcore\\security\\auth_manager.py:48: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    'iat': datetime.utcnow(),\n\ntests/test_security.py::TestNoxAuthManager::test_rate_limiting\ntests/test_security.py::TestNoxAuthManager::test_rate_limiting\ntests/test_security.py::TestSecurityIntegration::test_complete_authentication_flow\n  K:\\Project Heimnetz\\NoxPanel\\noxcore\\security\\auth_manager.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    now = datetime.utcnow()\n\ntests/test_security.py: 12 warnings\n  K:\\Project Heimnetz\\NoxPanel\\noxcore\\security\\auth_manager.py:92: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    now = datetime.utcnow()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_security.py::TestSecurityVulnerabilities::test_sql_injection_prevention\nFAILED tests/test_security.py::TestSecurityVulnerabilities::test_xss_prevention\n================== 2 failed, 11 passed, 27 warnings in 3.37s ==================\n",
+      "stderr": ""
+    },
+    "Code Quality (Linting)": {
+      "passed": false,
+      "stdout": "",
+      "stderr": "C:\\Users\\wsAdmin\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\python.exe: No module named flake8\n"
+    },
+    "AI Integration Test": {
+      "passed": true,
+      "stdout": "AI modules OK\n",
+      "stderr": ""
+    },
+    "Voice Interface Test": {
+      "passed": true,
+      "stdout": "Voice modules OK\n",
+      "stderr": ""
+    },
+    "Security Module Test": {
+      "passed": true,
+      "stdout": "Security OK\n",
+      "stderr": ""
+    },
+    "Database Test": {
+      "passed": true,
+      "stdout": "Database OK\n",
+      "stderr": ""
+    }
+  },
+  "summary": {
+    "total": 6,
+    "passed": 4,
+    "percentage": 66.66666666666666,
+    "status": "NOT_READY"
+  }
+}

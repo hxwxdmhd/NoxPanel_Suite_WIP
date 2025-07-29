@@ -1,0 +1,9 @@
+{
+  "queue": [],
+  "metadata": {
+    "agent": "Supermaven",
+    "integration": "VS Code local agent",
+    "abilities": ["code_completion", "refactoring", "syntax_fix", "documentation", "import_organization"],
+    "status": "ready"
+  }
+}

@@ -1,0 +1,86 @@
+# Production-specific requirements for Heimnetz Ultimate Suite v11.0
+
+# WSGI Server
+gunicorn==21.2.0
+gevent==23.9.1
+
+# Monitoring and Observability
+prometheus-client==0.20.0
+prometheus-flask-exporter==0.23.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-instrumentation-flask==0.42b0
+opentelemetry-instrumentation-requests==0.42b0
+opentelemetry-instrumentation-redis==0.42b0
+opentelemetry-exporter-prometheus==1.12.0rc1
+
+# Health Checks and Diagnostics
+healthcheck==1.3.3
+psutil==5.9.8
+
+# Enhanced Security
+cryptography==41.0.7
+pycryptodome==3.19.0
+bcrypt==4.1.2
+
+# Database Optimization
+sqlalchemy-utils==0.41.1
+alembic==1.13.1
+
+# Caching and Performance
+redis[hiredis]==5.0.1
+cachelib==0.10.2
+
+# Background Tasks
+celery==5.3.4
+flower==2.0.1
+
+# Configuration Management
+python-dotenv==1.0.0
+pydantic==2.5.2
+pydantic-settings==2.1.0
+
+# Logging and Structured Data
+structlog==23.2.0
+python-json-logger==2.0.7
+
+# API Documentation
+flask-restx==1.3.0
+flasgger==0.9.7.1
+
+# Rate Limiting and Security
+flask-limiter==3.5.0
+flask-talisman==1.1.0
+
+# Email and Notifications
+flask-mail==0.9.1
+celery[redis]==5.3.4
+
+# File Upload and Processing
+flask-uploads==0.2.1
+pillow==10.1.0
+
+# Data Validation and Serialization
+marshmallow==3.20.2
+marshmallow-dataclass==8.6.0
+
+# Testing and Quality (production testing)
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+locust==2.18.3
+
+# Container and Kubernetes
+kubernetes==28.1.0
+docker==7.0.0
+
+# Metrics and APM
+datadog==0.48.0
+sentry-sdk[flask]==1.38.0
+
+# Additional Production Tools
+click==8.1.7
+colorama==0.4.6
+python-dateutil==2.8.2
+pytz==2023.3
+six==1.16.0

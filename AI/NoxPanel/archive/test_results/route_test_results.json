@@ -1,0 +1,2692 @@
+{
+  "timestamp": "2025-07-15T11:24:14.971338",
+  "base_url": "http://127.0.0.1:5002",
+  "total_routes": 169,
+  "functional_routes": 12,
+  "error_routes": 157,
+  "success_rate": "7.1%",
+  "results": {
+    "GET /": {
+      "path": "/",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.004012107849121094,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 4313,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "\n        <!DOCTYPE html>\n        <html>\n        <head>\n            <title>NoxPanel - Working</title>\n            <style>\n                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }\n                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }\n                .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-ra",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /api/status": {
+      "path": "/api/status",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004506111145019531,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "POST /api/test/<provider>": {
+      "path": "/api/test/<provider>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0040171146392822266,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "POST /api/restart/<provider>": {
+      "path": "/api/restart/<provider>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0065000057220458984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /api/health": {
+      "path": "/api/health",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.005005598068237305,
+      "content_type": "application/json",
+      "content_length": 128,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"mode\": \"simplified_functional\",\n  \"status\": \"healthy\",\n  \"timestamp\": \"2025-07-15T11:24:13.442087\",\n  \"version\": \"5.0.2\"\n}",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /test/<provider>": {
+      "path": "/test/<provider>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003522634506225586,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /restart/<provider>": {
+      "path": "/restart/<provider>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00500941276550293,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /logs": {
+      "path": "/logs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004501819610595703,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /settings": {
+      "path": "/settings",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005023002624511719,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "POST /settings": {
+      "path": "/settings",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0065195560455322266,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "ai_routes.py"
+    },
+    "GET /knowledge": {
+      "path": "/knowledge",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005998849868774414,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "clean_start.py"
+    },
+    "GET /knowledge/": {
+      "path": "/knowledge/",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.007527589797973633,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "clean_start.py"
+    },
+    "GET /api/chat/status": {
+      "path": "/api/chat/status",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005513906478881836,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "clean_start.py"
+    },
+    "GET /api/connection/stats": {
+      "path": "/api/connection/stats",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004996299743652344,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "clean_start.py"
+    },
+    "GET /api/analysis": {
+      "path": "/api/analysis",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035178661346435547,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "POST /api/start": {
+      "path": "/api/start",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005006313323974609,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "POST /api/stop": {
+      "path": "/api/stop",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004516124725341797,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "GET /api/metrics/history": {
+      "path": "/api/metrics/history",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004000186920166016,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "GET /api/security/alerts": {
+      "path": "/api/security/alerts",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0045163631439208984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "GET /api/trends": {
+      "path": "/api/trends",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004007101058959961,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "deep_analysis_web.py"
+    },
+    "GET /api/secure-endpoint": {
+      "path": "/api/secure-endpoint",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004503726959228516,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "setup_knowledge_base.py"
+    },
+    "GET /status": {
+      "path": "/status",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.005014657974243164,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 2655,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "\n        <!DOCTYPE html>\n        <html>\n        <head>\n            <title>NoxPanel - System Status</title>\n            <style>\n                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }\n                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }\n                .header { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 20px; bor",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /crawler": {
+      "path": "/crawler",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.003507852554321289,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 7744,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "\n        <!DOCTYPE html>\n        <html>\n        <head>\n            <title>NoxPanel - Web Crawler</title>\n            <style>\n                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }\n                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }\n                .header { background: linear-gradient(135deg, #6f42c1 0%, #6610f2 100%); color: white; padding: 20px; borde",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /plugins": {
+      "path": "/plugins",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.0040187835693359375,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 16215,
+      "is_functional": false,
+      "issues": [
+        "Error message in response"
+      ],
+      "response_preview": "\n        <!DOCTYPE html>\n        <html>\n        <head>\n            <title>NoxPanel - Git Plugin System</title>\n            <style>\n                body { font-family: Arial, sans-serif; margin: 20px; background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); color: #fff; }\n                .container { max-width: 1200px; margin: 0 auto; }\n                .header { text-align: center; margin-bottom: 30px; }\n                .header h1 { color: #64b5f6; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /api/test": {
+      "path": "/api/test",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.0035085678100585938,
+      "content_type": "application/json",
+      "content_length": 281,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"endpoints\": [\n    \"/api/health\",\n    \"/api/test\",\n    \"/api/crawler/crawl\",\n    \"/api/crawler/data\",\n    \"/api/plugins/status\",\n    \"/api/plugins/available\",\n    \"/api/plugins/loaded\"\n  ],\n  \"message\": \"API is working correctly\",\n  \"timestamp\": \"2025-07-15T11:24:13.546348\"\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/crawler/crawl": {
+      "path": "/api/crawler/crawl",
+      "method": "POST",
+      "status_code": 400,
+      "response_time": 0.004006624221801758,
+      "content_type": "application/json",
+      "content_length": 53,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"error\": \"URL is required\",\n  \"success\": false\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /api/crawler/data": {
+      "path": "/api/crawler/data",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.004522800445556641,
+      "content_type": "application/json",
+      "content_length": 45,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"message\": \"No crawler data available\"\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /api/plugins/status": {
+      "path": "/api/plugins/status",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.6898937225341797,
+      "content_type": "application/json",
+      "content_length": 107,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"available_count\": 2,\n  \"loaded_count\": 0,\n  \"plugins_dir\": \"external_plugins\",\n  \"status\": \"active\"\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /api/plugins/available": {
+      "path": "/api/plugins/available",
+      "method": "GET",
+      "status_code": 500,
+      "response_time": 0.0060062408447265625,
+      "content_type": "application/json",
+      "content_length": 54,
+      "is_functional": false,
+      "issues": [
+        "Error message in response",
+        "Non-200 status code: 500"
+      ],
+      "response_preview": "{\n  \"error\": \"'list' object has no attribute 'get'\"\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /api/plugins/loaded": {
+      "path": "/api/plugins/loaded",
+      "method": "GET",
+      "status_code": 200,
+      "response_time": 0.004517078399658203,
+      "content_type": "application/json",
+      "content_length": 3,
+      "is_functional": false,
+      "issues": [
+        "Response too short"
+      ],
+      "response_preview": "{}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/plugins/add": {
+      "path": "/api/plugins/add",
+      "method": "POST",
+      "status_code": 400,
+      "response_time": 0.003999233245849609,
+      "content_type": "application/json",
+      "content_length": 62,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"error\": \"Field 'name' is required\",\n  \"success\": false\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/plugins/install/<plugin_name>": {
+      "path": "/api/plugins/install/<plugin_name>",
+      "method": "POST",
+      "status_code": 200,
+      "response_time": 0.006525993347167969,
+      "content_type": "application/json",
+      "content_length": 57,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"error\": \"Installation failed\",\n  \"success\": false\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/plugins/uninstall/<plugin_name>": {
+      "path": "/api/plugins/uninstall/<plugin_name>",
+      "method": "POST",
+      "status_code": 200,
+      "response_time": 0.0075228214263916016,
+      "content_type": "application/json",
+      "content_length": 86,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"message\": \"Plugin '<plugin_name>' uninstalled successfully\",\n  \"success\": true\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/plugins/load/<plugin_name>": {
+      "path": "/api/plugins/load/<plugin_name>",
+      "method": "POST",
+      "status_code": 200,
+      "response_time": 0.006517171859741211,
+      "content_type": "application/json",
+      "content_length": 52,
+      "is_functional": true,
+      "issues": [],
+      "response_preview": "{\n  \"error\": \"Loading failed\",\n  \"success\": false\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "POST /api/plugins/unload/<plugin_name>": {
+      "path": "/api/plugins/unload/<plugin_name>",
+      "method": "POST",
+      "status_code": 500,
+      "response_time": 0.008020401000976562,
+      "content_type": "application/json",
+      "content_length": 96,
+      "is_functional": false,
+      "issues": [
+        "Error message in response",
+        "Non-200 status code: 500"
+      ],
+      "response_preview": "{\n  \"error\": \"'GitPluginManager' object has no attribute 'unload_plugin'\",\n  \"success\": false\n}",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel.py"
+    },
+    "GET /health": {
+      "path": "/health",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004525184631347656,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /admin": {
+      "path": "/admin",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0040013790130615234,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /ai-features": {
+      "path": "/ai-features",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003515481948852539,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /api/models": {
+      "path": "/api/models",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004008054733276367,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "POST /api/crawler/target/<category>": {
+      "path": "/api/crawler/target/<category>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0045108795166015625,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /api/crawler/stats": {
+      "path": "/api/crawler/stats",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006020307540893555,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /api/crawler/results": {
+      "path": "/api/crawler/results",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004515647888183594,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "simple_noxpanel_backup.py"
+    },
+    "GET /hello": {
+      "path": "/hello",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004998445510864258,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "test_noxpanel_v5.py"
+    },
+    "GET /api/search": {
+      "path": "/api/search",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004509687423706055,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "noxcore\\context_loader.py"
+    },
+    "POST /api/reload": {
+      "path": "/api/reload",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.006008625030517578,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "noxcore\\context_loader.py"
+    },
+    "GET /api/stats": {
+      "path": "/api/stats",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005522966384887695,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "noxcore\\context_loader.py"
+    },
+    "GET /api/chunk": {
+      "path": "/api/chunk",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004000663757324219,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "noxcore\\context_loader.py"
+    },
+    "GET /login": {
+      "path": "/login",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00552821159362793,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /login": {
+      "path": "/login",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004003047943115234,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /logout": {
+      "path": "/logout",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004534482955932617,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /dashboard": {
+      "path": "/dashboard",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003999233245849609,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /users": {
+      "path": "/users",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0045299530029296875,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /users/create": {
+      "path": "/users/create",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0030078887939453125,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /users/create": {
+      "path": "/users/create",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0040013790130615234,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /users/<int:user_id>/toggle": {
+      "path": "/users/<int:user_id>/toggle",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0045163631439208984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /roles": {
+      "path": "/roles",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006523847579956055,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /modules": {
+      "path": "/modules",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035126209259033203,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "GET /api/users": {
+      "path": "/api/users",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003507852554321289,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /api/assign_module": {
+      "path": "/api/assign_module",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004015207290649414,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /api/revoke_module": {
+      "path": "/api/revoke_module",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0045049190521240234,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_blueprint.py"
+    },
+    "POST /api/action": {
+      "path": "/api/action",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.007014036178588867,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\admin_routes.py"
+    },
+    "POST /start": {
+      "path": "/start",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.008533239364624023,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /stop": {
+      "path": "/stop",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.006526947021484375,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /heal": {
+      "path": "/heal",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0039975643157958984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /heal-now": {
+      "path": "/heal-now",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0060291290283203125,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /debug": {
+      "path": "/debug",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0055086612701416016,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "GET /models": {
+      "path": "/models",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0060122013092041016,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /models/<model_name>/enable": {
+      "path": "/models/<model_name>/enable",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005536556243896484,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "POST /models/<model_name>/disable": {
+      "path": "/models/<model_name>/disable",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0059969425201416016,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "GET /config": {
+      "path": "/config",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0050144195556640625,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_api.py"
+    },
+    "GET /api/test-direct": {
+      "path": "/api/test-direct",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0019974708557128906,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "GET /api/ai-monitor/status": {
+      "path": "/api/ai-monitor/status",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006016254425048828,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "GET /api/ai-monitor/models": {
+      "path": "/api/ai-monitor/models",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035042762756347656,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "POST /api/ai-monitor/start": {
+      "path": "/api/ai-monitor/start",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004513740539550781,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "POST /api/ai-monitor/stop": {
+      "path": "/api/ai-monitor/stop",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005506277084350586,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "POST /api/ai-monitor/heal": {
+      "path": "/api/ai-monitor/heal",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0050201416015625,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "POST /api/ai-monitor/heal-now": {
+      "path": "/api/ai-monitor/heal-now",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.006531953811645508,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_direct.py"
+    },
+    "GET /api/debug-test": {
+      "path": "/api/debug-test",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005999565124511719,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\ai_monitor_simple.py"
+    },
+    "GET /api/data": {
+      "path": "/api/data",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005534648895263672,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\analytics_routes.py"
+    },
+    "GET /api/metrics": {
+      "path": "/api/metrics",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004000425338745117,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\analytics_routes.py"
+    },
+    "GET /api/charts": {
+      "path": "/api/charts",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00353240966796875,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\analytics_routes.py"
+    },
+    "GET /api/spec": {
+      "path": "/api/spec",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003998756408691406,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\api_docs_routes.py"
+    },
+    "GET /api/explorer": {
+      "path": "/api/explorer",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004516124725341797,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\api_docs_routes.py"
+    },
+    "GET /api/scripts": {
+      "path": "/api/scripts",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0030052661895751953,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "POST /run/<script_name>": {
+      "path": "/run/<script_name>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004506587982177734,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "POST /api/login": {
+      "path": "/api/login",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.006006956100463867,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "POST /run-script": {
+      "path": "/run-script",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004512310028076172,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /api/scripts/<script_name>": {
+      "path": "/api/scripts/<script_name>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004000425338745117,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /chat": {
+      "path": "/chat",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004515647888183594,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /test-route": {
+      "path": "/test-route",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003998279571533203,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /debug/routes": {
+      "path": "/debug/routes",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035085678100585938,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /theme-demo": {
+      "path": "/theme-demo",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004021883010864258,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /ai-monitor": {
+      "path": "/ai-monitor",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005515098571777344,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\app.py"
+    },
+    "GET /api/create": {
+      "path": "/api/create",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003514528274536133,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\backups_routes.py"
+    },
+    "POST /message": {
+      "path": "/message",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0029990673065185547,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\chatbot.py"
+    },
+    "GET /suggestions": {
+      "path": "/suggestions",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005522012710571289,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\chatbot.py"
+    },
+    "GET /history": {
+      "path": "/history",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004514217376708984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\chatbot.py"
+    },
+    "GET /providers": {
+      "path": "/providers",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0030241012573242188,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\chatbot.py"
+    },
+    "GET /help": {
+      "path": "/help",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0049974918365478516,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\chatbot.py"
+    },
+    "GET /jobs": {
+      "path": "/jobs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035529136657714844,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "GET /create": {
+      "path": "/create",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.002995014190673828,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "POST /create": {
+      "path": "/create",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004518032073974609,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "GET /api/jobs": {
+      "path": "/api/jobs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006009817123413086,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "POST /api/toggle/<job_id>": {
+      "path": "/api/toggle/<job_id>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0035126209259033203,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "POST /api/run/<job_id>": {
+      "path": "/api/run/<job_id>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005006551742553711,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "GET /api/history/<job_id>": {
+      "path": "/api/history/<job_id>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005542755126953125,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\job_scheduler.py"
+    },
+    "GET /search": {
+      "path": "/search",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004000663757324219,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /item/<item_id>": {
+      "path": "/item/<item_id>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004524707794189453,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /add": {
+      "path": "/add",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00500941276550293,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "POST /add": {
+      "path": "/add",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.006561279296875,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /import": {
+      "path": "/import",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005997657775878906,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "POST /import": {
+      "path": "/import",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.00952458381652832,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /export": {
+      "path": "/export",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006045341491699219,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /code-snippets": {
+      "path": "/code-snippets",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003998756408691406,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /conversations": {
+      "path": "/conversations",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004528522491455078,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /timeline": {
+      "path": "/timeline",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004011869430541992,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "POST /api/item/<item_id>/rate": {
+      "path": "/api/item/<item_id>/rate",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005521297454833984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "POST /api/ai-search": {
+      "path": "/api/ai-search",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004999399185180664,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\knowledge_routes.py"
+    },
+    "GET /api/downloads": {
+      "path": "/api/downloads",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005525112152099609,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\media_routes.py"
+    },
+    "GET /api/torrents": {
+      "path": "/api/torrents",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003998994827270508,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\media_routes.py"
+    },
+    "GET /scan": {
+      "path": "/scan",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00452733039855957,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "POST /scan": {
+      "path": "/scan",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004999876022338867,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "GET /providers/<provider_name>": {
+      "path": "/providers/<provider_name>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00552678108215332,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "POST /providers/<provider_name>/refresh": {
+      "path": "/providers/<provider_name>/refresh",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.00399470329284668,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "GET /list": {
+      "path": "/list",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.007548332214355469,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "POST /config": {
+      "path": "/config",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004001140594482422,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "GET /test": {
+      "path": "/test",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004533052444458008,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\models.py"
+    },
+    "GET /api/models/scan": {
+      "path": "/api/models/scan",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00399327278137207,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/models/scan": {
+      "path": "/api/models/scan",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0040128231048583984,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/models/list": {
+      "path": "/api/models/list",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.006001949310302734,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/models/providers": {
+      "path": "/api/models/providers",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003521442413330078,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/models/config": {
+      "path": "/api/models/config",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005002260208129883,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/models/config": {
+      "path": "/api/models/config",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0040318965911865234,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/models/simple": {
+      "path": "/api/models/simple",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00500798225402832,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/models/health": {
+      "path": "/api/models/health",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005520820617675781,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/admin/system-info": {
+      "path": "/api/admin/system-info",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0040090084075927734,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/admin/logs": {
+      "path": "/api/admin/logs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003515958786010742,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/debug/routes": {
+      "path": "/api/debug/routes",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004007101058959961,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/admin/processes": {
+      "path": "/api/admin/processes",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004522800445556641,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/admin/processes/kill/<int:pid>": {
+      "path": "/api/admin/processes/kill/<int:pid>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004011631011962891,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/admin/processes/kill-all-noxpanel": {
+      "path": "/api/admin/processes/kill-all-noxpanel",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.005510568618774414,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/admin/emergency-cleanup": {
+      "path": "/api/admin/emergency-cleanup",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.00501704216003418,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/admin/restart": {
+      "path": "/api/admin/restart",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004501819610595703,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/admin/health": {
+      "path": "/api/admin/health",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005006551742553711,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/scripts/discover": {
+      "path": "/api/scripts/discover",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005510807037353516,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/scripts/execute": {
+      "path": "/api/scripts/execute",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0030059814453125,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/scripts/content": {
+      "path": "/api/scripts/content",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004503965377807617,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/scripts/create-samples": {
+      "path": "/api/scripts/create-samples",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0040149688720703125,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/ai-command": {
+      "path": "/api/ai-command",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005999565124511719,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "POST /api/ai/command": {
+      "path": "/api/ai/command",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.0050127506256103516,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "webpanel\\models_direct.py"
+    },
+    "GET /api/send": {
+      "path": "/api/send",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005515336990356445,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\notifications_routes.py"
+    },
+    "GET /api/config": {
+      "path": "/api/config",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0050089359283447266,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\notifications_routes.py"
+    },
+    "GET /api/sensors": {
+      "path": "/api/sensors",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00452733039855957,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\pi_routes.py"
+    },
+    "GET /api/switch": {
+      "path": "/api/switch",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035140514373779297,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\platforms_routes.py"
+    },
+    "GET /api/list": {
+      "path": "/api/list",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.002996206283569336,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\plugin_loader.py"
+    },
+    "POST /api/toggle": {
+      "path": "/api/toggle",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004526853561401367,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\plugin_loader.py"
+    },
+    "POST /api/reload/<plugin_name>": {
+      "path": "/api/reload/<plugin_name>",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004000186920166016,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\plugin_loader.py"
+    },
+    "GET /api/info/<plugin_name>": {
+      "path": "/api/info/<plugin_name>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.00553131103515625,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\plugin_loader.py"
+    },
+    "GET /api/certs": {
+      "path": "/api/certs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.003997087478637695,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\proxy_routes.py"
+    },
+    "POST /api/execute": {
+      "path": "/api/execute",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.004524707794189453,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\scripts_routes.py"
+    },
+    "GET /api/logs": {
+      "path": "/api/logs",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005005836486816406,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\scripts_routes.py"
+    },
+    "GET /api/firewall": {
+      "path": "/api/firewall",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035066604614257812,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\security_routes.py"
+    },
+    "GET /api/step": {
+      "path": "/api/step",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.005006074905395508,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\setup_routes.py"
+    },
+    "GET /api/check": {
+      "path": "/api/check",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004526376724243164,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\updates_routes.py"
+    },
+    "GET /api/apply": {
+      "path": "/api/apply",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.004002094268798828,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\updates_routes.py"
+    },
+    "POST /api/control": {
+      "path": "/api/control",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.00400233268737793,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "blueprint_route",
+      "description": "",
+      "source": "webpanel\\vm_routes.py"
+    },
+    "GET /stream": {
+      "path": "/stream",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.007531642913818359,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "venv\\Lib\\site-packages\\flask\\helpers.py"
+    },
+    "GET /uploads/<path:name>": {
+      "path": "/uploads/<path:name>",
+      "method": "GET",
+      "status_code": 404,
+      "response_time": 0.0035104751586914062,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "app_route",
+      "description": "",
+      "source": "venv\\Lib\\site-packages\\flask\\helpers.py"
+    },
+    "POST /api/chat/message": {
+      "path": "/api/chat/message",
+      "method": "POST",
+      "status_code": 404,
+      "response_time": 0.00400853157043457,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 207,
+      "is_functional": false,
+      "issues": [
+        "Non-200 status code: 404"
+      ],
+      "response_preview": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+      "route_type": "api",
+      "description": "Send chat message",
+      "source": ""
+    }
+  }
+}

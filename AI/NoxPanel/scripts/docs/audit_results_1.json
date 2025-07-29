@@ -1,0 +1,96 @@
+{
+  "audit_gate": 1,
+  "timestamp": "2025-07-15T23:15:27.995769",
+  "project_root": "K:\\Project Heimnetz\\AI\\NoxPanel\\scripts",
+  "tests": [
+    {
+      "name": "Docker Files Exist",
+      "success": false,
+      "points": 0,
+      "details": "Missing files: docker/Dockerfile, docker/docker-compose.yml",
+      "timestamp": "2025-07-15T23:15:27.997769"
+    },
+    {
+      "name": "Main Entry Point",
+      "success": false,
+      "points": 0,
+      "details": "main.py not found",
+      "timestamp": "2025-07-15T23:15:27.997769"
+    },
+    {
+      "name": "Requirements File",
+      "success": false,
+      "points": 0,
+      "details": "requirements.txt not found",
+      "timestamp": "2025-07-15T23:15:27.998274"
+    },
+    {
+      "name": "Environment Configuration",
+      "success": false,
+      "points": 0,
+      "details": ".env.example not found",
+      "timestamp": "2025-07-15T23:15:27.998274"
+    },
+    {
+      "name": "Webpanel Structure",
+      "success": false,
+      "points": 0,
+      "details": "webpanel directory not found",
+      "timestamp": "2025-07-15T23:15:27.998274"
+    },
+    {
+      "name": "Container Build",
+      "success": false,
+      "points": 0,
+      "details": "Docker not installed or not in PATH",
+      "timestamp": "2025-07-15T23:15:28.028841"
+    },
+    {
+      "name": "No Forbidden Modules",
+      "success": true,
+      "points": 15,
+      "details": "No forbidden modules detected",
+      "timestamp": "2025-07-15T23:15:28.029846"
+    },
+    {
+      "name": "Code Quality",
+      "success": true,
+      "points": 5,
+      "details": "Basic syntax validation passed",
+      "timestamp": "2025-07-15T23:15:28.029846"
+    },
+    {
+      "name": "Security Basics",
+      "success": false,
+      "points": 0,
+      "details": "Dockerfile not found",
+      "timestamp": "2025-07-15T23:15:28.030848"
+    },
+    {
+      "name": "Health Check",
+      "success": false,
+      "points": 0,
+      "details": "No health check configuration found",
+      "timestamp": "2025-07-15T23:15:28.030848"
+    }
+  ],
+  "score": 20,
+  "max_score": 100,
+  "status": "FAIL",
+  "unlocked_modules": [],
+  "locked_modules": [
+    "voice_processing",
+    "streaming_apis",
+    "multi_container_orchestration",
+    "tts_services",
+    "rtc_backends",
+    "assistant_containers",
+    "frontend_ssr_frameworks"
+  ],
+  "recommendations": [
+    "\u274c Fix all failing tests before proceeding to next audit gate.",
+    "\ud83d\udc33 Install Docker and ensure it's accessible from command line",
+    "\ud83d\udd27 Create .env file based on .env.example template",
+    "\ud83d\udd12 Review security configuration in Dockerfile"
+  ]
+}

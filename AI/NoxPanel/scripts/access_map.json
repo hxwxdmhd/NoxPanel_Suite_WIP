@@ -1,0 +1,2375 @@
+{
+  "metadata": {
+    "generated_at": "2025-07-15T10:41:32.311857",
+    "base_url": "http://127.0.0.1:5000",
+    "total_endpoints": 5,
+    "navigation_elements_found": 413
+  },
+  "navigation": {
+    "menus": [
+      {
+        "file": "webpanel\\templates\\base.html",
+        "links": [
+          "/",
+          "#",
+          "/admin/dashboard",
+          "/profile",
+          "/admin/logout",
+          "/admin/login"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\base.html",
+        "links": [
+          "/",
+          "/admin/dashboard",
+          "/scheduler/dashboard",
+          "/plugins/dashboard",
+          "/ai-monitor",
+          "/models",
+          "/chatbot",
+          "/scripts",
+          "/logs",
+          "/settings"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\base.html",
+        "links": [
+          "/admin/dashboard",
+          "/profile",
+          "/admin/logout"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "links": [
+          "/",
+          "/chat",
+          "/ai-features",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "links": [
+          "/",
+          "/chat",
+          "#",
+          "/api/models/status",
+          "/admin",
+          "/ai-features",
+          "/theme-demo",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "/ai-features",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "links": [
+          "/",
+          "/chat",
+          "#",
+          "/api/models"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "links": [
+          "/",
+          "/chat",
+          "#",
+          "/api/models/status",
+          "#",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "links": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "links": [
+          "#",
+          "#",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "templates\\base.html",
+        "links": [
+          "{{ url_for(",
+          "/",
+          "/knowledge/",
+          "/api/health",
+          "#",
+          "/knowledge/import",
+          "/knowledge/export",
+          "/api/stats"
+        ]
+      },
+      {
+        "file": "templates\\base.html",
+        "links": [
+          "/",
+          "/knowledge/",
+          "/knowledge/code-snippets",
+          "/knowledge/conversations",
+          "/knowledge/timeline",
+          "/knowledge/add",
+          "/knowledge/import",
+          "/api/health",
+          "/api/stats",
+          "/knowledge/search?type=documentation",
+          "/knowledge/search?type=best_practice",
+          "/knowledge/search?type=script"
+        ]
+      },
+      {
+        "file": "templates\\base.html",
+        "links": [
+          "/",
+          "/knowledge/",
+          "/api/health",
+          "#",
+          "/knowledge/import",
+          "/knowledge/export",
+          "/api/stats"
+        ]
+      },
+      {
+        "file": "templates\\base.html",
+        "links": [
+          "/knowledge/import",
+          "/knowledge/export",
+          "/api/stats"
+        ]
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "links": [
+          "/network",
+          "/media",
+          "/scripts",
+          "/vm",
+          "/admin"
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\item.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      }
+    ],
+    "buttons": [
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "refreshModels()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "saveModelConfig()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "refreshProcesses()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "emergencyCleanup()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "killAllNoxPanel()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "createSampleScripts()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "refreshScripts()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "addUser()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "runSystemDiagnostic()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "clearCache()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "backupSystem()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "restartSystem()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "refreshLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "action": "clearLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "refreshStatus()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "emergencyHeal()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "startMonitoring()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "stopMonitoring()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "toggleDebugMode()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "healAllModels()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "emergencyHeal()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "showLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "healModel("
+      },
+      {
+        "file": "webpanel\\templates\\ai_monitor.html",
+        "action": "toggleModel("
+      },
+      {
+        "file": "webpanel\\templates\\base.html",
+        "action": "toggleSidebar()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "clearChat()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "exportChat()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "refreshConnection()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "showModelInfo()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "sendMessage()"
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "sendQuickMessage("
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "sendQuickMessage("
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "sendQuickMessage("
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "action": "executeSuggestion("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "refreshDashboard()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "showSystemInfo()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "runScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "viewScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "quickCommand("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "quickCommand("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "refreshMetrics()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "executeScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "refreshActivity()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "generateVisualReport()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "showPerformanceChart()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "quickCommand("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "action": "this.parentElement.parentElement.style.display="
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "action": "refreshDashboard()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "action": "showSystemInfo()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "action": "viewScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "action": "clearLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "action": "closeModal()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "refreshDashboard()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "showSystemInfo()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "runScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "viewScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "quickDiagnostic()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "refreshMetrics()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "executeScript("
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "refreshActivity()"
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "action": "refreshUsers()"
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "action": "viewUser({{ user.id }})"
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "action": "editUser({{ user.id }})"
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "action": "return confirm("
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "refreshPlugins()"
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "showAddPluginModal()"
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "installPlugin()"
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "togglePluginFromModal()"
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "showPluginDetails("
+      },
+      {
+        "file": "webpanel\\templates\\plugins\\dashboard.html",
+        "action": "togglePlugin("
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "action": "refreshDashboard()"
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "action": "stopScheduler()"
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "action": "startScheduler()"
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "action": "viewJobHistory()"
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "action": "exportJobs()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "refreshAdmin()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "addUser()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "systemMaintenance()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "systemRestart()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "showUserType("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "showUserType("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "showUserType("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "showUserType("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "editUser("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "resetPassword("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "viewSessions("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "editUser("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "resetPassword("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "deleteUser("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "enableUser("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "editUser("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "clearLogs()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "downloadLogs()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "backupSystem()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "updateSystem()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "systemDiagnostic()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "cleanupSystem()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "exportConfig()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "importConfig()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "toggleModule("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "toggleModule("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "toggleModule("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "toggleModule("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "toggleModule("
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "saveSecuritySettings()"
+      },
+      {
+        "file": "templates\\admin_enhanced.html",
+        "action": "saveNewUser()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\certs.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "refreshDashboard()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "quickHealth()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "systemOverview()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "clearActivity()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "exportActivity()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "runHealthCheck()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "runBackup()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "updateSystem()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "clearLogs()"
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "action": "restartSystem()"
+      },
+      {
+        "file": "templates\\error.html",
+        "action": "history.back()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\media.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "refreshMedia()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "addMediaServer()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "scanMedia()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "showLibraryType("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "showLibraryType("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "showLibraryType("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "showLibraryType("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "playMedia("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "mediaInfo("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "playMedia("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "mediaInfo("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "playMedia("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "mediaInfo("
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "openPlex()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "openJellyfin()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "manageMounts()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "seedboxManager()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "transcodeQueue()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "manageDownloads()"
+      },
+      {
+        "file": "templates\\media_enhanced.html",
+        "action": "saveMediaServer()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\network.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "refreshNetwork()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "runNetworkScan()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingTest()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "scanDevices()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingDevice("
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "viewLogs("
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingTool()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "traceroute()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "portScan()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "bandwidthTest()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "dnsLookup()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "quickPing()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingDevice("
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingDevice("
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingDevice("
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "executeScan()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "stopScan()"
+      },
+      {
+        "file": "templates\\network_enhanced.html",
+        "action": "pingDevice("
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\plugins.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "refreshPlugins()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "installPlugin()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "createPlugin()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "scanForPlugins()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "enableAllPlugins()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "disableAllPlugins()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "updateAllPlugins()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "restartPluginSystem()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "setViewMode("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "setViewMode("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "updatePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "updatePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "uninstallPlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "fixPlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "reinstallPlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "runBackupNow("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "updatePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "installSelectedPlugin()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "savePluginConfig()"
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "configurePlugin("
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "action": "viewPluginLogs("
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\scripts.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\setup.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\unified_admin.html",
+        "action": "refreshSystem()"
+      },
+      {
+        "file": "templates\\unified_admin.html",
+        "action": "restartSystem()"
+      },
+      {
+        "file": "templates\\unified_admin.html",
+        "action": "downloadLogs()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "testConnection()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "runDiagnostic()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "viewLogs()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "resetModule()"
+      },
+      {
+        "file": "templates\\vm.html",
+        "action": "saveSettings()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "refreshContext()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "reloadFiles()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "exportContext()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "testSearch()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "performSearch()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "quickSearch("
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "generateChunk(1000)"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "generateChunk(2000)"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "generateChunk(4000)"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "checkFiles()"
+      },
+      {
+        "file": "templates\\ai_context\\dashboard.html",
+        "action": "useInPrompt("
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\analytics\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\api\\docs.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\backups\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\knowledge\\add.html",
+        "action": "loadTemplate("
+      },
+      {
+        "file": "templates\\knowledge\\add.html",
+        "action": "loadTemplate("
+      },
+      {
+        "file": "templates\\knowledge\\add.html",
+        "action": "loadTemplate("
+      },
+      {
+        "file": "templates\\knowledge\\add.html",
+        "action": "loadTemplate("
+      },
+      {
+        "file": "templates\\knowledge\\code_snippets.html",
+        "action": "copySnippet("
+      },
+      {
+        "file": "templates\\knowledge\\import.html",
+        "action": "createSampleData()"
+      },
+      {
+        "file": "templates\\knowledge\\item.html",
+        "action": "copyToClipboard()"
+      },
+      {
+        "file": "templates\\knowledge\\item.html",
+        "action": "shareItem()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\media\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\notifications\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\pi\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\platforms\\switcher.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\proxy\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\scripts\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\security\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\setup\\wizard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\updates\\dashboard.html",
+        "action": "deleteItem("
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "refreshData()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "showAddModal()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "exportData()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "showSettings()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "addItem()"
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "editItem("
+      },
+      {
+        "file": "templates\\vm\\dashboard.html",
+        "action": "deleteItem("
+      }
+    ],
+    "links": [
+      {
+        "file": "webpanel\\templates\\admin.html",
+        "links": [
+          "/static/css/themes.css",
+          "/static/css/version-banner.css",
+          "/ai-features",
+          "#dashboard",
+          "#models",
+          "/ai-features",
+          "#processes",
+          "#scripts",
+          "#users",
+          "#system",
+          "#logs",
+          "#settings",
+          "/",
+          "#python-scripts",
+          "#powershell-scripts",
+          "#batch-scripts"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\ai_features.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "/",
+          "/admin",
+          "/dashboard",
+          "/chat"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\base.html",
+        "links": [
+          "/",
+          "#",
+          "/admin/dashboard",
+          "/profile",
+          "/admin/logout",
+          "/admin/login",
+          "/",
+          "/admin/dashboard",
+          "/scheduler/dashboard",
+          "/plugins/dashboard",
+          "/ai-monitor",
+          "/models",
+          "/chatbot",
+          "/scripts",
+          "/logs",
+          "/settings"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\chat.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "/ai-features",
+          "/",
+          "/chat",
+          "/ai-features",
+          "#",
+          "#",
+          "/ai-features"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "/ai-features",
+          "/",
+          "/chat",
+          "#",
+          "/api/models/status",
+          "/admin",
+          "/ai-features",
+          "/theme-demo",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "/ai-features",
+          "#",
+          "/ai-features",
+          "/chat",
+          "/ai-features",
+          "/api/models/status"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_broken.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "/",
+          "/chat",
+          "#",
+          "/api/models",
+          "#",
+          "#",
+          "/chat",
+          "#",
+          "/api/models",
+          "#",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\dashboard_fixed.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "/",
+          "/chat",
+          "#",
+          "/api/models/status",
+          "#",
+          "#",
+          "#",
+          "#",
+          "/chat",
+          "/api/models/status"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\theme_demo.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "#main-content",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\admin\\dashboard.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\admin\\login.html",
+        "links": [
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\knowledge\\index.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\scheduler\\dashboard.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\ai_dashboard.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\ai_logs.html",
+        "links": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\ai_settings.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\base.html",
+        "links": [
+          "{{ url_for(",
+          "/",
+          "/knowledge/",
+          "/api/health",
+          "#",
+          "/knowledge/import",
+          "/knowledge/export",
+          "/api/stats",
+          "/",
+          "/knowledge/",
+          "/knowledge/code-snippets",
+          "/knowledge/conversations",
+          "/knowledge/timeline",
+          "/knowledge/add",
+          "/knowledge/import",
+          "/api/health",
+          "/api/stats",
+          "/knowledge/search?type=documentation",
+          "/knowledge/search?type=best_practice",
+          "/knowledge/search?type=script"
+        ]
+      },
+      {
+        "file": "templates\\dashboard_enhanced.html",
+        "links": [
+          "/network",
+          "/media",
+          "/scripts",
+          "/vm",
+          "/admin",
+          "/ai",
+          "/network",
+          "/media",
+          "/scripts",
+          "/vm",
+          "/plugins"
+        ]
+      },
+      {
+        "file": "templates\\enhanced_dashboard.html",
+        "links": [
+          "/vm",
+          "/proxy",
+          "/scripts",
+          "/media",
+          "/pi",
+          "/setup",
+          "/analytics",
+          "/security",
+          "/platforms",
+          "/updates",
+          "/backups",
+          "/notifications",
+          "/knowledge",
+          "/admin",
+          "/plugins",
+          "/api/health",
+          "/api/docs"
+        ]
+      },
+      {
+        "file": "templates\\enhanced_gateway.html",
+        "links": [
+          "/vm",
+          "/proxy",
+          "/scripts",
+          "/media",
+          "/pi",
+          "/setup",
+          "/analytics",
+          "/ai",
+          "/security",
+          "/platforms",
+          "/updates",
+          "/backups",
+          "/notifications",
+          "/ai",
+          "/knowledge",
+          "/admin",
+          "/plugins",
+          "/api/health",
+          "/api/docs"
+        ]
+      },
+      {
+        "file": "templates\\enhanced_navigation.html",
+        "links": [
+          "/",
+          "/platforms",
+          "/setup",
+          "/knowledge",
+          "/models",
+          "/chatbot",
+          "/ai-monitor",
+          "/vm",
+          "/proxy",
+          "/pi",
+          "/security",
+          "/scripts",
+          "/plugins",
+          "/api/docs",
+          "/media",
+          "/backups",
+          "/analytics",
+          "/scheduler",
+          "/updates",
+          "/notifications",
+          "/admin",
+          "/api/health",
+          "/api/stats"
+        ]
+      },
+      {
+        "file": "templates\\error.html",
+        "links": [
+          "/"
+        ]
+      },
+      {
+        "file": "templates\\login.html",
+        "links": [
+          "/reset"
+        ]
+      },
+      {
+        "file": "templates\\plugins_enhanced.html",
+        "links": [
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#",
+          "#"
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\add.html",
+        "links": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\code_snippets.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\import.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\index.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\index_old.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\item.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ value }}",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\search.html",
+        "links": [
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      }
+    ],
+    "forms": [
+      {
+        "file": "webpanel\\templates\\admin\\users.html",
+        "actions": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "webpanel\\templates\\knowledge\\index.html",
+        "actions": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\login.html",
+        "actions": [
+          "/login"
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\index.html",
+        "actions": [
+          "{{ url_for("
+        ]
+      },
+      {
+        "file": "templates\\knowledge\\index_old.html",
+        "actions": [
+          "{{ url_for(",
+          "{{ url_for("
+        ]
+      }
+    ],
+    "shortcuts": []
+  },
+  "endpoints": [
+    {
+      "path": "/",
+      "method": "GET",
+      "type": "page",
+      "description": "Main Dashboard",
+      "priority": "high"
+    },
+    {
+      "path": "/chat",
+      "method": "GET",
+      "type": "page",
+      "description": "AI Chat Interface",
+      "priority": "high"
+    },
+    {
+      "path": "/admin",
+      "method": "GET",
+      "type": "page",
+      "description": "Admin Panel",
+      "priority": "medium"
+    },
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "type": "api",
+      "description": "System Health",
+      "priority": "high"
+    },
+    {
+      "path": "/api/chat/status",
+      "method": "GET",
+      "type": "api",
+      "description": "Chat Status",
+      "priority": "high"
+    }
+  ],
+  "user_flows": {
+    "entry_points": [
+      {
+        "path": "/",
+        "description": "Main Dashboard",
+        "reason": "Main landing page",
+        "status": "unknown"
+      },
+      {
+        "path": "/chat",
+        "description": "AI Chat Interface",
+        "reason": "Primary feature - AI chat",
+        "status": "unknown"
+      },
+      {
+        "path": "/admin",
+        "description": "Admin Panel",
+        "reason": "Administrative access",
+        "status": "unknown"
+      }
+    ],
+    "conversion_paths": [
+      {
+        "name": "Chat Engagement",
+        "goal": "User interacts with AI chatbot",
+        "steps": [
+          {
+            "path": "/",
+            "available": true,
+            "status": "unknown"
+          },
+          {
+            "path": "/chat",
+            "available": true,
+            "status": "unknown"
+          },
+          {
+            "path": "/api/chat/message",
+            "available": false,
+            "status": "missing"
+          }
+        ],
+        "completion_possible": false
+      },
+      {
+        "name": "System Administration",
+        "goal": "Admin manages system",
+        "steps": [
+          {
+            "path": "/",
+            "available": true,
+            "status": "unknown"
+          },
+          {
+            "path": "/admin",
+            "available": true,
+            "status": "unknown"
+          },
+          {
+            "path": "/api/admin/system-info",
+            "available": false,
+            "status": "missing"
+          }
+        ],
+        "completion_possible": false
+      },
+      {
+        "name": "Script Execution",
+        "goal": "User executes system script",
+        "steps": [
+          {
+            "path": "/",
+            "available": true,
+            "status": "unknown"
+          },
+          {
+            "path": "/api/scripts",
+            "available": false,
+            "status": "missing"
+          },
+          {
+            "path": "/api/run/<script>",
+            "available": false,
+            "status": "missing"
+          }
+        ],
+        "completion_possible": false
+      }
+    ],
+    "dead_ends": [],
+    "circular_paths": [],
+    "recommended_flows": [
+      {
+        "name": "New User Onboarding",
+        "description": "First-time user experience",
+        "steps": [
+          {
+            "step": 1,
+            "action": "Visit dashboard",
+            "path": "/"
+          },
+          {
+            "step": 2,
+            "action": "Explore AI chat",
+            "path": "/chat"
+          },
+          {
+            "step": 3,
+            "action": "Test chatbot",
+            "path": "/api/chat/message"
+          },
+          {
+            "step": 4,
+            "action": "Check system health",
+            "path": "/api/health"
+          }
+        ]
+      },
+      {
+        "name": "Admin Workflow",
+        "description": "System administrator tasks",
+        "steps": [
+          {
+            "step": 1,
+            "action": "Access admin panel",
+            "path": "/admin"
+          },
+          {
+            "step": 2,
+            "action": "Check system status",
+            "path": "/api/admin/system-info"
+          },
+          {
+            "step": 3,
+            "action": "Review processes",
+            "path": "/api/admin/processes"
+          },
+          {
+            "step": 4,
+            "action": "Manage plugins",
+            "path": "/plugins"
+          }
+        ]
+      },
+      {
+        "name": "Power User Workflow",
+        "description": "Advanced user interactions",
+        "steps": [
+          {
+            "step": 1,
+            "action": "Dashboard overview",
+            "path": "/"
+          },
+          {
+            "step": 2,
+            "action": "List available scripts",
+            "path": "/api/scripts"
+          },
+          {
+            "step": 3,
+            "action": "Execute system diagnostic",
+            "path": "/api/run/system_diagnostic"
+          },
+          {
+            "step": 4,
+            "action": "AI-assisted analysis",
+            "path": "/chat"
+          }
+        ]
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Navigation",
+      "issue": "Multiple navigation patterns detected (15)",
+      "solution": "Standardize navigation across all pages",
+      "impact": "Improves user experience consistency"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Accessibility",
+      "issue": "No keyboard shortcuts detected",
+      "solution": "Add keyboard shortcuts for common actions (/, ?, Ctrl+K)",
+      "impact": "Improves accessibility and power user efficiency"
+    },
+    {
+      "priority": "HIGH",
+      "category": "User Flow",
+      "issue": "3 critical user flows incomplete",
+      "solution": "Fix broken endpoints in key conversion paths",
+      "impact": "Directly affects core functionality and user success"
+    },
+    {
+      "priority": "HIGH",
+      "category": "Responsive Design",
+      "issue": "Mobile optimization verification needed",
+      "solution": "Run ui_validator.py to check mobile responsiveness",
+      "impact": "Essential for mobile user experience"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Theme System",
+      "issue": "Dark/light theme consistency check needed",
+      "solution": "Verify theme toggles work across all pages",
+      "impact": "Improves accessibility and user preference accommodation"
+    }
+  ],
+  "summary": {
+    "functional_endpoints": 0,
+    "problematic_endpoints": 0,
+    "entry_points": 3,
+    "conversion_paths": 3,
+    "high_priority_issues": 2,
+    "medium_priority_issues": 3
+  }
+}

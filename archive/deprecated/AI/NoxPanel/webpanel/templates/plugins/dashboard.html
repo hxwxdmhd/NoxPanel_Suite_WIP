@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+
+{% block title %}Plugin Manager - NoxPanel{% endblock %}
+
+{% block extra_css %}
+<style>
+.plugin-card {
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+}
+
+.plugin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.plugin-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.plugin-status.active {
+    background: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+.plugin-status.inactive {
+    background: #dc3545;
+}
+
+.plugin-actions {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plugin-card:hover .plugin-actions {
+    opacity: 1;
+}
+
+.plugin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .plugin-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .plugin-card {
+        margin: 0 10px;
+    }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .plugin-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+/* Desktop responsiveness */
+@media (min-width: 1200px) {
+    .plugin-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 mb-0">🔌 Plugin Manager</h1>
+                    <p class="text-muted mb-0">Manage and configure system plugins</p>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary" onclick="refreshPlugins()">
+                        <i class="fas fa-sync-alt me-2"></i>Refresh
+                    </button>
+                    <button class="btn btn-primary" onclick="showAddPluginModal()">
+                        <i class="fas fa-plus me-2"></i>Add Plugin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-0" id="total-plugins">0</h5>
+                            <small>Total Plugins</small>
+                        </div>
+                        <i class="fas fa-puzzle-piece fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-0" id="active-plugins">0</h5>
+                            <small>Active Plugins</small>
+                        </div>
+                        <i class="fas fa-check-circle fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-0" id="inactive-plugins">0</h5>
+                            <small>Inactive Plugins</small>
+                        </div>
+                        <i class="fas fa-pause-circle fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-0" id="system-plugins">0</h5>
+                            <small>System Plugins</small>
+                        </div>
+                        <i class="fas fa-cog fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plugin Grid -->
+    <div class="plugin-grid" id="plugin-grid">
+        <!-- Plugins will be loaded here dynamically -->
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="text-center py-5 d-none" id="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 text-muted">Loading plugins...</p>
+    </div>
+</div>
+
+<!-- Add Plugin Modal -->
+<div class="modal fade" id="addPluginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Plugin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addPluginForm">
+                    <div class="mb-3">
+                        <label for="pluginFile" class="form-label">Plugin File (.zip)</label>
+                        <input type="file" class="form-control" id="pluginFile" accept=".zip">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pluginUrl" class="form-label">Or Plugin URL</label>
+                        <input type="url" class="form-control" id="pluginUrl" placeholder="https://example.com/plugin.zip">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="installPlugin()">Install Plugin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plugin Details Modal -->
+<div class="modal fade" id="pluginDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pluginDetailsTitle">Plugin Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="pluginDetailsBody">
+                <!-- Details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="togglePluginBtn" onclick="togglePluginFromModal()">
+                    Toggle Plugin
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentPlugins = {};
+
+// Load plugins on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadPlugins();
+});
+
+function loadPlugins() {
+    document.getElementById('loading-spinner').classList.remove('d-none');
+    document.getElementById('plugin-grid').innerHTML = '';
+    
+    fetch('/plugins/api/list')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                currentPlugins = data.plugins;
+                displayPlugins(data.plugins);
+                updateStats(data.plugins);
+            } else {
+                showAlert('Error loading plugins: ' + data.message, 'danger');
+            }
+        })
+        .catch(error => {
+            console.error('Error loading plugins:', error);
+            showAlert('Failed to load plugins', 'danger');
+        })
+        .finally(() => {
+            document.getElementById('loading-spinner').classList.add('d-none');
+        });
+}
+
+function displayPlugins(plugins) {
+    const grid = document.getElementById('plugin-grid');
+    grid.innerHTML = '';
+    
+    if (Object.keys(plugins).length === 0) {
+        grid.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-puzzle-piece fa-4x text-muted mb-3"></i>
+                <h4 class="text-muted">No Plugins Found</h4>
+                <p class="text-muted">Add some plugins to get started</p>
+            </div>
+        `;
+        return;
+    }
+    
+    Object.entries(plugins).forEach(([name, plugin]) => {
+        const card = createPluginCard(name, plugin);
+        grid.appendChild(card);
+    });
+}
+
+function createPluginCard(name, plugin) {
+    const card = document.createElement('div');
+    card.className = 'plugin-card p-3 position-relative';
+    
+    const statusClass = plugin.loaded ? 'active' : 'inactive';
+    const statusText = plugin.loaded ? 'Active' : 'Inactive';
+    const toggleText = plugin.loaded ? 'Disable' : 'Enable';
+    const toggleClass = plugin.loaded ? 'btn-outline-danger' : 'btn-outline-success';
+    
+    card.innerHTML = `
+        <div class="plugin-status ${statusClass}"></div>
+        <div class="d-flex align-items-start mb-3">
+            <div class="flex-grow-1">
+                <h5 class="mb-1">${plugin.info.name}</h5>
+                <small class="text-muted">v${plugin.info.version} by ${plugin.info.author}</small>
+            </div>
+        </div>
+        <p class="text-muted mb-3" style="font-size: 0.9rem;">
+            ${plugin.info.description}
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="badge ${plugin.loaded ? 'bg-success' : 'bg-secondary'}">
+                ${statusText}
+            </span>
+            <div class="plugin-actions">
+                <button class="btn btn-sm btn-outline-primary me-2" onclick="showPluginDetails('${name}')">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <button class="btn btn-sm ${toggleClass}" onclick="togglePlugin('${name}', ${!plugin.loaded})">
+                    ${toggleText}
+                </button>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+function updateStats(plugins) {
+    const total = Object.keys(plugins).length;
+    const active = Object.values(plugins).filter(p => p.loaded).length;
+    const inactive = total - active;
+    const system = Object.values(plugins).filter(p => p.info.author === 'NoxPanel').length;
+    
+    document.getElementById('total-plugins').textContent = total;
+    document.getElementById('active-plugins').textContent = active;
+    document.getElementById('inactive-plugins').textContent = inactive;
+    document.getElementById('system-plugins').textContent = system;
+}
+
+function togglePlugin(pluginName, enabled) {
+    const data = {
+        plugin_name: pluginName,
+        enabled: enabled
+    };
+    
+    fetch('/plugins/api/toggle', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            showAlert(data.message, 'success');
+            loadPlugins(); // Refresh the list
+        } else {
+            showAlert('Error: ' + data.message, 'danger');
+        }
+    })
+    .catch(error => {
+        console.error('Error toggling plugin:', error);
+        showAlert('Failed to toggle plugin', 'danger');
+    });
+}
+
+function showPluginDetails(pluginName) {
+    fetch(`/plugins/api/info/${pluginName}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const plugin = data.plugin;
+                document.getElementById('pluginDetailsTitle').textContent = plugin.name;
+                document.getElementById('pluginDetailsBody').innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Plugin Information</h6>
+                            <table class="table table-sm">
+                                <tr><td><strong>Name:</strong></td><td>${plugin.name}</td></tr>
+                                <tr><td><strong>Version:</strong></td><td>${plugin.version}</td></tr>
+                                <tr><td><strong>Author:</strong></td><td>${plugin.author}</td></tr>
+                                <tr><td><strong>Status:</strong></td><td>
+                                    <span class="badge ${data.loaded ? 'bg-success' : 'bg-secondary'}">
+                                        ${data.loaded ? 'Active' : 'Inactive'}
+                                    </span>
+                                </td></tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Description</h6>
+                            <p>${plugin.description}</p>
+                            ${plugin.dependencies && plugin.dependencies.length > 0 ? `
+                                <h6>Dependencies</h6>
+                                <ul class="list-unstyled">
+                                    ${plugin.dependencies.map(dep => `<li><code>${dep}</code></li>`).join('')}
+                                </ul>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                const toggleBtn = document.getElementById('togglePluginBtn');
+                toggleBtn.textContent = data.loaded ? 'Disable Plugin' : 'Enable Plugin';
+                toggleBtn.className = `btn ${data.loaded ? 'btn-outline-danger' : 'btn-outline-success'}`;
+                toggleBtn.onclick = () => togglePluginFromModal(pluginName, !data.loaded);
+                
+                new bootstrap.Modal(document.getElementById('pluginDetailsModal')).show();
+            } else {
+                showAlert('Error loading plugin details: ' + data.message, 'danger');
+            }
+        })
+        .catch(error => {
+            console.error('Error loading plugin details:', error);
+            showAlert('Failed to load plugin details', 'danger');
+        });
+}
+
+function togglePluginFromModal(pluginName, enabled) {
+    togglePlugin(pluginName, enabled);
+    bootstrap.Modal.getInstance(document.getElementById('pluginDetailsModal')).hide();
+}
+
+function refreshPlugins() {
+    loadPlugins();
+}
+
+function showAddPluginModal() {
+    new bootstrap.Modal(document.getElementById('addPluginModal')).show();
+}
+
+function installPlugin() {
+    // Implementation for plugin installation
+    showAlert('Plugin installation feature coming soon!', 'info');
+    bootstrap.Modal.getInstance(document.getElementById('addPluginModal')).hide();
+}
+
+function showAlert(message, type) {
+    // Create and show bootstrap alert
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+    alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(alertDiv);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (alertDiv.parentNode) {
+            alertDiv.parentNode.removeChild(alertDiv);
+        }
+    }, 5000);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-07-18T16:52:44.508049",
+  "project_root": "K:\\Project Heimnetz",
+  "overall_compliance": false,
+  "violations": [
+    "\u274c Found 16 competing server implementations:",
+    "   - server_advanced.py",
+    "   - server_dev.py",
+    "   - server_enhanced.py",
+    "   - server_production.py",
+    "   - server_quick_deploy.py",
+    "   - main_unified_server.py",
+    "   - integrated_web_server.py",
+    "   - launch_server.py",
+    "   - launch_unified_server.py",
+    "   - main_unified_server.py",
+    "   - performance_server.py",
+    "   - start_secure_server.py",
+    "   - ultra_fast_server.py",
+    "   - ultra_secure_server.py",
+    "   - launch_server.py",
+    "   - launch_unified_server.py",
+    "\u274c Architectural compliance below 100%: 0%"
+  ],
+  "checks_performed": [
+    "unified_files_validation",
+    "directory_structure_validation",
+    "merge_plan_compliance"
+  ]
+}

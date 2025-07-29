@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="purple">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ NoxGuard Security Suite v7.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ultimate-dashboard.css') }}">
+    
+    <style>
+        .security-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-primary);
+        }
+        
+        .security-header {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 16px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .threat-level {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+        
+        .threat-low { background: #10b981; color: white; }
+        .threat-medium { background: #f59e0b; color: white; }
+        .threat-high { background: #ef4444; color: white; }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .security-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .security-card:hover {
+            border-color: #ef4444;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .security-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-primary);
+        }
+        
+        .security-metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .security-log {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .log-entry {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--border-primary);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .log-entry.warning {
+            border-left-color: #f59e0b;
+        }
+        
+        .log-entry.error {
+            border-left-color: #ef4444;
+        }
+        
+        .log-entry.success {
+            border-left-color: #10b981;
+        }
+        
+        .security-status {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .status-secure { background: #10b981; }
+        .status-warning { background: #f59e0b; }
+        .status-critical { background: #ef4444; }
+        
+        .scan-progress {
+            background: var(--bg-secondary);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+        
+        .scan-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="security-container">
+        <!-- Header -->
+        <header class="security-header">
+            <h1><i class="fas fa-shield-alt"></i> NoxGuard Security Suite</h1>
+            <p>Enterprise-Grade Security Monitoring and Threat Detection</p>
+            <div class="mt-3">
+                <span class="threat-level threat-low">Overall Status: SECURE</span>
+                <span class="threat-level threat-medium">Active Scans: 3</span>
+            </div>
+            <a href="/" class="btn btn-light mt-2">
+                <i class="fas fa-arrow-left"></i> Back to Suite
+            </a>
+        </header>
+        
+        <!-- Security Overview -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center border-success">
+                    <div class="card-body">
+                        <h3 class="text-success">98.7%</h3>
+                        <p class="mb-0">Security Score</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-warning">
+                    <div class="card-body">
+                        <h3 class="text-warning">2</h3>
+                        <p class="mb-0">Security Warnings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-info">
+                    <div class="card-body">
+                        <h3 class="text-info">1,247</h3>
+                        <p class="mb-0">Blocked Threats</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-primary">
+                    <div class="card-body">
+                        <h3 class="text-primary">24/7</h3>
+                        <p class="mb-0">Active Monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Modules -->
+        <div class="security-grid">
+            <div class="security-card">
+                <h5><i class="fas fa-search"></i> Vulnerability Scanner</h5>
+                <div class="security-metric">
+                    <span>Last Scan:</span>
+                    <span class="metric-value text-success">2 hours ago</span>
+                </div>
+                <div class="security-metric">
+                    <span>Vulnerabilities Found:</span>
+                    <span class="metric-value text-warning">3 Medium</span>
+                </div>
+                <div class="security-metric">
+                    <span>Status:</span>
+                    <span><span class="security-status status-secure"></span>Active</span>
+                </div>
+                <button class="btn btn-primary btn-sm mt-2 w-100">Start Full Scan</button>
+            </div>
+            
+            <div class="security-card">
+                <h5><i class="fas fa-eye"></i> Intrusion Detection</h5>
+                <div class="security-metric">
+                    <span>Events Today:</span>
+                    <span class="metric-value text-info">47</span>
+                </div>
+                <div class="security-metric">
+                    <span>Blocked Attempts:</span>
+                    <span class="metric-value text-success">12</span>
+                </div>
+                <div class="security-metric">
+                    <span>Status:</span>
+                    <span><span class="security-status status-secure"></span>Monitoring</span>
+                </div>
+                <button class="btn btn-secondary btn-sm mt-2 w-100">View Details</button>
+            </div>
+            
+            <div class="security-card">
+                <h5><i class="fas fa-virus"></i> Malware Protection</h5>
+                <div class="security-metric">
+                    <span>Last Update:</span>
+                    <span class="metric-value text-success">1 hour ago</span>
+                </div>
+                <div class="security-metric">
+                    <span>Threats Blocked:</span>
+                    <span class="metric-value text-success">0 Today</span>
+                </div>
+                <div class="security-metric">
+                    <span>Status:</span>
+                    <span><span class="security-status status-secure"></span>Protected</span>
+                </div>
+                <button class="btn btn-primary btn-sm mt-2 w-100">Update Definitions</button>
+            </div>
+            
+            <div class="security-card">
+                <h5><i class="fas fa-lock"></i> Access Control</h5>
+                <div class="security-metric">
+                    <span>Active Sessions:</span>
+                    <span class="metric-value text-info">8</span>
+                </div>
+                <div class="security-metric">
+                    <span>Failed Logins:</span>
+                    <span class="metric-value text-warning">3 Today</span>
+                </div>
+                <div class="security-metric">
+                    <span>Status:</span>
+                    <span><span class="security-status status-warning"></span>Alert</span>
+                </div>
+                <button class="btn btn-warning btn-sm mt-2 w-100">Review Access</button>
+            </div>
+            
+            <div class="security-card">
+                <h5><i class="fas fa-network-wired"></i> Network Security</h5>
+                <div class="security-metric">
+                    <span>Firewall Rules:</span>
+                    <span class="metric-value text-success">Active (247)</span>
+                </div>
+                <div class="security-metric">
+                    <span>Open Ports:</span>
+                    <span class="metric-value text-info">12 Monitored</span>
+                </div>
+                <div class="security-metric">
+                    <span>Status:</span>
+                    <span><span class="security-status status-secure"></span>Protected</span>
+                </div>
+                <button class="btn btn-secondary btn-sm mt-2 w-100">Configure</button>
+            </div>
+            
+            <div class="security-card">
+                <h5><i class="fas fa-chart-line"></i> Security Analytics</h5>
+                <div class="security-metric">
+                    <span>Risk Score:</span>
+                    <span class="metric-value text-success">Low (2.1/10)</span>
+                </div>
+                <div class="security-metric">
+                    <span>Trend:</span>
+                    <span class="metric-value text-success">Improving</span>
+                </div>
+                <div class="security-metric">
+                    <span>Recommendations:</span>
+                    <span class="metric-value text-info">2 Available</span>
+                </div>
+                <button class="btn btn-info btn-sm mt-2 w-100">View Report</button>
+            </div>
+        </div>
+        
+        <!-- Active Scans -->
+        <div class="security-card mb-4">
+            <h5><i class="fas fa-spinner fa-spin"></i> Active Security Scans</h5>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Port Scan Detection</span>
+                    <span class="text-info">Running</span>
+                </div>
+                <div class="scan-progress">
+                    <div class="scan-progress-bar" style="width: 65%;"></div>
+                </div>
+                <small class="text-muted">Scanning network interfaces for suspicious port activity...</small>
+            </div>
+            
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>SSL Certificate Validation</span>
+                    <span class="text-success">Completed</span>
+                </div>
+                <div class="scan-progress">
+                    <div class="scan-progress-bar" style="width: 100%;"></div>
+                </div>
+                <small class="text-muted">All SSL certificates valid and properly configured.</small>
+            </div>
+            
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Configuration Audit</span>
+                    <span class="text-warning">In Progress</span>
+                </div>
+                <div class="scan-progress">
+                    <div class="scan-progress-bar" style="width: 30%;"></div>
+                </div>
+                <small class="text-muted">Auditing system configurations for security best practices...</small>
+            </div>
+        </div>
+        
+        <!-- Security Event Log -->
+        <div class="security-log">
+            <h5><i class="fas fa-list"></i> Security Event Log</h5>
+            <div class="log-entry success">
+                <strong>[INFO]</strong> 2024-01-15 14:30:22 - Vulnerability scan completed successfully
+            </div>
+            <div class="log-entry warning">
+                <strong>[WARN]</strong> 2024-01-15 14:25:15 - Failed login attempt from IP 192.168.1.100
+            </div>
+            <div class="log-entry success">
+                <strong>[INFO]</strong> 2024-01-15 14:20:08 - SSL certificate renewed for main domain
+            </div>
+            <div class="log-entry error">
+                <strong>[ALERT]</strong> 2024-01-15 14:15:33 - Suspicious network traffic detected and blocked
+            </div>
+            <div class="log-entry success">
+                <strong>[INFO]</strong> 2024-01-15 14:10:45 - Security headers updated and deployed
+            </div>
+            <div class="log-entry warning">
+                <strong>[WARN]</strong> 2024-01-15 14:05:12 - Rate limit exceeded for API endpoint /api/models
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-outline-primary">View Full Log</button>
+                <button class="btn btn-outline-secondary">Export Log</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate real-time security updates
+        setInterval(() => {
+            // Update progress bars
+            const progressBars = document.querySelectorAll('.scan-progress-bar');
+            progressBars.forEach(bar => {
+                if (bar.style.width !== '100%') {
+                    const currentWidth = parseInt(bar.style.width);
+                    const newWidth = Math.min(100, currentWidth + Math.random() * 5);
+                    bar.style.width = newWidth + '%';
+                }
+            });
+            
+            // Simulate new log entries (every 30 seconds)
+            if (Math.random() < 0.1) {
+                const logContainer = document.querySelector('.security-log');
+                const newEntry = document.createElement('div');
+                newEntry.className = 'log-entry success';
+                newEntry.innerHTML = `<strong>[INFO]</strong> ${new Date().toLocaleString()} - Routine security check completed`;
+                logContainer.insertBefore(newEntry, logContainer.children[1]);
+                
+                // Remove old entries to keep log manageable
+                const entries = logContainer.querySelectorAll('.log-entry');
+                if (entries.length > 8) {
+                    entries[entries.length - 1].remove();
+                }
+            }
+        }, 2000);
+        
+        // Security module interactions
+        document.querySelectorAll('.security-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.textContent;
+                const module = this.parentElement.querySelector('h5').textContent;
+                alert(`${action} for ${module} - This will be implemented in the full version!`);
+            });
+        });
+        
+        // Log interactions
+        document.querySelectorAll('.security-log button').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.textContent;
+                alert(`${action} - This will be implemented in the full version!`);
+            });
+        });
+    </script>
+</body>
+</html>

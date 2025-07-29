@@ -1,0 +1,192 @@
+{
+  "folders": [
+    {
+      "name": "🧠 AI Core & NoxPanel",
+      "path": "./AI/NoxPanel"
+    },
+    {
+      "name": "⚙️ AetherCore MSP",
+      "path": "./aethercore"
+    },
+    {
+      "name": "🔮 ContextForge",
+      "path": "./AI/contextforge"
+    },
+    {
+      "name": "🤖 AI Models & Data",
+      "path": "./AI/models"
+    },
+    {
+      "name": "🧪 AI Testing",
+      "path": "./tests/ai"
+    }
+  ],
+  "settings": {
+    // AI-focused performance optimizations
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/plugins/**": true,
+      "**/archive/**": true,
+      "**/logs/**": true,
+      "**/test_reports/**": true,
+      "**/monitoring/**": true,
+      "**/docker/volumes/**": true
+    },
+    
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/node_modules/**": true,
+      "**/__pycache__/**": true,
+      "**/plugins/**": true,
+      "**/logs/**": true,
+      "**/models/cache/**": true,
+      "**/*.log": true
+    },
+    
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/plugins/**": true,
+      "**/logs/**": true,
+      "**/models/cache/**": true
+    },
+    
+    // Python LSP optimization for AI workloads
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.indexing": true,
+    "python.analysis.memory.keepLibraryAst": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.include": [
+      "./AI/NoxPanel/**",
+      "./aethercore/**",
+      "./AI/contextforge/**",
+      "./AI/models/**"
+    ],
+    "python.analysis.exclude": [
+      "**/plugins/**",
+      "**/archive/**",
+      "**/logs/**",
+      "**/models/cache/**"
+    ],
+    
+    // AI-specific package indexing
+    "python.analysis.packageIndexDepths": [
+      {"name": "torch", "depth": 2},
+      {"name": "transformers", "depth": 2},
+      {"name": "numpy", "depth": 2},
+      {"name": "pandas", "depth": 2},
+      {"name": "fastapi", "depth": 2},
+      {"name": "sqlalchemy", "depth": 2}
+    ],
+    
+    // TypeScript optimization for AI frontend
+    "typescript.preferences.maxInlayHintLength": 30,
+    "typescript.suggest.autoImports": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.tsserver.maxTsServerMemory": 3072,
+    "typescript.include": [
+      "./AI/NoxPanel/frontend/**",
+      "./AI/NoxPanel/webpanel/**"
+    ],
+    
+    // Editor performance for large AI files
+    "editor.suggest.filterGraceful": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.semanticHighlighting.enabled": true,
+    
+    // Git optimization
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "scm.autoReveal": false,
+    
+    // AI workspace theming
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#4A1A5C",
+      "titleBar.activeBackground": "#4A1A5C"
+    },
+    
+    // AI-specific environment
+    "terminal.integrated.env.windows": {
+      "NOXPANEL_MODULE": "ai",
+      "NOXPANEL_WORKSPACE": "ai",
+      "TORCH_CUDA_ARCH_LIST": "7.5",
+      "CUDA_VISIBLE_DEVICES": "0"
+    }
+  },
+  "tasks": {
+    "version": "2.0.0", 
+    "tasks": [
+      {
+        "label": "🏠 Switch to Core Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-Core.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🔌 Switch to Plugins Module", 
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-Plugins.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🤖 Start AI Services",
+        "type": "shell",
+        "command": "docker-compose",
+        "args": ["-f", "docker-compose.yml", "up", "aethercore", "contextforge"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": true
+        }
+      },
+      {
+        "label": "🧠 Start NoxPanel AI",
+        "type": "shell",
+        "command": "python", 
+        "args": ["AI/NoxPanel/main.py"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "🧪 Run AI Tests",
+        "type": "shell",
+        "command": "python",
+        "args": ["-m", "pytest", "AI/NoxPanel/tests/", "-v"],
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylint",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.vscode-jupyter-cell-tags",
+      "ms-vscode.vscode-typescript-next",
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  }
+}

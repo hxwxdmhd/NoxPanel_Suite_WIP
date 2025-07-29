@@ -1,0 +1,162 @@
+{
+  "name": "NoxPanel Suite Development Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml", 
+    "../docker-compose.dev.yml", 
+    "../docker-compose.override.yml"
+  ],
+  "service": "heimnetz",
+  "workspaceFolder": "/workspace",
+  
+  // Development-specific overrides
+  "overrideCommand": false,
+  "shutdownAction": "stopCompose",
+  "updateContentCommand": "pip install -r requirements-dev.txt && npm install --prefix AI/NoxPanel/frontend",
+  "postCreateCommand": "bash .devcontainer/setup-environment.sh",
+  "postStartCommand": "python scripts/performance_diagnostic.py --container-mode",
+  
+  
+  // File sync optimization
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.vscode,target=/workspace/.vscode,type=bind,consistency=delegated"
+  ],
+  
+  // VS Code Configuration
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Python Development
+        "ms-python.python",
+        "ms-python.pylint", 
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-toolsai.jupyter",
+        
+        // JavaScript/TypeScript Development
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        
+        // PHP Development
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "wongjn.php-sniffer",
+        
+        // DevOps & Infrastructure
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        
+        // Git & Collaboration
+        "github.copilot",
+        "github.copilot-chat", 
+        "eamodio.gitlens",
+        
+        // Productivity
+        "gruntfuggly.todo-tree",
+        "streetsidesoftware.code-spell-checker",
+        "ms-vscode.powershell"
+      ],
+      
+      "settings": {
+        // Python LSP Optimization
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.analysis.memory.keepLibraryAst": false,
+        "python.analysis.autoImportCompletions": false,
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.indexing": true,
+        "python.analysis.packageIndexDepths": [
+          {"name": "sklearn", "depth": 2},
+          {"name": "matplotlib", "depth": 2},
+          {"name": "pandas", "depth": 2}
+        ],
+        
+        // TypeScript LSP Optimization  
+        "typescript.preferences.maxInlayHintLength": 30,
+        "typescript.suggest.autoImports": false,
+        "typescript.disableAutomaticTypeAcquisition": true,
+        "typescript.tsserver.maxTsServerMemory": 3072,
+        
+        // PHP LSP (Intelephense) Optimization
+        "intelephense.files.maxSize": 5000000,
+        "intelephense.environment.includePaths": [
+          "/workspace/src",
+          "/workspace/AI/NoxPanel",
+          "/workspace/plugins"
+        ],
+        "intelephense.files.exclude": [
+          "**/vendor/**",
+          "**/node_modules/**", 
+          "**/cache/**",
+          "**/logs/**",
+          "**/archive/**",
+          "**/test_reports/**"
+        ],
+        "intelephense.completion.maxItems": 100,
+        
+        // File System Optimization
+        "files.exclude": {
+          "**/.git": true,
+          "**/__pycache__": true,
+          "**/node_modules": true,
+          "**/.venv": true,
+          "**/docker/volumes": true,
+          "**/archive": true,
+          "**/test_reports": true,
+          "**/logs": true
+        },
+        
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/node_modules/**": true,
+          "**/__pycache__/**": true,
+          "**/docker/volumes/**": true,
+          "**/logs/**": true,
+          "**/archive/**": true,
+          "**/monitoring/**": true
+        },
+        
+        // Search Performance
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/.venv": true,
+          "**/__pycache__": true,
+          "**/docker/volumes": true,
+          "**/archive": true,
+          "**/logs": true,
+          "**/test_reports": true
+        },
+        
+        // Editor Performance
+        "editor.suggest.maxVisibleSuggestions": 10,
+        "editor.suggest.filterGraceful": false,
+        "editor.suggest.localityBonus": true,
+        "editor.wordBasedSuggestions": "off",
+        
+        // Git Performance
+        "git.autorefresh": false,
+        "git.autofetch": false,
+        "scm.autoReveal": false
+      }
+    }
+  },
+  
+  // Port forwarding for NoxPanel services
+  "forwardPorts": [5000, 8001, 8000, 9090, 3000],
+  "portsAttributes": {
+    "5000": {"label": "NoxPanel Web UI"},
+    "8001": {"label": "AetherCore API"},
+    "8000": {"label": "ContextForge API"},
+    "9090": {"label": "Prometheus"},
+    "3000": {"label": "Grafana"}
+  },
+  
+  // Development features
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/node:1": {"version": "18"},
+    "ghcr.io/devcontainers/features/php:1": {"version": "8.2"}
+  }
+}

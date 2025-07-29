@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FRITZWATCHER Plugin Configuration",
+  "type": "object",
+  "properties": {
+    "routers": {
+      "type": "array",
+      "description": "List of Fritz!Box routers to monitor",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "description": "Router hostname or IP address",
+            "examples": ["fritz.box", "192.168.1.1"]
+          },
+          "port": {
+            "type": "integer",
+            "description": "TR-064 port (usually 49000)",
+            "default": 49000,
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "ssl": {
+            "type": "boolean",
+            "description": "Use SSL/TLS connection",
+            "default": false
+          },
+          "nickname": {
+            "type": "string",
+            "description": "Human-readable name for the router",
+            "examples": ["Main Router", "Guest Network"]
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Router priority (1 = highest)",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        "required": ["hostname"],
+        "additionalProperties": false
+      }
+    },
+    "credentials": {
+      "type": "object",
+      "description": "Credential management settings",
+      "properties": {
+        "keepass_database": {
+          "type": "string",
+          "description": "Path to KeePass database file",
+          "pattern": "^.*\\.kdbx$"
+        },
+        "use_cli": {
+          "type": "boolean",
+          "description": "Use KeePassXC CLI integration",
+          "default": false
+        },
+        "use_browser_integration": {
+          "type": "boolean",
+          "description": "Use KeePassXC browser integration",
+          "default": false
+        },
+        "prompt_for_selection": {
+          "type": "boolean",
+          "description": "Prompt user to select database interactively",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "monitoring": {
+      "type": "object",
+      "description": "Monitoring and polling settings",
+      "properties": {
+        "poll_interval": {
+          "type": "integer",
+          "description": "Polling interval in seconds",
+          "default": 30,
+          "minimum": 5,
+          "maximum": 3600
+        },
+        "device_timeout": {
+          "type": "integer",
+          "description": "Device timeout in seconds",
+          "default": 300,
+          "minimum": 30
+        },
+        "roaming_detection": {
+          "type": "boolean",
+          "description": "Enable roaming detection",
+          "default": true
+        },
+        "signal_monitoring": {
+          "type": "boolean",
+          "description": "Monitor signal strength",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "resilience": {
+      "type": "object",
+      "description": "Resilience and failover settings",
+      "properties": {
+        "max_retries": {
+          "type": "integer",
+          "description": "Maximum retry attempts",
+          "default": 3,
+          "minimum": 1,
+          "maximum": 10
+        },
+        "retry_delay": {
+          "type": "number",
+          "description": "Base retry delay in seconds",
+          "default": 1.0,
+          "minimum": 0.1
+        },
+        "failover_enabled": {
+          "type": "boolean",
+          "description": "Enable automatic failover",
+          "default": true
+        },
+        "health_check_interval": {
+          "type": "integer",
+          "description": "Health check interval in seconds",
+          "default": 60,
+          "minimum": 10
+        }
+      },
+      "additionalProperties": false
+    },
+    "ui_customization": {
+      "type": "object",
+      "description": "User interface customization settings",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "description": "UI theme preset",
+          "enum": ["default", "spicy", "steady"],
+          "default": "default"
+        },
+        "device_auto_detection": {
+          "type": "boolean",
+          "description": "Enable automatic device type detection",
+          "default": true
+        },
+        "show_device_icons": {
+          "type": "boolean",
+          "description": "Show device type icons",
+          "default": true
+        },
+        "custom_device_names": {
+          "type": "boolean",
+          "description": "Allow custom device naming",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "logging": {
+      "type": "object",
+      "description": "Logging configuration",
+      "properties": {
+        "level": {
+          "type": "string",
+          "description": "Log level",
+          "enum": ["DEBUG", "INFO", "WARNING", "ERROR"],
+          "default": "INFO"
+        },
+        "file_path": {
+          "type": "string",
+          "description": "Log file path",
+          "default": "fritzwatcher.log"
+        },
+        "max_size": {
+          "type": "integer",
+          "description": "Maximum log file size in MB",
+          "default": 10,
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "security": {
+      "type": "object",
+      "description": "Security settings",
+      "properties": {
+        "validate_certificates": {
+          "type": "boolean",
+          "description": "Validate SSL certificates",
+          "default": true
+        },
+        "encrypted_storage": {
+          "type": "boolean",
+          "description": "Use encrypted storage for sensitive data",
+          "default": true
+        },
+        "audit_logging": {
+          "type": "boolean",
+          "description": "Enable audit logging",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["routers"],
+  "additionalProperties": false
+}

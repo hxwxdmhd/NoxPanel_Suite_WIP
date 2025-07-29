@@ -1,0 +1,194 @@
+{
+  "folders": [
+    {
+      "name": "🐳 Docker Configuration",
+      "path": "./docker"
+    },
+    {
+      "name": "📊 Monitoring & Metrics",
+      "path": "./monitoring"
+    },
+    {
+      "name": "📚 Documentation",
+      "path": "./docs"
+    },
+    {
+      "name": "🗂️ Archive & Legacy",
+      "path": "./archive"
+    },
+    {
+      "name": "🔧 PowerShell Scripts",
+      "path": "./powershell"
+    },
+    {
+      "name": "📋 Configuration Files",
+      "path": "./config"
+    }
+  ],
+  "settings": {
+    // DevOps-focused performance optimizations
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/AI/NoxPanel/**": true,
+      "**/plugins/**": true,
+      "**/src/**": true,
+      "**/aethercore/**": true,
+      "**/docker/volumes/**": true,
+      "**/prometheus_data/**": true,
+      "**/grafana_data/**": true
+    },
+    
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/AI/**": true,
+      "**/plugins/**": true,
+      "**/src/**": true,
+      "**/docker/volumes/**": true,
+      "**/logs/**": true,
+      "**/*.log": true
+    },
+    
+    "search.exclude": {
+      "**/AI/**": true,
+      "**/plugins/**": true,
+      "**/src/**": true,
+      "**/docker/volumes/**": true,
+      "**/logs/**": true
+    },
+    
+    // Python LSP for DevOps scripts
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.include": [
+      "./powershell/**/*.py",
+      "./scripts/**/*.py",
+      "./monitoring/**/*.py",
+      "./config/**/*.py"
+    ],
+    "python.analysis.exclude": [
+      "**/AI/**",
+      "**/plugins/**",
+      "**/src/**"
+    ],
+    
+    // YAML/JSON optimization for configs
+    "yaml.maxItemsComputed": 2000,
+    "json.maxItemsComputed": 2000,
+    
+    // Docker file associations
+    "files.associations": {
+      "docker-compose*.yml": "yaml",
+      "*.dockerfile": "dockerfile",
+      "Dockerfile*": "dockerfile",
+      "*.env*": "properties"
+    },
+    
+    // PowerShell LSP optimization
+    "powershell.integratedConsole.showOnStartup": false,
+    
+    // Editor optimization
+    "editor.suggest.filterGraceful": false,
+    "editor.wordBasedSuggestions": "off",
+    
+    // Git optimization
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "scm.autoReveal": false,
+    
+    // DevOps workspace theming
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#5A4A2D",
+      "titleBar.activeBackground": "#5A4A2D"
+    },
+    
+    // DevOps environment
+    "terminal.integrated.env.windows": {
+      "NOXPANEL_MODULE": "devops",
+      "NOXPANEL_WORKSPACE": "devops",
+      "DOCKER_BUILDKIT": "1"
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🏠 Switch to Core Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-Core.code-workspace"],
+        "group": "build"
+      },
+      {
+        "label": "🧠 Switch to AI Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-AI.code-workspace"], 
+        "group": "build"
+      },
+      {
+        "label": "🔌 Switch to Plugins Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-Plugins.code-workspace"],
+        "group": "build"
+      },
+      {
+        "label": "🐳 Build All Docker Images",
+        "type": "shell",
+        "command": "docker-compose",
+        "args": ["build", "--parallel"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": true
+        }
+      },
+      {
+        "label": "🚀 Start Development Stack",
+        "type": "shell", 
+        "command": "docker-compose",
+        "args": ["-f", "docker-compose.yml", "-f", "docker-compose.dev.yml", "up", "-d"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "📊 Start Monitoring Stack",
+        "type": "shell",
+        "command": "docker-compose",
+        "args": ["-f", "monitoring/docker-compose.monitoring.yml", "up", "-d"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "🧹 Clean Docker Environment",
+        "type": "shell",
+        "command": "docker",
+        "args": ["system", "prune", "-f", "--volumes"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-azuretools.vscode-docker",
+      "ms-vscode.powershell",
+      "redhat.vscode-yaml",
+      "ms-kubernetes-tools.vscode-kubernetes-tools",
+      "ms-vscode.vscode-json",
+      "github.copilot"
+    ]
+  }
+}

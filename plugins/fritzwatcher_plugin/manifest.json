@@ -1,0 +1,83 @@
+{
+  "name": "FRITZWATCHER",
+  "version": "1.0.0",
+  "codename": "FRITZWATCHER",
+  "description": "Advanced Fritz!Box monitoring and management system with roaming device tracking",
+  "author": "MSP-Aware Development Team",
+  "created_date": "2025-07-19",
+  "plugin_type": "service",
+  "category": "network_monitoring",
+  "dependencies": [
+    "aiohttp>=3.8.0",
+    "xml.etree.ElementTree",
+    "sqlite3",
+    "pykeepass>=4.0.0"
+  ],
+  "optional_dependencies": [
+    "docker",
+    "pytest>=7.0.0"
+  ],
+  "capabilities": [
+    "multi_router_support",
+    "roaming_detection",
+    "device_tracking", 
+    "guest_wifi_management",
+    "secure_credential_storage",
+    "real_time_monitoring",
+    "web_interface",
+    "api_endpoints",
+    "theme_customization",
+    "device_labeling"
+  ],
+  "api_endpoints": [
+    "/api/fritzwatcher/routers",
+    "/api/fritzwatcher/devices",
+    "/api/fritzwatcher/roaming",
+    "/api/fritzwatcher/sync",
+    "/api/fritzwatcher/credentials",
+    "/api/fritzwatcher/customization"
+  ],
+  "web_routes": [
+    "/fritzwatcher",
+    "/fritzwatcher/dashboard",
+    "/fritzwatcher/devices",
+    "/fritzwatcher/roaming",
+    "/fritzwatcher/settings"
+  ],
+  "configuration_schema": "plugin_config_schema.json",
+  "entry_point": "fritzwatcher.py",
+  "health_check": "/api/fritzwatcher/health",
+  "metrics": "/api/fritzwatcher/metrics",
+  "security_level": "high",
+  "sandboxed": true,
+  "permissions": [
+    "network_access",
+    "file_read_config",
+    "database_access",
+    "credential_access"
+  ],
+  "tags": [
+    "networking",
+    "monitoring", 
+    "fritzbox",
+    "router",
+    "devices",
+    "roaming",
+    "security"
+  ],
+  "changelog": {
+    "1.0.0": [
+      "Initial release with comprehensive Fritz!Box integration",
+      "Multi-router support and roaming detection",
+      "Secure credential management via KeePass",
+      "Interactive database selection",
+      "Resilience framework with retry logic and failover",
+      "UX customization with device auto-detection",
+      "ADHD-friendly theme system",
+      "Comprehensive test coverage"
+    ]
+  },
+  "update_check_url": "https://api.heimnetz.local/plugins/fritzwatcher/version",
+  "documentation_url": "https://docs.heimnetz.local/plugins/fritzwatcher",
+  "support_url": "https://support.heimnetz.local/plugins/fritzwatcher"
+}

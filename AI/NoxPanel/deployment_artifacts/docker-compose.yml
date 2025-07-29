@@ -1,0 +1,88 @@
+
+version: '3.8'
+
+services:
+  noxpanel-ultimate:
+    build:
+      context: .
+      dockerfile: Dockerfile.ultimate
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - AI_MODELS_ENABLED=true
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: unless-stopped
+    networks:
+      - noxpanel-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  noxpanel-master:
+    build:
+      context: .
+      dockerfile: Dockerfile.master
+    ports:
+      - "8001:8001"
+    depends_on:
+      - noxpanel-ultimate
+    environment:
+      - ULTIMATE_SUITE_URL=http://noxpanel-ultimate:5000
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - noxpanel-net
+
+  enhanced-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    ports:
+      - "8002:8002"
+    depends_on:
+      - noxpanel-ultimate
+      - noxpanel-master
+    environment:
+      - ULTIMATE_SUITE_URL=http://noxpanel-ultimate:5000
+      - MASTER_CONTROL_URL=http://noxpanel-master:8001
+    restart: unless-stopped
+    networks:
+      - noxpanel-net
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - noxpanel-net
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - noxpanel-ultimate
+      - enhanced-dashboard
+    restart: unless-stopped
+    networks:
+      - noxpanel-net
+
+networks:
+  noxpanel-net:
+    driver: bridge
+
+volumes:
+  redis-data:

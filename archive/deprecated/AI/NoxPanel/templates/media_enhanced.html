@@ -1,0 +1,564 @@
+{% extends "base.html" %}
+
+{% block title %}Media Center - NoxPanel{% endblock %}
+
+{% block page_title %}🎬 Media Center{% endblock %}
+
+{% block page_actions %}
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-outline-primary" onclick="refreshMedia()">
+        <i class="bi bi-arrow-clockwise"></i> Refresh
+    </button>
+    <button type="button" class="btn btn-outline-success" onclick="addMediaServer()">
+        <i class="bi bi-plus-circle"></i> Add Server
+    </button>
+    <button type="button" class="btn btn-outline-info" onclick="scanMedia()">
+        <i class="bi bi-search"></i> Scan Library
+    </button>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="row" data-auto-refresh="true">
+    <!-- Media Servers Status -->
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-play-circle"></i> Media Servers Status
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <i class="bi bi-film text-success" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Plex</h6>
+                                <span class="badge bg-success" id="plexStatus">
+                                    <span class="status-indicator status-online"></span>
+                                    Online
+                                </span>
+                                <div class="mt-2">
+                                    <small class="text-muted">32400 Port</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-primary">
+                            <div class="card-body">
+                                <i class="bi bi-camera-video text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Jellyfin</h6>
+                                <span class="badge bg-primary" id="jellyfinStatus">
+                                    <span class="status-indicator status-online"></span>
+                                    Online
+                                </span>
+                                <div class="mt-2">
+                                    <small class="text-muted">8096 Port</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-warning">
+                            <div class="card-body">
+                                <i class="bi bi-download text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Seedbox</h6>
+                                <span class="badge bg-warning" id="seedboxStatus">
+                                    <span class="status-indicator status-warning"></span>
+                                    Partial
+                                </span>
+                                <div class="mt-2">
+                                    <small class="text-muted">Multiple Ports</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <i class="bi bi-hdd text-info" style="font-size: 2rem;"></i>
+                                <h6 class="card-title mt-2">Storage</h6>
+                                <span class="badge bg-info" id="storageStatus">
+                                    <span class="status-indicator status-online"></span>
+                                    75% Used
+                                </span>
+                                <div class="mt-2">
+                                    <small class="text-muted">2.5TB Free</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Library Overview -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-collection"></i> Media Library
+                </h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary active" onclick="showLibraryType('all')">All</button>
+                    <button class="btn btn-outline-primary" onclick="showLibraryType('movies')">Movies</button>
+                    <button class="btn btn-outline-primary" onclick="showLibraryType('tv')">TV Shows</button>
+                    <button class="btn btn-outline-primary" onclick="showLibraryType('music')">Music</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Library Stats -->
+                <div class="row mb-4">
+                    <div class="col-md-3 text-center">
+                        <div class="bg-primary text-white rounded p-3">
+                            <h4 class="mb-0" id="movieCount">1,247</h4>
+                            <small>Movies</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-success text-white rounded p-3">
+                            <h4 class="mb-0" id="tvCount">89</h4>
+                            <small>TV Shows</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-info text-white rounded p-3">
+                            <h4 class="mb-0" id="episodeCount">2,156</h4>
+                            <small>Episodes</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-warning text-white rounded p-3">
+                            <h4 class="mb-0" id="musicCount">15,432</h4>
+                            <small>Songs</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Additions -->
+                <h6><i class="bi bi-clock"></i> Recently Added</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Quality</th>
+                                <th>Size</th>
+                                <th>Added</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentMedia">
+                            <tr>
+                                <td>
+                                    <i class="bi bi-film text-primary"></i>
+                                    The Matrix Resurrections
+                                </td>
+                                <td><span class="badge bg-primary">Movie</span></td>
+                                <td><span class="badge bg-success">4K</span></td>
+                                <td>15.2 GB</td>
+                                <td>2 hours ago</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="playMedia('matrix4')">
+                                        <i class="bi bi-play"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-info" onclick="mediaInfo('matrix4')">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-tv text-success"></i>
+                                    Stranger Things S4E09
+                                </td>
+                                <td><span class="badge bg-success">TV</span></td>
+                                <td><span class="badge bg-info">1080p</span></td>
+                                <td>2.8 GB</td>
+                                <td>6 hours ago</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="playMedia('st_s4e9')">
+                                        <i class="bi bi-play"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-info" onclick="mediaInfo('st_s4e9')">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-music-note text-warning"></i>
+                                    Daft Punk - Random Access Memories
+                                </td>
+                                <td><span class="badge bg-warning">Album</span></td>
+                                <td><span class="badge bg-primary">FLAC</span></td>
+                                <td>485 MB</td>
+                                <td>1 day ago</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="playMedia('daft_ram')">
+                                        <i class="bi bi-play"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-info" onclick="mediaInfo('daft_ram')">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Controls & Tools -->
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-gear"></i> Media Tools
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" onclick="openPlex()">
+                        <i class="bi bi-box-arrow-up-right"></i> Open Plex
+                    </button>
+                    <button class="btn btn-success" onclick="openJellyfin()">
+                        <i class="bi bi-box-arrow-up-right"></i> Open Jellyfin
+                    </button>
+                    <button class="btn btn-info" onclick="manageMounts()">
+                        <i class="bi bi-hdd-stack"></i> Manage Mounts
+                    </button>
+                    <button class="btn btn-warning" onclick="seedboxManager()">
+                        <i class="bi bi-download"></i> Seedbox Manager
+                    </button>
+                    <button class="btn btn-secondary" onclick="transcodeQueue()">
+                        <i class="bi bi-arrow-repeat"></i> Transcode Queue
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Queue -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-download"></i> Download Queue
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Avatar 2 (2022)</div>
+                            <small class="text-muted">4K Remux</small>
+                            <div class="progress mt-1" style="height: 4px;">
+                                <div class="progress-bar bg-success" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <span class="badge bg-success">75%</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">House of Dragon S1</div>
+                            <small class="text-muted">Complete Season</small>
+                            <div class="progress mt-1" style="height: 4px;">
+                                <div class="progress-bar bg-primary" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary">45%</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">The Weeknd - Dawn FM</div>
+                            <small class="text-muted">Hi-Res Audio</small>
+                            <div class="progress mt-1" style="height: 4px;">
+                                <div class="progress-bar bg-warning" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <span class="badge bg-warning">90%</span>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-outline-primary w-100" onclick="manageDownloads()">
+                        <i class="bi bi-list"></i> Manage Downloads
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Storage Overview -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-hdd"></i> Storage Overview
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Movies</span>
+                        <span>4.2 TB</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" style="width: 60%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>TV Shows</span>
+                        <span>2.8 TB</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width: 40%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Music</span>
+                        <span>250 GB</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width: 5%"></div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <small class="text-muted">
+                        Total: 7.25 TB / 10 TB used (72.5%)
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Media Server Modal -->
+<div class="modal fade" id="addServerModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-plus-circle"></i> Add Media Server
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addServerForm">
+                    <div class="mb-3">
+                        <label class="form-label">Server Type:</label>
+                        <select class="form-control" id="serverType">
+                            <option value="plex">Plex Media Server</option>
+                            <option value="jellyfin">Jellyfin</option>
+                            <option value="emby">Emby</option>
+                            <option value="kodi">Kodi</option>
+                            <option value="dlna">DLNA Server</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Server Name:</label>
+                        <input type="text" class="form-control" id="serverName" placeholder="My Media Server">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">IP Address:</label>
+                        <input type="text" class="form-control" id="serverIP" placeholder="192.168.1.100">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Port:</label>
+                        <input type="number" class="form-control" id="serverPort" placeholder="32400">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="autoConnect">
+                        <label class="form-check-label" for="autoConnect">
+                            Auto-connect on startup
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveMediaServer()">Add Server</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Media Center JavaScript
+function refreshMedia() {
+    showToast('Refreshing media data...', 'info');
+    
+    fetch('/media/api/status')
+        .then(response => response.json())
+        .then(data => {
+            updateMediaStats(data);
+            showToast('Media data refreshed', 'success');
+        })
+        .catch(error => {
+            showToast('Failed to refresh media data', 'danger');
+        });
+}
+
+function updateMediaStats(data) {
+    if (data.plex) {
+        document.getElementById('plexStatus').innerHTML = data.plex.online ? 
+            '<span class="status-indicator status-online"></span> Online' :
+            '<span class="status-indicator status-offline"></span> Offline';
+        document.getElementById('plexStatus').className = `badge bg-${data.plex.online ? 'success' : 'danger'}`;
+    }
+    
+    if (data.jellyfin) {
+        document.getElementById('jellyfinStatus').innerHTML = data.jellyfin.online ? 
+            '<span class="status-indicator status-online"></span> Online' :
+            '<span class="status-indicator status-offline"></span> Offline';
+        document.getElementById('jellyfinStatus').className = `badge bg-${data.jellyfin.online ? 'primary' : 'danger'}`;
+    }
+    
+    if (data.library) {
+        document.getElementById('movieCount').textContent = data.library.movies || '0';
+        document.getElementById('tvCount').textContent = data.library.tv_shows || '0';
+        document.getElementById('episodeCount').textContent = data.library.episodes || '0';
+        document.getElementById('musicCount').textContent = data.library.music || '0';
+    }
+}
+
+function addMediaServer() {
+    const modal = new bootstrap.Modal(document.getElementById('addServerModal'));
+    modal.show();
+}
+
+function saveMediaServer() {
+    const form = document.getElementById('addServerForm');
+    const formData = new FormData(form);
+    
+    const serverData = {
+        type: document.getElementById('serverType').value,
+        name: document.getElementById('serverName').value,
+        ip: document.getElementById('serverIP').value,
+        port: document.getElementById('serverPort').value,
+        auto_connect: document.getElementById('autoConnect').checked
+    };
+    
+    fetch('/media/api/servers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(serverData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Media server added successfully', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('addServerModal')).hide();
+            refreshMedia();
+        } else {
+            showToast('Failed to add media server', 'danger');
+        }
+    })
+    .catch(error => {
+        showToast('Error adding media server', 'danger');
+    });
+}
+
+function scanMedia() {
+    showToast('Starting media library scan...', 'info');
+    
+    fetch('/media/api/scan', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Media scan started', 'success');
+        } else {
+            showToast('Failed to start media scan', 'danger');
+        }
+    })
+    .catch(error => {
+        showToast('Error starting media scan', 'danger');
+    });
+}
+
+function showLibraryType(type) {
+    // Update active button
+    document.querySelectorAll('.btn-group .btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Filter table rows (placeholder implementation)
+    const rows = document.querySelectorAll('#recentMedia tr');
+    rows.forEach(row => {
+        const badge = row.querySelector('.badge');
+        if (type === 'all' || 
+            (type === 'movies' && badge && badge.textContent === 'Movie') ||
+            (type === 'tv' && badge && badge.textContent === 'TV') ||
+            (type === 'music' && badge && badge.textContent === 'Album')) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function playMedia(mediaId) {
+    showToast(`Playing media: ${mediaId}`, 'info');
+    // TODO: Implement media playback
+}
+
+function mediaInfo(mediaId) {
+    showToast(`Showing info for: ${mediaId}`, 'info');
+    // TODO: Implement media info dialog
+}
+
+function openPlex() {
+    window.open('http://localhost:32400', '_blank');
+}
+
+function openJellyfin() {
+    window.open('http://localhost:8096', '_blank');
+}
+
+function manageMounts() {
+    showToast('Opening mount manager...', 'info');
+    // TODO: Implement mount management
+}
+
+function seedboxManager() {
+    showToast('Opening seedbox manager...', 'info');
+    // TODO: Implement seedbox management
+}
+
+function transcodeQueue() {
+    showToast('Opening transcode queue...', 'info');
+    // TODO: Implement transcode queue management
+}
+
+function manageDownloads() {
+    showToast('Opening download manager...', 'info');
+    // TODO: Implement download management
+}
+
+// Auto-refresh media data
+setInterval(() => {
+    if (document.querySelector('[data-auto-refresh="true"]')) {
+        refreshMedia();
+    }
+}, 60000); // Refresh every minute
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    refreshMedia();
+});
+</script>
+{% endblock %}

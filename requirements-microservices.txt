@@ -1,0 +1,38 @@
+# Ultimate Suite v11.0 - Microservices Architecture Dependencies
+# Sub-Milestone 2/5 Requirements
+
+# Web Framework & HTTP Client
+aiohttp>=3.8.0
+aiofiles>=23.0.0
+
+# JWT Authentication
+PyJWT>=2.8.0
+
+# Service Discovery (Optional - for production)
+python-consul>=1.1.0
+etcd3>=0.12.0
+
+# Metrics & Monitoring
+prometheus-client>=0.17.0
+
+# Distributed Tracing (Optional)
+py-zipkin>=0.20.0
+
+# Async Support
+asyncio-mqtt>=0.11.0
+
+# Data Validation
+pydantic>=2.0.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+aioresponses>=0.7.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0

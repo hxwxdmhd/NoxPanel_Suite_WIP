@@ -1,0 +1,24 @@
+{
+  "providers": {
+    "ollama": {
+      "enabled": true,
+      "base_url": "http://localhost:11434",
+      "model": "llama2",
+      "priority": 1,
+      "timeout": 30
+    },
+    "openai": {
+      "enabled": false,
+      "model": "gpt-3.5-turbo",
+      "priority": 2,
+      "api_key": null
+    }
+  },
+  "default_provider": "ollama",
+  "settings": {
+    "max_response_length": 1000,
+    "temperature": 0.7,
+    "enable_code_analysis": true,
+    "enable_text_summary": true
+  }
+}

@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block title %}Add Knowledge Item - NoxPanel{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-plus"></i> Add Knowledge Item</h4>
+                    <p class="mb-0 text-muted">Create a new knowledge base entry</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Title *</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="content_type" class="form-label">Content Type *</label>
+                                    <select class="form-select" id="content_type" name="content_type" required>
+                                        <option value="">Select Type</option>
+                                        {% for ct in content_types %}
+                                        <option value="{{ ct }}">{{ ct.replace('_', ' ').title() }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content *</label>
+                            <textarea class="form-control" id="content" name="content" rows="12" required></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="language" class="form-label">Language</label>
+                                    <select class="form-select" id="language" name="language">
+                                        <option value="">None</option>
+                                        {% for lang in languages %}
+                                        <option value="{{ lang }}">{{ lang.title() }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="topic" class="form-label">Topic</label>
+                                    <input type="text" class="form-control" id="topic" name="topic" placeholder="e.g., security, database">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="category" name="category" placeholder="e.g., development, documentation">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="tags" class="form-label">Tags</label>
+                                    <input type="text" class="form-control" id="tags" name="tags" placeholder="Comma-separated tags">
+                                    <div class="form-text">Separate multiple tags with commas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="author" class="form-label">Author</label>
+                                    <input type="text" class="form-control" id="author" name="author" placeholder="Your name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ url_for('knowledge.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Item
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Quick Templates -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-magic"></i> Quick Templates</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-primary w-100 mb-2" onclick="loadTemplate('code_snippet')">
+                                <i class="fas fa-code"></i> Code Snippet
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-success w-100 mb-2" onclick="loadTemplate('documentation')">
+                                <i class="fas fa-book"></i> Documentation
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-warning w-100 mb-2" onclick="loadTemplate('best_practice')">
+                                <i class="fas fa-award"></i> Best Practice
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-info w-100 mb-2" onclick="loadTemplate('script')">
+                                <i class="fas fa-file-code"></i> Script
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const templates = {
+    'code_snippet': {
+        title: 'Python Function Example',
+        content_type: 'code_snippet',
+        language: 'python',
+        topic: 'programming',
+        category: 'development',
+        tags: 'python, function, example',
+        content: `def example_function(param1, param2):
+    """
+    Example function documentation.
+    
+    Args:
+        param1: Description of parameter 1
+        param2: Description of parameter 2
+    
+    Returns:
+        Description of return value
+    """
+    # Your code here
+    return param1 + param2`
+    },
+    'documentation': {
+        title: 'API Documentation Template',
+        content_type: 'documentation',
+        topic: 'api',
+        category: 'documentation',
+        tags: 'api, documentation, reference',
+        content: `# API Endpoint Documentation
+
+## Overview
+Brief description of what this endpoint does.
+
+## Endpoint
+\`GET /api/example\`
+
+## Parameters
+- \`param1\` (string, required): Description
+- \`param2\` (integer, optional): Description
+
+## Response
+\`\`\`json
+{
+    "success": true,
+    "data": {
+        "example": "value"
+    }
+}
+\`\`\`
+
+## Example Usage
+\`\`\`bash
+curl -X GET "http://localhost:5000/api/example?param1=value"
+\`\`\``
+    },
+    'best_practice': {
+        title: 'Security Best Practice',
+        content_type: 'best_practice',
+        topic: 'security',
+        category: 'guidelines',
+        tags: 'security, best-practice, guidelines',
+        content: `# Security Best Practice
+
+## Problem
+Describe the security issue or challenge.
+
+## Solution
+Explain the recommended approach.
+
+## Implementation
+Provide specific steps or code examples.
+
+## Why This Matters
+Explain the security implications.
+
+## Additional Resources
+- Link 1
+- Link 2`
+    },
+    'script': {
+        title: 'PowerShell Script Template',
+        content_type: 'script',
+        language: 'powershell',
+        topic: 'automation',
+        category: 'scripts',
+        tags: 'powershell, script, automation',
+        content: `# PowerShell Script Template
+# Description: Brief description of what this script does
+
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$RequiredParam,
+    
+    [Parameter(Mandatory=$false)]
+    [string]$OptionalParam = "default"
+)
+
+# Script logic here
+Write-Host "Executing script with parameters:"
+Write-Host "Required: $RequiredParam"
+Write-Host "Optional: $OptionalParam"`
+    }
+};
+
+function loadTemplate(templateName) {
+    const template = templates[templateName];
+    if (template) {
+        document.getElementById('title').value = template.title;
+        document.getElementById('content_type').value = template.content_type;
+        document.getElementById('content').value = template.content;
+        document.getElementById('topic').value = template.topic;
+        document.getElementById('category').value = template.category;
+        document.getElementById('tags').value = template.tags;
+        
+        if (template.language) {
+            document.getElementById('language').value = template.language;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-resize textarea
+    const textarea = document.getElementById('content');
+    textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+    
+    // Content type change handler
+    document.getElementById('content_type').addEventListener('change', function() {
+        const languageSelect = document.getElementById('language');
+        if (this.value === 'code_snippet' || this.value === 'script') {
+            languageSelect.parentElement.parentElement.style.display = 'block';
+        } else {
+            languageSelect.value = '';
+            languageSelect.parentElement.parentElement.style.display = 'none';
+        }
+    });
+});
+</script>
+{% endblock %}

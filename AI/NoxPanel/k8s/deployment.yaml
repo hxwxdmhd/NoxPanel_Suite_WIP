@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: noxpanel-api
+    version: v11.0
+  name: noxpanel-api
+  namespace: noxpanel-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: noxpanel-api
+  template:
+    metadata:
+      labels:
+        app: noxpanel-api
+    spec:
+      containers:
+      - env:
+        - name: ENVIRONMENT
+          value: production
+        image: noxpanel/api:latest
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        name: noxpanel-api
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2Gi
+          requests:
+            cpu: 500m
+            memory: 1Gi

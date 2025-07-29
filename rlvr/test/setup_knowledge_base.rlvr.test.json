@@ -1,0 +1,76 @@
+{
+  "module": "AI\\NoxPanel\\setup_knowledge_base.py",
+  "timestamp": "2025-07-18T11:02:26.752660",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test_create_sample_conversations_data_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_sample_conversations_data_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_sample_conversations_data_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_create_sample_knowledge_items_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "km": "valid_km"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_sample_knowledge_items_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "km": "edge_km"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_sample_knowledge_items_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "km": "invalid_km"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_setup_knowledge_base_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_setup_knowledge_base_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_setup_knowledge_base_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

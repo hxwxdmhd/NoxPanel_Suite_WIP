@@ -1,0 +1,11 @@
+{
+  "name": "sample_plugin",
+  "version": "4.1.0",
+  "description": "Sample plugin for NoxPanel",
+  "author": "NoxPanel System",
+  "enabled": false,
+  "type": "sample",
+  "dependencies": [],
+  "created_at": "2025-07-15T09:30:24.213109",
+  "last_updated": "2025-07-15T09:30:24.213109"
+}

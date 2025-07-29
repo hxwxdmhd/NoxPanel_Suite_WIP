@@ -1,0 +1,202 @@
+{
+  "folders": [
+    {
+      "name": "🔌 Plugin System Core",
+      "path": "./plugins"
+    },
+    {
+      "name": "🏠 FRITZWATCHER Plugin",
+      "path": "./plugins/fritzwatcher_plugin"
+    },
+    {
+      "name": "🧪 Plugin Testing",
+      "path": "./tests/plugins"
+    },
+    {
+      "name": "⚙️ Plugin Configuration",
+      "path": "./config/plugins"
+    },
+    {
+      "name": "📊 Plugin Examples",
+      "path": "./plugins/examples"
+    }
+  ],
+  "settings": {
+    // Plugin-focused performance optimizations
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/AI/NoxPanel/**": true,
+      "**/aethercore/**": true,
+      "**/archive/**": true,
+      "**/logs/**": true,
+      "**/test_reports/**": true,
+      "**/monitoring/**": true,
+      "**/docker/volumes/**": true
+    },
+    
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/node_modules/**": true,
+      "**/__pycache__/**": true,
+      "**/AI/**": true,
+      "**/aethercore/**": true,
+      "**/logs/**": true,
+      "**/*.log": true
+    },
+    
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/AI/**": true,
+      "**/aethercore/**": true,
+      "**/logs/**": true
+    },
+    
+    // Python LSP optimization for Plugins
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.indexing": true,
+    "python.analysis.memory.keepLibraryAst": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.include": [
+      "./plugins/**",
+      "./tests/plugins/**",
+      "./config/plugins/**"
+    ],
+    "python.analysis.exclude": [
+      "**/AI/**",
+      "**/aethercore/**",
+      "**/archive/**",
+      "**/logs/**"
+    ],
+    
+    // Plugin-specific package indexing
+    "python.analysis.packageIndexDepths": [
+      {"name": "flask", "depth": 2},
+      {"name": "requests", "depth": 2},
+      {"name": "fastapi", "depth": 2},
+      {"name": "pytest", "depth": 2},
+      {"name": "fritzconnection", "depth": 3}
+    ],
+    
+    // PHP LSP for plugin system
+    "intelephense.files.maxSize": 2000000,
+    "intelephense.environment.includePaths": [
+      "./plugins",
+      "./config/plugins"
+    ],
+    "intelephense.files.exclude": [
+      "**/AI/**",
+      "**/aethercore/**",
+      "**/archive/**"
+    ],
+    
+    // Editor optimization for plugins
+    "editor.suggest.filterGraceful": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.semanticHighlighting.enabled": true,
+    
+    // Git optimization
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "scm.autoReveal": false,
+    
+    // Plugin workspace theming
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#2D4A5A",
+      "titleBar.activeBackground": "#2D4A5A"
+    },
+    
+    // Plugin-specific environment
+    "terminal.integrated.env.windows": {
+      "NOXPANEL_MODULE": "plugins",
+      "NOXPANEL_WORKSPACE": "plugins",
+      "PLUGIN_DEV_MODE": "true"
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🏠 Switch to Core Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-Core.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🧠 Switch to AI Module",
+        "type": "shell",
+        "command": "code", 
+        "args": ["NoxPanel-AI.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🔌 Test FRITZWATCHER Plugin",
+        "type": "shell",
+        "command": "python",
+        "args": ["plugins/test_fritzwatcher_integration.py"],
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": true
+        }
+      },
+      {
+        "label": "🧪 Run Plugin Tests",
+        "type": "shell",
+        "command": "python",
+        "args": ["-m", "pytest", "plugins/", "-v", "--tb=short"],
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "🚀 Start Plugin Server",
+        "type": "shell",
+        "command": "python",
+        "args": ["plugins/plugin_server.py"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "🔍 Plugin System Health Check",
+        "type": "shell",
+        "command": "python",
+        "args": ["plugins/plugin_health_check.py"],
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylint",
+      "ms-python.flake8",
+      "bmewburn.vscode-intelephense-client",
+      "github.copilot",
+      "ms-vscode.test-adapter-converter"
+    ]
+  }
+}

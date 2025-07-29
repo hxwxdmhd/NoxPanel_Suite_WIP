@@ -1,0 +1,21 @@
+{
+  "environment": "windows",
+  "python_command": "python",
+  "package_manager": "pip",
+  "service_manager": "services",
+  "shell": "powershell",
+  "paths": {
+    "python": "C:\\Users\\wsAdmin\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\python.exe",
+    "pip": "pip",
+    "home": "C:\\Users\\wsAdmin",
+    "temp": "C:\\Users\\wsAdmin\\AppData\\Local\\Temp"
+  },
+  "dependencies": [
+    "pip",
+    "virtualenv"
+  ],
+  "install_commands": [
+    "pip install --upgrade pip",
+    "pip install -r requirements.txt"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "gate": 4,
+  "title": "API Security Hardening",
+  "timestamp": "2025-07-17T15:36:51.908901",
+  "score": 76,
+  "max_score": 100,
+  "passing_score": 80,
+  "passed": false,
+  "percentage": 76.0,
+  "results": [
+    {
+      "test": "Security Headers Validation",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "Avg security score: 21.0/20, Tested 3 endpoints",
+      "timestamp": "2025-07-17T15:36:50.563450"
+    },
+    {
+      "test": "Authentication Token Security",
+      "status": "FAIL",
+      "points": 0,
+      "max_points": 3,
+      "details": "Auth score: 3, Protected endpoints: 3",
+      "timestamp": "2025-07-17T15:36:50.596530"
+    },
+    {
+      "test": "Input Validation and Sanitization",
+      "status": "PASS",
+      "points": 16,
+      "max_points": 16,
+      "details": "Validation score: 16/21, Tested 7 attacks",
+      "timestamp": "2025-07-17T15:36:50.659649"
+    },
+    {
+      "test": "Rate Limiting Implementation",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "Rate limit score: 24, Made 20 requests",
+      "timestamp": "2025-07-17T15:36:51.809669"
+    },
+    {
+      "test": "SQL Injection Prevention",
+      "status": "PASS",
+      "points": 20,
+      "max_points": 20,
+      "details": "SQL injection score: 23, Tested 10 payloads",
+      "timestamp": "2025-07-17T15:36:51.907901"
+    }
+  ],
+  "summary": {
+    "total_tests": 5,
+    "passed_tests": 4,
+    "failed_tests": 1
+  }
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 NoxPanel — AI Command Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-terminal"></i>
+                <h1>NoxPanel</h1>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="status-indicator online" title="System Online">
+                    <i class="fas fa-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('scripts')">
+                <i class="fas fa-code"></i> Scripts
+            </button>
+            <button class="tab-btn" onclick="showTab('devices')">
+                <i class="fas fa-network-wired"></i> Devices
+            </button>
+            <button class="tab-btn" onclick="showTab('system')">
+                <i class="fas fa-tachometer-alt"></i> System
+            </button>
+            <button class="tab-btn" onclick="showTab('plugins')">
+                <i class="fas fa-puzzle-piece"></i> Plugins
+            </button>
+            <button class="tab-btn" onclick="showTab('users')">
+                <i class="fas fa-users"></i> Users
+            </button>
+            <button class="tab-btn" onclick="showTab('logs')">
+                <i class="fas fa-list-alt"></i> Logs
+            </button>
+            <button class="tab-btn" onclick="showTab('ai-chat')">
+                <i class="fas fa-robot"></i> AI Chat
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <div id="scripts-tab" class="tab-content active">
+                <div class="scripts-grid">
+                    {% if scripts %}
+                        {% for script in scripts %}
+                        <div class="script-card">
+                            <div class="script-header">
+                                <i class="fab fa-python"></i>
+                                <h3>{{ script }}</h3>
+                            </div>
+                            <div class="script-actions">
+                                <button class="btn btn-primary" onclick="runScript('{{ script }}')">
+                                    <i class="fas fa-play"></i> Run
+                                </button>
+                                <button class="btn btn-secondary" onclick="viewScript('{{ script }}')">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-folder-open"></i>
+                            <h3>No Scripts Found</h3>
+                            <p>Add Python scripts to the /scripts directory to get started.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="devices-tab" class="tab-content">
+                <div class="devices-container">
+                    <div class="devices-header">
+                        <h3><i class="fas fa-network-wired"></i> Network Devices</h3>
+                        <div class="devices-actions">
+                            <button class="btn btn-primary" onclick="scanNetwork()">
+                                <i class="fas fa-search"></i> Scan Network
+                            </button>
+                            <button class="btn btn-secondary" onclick="dashboard.loadDevices()">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    <div class="devices-grid">
+                        <!-- Devices will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="system-tab" class="tab-content">
+                <div class="system-container">
+                    <div class="system-header">
+                        <h3><i class="fas fa-tachometer-alt"></i> System Monitoring</h3>
+                        <div class="connection-status">🟢 Connected</div>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-microchip"></i>
+                                <h4>CPU Usage</h4>
+                            </div>
+                            <div class="metric-value cpu-usage">--</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-memory"></i>
+                                <h4>Memory Usage</h4>
+                            </div>
+                            <div class="metric-value memory-usage">--</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-hdd"></i>
+                                <h4>Disk Usage</h4>
+                            </div>
+                            <div class="metric-value disk-usage">--</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-clock"></i>
+                                <h4>Last Updated</h4>
+                            </div>
+                            <div class="metric-value metrics-timestamp">--</div>
+                        </div>
+                    </div>
+                    
+                    <div class="background-tasks-section">
+                        <h4><i class="fas fa-tasks"></i> Background Tasks</h4>
+                        <div class="background-tasks">
+                            <div class="no-tasks">No background tasks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="plugins-tab" class="tab-content">
+                <div class="plugins-container">
+                    <div class="plugins-header">
+                        <h3><i class="fas fa-puzzle-piece"></i> Plugin Management</h3>
+                        <div class="plugins-actions">
+                            <button class="btn btn-primary" onclick="dashboard.loadPlugins()">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    <div class="plugins-grid">
+                        <!-- Plugins will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="users-tab" class="tab-content">
+                <div class="users-container">
+                    <div class="users-header">
+                        <h3><i class="fas fa-users"></i> User Management</h3>
+                        <div class="users-actions">
+                            <button class="btn btn-primary" onclick="showCreateUserForm()">
+                                <i class="fas fa-user-plus"></i> Add User
+                            </button>
+                            <button class="btn btn-secondary" onclick="dashboard.refreshUserList()">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="create-user-form" style="display: none;">
+                        <h4>Create New User</h4>
+                        <form id="createUserForm">
+                            <div class="form-group">
+                                <label for="newUsername">Username:</label>
+                                <input type="text" id="newUsername" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Password:</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newEmail">Email:</label>
+                                <input type="email" id="newEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="newRole">Role:</label>
+                                <select id="newRole">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Create User</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideCreateUserForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="users-list">
+                        <!-- Users will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="logs-tab" class="tab-content">
+                <div class="logs-container">
+                    <div class="logs-header">
+                        <h3><i class="fas fa-list-alt"></i> Execution Logs</h3>
+                        <button class="btn btn-secondary" onclick="clearLogs()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                    <div id="logs-content" class="logs-content">
+                        <div class="log-entry">
+                            <span class="timestamp">Ready</span>
+                            <span class="message">NoxPanel initialized successfully</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Chat Tab -->
+            <div class="tab-content" id="ai-chat">
+                <div class="section-header">
+                    <h2>🤖 NOX AI Assistant</h2>
+                    <div class="ai-status" id="ai-status">
+                        <span class="status-indicator online"></span>
+                        <span>AI Online - J.A.R.V.I.S. Personality Active</span>
+                    </div>
+                </div>
+                
+                <div class="ai-chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="system-message">
+                            <div class="message-content">
+                                <strong>NOX:</strong> Good day! I'm your AI assistant with J.A.R.V.I.S.-inspired personality. 
+                                I can help with network management, system diagnostics, and more. 
+                                You can also use voice commands by saying "Hey Nox" if your microphone is enabled.
+                            </div>
+                            <div class="message-time">System Ready</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="voice-controls">
+                            <button class="voice-btn" id="voice-toggle" title="Toggle Voice Recognition">
+                                🎤 Voice
+                            </button>
+                            <div class="voice-status" id="voice-status">Ready</div>
+                        </div>
+                        
+                        <div class="chat-input-wrapper">
+                            <input type="text" 
+                                   id="chat-input" 
+                                   placeholder="Ask NOX anything about your network or system..."
+                                   autocomplete="off">
+                            <button class="send-btn" id="send-btn">
+                                <span>Send</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-suggestions">
+                        <div class="suggestion-header">Quick Commands:</div>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn" data-command="system health">System Health</button>
+                            <button class="suggestion-btn" data-command="scan network">Scan Network</button>
+                            <button class="suggestion-btn" data-command="device status">Device Status</button>
+                            <button class="suggestion-btn" data-command="show analytics">Analytics</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="output-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Script Output</h3>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <pre id="output-content"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <!-- Add Socket.IO script -->
+    <script src="/static/js/socket.io.min.js"></script>
+    <script>
+        // AI Chat Integration - Complete Implementation
+        class NoxAIChat {
+            constructor() {
+                this.chatMessages = document.getElementById('chat-messages');
+                this.chatInput = document.getElementById('chat-input');
+                this.sendBtn = document.getElementById('send-btn');
+                this.voiceToggle = document.getElementById('voice-toggle');
+                this.voiceStatus = document.getElementById('voice-status');
+                this.aiStatus = document.getElementById('ai-status');
+                
+                this.isVoiceActive = false;
+                this.conversationHistory = [];
+                
+                this.initializeChat();
+                this.checkAIStatus();
+                this.setupVoiceInterface();
+            }
+            
+            initializeChat() {
+                // Send button click
+                this.sendBtn.addEventListener('click', () => this.sendMessage());
+                
+                // Enter key press
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+                
+                // Suggestion buttons
+                document.querySelectorAll('.suggestion-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.chatInput.value = btn.dataset.command;
+                        this.sendMessage();
+                    });
+                });
+                
+                // Voice toggle
+                this.voiceToggle.addEventListener('click', () => this.toggleVoice());
+            }
+            
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message to chat
+                this.addMessage('user', message);
+                this.chatInput.value = '';
+                
+                // Show typing indicator
+                this.showTypingIndicator();
+                
+                try {
+                    const response = await fetch('/api/ai/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.status === 'success') {
+                        this.addMessage('assistant', data.response);
+                        this.conversationHistory.push({
+                            user: message,
+                            assistant: data.response,
+                            timestamp: data.timestamp
+                        });
+                    } else {
+                        this.addMessage('error', data.response || 'Sorry, I encountered an error.');
+                    }
+                } catch (error) {
+                    this.addMessage('error', 'Connection error. Please try again.');
+                    console.error('Chat error:', error);
+                } finally {
+                    this.hideTypingIndicator();
+                }
+            }
+            
+            addMessage(type, content) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${type}-message`;
+                
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                
+                let sender = '';
+                switch(type) {
+                    case 'user': sender = 'You'; break;
+                    case 'assistant': sender = 'NOX'; break;
+                    case 'error': sender = 'System'; break;
+                }
+                
+                messageDiv.innerHTML = `
+                    <div class="message-content">
+                        <strong>${sender}:</strong> ${content}
+                    </div>
+                    <div class="message-time">${timeString}</div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+            
+            showTypingIndicator() {
+                const indicator = document.createElement('div');
+                indicator.className = 'typing-indicator';
+                indicator.id = 'typing-indicator';
+                indicator.innerHTML = `
+                    <div class="message-content">
+                        <strong>NOX:</strong> <span class="typing-dots">Thinking...</span>
+                    </div>
+                `;
+                this.chatMessages.appendChild(indicator);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+            
+            hideTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+            }
+            
+            async checkAIStatus() {
+                try {
+                    const response = await fetch('/api/ai/status');
+                    const data = await response.json();
+                    
+                    if (data.status === 'success' && data.ai_available) {
+                        this.updateAIStatus('online', 'AI Online - J.A.R.V.I.S. Personality Active');
+                    } else {
+                        this.updateAIStatus('offline', 'AI Offline - Limited functionality');
+                    }
+                } catch (error) {
+                    this.updateAIStatus('error', 'AI Status Unknown');
+                }
+            }
+            
+            updateAIStatus(status, message) {
+                const indicator = this.aiStatus.querySelector('.status-indicator');
+                const text = this.aiStatus.querySelector('span');
+                
+                indicator.className = `status-indicator ${status}`;
+                text.textContent = message;
+            }
+            
+            async setupVoiceInterface() {
+                try {
+                    const response = await fetch('/api/voice/status');
+                    const data = await response.json();
+                    
+                    if (data.status === 'success' && data.voice_interface.overall_status === 'operational') {
+                        this.voiceToggle.disabled = false;
+                        this.voiceStatus.textContent = 'Ready';
+                    } else {
+                        this.voiceToggle.disabled = true;
+                        this.voiceStatus.textContent = 'Unavailable';
+                    }
+                } catch (error) {
+                    this.voiceToggle.disabled = true;
+                    this.voiceStatus.textContent = 'Error';
+                }
+            }
+            
+            toggleVoice() {
+                this.isVoiceActive = !this.isVoiceActive;
+                
+                if (this.isVoiceActive) {
+                    this.voiceToggle.innerHTML = '🎤 Listening...';
+                    this.voiceToggle.classList.add('active');
+                    this.voiceStatus.textContent = 'Say "Hey Nox" to activate';
+                    this.startVoiceRecognition();
+                } else {
+                    this.voiceToggle.innerHTML = '🎤 Voice';
+                    this.voiceToggle.classList.remove('active');
+                    this.voiceStatus.textContent = 'Ready';
+                    this.stopVoiceRecognition();
+                }
+            }
+            
+            startVoiceRecognition() {
+                // Voice recognition implementation would connect to speech engine
+                console.log('Voice recognition started - integrate with speech engine');
+            }
+            
+            stopVoiceRecognition() {
+                // Stop voice recognition
+                console.log('Voice recognition stopped');
+            }
+        }
+        
+        // Initialize AI Chat when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.noxAIChat = new NoxAIChat();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+# Prometheus Development Configuration for NoxPanel Suite
+# Optimized for local development and debugging
+global:
+  scrape_interval: 10s      # Faster scraping for dev
+  evaluation_interval: 10s
+  external_labels:
+    monitor: 'noxpanel-dev-monitor'
+    environment: 'development'
+
+rule_files:
+  # Development alert rules (optional)
+  # - "dev_alert_rules.yml"
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    scrape_interval: 15s
+
+  # Heimnetz main application
+  - job_name: 'heimnetz'
+    static_configs:
+      - targets: ['heimnetz:5000', 'host.docker.internal:5000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # AetherCore MSP Server
+  - job_name: 'aethercore'
+    static_configs:
+      - targets: ['aethercore:8001', 'host.docker.internal:8001']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # ContextForge MCP Server
+  - job_name: 'contextforge'
+    static_configs:
+      - targets: ['contextforge:8000', 'host.docker.internal:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Redis cache monitoring
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379', 'host.docker.internal:6379']
+    scrape_interval: 15s
+
+  # Redis development instance
+  - job_name: 'redis-dev'
+    static_configs:
+      - targets: ['redis-dev:6379', 'host.docker.internal:6379']
+    scrape_interval: 15s
+
+  # Ollama LLM service
+  - job_name: 'ollama'
+    static_configs:
+      - targets: ['ollama:11434', 'host.docker.internal:11434']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+
+  # PostgreSQL database (if metrics enabled)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+    scrape_interval: 30s
+
+  # NGINX reverse proxy
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx:80', 'nginx:443']
+    metrics_path: '/nginx_status'
+    scrape_interval: 15s
+
+  # Performance monitoring server
+  - job_name: 'performance-server'
+    static_configs:
+      - targets: ['host.docker.internal:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+
+  # Development health checks
+  - job_name: 'health-checks'
+    static_configs:
+      - targets: 
+          - 'heimnetz:5000'
+          - 'aethercore:8001'
+          - 'contextforge:8000'
+    metrics_path: '/health'
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+  # Node exporter for system metrics (if available)
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+    scrape_interval: 30s
+
+  # Docker container metrics via cAdvisor (if available)
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+    scrape_interval: 30s
+
+# Development-specific remote write (optional)
+# remote_write:
+#   - url: "http://localhost:9090/api/v1/write"
+#     queue_config:
+#       max_samples_per_send: 1000
+#       max_shards: 200
+#       capacity: 2500

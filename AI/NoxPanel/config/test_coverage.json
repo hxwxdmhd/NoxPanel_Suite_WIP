@@ -1,0 +1,9 @@
+{
+  "target_coverage": 95,
+  "unit_tests": true,
+  "integration_tests": true,
+  "e2e_tests": true,
+  "security_tests": true,
+  "performance_tests": true,
+  "regression_tests": true
+}

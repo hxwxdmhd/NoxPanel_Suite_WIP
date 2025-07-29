@@ -1,0 +1,337 @@
+{
+  "target_port": 5002,
+  "unified_routes": {},
+  "working_routes": [],
+  "broken_routes": [],
+  "navigation_improvements": [],
+  "ui_fixes": [
+    {
+      "page": "chat",
+      "url": "http://127.0.0.1:5002/chat",
+      "issues": [
+        "HTTP 404"
+      ],
+      "missing_elements": []
+    },
+    {
+      "page": "admin",
+      "url": "http://127.0.0.1:5002/admin",
+      "issues": [
+        "HTTP 404"
+      ],
+      "missing_elements": []
+    },
+    {
+      "page": "plugins",
+      "url": "http://127.0.0.1:5002/plugins",
+      "issues": [
+        "Error indicator found: error"
+      ],
+      "missing_elements": [
+        "CSS stylesheets"
+      ]
+    },
+    {
+      "page": "ai_features",
+      "url": "http://127.0.0.1:5002/ai-features",
+      "issues": [
+        "HTTP 404"
+      ],
+      "missing_elements": []
+    }
+  ],
+  "blueprint_structure": {
+    "core": {
+      "name": "core",
+      "url_prefix": "/",
+      "routes": [
+        {
+          "route": "/",
+          "function": "dashboard",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/status",
+          "function": "status",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/health",
+          "function": "health_check",
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    },
+    "api": {
+      "name": "api",
+      "url_prefix": "/api",
+      "routes": [
+        {
+          "route": "/health",
+          "function": "api_health",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/test",
+          "function": "api_test",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/crawler/start",
+          "function": "start_crawler",
+          "methods": [
+            "POST"
+          ]
+        },
+        {
+          "route": "/plugins/list",
+          "function": "list_plugins",
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    },
+    "ui": {
+      "name": "ui",
+      "url_prefix": "/ui",
+      "routes": [
+        {
+          "route": "/crawler",
+          "function": "crawler_page",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/plugins",
+          "function": "plugins_page",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/admin",
+          "function": "admin_page",
+          "methods": [
+            "GET"
+          ]
+        },
+        {
+          "route": "/chat",
+          "function": "chat_interface",
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    }
+  },
+  "unified_navigation": {
+    "main_navigation": [
+      {
+        "label": "🏠 Dashboard",
+        "url": "/",
+        "icon": "home",
+        "key": "d"
+      },
+      {
+        "label": "📊 Status",
+        "url": "/status",
+        "icon": "activity",
+        "key": "s"
+      },
+      {
+        "label": "🕷️ Crawler",
+        "url": "/ui/crawler",
+        "icon": "search",
+        "key": "c"
+      },
+      {
+        "label": "🔌 Plugins",
+        "url": "/ui/plugins",
+        "icon": "package",
+        "key": "p"
+      },
+      {
+        "label": "💬 Chat",
+        "url": "/ui/chat",
+        "icon": "message-circle",
+        "key": "h"
+      },
+      {
+        "label": "⚙️ Admin",
+        "url": "/ui/admin",
+        "icon": "settings",
+        "key": "a"
+      }
+    ],
+    "api_endpoints": [
+      {
+        "label": "Health Check",
+        "url": "/api/health",
+        "method": "GET"
+      },
+      {
+        "label": "System Test",
+        "url": "/api/test",
+        "method": "GET"
+      },
+      {
+        "label": "Start Crawler",
+        "url": "/api/crawler/start",
+        "method": "POST"
+      },
+      {
+        "label": "List Plugins",
+        "url": "/api/plugins/list",
+        "method": "GET"
+      }
+    ],
+    "keyboard_shortcuts": {
+      "global": {
+        "h": "Show help",
+        "esc": "Close modals",
+        "/": "Focus search"
+      },
+      "navigation": {
+        "d": "Dashboard",
+        "s": "Status",
+        "c": "Crawler",
+        "p": "Plugins",
+        "h": "Chat",
+        "a": "Admin"
+      }
+    }
+  },
+  "theme_system": {
+    "themes": {
+      "dark": {
+        "name": "Dark Mode",
+        "primary": "#2196f3",
+        "secondary": "#64b5f6",
+        "background": "#121212",
+        "surface": "#1e1e1e",
+        "text": "#ffffff",
+        "text_secondary": "#b0bec5"
+      },
+      "light": {
+        "name": "Light Mode",
+        "primary": "#1976d2",
+        "secondary": "#42a5f5",
+        "background": "#fafafa",
+        "surface": "#ffffff",
+        "text": "#212121",
+        "text_secondary": "#757575"
+      },
+      "nox": {
+        "name": "Nox Theme",
+        "primary": "#667eea",
+        "secondary": "#764ba2",
+        "background": "#0f0f0f",
+        "surface": "#1a1a1a",
+        "text": "#ffffff",
+        "text_secondary": "#cccccc"
+      }
+    },
+    "components": {
+      "navigation": {
+        "fixed_position": true,
+        "auto_hide": false,
+        "compact_mode": true
+      },
+      "cards": {
+        "border_radius": "8px",
+        "shadow_level": 2,
+        "animation": "fade-in"
+      },
+      "buttons": {
+        "style": "rounded",
+        "size": "medium",
+        "loading_state": true
+      }
+    }
+  },
+  "implementation_plan": {
+    "phase_1_foundation": {
+      "title": "Foundation Consolidation",
+      "duration": "1-2 hours",
+      "tasks": [
+        "Create unified Flask application structure",
+        "Implement blueprint system",
+        "Migrate working routes to new structure",
+        "Set up unified configuration system"
+      ],
+      "files_to_create": [
+        "unified_noxpanel.py",
+        "blueprints/core.py",
+        "blueprints/api.py",
+        "blueprints/ui.py",
+        "config/unified_config.py"
+      ]
+    },
+    "phase_2_ui_consolidation": {
+      "title": "UI/UX Standardization",
+      "duration": "2-3 hours",
+      "tasks": [
+        "Implement unified navigation system",
+        "Create standardized page templates",
+        "Fix broken routes and missing pages",
+        "Implement theme switching system"
+      ],
+      "files_to_create": [
+        "templates/base.html",
+        "templates/navigation.html",
+        "static/css/unified.css",
+        "static/js/unified.js"
+      ]
+    },
+    "phase_3_optimization": {
+      "title": "Performance & Features",
+      "duration": "1-2 hours",
+      "tasks": [
+        "Implement keyboard shortcuts",
+        "Add responsive design",
+        "Optimize API endpoints",
+        "Add error handling and logging"
+      ],
+      "files_to_create": [
+        "static/js/shortcuts.js",
+        "static/css/responsive.css",
+        "utils/error_handlers.py",
+        "utils/logging_config.py"
+      ]
+    },
+    "phase_4_testing": {
+      "title": "Testing & Validation",
+      "duration": "1 hour",
+      "tasks": [
+        "Run comprehensive route testing",
+        "Validate UI functionality",
+        "Test theme switching",
+        "Verify keyboard shortcuts"
+      ],
+      "validation_tools": [
+        "route_tester.py",
+        "ui_validator.py",
+        "access_map_generator.py"
+      ]
+    }
+  },
+  "metadata": {
+    "generated_at": "2025-07-15T10:47:20.691019",
+    "generator_version": "1.0.0",
+    "total_routes_analyzed": 0,
+    "success_rate": "0.0%"
+  }
+}

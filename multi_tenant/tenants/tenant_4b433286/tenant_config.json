@@ -1,0 +1,23 @@
+{
+  "tenant_id": "tenant_4b433286",
+  "tenant_name": "Standard User",
+  "tenant_type": "standard",
+  "resource_limits": {
+    "cpu_cores": 2,
+    "memory_gb": 8,
+    "storage_gb": 100,
+    "concurrent_tasks": 10,
+    "api_calls_per_hour": 1000
+  },
+  "security_policies": {
+    "isolation_level": "STRICT",
+    "data_encryption": true,
+    "access_logging": true,
+    "resource_monitoring": true,
+    "cross_tenant_access": false,
+    "mfa_required": false
+  },
+  "created_date": "2025-07-18T12:02:40.772823",
+  "last_active": "2025-07-18T12:02:40.772823",
+  "is_active": true
+}

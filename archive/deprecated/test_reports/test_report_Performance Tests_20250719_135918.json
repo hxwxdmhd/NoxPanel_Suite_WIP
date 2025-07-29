@@ -1,0 +1,53 @@
+{
+  "execution_id": "c343aecc7127",
+  "suite_name": "Performance Tests",
+  "start_time": "2025-07-19T13:59:18.522996",
+  "end_time": "2025-07-19T13:59:18.674465",
+  "total_duration_seconds": 0.151469,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "timeout": 0,
+    "success_rate_percent": 100.0
+  },
+  "environment": {
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32",
+    "working_directory": "K:\\Project Heimnetz",
+    "environment_variables": {}
+  },
+  "performance_summary": {
+    "total_execution_time": 0.136902,
+    "average_test_duration": 0.136902,
+    "fastest_test": 0.136902,
+    "slowest_test": 0.136902,
+    "tests_over_expected_duration": 0
+  },
+  "test_results": [
+    {
+      "test_case_id": "plugin_loading_performance",
+      "test_case_name": "Plugin Loading Performance",
+      "test_type": "performance",
+      "priority": "medium",
+      "status": "passed",
+      "duration_seconds": 0.0,
+      "output": "{'status': 'passed', 'load_time_seconds': 0.0, 'plugins_loaded': 0}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "health_analysis_performance",
+      "test_case_name": "System Health Analysis Performance",
+      "test_type": "performance",
+      "priority": "medium",
+      "status": "passed",
+      "duration_seconds": 0.136902,
+      "output": "{'status': 'passed', 'analysis_time_seconds': 0.1369023323059082}",
+      "error_message": "",
+      "retry_attempts": 0
+    }
+  ]
+}

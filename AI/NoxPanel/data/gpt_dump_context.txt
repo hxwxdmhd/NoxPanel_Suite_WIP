@@ -1,0 +1,29 @@
+
+# AI Assistant Conversation Context
+
+## Project: NoxPanel v6.0 Enhancement
+- **Type**: AI-powered network administration panel
+- **Language**: Python (Flask framework)
+- **Goal**: Enhanced automation, monitoring, and AI integration
+
+## Key Technologies:
+- Flask web framework
+- SQLite database
+- Bootstrap 5 UI
+- PowerShell automation
+- Docker containerization
+- AI/ML integration
+
+## Recent Conversation Topics:
+1. Blueprint registry system for modular architecture
+2. AI Context Loader plugin development
+3. Enhanced template system with responsive design
+4. Security improvements and access control
+5. Plugin system for extensibility
+
+## Code Patterns:
+- Blueprint-based Flask architecture
+- Dataclass models for configuration
+- Logging with structured messages
+- Error handling with try-catch blocks
+- Template inheritance for UI consistency

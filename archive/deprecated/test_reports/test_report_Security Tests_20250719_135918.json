@@ -1,0 +1,49 @@
+{
+  "execution_id": "ad75b95563b7",
+  "suite_name": "Security Tests",
+  "start_time": "2025-07-19T13:59:18.682001",
+  "end_time": "2025-07-19T13:59:18.690538",
+  "total_duration_seconds": 0.008537,
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "timeout": 0,
+    "success_rate_percent": 100.0
+  },
+  "environment": {
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32",
+    "working_directory": "K:\\Project Heimnetz",
+    "environment_variables": {}
+  },
+  "performance_summary": {
+    "no_performance_data": true
+  },
+  "test_results": [
+    {
+      "test_case_id": "plugin_sandbox_security",
+      "test_case_name": "Plugin Sandbox Security",
+      "test_type": "security",
+      "priority": "critical",
+      "status": "passed",
+      "duration_seconds": 0.0,
+      "output": "{'status': 'passed', 'sandbox_isolation': True}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "admin_privilege_test",
+      "test_case_name": "Administrative Privilege Control",
+      "test_type": "security",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 0.0,
+      "output": "{'status': 'passed', 'admin_tasks': 2, 'user_tasks': 3}",
+      "error_message": "",
+      "retry_attempts": 0
+    }
+  ]
+}

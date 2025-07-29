@@ -1,0 +1,60 @@
+version: 1.0.0
+description: NoxPanel AI Task Registry
+tasks:
+  network_scan:
+    name: Network Scan
+    description: Scan network for devices
+    patterns:
+    - scan\s+network
+    - find\s+devices
+    - discover\s+network
+    - network\s+discovery
+    action: network.scan
+    parameters:
+      network_range: auto
+    response_template: Scanning network for devices...
+  system_health:
+    name: System Health Check
+    description: Check system health and performance
+    patterns:
+    - system\s+health
+    - health\s+check
+    - system\s+status
+    - how.*system.*doing
+    action: system.health_check
+    parameters: {}
+    response_template: Running system health diagnostics...
+  device_status:
+    name: Device Status
+    description: Check status of network devices
+    patterns:
+    - device\s+status
+    - check\s+devices
+    - device\s+health
+    - show\s+devices
+    action: devices.status_check
+    parameters: {}
+    response_template: Checking device status...
+  security_scan:
+    name: Security Scan
+    description: Perform security analysis
+    patterns:
+    - security\s+scan
+    - security\s+check
+    - vulnerability\s+scan
+    - check\s+security
+    action: security.scan
+    parameters:
+      scan_type: basic
+    response_template: Initiating security scan...
+  performance_analysis:
+    name: Performance Analysis
+    description: Analyze system and network performance
+    patterns:
+    - performance\s+analysis
+    - analyze\s+performance
+    - performance\s+check
+    - system\s+performance
+    action: performance.analyze
+    parameters: {}
+    response_template: Analyzing system performance...

@@ -1,0 +1,45 @@
+{
+  "test_name": "ProductionDeployer",
+  "reasoning_chain": [
+    {
+      "timestamp": "2025-07-18T10:23:32.918543",
+      "step": "Test Environment Setup (Windows)",
+      "logic": "Initialize isolated test environment with Windows-compatible encoding",
+      "evidence": "Windows terminal requires ASCII-compatible output for stable test execution",
+      "confidence": 0.95,
+      "test_name": "ProductionDeployer"
+    },
+    {
+      "timestamp": "2025-07-18T10:23:32.923057",
+      "step": "Windows Reasoning Validation Test",
+      "logic": "Validate core reasoning validation mechanism with Windows terminal compatibility",
+      "evidence": "Self-validation prevents circular reasoning errors and ensures cross-platform operation",
+      "confidence": 0.9,
+      "test_name": "ProductionDeployer"
+    }
+  ],
+  "validations": [
+    {
+      "timestamp": "2025-07-18T10:23:32.934091",
+      "type": "Valid Reasoning Test",
+      "result": true,
+      "details": "Clear logical progression was correctly validated",
+      "test_name": "ProductionDeployer"
+    },
+    {
+      "timestamp": "2025-07-18T10:23:32.934091",
+      "type": "Reasoning Structure Test",
+      "result": true,
+      "details": "All 4 reasoning validation flags present",
+      "test_name": "ProductionDeployer"
+    },
+    {
+      "timestamp": "2025-07-18T10:23:32.935089",
+      "type": "Test Cleanup",
+      "result": true,
+      "details": "Test completed in 0.01s with proper cleanup",
+      "test_name": "ProductionDeployer"
+    }
+  ],
+  "generated_at": "2025-07-18T10:23:32.936088"
+}

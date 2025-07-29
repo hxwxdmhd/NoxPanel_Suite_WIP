@@ -1,0 +1,23 @@
+{
+  "tenant_id": "tenant_b6f869fc",
+  "tenant_name": "Professional Team",
+  "tenant_type": "professional",
+  "resource_limits": {
+    "cpu_cores": 4,
+    "memory_gb": 16,
+    "storage_gb": 250,
+    "concurrent_tasks": 25,
+    "api_calls_per_hour": 5000
+  },
+  "security_policies": {
+    "isolation_level": "STRICT",
+    "data_encryption": true,
+    "access_logging": true,
+    "resource_monitoring": true,
+    "cross_tenant_access": false,
+    "mfa_required": true
+  },
+  "created_date": "2025-07-18T12:02:40.743766",
+  "last_active": "2025-07-18T12:02:40.743766",
+  "is_active": true
+}

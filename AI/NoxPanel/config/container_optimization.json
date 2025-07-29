@@ -1,0 +1,7 @@
+{
+  "multi_stage_builds": true,
+  "image_optimization": true,
+  "security_scanning": true,
+  "resource_limits": true,
+  "health_checks": true
+}

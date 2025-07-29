@@ -1,0 +1,82 @@
+{
+  "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\optimized_noxpanel.py",
+  "timestamp": "2025-07-18T11:02:32.674702",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test_create_app_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_create_app_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_create_app_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_not_found_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "error": "valid_error"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_not_found_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "error": "edge_error"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_not_found_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "error": "invalid_error"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_server_error_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "error": "valid_error"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_server_error_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "error": "edge_error"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_server_error_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "error": "invalid_error"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>📊 System Status</h1>
+    <p>Real-time status of NoxPanel Optimized components</p>
+    
+    <h3>🔍 Component Status</h3>
+    <p>✅ Flask Application: {{ status.system|title }}</p>
+    <p>✅ Blueprint System: {{ status.optimization|title }}</p>
+    <p>✅ HTTP Server: Listening on port 5002</p>
+    <p>✅ API Endpoints: Functional</p>
+    <p>✅ UI Pages: Standardized</p>
+    <p>✅ Navigation: Unified</p>
+    
+    <h3>📈 Performance Metrics</h3>
+    <p>Route Success Rate: Target 95%+</p>
+    <p>UI Functionality: Target 100%</p>
+    <p>Last Updated: {{ status.timestamp }}</p>
+    
+    <a href="/" class="btn">← Back to Dashboard</a>
+</div>
+{% endblock %}

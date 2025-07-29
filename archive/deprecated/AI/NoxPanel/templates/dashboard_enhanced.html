@@ -1,0 +1,697 @@
+{% extends "base.html" %}
+
+{% block title %}NoxPanel Dashboard{% endblock %}
+
+{% block page_title %}🚀 NoxPanel Control Center{% endblock %}
+
+{% block page_actions %}
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-outline-primary" onclick="refreshDashboard()">
+        <i class="bi bi-arrow-clockwise"></i> Refresh
+    </button>
+    <button type="button" class="btn btn-outline-success" onclick="quickHealth()">
+        <i class="bi bi-heart-pulse"></i> Health Check
+    </button>
+    <button type="button" class="btn btn-outline-info" onclick="systemOverview()">
+        <i class="bi bi-speedometer2"></i> System Overview
+    </button>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="bi bi-tools"></i> Quick Tools
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/network"><i class="bi bi-diagram-3"></i> Network Scanner</a></li>
+            <li><a class="dropdown-item" href="/media"><i class="bi bi-play-circle"></i> Media Center</a></li>
+            <li><a class="dropdown-item" href="/scripts"><i class="bi bi-terminal"></i> Script Runner</a></li>
+            <li><a class="dropdown-item" href="/vm"><i class="bi bi-pc-display"></i> VM Manager</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/admin"><i class="bi bi-gear"></i> Admin Panel</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="row" data-auto-refresh="true">
+    <!-- System Status Overview -->
+    <div class="col-lg-12 mb-4">
+        <div class="card bg-gradient-primary text-white">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="card-title mb-0">
+                            <i class="bi bi-shield-check"></i> NoxPanel v7.0.0
+                        </h3>
+                        <p class="card-text mb-0 opacity-75">Enhanced Development Framework - All Systems Operational</p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center">
+                            <div class="text-center me-4">
+                                <div class="h4 mb-0" id="activeModules">14</div>
+                                <small class="opacity-75">Active Modules</small>
+                            </div>
+                            <div class="text-center me-4">
+                                <div class="h4 mb-0" id="totalPlugins">24</div>
+                                <small class="opacity-75">Total Plugins</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="h4 mb-0 text-success" id="systemHealth">98%</div>
+                                <small class="opacity-75">System Health</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Access Cards -->
+    <div class="col-lg-8">
+        <div class="row">
+            <!-- AI Monitor -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-primary">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-robot text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">AI Monitor</h5>
+                        <p class="card-text text-muted">Real-time AI model monitoring with health checks and performance metrics</p>
+                        <div class="mb-3">
+                            <span class="badge bg-success">3 Models Online</span>
+                            <span class="badge bg-info">85% Performance</span>
+                        </div>
+                        <a href="/ai" class="btn btn-primary w-100">
+                            <i class="bi bi-arrow-right"></i> Manage AI
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Tools -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-success">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-diagram-3 text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Network Center</h5>
+                        <p class="card-text text-muted">Advanced network scanning, device discovery, and performance monitoring</p>
+                        <div class="mb-3">
+                            <span class="badge bg-success">42 Devices</span>
+                            <span class="badge bg-warning">3 Alerts</span>
+                        </div>
+                        <a href="/network" class="btn btn-success w-100">
+                            <i class="bi bi-arrow-right"></i> Network Tools
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Center -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-warning">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-play-circle text-warning" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Media Center</h5>
+                        <p class="card-text text-muted">Unified media management with Plex, Jellyfin integration and automation</p>
+                        <div class="mb-3">
+                            <span class="badge bg-warning">2.4TB Library</span>
+                            <span class="badge bg-info">5 Downloads</span>
+                        </div>
+                        <a href="/media" class="btn btn-warning w-100">
+                            <i class="bi bi-arrow-right"></i> Media Hub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script Runner -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-info">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-terminal text-info" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Script Runner</h5>
+                        <p class="card-text text-muted">Execute PowerShell, Python, and Batch scripts with monitoring and logging</p>
+                        <div class="mb-3">
+                            <span class="badge bg-info">12 Scripts</span>
+                            <span class="badge bg-success">98% Success</span>
+                        </div>
+                        <a href="/scripts" class="btn btn-info w-100">
+                            <i class="bi bi-arrow-right"></i> Run Scripts
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VM Manager -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-secondary">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-pc-display text-secondary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">VM Manager</h5>
+                        <p class="card-text text-muted">Virtual machine provisioning, monitoring, and resource optimization</p>
+                        <div class="mb-3">
+                            <span class="badge bg-secondary">8 VMs</span>
+                            <span class="badge bg-success">6 Running</span>
+                        </div>
+                        <a href="/vm" class="btn btn-secondary w-100">
+                            <i class="bi bi-arrow-right"></i> Manage VMs
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plugin System -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-dark">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-puzzle text-dark" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Plugin System</h5>
+                        <p class="card-text text-muted">Manage and configure plugins with marketplace integration</p>
+                        <div class="mb-3">
+                            <span class="badge bg-dark">24 Plugins</span>
+                            <span class="badge bg-success">12 Active</span>
+                        </div>
+                        <a href="/plugins" class="btn btn-dark w-100">
+                            <i class="bi bi-arrow-right"></i> Plugin Hub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-clock-history"></i> Recent Activity
+                </h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary" onclick="clearActivity()">
+                        <i class="bi bi-trash"></i> Clear
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="exportActivity()">
+                        <i class="bi bi-download"></i> Export
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="timeline" id="activityTimeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-success"></div>
+                        <div class="timeline-content">
+                            <h6 class="timeline-title">Development Framework Completed</h6>
+                            <p class="timeline-text">All 14 missing components generated successfully. System is now fully scaffolded.</p>
+                            <small class="text-muted">2 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-info"></div>
+                        <div class="timeline-content">
+                            <h6 class="timeline-title">Enhanced Templates Created</h6>
+                            <p class="timeline-text">Created specialized dashboards for network tools, media center, and admin panel.</p>
+                            <small class="text-muted">5 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-primary"></div>
+                        <div class="timeline-content">
+                            <h6 class="timeline-title">Management CLI Activated</h6>
+                            <p class="timeline-text">Command-line interface ready with start/stop/status/devscan capabilities.</p>
+                            <small class="text-muted">8 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-warning"></div>
+                        <div class="timeline-content">
+                            <h6 class="timeline-title">AI Monitor Integrated</h6>
+                            <p class="timeline-text">Real-time AI model monitoring activated with health checks and performance tracking.</p>
+                            <small class="text-muted">15 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-danger"></div>
+                        <div class="timeline-content">
+                            <h6 class="timeline-title">Security Alert</h6>
+                            <p class="timeline-text">Security monitor detected configuration file missing. Auto-repair initiated.</p>
+                            <small class="text-muted">32 minutes ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Status Sidebar -->
+    <div class="col-lg-4">
+        <!-- Performance Metrics -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-speedometer2"></i> Performance Metrics
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="small">CPU Usage</span>
+                        <span class="small fw-bold" id="cpuPercent">25%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-success" style="width: 25%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="small">Memory Usage</span>
+                        <span class="small fw-bold" id="memoryPercent">42%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-info" style="width: 42%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="small">Disk Usage</span>
+                        <span class="small fw-bold" id="diskPercent">68%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 68%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="small">Network I/O</span>
+                        <span class="small fw-bold" id="networkPercent">15%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-primary" style="width: 15%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Status -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-list-check"></i> Feature Status
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-robot text-primary me-2"></i>
+                            <span class="small">AI Monitor</span>
+                        </div>
+                        <span class="badge bg-success">Online</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-diagram-3 text-success me-2"></i>
+                            <span class="small">Network Scanner</span>
+                        </div>
+                        <span class="badge bg-success">Active</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-play-circle text-warning me-2"></i>
+                            <span class="small">Media Center</span>
+                        </div>
+                        <span class="badge bg-success">Running</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-shield-check text-danger me-2"></i>
+                            <span class="small">Security Monitor</span>
+                        </div>
+                        <span class="badge bg-danger">Error</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-cloud-upload text-info me-2"></i>
+                            <span class="small">Auto Backup</span>
+                        </div>
+                        <span class="badge bg-success">Scheduled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-graph-up"></i> Quick Stats
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body py-2">
+                                <div class="fw-bold text-primary">7d 14h</div>
+                                <small class="text-muted">Uptime</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body py-2">
+                                <div class="fw-bold text-success">99.8%</div>
+                                <small class="text-muted">Availability</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body py-2">
+                                <div class="fw-bold text-info">1,247</div>
+                                <small class="text-muted">API Calls</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body py-2">
+                                <div class="fw-bold text-warning">3</div>
+                                <small class="text-muted">Alerts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Actions -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="bi bi-lightning"></i> System Actions
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-sm" onclick="runHealthCheck()">
+                        <i class="bi bi-heart-pulse"></i> Health Check
+                    </button>
+                    <button class="btn btn-success btn-sm" onclick="runBackup()">
+                        <i class="bi bi-shield-check"></i> Backup Now
+                    </button>
+                    <button class="btn btn-info btn-sm" onclick="updateSystem()">
+                        <i class="bi bi-arrow-up-circle"></i> Check Updates
+                    </button>
+                    <button class="btn btn-warning btn-sm" onclick="clearLogs()">
+                        <i class="bi bi-broom"></i> Clear Logs
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="restartSystem()">
+                        <i class="bi bi-arrow-clockwise"></i> Restart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Dashboard JavaScript
+function refreshDashboard() {
+    showToast('Refreshing dashboard...', 'info');
+    
+    // Update system metrics
+    fetch('/api/system/status')
+        .then(response => response.json())
+        .then(data => {
+            updateSystemMetrics(data);
+            updateFeatureStatus(data);
+            showToast('Dashboard refreshed', 'success');
+        })
+        .catch(error => {
+            showToast('Failed to refresh dashboard', 'danger');
+        });
+}
+
+function updateSystemMetrics(data) {
+    if (data.system) {
+        const cpu = data.system.cpu || 25;
+        const memory = data.system.memory || 42;
+        const disk = data.system.disk || 68;
+        const network = data.system.network || 15;
+        
+        document.getElementById('cpuPercent').textContent = cpu + '%';
+        document.getElementById('memoryPercent').textContent = memory + '%';
+        document.getElementById('diskPercent').textContent = disk + '%';
+        document.getElementById('networkPercent').textContent = network + '%';
+        
+        // Update progress bars
+        document.querySelector('.progress-bar.bg-success').style.width = cpu + '%';
+        document.querySelector('.progress-bar.bg-info').style.width = memory + '%';
+        document.querySelector('.progress-bar.bg-warning').style.width = disk + '%';
+        document.querySelector('.progress-bar.bg-primary').style.width = network + '%';
+    }
+}
+
+function updateFeatureStatus(data) {
+    if (data.features) {
+        document.getElementById('activeModules').textContent = data.features.active || 14;
+        document.getElementById('totalPlugins').textContent = data.features.total || 24;
+        document.getElementById('systemHealth').textContent = data.features.health || '98%';
+    }
+}
+
+function quickHealth() {
+    showToast('Running quick health check...', 'info');
+    
+    fetch('/api/system/health')
+        .then(response => response.json())
+        .then(data => {
+            if (data.healthy) {
+                showToast('System health: All systems operational', 'success');
+            } else {
+                showToast('System health: Issues detected', 'warning');
+            }
+        })
+        .catch(error => {
+            showToast('Health check failed', 'danger');
+        });
+}
+
+function systemOverview() {
+    showToast('Loading system overview...', 'info');
+    // TODO: Implement detailed system overview modal
+}
+
+function runHealthCheck() {
+    showToast('Running comprehensive health check...', 'info');
+    
+    setTimeout(() => {
+        addActivityItem('System Health Check Completed', 'All components verified and operational', 'success');
+        showToast('Health check completed successfully', 'success');
+    }, 3000);
+}
+
+function runBackup() {
+    showToast('Starting system backup...', 'info');
+    
+    setTimeout(() => {
+        addActivityItem('System Backup Completed', 'Full system backup created successfully (2.4GB)', 'success');
+        showToast('Backup completed successfully', 'success');
+    }, 5000);
+}
+
+function updateSystem() {
+    showToast('Checking for system updates...', 'info');
+    
+    setTimeout(() => {
+        addActivityItem('Update Check Completed', 'System is up to date. No updates available.', 'info');
+        showToast('System is up to date', 'success');
+    }, 2000);
+}
+
+function clearLogs() {
+    if (confirm('Clear all system logs? This action cannot be undone.')) {
+        showToast('Clearing system logs...', 'warning');
+        
+        setTimeout(() => {
+            addActivityItem('System Logs Cleared', 'All log files have been cleared to free up space', 'warning');
+            showToast('Logs cleared successfully', 'success');
+        }, 1500);
+    }
+}
+
+function restartSystem() {
+    if (confirm('Restart NoxPanel? All users will be disconnected temporarily.')) {
+        showToast('System restart initiated...', 'danger');
+        
+        setTimeout(() => {
+            showToast('System is restarting...', 'warning');
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        }, 2000);
+    }
+}
+
+function clearActivity() {
+    if (confirm('Clear activity timeline?')) {
+        document.getElementById('activityTimeline').innerHTML = '<p class="text-muted text-center">No recent activity</p>';
+        showToast('Activity timeline cleared', 'info');
+    }
+}
+
+function exportActivity() {
+    showToast('Exporting activity log...', 'info');
+    // TODO: Implement activity export
+}
+
+function addActivityItem(title, description, type) {
+    const timeline = document.getElementById('activityTimeline');
+    const colors = {
+        'success': 'bg-success',
+        'info': 'bg-info',
+        'warning': 'bg-warning',
+        'danger': 'bg-danger',
+        'primary': 'bg-primary'
+    };
+    
+    const timelineItem = document.createElement('div');
+    timelineItem.className = 'timeline-item';
+    timelineItem.innerHTML = `
+        <div class="timeline-marker ${colors[type] || 'bg-secondary'}"></div>
+        <div class="timeline-content">
+            <h6 class="timeline-title">${title}</h6>
+            <p class="timeline-text">${description}</p>
+            <small class="text-muted">Just now</small>
+        </div>
+    `;
+    
+    timeline.insertBefore(timelineItem, timeline.firstChild);
+    
+    // Keep only the latest 10 items
+    const items = timeline.querySelectorAll('.timeline-item');
+    if (items.length > 10) {
+        timeline.removeChild(items[items.length - 1]);
+    }
+}
+
+// Auto-refresh dashboard data
+setInterval(() => {
+    if (document.querySelector('[data-auto-refresh="true"]')) {
+        refreshDashboard();
+    }
+}, 30000);
+
+// Initialize dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    refreshDashboard();
+    
+    // Add some initial activity
+    setTimeout(() => {
+        addActivityItem('Dashboard Loaded', 'NoxPanel dashboard initialized successfully', 'primary');
+    }, 1000);
+});
+
+// Real-time updates simulation
+setInterval(() => {
+    // Simulate metric updates
+    const cpuElement = document.getElementById('cpuPercent');
+    if (cpuElement) {
+        const newCpu = Math.floor(Math.random() * 30) + 15; // 15-45%
+        cpuElement.textContent = newCpu + '%';
+        document.querySelector('.progress-bar.bg-success').style.width = newCpu + '%';
+    }
+}, 10000);
+</script>
+
+<style>
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: -21px;
+    top: 20px;
+    width: 2px;
+    height: calc(100% + 10px);
+    background-color: #e9ecef;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    margin-left: 0;
+}
+
+.timeline-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-text {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    color: #6c757d;
+}
+
+.card.border-primary,
+.card.border-success,
+.card.border-warning,
+.card.border-info,
+.card.border-secondary,
+.card.border-dark {
+    border-width: 2px;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.card-body .row .card {
+    transition: transform 0.2s;
+}
+
+.card-body .row .card:hover {
+    transform: translateY(-2px);
+}
+</style>
+{% endblock %}

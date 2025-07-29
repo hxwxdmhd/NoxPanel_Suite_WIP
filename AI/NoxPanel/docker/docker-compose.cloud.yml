@@ -1,0 +1,39 @@
+networks:
+  noxpanel-network:
+    driver: bridge
+services:
+  db:
+    environment:
+      POSTGRES_DB: noxpanel
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: noxpanel
+    image: postgres:15
+    restart: unless-stopped
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
+  noxpanel-api:
+    depends_on:
+    - db
+    - redis
+    environment:
+      DATABASE_URL: postgresql://noxpanel:password@db:5432/noxpanel
+      ENVIRONMENT: production
+    image: noxpanel/api:latest
+    ports:
+    - 8000:8000
+    restart: unless-stopped
+  noxpanel-dashboard:
+    depends_on:
+    - noxpanel-api
+    environment:
+      REACT_APP_API_URL: http://noxpanel-api:8000
+    image: noxpanel/dashboard:latest
+    ports:
+    - 3000:3000
+    restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+version: '3.8'
+volumes:
+  postgres_data: {}

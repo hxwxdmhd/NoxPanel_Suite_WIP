@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}Import Conversations - Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-upload"></i> Import Conversations</h4>
+                    <p class="mb-0 text-muted">Upload a conversations.json file to automatically extract knowledge items</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="mb-4">
+                            <label for="conversations_file" class="form-label">Select Conversations JSON File</label>
+                            <input type="file" class="form-control" id="conversations_file" name="conversations_file" accept=".json" required>
+                            <div class="form-text">
+                                Upload a conversations.json file exported from ChatGPT or similar AI platforms.
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-info-circle"></i> What will be extracted:</h6>
+                            <ul class="mb-0">
+                                <li><strong>Code Snippets:</strong> Python, Bash, PowerShell, JavaScript, SQL code blocks</li>
+                                <li><strong>Documentation:</strong> Markdown sections and technical explanations</li>
+                                <li><strong>Conversation Summaries:</strong> Overview of each conversation with key topics</li>
+                                <li><strong>Tags and Topics:</strong> Automatically categorized based on content analysis</li>
+                                <li><strong>Best Practices:</strong> Development patterns and recommendations</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6>Expected JSON Format:</h6>
+                            <pre class="bg-light p-3 rounded"><code>{
+  "conversations": [
+    {
+      "id": "conversation_id",
+      "title": "Conversation Title",
+      "create_time": 1234567890,
+      "mapping": {
+        "node_id": {
+          "message": {
+            "author": {"role": "user|assistant"},
+            "content": {"parts": ["message content"]},
+            "create_time": 1234567890
+          }
+        }
+      }
+    }
+  ]
+}</code></pre>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ url_for('knowledge.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-upload"></i> Import Conversations
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Instructions Card -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-question-circle"></i> How to Export Conversations from ChatGPT</h5>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li><strong>Go to ChatGPT Settings:</strong> Click on your profile in the bottom left corner</li>
+                        <li><strong>Navigate to Data Controls:</strong> Select "Data controls" from the menu</li>
+                        <li><strong>Export Data:</strong> Click "Export" next to "Export your data"</li>
+                        <li><strong>Confirm Export:</strong> Click "Confirm export" in the dialog</li>
+                        <li><strong>Download:</strong> You'll receive an email with a download link for your data</li>
+                        <li><strong>Extract conversations.json:</strong> Unzip the downloaded file and locate conversations.json</li>
+                        <li><strong>Upload here:</strong> Use the form above to upload the conversations.json file</li>
+                    </ol>
+
+                    <div class="alert alert-warning mt-3">
+                        <strong>Note:</strong> The export process may take some time depending on your conversation history. 
+                        Large files may take several minutes to process during import.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Data Card -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-cogs"></i> Alternative: Manual Data Entry</h5>
+                </div>
+                <div class="card-body">
+                    <p>If you don't have a conversations.json file, you can manually add knowledge items:</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="{{ url_for('knowledge.add_item') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-plus"></i> Add Single Item
+                        </a>
+                        <button class="btn btn-outline-success" onclick="createSampleData()">
+                            <i class="fas fa-magic"></i> Create Sample Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('conversations_file');
+    
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            // Validate file size (max 50MB)
+            if (file.size > 50 * 1024 * 1024) {
+                alert('File is too large. Maximum size is 50MB.');
+                this.value = '';
+                return;
+            }
+            
+            // Try to validate JSON structure
+            if (file.name.endsWith('.json')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        console.log('JSON structure validated');
+                        
+                        // Show preview of what will be processed
+                        let conversationCount = 0;
+                        if (Array.isArray(data)) {
+                            conversationCount = data.length;
+                        } else if (data.conversations) {
+                            conversationCount = data.conversations.length;
+                        } else {
+                            conversationCount = 1;
+                        }
+                        
+                        showPreview(conversationCount);
+                    } catch (error) {
+                        alert('Invalid JSON file. Please check the file format.');
+                        fileInput.value = '';
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+    });
+});
+
+function showPreview(conversationCount) {
+    const preview = document.createElement('div');
+    preview.className = 'alert alert-success mt-3';
+    preview.innerHTML = `
+        <h6><i class="fas fa-check-circle"></i> File Preview</h6>
+        <p>Ready to process <strong>${conversationCount}</strong> conversation(s).</p>
+        <p class="mb-0">Estimated processing time: ${Math.ceil(conversationCount / 10)} minute(s)</p>
+    `;
+    
+    // Remove any existing preview
+    const existingPreview = document.querySelector('.alert-success');
+    if (existingPreview && existingPreview.innerHTML.includes('File Preview')) {
+        existingPreview.remove();
+    }
+    
+    // Add preview after form
+    document.querySelector('form').appendChild(preview);
+}
+
+function createSampleData() {
+    if (confirm('This will create sample knowledge items for testing. Continue?')) {
+        fetch('/knowledge/api/create_sample', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Sample data created successfully!');
+                window.location.href = '/knowledge/';
+            } else {
+                alert('Error creating sample data: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error creating sample data');
+        });
+    }
+}
+</script>
+{% endblock %}

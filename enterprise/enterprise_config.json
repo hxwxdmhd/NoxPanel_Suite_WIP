@@ -1,0 +1,105 @@
+{
+  "deployment": {
+    "environment": "production",
+    "domain": "heimnetz.enterprise",
+    "ssl_enabled": true,
+    "monitoring_enabled": true,
+    "backup_enabled": true
+  },
+  "database": {
+    "master_db": "postgresql://user:password@localhost:5432/heimnetz_master",
+    "tenant_db_template": "postgresql://user:password@localhost:5432/tenant_{tenant_id}",
+    "redis_url": "redis://localhost:6379",
+    "backup_schedule": "0 2 * * *"
+  },
+  "services": {
+    "tenant_manager": {
+      "port": 5001,
+      "replicas": 2,
+      "resources": {
+        "cpu": "500m",
+        "memory": "512Mi"
+      }
+    },
+    "auth_manager": {
+      "port": 5002,
+      "replicas": 3,
+      "resources": {
+        "cpu": "500m",
+        "memory": "512Mi"
+      }
+    },
+    "resource_monitor": {
+      "port": 5003,
+      "replicas": 2,
+      "resources": {
+        "cpu": "1000m",
+        "memory": "1Gi"
+      }
+    },
+    "web_interface": {
+      "port": 5000,
+      "replicas": 3,
+      "resources": {
+        "cpu": "500m",
+        "memory": "512Mi"
+      }
+    },
+    "api_gateway": {
+      "port": 8000,
+      "replicas": 3,
+      "resources": {
+        "cpu": "1000m",
+        "memory": "1Gi"
+      }
+    },
+    "nginx": {
+      "port": 80,
+      "ssl_port": 443,
+      "replicas": 2,
+      "resources": {
+        "cpu": "200m",
+        "memory": "256Mi"
+      }
+    },
+    "monitoring": {
+      "port": 3000,
+      "replicas": 1,
+      "resources": {
+        "cpu": "500m",
+        "memory": "1Gi"
+      }
+    },
+    "backup": {
+      "replicas": 1,
+      "resources": {
+        "cpu": "200m",
+        "memory": "256Mi"
+      }
+    }
+  },
+  "scaling": {
+    "auto_scaling_enabled": true,
+    "min_replicas": 2,
+    "max_replicas": 10,
+    "cpu_threshold": 70,
+    "memory_threshold": 80
+  },
+  "monitoring": {
+    "prometheus_enabled": true,
+    "grafana_enabled": true,
+    "alertmanager_enabled": true,
+    "log_aggregation": true
+  },
+  "security": {
+    "jwt_secret": "your-jwt-secret-here",
+    "api_rate_limit": {
+      "free": 100,
+      "starter": 1000,
+      "professional": 10000,
+      "enterprise": 100000
+    },
+    "ssl_cert_path": "/etc/ssl/certs/heimnetz.pem",
+    "ssl_key_path": "/etc/ssl/private/heimnetz.key"
+  }
+}

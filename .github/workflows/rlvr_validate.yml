@@ -1,0 +1,20 @@
+jobs:
+  rlvr-validation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install Python + RLVR
+      run: pip install -r requirements.txt\npython rlvr_guardian.py --validate
+    - name: Fail if <90% compliance
+      run: python check_rlvr_score.py --fail-under 90
+name: RLVR Auto Validation
+'on':
+  pull_request:
+    branches:
+    - main
+  push:
+    branches:
+    - main
+    - develop
+  schedule:
+  - cron: 0 2 * * *

@@ -1,0 +1,20 @@
+# Simple Docker Compose for development
+version: '3.8'
+
+services:
+  heimnetz:
+    build: .
+    container_name: heimnetz-dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - heimnetz-dev-data:/app/data
+    environment:
+      - HEIMNETZ_DOCKER=true
+      - HEIMNETZ_DEBUG=true
+      - HEIMNETZ_LOG_LEVEL=DEBUG
+    command: ["python", "main.py", "--web", "--host", "0.0.0.0", "--debug"]
+    
+volumes:
+  heimnetz-dev-data:

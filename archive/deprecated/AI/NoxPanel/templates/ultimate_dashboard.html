@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ config.default_theme if config else 'purple' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="description" content="Ultimate Heimnetz/NoxPanel/NoxGuard Suite v7.0 - AI-Powered Network Management">
+    <title>🚀 Ultimate Suite v{{ config.version if config else '7.0.0' }} — AI-Powered Network Management Dashboard</title>
+    
+    <!-- Enhanced CSS Framework (v6 design + v4 theming) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Ultimate Theme System (v4 theming enhanced) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ultimate-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visual-enhancements.css') }}">
+    
+    <style>
+        /* Ultimate Dashboard Styling - v6 Design + v4 Theming */
+        .ultimate-container {
+            min-height: 100vh;
+            background: var(--bg-primary);
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .ultimate-header {
+            background: linear-gradient(135deg, var(--accent-primary, #8b5cf6), var(--accent-secondary, #3b82f6));
+            border-radius: var(--visual-rhythm, 16px);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ultimate-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .ultimate-header * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .suite-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .suite-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .version-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .suite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .suite-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: var(--visual-rhythm, 16px);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .suite-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-primary);
+        }
+        
+        .suite-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .suite-card:hover::before {
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            display: block;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .card-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+        
+        .card-action {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--visual-rhythm, 8px);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .card-action:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+        
+        .status-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--visual-rhythm, 16px);
+            border: 1px solid var(--border-primary);
+        }
+        
+        .status-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .status-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: block;
+        }
+        
+        .status-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* ADHD-Friendly Enhancements */
+        .adhd-mode .suite-card {
+            border-width: 3px;
+            padding: 2.5rem;
+        }
+        
+        .adhd-mode .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .adhd-mode .card-features li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ultimate-container {
+                padding: 1rem;
+            }
+            
+            .suite-title {
+                font-size: 2rem;
+            }
+            
+            .suite-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .version-badge {
+                position: static;
+                margin-top: 1rem;
+                display: inline-block;
+            }
+        }
+        
+        /* Theme Switcher - Integrated into header */
+        .theme-controls {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-controls button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin: 0.2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .theme-controls button.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border-primary);
+            border-top: 4px solid var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body data-adhd-mode="{{ 'true' if config and config.adhd_friendly else 'false' }}">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+        <div style="margin-bottom: 0.5rem; font-weight: 600; color: white; font-size: 0.8rem;">🎨 Themes</div>
+        <button onclick="setTheme('light')" title="Light Theme" data-theme="light">☀️</button>
+        <button onclick="setTheme('dark')" title="Dark Theme" data-theme="dark">🌙</button>
+        <button onclick="setTheme('purple')" title="Purple Theme" data-theme="purple" class="active">💜</button>
+        <button onclick="setTheme('purple-dark')" title="Purple Dark" data-theme="purple-dark">🌌</button>
+        <button onclick="setTheme('purple-light')" title="Purple Light" data-theme="purple-light">🌸</button>
+        <br>
+        <button onclick="toggleADHD()" title="Toggle ADHD-Friendly Mode" style="margin-top: 0.5rem; width: 100%; font-size: 0.7rem;">
+            🧠 ADHD Mode
+        </button>
+    </div>
+    
+    <!-- Ultimate Dashboard Container -->
+    <div class="ultimate-container">
+        <!-- Header Section -->
+        <header class="ultimate-header">
+            <div class="version-badge">v{{ config.version if config else '7.0.0' }}</div>
+            <h1 class="suite-title">🚀 Ultimate Suite</h1>
+            <p class="suite-subtitle">
+                Heimnetz Network Management • NoxPanel AI Control • NoxGuard Security
+            </p>
+        </header>
+        
+        <!-- System Status -->
+        <div class="status-indicators">
+            <div class="status-item">
+                <span class="status-value" id="aiModelsCount">9</span>
+                <div class="status-label">AI Models Available</div>
+            </div>
+            <div class="status-item">
+                <span class="status-value" id="networkDevices">-</span>
+                <div class="status-label">Network Devices</div>
+            </div>
+            <div class="status-item">
+                <span class="status-value" id="securityLevel">{{ config.security_level if config else 'HIGH' }}</span>
+                <div class="status-label">Security Level</div>
+            </div>
+            <div class="status-item">
+                <span class="status-value" id="systemStatus">ONLINE</span>
+                <div class="status-label">System Status</div>
+            </div>
+        </div>
+        
+        <!-- Suite Components Grid -->
+        <div class="suite-grid">
+            <!-- NoxPanel AI Management -->
+            <div class="suite-card">
+                <i class="fas fa-brain card-icon"></i>
+                <h2 class="card-title">🤖 NoxPanel AI Control</h2>
+                <p class="card-description">
+                    Advanced AI model management with 9 integrated Ollama models. 
+                    ADHD-friendly interface with voice control capabilities.
+                </p>
+                <ul class="card-features">
+                    <li>9 AI Models (Mixtral, Llama3, Phi3, DeepSeek, CodeLlama)</li>
+                    <li>Voice Interface & Chat System</li>
+                    <li>Code Generation & Analysis</li>
+                    <li>ADHD-Optimized Design</li>
+                    <li>Real-time Model Switching</li>
+                </ul>
+                <a href="/noxpanel" class="card-action">
+                    <i class="fas fa-brain"></i> Launch AI Control
+                </a>
+            </div>
+            
+            <!-- Heimnetz Network Management -->
+            <div class="suite-card">
+                <i class="fas fa-network-wired card-icon"></i>
+                <h2 class="card-title">🌐 Heimnetz Network Manager</h2>
+                <p class="card-description">
+                    Comprehensive network device management and monitoring. 
+                    Real-time device discovery and network analysis.
+                </p>
+                <ul class="card-features">
+                    <li>Device Discovery & Monitoring</li>
+                    <li>Network Topology Visualization</li>
+                    <li>Bandwidth Analysis</li>
+                    <li>Configuration Management</li>
+                    <li>MariaDB Integration</li>
+                </ul>
+                <a href="/heimnetz" class="card-action">
+                    <i class="fas fa-network-wired"></i> Manage Network
+                </a>
+            </div>
+            
+            <!-- NoxGuard Security Suite -->
+            <div class="suite-card">
+                <i class="fas fa-shield-alt card-icon"></i>
+                <h2 class="card-title">🛡️ NoxGuard Security</h2>
+                <p class="card-description">
+                    Enterprise-grade security monitoring and threat detection. 
+                    Automated security analysis and response systems.
+                </p>
+                <ul class="card-features">
+                    <li>Real-time Threat Detection</li>
+                    <li>Security Headers & CSP</li>
+                    <li>Automated Incident Response</li>
+                    <li>Vulnerability Scanning</li>
+                    <li>Compliance Monitoring</li>
+                </ul>
+                <a href="/noxguard" class="card-action">
+                    <i class="fas fa-shield-alt"></i> Security Center
+                </a>
+            </div>
+            
+            <!-- System Administration -->
+            <div class="suite-card">
+                <i class="fas fa-cogs card-icon"></i>
+                <h2 class="card-title">⚙️ System Administration</h2>
+                <p class="card-description">
+                    Comprehensive system management and configuration. 
+                    User management, logs, and system monitoring.
+                </p>
+                <ul class="card-features">
+                    <li>User & Role Management</li>
+                    <li>System Log Analysis</li>
+                    <li>Performance Monitoring</li>
+                    <li>Configuration Management</li>
+                    <li>Backup & Recovery</li>
+                </ul>
+                <a href="/admin" class="card-action">
+                    <i class="fas fa-cogs"></i> Admin Panel
+                </a>
+            </div>
+            
+            <!-- API & Integration -->
+            <div class="suite-card">
+                <i class="fas fa-plug card-icon"></i>
+                <h2 class="card-title">🔌 API & Integration</h2>
+                <p class="card-description">
+                    RESTful API access and third-party integrations. 
+                    Plugin system and external service connections.
+                </p>
+                <ul class="card-features">
+                    <li>RESTful API Endpoints</li>
+                    <li>Plugin Architecture</li>
+                    <li>Webhook Integration</li>
+                    <li>External Service Connectors</li>
+                    <li>API Documentation</li>
+                </ul>
+                <a href="/api" class="card-action">
+                    <i class="fas fa-plug"></i> API Center
+                </a>
+            </div>
+            
+            <!-- Documentation & Help -->
+            <div class="suite-card">
+                <i class="fas fa-book card-icon"></i>
+                <h2 class="card-title">📚 Documentation</h2>
+                <p class="card-description">
+                    Comprehensive documentation and help system. 
+                    Tutorials, guides, and troubleshooting resources.
+                </p>
+                <ul class="card-features">
+                    <li>Setup & Installation Guides</li>
+                    <li>API Documentation</li>
+                    <li>Troubleshooting Guides</li>
+                    <li>Video Tutorials</li>
+                    <li>Community Support</li>
+                </ul>
+                <a href="/docs" class="card-action">
+                    <i class="fas fa-book"></i> View Docs
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/enhanced-theme-manager.js') }}"></script>
+    
+    <script>
+        // Ultimate Dashboard JavaScript
+        class UltimateDashboard {
+            constructor() {
+                this.init();
+            }
+            
+            init() {
+                this.hideLoading();
+                this.loadSystemStatus();
+                this.setupEventListeners();
+                this.initializeThemeManager();
+            }
+            
+            hideLoading() {
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('loadingOverlay').style.visibility = 'hidden';
+                    }, 300);
+                }, 500);
+            }
+            
+            async loadSystemStatus() {
+                try {
+                    // Load AI models count
+                    const modelsResponse = await fetch('/api/models');
+                    if (modelsResponse.ok) {
+                        const modelsData = await modelsResponse.json();
+                        document.getElementById('aiModelsCount').textContent = modelsData.total || 9;
+                    }
+                    
+                    // Load network devices
+                    const devicesResponse = await fetch('/api/network/devices');
+                    if (devicesResponse.ok) {
+                        const devicesData = await devicesResponse.json();
+                        document.getElementById('networkDevices').textContent = devicesData.total || 'N/A';
+                    }
+                    
+                    // Load security status
+                    const securityResponse = await fetch('/api/security/status');
+                    if (securityResponse.ok) {
+                        const securityData = await securityResponse.json();
+                        document.getElementById('securityLevel').textContent = securityData.level.toUpperCase();
+                    }
+                    
+                } catch (error) {
+                    console.warn('Status loading failed:', error);
+                }
+            }
+            
+            setupEventListeners() {
+                // Add keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.ctrlKey && e.shiftKey) {
+                        switch (e.key) {
+                            case 'H':
+                                e.preventDefault();
+                                window.location.href = '/heimnetz';
+                                break;
+                            case 'N':
+                                e.preventDefault();
+                                window.location.href = '/noxpanel';
+                                break;
+                            case 'S':
+                                e.preventDefault();
+                                window.location.href = '/noxguard';
+                                break;
+                            case 'T':
+                                e.preventDefault();
+                                this.cycleTheme();
+                                break;
+                        }
+                    }
+                });
+                
+                // Add card hover effects
+                document.querySelectorAll('.suite-card').forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-8px) scale(1.02)';
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0) scale(1)';
+                    });
+                });
+            }
+            
+            initializeThemeManager() {
+                // Enhanced theme manager integration
+                if (window.EnhancedThemeManager) {
+                    this.themeManager = new window.EnhancedThemeManager();
+                }
+            }
+            
+            cycleTheme() {
+                const themes = ['light', 'dark', 'purple', 'purple-dark', 'purple-high-contrast'];
+                const current = document.documentElement.getAttribute('data-theme') || 'purple';
+                const currentIndex = themes.indexOf(current);
+                const nextTheme = themes[(currentIndex + 1) % themes.length];
+                this.setTheme(nextTheme);
+            }
+        }
+        
+        // Theme Management Functions
+        async function setTheme(themeName) {
+            try {
+                // Use enhanced theme manager if available
+                if (window.themeManager) {
+                    window.themeManager.selectTheme(themeName);
+                } else {
+                    // Fallback - apply theme directly
+                    document.documentElement.setAttribute('data-theme', themeName);
+                    localStorage.setItem('preferred-theme', themeName);
+                }
+                
+                // Update active button state
+                document.querySelectorAll('.theme-controls button[data-theme]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`[data-theme="${themeName}"]`)?.classList.add('active');
+                
+                showNotification(`🎨 Theme changed to ${themeName}`, 'success');
+                
+            } catch (error) {
+                console.error('Theme change failed:', error);
+                showNotification('Theme change failed', 'error');
+            }
+        }
+        
+        function toggleADHD() {
+            const body = document.body;
+            const isADHD = body.classList.contains('adhd-mode');
+            
+            if (isADHD) {
+                body.classList.remove('adhd-mode');
+                document.documentElement.setAttribute('data-adhd-mode', 'false');
+                localStorage.setItem('ultimate-adhd', 'false');
+                showNotification('ADHD-friendly mode disabled', 'info');
+            } else {
+                body.classList.add('adhd-mode');
+                document.documentElement.setAttribute('data-adhd-mode', 'true');
+                localStorage.setItem('ultimate-adhd', 'true');
+                showNotification('ADHD-friendly mode enabled', 'success');
+            }
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                right: 2rem;
+                background: var(--bg-card);
+                color: var(--text-primary);
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                border-left: 4px solid var(--accent-primary);
+                box-shadow: var(--shadow-lg);
+                z-index: 10000;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: all 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Animate out
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Initialize dashboard when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.ultimateDashboard = new UltimateDashboard();
+            
+            // Restore theme and ADHD mode from localStorage
+            const savedTheme = localStorage.getItem('ultimate-theme');
+            const savedADHD = localStorage.getItem('ultimate-adhd');
+            
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+            
+            if (savedADHD === 'true') {
+                document.body.classList.add('adhd-mode');
+                document.documentElement.setAttribute('data-adhd-mode', 'true');
+            }
+        });
+        
+        // Service Worker for offline capability
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/js/sw.js').catch(console.error);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+flask
+python-dotenv
+flask-cors
+werkzeug
+psutil
+requests
+pyjwt
+bcrypt
+apscheduler
+pytz
+sqlalchemy

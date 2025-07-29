@@ -1,0 +1,108 @@
+{
+  "execution_id": "32212df908e1",
+  "suite_name": "Enhanced Sandbox Isolation Tests",
+  "start_time": "2025-07-19T13:50:00.525400",
+  "end_time": "2025-07-19T13:50:04.436002",
+  "total_duration_seconds": 3.910602,
+  "summary": {
+    "total": 7,
+    "passed": 6,
+    "failed": 1,
+    "error": 0,
+    "skipped": 0,
+    "timeout": 0,
+    "success_rate_percent": 85.71
+  },
+  "environment": {
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32",
+    "working_directory": "K:\\Project Heimnetz",
+    "environment_variables": {}
+  },
+  "performance_summary": {
+    "total_execution_time": 3.896983,
+    "average_test_duration": 0.5567118571428572,
+    "fastest_test": 0.001,
+    "slowest_test": 2.104644,
+    "tests_over_expected_duration": 0
+  },
+  "test_results": [
+    {
+      "test_case_id": "enhanced_sandbox_basic_init",
+      "test_case_name": "Enhanced Sandbox Basic Initialization",
+      "test_type": "unit",
+      "priority": "critical",
+      "status": "passed",
+      "duration_seconds": 0.001003,
+      "output": "{'status': 'passed', 'sandbox_initialized': True}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "enhanced_sandbox_context_manager",
+      "test_case_name": "Enhanced Sandbox Context Manager",
+      "test_type": "integration",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 0.004998,
+      "output": "{'status': 'passed', 'context_manager_works': True, 'sandbox_id': '680df2884613'}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "enhanced_resource_monitoring",
+      "test_case_name": "Enhanced Resource Monitoring",
+      "test_type": "performance",
+      "priority": "high",
+      "status": "failed",
+      "duration_seconds": 0.742391,
+      "output": "",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "enhanced_plugin_framework_init",
+      "test_case_name": "Enhanced Plugin Framework Initialization",
+      "test_type": "integration",
+      "priority": "critical",
+      "status": "passed",
+      "duration_seconds": 0.001,
+      "output": "{'status': 'passed', 'framework_initialized': True, 'isolation_level': 'strict', 'health_check_passed': True}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "sandbox_violation_detection",
+      "test_case_name": "Sandbox Violation Detection",
+      "test_type": "security",
+      "priority": "critical",
+      "status": "passed",
+      "duration_seconds": 2.104644,
+      "output": "{'status': 'passed', 'violation_caught': True, 'violations_detected': True, 'violation_count': 10}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "isolation_levels_test",
+      "test_case_name": "Isolation Levels Testing",
+      "test_type": "system",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 0.034132,
+      "output": "{'status': 'passed', 'isolation_levels_tested': 4, 'results': {'minimal': {'executed': True, 'result': {'level': 'minimal', 'sandbox_id': '8b581cd37d26'}, 'sandbox_id': '8b581cd37d26'}, 'standard': {'executed': True, 'result': {'level': 'standard', 'sandbox_id': 'd6da5f5b0a64'}, 'sandbox_id': 'd6da5f5b0a64'}, 'strict': {'executed': True, 'result': {'level': 'strict', 'sandbox_id': 'd25b5276b9fd'}, 'sandbox_id': 'd25b5276b9fd'}, 'maximum': {'executed': True, 'result': {'level': 'maximum', 'sandbox_id': '51904f71b66e'}, 'sandbox_id': '51904f71b66e'}}}",
+      "error_message": "",
+      "retry_attempts": 0
+    },
+    {
+      "test_case_id": "auto_recovery_test",
+      "test_case_name": "Automatic Recovery Testing",
+      "test_type": "integration",
+      "priority": "high",
+      "status": "passed",
+      "duration_seconds": 1.008815,
+      "output": "{'status': 'passed', 'auto_recovery_attempted': True, 'recovery_successful': True, 'recovery_history_count': 1}",
+      "error_message": "",
+      "retry_attempts": 0
+    }
+  ]
+}

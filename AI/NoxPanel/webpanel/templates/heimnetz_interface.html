@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="purple">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 Heimnetz Network Manager v7.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-themes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ultimate-dashboard.css') }}">
+    
+    <style>
+        .network-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-primary);
+        }
+        
+        .network-header {
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            border-radius: 16px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .device-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .device-card:hover {
+            border-color: #10b981;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .device-status {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .status-online { background: #10b981; }
+        .status-offline { background: #ef4444; }
+        .status-warning { background: #f59e0b; }
+        
+        .network-topology {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .topology-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .network-node {
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .network-node:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .node-router { top: 50px; left: 50%; transform: translateX(-50%); }
+        .node-switch { bottom: 50px; left: 30%; }
+        .node-pc1 { bottom: 50px; right: 30%; }
+        .node-server { top: 50px; right: 20%; background: #10b981; }
+        
+        .bandwidth-chart {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        
+        .bandwidth-bar {
+            background: var(--bg-secondary);
+            height: 20px;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        
+        .bandwidth-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="network-container">
+        <!-- Header -->
+        <header class="network-header">
+            <h1><i class="fas fa-network-wired"></i> Heimnetz Network Manager</h1>
+            <p>Comprehensive Network Device Management and Monitoring</p>
+            <a href="/" class="btn btn-light mt-2">
+                <i class="fas fa-arrow-left"></i> Back to Suite
+            </a>
+        </header>
+        
+        <!-- Network Status Overview -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="text-success">12</h3>
+                        <p class="mb-0">Devices Online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="text-warning">1</h3>
+                        <p class="mb-0">Device Warning</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="text-info">45.2 Mbps</h3>
+                        <p class="mb-0">Total Bandwidth</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="text-primary">99.8%</h3>
+                        <p class="mb-0">Uptime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Network Topology -->
+        <div class="network-topology">
+            <h3><i class="fas fa-project-diagram"></i> Network Topology</h3>
+            <div class="topology-diagram">
+                <div class="network-node node-router" title="Router (192.168.1.1)">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="network-node node-switch" title="Switch (192.168.1.2)">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="network-node node-pc1" title="PC-1 (192.168.1.100)">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="network-node node-server" title="Server (192.168.1.10)">
+                    <i class="fas fa-server"></i>
+                </div>
+                
+                <!-- Connection lines would be drawn with CSS/SVG in production -->
+                <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--accent-primary); opacity: 0.3;"></div>
+                <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--accent-primary); opacity: 0.3;"></div>
+            </div>
+        </div>
+        
+        <!-- Device List -->
+        <div class="device-grid">
+            <div class="device-card">
+                <h5><i class="fas fa-wifi"></i> Main Router</h5>
+                <p><strong>IP:</strong> 192.168.1.1</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:B7</p>
+                <p><strong>Status:</strong> <span class="device-status status-online"></span>Online</p>
+                <p><strong>Uptime:</strong> 15 days, 3 hours</p>
+                <button class="btn btn-primary btn-sm">Configure</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+            
+            <div class="device-card">
+                <h5><i class="fas fa-network-wired"></i> Gigabit Switch</h5>
+                <p><strong>IP:</strong> 192.168.1.2</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:B8</p>
+                <p><strong>Status:</strong> <span class="device-status status-online"></span>Online</p>
+                <p><strong>Ports:</strong> 8/24 active</p>
+                <button class="btn btn-primary btn-sm">Configure</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+            
+            <div class="device-card">
+                <h5><i class="fas fa-server"></i> Home Server</h5>
+                <p><strong>IP:</strong> 192.168.1.10</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:C1</p>
+                <p><strong>Status:</strong> <span class="device-status status-online"></span>Online</p>
+                <p><strong>Services:</strong> Web, File, Database</p>
+                <button class="btn btn-primary btn-sm">Configure</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+            
+            <div class="device-card">
+                <h5><i class="fas fa-desktop"></i> Workstation-01</h5>
+                <p><strong>IP:</strong> 192.168.1.100</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:D1</p>
+                <p><strong>Status:</strong> <span class="device-status status-online"></span>Online</p>
+                <p><strong>OS:</strong> Windows 11 Pro</p>
+                <button class="btn btn-primary btn-sm">Configure</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+            
+            <div class="device-card">
+                <h5><i class="fas fa-laptop"></i> Laptop-Work</h5>
+                <p><strong>IP:</strong> 192.168.1.101</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:E1</p>
+                <p><strong>Status:</strong> <span class="device-status status-warning"></span>Limited</p>
+                <p><strong>Issue:</strong> Weak signal strength</p>
+                <button class="btn btn-warning btn-sm">Diagnose</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+            
+            <div class="device-card">
+                <h5><i class="fas fa-mobile-alt"></i> Smart Device Hub</h5>
+                <p><strong>IP:</strong> 192.168.1.50</p>
+                <p><strong>MAC:</strong> 00:1B:44:11:3A:F1</p>
+                <p><strong>Status:</strong> <span class="device-status status-online"></span>Online</p>
+                <p><strong>Connected:</strong> 12 IoT devices</p>
+                <button class="btn btn-primary btn-sm">Configure</button>
+                <button class="btn btn-secondary btn-sm">Monitor</button>
+            </div>
+        </div>
+        
+        <!-- Bandwidth Monitoring -->
+        <div class="bandwidth-chart">
+            <h3><i class="fas fa-chart-line"></i> Bandwidth Usage</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Download (↓)</h6>
+                    <div class="bandwidth-bar">
+                        <div class="bandwidth-fill" style="width: 65%;"></div>
+                    </div>
+                    <small>32.5 Mbps / 50 Mbps</small>
+                </div>
+                <div class="col-md-6">
+                    <h6>Upload (↑)</h6>
+                    <div class="bandwidth-bar">
+                        <div class="bandwidth-fill" style="width: 45%;"></div>
+                    </div>
+                    <small>4.5 Mbps / 10 Mbps</small>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h6>Device Usage</h6>
+                <div class="mb-2">
+                    <strong>Home Server:</strong>
+                    <div class="bandwidth-bar">
+                        <div class="bandwidth-fill" style="width: 80%;"></div>
+                    </div>
+                    <small>16.2 Mbps</small>
+                </div>
+                <div class="mb-2">
+                    <strong>Workstation-01:</strong>
+                    <div class="bandwidth-bar">
+                        <div class="bandwidth-fill" style="width: 30%;"></div>
+                    </div>
+                    <small>6.1 Mbps</small>
+                </div>
+                <div class="mb-2">
+                    <strong>Smart Devices:</strong>
+                    <div class="bandwidth-bar">
+                        <div class="bandwidth-fill" style="width: 15%;"></div>
+                    </div>
+                    <small>3.2 Mbps</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate real-time updates
+        setInterval(() => {
+            // Update bandwidth bars with random fluctuations
+            const bars = document.querySelectorAll('.bandwidth-fill');
+            bars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width);
+                const newWidth = Math.max(10, Math.min(90, currentWidth + (Math.random() - 0.5) * 10));
+                bar.style.width = newWidth + '%';
+            });
+        }, 3000);
+        
+        // Device interaction
+        document.querySelectorAll('.device-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.textContent;
+                const deviceName = this.parentElement.querySelector('h5').textContent;
+                alert(`${action} action for ${deviceName} - This will be implemented in the full version!`);
+            });
+        });
+        
+        // Network topology interaction
+        document.querySelectorAll('.network-node').forEach(node => {
+            node.addEventListener('click', function() {
+                const deviceInfo = this.getAttribute('title');
+                alert(`Device Info: ${deviceInfo}\n\nClick to configure or monitor this device.`);
+            });
+        });
+    </script>
+</body>
+</html>

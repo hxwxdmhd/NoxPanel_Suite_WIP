@@ -1,0 +1,62 @@
+{
+  "generated_at": "2025-07-19T13:32:31.902004",
+  "framework_version": "1.0.0",
+  "total_suites": 5,
+  "suite_summaries": {
+    "plugin_framework_tests": {
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "timeout": 0,
+      "success_rate_percent": 100.0
+    },
+    "sysadmin_copilot_tests": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "timeout": 0,
+      "success_rate_percent": 100.0
+    },
+    "system_integration_tests": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "timeout": 0,
+      "success_rate_percent": 100.0
+    },
+    "performance_tests": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "timeout": 0,
+      "success_rate_percent": 100.0
+    },
+    "security_tests": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0,
+      "timeout": 0,
+      "success_rate_percent": 100.0
+    }
+  },
+  "overall_summary": {
+    "total_tests": 13,
+    "passed": 13,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "timeout": 0,
+    "total_duration_seconds": 1.488458,
+    "success_rate_percent": 100.0
+  }
+}

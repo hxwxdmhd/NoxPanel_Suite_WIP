@@ -1,0 +1,486 @@
+{% extends "base.html" %}
+
+{% block title %}Job Scheduler - NoxPanel{% endblock %}
+
+{% block extra_css %}
+<style>
+.scheduler-card {
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+}
+
+.scheduler-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+
+.job-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.job-status.running {
+    background: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+.job-status.scheduled {
+    background: #007bff;
+}
+
+.job-status.failed {
+    background: #dc3545;
+}
+
+.job-status.inactive {
+    background: #6c757d;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid var(--bg-color);
+}
+
+.timeline-item.success::before {
+    background: #28a745;
+}
+
+.timeline-item.failed::before {
+    background: #dc3545;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scheduler-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline::before {
+        left: 0.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -1rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 mb-0">⏰ Job Scheduler</h1>
+                    <p class="text-muted mb-0">Automated task scheduling and execution</p>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary" onclick="refreshDashboard()">
+                        <i class="fas fa-sync-alt me-2"></i>Refresh
+                    </button>
+                    <a href="{{ url_for('scheduler.create_job') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Schedule Job
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stat-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-0">{{ stats.total_jobs or 0 }}</h2>
+                        <p class="mb-0 opacity-75">Total Jobs</p>
+                    </div>
+                    <i class="fas fa-tasks stat-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-0">{{ stats.successful_today or 0 }}</h2>
+                        <p class="mb-0 opacity-75">Success Today</p>
+                    </div>
+                    <i class="fas fa-check-circle stat-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #dc3545, #e83e8c);">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-0">{{ stats.failed_today or 0 }}</h2>
+                        <p class="mb-0 opacity-75">Failed Today</p>
+                    </div>
+                    <i class="fas fa-exclamation-triangle stat-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #17a2b8, #6610f2);">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-0">{{ stats.scheduled_jobs or 0 }}</h2>
+                        <p class="mb-0 opacity-75">Scheduled</p>
+                    </div>
+                    <i class="fas fa-clock stat-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scheduler Status -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="scheduler-card p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="job-status {{ 'running' if stats.scheduler_running else 'inactive' }} me-3"></div>
+                        <div>
+                            <h5 class="mb-0">Scheduler Status</h5>
+                            <small class="text-muted">
+                                {{ 'Running' if stats.scheduler_running else 'Stopped' }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        {% if stats.scheduler_running %}
+                        <button class="btn btn-outline-danger" onclick="stopScheduler()">
+                            <i class="fas fa-stop me-2"></i>Stop Scheduler
+                        </button>
+                        {% else %}
+                        <button class="btn btn-outline-success" onclick="startScheduler()">
+                            <i class="fas fa-play me-2"></i>Start Scheduler
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Upcoming Jobs -->
+        <div class="col-lg-6 mb-4">
+            <div class="scheduler-card p-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">
+                        <i class="fas fa-calendar-alt text-primary me-2"></i>Upcoming Jobs
+                    </h5>
+                    <a href="{{ url_for('scheduler.jobs_list') }}" class="btn btn-sm btn-outline-primary">
+                        View All
+                    </a>
+                </div>
+                
+                {% if upcoming_jobs %}
+                <div class="list-group">
+                    {% for job in upcoming_jobs %}
+                    <div class="list-group-item border-0 d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">{{ job.name }}</div>
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>
+                                Next: {{ job.next_run.split('.')[0] if job.next_run else 'Unknown' }}
+                            </small>
+                        </div>
+                        <span class="badge bg-{{ 'primary' if job.schedule_type == 'interval' else 'info' }}">
+                            {{ job.schedule_type.title() }}
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">No upcoming jobs scheduled</p>
+                    <a href="{{ url_for('scheduler.create_job') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Schedule First Job
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="col-lg-6 mb-4">
+            <div class="scheduler-card p-3">
+                <h5 class="mb-3">
+                    <i class="fas fa-history text-primary me-2"></i>Recent Activity
+                </h5>
+                
+                {% if recent_runs %}
+                <div class="timeline">
+                    {% for run in recent_runs %}
+                    <div class="timeline-item {{ run.status }}">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="fw-bold">{{ run.job_name or run.job_id }}</div>
+                                <small class="text-muted">
+                                    {{ run.started_at.split('.')[0] if run.started_at else 'Unknown' }}
+                                </small>
+                                {% if run.duration_seconds %}
+                                <small class="text-muted d-block">
+                                    Duration: {{ "%.2f"|format(run.duration_seconds) }}s
+                                </small>
+                                {% endif %}
+                            </div>
+                            <span class="badge bg-{{ 'success' if run.status == 'success' else 'danger' }}">
+                                {{ run.status.title() }}
+                            </span>
+                        </div>
+                        {% if run.error_output %}
+                        <div class="mt-2">
+                            <small class="text-danger">
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                {{ run.error_output[:100] }}{% if run.error_output|length > 100 %}...{% endif %}
+                            </small>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-history fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">No recent activity</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-12">
+            <div class="scheduler-card p-3">
+                <h5 class="mb-3">
+                    <i class="fas fa-bolt text-primary me-2"></i>Quick Actions
+                </h5>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="{{ url_for('scheduler.create_job') }}" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-plus fa-2x mb-2 d-block"></i>
+                            Schedule New Job
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="{{ url_for('scheduler.jobs_list') }}" class="btn btn-outline-success w-100">
+                            <i class="fas fa-list fa-2x mb-2 d-block"></i>
+                            Manage Jobs
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <button class="btn btn-outline-info w-100" onclick="viewJobHistory()">
+                            <i class="fas fa-chart-line fa-2x mb-2 d-block"></i>
+                            View Reports
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <button class="btn btn-outline-warning w-100" onclick="exportJobs()">
+                            <i class="fas fa-download fa-2x mb-2 d-block"></i>
+                            Export Jobs
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Auto-refresh dashboard every 30 seconds
+setInterval(refreshDashboard, 30000);
+
+function refreshDashboard() {
+    window.location.reload();
+}
+
+function refreshData() {
+    // Called by auto-refresh in base template
+    refreshDashboard();
+}
+
+function startScheduler() {
+    fetch('/scheduler/api/start', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            showFlashMessage('Scheduler started successfully', 'success');
+            setTimeout(refreshDashboard, 1000);
+        } else {
+            showFlashMessage('Error: ' + data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error starting scheduler:', error);
+        showFlashMessage('Failed to start scheduler', 'error');
+    });
+}
+
+function stopScheduler() {
+    if (!confirm('Are you sure you want to stop the scheduler? All scheduled jobs will be paused.')) {
+        return;
+    }
+    
+    fetch('/scheduler/api/stop', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            showFlashMessage('Scheduler stopped successfully', 'success');
+            setTimeout(refreshDashboard, 1000);
+        } else {
+            showFlashMessage('Error: ' + data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error stopping scheduler:', error);
+        showFlashMessage('Failed to stop scheduler', 'error');
+    });
+}
+
+function viewJobHistory() {
+    window.location.href = '/scheduler/history';
+}
+
+function exportJobs() {
+    fetch('/scheduler/api/export')
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'scheduled_jobs.json';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            showFlashMessage('Jobs exported successfully', 'success');
+        })
+        .catch(error => {
+            console.error('Error exporting jobs:', error);
+            showFlashMessage('Failed to export jobs', 'error');
+        });
+}
+
+// Add keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey || e.metaKey) {
+        switch(e.key) {
+            case 'n':
+                e.preventDefault();
+                window.location.href = "{{ url_for('scheduler.create_job') }}";
+                break;
+            case 'j':
+                e.preventDefault();
+                window.location.href = "{{ url_for('scheduler.jobs_list') }}";
+                break;
+        }
+    }
+});
+
+// Show loading states
+document.querySelectorAll('.btn').forEach(btn => {
+    if (btn.onclick || btn.href) {
+        btn.addEventListener('click', function(e) {
+            if (this.href && !this.href.includes('javascript:')) return;
+            
+            const icon = this.querySelector('i');
+            if (icon) {
+                const originalClass = icon.className;
+                icon.className = 'fas fa-spinner fa-spin me-2';
+                
+                setTimeout(() => {
+                    icon.className = originalClass;
+                }, 2000);
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+  "plugins": {},
+  "categories": [
+    "Security",
+    "Monitoring",
+    "Network",
+    "Analytics",
+    "Automation",
+    "Integration",
+    "Utilities",
+    "Development"
+  ],
+  "featured_plugins": [],
+  "trending_plugins": [],
+  "new_plugins": [],
+  "statistics": {
+    "total_plugins": 0,
+    "total_downloads": 0,
+    "active_developers": 0
+  }
+}

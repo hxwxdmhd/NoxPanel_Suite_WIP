@@ -1,0 +1,3781 @@
+{
+  "phase": "RLVR Phase 2 Comprehensive Enhancement",
+  "timestamp": "2025-07-18T11:02:53.189577",
+  "execution_time": 49.76740288734436,
+  "files_processed": 417,
+  "total_functions_analyzed": 2266,
+  "functions_enhanced": 2240,
+  "test_cases_generated": 6720,
+  "compliance_improvement": 98.85260370697264,
+  "current_compliance_rate": 8.179889109453077,
+  "target_compliance": 60.0,
+  "compliance_gap": 51.82011089054692,
+  "estimated_completion": "2-3 days at current enhancement rate",
+  "enhancement_results": [
+    {
+      "module": "ai_model_integration.py",
+      "timestamp": "2025-07-18T11:02:07.617258",
+      "functions_analyzed": 14,
+      "functions_enhanced": 14,
+      "test_cases_generated": 42,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "api_bridge.py",
+      "timestamp": "2025-07-18T11:02:07.923941",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "autonomous_system_manager.py",
+      "timestamp": "2025-07-18T11:02:07.938473",
+      "functions_analyzed": 37,
+      "functions_enhanced": 37,
+      "test_cases_generated": 111,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "autoscaler.py",
+      "timestamp": "2025-07-18T11:02:08.607091",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "auto_status_saver.py",
+      "timestamp": "2025-07-18T11:02:08.757865",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "auto_status_saver_windows.py",
+      "timestamp": "2025-07-18T11:02:08.849056",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "cloud_native_deployment.py",
+      "timestamp": "2025-07-18T11:02:08.938748",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "debug_response_time.py",
+      "timestamp": "2025-07-18T11:02:08.943262",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "deploy_kubernetes.py",
+      "timestamp": "2025-07-18T11:02:08.953294",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "deploy_production.py",
+      "timestamp": "2025-07-18T11:02:08.957304",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "deploy_simple_production.py",
+      "timestamp": "2025-07-18T11:02:08.960301",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "distributed_computing_framework.py",
+      "timestamp": "2025-07-18T11:02:08.975371",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "enterprise_security.py",
+      "timestamp": "2025-07-18T11:02:08.986900",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "init_noxvalidator.py",
+      "timestamp": "2025-07-18T11:02:08.990896",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "integrated_web_server.py",
+      "timestamp": "2025-07-18T11:02:08.998428",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "integrate_heimnetz.py",
+      "timestamp": "2025-07-18T11:02:09.000428",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "launch_server.py",
+      "timestamp": "2025-07-18T11:02:09.221073",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "main.py",
+      "timestamp": "2025-07-18T11:02:09.223589",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "microservices_architecture.py",
+      "timestamp": "2025-07-18T11:02:09.226597",
+      "functions_analyzed": 19,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 94.73684210526315,
+      "status": "success"
+    },
+    {
+      "module": "performance_server.py",
+      "timestamp": "2025-07-18T11:02:09.570524",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "plugin_architecture.py",
+      "timestamp": "2025-07-18T11:02:09.573031",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_autoscaler.py",
+      "timestamp": "2025-07-18T11:02:09.576046",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_comprehensive_test_framework.py",
+      "timestamp": "2025-07-18T11:02:09.624670",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_emergency_remediation.py",
+      "timestamp": "2025-07-18T11:02:09.968425",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_enhanced_autoscaler_v3.py",
+      "timestamp": "2025-07-18T11:02:10.101778",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_enhanced_deployer_v3.py",
+      "timestamp": "2025-07-18T11:02:10.247163",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_intelligent_monitor_v3.py",
+      "timestamp": "2025-07-18T11:02:10.447681",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_master_dashboard.py",
+      "timestamp": "2025-07-18T11:02:10.609111",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_master_dashboard_fixed.py",
+      "timestamp": "2025-07-18T11:02:10.612619",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_master_dashboard_v4.py",
+      "timestamp": "2025-07-18T11:02:10.758056",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_orchestration_controller_v3.py",
+      "timestamp": "2025-07-18T11:02:10.889365",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_phase2_enhancer.py",
+      "timestamp": "2025-07-18T11:02:10.966036",
+      "functions_analyzed": 11,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 90.9090909090909,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_production_deployer.py",
+      "timestamp": "2025-07-18T11:02:11.135439",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_production_deployer_corrected.py",
+      "timestamp": "2025-07-18T11:02:11.205629",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_validator_agent.py",
+      "timestamp": "2025-07-18T11:02:11.272774",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "rlvr_windows_compatible_test_framework.py",
+      "timestamp": "2025-07-18T11:02:11.403113",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "simple_status_saver.py",
+      "timestamp": "2025-07-18T11:02:11.621188",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "start_secure_server.py",
+      "timestamp": "2025-07-18T11:02:11.846275",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "start_status_service.py",
+      "timestamp": "2025-07-18T11:02:11.849279",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "status_saver_service.py",
+      "timestamp": "2025-07-18T11:02:11.859798",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "test_localhost_vs_ip.py",
+      "timestamp": "2025-07-18T11:02:11.884373",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "test_server_startup.py",
+      "timestamp": "2025-07-18T11:02:11.887379",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "ultimate_suite_enhanced_v10.py",
+      "timestamp": "2025-07-18T11:02:11.889378",
+      "functions_analyzed": 15,
+      "functions_enhanced": 15,
+      "test_cases_generated": 45,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "ultimate_suite_optimizer.py",
+      "timestamp": "2025-07-18T11:02:12.241349",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "ultimate_webapp_v10.py",
+      "timestamp": "2025-07-18T11:02:12.261391",
+      "functions_analyzed": 31,
+      "functions_enhanced": 31,
+      "test_cases_generated": 93,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "ultra_fast_server.py",
+      "timestamp": "2025-07-18T11:02:12.793401",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "ultra_secure_server.py",
+      "timestamp": "2025-07-18T11:02:12.795415",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "validate_optimization.py",
+      "timestamp": "2025-07-18T11:02:12.806941",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\advanced_ai_orchestrator.py",
+      "timestamp": "2025-07-18T11:02:12.866646",
+      "functions_analyzed": 23,
+      "functions_enhanced": 23,
+      "test_cases_generated": 69,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\advanced_analytics_dashboard.py",
+      "timestamp": "2025-07-18T11:02:13.256099",
+      "functions_analyzed": 26,
+      "functions_enhanced": 26,
+      "test_cases_generated": 78,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\advanced_security_monitor.py",
+      "timestamp": "2025-07-18T11:02:13.719207",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\init_noxvalidator_advanced.py",
+      "timestamp": "2025-07-18T11:02:13.722718",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\nox_bootstrap.py",
+      "timestamp": "2025-07-18T11:02:13.894705",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\start_consolidated_web.py",
+      "timestamp": "2025-07-18T11:02:14.077163",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "copilot\\audit_report_generator.py",
+      "timestamp": "2025-07-18T11:02:14.095211",
+      "functions_analyzed": 16,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\main.py",
+      "timestamp": "2025-07-18T11:02:14.392828",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\run_all_tests.py",
+      "timestamp": "2025-07-18T11:02:14.394341",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "nox_assistant\\assistant.py",
+      "timestamp": "2025-07-18T11:02:14.398348",
+      "functions_analyzed": 19,
+      "functions_enhanced": 19,
+      "test_cases_generated": 57,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "nox_assistant\\llm_wrapper.py",
+      "timestamp": "2025-07-18T11:02:14.731134",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "nox_assistant\\voice_interface.py",
+      "timestamp": "2025-07-18T11:02:14.899057",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ai_monitor.py",
+      "timestamp": "2025-07-18T11:02:15.100554",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ai_routes.py",
+      "timestamp": "2025-07-18T11:02:15.104078",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\chatgpt_infrastructure_integration.py",
+      "timestamp": "2025-07-18T11:02:15.296144",
+      "functions_analyzed": 54,
+      "functions_enhanced": 54,
+      "test_cases_generated": 162,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\clean_start.py",
+      "timestamp": "2025-07-18T11:02:16.273688",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\comprehensive_launcher.py",
+      "timestamp": "2025-07-18T11:02:16.411509",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\conversation_processor.py",
+      "timestamp": "2025-07-18T11:02:16.415023",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\debug_routes.py",
+      "timestamp": "2025-07-18T11:02:16.644141",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\deep_analysis_engine.py",
+      "timestamp": "2025-07-18T11:02:16.654660",
+      "functions_analyzed": 22,
+      "functions_enhanced": 22,
+      "test_cases_generated": 66,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\deep_analysis_web.py",
+      "timestamp": "2025-07-18T11:02:17.045028",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\demo_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:17.047034",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\demo_ultimate_suite_v9.py",
+      "timestamp": "2025-07-18T11:02:17.096152",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\devops_automation_engine.py",
+      "timestamp": "2025-07-18T11:02:17.183330",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\dev_scanner.py",
+      "timestamp": "2025-07-18T11:02:17.361343",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\diagnostic_repair.py",
+      "timestamp": "2025-07-18T11:02:17.372357",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\direct_test_v9.py",
+      "timestamp": "2025-07-18T11:02:17.647029",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_admin_panel.py",
+      "timestamp": "2025-07-18T11:02:17.649026",
+      "functions_analyzed": 41,
+      "functions_enhanced": 40,
+      "test_cases_generated": 120,
+      "compliance_improvement": 97.5609756097561,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_gateway.py",
+      "timestamp": "2025-07-18T11:02:19.405306",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_master_dashboard.py",
+      "timestamp": "2025-07-18T11:02:19.410314",
+      "functions_analyzed": 12,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 91.66666666666666,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_network_scanner.py",
+      "timestamp": "2025-07-18T11:02:20.078875",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_plugin_system.py",
+      "timestamp": "2025-07-18T11:02:20.081876",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\enhanced_sysadmin_copilot.py",
+      "timestamp": "2025-07-18T11:02:20.106443",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\fixed_system_metrics.py",
+      "timestamp": "2025-07-18T11:02:20.154032",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\fix_logging.py",
+      "timestamp": "2025-07-18T11:02:20.162046",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\gate5_progression.py",
+      "timestamp": "2025-07-18T11:02:20.168565",
+      "functions_analyzed": 58,
+      "functions_enhanced": 58,
+      "test_cases_generated": 174,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\git_plugin_system.py",
+      "timestamp": "2025-07-18T11:02:21.389439",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\infrastructure_discovery.py",
+      "timestamp": "2025-07-18T11:02:21.407472",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\infrastructure_discovery_simple.py",
+      "timestamp": "2025-07-18T11:02:21.664027",
+      "functions_analyzed": 12,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 91.66666666666666,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\init_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:21.932222",
+      "functions_analyzed": 26,
+      "functions_enhanced": 26,
+      "test_cases_generated": 78,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\install_ultimate_suite_v9.py",
+      "timestamp": "2025-07-18T11:02:22.566003",
+      "functions_analyzed": 21,
+      "functions_enhanced": 21,
+      "test_cases_generated": 63,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\install_unified.py",
+      "timestamp": "2025-07-18T11:02:23.006554",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\launch_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:23.187923",
+      "functions_analyzed": 18,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\launch_ultimate_suite_v9_fixed.py",
+      "timestamp": "2025-07-18T11:02:23.534744",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\launch_ultimate_suite_v9_safe.py",
+      "timestamp": "2025-07-18T11:02:23.639529",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\main.py",
+      "timestamp": "2025-07-18T11:02:23.641531",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\manage.py",
+      "timestamp": "2025-07-18T11:02:23.644040",
+      "functions_analyzed": 14,
+      "functions_enhanced": 14,
+      "test_cases_generated": 42,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\master_control_system.py",
+      "timestamp": "2025-07-18T11:02:23.884107",
+      "functions_analyzed": 22,
+      "functions_enhanced": 22,
+      "test_cases_generated": 66,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\network_scanner_fixes.py",
+      "timestamp": "2025-07-18T11:02:24.277961",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcrawler.py",
+      "timestamp": "2025-07-18T11:02:24.316568",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxpanel_unified.py",
+      "timestamp": "2025-07-18T11:02:24.491564",
+      "functions_analyzed": 24,
+      "functions_enhanced": 23,
+      "test_cases_generated": 69,
+      "compliance_improvement": 95.83333333333334,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxpanel_v5_fixed.py",
+      "timestamp": "2025-07-18T11:02:25.141569",
+      "functions_analyzed": 21,
+      "functions_enhanced": 21,
+      "test_cases_generated": 63,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugin_framework.py",
+      "timestamp": "2025-07-18T11:02:26.302138",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugin_marketplace.py",
+      "timestamp": "2025-07-18T11:02:26.305647",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugin_system.py",
+      "timestamp": "2025-07-18T11:02:26.338227",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\quick_setup.py",
+      "timestamp": "2025-07-18T11:02:26.342229",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\quick_start.py",
+      "timestamp": "2025-07-18T11:02:26.554725",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\quick_test_v9_routes.py",
+      "timestamp": "2025-07-18T11:02:26.688515",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\restart_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:26.696043",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\setup_knowledge_base.py",
+      "timestamp": "2025-07-18T11:02:26.707562",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\setup_simple_kb.py",
+      "timestamp": "2025-07-18T11:02:26.756178",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\simple_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:26.765697",
+      "functions_analyzed": 18,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\simple_noxpanel_fixed.py",
+      "timestamp": "2025-07-18T11:02:27.141958",
+      "functions_analyzed": 18,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\sysadmin_copilot.py",
+      "timestamp": "2025-07-18T11:02:27.511308",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\system_demonstration.py",
+      "timestamp": "2025-07-18T11:02:27.843050",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\system_status_report.py",
+      "timestamp": "2025-07-18T11:02:27.977841",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_ai_context.py",
+      "timestamp": "2025-07-18T11:02:28.005933",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_ai_monitor_direct.py",
+      "timestamp": "2025-07-18T11:02:28.007943",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_ai_monitor_full.py",
+      "timestamp": "2025-07-18T11:02:28.014467",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_crawler.py",
+      "timestamp": "2025-07-18T11:02:28.018484",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_noxpanel_v4.py",
+      "timestamp": "2025-07-18T11:02:28.020483",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_noxpanel_v5.py",
+      "timestamp": "2025-07-18T11:02:28.022482",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_server.py",
+      "timestamp": "2025-07-18T11:02:28.025996",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_server_optimized.py",
+      "timestamp": "2025-07-18T11:02:28.030002",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_server_simple.py",
+      "timestamp": "2025-07-18T11:02:28.033002",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_theme_system.py",
+      "timestamp": "2025-07-18T11:02:28.035516",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_theme_validation.py",
+      "timestamp": "2025-07-18T11:02:28.040524",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_project_archiver.py",
+      "timestamp": "2025-07-18T11:02:28.044030",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_suite_integrator.py",
+      "timestamp": "2025-07-18T11:02:28.202909",
+      "functions_analyzed": 14,
+      "functions_enhanced": 14,
+      "test_cases_generated": 42,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_suite_quick_fixes.py",
+      "timestamp": "2025-07-18T11:02:28.432982",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_suite_quick_fixes_corrected.py",
+      "timestamp": "2025-07-18T11:02:28.449018",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_suite_stability_tester.py",
+      "timestamp": "2025-07-18T11:02:28.563279",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_suite_v9_audit.py",
+      "timestamp": "2025-07-18T11:02:28.568796",
+      "functions_analyzed": 16,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_webapp_v7.py",
+      "timestamp": "2025-07-18T11:02:28.866985",
+      "functions_analyzed": 28,
+      "functions_enhanced": 26,
+      "test_cases_generated": 78,
+      "compliance_improvement": 92.85714285714286,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_webapp_v8.py",
+      "timestamp": "2025-07-18T11:02:29.345022",
+      "functions_analyzed": 35,
+      "functions_enhanced": 33,
+      "test_cases_generated": 99,
+      "compliance_improvement": 94.28571428571428,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultimate_webapp_v9.py",
+      "timestamp": "2025-07-18T11:02:30.078472",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultra_fast_server.py",
+      "timestamp": "2025-07-18T11:02:30.095505",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ultra_optimized_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:30.098514",
+      "functions_analyzed": 82,
+      "functions_enhanced": 77,
+      "test_cases_generated": 231,
+      "compliance_improvement": 93.90243902439023,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\validate_v5_simple.py",
+      "timestamp": "2025-07-18T11:02:31.840699",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\ai\\ai_advisor.py",
+      "timestamp": "2025-07-18T11:02:31.932914",
+      "functions_analyzed": 18,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\blueprints\\api.py",
+      "timestamp": "2025-07-18T11:02:32.231118",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\blueprints\\core.py",
+      "timestamp": "2025-07-18T11:02:32.466701",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\blueprints\\ui.py",
+      "timestamp": "2025-07-18T11:02:32.470703",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\blueprints\\__init__.py",
+      "timestamp": "2025-07-18T11:02:32.625079",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\config\\ai_context_config.py",
+      "timestamp": "2025-07-18T11:02:32.626087",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\deploy_and_validate.py",
+      "timestamp": "2025-07-18T11:02:32.628094",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\optimized_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:32.644627",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\deployment\\blue_green_deployment.py",
+      "timestamp": "2025-07-18T11:02:32.690247",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\infrastructure\\auto_healing_monitor.py",
+      "timestamp": "2025-07-18T11:02:32.694755",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\monitoring\\enterprise_monitoring.py",
+      "timestamp": "2025-07-18T11:02:32.711808",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\ai_monitor.py",
+      "timestamp": "2025-07-18T11:02:32.716327",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\api_test_utils.py",
+      "timestamp": "2025-07-18T11:02:32.727849",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\app_factory.py",
+      "timestamp": "2025-07-18T11:02:32.749907",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\auth.py",
+      "timestamp": "2025-07-18T11:02:32.770966",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\blueprint_registry.py",
+      "timestamp": "2025-07-18T11:02:32.883221",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\connection_manager.py",
+      "timestamp": "2025-07-18T11:02:32.886732",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\context_loader.py",
+      "timestamp": "2025-07-18T11:02:32.889739",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\database_pool.py",
+      "timestamp": "2025-07-18T11:02:32.891738",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\knowledge_manager.py",
+      "timestamp": "2025-07-18T11:02:32.894245",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\llm_integration.py",
+      "timestamp": "2025-07-18T11:02:32.904288",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\model_detector.py",
+      "timestamp": "2025-07-18T11:02:32.906297",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\nlp_processor.py",
+      "timestamp": "2025-07-18T11:02:32.908308",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\plugin_sandbox.py",
+      "timestamp": "2025-07-18T11:02:32.912312",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\process_manager.py",
+      "timestamp": "2025-07-18T11:02:32.922835",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\rate_limiter.py",
+      "timestamp": "2025-07-18T11:02:32.926349",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\runner.py",
+      "timestamp": "2025-07-18T11:02:32.928355",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\script_manager.py",
+      "timestamp": "2025-07-18T11:02:32.940871",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\security_config.py",
+      "timestamp": "2025-07-18T11:02:32.942873",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\security_headers.py",
+      "timestamp": "2025-07-18T11:02:32.945387",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\__init__.py",
+      "timestamp": "2025-07-18T11:02:32.949391",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\access_map_generator.py",
+      "timestamp": "2025-07-18T11:02:32.951393",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\audit_1.py",
+      "timestamp": "2025-07-18T11:02:33.107730",
+      "functions_analyzed": 18,
+      "functions_enhanced": 18,
+      "test_cases_generated": 54,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\audit_2.py",
+      "timestamp": "2025-07-18T11:02:33.394504",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\audit_3.py",
+      "timestamp": "2025-07-18T11:02:33.532334",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\audit_4.py",
+      "timestamp": "2025-07-18T11:02:33.731786",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\audit_launcher.py",
+      "timestamp": "2025-07-18T11:02:33.908252",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\check_routes.py",
+      "timestamp": "2025-07-18T11:02:33.911250",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\cleanup_project.py",
+      "timestamp": "2025-07-18T11:02:33.928286",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\critical_implementation_engine.py",
+      "timestamp": "2025-07-18T11:02:34.124711",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\definitive_excellence_achiever.py",
+      "timestamp": "2025-07-18T11:02:34.505214",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\example_script.py",
+      "timestamp": "2025-07-18T11:02:34.701122",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\final_implementation_report.py",
+      "timestamp": "2025-07-18T11:02:34.718172",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\frontend_backend_integrator.py",
+      "timestamp": "2025-07-18T11:02:34.737221",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\git_template_integrator.py",
+      "timestamp": "2025-07-18T11:02:34.956737",
+      "functions_analyzed": 27,
+      "functions_enhanced": 27,
+      "test_cases_generated": 81,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\implementation_status_analyzer.py",
+      "timestamp": "2025-07-18T11:02:35.440439",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\phase3_testing_executor.py",
+      "timestamp": "2025-07-18T11:02:35.637889",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\phase3_web_consolidation.py",
+      "timestamp": "2025-07-18T11:02:35.642889",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\phase4b_final_push.py",
+      "timestamp": "2025-07-18T11:02:35.865925",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\phase4_excellence_optimizer.py",
+      "timestamp": "2025-07-18T11:02:35.990711",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\port_mapper.py",
+      "timestamp": "2025-07-18T11:02:36.294904",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\post_audit_optimization_engine.py",
+      "timestamp": "2025-07-18T11:02:36.305936",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\route_tester.py",
+      "timestamp": "2025-07-18T11:02:36.310446",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\simple_ui_validator.py",
+      "timestamp": "2025-07-18T11:02:36.314956",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\system_diagnostic.py",
+      "timestamp": "2025-07-18T11:02:36.318974",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\test_api_endpoints.py",
+      "timestamp": "2025-07-18T11:02:36.326485",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\ui_validator.py",
+      "timestamp": "2025-07-18T11:02:36.329497",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\ultra_port_mapper.py",
+      "timestamp": "2025-07-18T11:02:36.332497",
+      "functions_analyzed": 29,
+      "functions_enhanced": 29,
+      "test_cases_generated": 87,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\unified_architecture_generator.py",
+      "timestamp": "2025-07-18T11:02:36.886315",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\version_audit.py",
+      "timestamp": "2025-07-18T11:02:37.133398",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\version_tagger.py",
+      "timestamp": "2025-07-18T11:02:37.174991",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\security\\enterprise_session_manager.py",
+      "timestamp": "2025-07-18T11:02:37.317312",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\security\\security_manager.py",
+      "timestamp": "2025-07-18T11:02:37.342343",
+      "functions_analyzed": 36,
+      "functions_enhanced": 31,
+      "test_cases_generated": 93,
+      "compliance_improvement": 86.11111111111111,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\conftest.py",
+      "timestamp": "2025-07-18T11:02:37.915810",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\integration_demo.py",
+      "timestamp": "2025-07-18T11:02:38.120960",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\run_tests.py",
+      "timestamp": "2025-07-18T11:02:38.279824",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\setup.py",
+      "timestamp": "2025-07-18T11:02:38.282824",
+      "functions_analyzed": 24,
+      "functions_enhanced": 24,
+      "test_cases_generated": 72,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\test_app_factory.py",
+      "timestamp": "2025-07-18T11:02:38.687821",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\test_infrastructure_validation.py",
+      "timestamp": "2025-07-18T11:02:38.705874",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\test_runner.py",
+      "timestamp": "2025-07-18T11:02:38.728415",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\test_validator_advanced.py",
+      "timestamp": "2025-07-18T11:02:38.732415",
+      "functions_analyzed": 42,
+      "functions_enhanced": 42,
+      "test_cases_generated": 126,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\__init__.py",
+      "timestamp": "2025-07-18T11:02:39.573047",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\unified_architecture\\unified_noxpanel.py",
+      "timestamp": "2025-07-18T11:02:39.574048",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\admin_blueprint.py",
+      "timestamp": "2025-07-18T11:02:39.785637",
+      "functions_analyzed": 16,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\admin_routes.py",
+      "timestamp": "2025-07-18T11:02:40.121489",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\ai_monitor_api.py",
+      "timestamp": "2025-07-18T11:02:40.178620",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\ai_monitor_direct.py",
+      "timestamp": "2025-07-18T11:02:40.373583",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\ai_monitor_simple.py",
+      "timestamp": "2025-07-18T11:02:40.493343",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\analytics_routes.py",
+      "timestamp": "2025-07-18T11:02:40.577622",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\api_docs_routes.py",
+      "timestamp": "2025-07-18T11:02:40.676347",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\app_v5.py",
+      "timestamp": "2025-07-18T11:02:40.679357",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\app_v5_backup.py",
+      "timestamp": "2025-07-18T11:02:40.685871",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\certs_routes.py",
+      "timestamp": "2025-07-18T11:02:40.688883",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\chatbot.py",
+      "timestamp": "2025-07-18T11:02:40.727492",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\chatbot_routes.py",
+      "timestamp": "2025-07-18T11:02:40.839712",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\enhanced_knowledge_api.py",
+      "timestamp": "2025-07-18T11:02:40.885303",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\job_scheduler.py",
+      "timestamp": "2025-07-18T11:02:41.029656",
+      "functions_analyzed": 16,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\knowledge_routes.py",
+      "timestamp": "2025-07-18T11:02:41.333829",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\media_routes.py",
+      "timestamp": "2025-07-18T11:02:41.641599",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\models.py",
+      "timestamp": "2025-07-18T11:02:41.739344",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\models_direct.py",
+      "timestamp": "2025-07-18T11:02:41.953337",
+      "functions_analyzed": 25,
+      "functions_enhanced": 25,
+      "test_cases_generated": 75,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\models_routes.py",
+      "timestamp": "2025-07-18T11:02:42.447973",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\network_routes.py",
+      "timestamp": "2025-07-18T11:02:42.496558",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\notifications_routes.py",
+      "timestamp": "2025-07-18T11:02:42.528653",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\pi_routes.py",
+      "timestamp": "2025-07-18T11:02:42.625402",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\platforms_routes.py",
+      "timestamp": "2025-07-18T11:02:42.712572",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\plugin_loader.py",
+      "timestamp": "2025-07-18T11:02:42.805261",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\plugin_routes.py",
+      "timestamp": "2025-07-18T11:02:42.808274",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\proxy_routes.py",
+      "timestamp": "2025-07-18T11:02:42.810273",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\scheduler_routes.py",
+      "timestamp": "2025-07-18T11:02:42.896466",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\scripts_routes.py",
+      "timestamp": "2025-07-18T11:02:42.928551",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\security_routes.py",
+      "timestamp": "2025-07-18T11:02:43.155630",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\setup_routes.py",
+      "timestamp": "2025-07-18T11:02:43.233814",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\updates_routes.py",
+      "timestamp": "2025-07-18T11:02:43.318502",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\webpanel\\vm_routes.py",
+      "timestamp": "2025-07-18T11:02:43.412726",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\app_backup.py",
+      "timestamp": "2025-07-18T11:02:43.508454",
+      "functions_analyzed": 20,
+      "functions_enhanced": 20,
+      "test_cases_generated": 60,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\app_v5_backup.py",
+      "timestamp": "2025-07-18T11:02:43.856674",
+      "functions_analyzed": 28,
+      "functions_enhanced": 26,
+      "test_cases_generated": 78,
+      "compliance_improvement": 92.85714285714286,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\backups_routes.py",
+      "timestamp": "2025-07-18T11:02:44.668581",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\enhanced_application_backup.py",
+      "timestamp": "2025-07-18T11:02:44.936169",
+      "functions_analyzed": 14,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 85.71428571428571,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\simple_noxpanel_backup.py",
+      "timestamp": "2025-07-18T11:02:45.401228",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\ultimate_webapp_v9_backup.py",
+      "timestamp": "2025-07-18T11:02:45.422274",
+      "functions_analyzed": 25,
+      "functions_enhanced": 25,
+      "test_cases_generated": 75,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\backups\\ultimate_webapp_v9_backup2.py",
+      "timestamp": "2025-07-18T11:02:45.890403",
+      "functions_analyzed": 25,
+      "functions_enhanced": 25,
+      "test_cases_generated": 75,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\deprecated\\editable_legacy.py",
+      "timestamp": "2025-07-18T11:02:46.348959",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\deprecated\\metadata_legacy.py",
+      "timestamp": "2025-07-18T11:02:46.355464",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\archive\\deprecated\\wheel_legacy.py",
+      "timestamp": "2025-07-18T11:02:46.385517",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\blueprints\\api.py",
+      "timestamp": "2025-07-18T11:02:46.430108",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\blueprints\\core.py",
+      "timestamp": "2025-07-18T11:02:46.502255",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\blueprints\\ui.py",
+      "timestamp": "2025-07-18T11:02:46.534336",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\critical_optimized_noxpanel\\blueprints\\__init__.py",
+      "timestamp": "2025-07-18T11:02:46.586452",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\external_plugins\\sample_plugin\\routes.py",
+      "timestamp": "2025-07-18T11:02:46.588457",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\utils\\config.py",
+      "timestamp": "2025-07-18T11:02:46.603991",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\utils\\__init__.py",
+      "timestamp": "2025-07-18T11:02:46.688205",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\voice\\voice_api.py",
+      "timestamp": "2025-07-18T11:02:46.690211",
+      "functions_analyzed": 20,
+      "functions_enhanced": 20,
+      "test_cases_generated": 60,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\voice\\voice_web_integration.py",
+      "timestamp": "2025-07-18T11:02:47.052010",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\noxcore\\voice\\voxtral_service.py",
+      "timestamp": "2025-07-18T11:02:47.114151",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugins\\fritzbox\\__init__.py",
+      "timestamp": "2025-07-18T11:02:47.316292",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugins\\network_monitor\\__init__.py",
+      "timestamp": "2025-07-18T11:02:47.319314",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugins\\sample_plugin\\routes.py",
+      "timestamp": "2025-07-18T11:02:47.321316",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\plugins\\security_scanner\\__init__.py",
+      "timestamp": "2025-07-18T11:02:47.324311",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\ai\\code_reviewer.py",
+      "timestamp": "2025-07-18T11:02:47.454145",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\ai\\text_summarizer.py",
+      "timestamp": "2025-07-18T11:02:47.544370",
+      "functions_analyzed": 3,
+      "functions_enhanced": 3,
+      "test_cases_generated": 9,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\samples\\system_diagnostic.py",
+      "timestamp": "2025-07-18T11:02:47.597502",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\samples\\system_info.py",
+      "timestamp": "2025-07-18T11:02:47.673145",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\backend\\test_auth_api.py",
+      "timestamp": "2025-07-18T11:02:47.679669",
+      "functions_analyzed": 27,
+      "functions_enhanced": 27,
+      "test_cases_generated": 81,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\backend\\test_device_api.py",
+      "timestamp": "2025-07-18T11:02:48.237998",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\backend\\test_smoke.py",
+      "timestamp": "2025-07-18T11:02:48.241993",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\backend\\__init__.py",
+      "timestamp": "2025-07-18T11:02:48.243996",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\e2e\\test_user_journeys.py",
+      "timestamp": "2025-07-18T11:02:48.246512",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\e2e\\__init__.py",
+      "timestamp": "2025-07-18T11:02:48.250518",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\performance\\test_load_testing.py",
+      "timestamp": "2025-07-18T11:02:48.252516",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\performance\\__init__.py",
+      "timestamp": "2025-07-18T11:02:48.258035",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\security\\security_test_suite.py",
+      "timestamp": "2025-07-18T11:02:48.260037",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\test_data\\test_plugin\\main.py",
+      "timestamp": "2025-07-18T11:02:48.342206",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\auth.py",
+      "timestamp": "2025-07-18T11:02:48.361241",
+      "functions_analyzed": 8,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 87.5,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\database.py",
+      "timestamp": "2025-07-18T11:02:48.507111",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\plugins.py",
+      "timestamp": "2025-07-18T11:02:48.665989",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\runner.py",
+      "timestamp": "2025-07-18T11:02:48.849355",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\__init__.py",
+      "timestamp": "2025-07-18T11:02:48.855874",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\plugins\\sample_plugin.py",
+      "timestamp": "2025-07-18T11:02:48.857890",
+      "functions_analyzed": 7,
+      "functions_enhanced": 7,
+      "test_cases_generated": 21,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\autoimport.py",
+      "timestamp": "2025-07-18T11:02:48.960105",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\auto_test_runner.py",
+      "timestamp": "2025-07-18T11:02:49.136505",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\bootstrap.py",
+      "timestamp": "2025-07-18T11:02:49.140518",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\critical_fix.py",
+      "timestamp": "2025-07-18T11:02:49.344917",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\example_script.py",
+      "timestamp": "2025-07-18T11:02:49.419096",
+      "functions_analyzed": 1,
+      "functions_enhanced": 1,
+      "test_cases_generated": 3,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\final_validation.py",
+      "timestamp": "2025-07-18T11:02:49.424094",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\fix_python_test.py",
+      "timestamp": "2025-07-18T11:02:49.502796",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\healthcheck.py",
+      "timestamp": "2025-07-18T11:02:49.539415",
+      "functions_analyzed": 4,
+      "functions_enhanced": 4,
+      "test_cases_generated": 12,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\phase2_initiate.py",
+      "timestamp": "2025-07-18T11:02:49.601551",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\prepare_phase2.py",
+      "timestamp": "2025-07-18T11:02:49.970911",
+      "functions_analyzed": 12,
+      "functions_enhanced": 12,
+      "test_cases_generated": 36,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\system_status_check.py",
+      "timestamp": "2025-07-18T11:02:50.182877",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\tests\\test_runner.py",
+      "timestamp": "2025-07-18T11:02:50.282599",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\tests\\test_security.py",
+      "timestamp": "2025-07-18T11:02:50.284597",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\tests\\__init__.py",
+      "timestamp": "2025-07-18T11:02:50.602875",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\webpanel\\app.py",
+      "timestamp": "2025-07-18T11:02:50.605870",
+      "functions_analyzed": 30,
+      "functions_enhanced": 30,
+      "test_cases_generated": 90,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\ai\\nox_assistant.py",
+      "timestamp": "2025-07-18T11:02:51.179216",
+      "functions_analyzed": 16,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\ai\\ollama_client.py",
+      "timestamp": "2025-07-18T11:02:51.450866",
+      "functions_analyzed": 11,
+      "functions_enhanced": 11,
+      "test_cases_generated": 33,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\ai\\task_registry.py",
+      "timestamp": "2025-07-18T11:02:51.648315",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\ai\\__init__.py",
+      "timestamp": "2025-07-18T11:02:51.858295",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\security\\auth_manager.py",
+      "timestamp": "2025-07-18T11:02:51.860296",
+      "functions_analyzed": 17,
+      "functions_enhanced": 16,
+      "test_cases_generated": 48,
+      "compliance_improvement": 94.11764705882352,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\tasks\\manager.py",
+      "timestamp": "2025-07-18T11:02:52.141589",
+      "functions_analyzed": 10,
+      "functions_enhanced": 10,
+      "test_cases_generated": 30,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\tasks\\__init__.py",
+      "timestamp": "2025-07-18T11:02:52.294891",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\utils\\config.py",
+      "timestamp": "2025-07-18T11:02:52.296401",
+      "functions_analyzed": 6,
+      "functions_enhanced": 6,
+      "test_cases_generated": 18,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\utils\\password_utils.py",
+      "timestamp": "2025-07-18T11:02:52.315936",
+      "functions_analyzed": 2,
+      "functions_enhanced": 2,
+      "test_cases_generated": 6,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\utils\\__init__.py",
+      "timestamp": "2025-07-18T11:02:52.342484",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\voice\\speech_engine.py",
+      "timestamp": "2025-07-18T11:02:52.344987",
+      "functions_analyzed": 13,
+      "functions_enhanced": 13,
+      "test_cases_generated": 39,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\voice\\tts_engine.py",
+      "timestamp": "2025-07-18T11:02:52.542999",
+      "functions_analyzed": 17,
+      "functions_enhanced": 17,
+      "test_cases_generated": 51,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\voice\\wake_word_detector.py",
+      "timestamp": "2025-07-18T11:02:52.863248",
+      "functions_analyzed": 8,
+      "functions_enhanced": 8,
+      "test_cases_generated": 24,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\voice\\__init__.py",
+      "timestamp": "2025-07-18T11:02:52.999118",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\websocket\\manager.py",
+      "timestamp": "2025-07-18T11:02:53.002120",
+      "functions_analyzed": 9,
+      "functions_enhanced": 9,
+      "test_cases_generated": 27,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\noxcore\\websocket\\__init__.py",
+      "timestamp": "2025-07-18T11:02:53.154469",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\scripts\\samples\\system_diagnostic.py",
+      "timestamp": "2025-07-18T11:02:53.157984",
+      "functions_analyzed": 5,
+      "functions_enhanced": 5,
+      "test_cases_generated": 15,
+      "compliance_improvement": 100.0,
+      "status": "success"
+    },
+    {
+      "module": "manage_k8s.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "manage_status_saver.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "resume_optimization.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "start_server.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "powershell\\backup.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "powershell\\setup.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "scripts\\cleanup_and_archive.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "scripts\\cleanup_and_archive_simple.ps1",
+      "timestamp": "2025-07-18T11:02:53.177051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "scripts\\cleanup_safety_validator_v10.1.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "scripts\\comprehensive_project_cleanup_v10.1.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\deploy.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\start_noxpanel.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\deployment_artifacts\\deploy.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\tests\\run_tests.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\acorn.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\ansi-html.ps1",
+      "timestamp": "2025-07-18T11:02:53.178051",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\autoprefixer.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\browserslist.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\css-blank-pseudo.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\css-has-pseudo.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\css-prefers-color-scheme.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\cssesc.ps1",
+      "timestamp": "2025-07-18T11:02:53.179063",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\detect-port.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\detect.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\ejs.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\envinfo.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\escodegen.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\esgenerate.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\eslint.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\esparse.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\esvalidate.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\flat.ps1",
+      "timestamp": "2025-07-18T11:02:53.180058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\he.ps1",
+      "timestamp": "2025-07-18T11:02:53.181062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\html-minifier-terser.ps1",
+      "timestamp": "2025-07-18T11:02:53.181062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\import-local-fixture.ps1",
+      "timestamp": "2025-07-18T11:02:53.181062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\is-docker.ps1",
+      "timestamp": "2025-07-18T11:02:53.181062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\jake.ps1",
+      "timestamp": "2025-07-18T11:02:53.181062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\jest.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\jiti.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\js-yaml.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\jsesc.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\json5.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\loose-envify.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\mime.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\mkdirp.ps1",
+      "timestamp": "2025-07-18T11:02:53.182059",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\multicast-dns.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\nanoid.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\node-which.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\parser.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\react-scripts.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\regjsparser.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\resolve.ps1",
+      "timestamp": "2025-07-18T11:02:53.183062",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\rimraf.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\rollup.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\sucrase-node.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\sucrase.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\svgo.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\tailwind.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\tailwindcss.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\terser.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\tsc.ps1",
+      "timestamp": "2025-07-18T11:02:53.184060",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\tsserver.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\update-browserslist-db.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\uuid.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\webpack-cli.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\webpack-dev-server.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\.bin\\webpack.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\core\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.185058",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\eslint-parser\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186057",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\helper-compilation-targets\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186057",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\helper-create-class-features-plugin\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186057",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\helper-create-regexp-features-plugin\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\plugin-transform-runtime\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@babel\\preset-env\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\@eslint\\eslintrc\\node_modules\\.bin\\js-yaml.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\acorn-globals\\node_modules\\.bin\\acorn.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\babel-plugin-polyfill-corejs2\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\eslint\\node_modules\\.bin\\js-yaml.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.186564",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\global-prefix\\node_modules\\.bin\\which.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\istanbul-lib-instrument\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\jsonpath\\node_modules\\.bin\\esparse.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\jsonpath\\node_modules\\.bin\\esvalidate.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\make-dir\\node_modules\\.bin\\semver.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\postcss-load-config\\node_modules\\.bin\\yaml.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\postcss-svgo\\node_modules\\.bin\\svgo.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\regjsparser\\node_modules\\.bin\\jsesc.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\static-eval\\node_modules\\.bin\\escodegen.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\static-eval\\node_modules\\.bin\\esgenerate.ps1",
+      "timestamp": "2025-07-18T11:02:53.187569",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\sucrase\\node_modules\\.bin\\glob.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\frontend\\node_modules\\tsconfig-paths\\node_modules\\.bin\\json5.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\scripts\\samples\\system_info.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "AI\\NoxPanel\\venv\\Scripts\\Activate.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\copilot\\command_stack.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\copilot\\copilot_startup.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    },
+    {
+      "module": "NoxPanel\\copilot\\recovery_protocol.ps1",
+      "timestamp": "2025-07-18T11:02:53.188576",
+      "functions_analyzed": 0,
+      "functions_enhanced": 0,
+      "test_cases_generated": 0,
+      "compliance_improvement": 0.0,
+      "status": "success"
+    }
+  ],
+  "metrics": {
+    "timestamp": "2025-07-18T11:02:03.420660",
+    "total_components": 29218,
+    "annotated_components": 2390,
+    "test_coverage": 296.5578111209179,
+    "compliance_rate": 0.08179889109453077,
+    "phase2_progress": 98.85260370697264,
+    "critical_issues": 29068,
+    "validation_score": 0.092,
+    "reasoning_quality": 0.092,
+    "auto_remediation_count": 2240
+  }
+}

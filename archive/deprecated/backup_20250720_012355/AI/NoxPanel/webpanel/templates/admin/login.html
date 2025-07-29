@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% block title %}Login - NoxPanel Admin{% endblock %}
+
+{% block extra_css %}
+<style>
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.login-form-section {
+    padding: 3rem;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-brand h1 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.btn-login {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.login-info-section {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-info-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    margin-right: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 1rem;
+        border-radius: 15px;
+    }
+    
+    .login-form-section,
+    .login-info-section {
+        padding: 2rem;
+    }
+    
+    .login-brand h1 {
+        font-size: 2rem;
+    }
+    
+    .login-info-section {
+        display: none; /* Hide info section on mobile */
+    }
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #51cf66, #40c057);
+    color: white;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #74c0fc, #339af0);
+    color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="login-container">
+        <div class="row g-0">
+            <!-- Login Form -->
+            <div class="col-lg-7">
+                <div class="login-form-section">
+                    <div class="login-brand">
+                        <h1>🔐 NoxPanel</h1>
+                        <p class="text-muted">Admin Access Portal</p>
+                    </div>
+
+                    <!-- Flash Messages -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" id="loginForm">
+                        <div class="form-floating">
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="username" 
+                                   name="username" 
+                                   placeholder="Username or Email"
+                                   required>
+                            <label for="username">
+                                <i class="fas fa-user me-2"></i>Username or Email
+                            </label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="password" 
+                                   class="form-control" 
+                                   id="password" 
+                                   name="password" 
+                                   placeholder="Password"
+                                   required>
+                            <label for="password">
+                                <i class="fas fa-lock me-2"></i>Password
+                            </label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a href="#" class="text-decoration-none" onclick="showForgotPassword()">
+                                Forgot password?
+                            </a>
+                        </div>
+
+                        <button type="submit" class="btn btn-login btn-primary w-100" id="loginBtn">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            Sign In
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="text-muted">
+                            Default admin credentials: <br>
+                            <code>admin / admin123</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="login-info-section">
+                    <div>
+                        <h2>Welcome to NoxPanel</h2>
+                        <p class="mb-4">
+                            The unified administration platform for your AI infrastructure and local services.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-robot"></i>
+                                AI Model Monitoring
+                            </li>
+                            <li>
+                                <i class="fas fa-users"></i>
+                                User Management
+                            </li>
+                            <li>
+                                <i class="fas fa-puzzle-piece"></i>
+                                Plugin System
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                Job Scheduling
+                            </li>
+                            <li>
+                                <i class="fas fa-shield-alt"></i>
+                                Security & Access Control
+                            </li>
+                            <li>
+                                <i class="fas fa-server"></i>
+                                Infrastructure Management
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const loginBtn = document.getElementById('loginBtn');
+    const originalHtml = loginBtn.innerHTML;
+    
+    // Show loading state
+    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Signing In...';
+    loginBtn.disabled = true;
+    
+    // Re-enable after form submission
+    setTimeout(() => {
+        loginBtn.innerHTML = originalHtml;
+        loginBtn.disabled = false;
+    }, 2000);
+});
+
+function showForgotPassword() {
+    Swal.fire({
+        title: 'Password Recovery',
+        html: `
+            <p>Contact your system administrator to reset your password.</p>
+            <p class="text-muted">Default admin: <code>admin / admin123</code></p>
+        `,
+        icon: 'info',
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'btn btn-primary'
+        }
+    });
+}
+
+// Auto-focus username field
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('username').focus();
+});
+
+// Handle Enter key navigation
+document.getElementById('username').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        document.getElementById('password').focus();
+    }
+});
+
+// Add floating label animation
+document.querySelectorAll('.form-floating input').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', function() {
+        if (!this.value) {
+            this.parentElement.classList.remove('focused');
+        }
+    });
+});
+
+// Keyboard accessibility
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+        const form = document.getElementById('loginForm');
+        if (form.checkValidity()) {
+            form.submit();
+        }
+    }
+});
+</script>
+{% endblock %}

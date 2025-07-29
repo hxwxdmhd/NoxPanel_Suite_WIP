@@ -1,0 +1,29 @@
+{
+  "llm_providers": {
+    "openai": {
+      "api_key": "demo-key",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-3.5-turbo"
+    },
+    "anthropic": {
+      "api_key": "demo-key",
+      "endpoint": "https://api.anthropic.com/v1/messages",
+      "model": "claude-3-haiku"
+    }
+  },
+  "ml_pipeline": {
+    "max_batch_size": 100,
+    "processing_timeout": 30,
+    "model_cache_size": 1000
+  },
+  "nlp_engine": {
+    "default_language": "en",
+    "max_text_length": 10000,
+    "enable_entities": true
+  },
+  "ai_orchestrator": {
+    "max_concurrent_requests": 10,
+    "request_timeout": 60,
+    "enable_caching": true
+  }
+}

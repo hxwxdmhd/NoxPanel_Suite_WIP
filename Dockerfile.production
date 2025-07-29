@@ -1,0 +1,201 @@
+# Multi-stage Dockerfile for Heimnetz Production Server
+# Stage 1: Build stage
+FROM python:3.12-slim as builder
+
+# Set build arguments
+ARG BUILD_DATE
+ARG VERSION=11.0
+ARG VCS_REF
+
+# Add labels for better container management
+LABEL maintainer="Heimnetz Team <admin@heimnetz.com>" \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="Heimnetz Ultimate Suite" \
+      org.label-schema.description="Production-ready web server with enterprise features" \
+      org.label-schema.url="https://github.com/heimnetz/ultimate-suite" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/heimnetz/ultimate-suite" \
+      org.label-schema.vendor="Heimnetz" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
+
+# Install system dependencies for building
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    g++ \
+    libffi-dev \
+    libssl-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set work directory
+WORKDIR /app
+
+# Copy requirements first for better caching
+COPY requirements.txt requirements-prod.txt ./
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r requirements-prod.txt
+
+# Stage 2: Production stage
+FROM python:3.12-slim as production
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    FLASK_ENV=production \
+    FLASK_APP=server_production.py
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    dumb-init \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create non-root user
+RUN groupadd -r heimnetz && useradd -r -g heimnetz -d /app -s /bin/bash heimnetz
+
+# Set work directory
+WORKDIR /app
+
+# Copy Python packages from builder stage
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy application files
+COPY --chown=heimnetz:heimnetz server_production.py ./
+COPY --chown=heimnetz:heimnetz config/ ./config/
+COPY --chown=heimnetz:heimnetz static/ ./static/
+COPY --chown=heimnetz:heimnetz templates/ ./templates/
+
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs /app/tmp && \
+    chown -R heimnetz:heimnetz /app
+
+# Create health check script
+COPY --chown=heimnetz:heimnetz <<EOF /app/healthcheck.py
+#!/usr/bin/env python3
+import sys
+import requests
+import time
+
+def health_check():
+    try:
+        response = requests.get('http://localhost:5004/health', timeout=5)
+        if response.status_code == 200:
+            print("Health check passed")
+            return 0
+        else:
+            print(f"Health check failed with status: {response.status_code}")
+            return 1
+    except Exception as e:
+        print(f"Health check error: {e}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(health_check())
+EOF
+
+# Make health check executable
+RUN chmod +x /app/healthcheck.py
+
+# Create startup script
+COPY --chown=heimnetz:heimnetz <<EOF /app/start.sh
+#!/bin/bash
+set -e
+
+# Wait for dependencies
+echo "Waiting for dependencies..."
+if [ -n "$REDIS_URL" ]; then
+    echo "Waiting for Redis..."
+    python -c "
+import time
+import redis
+from urllib.parse import urlparse
+
+redis_url = '$REDIS_URL'
+parsed = urlparse(redis_url)
+r = redis.Redis(host=parsed.hostname, port=parsed.port, decode_responses=True)
+
+for i in range(30):
+    try:
+        r.ping()
+        print('Redis is ready!')
+        break
+    except:
+        print(f'Redis not ready, waiting... ({i+1}/30)')
+        time.sleep(1)
+else:
+    print('Redis connection timeout')
+    exit(1)
+"
+fi
+
+# Initialize database if needed
+echo "Initializing database..."
+python -c "
+from server_production import ProductionServer
+server = ProductionServer()
+server.init_database()
+print('Database initialized')
+"
+
+# Start the application
+echo "Starting Heimnetz Production Server..."
+exec python server_production.py
+EOF
+
+# Make startup script executable
+RUN chmod +x /app/start.sh
+
+# Switch to non-root user
+USER heimnetz
+
+# Expose ports
+EXPOSE 5004 9090
+
+# Set volume for persistent data
+VOLUME ["/app/data", "/app/logs"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD python /app/healthcheck.py
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start the application
+CMD ["/app/start.sh"]
+
+# Development stage (for development builds)
+FROM production as development
+
+# Switch back to root for development tools
+USER root
+
+# Install development dependencies
+RUN apt-get update && apt-get install -y \
+    vim \
+    git \
+    htop \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install development Python packages
+COPY requirements-dev.txt ./
+RUN pip install --no-cache-dir -r requirements-dev.txt
+
+# Switch back to heimnetz user
+USER heimnetz
+
+# Override environment for development
+ENV FLASK_ENV=development \
+    FLASK_DEBUG=1
+
+# Development command
+CMD ["python", "server_production.py", "--debug"]

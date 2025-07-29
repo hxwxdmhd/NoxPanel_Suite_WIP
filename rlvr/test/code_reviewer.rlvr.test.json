@@ -1,0 +1,139 @@
+{
+  "module": "AI\\NoxPanel\\scripts\\ai\\code_reviewer.py",
+  "timestamp": "2025-07-18T11:02:47.542368",
+  "total_functions": 5,
+  "test_cases": [
+    {
+      "name": "test_review_file_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "file_path": "valid_file_path"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_review_file_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "file_path": "edge_file_path"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_review_file_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "file_path": "invalid_file_path"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_review_code_snippet_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "code": "valid_code"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_review_code_snippet_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "code": "edge_code"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_review_code_snippet_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "code": "invalid_code"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_scan_directory_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "directory": "valid_directory",
+        "extensions": "valid_extensions"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_scan_directory_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "directory": "edge_directory",
+        "extensions": "edge_extensions"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_scan_directory_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "directory": "invalid_directory",
+        "extensions": "invalid_extensions"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_format_analysis_output_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "analysis": "valid_analysis"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_format_analysis_output_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "analysis": "edge_analysis"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_format_analysis_output_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "analysis": "invalid_analysis"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_main_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_main_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_main_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "folders": [
+    {
+      "name": "🏠 Core Application",
+      "path": "./src"
+    },
+    {
+      "name": "🐳 Docker Configuration", 
+      "path": "./docker"
+    },
+    {
+      "name": "🔧 Scripts & Tools",
+      "path": "./scripts"
+    },
+    {
+      "name": "⚙️ Configuration",
+      "path": "./config"
+    },
+    {
+      "name": "📋 Main Files",
+      "path": "./",
+      "exclude": [
+        "AI/**",
+        "plugins/**", 
+        "archive/**",
+        "docs/**",
+        "aethercore/**"
+      ]
+    }
+  ],
+  "settings": {
+    // Performance optimizations for Core workspace
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/AI/**": true,
+      "**/plugins/**": true,
+      "**/archive/**": true,
+      "**/aethercore/**": true,
+      "**/logs/**": true,
+      "**/test_reports/**": true,
+      "**/monitoring/**": true,
+      "**/prometheus_data/**": true,
+      "**/grafana_data/**": true
+    },
+    
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/node_modules/**": true,
+      "**/__pycache__/**": true,
+      "**/AI/**": true,
+      "**/plugins/**": true,
+      "**/archive/**": true,
+      "**/logs/**": true,
+      "**/*.log": true
+    },
+    
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/AI/**": true,
+      "**/plugins/**": true,
+      "**/archive/**": true,
+      "**/logs/**": true
+    },
+    
+    // Python LSP optimization for Core
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.indexing": true,
+    "python.analysis.memory.keepLibraryAst": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.include": [
+      "./src/**",
+      "./scripts/**",
+      "./config/**",
+      "./*.py"
+    ],
+    "python.analysis.exclude": [
+      "**/AI/**",
+      "**/plugins/**",
+      "**/archive/**",
+      "**/aethercore/**",
+      "**/logs/**"
+    ],
+    
+    // TypeScript optimization
+    "typescript.preferences.maxInlayHintLength": 30,
+    "typescript.suggest.autoImports": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.tsserver.maxTsServerMemory": 2048,
+    
+    // Editor performance
+    "editor.suggest.maxVisibleSuggestions": 10,
+    "editor.suggest.filterGraceful": false,
+    "editor.wordBasedSuggestions": "off",
+    
+    // Git optimization
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "scm.autoReveal": false,
+    
+    // Workspace theming
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#2D5A27",
+      "titleBar.activeBackground": "#2D5A27"
+    },
+    
+    // Environment variables
+    "terminal.integrated.env.windows": {
+      "NOXPANEL_MODULE": "core",
+      "NOXPANEL_WORKSPACE": "core"
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🧠 Switch to AI Module",
+        "type": "shell",
+        "command": "code",
+        "args": ["NoxPanel-AI.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🔌 Switch to Plugins Module",
+        "type": "shell", 
+        "command": "code",
+        "args": ["NoxPanel-Plugins.code-workspace"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "silent"
+        }
+      },
+      {
+        "label": "🚀 Start Core Server",
+        "type": "shell",
+        "command": "python",
+        "args": ["main.py", "--web"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": true
+        }
+      },
+      {
+        "label": "🧪 Run Core Tests",
+        "type": "shell",
+        "command": "python", 
+        "args": ["-m", "pytest", "tests/core/", "-v"],
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylint",
+      "ms-vscode.vscode-typescript-next",
+      "ms-azuretools.vscode-docker",
+      "github.copilot"
+    ]
+  }
+}

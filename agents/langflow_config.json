@@ -1,0 +1,12 @@
+{
+  "flows": [
+    {
+      "name": "default_orchestration",
+      "description": "Coordinates multi-step enhancements, plugin integration, and dashboard updates.",
+      "entry_point": "main.py",
+      "models": ["local", "openai", "azure", "anthropic"],
+      "status": "ready"
+    }
+  ],
+  "api": "http://localhost:7860/api/flows/"
+}

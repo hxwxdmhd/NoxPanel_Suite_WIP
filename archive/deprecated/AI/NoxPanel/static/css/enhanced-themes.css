@@ -1,0 +1,107 @@
+/* Enhanced Themes System v7.0 - Combined with Ultimate Dashboard */
+/* This file provides backwards compatibility for existing theme references */
+
+@import url('ultimate-dashboard.css');
+
+/* Legacy theme variables for backwards compatibility */
+:root {
+    /* Import ultimate dashboard themes */
+    --theme-primary: var(--theme-primary-purple);
+    --theme-secondary: var(--theme-secondary-purple);
+    --theme-accent: var(--theme-accent-purple);
+    --theme-background: var(--theme-background-purple);
+    --theme-surface: var(--theme-surface-purple);
+    --theme-text: var(--theme-text-purple);
+    --theme-text-muted: var(--theme-text-muted-purple);
+    --theme-border: var(--theme-border-purple);
+    --theme-hover: var(--theme-hover-purple);
+    --theme-focus: var(--theme-focus-purple);
+}
+
+/* Enhanced theme selector compatibility */
+.theme-selector {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.theme-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+    border-color: var(--theme-primary);
+}
+
+.theme-option.active {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 2px rgba(var(--theme-primary-rgb), 0.2);
+}
+
+/* Theme option colors */
+.theme-option[data-theme="light"] { background: linear-gradient(135deg, #ffffff, #f8f9fa); }
+.theme-option[data-theme="dark"] { background: linear-gradient(135deg, #212529, #343a40); }
+.theme-option[data-theme="purple"] { background: linear-gradient(135deg, #6f42c1, #8e44ad); }
+.theme-option[data-theme="purple-dark"] { background: linear-gradient(135deg, #4a2c7a, #6b4094); }
+.theme-option[data-theme="purple-light"] { background: linear-gradient(135deg, #9b7fd6, #b19cd9); }
+
+/* ADHD-friendly enhancements */
+.adhd-mode {
+    --transition-speed: 0.1s;
+    --focus-ring-size: 3px;
+    --contrast-boost: 1.2;
+}
+
+.adhd-mode * {
+    transition-duration: var(--transition-speed) !important;
+}
+
+.adhd-mode :focus {
+    outline: var(--focus-ring-size) solid var(--theme-primary) !important;
+    outline-offset: 2px;
+}
+
+.adhd-mode .card,
+.adhd-mode .btn,
+.adhd-mode .form-control {
+    filter: contrast(var(--contrast-boost));
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --theme-border: #000000;
+        --theme-text: #000000;
+        --theme-background: #ffffff;
+        filter: contrast(1.5);
+    }
+}
+
+/* Print styles */
+@media print {
+    .theme-selector,
+    .sidebar,
+    .nav-tabs {
+        display: none !important;
+    }
+    
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}

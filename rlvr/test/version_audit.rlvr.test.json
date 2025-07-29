@@ -1,0 +1,82 @@
+{
+  "module": "AI\\NoxPanel\\scripts\\version_audit.py",
+  "timestamp": "2025-07-18T11:02:37.169482",
+  "total_functions": 3,
+  "test_cases": [
+    {
+      "name": "test_load_file_content_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "filepath": "valid_filepath"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_load_file_content_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "filepath": "edge_filepath"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_load_file_content_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "filepath": "invalid_filepath"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_extract_version_from_content_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {
+        "content": "valid_content"
+      },
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_extract_version_from_content_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {
+        "content": "edge_content"
+      },
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_extract_version_from_content_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {
+        "content": "invalid_content"
+      },
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    },
+    {
+      "name": "test_audit_project_structure_positive",
+      "reasoning": "Tests successful execution path with valid inputs",
+      "input": {},
+      "expected": "success",
+      "validates": "Normal operation flow"
+    },
+    {
+      "name": "test_audit_project_structure_edge_case",
+      "reasoning": "Tests boundary conditions and edge cases",
+      "input": {},
+      "expected": "handled_gracefully",
+      "validates": "Edge case handling"
+    },
+    {
+      "name": "test_audit_project_structure_error",
+      "reasoning": "Tests error handling with invalid inputs",
+      "input": {},
+      "expected": "appropriate_exception",
+      "validates": "Error handling robustness"
+    }
+  ]
+}

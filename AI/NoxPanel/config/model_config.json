@@ -1,0 +1,51 @@
+{
+  "providers": {
+    "ollama": {
+      "enabled": true,
+      "base_url": "http://localhost:11434",
+      "priority": 1,
+      "display_name": "Ollama (Local)",
+      "description": "Privacy-focused local LLM runner"
+    },
+    "lmstudio": {
+      "enabled": true,
+      "base_url": "http://localhost:1234",
+      "priority": 2,
+      "display_name": "LM Studio",
+      "description": "User-friendly local model interface"
+    },
+    "gpt4all": {
+      "enabled": true,
+      "priority": 3,
+      "display_name": "GPT4All",
+      "description": "Open-source chatbot ecosystem"
+    },
+    "huggingface": {
+      "enabled": true,
+      "priority": 4,
+      "display_name": "HuggingFace",
+      "description": "Transformers model library",
+      "cache_dir": "~/.cache/huggingface"
+    },
+    "openai": {
+      "enabled": false,
+      "priority": 5,
+      "display_name": "OpenAI API",
+      "description": "Cloud-based GPT models",
+      "model": "gpt-3.5-turbo"
+    }
+  },
+  "settings": {
+    "auto_detect": true,
+    "refresh_interval": 300,
+    "default_provider": "ollama",
+    "show_unavailable": true,
+    "enable_model_switching": true
+  },
+  "ui": {
+    "show_model_sizes": true,
+    "show_provider_status": true,
+    "group_by_provider": true,
+    "sort_by": "provider"
+  }
+}
