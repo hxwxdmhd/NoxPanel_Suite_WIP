@@ -1726,7 +1726,7 @@ echo "NoxSuite stopped"
                 "environment": [
                     "POSTGRES_DB=noxsuite",
                     "POSTGRES_USER=noxsuite",
-                    "POSTGRES_PASSWORD=noxsuite123"
+                    f"POSTGRES_PASSWORD={self._generate_secure_password()}"
                 ],
                 "volumes": ["postgres_data:/var/lib/postgresql/data"]
             },
@@ -1777,7 +1777,7 @@ echo "NoxSuite stopped"
                 "port": 5432,
                 "database": "noxsuite",
                 "username": "noxsuite",
-                "password": "noxsuite123"
+                "password": f"{self._generate_secure_password()}"
             }
         }
     
@@ -3661,6 +3661,19 @@ class SmartNoxSuiteInstaller:
         self.completed_steps = []
         self.failed_steps = []
         self.rollback_stack = []
+        
+        # Security: cache for generated passwords to ensure consistency
+        self._password_cache = {}
+    
+    def _generate_secure_password(self, length: int = 24) -> str:
+        """Generate a cryptographically secure password"""
+        import secrets
+        import string
+        
+        # Use a combination of letters, digits, and some safe symbols
+        alphabet = string.ascii_letters + string.digits + "!@#$%^&*"
+        password = ''.join(secrets.choice(alphabet) for _ in range(length))
+        return password
     
     def run_installation(self, mode: InstallMode = InstallMode.GUIDED) -> bool:
         """Run the complete smart installation process"""

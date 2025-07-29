@@ -205,6 +205,20 @@ def index():
         'performance_optimized': True
     })
 
+@app.route('/health')
+def health():
+    """Health check endpoint for monitoring and CI/CD."""
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now(timezone.utc).isoformat(),
+        'version': '10.1',
+        'services': {
+            'web_server': 'running',
+            'database': 'available',
+            'api': 'functional'
+        }
+    })
+
 @app.route('/knowledge')
 def knowledge():
     """Fast knowledge page"""

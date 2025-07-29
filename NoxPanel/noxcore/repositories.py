@@ -6,6 +6,8 @@ Provides high-level interfaces for database operations
 import logging
 import json
 import hashlib
+import secrets
+import base64
 import uuid
 from datetime import datetime, timedelta
 from typing import Optional, Dict, List, Any, Union, Tuple
@@ -14,6 +16,31 @@ from contextlib import contextmanager
 from .database import NoxDatabase
 
 logger = logging.getLogger(__name__)
+
+def _hash_password(password: str) -> str:
+    """Create a secure password hash using SHA256 with salt"""
+    # Generate a random salt
+    salt = secrets.token_bytes(32)
+    # Create hash using PBKDF2-like approach with multiple iterations
+    pwdhash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+    # Store salt + hash as base64
+    combined = salt + pwdhash
+    return base64.b64encode(combined).decode('ascii')
+
+def _verify_password(stored_password: str, provided_password: str) -> bool:
+    """Verify a password against its hash"""
+    try:
+        # Decode the stored password
+        combined = base64.b64decode(stored_password.encode('ascii'))
+        # Extract salt (first 32 bytes) and hash (rest)
+        salt = combined[:32]
+        stored_hash = combined[32:]
+        # Hash the provided password with the same salt
+        pwdhash = hashlib.pbkdf2_hmac('sha256', provided_password.encode('utf-8'), salt, 100000)
+        # Compare hashes
+        return pwdhash == stored_hash
+    except Exception:
+        return False
 
 class BaseRepository:
     """Base repository class with common functionality"""
@@ -43,7 +70,7 @@ class UserRepository(BaseRepository):
                    role: str = 'user', **kwargs) -> Optional[int]:
         """Create a new user"""
         try:
-            password_hash = hashlib.sha256(password.encode()).hexdigest()
+            password_hash = _hash_password(password)
             
             with self.db.get_connection() as conn:
                 cursor = conn.cursor()
@@ -89,12 +116,10 @@ class UserRepository(BaseRepository):
     def authenticate_user(self, username: str, password: str) -> Optional[Dict[str, Any]]:
         """Authenticate user credentials"""
         user = self.get_user(username=username)
-        if user:
-            password_hash = hashlib.sha256(password.encode()).hexdigest()
-            if user['password_hash'] == password_hash:
-                # Update last login
-                self.update_last_login(user['id'])
-                return user
+        if user and _verify_password(user['password_hash'], password):
+            # Update last login
+            self.update_last_login(user['id'])
+            return user
         return None
     
     def update_last_login(self, user_id: int):
