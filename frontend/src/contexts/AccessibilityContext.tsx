@@ -233,9 +233,10 @@ export const AccessibilityProvider: React.FC<AccessibilityProviderProps> = ({ ch
           const formData = new FormData(form as HTMLFormElement);
           const data: Record<string, any> = {};
           
-          for (const [key, value] of formData.entries()) {
+          // Convert FormData to plain object
+          formData.forEach((value, key) => {
             data[key] = value;
-          }
+          });
           
           // Store in session storage for recovery
           sessionStorage.setItem(`auto-save-${form.id || 'form'}`, JSON.stringify({

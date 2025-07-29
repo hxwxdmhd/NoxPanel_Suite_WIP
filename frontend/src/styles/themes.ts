@@ -122,57 +122,57 @@ export const createCustomTheme = ({
     typography: {
       fontFamily: designTokens.typography.fontFamily.sans.join(','),
       h1: {
-        fontSize: designTokens.typography.fontSize['4xl'][0],
+        fontSize: '2.25rem', // designTokens.typography.fontSize['4xl'][0]
         fontWeight: designTokens.typography.fontWeight.bold,
-        lineHeight: designTokens.typography.fontSize['4xl'][1].lineHeight,
+        lineHeight: 1.2,
         letterSpacing: '-0.025em',
       },
       h2: {
-        fontSize: designTokens.typography.fontSize['3xl'][0],
+        fontSize: '1.875rem', // designTokens.typography.fontSize['3xl'][0]
         fontWeight: designTokens.typography.fontWeight.semibold,
-        lineHeight: designTokens.typography.fontSize['3xl'][1].lineHeight,
+        lineHeight: 1.3,
         letterSpacing: '-0.025em',
       },
       h3: {
-        fontSize: designTokens.typography.fontSize['2xl'][0],
+        fontSize: '1.5rem', // designTokens.typography.fontSize['2xl'][0]
         fontWeight: designTokens.typography.fontWeight.semibold,
-        lineHeight: designTokens.typography.fontSize['2xl'][1].lineHeight,
+        lineHeight: 1.3,
       },
       h4: {
-        fontSize: designTokens.typography.fontSize.xl[0],
+        fontSize: '1.25rem', // designTokens.typography.fontSize.xl[0]
         fontWeight: designTokens.typography.fontWeight.semibold,
-        lineHeight: designTokens.typography.fontSize.xl[1].lineHeight,
+        lineHeight: 1.4,
       },
       h5: {
-        fontSize: designTokens.typography.fontSize.lg[0],
+        fontSize: '1.125rem', // designTokens.typography.fontSize.lg[0]
         fontWeight: designTokens.typography.fontWeight.medium,
-        lineHeight: designTokens.typography.fontSize.lg[1].lineHeight,
+        lineHeight: 1.4,
       },
       h6: {
-        fontSize: designTokens.typography.fontSize.base[0],
+        fontSize: '1rem', // designTokens.typography.fontSize.base[0]
         fontWeight: designTokens.typography.fontWeight.medium,
-        lineHeight: designTokens.typography.fontSize.base[1].lineHeight,
+        lineHeight: 1.5,
       },
       body1: {
-        fontSize: designTokens.typography.fontSize.base[0],
+        fontSize: '1rem', // designTokens.typography.fontSize.base[0]
         lineHeight: '1.6', // ADHD-friendly line height
       },
       body2: {
-        fontSize: designTokens.typography.fontSize.sm[0],
+        fontSize: '0.875rem', // designTokens.typography.fontSize.sm[0]
         lineHeight: '1.6',
       },
       button: {
-        fontSize: designTokens.typography.fontSize.sm[0],
+        fontSize: '0.875rem', // designTokens.typography.fontSize.sm[0]
         fontWeight: designTokens.typography.fontWeight.medium,
         textTransform: 'none' as const,
         letterSpacing: '0.025em',
       },
       caption: {
-        fontSize: designTokens.typography.fontSize.xs[0],
-        lineHeight: designTokens.typography.fontSize.xs[1].lineHeight,
+        fontSize: '0.75rem', // designTokens.typography.fontSize.xs[0]
+        lineHeight: 1.33,
       },
       overline: {
-        fontSize: designTokens.typography.fontSize.xs[0],
+        fontSize: '0.75rem', // designTokens.typography.fontSize.xs[0]
         fontWeight: designTokens.typography.fontWeight.semibold,
         textTransform: 'uppercase' as const,
         letterSpacing: '0.1em',

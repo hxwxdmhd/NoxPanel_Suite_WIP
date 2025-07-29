@@ -6,7 +6,7 @@ interface AuthStore extends AuthState {
   // Actions
   login: (credentials: LoginCredentials) => Promise<void>;
   logout: () => void;
-  refreshToken: () => Promise<void>;
+  refreshAuthToken: () => Promise<void>;
   updateUser: (user: Partial<User>) => void;
   clearError: () => void;
   setLoading: (loading: boolean) => void;
@@ -130,7 +130,7 @@ export const useAuthStore = create<AuthStore>()(
         }
       },
 
-      refreshToken: async () => {
+      refreshAuthToken: async () => {
         const { refreshToken: token } = get();
         
         if (!token) {
@@ -206,7 +206,7 @@ export const useAuthStore = create<AuthStore>()(
         // Check if token is expired
         if (get().isTokenExpired()) {
           try {
-            await get().refreshToken();
+            await get().refreshAuthToken();
             return true;
           } catch (error) {
             return false;
@@ -287,7 +287,7 @@ if (typeof window !== 'undefined') {
     const authStore = useAuthStore.getState();
     
     if (authStore.isAuthenticated && authStore.isTokenExpired()) {
-      authStore.refreshToken().catch(() => {
+      authStore.refreshAuthToken().catch(() => {
         authStore.logout();
       });
     }

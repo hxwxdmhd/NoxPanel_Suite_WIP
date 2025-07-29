@@ -32,11 +32,21 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const { currentTheme, isHighContrast, isReducedMotion } = useThemeStore();
+  const { 
+    currentTheme, 
+    isHighContrast, 
+    isReducedMotion, 
+    systemPrefersDark 
+  } = useThemeStore();
   
-  // Create theme with current settings
+  // Resolve the actual theme mode ('auto' becomes 'light' or 'dark')
+  const resolvedTheme = currentTheme === 'auto' 
+    ? (systemPrefersDark ? 'dark' : 'light')
+    : currentTheme;
+  
+  // Create theme with resolved settings
   const theme = createCustomTheme({
-    mode: currentTheme,
+    mode: resolvedTheme,
     isHighContrast,
     isReducedMotion,
   });
