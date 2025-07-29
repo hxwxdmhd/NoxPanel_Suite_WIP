@@ -155,7 +155,28 @@ class ErrorHandler:
         Args:
             logger_name: Name for the logger
         """
-        self.logger = logging.getLogger(logger_name)
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger(logger_name)
         self.error_count = 0
         self.recent_errors: List[Dict[str, Any]] = []
         self.max_recent_errors = 100

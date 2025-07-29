@@ -87,7 +87,28 @@ class DependencyInstaller:
     """Handles installation of required Python packages"""
     
     def __init__((self, logger: BootstrapLogger) -> None:
-        self.logger = logger
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.required_packages = [
             'requests>=2.25.0',
             'chardet>=4.0.0'
@@ -212,7 +233,28 @@ class SystemChecker:
     """Check system compatibility and requirements"""
     
     def __init__((self, logger: BootstrapLogger) -> None:
-        self.logger = logger
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
     
     def check_python_version(self) -> bool:
         """Check if Python version is compatible"""
@@ -284,7 +326,28 @@ class NoxSuiteBootstrap:
     """Main bootstrap class"""
     
     def __init__((self) -> None:
-        self.logger = BootstrapLogger()
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = BootstrapLogger()
         self.system_checker = SystemChecker(self.logger)
         self.dependency_installer = DependencyInstaller(self.logger)
     
@@ -353,6 +416,43 @@ class NoxSuiteBootstrap:
             try:
                 from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode
                 from install_noxsuite import main as launcher_main
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
                 
                 # Pass control to the launcher with original arguments
                 launcher_main()

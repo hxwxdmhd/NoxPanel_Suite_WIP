@@ -19,6 +19,27 @@ import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class NoxSuiteCLI:
@@ -353,6 +374,43 @@ def backup(backup_name) -> bool:
         src = nox.install_dir / config_file
         if src.exists():
             import shutil
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
             shutil.copy2(src, config_backup / src.name)
     
     # Database backup

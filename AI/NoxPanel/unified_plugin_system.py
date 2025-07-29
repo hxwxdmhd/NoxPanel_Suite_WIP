@@ -1,5 +1,26 @@
 from datetime import datetime, timezone
 from NoxPanel.noxcore.utils.logging_config import get_logger
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = get_logger(__name__)
 
 #!/usr/bin/env python3
@@ -56,6 +77,27 @@ except ImportError as e:
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class PluginStatus(Enum):
@@ -235,7 +277,28 @@ class CorePlugin(PluginInterface):
         self.context = {}
         self.config = {}
         self.status = PluginStatus.UNLOADED
-        self.logger = logging.getLogger(f"plugin.{name}")
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger(f"plugin.{name}")
         self.event_handlers = {}
         self.hooks = {}
         self.initialized = False
@@ -568,7 +631,28 @@ class PluginLoader:
         self.search_paths = search_paths or []
         self.discovered_plugins = {}
         self.loaded_modules = {}
-        self.logger = logging.getLogger("plugin_loader")
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger("plugin_loader")
     
     def discover_plugins(self) -> Dict[str, PluginMetadata]:
         """Discover plugins in search paths"""
@@ -739,7 +823,28 @@ class UnifiedPluginManager:
         self.system_context = {}
         self.event_system = PluginEventSystem()
         self.hook_system = PluginHookSystem()
-        self.logger = logging.getLogger("unified_plugin_manager")
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger("unified_plugin_manager")
         
         # Performance tracking
         self.stats = {
@@ -1043,7 +1148,28 @@ class PluginEventSystem:
     def __init__(self):
         self.event_handlers = {}
         self.plugins = {}
-        self.logger = logging.getLogger("plugin_events")
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger("plugin_events")
     
     def register_plugin(self, plugin_name: str, plugin_instance: PluginInterface):
         """Register plugin with event system"""
@@ -1102,7 +1228,28 @@ class PluginHookSystem:
     def __init__(self):
         self.hooks = {}
         self.plugins = {}
-        self.logger = logging.getLogger("plugin_hooks")
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger("plugin_hooks")
     
     def register_plugin(self, plugin_name: str, plugin_instance: PluginInterface):
         """Register plugin with hook system"""

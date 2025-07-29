@@ -31,7 +31,28 @@ class ComprehensiveFixer:
             project_root: Project root directory
         """
         self.project_root = project_root
-        self.logger = get_logger('comprehensive_fixer')
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('comprehensive_fixer')
         self.fixes_applied = []
         
     def fix_syntax_errors(self) -> int:
@@ -431,7 +452,28 @@ logger.info(')
         # Insert imports
         logger_imports = [
             'from NoxPanel.noxcore.utils.logging_config import get_logger\n',
-            'logger = get_logger(__name__)\n',
+            '
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger(__name__)\n',
             '\n'
         ]
         
@@ -452,7 +494,28 @@ def main() -> Any:
         }
     })
     
-    logger = get_logger('comprehensive_fix')
+    
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('comprehensive_fix')
     logger.info("Starting comprehensive codebase fix")
     
     try:
