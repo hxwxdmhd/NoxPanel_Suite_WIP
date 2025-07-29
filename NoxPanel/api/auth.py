@@ -43,7 +43,7 @@ def register():
             return jsonify({'error': 'Database service not available'}), 500
         
         # Check if user already exists
-        existing_user = db_service.users.get_user_by_username(username)
+        existing_user = db_service.users.get_user(username=username)
         if existing_user:
             return jsonify({'error': 'Username already exists'}), 409
         
@@ -147,7 +147,7 @@ def refresh():
             return jsonify({'error': 'Database service not available'}), 500
         
         # Verify user still exists and is active
-        user = db_service.users.get_user_by_id(payload.get('user_id'))
+        user = db_service.users.get_user(user_id=payload.get('user_id'))
         if not user or not user.get('active', True):
             return jsonify({'error': 'User not found or inactive'}), 401
         
@@ -208,7 +208,7 @@ def profile():
             return jsonify({'error': 'Database service not available'}), 500
         
         # Get user details
-        user = db_service.users.get_user_by_id(payload.get('user_id'))
+        user = db_service.users.get_user(user_id=payload.get('user_id'))
         if not user:
             return jsonify({'error': 'User not found'}), 404
         
@@ -267,7 +267,7 @@ def change_password():
             return jsonify({'error': 'Database service not available'}), 500
         
         # Verify current password
-        user = db_service.users.get_user_by_id(payload.get('user_id'))
+        user = db_service.users.get_user(user_id=payload.get('user_id'))
         if not user:
             return jsonify({'error': 'User not found'}), 404
         

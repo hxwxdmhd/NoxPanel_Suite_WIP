@@ -30,9 +30,9 @@ def require_auth():
         return None
     
     # Import token verification
-    from .. import verify_token
+    import app
     
-    payload = verify_token(token)
+    payload = app.verify_token(token)
     return payload
 
 @dashboard_bp.route('/overview', methods=['GET'])
