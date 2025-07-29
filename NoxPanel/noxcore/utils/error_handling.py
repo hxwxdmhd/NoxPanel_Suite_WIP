@@ -155,7 +155,7 @@ class ErrorHandler:
         Args:
             logger_name: Name for the logger
         """
-        self.
+        self.logger = logging.getLogger(logger_name)
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
