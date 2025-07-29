@@ -29,11 +29,11 @@ class TestWebInterface(unittest.TestCase):
         self.assertIsNotNone(self.app)
     
     def test_health_endpoint(self):
-        """Test health endpoint if it exists."""
+        """Test health endpoint."""
         response = self.client.get('/health')
-        # Don't fail if endpoint doesn't exist
-        if response.status_code != 404:
-            self.assertIn(response.status_code, [200, 302])
+        self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+        self.assertEqual(data['status'], 'healthy')
     
     def test_root_endpoint(self):
         """Test root endpoint."""
