@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 class BaseRepository:
     """Base repository class with common functionality"""
     
-    def __init__(self, db: NoxDatabase):
+    def __init__((self, db: NoxDatabase) -> None:
         self.db = db
     
     def _serialize_json(self, data: Any) -> str:
@@ -97,7 +97,7 @@ class UserRepository(BaseRepository):
                 return user
         return None
     
-    def update_last_login(self, user_id: int):
+    def update_last_login(self, user_id: int) -> bool:
         """Update user's last login timestamp"""
         try:
             with self.db.get_connection() as conn:

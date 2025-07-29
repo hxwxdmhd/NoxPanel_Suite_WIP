@@ -95,7 +95,7 @@ class NoxPanelError(Exception):
 class DatabaseError(NoxPanelError):
     """Database-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.DATABASE)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -104,7 +104,7 @@ class DatabaseError(NoxPanelError):
 class NetworkError(NoxPanelError):
     """Network-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.NETWORK)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -113,7 +113,7 @@ class NetworkError(NoxPanelError):
 class AuthenticationError(NoxPanelError):
     """Authentication-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.AUTH)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -122,7 +122,7 @@ class AuthenticationError(NoxPanelError):
 class ValidationError(NoxPanelError):
     """Validation-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.VALIDATION)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -131,7 +131,7 @@ class ValidationError(NoxPanelError):
 class PluginError(NoxPanelError):
     """Plugin-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.PLUGIN)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -140,7 +140,7 @@ class PluginError(NoxPanelError):
 class ConfigurationError(NoxPanelError):
     """Configuration-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.CONFIG)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -149,7 +149,7 @@ class ConfigurationError(NoxPanelError):
 class ErrorHandler:
     """Centralized error handling with logging and reporting capabilities."""
     
-    def __init__(self, logger_name: str = __name__):
+    def __init__(self, logger_name: str = __name__) -> None:
         """Initialize error handler.
         
         Args:
@@ -233,7 +233,7 @@ class ErrorHandler:
             'last_error': self.recent_errors[-1] if self.recent_errors else None
         }
     
-    def clear_recent_errors(self):
+    def clear_recent_errors(self) -> None:
         """Clear recent errors list."""
         self.recent_errors.clear()
         self.logger.info("Recent errors cleared")
@@ -255,7 +255,7 @@ def error_handler(
     """
     def decorator(func: Callable) -> Callable:
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args, **kwargs) -> None:
             try:
                 return func(*args, **kwargs)
             except Exception as e:

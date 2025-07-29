@@ -11,6 +11,7 @@ from datetime import datetime
 from collections import defaultdict
 from tqdm import tqdm
 from NoxPanel.noxcore.utils.logging_config import get_logger
+from typing import Dict, List, Optional, Any, Union
 logger = get_logger(__name__)
 
 
@@ -30,7 +31,7 @@ REPORT_CATEGORIES = [
 ARCHIVE_DIR = './archive/deprecated/'
 
 # --- Utility Functions ---
-def sha256sum(filepath):
+def sha256sum(filepath) -> Any:
     """Compute SHA256 hash of a file."""
     h = hashlib.sha256()
     with open(filepath, 'rb') as f:
@@ -38,15 +39,15 @@ def sha256sum(filepath):
             h.update(chunk)
     return h.hexdigest()
 
-def get_last_modified(filepath):
+def get_last_modified(filepath) -> Any:
     """Get last modified date as ISO string."""
     return datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat()
 
-def is_legacy_name(filename):
+def is_legacy_name(filename) -> Any:
     """Detect legacy naming patterns."""
     return bool(LEGACY_PATTERNS.search(filename))
 
-def parse_imports(filepath):
+def parse_imports(filepath) -> Any:
     """Parse import/require/include statements from file."""
     imports = set()
     try:
@@ -78,7 +79,7 @@ def parse_imports(filepath):
         pass
     return imports
 
-def scan_files(root):
+def scan_files(root) -> Any:
     """Recursively scan files, excluding EXCLUDE_DIRS."""
     file_list = []
     for dirpath, dirnames, filenames in os.walk(root):
@@ -90,7 +91,7 @@ def scan_files(root):
                 file_list.append(os.path.join(dirpath, fname))
     return file_list
 
-def analyze_file(filepath, all_imports, hash_map):
+def analyze_file(filepath, all_imports, hash_map) -> Any:
     """Analyze file for legacy, config, duplicate, and reference status."""
     ext = os.path.splitext(filepath)[1].lower()
     filename = os.path.basename(filepath)
@@ -127,14 +128,14 @@ def analyze_file(filepath, all_imports, hash_map):
         'category': category
     }
 
-def call_ai_suggester(report):
+def call_ai_suggester(report) -> Any:
     """Call Supermaven/Langflow/Ollama API to refine suggestions. Abstracted for future extension."""
     # Placeholder: try external API, fallback to local LLM
     # Example: requests.post('http://localhost:11434/api', json=report)
     # For now, just return report unchanged
     return report
 
-def generate_reports(results, metrics):
+def generate_reports(results, metrics) -> Any:
     """Write cleanup_report.json and cleanup_report.md with categorized entries and metrics."""
     # JSON
     with open('cleanup_report.json', 'w', encoding='utf-8') as f:
@@ -151,7 +152,7 @@ def generate_reports(results, metrics):
         for k, v in metrics.items():
             f.write(f"- {k}: {v}\n")
 
-def perform_cleanup(results, execute=False):
+def perform_cleanup(results, execute=False) -> Any:
     """Delete or archive files in safe_to_delete and migration_candidate categories."""
     candidates = results.get('safe_to_delete', []) + results.get('migration_candidate', [])
     if not candidates:
@@ -178,7 +179,7 @@ def perform_cleanup(results, execute=False):
             logger.info(f"Failed to archive {entry['path']}: {e}")
 
 # --- Main CLI ---
-def main():
+def main() -> Any:
     parser = argparse.ArgumentParser(description="Advanced NoxPanel Suite Cleanup Tool")
     parser.add_argument('--execute', action='store_true', help='Actually delete/archive files (default: dry-run)')
     parser.add_argument('--root', type=str, default='.', help='Project root directory')

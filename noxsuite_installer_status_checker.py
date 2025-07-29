@@ -14,7 +14,7 @@ import traceback
 class InstallerStatusChecker:
     """Check installer status and provide diagnostics"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.current_dir = Path.cwd()
         self.issues = []
         self.recommendations = []
@@ -98,6 +98,15 @@ class InstallerStatusChecker:
     def check_system_compatibility(self) -> Dict[str, Any]:
         """Check system compatibility"""
         import platform
+
+# Logging configuration
+try:
+    from NoxPanel.noxcore.utils.logging_config import get_logger
+    logger = get_logger(__name__)
+except ImportError:
+    import logging
+    logger = logging.getLogger(__name__)
+
         
         python_version = sys.version_info
         min_python = (3, 8)
@@ -177,7 +186,7 @@ class InstallerStatusChecker:
     
     def generate_diagnostic_report(self) -> Dict[str, Any]:
         """Generate comprehensive diagnostic report"""
-        print("🔍 Running NoxSuite Installer Diagnostics...")
+        logger.info("🔍 Running NoxSuite Installer Diagnostics...")
         
         report = {
             "timestamp": str(Path(__file__).stat().st_mtime),
@@ -192,70 +201,70 @@ class InstallerStatusChecker:
         
         return report
     
-    def print_status_summary(self, report: Dict[str, Any]):
+    def print_status_summary(self, report: Dict[str, Any]) -> Any:
         """Print human-readable status summary"""
-        print("\n" + "=" * 60)
-        print("📋 NoxSuite Installer Status Summary")
-        print("=" * 60)
+        logger.info("\n" + "=" * 60)
+        logger.info("📋 NoxSuite Installer Status Summary")
+        logger.info("=" * 60)
         
         # Files status
-        print("\n📁 Installer Files:")
+        logger.info("\n📁 Installer Files:")
         missing_req = report["files"]["missing_required"]
         if missing_req:
-            print(f"❌ Missing required files: {', '.join(missing_req)}")
+            logger.info(f"❌ Missing required files: {', '.join(missing_req)
         else:
-            print("✅ All required files present")
+            logger.info("✅ All required files present")
         
         missing_opt = report["files"]["missing_optional"]
         if missing_opt:
-            print(f"⚠️  Missing optional files: {', '.join(missing_opt)}")
+            logger.info(f"⚠️  Missing optional files: {', '.join(missing_opt)
         
         # Dependencies status
-        print("\n📦 Dependencies:")
+        logger.info("\n📦 Dependencies:")
         for dep, info in report["dependencies"].items():
             if info["available"]:
-                print(f"✅ {dep} available")
+                logger.info(f"✅ {dep} available")
             else:
                 fallback = info.get("fallback", "none")
-                print(f"⚠️  {dep} missing (fallback: {fallback})")
+                logger.info(f"⚠️  {dep} missing (fallback: {fallback})
         
         # System status
-        print(f"\n💻 System:")
+        logger.info(f"\n💻 System:")
         sys_info = report["system"]
         python_compat = "✅" if sys_info["python_version"]["compatible"] else "❌"
-        print(f"{python_compat} Python {sys_info['python_version']['current']}")
-        print(f"📊 Platform: {sys_info['platform']['system']} {sys_info['platform']['architecture']}")
+        logger.info(f"{python_compat} Python {sys_info['python_version']['current']}")
+        logger.info(f"📊 Platform: {sys_info['platform']['system']} {sys_info['platform']['architecture']}")
         
         # Logs status
-        print(f"\n📝 Logs:")
+        logger.info(f"\n📝 Logs:")
         for log_file, info in report["logs"].items():
             if info["exists"]:
                 if "last_session" in info:
                     session_info = info["last_session"]
                     status = "✅" if session_info.get("last_completion") else "⚠️"
-                    print(f"{status} {log_file} ({info['lines']} lines, {session_info['sessions']} sessions)")
+                    logger.info(f"{status} {log_file} ({info['lines']} lines, {session_info['sessions']} sessions)
                 else:
-                    print(f"❌ {log_file} (unreadable)")
+                    logger.info(f"❌ {log_file} (unreadable)
             else:
-                print(f"📝 {log_file} (not found)")
+                logger.info(f"📝 {log_file} (not found)
         
         # Issues and recommendations
         if self.issues:
-            print(f"\n❌ Issues Found ({len(self.issues)}):")
+            logger.info(f"\n❌ Issues Found ({len(self.issues)
             for issue in self.issues:
-                print(f"   • {issue}")
+                logger.info(f"   • {issue}")
         
         if self.recommendations:
-            print(f"\n💡 Recommendations ({len(self.recommendations)}):")
+            logger.info(f"\n💡 Recommendations ({len(self.recommendations)
             for rec in self.recommendations:
-                print(f"   • {rec}")
+                logger.info(f"   • {rec}")
         
         if not self.issues:
-            print(f"\n🎉 Installer Status: HEALTHY")
+            logger.info(f"\n🎉 Installer Status: HEALTHY")
         else:
-            print(f"\n⚠️  Installer Status: NEEDS ATTENTION")
+            logger.info(f"\n⚠️  Installer Status: NEEDS ATTENTION")
 
-def main():
+def main() -> Any:
     """Main status checker"""
     try:
         checker = InstallerStatusChecker()
@@ -269,13 +278,13 @@ def main():
         with open(report_file, 'w', encoding='utf-8') as f:
             json.dump(report, f, indent=2, ensure_ascii=False)
         
-        print(f"\n📊 Detailed report saved to: {report_file}")
+        logger.info(f"\n📊 Detailed report saved to: {report_file}")
         
         # Return exit code based on issues
         return 0 if not checker.issues else 1
         
     except Exception as e:
-        print(f"💥 Diagnostic check failed: {e}")
+        logger.error(f"💥 Diagnostic check failed: {e}")
         traceback.print_exc()
         return 2
 

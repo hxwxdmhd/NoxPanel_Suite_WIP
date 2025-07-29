@@ -10,6 +10,27 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Any
 
+# Add current directory to path for local imports
+sys.path.insert(0, str(Path(__file__).parent))
+
+# Import datetime utilities with fallback
+try:
+    from NoxPanel.noxcore.utils.datetime_utils import utc_now
+
+# Logging configuration
+try:
+    from NoxPanel.noxcore.utils.logging_config import get_logger
+    logger = get_logger(__name__)
+except ImportError:
+    import logging
+    logger = logging.getLogger(__name__)
+
+except ImportError:
+    # Fallback if utils not available
+    def utc_now() -> datetime:
+        """Fallback UTC now function."""
+        return datetime.now(timezone.utc)
+
 def generate_final_report() -> Dict[str, Any]:
     """Generate the final comprehensive overhaul report."""
     
@@ -79,7 +100,7 @@ def generate_final_report() -> Dict[str, Any]:
     # Final report structure
     final_report = {
         'overhaul_summary': {
-            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'timestamp': utc_now().isoformat(),
             'total_python_files': total_files,
             'active_python_files': active_files,
             'archived_directories': len(archive_dirs),
@@ -114,9 +135,9 @@ def generate_final_report() -> Dict[str, Any]:
     
     return final_report
 
-def main():
+def main() -> Any:
     """Generate and save the final report."""
-    print("🚀 Generating Final Comprehensive Overhaul Report...")
+    logger.info("🚀 Generating Final Comprehensive Overhaul Report...")
     
     try:
         report = generate_final_report()
@@ -126,38 +147,38 @@ def main():
         with open(report_file, 'w', encoding='utf-8') as f:
             json.dump(report, f, indent=2, default=str)
         
-        print(f"✅ Final report saved to {report_file}")
+        logger.info(f"✅ Final report saved to {report_file}")
         
         # Print summary
-        print("\n" + "="*60)
-        print("COMPREHENSIVE CODEBASE OVERHAUL - EXECUTIVE SUMMARY")
-        print("="*60)
+        logger.info("\n" + "="*60)
+        logger.info("COMPREHENSIVE CODEBASE OVERHAUL - EXECUTIVE SUMMARY")
+        logger.info("="*60)
         
         overhaul = report['overhaul_summary']
-        print(f"📊 Files Analyzed: {overhaul['active_python_files']} active Python files")
-        print(f"🗂️  Archived: {overhaul['archived_directories']} directories with deprecated code")
-        print(f"🔧 Fixes Applied: {report['analysis_results']['comprehensive_fixes_applied']} total fixes")
+        logger.info(f"📊 Files Analyzed: {overhaul['active_python_files']} active Python files")
+        logger.info(f"🗂️  Archived: {overhaul['archived_directories']} directories with deprecated code")
+        logger.info(f"🔧 Fixes Applied: {report['analysis_results']['comprehensive_fixes_applied']} total fixes")
         
-        print(f"\n🎯 Production Readiness: {report['production_readiness']['status']}")
-        print(f"🚨 Critical Issues: {report['production_readiness']['critical_blockers']}")
-        print(f"⚠️  High Priority Issues: {report['production_readiness']['high_priority_issues']}")
+        logger.info(f"\n🎯 Production Readiness: {report['production_readiness']['status']}")
+        logger.info(f"🚨 Critical Issues: {report['production_readiness']['critical_blockers']}")
+        logger.info(f"⚠️  High Priority Issues: {report['production_readiness']['high_priority_issues']}")
         
-        print("\n🔧 Major Improvements:")
+        logger.info("\n🔧 Major Improvements:")
         for key, value in overhaul['major_improvements'].items():
-            print(f"  • {key.replace('_', ' ').title()}: {value}")
+            logger.info(f"  • {key.replace('_', ' ')
         
-        print("\n📋 Next Steps:")
+        logger.info("\n📋 Next Steps:")
         for rec in report['production_readiness']['recommendations']['immediate']:
-            print(f"  • {rec}")
+            logger.info(f"  • {rec}")
         
-        print("\n✨ The Heimnetz/NoxGuard/NoxPanel codebase has been significantly improved!")
-        print("   All critical syntax errors fixed, deprecated patterns updated,")
-        print("   and code quality tools enhanced for ongoing maintenance.")
+        logger.info("\n✨ The Heimnetz/NoxGuard/NoxPanel codebase has been significantly improved!")
+        logger.error("   All critical syntax errors fixed, deprecated patterns updated,")
+        logger.info("   and code quality tools enhanced for ongoing maintenance.")
         
         return 0
         
     except Exception as e:
-        print(f"❌ Error generating report: {e}")
+        logger.error(f"❌ Error generating report: {e}")
         return 1
 
 if __name__ == '__main__':

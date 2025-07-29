@@ -70,7 +70,7 @@ class NoxSuiteInstaller:
         "mistral:7b-instruct", "gemma:7b-it", "tinyllama", "phi"
     ]
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.system_info = self._detect_system()
         self.config: Optional[InstallConfig] = None
         self.install_log = []
@@ -127,7 +127,7 @@ class NoxSuiteInstaller:
         logger.info(f"✅ Detected: {os_type.value} {architecture}, {cpu_cores} cores, {available_memory}GB RAM")
         return system_info
     
-    def welcome_screen(self):
+    def welcome_screen(self) -> bool:
         """Display welcome and system info"""
         print("""
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -141,19 +141,19 @@ class NoxSuiteInstaller:
 ╚═══════════════════════════════════════════════════════════════════╝
         """)
         
-        print(f"\n🖥️  System Information:")
-        print(f"   OS: {self.system_info.os_type.value.title()} {self.system_info.architecture}")
-        print(f"   Python: {self.system_info.python_version}")
-        print(f"   CPU Cores: {self.system_info.cpu_cores}")
-        print(f"   Memory: {self.system_info.available_memory}GB")
-        print(f"   Docker: {'✅' if self.system_info.docker_available else '❌'}")
-        print(f"   Node.js: {'✅' if self.system_info.node_available else '❌'}")
-        print(f"   Git: {'✅' if self.system_info.git_available else '❌'}")
+        logger.info(f"\n🖥️  System Information:")
+        logger.info(f"   OS: {self.system_info.os_type.value.title()
+        logger.info(f"   Python: {self.system_info.python_version}")
+        logger.info(f"   CPU Cores: {self.system_info.cpu_cores}")
+        logger.info(f"   Memory: {self.system_info.available_memory}GB")
+        logger.info(f"   Docker: {'✅' if self.system_info.docker_available else '❌'}")
+        logger.info(f"   Node.js: {'✅' if self.system_info.node_available else '❌'}")
+        logger.info(f"   Git: {'✅' if self.system_info.git_available else '❌'}")
         
     def interactive_config(self) -> InstallConfig:
         """Interactive configuration wizard"""
-        print("\n🛠️  Configuration Wizard")
-        print("=" * 50)
+        logger.info("\n🛠️  Configuration Wizard")
+        logger.info("=" * 50)
         
         # Installation directory
         if self.system_info.os_type == OSType.WINDOWS:
@@ -165,9 +165,9 @@ class NoxSuiteInstaller:
         install_directory = Path(install_dir_input) if install_dir_input else default_dir
         
         # Module selection
-        print(f"\n📦 Available Modules:")
+        logger.info(f"\n📦 Available Modules:")
         for i, module in enumerate(self.DEFAULT_MODULES, 1):
-            print(f"   {i}. {module}")
+            logger.info(f"   {i}. {module}")
             
         module_input = input(f"\n🔢 Select modules (comma-separated numbers, or 'all') [all]: ").strip()
         if module_input.lower() in ["", "all"]:
@@ -192,9 +192,9 @@ class NoxSuiteInstaller:
         # AI Models
         ai_models = []
         if enable_ai:
-            print(f"\n🧠 Available AI Models:")
+            logger.info(f"\n🧠 Available AI Models:")
             for i, model in enumerate(self.DEFAULT_AI_MODELS, 1):
-                print(f"   {i}. {model}")
+                logger.info(f"   {i}. {model}")
             
             model_input = input(f"🤖 Select AI models (comma-separated numbers, or 'all') [1,2]: ").strip()
             if model_input.lower() == "all":
@@ -220,19 +220,19 @@ class NoxSuiteInstaller:
         )
         
         # Confirmation
-        print(f"\n📋 Installation Summary:")
-        print(f"   Directory: {config.install_directory}")
-        print(f"   Modules: {', '.join(config.modules)}")
-        print(f"   AI Features: {'✅' if config.enable_ai else '❌'}")
-        print(f"   Voice Interface: {'✅' if config.enable_voice else '❌'}")
-        print(f"   Mobile App: {'✅' if config.enable_mobile else '❌'}")
-        print(f"   Development Mode: {'✅' if config.dev_mode else '❌'}")
+        logger.info(f"\n📋 Installation Summary:")
+        logger.info(f"   Directory: {config.install_directory}")
+        logger.info(f"   Modules: {', '.join(config.modules)
+        logger.info(f"   AI Features: {'✅' if config.enable_ai else '❌'}")
+        logger.info(f"   Voice Interface: {'✅' if config.enable_voice else '❌'}")
+        logger.info(f"   Mobile App: {'✅' if config.enable_mobile else '❌'}")
+        logger.info(f"   Development Mode: {'✅' if config.dev_mode else '❌'}")
         if config.ai_models:
-            print(f"   AI Models: {', '.join(config.ai_models)}")
+            logger.info(f"   AI Models: {', '.join(config.ai_models)
             
         confirm = input(f"\n✅ Proceed with installation? [Y/n]: ").strip().lower()
         if confirm == 'n':
-            print("❌ Installation cancelled.")
+            logger.info("❌ Installation cancelled.")
             sys.exit(0)
             
         return config
@@ -251,13 +251,13 @@ class NoxSuiteInstaller:
             missing_deps.append("Node.js")
             
         if missing_deps:
-            print(f"\n⚠️  Missing Dependencies: {', '.join(missing_deps)}")
+            logger.info(f"\n⚠️  Missing Dependencies: {', '.join(missing_deps)
             install_deps = input("🤖 Auto-install missing dependencies? [Y/n]: ").strip().lower() != 'n'
             
             if install_deps:
                 return self._install_dependencies(missing_deps)
             else:
-                print("❌ Cannot proceed without required dependencies.")
+                logger.info("❌ Cannot proceed without required dependencies.")
                 return False
                 
         logger.info("✅ All dependencies satisfied")
@@ -284,7 +284,7 @@ class NoxSuiteInstaller:
         """Install dependencies on Windows using Chocolatey"""
         # Check for Chocolatey
         if not shutil.which("choco"):
-            print("🍫 Installing Chocolatey package manager...")
+            logger.info("🍫 Installing Chocolatey package manager...")
             powershell_cmd = """
             Set-ExecutionPolicy Bypass -Scope Process -Force;
             [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
@@ -301,7 +301,7 @@ class NoxSuiteInstaller:
             elif dep == "Node.js":
                 subprocess.run(["choco", "install", "nodejs", "-y"], check=True)
                 
-        print("🔄 Please restart your terminal and re-run the installer.")
+        logger.info("🔄 Please restart your terminal and re-run the installer.")
         return False  # Require restart
     
     def _install_linux_deps(self, deps: List[str]) -> bool:
@@ -339,7 +339,7 @@ class NoxSuiteInstaller:
         """Install dependencies on macOS using Homebrew"""
         # Check for Homebrew
         if not shutil.which("brew"):
-            print("🍺 Installing Homebrew package manager...")
+            logger.info("🍺 Installing Homebrew package manager...")
             subprocess.run(["/bin/bash", "-c", 
                 "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"], check=True)
         
@@ -353,7 +353,7 @@ class NoxSuiteInstaller:
                 
         return True
     
-    def setup_directories(self):
+    def setup_directories(self) -> bool:
         """Create directory structure"""
         logger.info(f"📁 Setting up directories in {self.config.install_directory}")
         
@@ -379,7 +379,7 @@ class NoxSuiteInstaller:
             
         logger.info("✅ Directory structure created")
     
-    def clone_repositories(self):
+    def clone_repositories(self) -> bool:
         """Clone or copy existing codebase"""
         logger.info("📂 Setting up codebase...")
         
@@ -402,7 +402,7 @@ class NoxSuiteInstaller:
         
         logger.info("✅ Existing codebase integrated")
     
-    def generate_react_frontend(self):
+    def generate_react_frontend(self) -> bool:
         """Generate React-based frontend"""
         logger.info("⚛️  Generating React frontend...")
         
@@ -456,7 +456,7 @@ class NoxSuiteInstaller:
         
         logger.info("✅ React frontend generated")
     
-    def _create_nextjs_structure(self, frontend_dir: Path):
+    def _create_nextjs_structure(self, frontend_dir: Path) -> bool:
         """Create Next.js application structure"""
         
         # Next.js config
@@ -646,7 +646,7 @@ export default function Home() {
         with open(frontend_dir / "pages" / "index.tsx", "w") as f:
             f.write(index_page)
     
-    def generate_fastapi_backend(self):
+    def generate_fastapi_backend(self) -> bool:
         """Generate FastAPI backend service"""
         logger.info("🚀 Generating FastAPI backend...")
         
@@ -806,7 +806,7 @@ if __name__ == "__main__":
             
         logger.info("✅ FastAPI backend generated")
     
-    def generate_docker_compose(self):
+    def generate_docker_compose(self) -> bool:
         """Generate comprehensive Docker Compose configuration"""
         logger.info("🐳 Generating Docker Compose configuration...")
         
@@ -1013,7 +1013,7 @@ if __name__ == "__main__":
             
         logger.info("✅ Docker Compose configuration generated")
     
-    def install_ai_models(self):
+    def install_ai_models(self) -> bool:
         """Install and configure AI models"""
         if not self.config.enable_ai or not self.config.ai_models:
             return
@@ -1057,7 +1057,7 @@ echo "🎉 AI model installation complete!"
         
         logger.info(f"✅ AI model installation script created: {script_path}")
     
-    def generate_startup_scripts(self):
+    def generate_startup_scripts(self) -> bool:
         """Generate platform-specific startup scripts"""
         logger.info("📜 Generating startup scripts...")
         
@@ -1131,7 +1131,7 @@ read -n 1
             
         logger.info("✅ Startup scripts generated")
     
-    def create_configuration_files(self):
+    def create_configuration_files(self) -> bool:
         """Create configuration files and environment variables"""
         logger.info("⚙️  Creating configuration files...")
         
@@ -1209,7 +1209,7 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
             
         logger.info("✅ Configuration files created")
     
-    def finalize_installation(self):
+    def finalize_installation(self) -> bool:
         """Finalize installation and provide summary"""
         logger.info("🎯 Finalizing installation...")
         
@@ -1274,7 +1274,7 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
         
         logger.info("🎉 NoxSuite installation completed successfully!")
     
-    def run_installation(self):
+    def run_installation(self) -> bool:
         """Run the complete installation process"""
         try:
             self.welcome_screen()
@@ -1299,15 +1299,15 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
             return True
             
         except KeyboardInterrupt:
-            print("\n❌ Installation cancelled by user")
+            logger.info("\n❌ Installation cancelled by user")
             return False
         except Exception as e:
             logger.error(f"❌ Installation failed: {e}")
-            print(f"\n❌ Installation failed: {e}")
-            print("📋 Check noxsuite-install.log for details")
+            logger.error(f"\n❌ Installation failed: {e}")
+            logger.info("📋 Check noxsuite-install.log for details")
             return False
 
-def main():
+def main() -> bool:
     """Main installer entry point"""
     installer = NoxSuiteInstaller()
     success = installer.run_installation()

@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 class DatabaseAdmin:
     """Database administration utilities"""
     
-    def __init__(self, db_path: str = None):
+    def __init__((self, db_path: str = None) -> None:
         self.db_service = get_database_service(db_path)
     
     def status(self) -> Dict[str, Any]:
@@ -258,7 +258,7 @@ class DatabaseAdmin:
         
         return recommendations if recommendations else ["Database is healthy and well-maintained."]
 
-def main():
+def main() -> bool:
     """Command-line interface for database administration"""
     parser = argparse.ArgumentParser(description='NoxGuard Database Administration Tool')
     parser.add_argument('--db-path', help='Database file path')

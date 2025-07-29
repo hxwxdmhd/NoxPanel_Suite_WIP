@@ -11,6 +11,7 @@ import sys
 import argparse
 from pathlib import Path
 import logging
+from typing import Dict, List, Optional, Any, Union
 
 # Add the project root to Python path
 project_root = Path(__file__).parent
@@ -27,7 +28,7 @@ except ImportError as e:
     sys.exit(1)
 
 
-def main():
+def main() -> None:
     """Main entry point for code analysis."""
     parser = argparse.ArgumentParser(description='NoxPanel Code Analysis Tool')
     parser.add_argument(

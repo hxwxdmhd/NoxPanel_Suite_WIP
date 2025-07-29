@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class Migration:
     """Base class for database migrations"""
     
-    def __init__(self, version: int, description: str):
+    def __init__((self, version: int, description: str) -> None:
         self.version = version
         self.description = description
     
@@ -32,7 +32,7 @@ class Migration:
 class InitialMigration(Migration):
     """Initial database schema migration"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         super().__init__(1, "Initial database schema with enhanced tables")
     
     def up(self, conn: sqlite3.Connection) -> None:
@@ -57,12 +57,12 @@ class InitialMigration(Migration):
 class MigrationManager:
     """Manages database migrations and schema versioning"""
     
-    def __init__(self, db_path: str):
+    def __init__((self, db_path: str) -> None:
         self.db_path = Path(db_path)
         self.migrations: List[Migration] = []
         self._register_migrations()
     
-    def _register_migrations(self):
+    def _register_migrations(self) -> bool:
         """Register all available migrations"""
         self.migrations = [
             InitialMigration(),
@@ -72,7 +72,7 @@ class MigrationManager:
         self.migrations.sort(key=lambda m: m.version)
     
     @contextmanager
-    def get_connection(self):
+    def get_connection(self) -> bool:
         """Get database connection for migrations"""
         conn = sqlite3.connect(self.db_path, isolation_level=None)
         try:
@@ -81,7 +81,7 @@ class MigrationManager:
         finally:
             conn.close()
     
-    def _ensure_migration_table(self, conn: sqlite3.Connection):
+    def _ensure_migration_table(self, conn: sqlite3.Connection) -> bool:
         """Create migration tracking table if it doesn't exist"""
         conn.execute("""
             CREATE TABLE IF NOT EXISTS schema_migrations (
@@ -303,7 +303,7 @@ class MigrationManager:
             return False
 
 # CLI interface for migrations
-def main():
+def main() -> bool:
     """Command-line interface for migrations"""
     import argparse
     

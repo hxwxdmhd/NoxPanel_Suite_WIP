@@ -118,7 +118,7 @@ class InstallStep:
 class SmartLogger:
     """Enhanced logging with UTF-8 support and structured output"""
     
-    def __init__(self, log_file: str = "noxsuite_installer.log"):
+    def __init__((self, log_file: str = "noxsuite_installer.log") -> None:
         self.log_file = Path(log_file)
         self.session_id = str(uuid.uuid4())[:8]
         self.start_time = datetime.now(timezone.utc)
@@ -168,15 +168,15 @@ class SmartLogger:
             'python_version': sys.version
         })
     
-    def _create_custom_formatter(self):
+    def _create_custom_formatter(self) -> bool:
         """Create custom formatter that includes session ID"""
         class CustomFormatter(logging.Formatter):
-            def format(self, record):
+            def format(self, record) -> bool:
                 record.session_id = self.session_id
                 return super().format(record)
         return CustomFormatter('%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s')
     
-    def _log_structured(self, data: Dict[str, Any]):
+    def _log_structured(self, data: Dict[str, Any]) -> bool:
         """Log structured data as JSON"""
         json_str = json.dumps(data, ensure_ascii=False, indent=None)
         self.logger.debug(f"STRUCTURED: {json_str}")
@@ -199,7 +199,7 @@ class SmartLogger:
                 # Last resort: replace problematic characters
                 return text.decode('utf-8', errors='replace')
     
-    def step_start(self, step_name: str, description: str = ""):
+    def step_start(self, step_name: str, description: str = "") -> bool:
         """Log step start with emoji support"""
         emoji_map = {
             'detecting': '🔍',
@@ -224,7 +224,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def step_complete(self, step_name: str, details: Dict[str, Any] = None):
+    def step_complete(self, step_name: str, details: Dict[str, Any] = None) -> bool:
         """Log step completion"""
         self.logger.info(f"✅ {step_name.replace('_', ' ').title()} completed")
         self._log_structured({
@@ -234,7 +234,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None):
+    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None) -> bool:
         """Log step error with context"""
         error_msg = str(error)
         self.logger.error(f"❌ {step_name.replace('_', ' ').title()} failed: {error_msg}")
@@ -248,7 +248,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def warning(self, message: str, context: Dict[str, Any] = None):
+    def warning(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log warning message"""
         self.logger.warning(f"⚠️  {message}")
         self._log_structured({
@@ -258,7 +258,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def info(self, message: str, context: Dict[str, Any] = None):
+    def info(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log info message"""
         self.logger.info(message)
         if context:
@@ -269,7 +269,7 @@ class SmartLogger:
                 'timestamp': datetime.now(timezone.utc).isoformat()
             })
     
-    def debug(self, message: str, context: Dict[str, Any] = None):
+    def debug(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log debug message"""
         self.logger.debug(message)
         if context:
@@ -283,7 +283,7 @@ class SmartLogger:
 class InstallationAuditor:
     """Analyzes previous installation attempts and suggests improvements"""
     
-    def __init__(self, log_file: Path):
+    def __init__((self, log_file: Path) -> None:
         self.log_file = log_file
         self.issues_database = Path("noxsuite_issues.json")
         self.known_issues = self._load_known_issues()
@@ -395,7 +395,7 @@ class InstallationAuditor:
 class PlatformDetector:
     """Enhanced platform detection with capability analysis"""
     
-    def __init__(self, logger: SmartLogger):
+    def __init__((self, logger: SmartLogger) -> None:
         self.logger = logger
     
     def detect_system(self) -> SystemInfo:
@@ -640,7 +640,7 @@ class PlatformDetector:
 class SmartDependencyManager:
     """Intelligent dependency management with multiple fallback strategies"""
     
-    def __init__(self, system_info: SystemInfo, logger: SmartLogger):
+    def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
         self.logger = logger
         self.retry_count = {}

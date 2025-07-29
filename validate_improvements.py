@@ -22,13 +22,14 @@ try:
     from NoxPanel.noxcore.utils.logging_config import setup_logging, get_logger
     from NoxPanel.noxcore.utils.datetime_utils import utc_now, format_iso
     from NoxPanel.noxcore.utils.error_handling import safe_execute
+from typing import Dict, List, Optional, Any, Union
 except ImportError as e:
     logger.info(f"Import error: {e}")
     logger.info("Please ensure the NoxPanel package is properly installed")
     sys.exit(1)
 
 
-def check_git_status():
+def check_git_status() -> List[Any]:
     """Check git status for changes made."""
     try:
         result = subprocess.run(['git', 'status', '--porcelain'], 
@@ -41,13 +42,13 @@ def check_git_status():
         return []
 
 
-def count_backup_files():
+def count_backup_files() -> List[Any]:
     """Count backup files created during improvements."""
     backup_files = list(project_root.rglob('*.backup'))
     return len(backup_files)
 
 
-def run_analysis_comparison():
+def run_analysis_comparison() -> List[Any]:
     """Run analysis on different parts of codebase for comparison."""
     setup_logging()
     logger = get_logger('validation')
@@ -95,7 +96,7 @@ def run_analysis_comparison():
     return results
 
 
-def generate_improvement_report():
+def generate_improvement_report() -> List[Any]:
     """Generate comprehensive improvement report."""
     setup_logging()
     logger = get_logger('validation')
@@ -198,7 +199,7 @@ def generate_improvement_report():
     return report
 
 
-def main():
+def main() -> List[Any]:
     """Main entry point."""
     try:
         report = generate_improvement_report()

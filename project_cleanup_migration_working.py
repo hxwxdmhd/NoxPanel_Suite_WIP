@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from tqdm import tqdm
 from NoxPanel.noxcore.utils.logging_config import get_logger
+from typing import Dict, List, Optional, Any, Union
 logger = get_logger(__name__)
 
 
@@ -49,18 +50,18 @@ AGENT_TASKS = [
     "Validate migration completeness"
 ]
 
-def write_log(message):
+def write_log(message) -> bool:
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(message + "\n")
     logger.info(message)
 
-def is_protected(path):
+def is_protected(path) -> bool:
     for keep in KEEP_PATHS:
         if Path(keep).resolve() == Path(path).resolve():
             return True
     return False
 
-def backup_and_delete(path):
+def backup_and_delete(path) -> bool:
     backup_path = os.path.join(BACKUP_DIR, os.path.relpath(path, start=os.getcwd()))
     os.makedirs(os.path.dirname(backup_path), exist_ok=True)
     try:
@@ -76,7 +77,7 @@ def backup_and_delete(path):
         write_log(f"❌ Failed to delete: {path} - Error: {e}")
         return False
 
-def find_targets():
+def find_targets() -> bool:
     items = []
     for target in DELETE_TARGETS:
         if "*" in target:
@@ -86,7 +87,7 @@ def find_targets():
                 items.append(target)
     return items
 
-def cleanup_diagnostics():
+def cleanup_diagnostics() -> bool:
     diag_files = []
     for root, dirs, files in os.walk('.'):
         for file in files:
@@ -95,7 +96,7 @@ def cleanup_diagnostics():
                     diag_files.append(os.path.join(root, file))
     return diag_files
 
-def generate_todo(deleted, skipped):
+def generate_todo(deleted, skipped) -> bool:
     lines = [
         "# Project Cleanup TODO Checklist",
         f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}",
@@ -116,7 +117,7 @@ def generate_todo(deleted, skipped):
         f.write("\n".join(lines))
     write_log(f"📝 TODO checklist generated: {TODO_FILE}")
 
-def generate_rollback():
+def generate_rollback() -> bool:
     lines = [
         "import shutil, os",
         f"BACKUP_DIR = '{BACKUP_DIR}'",
@@ -126,13 +127,13 @@ def generate_rollback():
         "        dst = os.path.relpath(src, BACKUP_DIR)",
         "        os.makedirs(os.path.dirname(dst), exist_ok=True)",
         "        shutil.copy2(src, dst)",
-        "print('Rollback completed.')"
+logger.info('Rollback completed.')
     ]
     with open(ROLLBACK_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
     write_log(f"🔄 Rollback script generated: {ROLLBACK_FILE}")
 
-def main():
+def main() -> bool:
     logger.info("\n=== PROJECT CLEANUP MIGRATION ===\n")
     logger.info(f"Backup directory: {BACKUP_DIR}")
     logger.info(f"Log file: {LOG_FILE}")

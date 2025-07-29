@@ -12,7 +12,7 @@ from pathlib import Path
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-def show_help():
+def show_help() -> bool:
     """Show help message with available modes"""
     help_text = """
 🧠 NoxSuite Smart Self-Healing Installer
@@ -57,11 +57,11 @@ FEATURES:
 
 For more information, visit: https://github.com/noxsuite/noxsuite
     """
-    print(help_text)
+    logger.info(help_text)
 
-def check_dependencies():
+def check_dependencies() -> bool:
     """Quick dependency check"""
-    print("🔍 Checking dependencies...")
+    logger.info("🔍 Checking dependencies...")
     
     dependencies = {
         "Python": sys.version_info >= (3, 8),
@@ -70,24 +70,24 @@ def check_dependencies():
         "Node.js": os.system("node --version > /dev/null 2>&1") == 0
     }
     
-    print("\n📋 Dependency Status:")
+    logger.info("\n📋 Dependency Status:")
     all_good = True
     for dep, available in dependencies.items():
         status = "✅" if available else "❌"
-        print(f"   {status} {dep}")
+        logger.info(f"   {status} {dep}")
         if not available:
             all_good = False
     
     if all_good:
-        print("\n🎉 All dependencies are available!")
+        logger.info("\n🎉 All dependencies are available!")
     else:
-        print("\n⚠️  Some dependencies are missing. The installer can help install them.")
+        logger.info("\n⚠️  Some dependencies are missing. The installer can help install them.")
     
     return all_good
 
-def check_updates():
+def check_updates() -> bool:
     """Check for installer updates"""
-    print("🔄 Checking for updates...")
+    logger.info("🔄 Checking for updates...")
     
     try:
         from noxsuite_installer_utils import UpdateChecker
@@ -98,21 +98,21 @@ def check_updates():
         updates = checker.check_for_updates()
         
         if updates.get("available", False):
-            print("🆕 Updates available:")
+            logger.info("🆕 Updates available:")
             for component, info in updates["components"].items():
                 if info.get("update_available", False):
                     current = info.get("current_version", "unknown")
                     latest = info.get("latest_version", "unknown")
-                    print(f"   • {component}: {current} → {latest}")
+                    logger.info(f"   • {component}: {current} → {latest}")
         else:
-            print("✅ You have the latest version!")
+            logger.info("✅ You have the latest version!")
             
     except Exception as e:
-        print(f"❌ Could not check for updates: {e}")
+        logger.info(f"❌ Could not check for updates: {e}")
 
-def try_bootstrap():
+def try_bootstrap() -> bool:
     """Try to run bootstrap installer if main installer fails"""
-    print("\n🔄 Attempting to bootstrap dependencies...")
+    logger.info("\n🔄 Attempting to bootstrap dependencies...")
     try:
         bootstrap_file = Path("noxsuite_bootstrap_installer.py")
         if bootstrap_file.exists():
@@ -123,13 +123,13 @@ def try_bootstrap():
             ] + sys.argv[1:], capture_output=False)
             sys.exit(result.returncode)
         else:
-            print("❌ Bootstrap installer not found")
+            logger.info("❌ Bootstrap installer not found")
             return False
     except Exception as e:
-        print(f"❌ Bootstrap failed: {e}")
+        logger.error(f"❌ Bootstrap failed: {e}")
         return False
 
-def main():
+def main() -> bool:
     """Main launcher function"""
     # Parse command line arguments
     args = sys.argv[1:]
@@ -139,7 +139,7 @@ def main():
         return
     
     if args[0] == "--version":
-        print("NoxSuite Smart Installer v1.0.0")
+        logger.info("NoxSuite Smart Installer v1.0.0")
         return
     
     if args[0] == "--check-deps":
@@ -154,16 +154,16 @@ def main():
     try:
         from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode
     except ImportError as e:
-        print(f"❌ Could not import installer modules: {e}")
-        print("This usually means required dependencies are missing.")
+        logger.info(f"❌ Could not import installer modules: {e}")
+        logger.info("This usually means required dependencies are missing.")
         
         # Try to run bootstrap installer
-        print("\n🔧 The installer will now attempt to install missing dependencies...")
+        logger.info("\n🔧 The installer will now attempt to install missing dependencies...")
         try_bootstrap()
         
-        print("\nIf the problem persists, try manually installing dependencies:")
-        print("  pip install requests chardet")
-        print("  python install_noxsuite.py")
+        logger.info("\nIf the problem persists, try manually installing dependencies:")
+        logger.info("  pip install requests chardet")
+        logger.info("  python install_noxsuite.py")
         sys.exit(1)
     
     # Determine installation mode
@@ -179,8 +179,8 @@ def main():
     install_mode = mode_map.get(mode_arg, InstallMode.GUIDED)
     
     if mode_arg not in mode_map:
-        print(f"❌ Unknown mode: {mode_arg}")
-        print("Use --help to see available modes")
+        logger.info(f"❌ Unknown mode: {mode_arg}")
+        logger.info("Use --help to see available modes")
         sys.exit(1)
     
     # Welcome message
@@ -197,18 +197,19 @@ def main():
         success = installer.run_installation(install_mode)
         
         if success:
-            print("\n🎉 Installation completed successfully!")
+            logger.info("\n🎉 Installation completed successfully!")
             sys.exit(0)
         else:
-            print("\n❌ Installation failed. Check logs for details.")
+            logger.error("\n❌ Installation failed. Check logs for details.")
             sys.exit(1)
             
     except KeyboardInterrupt:
-        print("\n\n❌ Installation cancelled by user")
+        logger.info("\n\n❌ Installation cancelled by user")
         sys.exit(1)
     except Exception as e:
-        print(f"\n❌ Installer crashed: {e}")
+        logger.info(f"\n❌ Installer crashed: {e}")
         import traceback
+from typing import Dict, List, Optional, Any, Union
         traceback.print_exc()
         sys.exit(1)
 

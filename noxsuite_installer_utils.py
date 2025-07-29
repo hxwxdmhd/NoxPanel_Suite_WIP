@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 class ProgressTracker:
     """Enhanced progress tracking with ETA calculation"""
     
-    def __init__(self, total_steps: int, logger):
+    def __init__((self, total_steps: int, logger) -> None:
         self.total_steps = total_steps
         self.current_step = 0
         self.logger = logger
@@ -25,7 +25,7 @@ class ProgressTracker:
         self.step_times = []
         self.step_names = []
     
-    def start_step(self, step_name: str):
+    def start_step(self, step_name: str) -> bool:
         """Start tracking a new step"""
         self.current_step += 1
         self.step_names.append(step_name)
@@ -45,7 +45,7 @@ class ProgressTracker:
         self.logger.info(f"[{self.current_step}/{self.total_steps}] {step_name} ({progress_pct:.1f}% - ETA: {eta_str})")
         return step_start_time
     
-    def complete_step(self, step_start_time: datetime):
+    def complete_step(self, step_start_time: datetime) -> bool:
         """Complete the current step and record timing"""
         step_duration = (datetime.now() - step_start_time).total_seconds()
         self.step_times.append(step_duration)
@@ -67,7 +67,7 @@ class ProgressTracker:
 class FileBackupManager:
     """Manages file and directory backups during installation"""
     
-    def __init__(self, backup_root: Path, logger):
+    def __init__((self, backup_root: Path, logger) -> None:
         self.backup_root = backup_root
         self.logger = logger
         self.backups = []
@@ -131,7 +131,7 @@ class FileBackupManager:
         self.logger.warning(f"No backup found for {original_path}")
         return False
     
-    def cleanup_backups(self, max_age_days: int = 7):
+    def cleanup_backups(self, max_age_days: int = 7) -> bool:
         """Clean up old backups"""
         cutoff_time = datetime.now() - timedelta(days=max_age_days)
         
@@ -170,7 +170,7 @@ class FileBackupManager:
 class DockerManager:
     """Enhanced Docker management with health checks and image optimization"""
     
-    def __init__(self, logger):
+    def __init__((self, logger) -> None:
         self.logger = logger
         self.docker_available = shutil.which("docker") is not None
     
@@ -319,7 +319,7 @@ class DockerManager:
 class NetworkValidator:
     """Network connectivity and service validation"""
     
-    def __init__(self, logger):
+    def __init__((self, logger) -> None:
         self.logger = logger
     
     def check_connectivity(self, urls: List[str], timeout: int = 10) -> Dict[str, Any]:
@@ -374,19 +374,19 @@ class NetworkValidator:
 class SystemResourceMonitor:
     """Monitor system resources during installation"""
     
-    def __init__(self, logger):
+    def __init__((self, logger) -> None:
         self.logger = logger
         self.monitoring = False
         self.resource_history = []
     
-    def start_monitoring(self, interval: int = 30):
+    def start_monitoring(self, interval: int = 30) -> bool:
         """Start resource monitoring in background"""
         if self.monitoring:
             return
         
         self.monitoring = True
         
-        def monitor_loop():
+        def monitor_loop() -> bool:
             while self.monitoring:
                 try:
                     resources = self.get_current_resources()
@@ -413,7 +413,7 @@ class SystemResourceMonitor:
         
         self.logger.debug("Started resource monitoring")
     
-    def stop_monitoring(self):
+    def stop_monitoring(self) -> bool:
         """Stop resource monitoring"""
         self.monitoring = False
         if hasattr(self, 'monitor_thread'):
@@ -488,7 +488,7 @@ class SystemResourceMonitor:
         
         return resources
     
-    def _check_resource_alerts(self, resources: Dict[str, Any]):
+    def _check_resource_alerts(self, resources: Dict[str, Any]) -> bool:
         """Check for resource usage alerts"""
         # CPU alert
         cpu_percent = resources.get('cpu_percent', 0)
@@ -513,7 +513,7 @@ class SystemResourceMonitor:
 class ConfigurationValidator:
     """Validate generated configuration files"""
     
-    def __init__(self, logger):
+    def __init__((self, logger) -> None:
         self.logger = logger
     
     def validate_docker_compose(self, compose_file: Path) -> Dict[str, Any]:
@@ -616,7 +616,7 @@ class ConfigurationValidator:
         except:
             return False
     
-    def _check_compose_common_issues(self, compose_data: Dict[str, Any], validation: Dict[str, Any]):
+    def _check_compose_common_issues(self, compose_data: Dict[str, Any], validation: Dict[str, Any]) -> bool:
         """Check for common Docker Compose issues"""
         services = compose_data.get("services", {})
         
@@ -701,7 +701,7 @@ class ConfigurationValidator:
 class UpdateChecker:
     """Check for installer and component updates"""
     
-    def __init__(self, logger, current_version: str = "1.0.0"):
+    def __init__((self, logger, current_version: str = "1.0.0") -> None:
         self.logger = logger
         self.current_version = current_version
         self.update_sources = {

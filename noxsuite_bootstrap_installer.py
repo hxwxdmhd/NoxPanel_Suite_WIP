@@ -32,25 +32,25 @@ if sys.platform.startswith('win'):
 class BootstrapLogger:
     """Simple logger using only standard library"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.log_file = Path("noxsuite_bootstrap.log")
         self.ensure_log_file()
     
-    def ensure_log_file(self):
+    def ensure_log_file(self) -> bool:
         """Ensure log file exists and is writable"""
         try:
             with open(self.log_file, 'a', encoding='utf-8') as f:
                 f.write(f"\n=== Bootstrap Session Started: {self._get_timestamp()} ===\n")
         except Exception as e:
-            print(f"Warning: Could not create log file: {e}")
+            logger.warning(f"Warning: Could not create log file: {e}")
             self.log_file = None
     
-    def _get_timestamp(self):
+    def _get_timestamp(self) -> bool:
         """Get current timestamp string"""
         from datetime import datetime
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    def _log_to_file(self, level: str, message: str):
+    def _log_to_file(self, level: str, message: str) -> bool:
         """Log message to file if possible"""
         if self.log_file:
             try:
@@ -59,34 +59,34 @@ class BootstrapLogger:
             except:
                 pass  # Silent fail for logging
     
-    def info(self, message: str):
+    def info(self, message: str) -> bool:
         """Log info message"""
-        print(f"ℹ️  {message}")
+        logger.info(f"ℹ️  {message}")
         self._log_to_file("INFO", message)
     
-    def success(self, message: str):
+    def success(self, message: str) -> bool:
         """Log success message"""
-        print(f"✅ {message}")
+        logger.info(f"✅ {message}")
         self._log_to_file("SUCCESS", message)
     
-    def warning(self, message: str):
+    def warning(self, message: str) -> bool:
         """Log warning message"""
-        print(f"⚠️  {message}")
+        logger.info(f"⚠️  {message}")
         self._log_to_file("WARNING", message)
     
-    def error(self, message: str):
+    def error(self, message: str) -> bool:
         """Log error message"""
-        print(f"❌ {message}")
+        logger.info(f"❌ {message}")
         self._log_to_file("ERROR", message)
     
-    def debug(self, message: str):
+    def debug(self, message: str) -> bool:
         """Log debug message"""
         self._log_to_file("DEBUG", message)
 
 class DependencyInstaller:
     """Handles installation of required Python packages"""
     
-    def __init__(self, logger: BootstrapLogger):
+    def __init__((self, logger: BootstrapLogger) -> None:
         self.logger = logger
         self.required_packages = [
             'requests>=2.25.0',
@@ -211,7 +211,7 @@ class DependencyInstaller:
 class SystemChecker:
     """Check system compatibility and requirements"""
     
-    def __init__(self, logger: BootstrapLogger):
+    def __init__((self, logger: BootstrapLogger) -> None:
         self.logger = logger
     
     def check_python_version(self) -> bool:
@@ -283,12 +283,12 @@ class SystemChecker:
 class NoxSuiteBootstrap:
     """Main bootstrap class"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.logger = BootstrapLogger()
         self.system_checker = SystemChecker(self.logger)
         self.dependency_installer = DependencyInstaller(self.logger)
     
-    def show_banner(self):
+    def show_banner(self) -> bool:
         """Show welcome banner"""
         banner = """
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -296,7 +296,7 @@ class NoxSuiteBootstrap:
 ║              Self-Contained Dependency Manager                    ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """
-        print(banner)
+        logger.info(banner)
         self.logger.info("NoxSuite Bootstrap Installer started")
     
     def run_system_checks(self) -> bool:
@@ -398,7 +398,7 @@ class NoxSuiteBootstrap:
             self.logger.debug(f"Traceback: {traceback.format_exc()}")
             return False
 
-def main():
+def main() -> bool:
     """Entry point"""
     bootstrap = NoxSuiteBootstrap()
     success = bootstrap.run(sys.argv[1:])

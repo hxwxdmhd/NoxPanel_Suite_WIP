@@ -35,7 +35,7 @@ except ImportError as e:
 class CodeImprover:
     """Automated code improvement tool."""
     
-    def __init__(self, dry_run: bool = False, backup: bool = True):
+    def __init__((self, dry_run: bool = False, backup: bool = True) -> None:
         """Initialize code improver.
         
         Args:
@@ -426,7 +426,7 @@ class CodeImprover:
         }
 
 
-def main():
+def main() -> bool:
     """Main entry point for code improvement."""
     parser = argparse.ArgumentParser(description='NoxPanel Code Improvement Tool')
     parser.add_argument(

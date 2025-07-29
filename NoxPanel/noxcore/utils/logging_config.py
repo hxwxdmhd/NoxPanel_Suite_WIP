@@ -16,7 +16,7 @@ import json
 class NoxPanelFormatter(logging.Formatter):
     """Custom formatter for NoxPanel with enhanced metadata."""
     
-    def __init__(self, include_context: bool = True):
+    def __init__(self, include_context: bool = True) -> None:
         """Initialize formatter.
         
         Args:
@@ -98,7 +98,7 @@ class LoggingConfig:
     DEFAULT_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     DEFAULT_LEVEL = logging.INFO
     
-    def __init__(self, config: Optional[Dict[str, Any]] = None):
+    def __init__(self, config: Optional[Dict[str, Any]] = None) -> None:
         """Initialize logging configuration.
         
         Args:
@@ -453,7 +453,7 @@ def add_context_to_logger(logger: logging.Logger, context: Dict[str, Any]) -> No
         context: Context dictionary to add
     """
     class ContextFilter(logging.Filter):
-        def filter(self, record):
+        def filter(self, record) -> bool:
             record.context = context
             return True
     

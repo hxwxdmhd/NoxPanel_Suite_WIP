@@ -20,20 +20,20 @@ try:
     HAS_REQUESTS = True
 except ImportError:
     HAS_REQUESTS = False
-    print("Warning: requests module not available. Some features will be limited.")
+    logger.warning("Warning: requests module not available. Some features will be limited.")
 
 try:
     import chardet
     HAS_CHARDET = True
 except ImportError:
     HAS_CHARDET = False
-    print("Warning: chardet module not available. Using basic encoding detection.")
+    logger.warning("Warning: chardet module not available. Using basic encoding detection.")
 import logging
 import tempfile
 import uuid
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any, Union
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from dataclasses import dataclass, asdict
 from enum import Enum, auto
 from contextlib import contextmanager
@@ -41,6 +41,18 @@ import traceback
 import threading
 import queue
 import re
+
+# Add current directory to path for local imports
+sys.path.insert(0, str(Path(__file__).parent))
+
+# Import datetime utilities with fallback
+try:
+    from NoxPanel.noxcore.utils.datetime_utils import utc_now
+except ImportError:
+    # Fallback if utils not available
+    def utc_now() -> datetime:
+        """Fallback UTC now function for installations."""
+        return utc_now()
 
 # Force UTF-8 encoding for consistent cross-platform behavior
 if sys.platform.startswith('win'):
@@ -132,10 +144,10 @@ class InstallStep:
 class SmartLogger:
     """Enhanced logging with UTF-8 support and structured output"""
     
-    def __init__(self, log_file: str = "noxsuite_installer.log"):
+    def __init__((self, log_file: str = "noxsuite_installer.log") -> None:
         self.log_file = Path(log_file)
         self.session_id = str(uuid.uuid4())[:8]
-        self.start_time = datetime.now(timezone.utc)
+        self.start_time = utc_now()
         
         # Create log directory if it doesn't exist
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -182,16 +194,16 @@ class SmartLogger:
             'python_version': sys.version
         })
     
-    def _create_custom_formatter(self):
+    def _create_custom_formatter(self) -> bool:
         """Create custom formatter that includes session ID"""
         session_id = self.session_id
         class CustomFormatter(logging.Formatter):
-            def format(self, record):
+            def format(self, record) -> bool:
                 record.session_id = session_id
                 return super().format(record)
         return CustomFormatter('%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s')
     
-    def _log_structured(self, data: Dict[str, Any]):
+    def _log_structured(self, data: Dict[str, Any]) -> bool:
         """Log structured data as JSON"""
         json_str = json.dumps(data, ensure_ascii=False, indent=None)
         self.logger.debug(f"STRUCTURED: {json_str}")
@@ -225,7 +237,7 @@ class SmartLogger:
             # Last resort: replace problematic characters
             return text.decode('utf-8', errors='replace')
     
-    def step_start(self, step_name: str, description: str = ""):
+    def step_start(self, step_name: str, description: str = "") -> bool:
         """Log step start with emoji support"""
         emoji_map = {
             'detecting': '🔍',
@@ -247,20 +259,20 @@ class SmartLogger:
             'event': 'step_start',
             'step': step_name,
             'description': description,
-            'timestamp': datetime.now(timezone.utc).isoformat()
+            'timestamp': utc_now().isoformat()
         })
     
-    def step_complete(self, step_name: str, details: Dict[str, Any] = None):
+    def step_complete(self, step_name: str, details: Dict[str, Any] = None) -> bool:
         """Log step completion"""
         self.logger.info(f"✅ {step_name.replace('_', ' ').title()} completed")
         self._log_structured({
             'event': 'step_complete',
             'step': step_name,
             'details': details or {},
-            'timestamp': datetime.now(timezone.utc).isoformat()
+            'timestamp': utc_now().isoformat()
         })
     
-    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None):
+    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None) -> bool:
         """Log step error with context"""
         error_msg = str(error)
         self.logger.error(f"❌ {step_name.replace('_', ' ').title()} failed: {error_msg}")
@@ -271,20 +283,20 @@ class SmartLogger:
             'error_type': type(error).__name__,
             'traceback': traceback.format_exc(),
             'context': context or {},
-            'timestamp': datetime.now(timezone.utc).isoformat()
+            'timestamp': utc_now().isoformat()
         })
     
-    def warning(self, message: str, context: Dict[str, Any] = None):
+    def warning(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log warning message"""
         self.logger.warning(f"⚠️  {message}")
         self._log_structured({
             'event': 'warning',
             'message': message,
             'context': context or {},
-            'timestamp': datetime.now(timezone.utc).isoformat()
+            'timestamp': utc_now().isoformat()
         })
     
-    def info(self, message: str, context: Dict[str, Any] = None):
+    def info(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log info message"""
         self.logger.info(message)
         if context:
@@ -292,10 +304,10 @@ class SmartLogger:
                 'event': 'info',
                 'message': message,
                 'context': context,
-                'timestamp': datetime.now(timezone.utc).isoformat()
+                'timestamp': utc_now().isoformat()
             })
     
-    def debug(self, message: str, context: Dict[str, Any] = None):
+    def debug(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log debug message"""
         self.logger.debug(message)
         if context:
@@ -303,13 +315,13 @@ class SmartLogger:
                 'event': 'debug',
                 'message': message,
                 'context': context,
-                'timestamp': datetime.now(timezone.utc).isoformat()
+                'timestamp': utc_now().isoformat()
             })
 
 class InstallationAuditor:
     """Analyzes previous installation attempts and suggests improvements"""
     
-    def __init__(self, log_file: Path):
+    def __init__((self, log_file: Path) -> None:
         self.log_file = log_file
         self.issues_database = Path("noxsuite_issues.json")
         self.known_issues = self._load_known_issues()
@@ -421,7 +433,7 @@ class InstallationAuditor:
 class PlatformDetector:
     """Enhanced platform detection with capability analysis"""
     
-    def __init__(self, logger: SmartLogger):
+    def __init__((self, logger: SmartLogger) -> None:
         self.logger = logger
     
     def detect_system(self) -> SystemInfo:
@@ -666,7 +678,7 @@ class PlatformDetector:
 class SmartDependencyManager:
     """Intelligent dependency management with multiple fallback strategies"""
     
-    def __init__(self, system_info: SystemInfo, logger: SmartLogger):
+    def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
         self.logger = logger
         self.retry_count = {}
@@ -1113,7 +1125,7 @@ class AtomicOperation:
 class DirectoryScaffold:
     """Manages directory structure creation and validation"""
     
-    def __init__(self, base_path: Path, logger: SmartLogger):
+    def __init__((self, base_path: Path, logger: SmartLogger) -> None:
         self.base_path = base_path
         self.logger = logger
         self.created_dirs = []
@@ -1194,7 +1206,7 @@ class DirectoryScaffold:
             self.logger.warning(f"Base path validation failed: {e}")
             return False
     
-    def _cleanup_directories(self, dirs: List[Path]):
+    def _cleanup_directories(self, dirs: List[Path]) -> bool:
         """Clean up created directories in reverse order"""
         for dir_path in reversed(dirs):
             try:
@@ -1234,7 +1246,7 @@ class HealingResult:
 class ConfigurationGenerator:
     """Cross-platform configuration file generator with Windows-specific handling"""
     
-    def __init__(self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger):
+    def __init__((self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.config = config
         self.system_info = system_info
         self.logger = logger
@@ -1538,7 +1550,7 @@ class ConfigurationGenerator:
             self.logger.error(f"Failed to generate service configs: {e}")
             return False
     
-    def _write_config_file_safely(self, file_path: Path, config_data: Dict[str, Any]):
+    def _write_config_file_safely(self, file_path: Path, config_data: Dict[str, Any]) -> bool:
         """Write configuration file with atomic operations and encoding safety"""
         # Use temporary file for atomic write
         temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
@@ -1559,7 +1571,7 @@ class ConfigurationGenerator:
                 temp_file.unlink()
             raise e
     
-    def _write_yaml_file_safely(self, file_path: Path, yaml_data: Dict[str, Any]):
+    def _write_yaml_file_safely(self, file_path: Path, yaml_data: Dict[str, Any]) -> bool:
         """Write YAML file safely (fallback to JSON if yaml not available)"""
         temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
         
@@ -1583,7 +1595,7 @@ class ConfigurationGenerator:
                 temp_file.unlink()
             raise e
     
-    def _write_env_file_safely(self, file_path: Path, env_vars: Dict[str, str]):
+    def _write_env_file_safely(self, file_path: Path, env_vars: Dict[str, str]) -> bool:
         """Write environment file with platform-specific line endings"""
         temp_file = file_path.with_suffix(f"{file_path.suffix}.tmp")
         
@@ -1602,7 +1614,7 @@ class ConfigurationGenerator:
                 temp_file.unlink()
             raise e
     
-    def _write_windows_start_script(self, script_path: Path):
+    def _write_windows_start_script(self, script_path: Path) -> bool:
         """Generate Windows batch start script"""
         script_content = f"""@echo off
 REM NoxSuite Windows Start Script
@@ -1620,7 +1632,7 @@ if %ERRORLEVEL% EQU 0 (
         with open(script_path, 'w', encoding='utf-8-sig', newline='\r\n') as f:
             f.write(script_content)
     
-    def _write_windows_stop_script(self, script_path: Path):
+    def _write_windows_stop_script(self, script_path: Path) -> bool:
         """Generate Windows batch stop script"""
         script_content = f"""@echo off
 REM NoxSuite Windows Stop Script
@@ -1633,7 +1645,7 @@ pause
         with open(script_path, 'w', encoding='utf-8-sig', newline='\r\n') as f:
             f.write(script_content)
     
-    def _write_unix_start_script(self, script_path: Path):
+    def _write_unix_start_script(self, script_path: Path) -> bool:
         """Generate Unix shell start script"""
         script_content = f"""#!/bin/bash
 # NoxSuite Unix Start Script
@@ -1651,7 +1663,7 @@ fi
         with open(script_path, 'w', encoding='utf-8', newline='\n') as f:
             f.write(script_content)
     
-    def _write_unix_stop_script(self, script_path: Path):
+    def _write_unix_stop_script(self, script_path: Path) -> bool:
         """Generate Unix shell stop script"""
         script_content = f"""#!/bin/bash
 # NoxSuite Unix Stop Script
@@ -1663,7 +1675,7 @@ echo "NoxSuite stopped"
         with open(script_path, 'w', encoding='utf-8', newline='\n') as f:
             f.write(script_content)
     
-    def _validate_generated_configs(self):
+    def _validate_generated_configs(self) -> bool:
         """Validate all generated configuration files"""
         self.logger.debug("Validating generated configuration files...")
         
@@ -1904,7 +1916,7 @@ echo "NoxSuite stopped"
 class InstallationValidator:
     """Comprehensive installation validator with Windows-specific checks and auto-healing"""
     
-    def __init__(self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger):
+    def __init__((self, config: InstallConfig, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.config = config
         self.system_info = system_info
         self.logger = logger
@@ -3096,7 +3108,7 @@ class InstallationValidator:
 class ConfigurationWizard:
     """Enhanced configuration wizard with preview and validation"""
     
-    def __init__(self, system_info: SystemInfo, logger: SmartLogger, auditor: InstallationAuditor):
+    def __init__((self, system_info: SystemInfo, logger: SmartLogger, auditor: InstallationAuditor) -> None:
         self.system_info = system_info 
         self.logger = logger
         self.auditor = auditor
@@ -3115,7 +3127,7 @@ class ConfigurationWizard:
         else:
             return self._guided_mode_config()
     
-    def _show_welcome_screen(self):
+    def _show_welcome_screen(self) -> bool:
         """Display enhanced welcome screen with system analysis"""
         welcome_text = """
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -3128,13 +3140,13 @@ class ConfigurationWizard:
 ║  📱 ADHD-Friendly Interface 🔄 Atomic Operations                ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """
-        print(welcome_text)
+        logger.info(welcome_text)
         
         # System analysis summary
-        print(f"\n🖥️  System Analysis:")
-        print(f"   OS: {self.system_info.os_type.value.title()} {self.system_info.architecture}")
-        print(f"   Python: {self.system_info.python_version}")
-        print(f"   Resources: {self.system_info.cpu_cores} cores, {self.system_info.available_memory}GB RAM")
+        logger.info(f"\n🖥️  System Analysis:")
+        logger.info(f"   OS: {self.system_info.os_type.value.title()
+        logger.info(f"   Python: {self.system_info.python_version}")
+        logger.info(f"   Resources: {self.system_info.cpu_cores} cores, {self.system_info.available_memory}GB RAM")
         
         # Tool availability with status icons
         tools = [
@@ -3151,35 +3163,35 @@ class ConfigurationWizard:
         # Encoding and permissions status
         if self.system_info.encoding_support:
             utf8_ok = self.system_info.encoding_support.get("utf8", False)
-            print(f"   Encoding: UTF-8 {'✅' if utf8_ok else '⚠️ '}")
+            logger.info(f"   Encoding: UTF-8 {'✅' if utf8_ok else '⚠️ '}")
         
         if self.system_info.permissions:
             admin_rights = self.system_info.permissions.get("admin_rights", False)
             write_ok = self.system_info.permissions.get("current_dir_write", False)
-            print(f"   Permissions: Write {'✅' if write_ok else '❌'} | Admin {'✅' if admin_rights else '❌'}")
+            logger.info(f"   Permissions: Write {'✅' if write_ok else '❌'} | Admin {'✅' if admin_rights else '❌'}")
         
         # Previous installation analysis
         if self.previous_failures.get("failed_steps"):
-            print(f"\n⚠️  Previous Installation Issues Detected:")
+            logger.info(f"\n⚠️  Previous Installation Issues Detected:")
             for issue_type, count in self.previous_failures.get("error_patterns", {}).items():
-                print(f"   • {issue_type.replace('_', ' ').title()}: {count} occurrences")
+                logger.info(f"   • {issue_type.replace('_', ' ')
             
             if self.previous_failures.get("recovery_suggestions"):
-                print(f"   💡 Recovery suggestions available")
+                logger.info(f"   💡 Recovery suggestions available")
     
     def _guided_mode_config(self) -> InstallConfig:
         """Full guided configuration with all options"""
         self._show_welcome_screen()
         
-        print(f"\n🛠️  Configuration Wizard (Guided Mode)")
-        print("=" * 60)
+        logger.info(f"\n🛠️  Configuration Wizard (Guided Mode)
+        logger.info("=" * 60)
         
         # Installation directory with smart defaults
         default_dir = self._get_default_install_directory()
-        print(f"\n📁 Installation Directory")
-        print(f"   Default: {default_dir}")
-        print(f"   • Must have at least 2GB free space")
-        print(f"   • Avoid paths with spaces on Windows")
+        logger.info(f"\n📁 Installation Directory")
+        logger.info(f"   Default: {default_dir}")
+        logger.info(f"   • Must have at least 2GB free space")
+        logger.info(f"   • Avoid paths with spaces on Windows")
         
         while True:
             install_dir_input = input(f"   Directory [{default_dir}]: ").strip()
@@ -3190,7 +3202,7 @@ class ConfigurationWizard:
             if validation_result["valid"]:
                 break
             else:
-                print(f"   ❌ {validation_result['message']}")
+                logger.info(f"   ❌ {validation_result['message']}")
                 continue
         
         # Module selection with smart recommendations
@@ -3231,8 +3243,8 @@ class ConfigurationWizard:
     
     def _fast_mode_config(self) -> InstallConfig:
         """Fast mode with sensible defaults"""
-        print(f"\n⚡ Fast Mode Installation")
-        print("Using recommended defaults for quick setup...")
+        logger.info(f"\n⚡ Fast Mode Installation")
+        logger.info("Using recommended defaults for quick setup...")
         
         return InstallConfig(
             install_directory=self._get_default_install_directory(),
@@ -3248,8 +3260,8 @@ class ConfigurationWizard:
     
     def _dry_run_config(self) -> InstallConfig:
         """Dry run configuration for testing"""
-        print(f"\n🔍 Dry Run Mode")
-        print("Will simulate installation without making changes...")
+        logger.info(f"\n🔍 Dry Run Mode")
+        logger.info("Will simulate installation without making changes...")
         
         config = self._fast_mode_config()
         config.mode = InstallMode.DRY_RUN
@@ -3257,8 +3269,8 @@ class ConfigurationWizard:
     
     def _safe_mode_config(self) -> InstallConfig:
         """Safe mode with minimal features"""
-        print(f"\n🛡️  Safe Mode Installation")
-        print("Using minimal configuration for stability...")
+        logger.info(f"\n🛡️  Safe Mode Installation")
+        logger.info("Using minimal configuration for stability...")
         
         return InstallConfig(
             install_directory=self._get_default_install_directory(),
@@ -3274,21 +3286,21 @@ class ConfigurationWizard:
     
     def _recovery_mode_config(self) -> InstallConfig:
         """Recovery mode based on previous failure analysis"""
-        print(f"\n🔄 Recovery Mode Installation")
+        logger.info(f"\n🔄 Recovery Mode Installation")
         
         if not self.previous_failures.get("failed_steps"):
-            print("No previous failures detected, using fast mode...")
+            logger.error("No previous failures detected, using fast mode...")
             config = self._fast_mode_config()
             config.mode = InstallMode.RECOVERY
             return config
         
-        print("Configuring based on previous failure analysis...")
+        logger.error("Configuring based on previous failure analysis...")
         
         # Show recovery suggestions
         if self.previous_failures.get("recovery_suggestions"):
-            print(f"\n💡 Recovery Suggestions:")
+            logger.info(f"\n💡 Recovery Suggestions:")
             for suggestion in self.previous_failures["recovery_suggestions"]:
-                print(f"   • {suggestion}")
+                logger.info(f"   • {suggestion}")
         
         # Use safe defaults with adjustments based on previous failures
         config = self._safe_mode_config()
@@ -3298,13 +3310,13 @@ class ConfigurationWizard:
         error_patterns = self.previous_failures.get("error_patterns", {})
         
         if "encoding_issues" in error_patterns:
-            print("   🔧 Enabled encoding fallbacks")
+            logger.info("   🔧 Enabled encoding fallbacks")
         
         if "dependency_failures" in error_patterns:
-            print("   🔧 Will use alternative package managers")
+            logger.info("   🔧 Will use alternative package managers")
         
         if "permission_errors" in error_patterns:
-            print("   🔧 Will use user directory installation")
+            logger.info("   🔧 Will use user directory installation")
             config.install_directory = Path.home() / "noxsuite"
         
         return config
@@ -3372,8 +3384,8 @@ class ConfigurationWizard:
             "plugin-system", "update-manager"
         ]
         
-        print(f"\n📦 Module Selection")
-        print("Select modules to install (recommended modules marked with ⭐):")
+        logger.info(f"\n📦 Module Selection")
+        logger.info("Select modules to install (recommended modules marked with ⭐)
         
         # Show modules with descriptions
         module_descriptions = {
@@ -3390,13 +3402,13 @@ class ConfigurationWizard:
         
         for i, module in enumerate(default_modules, 1):
             description = module_descriptions.get(module, "")
-            print(f"   {i:2d}. {module:<20} - {description}")
+            logger.info(f"   {i:2d}. {module:<20} - {description}")
         
-        print(f"\nOptions:")
-        print(f"   • Enter numbers (e.g., 1,2,3) for specific modules")
-        print(f"   • 'recommended' for starred modules only")
-        print(f"   • 'all' for all modules")
-        print(f"   • 'minimal' for core modules only")
+        logger.info(f"\nOptions:")
+        logger.info(f"   • Enter numbers (e.g., 1,2,3)
+        logger.info(f"   • 'recommended' for starred modules only")
+        logger.info(f"   • 'all' for all modules")
+        logger.info(f"   • 'minimal' for core modules only")
         
         while True:
             selection = input(f"\nSelect modules [recommended]: ").strip().lower()
@@ -3414,13 +3426,13 @@ class ConfigurationWizard:
                     if selected:
                         return selected
                     else:
-                        print("   ❌ Invalid selection, please try again")
+                        logger.info("   ❌ Invalid selection, please try again")
                 except:
-                    print("   ❌ Invalid format, please try again")
+                    logger.info("   ❌ Invalid format, please try again")
     
     def _select_features(self) -> Dict[str, bool]:
         """Interactive feature selection"""
-        print(f"\n🎯 Feature Configuration")
+        logger.info(f"\n🎯 Feature Configuration")
         
         features = {}
         
@@ -3462,7 +3474,7 @@ class ConfigurationWizard:
     
     def _configure_ai(self) -> Dict[str, Any]:
         """Configure AI models and settings"""
-        print(f"\n🧠 AI Configuration")
+        logger.info(f"\n🧠 AI Configuration")
         
         available_models = [
             ("mistral:7b-instruct", "General purpose, good balance", "~4GB RAM"),
@@ -3473,20 +3485,20 @@ class ConfigurationWizard:
             ("codellama:7b", "Code-specialized model", "~4GB RAM")
         ]
         
-        print("Available AI models:")
+        logger.info("Available AI models:")
         for i, (model, description, memory) in enumerate(available_models, 1):
-            print(f"   {i}. {model:<20} - {description} ({memory})")
+            logger.info(f"   {i}. {model:<20} - {description} ({memory})
         
         # Recommend models based on available memory
         if self.system_info.available_memory >= 16:
             recommended = "1,2,4"  # Multiple models
-            print(f"\n💡 Recommendation: Install multiple models (you have {self.system_info.available_memory}GB RAM)")
+            logger.info(f"\n💡 Recommendation: Install multiple models (you have {self.system_info.available_memory}GB RAM)
         elif self.system_info.available_memory >= 8:
             recommended = "1,3"  # Balanced selection
-            print(f"\n💡 Recommendation: Install 1-2 models (you have {self.system_info.available_memory}GB RAM)")
+            logger.info(f"\n💡 Recommendation: Install 1-2 models (you have {self.system_info.available_memory}GB RAM)
         else:
             recommended = "3"  # Lightweight only
-            print(f"\n⚠️  Recommendation: Install lightweight model only (you have {self.system_info.available_memory}GB RAM)")
+            logger.info(f"\n⚠️  Recommendation: Install lightweight model only (you have {self.system_info.available_memory}GB RAM)
         
         while True:
             selection = input(f"\nSelect models [numbers like {recommended}]: ").strip()
@@ -3502,19 +3514,19 @@ class ConfigurationWizard:
                     # Estimate total memory usage
                     memory_estimate = len(selected_models) * 4  # Rough estimate
                     if memory_estimate > self.system_info.available_memory * 0.8:
-                        print(f"   ⚠️  Warning: Selected models may use ~{memory_estimate}GB RAM")
+                        logger.warning(f"   ⚠️  Warning: Selected models may use ~{memory_estimate}GB RAM")
                         if not self._ask_yes_no("Continue anyway?", default=False):
                             continue
                     
                     return {"models": selected_models}
                 else:
-                    print("   ❌ No models selected, please try again")
+                    logger.info("   ❌ No models selected, please try again")
             except:
-                print("   ❌ Invalid format, please try again")
+                logger.info("   ❌ Invalid format, please try again")
     
     def _select_installation_mode(self) -> Dict[str, Any]:
         """Select advanced installation options"""
-        print(f"\n🔧 Installation Options")
+        logger.info(f"\n🔧 Installation Options")
         
         mode_config = {}
         
@@ -3546,34 +3558,34 @@ class ConfigurationWizard:
         
         return response in ['y', 'yes', 'true', '1']
     
-    def _show_configuration_preview(self, config: InstallConfig):
+    def _show_configuration_preview(self, config: InstallConfig) -> bool:
         """Show configuration preview before installation"""
-        print(f"\n📋 Installation Summary")
-        print("=" * 60)
-        print(f"   📁 Directory: {config.install_directory}")
-        print(f"   📦 Modules: {', '.join(config.modules)}")
-        print(f"   🤖 AI Features: {'✅' if config.enable_ai else '❌'}")
-        print(f"   🎤 Voice Interface: {'✅' if config.enable_voice else '❌'}")
-        print(f"   📱 Mobile App: {'✅' if config.enable_mobile else '❌'}")
-        print(f"   ⚙️  Development Mode: {'✅' if config.dev_mode else '❌'}")
+        logger.info(f"\n📋 Installation Summary")
+        logger.info("=" * 60)
+        logger.info(f"   📁 Directory: {config.install_directory}")
+        logger.info(f"   📦 Modules: {', '.join(config.modules)
+        logger.info(f"   🤖 AI Features: {'✅' if config.enable_ai else '❌'}")
+        logger.info(f"   🎤 Voice Interface: {'✅' if config.enable_voice else '❌'}")
+        logger.info(f"   📱 Mobile App: {'✅' if config.enable_mobile else '❌'}")
+        logger.info(f"   ⚙️  Development Mode: {'✅' if config.dev_mode else '❌'}")
         
         if config.ai_models:
-            print(f"   🧠 AI Models: {', '.join(config.ai_models)}")
+            logger.info(f"   🧠 AI Models: {', '.join(config.ai_models)
         
         # Estimate installation size and time
         estimated_size = self._estimate_installation_size(config)
         estimated_time = self._estimate_installation_time(config)
         
-        print(f"\n📊 Estimates:")
-        print(f"   💾 Disk space: ~{estimated_size}GB")
-        print(f"   ⏱️  Time: ~{estimated_time} minutes")
+        logger.info(f"\n📊 Estimates:")
+        logger.info(f"   💾 Disk space: ~{estimated_size}GB")
+        logger.info(f"   ⏱️  Time: ~{estimated_time} minutes")
         
         # Show any warnings
         warnings = self._check_configuration_warnings(config)
         if warnings:
-            print(f"\n⚠️  Warnings:")
+            logger.warning(f"\n⚠️  Warnings:")
             for warning in warnings:
-                print(f"   • {warning}")
+                logger.warning(f"   • {warning}")
     
     def _estimate_installation_size(self, config: InstallConfig) -> float:
         """Estimate total installation size"""
@@ -3622,12 +3634,12 @@ class ConfigurationWizard:
     
     def _confirm_installation(self, config: InstallConfig) -> bool:
         """Final confirmation before installation"""
-        print(f"\n🎯 Ready to Install")
+        logger.info(f"\n🎯 Ready to Install")
         
         # Show key information
-        print(f"This will install NoxSuite to: {config.install_directory}")
+        logger.info(f"This will install NoxSuite to: {config.install_directory}")
         if config.force_reinstall:
-            print(f"⚠️  Will remove existing installation")
+            logger.info(f"⚠️  Will remove existing installation")
         
         response = input(f"\n✅ Proceed with installation? [Y/n]: ").strip().lower()
         return response != 'n'
@@ -3639,7 +3651,7 @@ class ConfigurationWizard:
 class SmartNoxSuiteInstaller:
     """Main installer class with smart recovery and self-healing capabilities"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         # Initialize logging
         self.logger = SmartLogger()
         
@@ -3961,7 +3973,7 @@ class SmartNoxSuiteInstaller:
         }
         
         # Remove None entries
-        def clean_structure(d):
+        def clean_structure(d) -> bool:
             if isinstance(d, dict):
                 return {k: clean_structure(v) for k, v in d.items() if v is not None}
             return d
@@ -4151,14 +4163,14 @@ class SmartNoxSuiteInstaller:
         # This would implement actual service validation
         return True
     
-    def _finalize_installation(self):
+    def _finalize_installation(self) -> bool:
         """Finalize installation and show completion message"""
         self.logger.step_start("finalizing", "Completing installation")
         
         # Create installation summary
         summary = {
             "installation_status": "completed",
-            "installation_time": datetime.now(timezone.utc).isoformat(),
+            "installation_time": utc_now().isoformat(),
             "installation_directory": str(self.config.install_directory),
             "configuration": asdict(self.config),
             "system_info": asdict(self.system_info)
@@ -4176,7 +4188,7 @@ class SmartNoxSuiteInstaller:
         self.logger.step_complete("finalizing")
         self.logger.info("🎉 NoxSuite installation completed successfully!")
     
-    def _show_completion_message(self):
+    def _show_completion_message(self) -> bool:
         """Display installation completion message"""
         print(f"""
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -4218,7 +4230,7 @@ class SmartNoxSuiteInstaller:
 ║  🌐 Cross-Platform Checks    💊 Auto-Remediation                ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """
-        print(audit_banner)
+        logger.info(audit_banner)
         
         try:
             # Step 1: Detect existing installations
@@ -4417,15 +4429,15 @@ class SmartNoxSuiteInstaller:
         if len(installations) == 1:
             return installations[0]
         
-        print(f"\n🔍 Multiple NoxSuite installations detected:")
-        print("=" * 60)
+        logger.info(f"\n🔍 Multiple NoxSuite installations detected:")
+        logger.info("=" * 60)
         
         for i, install_path in enumerate(installations, 1):
             install_info = self._get_installation_info(Path(install_path))
-            print(f"   {i}. {install_path}")
-            print(f"      Version: {install_info.get('version', 'unknown')}")
-            print(f"      Last Modified: {install_info.get('last_modified', 'unknown')}")
-            print(f"      Size: {install_info.get('size', 'unknown')}")
+            logger.info(f"   {i}. {install_path}")
+            logger.info(f"      Version: {install_info.get('version', 'unknown')
+            logger.info(f"      Last Modified: {install_info.get('last_modified', 'unknown')
+            logger.info(f"      Size: {install_info.get('size', 'unknown')
             print()
         
         while True:
@@ -4436,9 +4448,9 @@ class SmartNoxSuiteInstaller:
                 if 0 <= index < len(installations):
                     return installations[index]
                 else:
-                    print(f"❌ Please enter a number between 1 and {len(installations)}")
+                    logger.info(f"❌ Please enter a number between 1 and {len(installations)
             except ValueError:
-                print("❌ Please enter a valid number")
+                logger.info("❌ Please enter a valid number")
             except KeyboardInterrupt:
                 return None
     
@@ -4535,86 +4547,86 @@ class SmartNoxSuiteInstaller:
             self.logger.warning(f"Failed to load existing configuration: {e}")
             return None
     
-    def _display_audit_results(self, audit_result: ValidationResult):
+    def _display_audit_results(self, audit_result: ValidationResult) -> bool:
         """Display comprehensive audit results"""
-        print(f"\n📊 Audit Results Summary")
-        print("=" * 60)
+        logger.info(f"\n📊 Audit Results Summary")
+        logger.info("=" * 60)
         
         if audit_result.all_passed:
-            print("🎉 Installation Status: HEALTHY")
-            print(f"✅ All {audit_result.total_checks} validation checks passed")
+            logger.info("🎉 Installation Status: HEALTHY")
+            logger.info(f"✅ All {audit_result.total_checks} validation checks passed")
         else:
             failed_count = len(audit_result.failures)
-            print(f"⚠️ Installation Status: NEEDS ATTENTION")
-            print(f"✅ Passed: {audit_result.passed_checks}/{audit_result.total_checks}")
-            print(f"❌ Failed: {failed_count}/{audit_result.total_checks}")
+            logger.info(f"⚠️ Installation Status: NEEDS ATTENTION")
+            logger.info(f"✅ Passed: {audit_result.passed_checks}/{audit_result.total_checks}")
+            logger.error(f"❌ Failed: {failed_count}/{audit_result.total_checks}")
         
         if audit_result.platform_specific_issues:
-            print(f"\n🔧 Platform-Specific Issues Detected:")
+            logger.info(f"\n🔧 Platform-Specific Issues Detected:")
             for issue in audit_result.platform_specific_issues:
-                print(f"   • {issue}")
+                logger.info(f"   • {issue}")
         
         if audit_result.failures:
-            print(f"\n📋 Detailed Issue Report:")
+            logger.info(f"\n📋 Detailed Issue Report:")
             for i, failure in enumerate(audit_result.failures, 1):
                 severity_icon = "🔴" if failure.severity == "error" else "🟡"
-                print(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ').title()}")
-                print(f"   Issue: {failure.message}")
-                print(f"   Severity: {failure.severity.upper()}")
+                logger.error(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ')
+                logger.error(f"   Issue: {failure.message}")
+                logger.error(f"   Severity: {failure.severity.upper()
                 
                 if failure.auto_fix_available:
-                    print(f"   🔧 Auto-fix: {failure.auto_fix_suggestion}")
+                    logger.error(f"   🔧 Auto-fix: {failure.auto_fix_suggestion}")
                 else:
-                    print(f"   ⚠️ Manual intervention required")
+                    logger.info(f"   ⚠️ Manual intervention required")
                 
                 if failure.context:
                     # Show relevant context information
                     if 'missing_configs' in failure.context:
                         missing = failure.context['missing_configs'][:3]  # Show first 3
-                        print(f"   Missing files: {', '.join(missing)}")
+                        logger.info(f"   Missing files: {', '.join(missing)
                         if len(failure.context['missing_configs']) > 3:
-                            print(f"   ... and {len(failure.context['missing_configs']) - 3} more")
+                            logger.error(f"   ... and {len(failure.context['missing_configs'])
     
-    def _display_healing_results(self, healing_result: HealingResult):
+    def _display_healing_results(self, healing_result: HealingResult) -> bool:
         """Display healing attempt results"""
-        print(f"\n💊 Auto-Healing Results")
-        print("=" * 60)
+        logger.info(f"\n💊 Auto-Healing Results")
+        logger.info("=" * 60)
         
         total_attempts = healing_result.healed_count + healing_result.failed_count
-        print(f"✅ Successfully healed: {healing_result.healed_count}/{total_attempts}")
-        print(f"❌ Failed to heal: {healing_result.failed_count}/{total_attempts}")
+        logger.info(f"✅ Successfully healed: {healing_result.healed_count}/{total_attempts}")
+        logger.error(f"❌ Failed to heal: {healing_result.failed_count}/{total_attempts}")
         
         if healing_result.healing_details:
-            print(f"\n📋 Healing Details:")
+            logger.info(f"\n📋 Healing Details:")
             for detail in healing_result.healing_details:
                 status = detail['status']
                 check_name = detail['check_name']
                 
                 if status == 'healed':
-                    print(f"✅ {check_name}: {detail.get('details', 'Successfully healed')}")
+                    logger.info(f"✅ {check_name}: {detail.get('details', 'Successfully healed')
                 elif status == 'failed':
-                    print(f"❌ {check_name}: {detail.get('error', 'Healing failed')}")
+                    logger.error(f"❌ {check_name}: {detail.get('error', 'Healing failed')
                 elif status == 'no_auto_fix':
-                    print(f"⚠️ {check_name}: Manual intervention required")
+                    logger.info(f"⚠️ {check_name}: Manual intervention required")
                 elif status == 'exception':
-                    print(f"💥 {check_name}: Healing error - {detail.get('error', 'Unknown error')}")
+                    logger.error(f"💥 {check_name}: Healing error - {detail.get('error', 'Unknown error')
     
-    def _display_remaining_issues(self, remaining_failures: List[ValidationFailure]):
+    def _display_remaining_issues(self, remaining_failures: List[ValidationFailure]) -> bool:
         """Display issues that still need manual attention"""
-        print(f"\n⚠️ Remaining Issues Requiring Manual Attention:")
-        print("-" * 60)
+        logger.info(f"\n⚠️ Remaining Issues Requiring Manual Attention:")
+        logger.info("-" * 60)
         
         for i, failure in enumerate(remaining_failures, 1):
             severity_icon = "🔴" if failure.severity == "error" else "🟡"
-            print(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ').title()}")
-            print(f"   Issue: {failure.message}")
+            logger.error(f"\n{i}. {severity_icon} {failure.check_name.replace('_', ' ')
+            logger.error(f"   Issue: {failure.message}")
             
             # Provide manual fix suggestions
             manual_suggestions = self._get_manual_fix_suggestions(failure)
             if manual_suggestions:
-                print(f"   💡 Manual Fix Suggestions:")
+                logger.info(f"   💡 Manual Fix Suggestions:")
                 for suggestion in manual_suggestions:
-                    print(f"      • {suggestion}")
+                    logger.info(f"      • {suggestion}")
     
     def _get_manual_fix_suggestions(self, failure: ValidationFailure) -> List[str]:
         """Get manual fix suggestions for validation failures"""
@@ -4659,12 +4671,12 @@ class SmartNoxSuiteInstaller:
         
         return suggestions
     
-    def _generate_audit_report(self, audit_result: ValidationResult, installations: List[str], target_install: str):
+    def _generate_audit_report(self, audit_result: ValidationResult, installations: List[str], target_install: str) -> bool:
         """Generate comprehensive audit report"""
         self.logger.step_start("generating_report", "Creating comprehensive audit report")
         
         try:
-            report_timestamp = datetime.now(timezone.utc)
+            report_timestamp = utc_now()
             report = {
                 "audit_metadata": {
                     "timestamp": report_timestamp.isoformat(),
@@ -4715,9 +4727,9 @@ class SmartNoxSuiteInstaller:
                 "report_files": [str(report_file), str(readable_report)]
             })
             
-            print(f"\n📄 Audit reports saved:")
-            print(f"   • JSON Report: {report_file}")
-            print(f"   • Readable Report: {readable_report}")
+            logger.info(f"\n📄 Audit reports saved:")
+            logger.info(f"   • JSON Report: {report_file}")
+            logger.info(f"   • Readable Report: {readable_report}")
             
         except Exception as e:
             self.logger.step_error("generating_report", e)
@@ -4767,7 +4779,7 @@ class SmartNoxSuiteInstaller:
         
         return recommendations
     
-    def _generate_readable_audit_report(self, report_file: Path, report_data: Dict, audit_result: ValidationResult):
+    def _generate_readable_audit_report(self, report_file: Path, report_data: Dict, audit_result: ValidationResult) -> bool:
         """Generate human-readable markdown audit report"""
         try:
             with open(report_file, 'w', encoding='utf-8') as f:
@@ -4812,7 +4824,7 @@ class SmartNoxSuiteInstaller:
         except Exception as e:
             self.logger.warning(f"Failed to generate readable report: {e}")
     
-    def _cleanup_on_failure(self):
+    def _cleanup_on_failure(self) -> bool:
         """Cleanup on installation failure"""
         self.logger.info("🧹 Cleaning up after installation failure...")
         
@@ -4820,7 +4832,7 @@ class SmartNoxSuiteInstaller:
         # For now, just log the attempt
         self.logger.debug("Cleanup completed")
 
-def main():
+def main() -> bool:
     """Main entry point for the smart installer"""
     try:
         # Parse command line arguments for mode selection
@@ -4845,10 +4857,10 @@ def main():
         sys.exit(0 if success else 1)
         
     except KeyboardInterrupt:
-        print("\n❌ Installation cancelled by user")
+        logger.info("\n❌ Installation cancelled by user")
         sys.exit(1)
     except Exception as e:
-        print(f"\n❌ Installer crashed: {e}")
+        logger.info(f"\n❌ Installer crashed: {e}")
         traceback.print_exc()
         sys.exit(1)
 

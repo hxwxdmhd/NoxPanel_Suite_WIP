@@ -19,7 +19,16 @@ Sample Plugin for NoxPanel v4.1.0
 
 from flask import Blueprint, render_template, jsonify
 
-sample_bp = Blueprint('sample', __name__, url_prefix='/sample')
+# Logging configuration
+try:
+    from NoxPanel.noxcore.utils.logging_config import get_logger
+    logger = get_logger(__name__)
+except ImportError:
+    import logging
+    logger = logging.getLogger(__name__)
+
+
+logger.info('sample', __name__, url_prefix='/sample')
 
 @sample_bp.route('/')
 def dashboard():
