@@ -1,0 +1,35 @@
+[10:44:07] Checking system prerequisites...
+[10:44:07] ✓ MCP Config: TestSprite configured
+[10:44:07] ✓ Langflow: Healthy
+[10:44:07] ✓ Docker: NoxSuite containers running
+[10:44:07] Generating test suites...
+[10:44:07] Generated 20 test cases
+[10:44:07] Executing tests in TestSprite cloud...
+[10:44:07]    PASS: Login form validation (0.6s)
+[10:44:07]    PASS: Dashboard loading (1.37s)
+[10:44:07]    PASS: Navigation menu (2.19s)
+[10:44:07]    FAIL: User settings (2.82s)
+[10:44:07]    PASS: Responsive design (2.72s)
+[10:44:08]    FAIL: Authentication API (0.79s)
+[10:44:08]    FAIL: User management API (1.02s)
+[10:44:08]    PASS: Panel management API (2.43s)
+[10:44:08]    PASS: Database operations (1.17s)
+[10:44:08]    PASS: Error handling (2.89s)
+[10:44:08]    FAIL: User login flow (2.03s)
+[10:44:08]    PASS: Panel creation workflow (2.48s)
+[10:44:08]    PASS: Data synchronization (1.74s)
+[10:44:08]    FAIL: System monitoring (2.16s)
+[10:44:08]    PASS: Performance testing (2.56s)
+[10:44:08]    PASS: JWT token validation (0.9s)
+[10:44:08]    PASS: Session management (1.62s)
+[10:44:08]    PASS: Input sanitization (1.91s)
+[10:44:08]    PASS: Access control (1.61s)
+[10:44:08]    PASS: Rate limiting (2.12s)
+[10:44:08] Test execution complete: 75.0% pass rate
+[10:44:08] Cross-validating results...
+[10:44:08] Cross-validation complete: 89.4% consensus
+[10:44:08] Generating remediation tasks...
+[10:44:08] Generated 5 remediation tasks
+[10:44:08] Creating ADHD-friendly report...
+[10:44:08] Saving results...
+[10:44:08] Results saved to logs\autonomous_testing\testsprite_results_20250730_104407.json

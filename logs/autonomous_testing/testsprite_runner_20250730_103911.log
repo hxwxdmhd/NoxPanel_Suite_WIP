@@ -1,0 +1,5 @@
+2025-07-30 10:39:12,245 - INFO -    Details: TestSprite MCP configured
+2025-07-30 10:39:12,263 - INFO -    Details: Response time: 0.012s
+2025-07-30 10:39:12,284 - INFO -    Details: Using simulation mode: [WinError 2] The system cannot find the file specified
+2025-07-30 10:39:12,421 - INFO -    Details: NoxSuite containers running
+2025-07-30 10:39:12,440 - ERROR - Autonomous testing failed: 'list' object has no attribute 'get'

@@ -1,0 +1,39 @@
+2025-07-30 10:41:59,506 - INFO - [RUN] Phase: Prerequisites Check - Status: RUNNING
+2025-07-30 10:41:59,506 - INFO - [OK] Phase: MCP Config - Status: SUCCESS
+2025-07-30 10:41:59,507 - INFO -    Details: TestSprite MCP configured
+2025-07-30 10:41:59,540 - INFO - [OK] Phase: Langflow Health - Status: SUCCESS
+2025-07-30 10:41:59,540 - INFO -    Details: Response time: 0.030s
+2025-07-30 10:41:59,540 - INFO - [OK] Phase: TestSprite Package - Status: SUCCESS
+2025-07-30 10:41:59,540 - INFO -    Details: Using simulation mode
+2025-07-30 10:41:59,685 - INFO - [OK] Phase: Docker Containers - Status: SUCCESS
+2025-07-30 10:41:59,917 - INFO -    Details: NoxSuite containers running
+2025-07-30 10:41:59,918 - INFO - [RUN] Phase: Test Suite Generation - Status: RUNNING
+2025-07-30 10:41:59,953 - INFO - [OK] Phase: Test Suite Generation - Status: SUCCESS
+2025-07-30 10:41:59,953 - INFO -    Details: Generated 25 test cases
+2025-07-30 10:41:59,953 - INFO - [RUN] Phase: Cloud Test Execution - Status: RUNNING
+2025-07-30 10:41:59,953 - INFO -    [PASS] Valid login with correct credentials (2.66s)
+2025-07-30 10:42:00,004 - INFO -    [PASS] Invalid login with wrong password (0.69s)
+2025-07-30 10:42:00,055 - INFO -    [PASS] Login form validation (1.98s)
+2025-07-30 10:42:00,105 - INFO -    [PASS] Remember me functionality (2.52s)
+2025-07-30 10:42:00,156 - INFO -    [PASS] Password visibility toggle (0.69s)
+2025-07-30 10:42:00,207 - INFO -    [PASS] Dashboard data loading (0.79s)
+2025-07-30 10:42:00,257 - INFO -    [PASS] Widget interactions (1.50s)
+2025-07-30 10:42:00,308 - INFO -    [FAIL] Responsive design (2.00s)
+2025-07-30 10:42:00,359 - INFO -    [PASS] Navigation menu (2.50s)
+2025-07-30 10:42:00,409 - INFO -    [PASS] User settings access (0.61s)
+2025-07-30 10:42:00,460 - INFO -    [FAIL] POST /api/auth/login - Valid credentials (0.55s)
+2025-07-30 10:42:00,511 - INFO -    [FAIL] POST /api/auth/login - Invalid credentials (1.19s)
+2025-07-30 10:42:00,561 - INFO -    [PASS] POST /api/auth/refresh - Valid token (1.78s)
+2025-07-30 10:42:00,612 - INFO -    [PASS] POST /api/auth/logout - Token invalidation (0.91s)
+2025-07-30 10:42:00,663 - INFO -    [PASS] GET /api/auth/profile - User data retrieval (1.46s)
+2025-07-30 10:42:00,714 - INFO -    [PASS] GET /api/panels - List all panels (0.61s)
+2025-07-30 10:42:00,765 - INFO -    [FAIL] POST /api/panels - Create panel (1.62s)
+2025-07-30 10:42:00,816 - INFO -    [FAIL] PUT /api/panels/{id} - Update panel (0.54s)
+2025-07-30 10:42:00,867 - INFO -    [PASS] DELETE /api/panels/{id} - Delete panel (1.96s)
+2025-07-30 10:42:00,917 - INFO -    [FAIL] GET /api/panels/{id}/status - Panel status (2.63s)
+2025-07-30 10:42:00,968 - INFO -    [FAIL] Complete user registration flow (0.57s)
+2025-07-30 10:42:01,019 - INFO -    [PASS] Email verification process (1.82s)
+2025-07-30 10:42:01,070 - INFO -    [PASS] First login and setup (2.38s)
+2025-07-30 10:42:01,120 - INFO -    [PASS] Welcome tour completion (1.22s)
+2025-07-30 10:42:01,171 - INFO -    [PASS] Initial panel creation (2.22s)
+2025-07-30 10:42:01,222 - ERROR - Autonomous testing failed: 'list' object has no attribute 'get'

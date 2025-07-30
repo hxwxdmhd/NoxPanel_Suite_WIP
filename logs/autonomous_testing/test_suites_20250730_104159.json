@@ -1,0 +1,82 @@
+{
+  "frontend_tests": {
+    "ui_components": {
+      "login_form": {
+        "test_cases": [
+          "Valid login with correct credentials",
+          "Invalid login with wrong password",
+          "Login form validation",
+          "Remember me functionality",
+          "Password visibility toggle"
+        ],
+        "priority": "HIGH",
+        "estimated_duration": "5 minutes"
+      },
+      "dashboard": {
+        "test_cases": [
+          "Dashboard data loading",
+          "Widget interactions",
+          "Responsive design",
+          "Navigation menu",
+          "User settings access"
+        ],
+        "priority": "HIGH",
+        "estimated_duration": "8 minutes"
+      }
+    }
+  },
+  "backend_tests": {
+    "api_endpoints": {
+      "authentication": {
+        "test_cases": [
+          "POST /api/auth/login - Valid credentials",
+          "POST /api/auth/login - Invalid credentials",
+          "POST /api/auth/refresh - Valid token",
+          "POST /api/auth/logout - Token invalidation",
+          "GET /api/auth/profile - User data retrieval"
+        ],
+        "priority": "CRITICAL",
+        "estimated_duration": "6 minutes"
+      },
+      "panel_management": {
+        "test_cases": [
+          "GET /api/panels - List all panels",
+          "POST /api/panels - Create panel",
+          "PUT /api/panels/{id} - Update panel",
+          "DELETE /api/panels/{id} - Delete panel",
+          "GET /api/panels/{id}/status - Panel status"
+        ],
+        "priority": "HIGH",
+        "estimated_duration": "8 minutes"
+      }
+    }
+  },
+  "integration_tests": {
+    "workflows": {
+      "user_onboarding": {
+        "test_cases": [
+          "Complete user registration flow",
+          "Email verification process",
+          "First login and setup",
+          "Welcome tour completion",
+          "Initial panel creation"
+        ],
+        "priority": "HIGH",
+        "estimated_duration": "15 minutes"
+      }
+    }
+  },
+  "security_tests": {
+    "authentication": {
+      "test_cases": [
+        "JWT token validation",
+        "Session timeout handling",
+        "CSRF protection",
+        "Rate limiting enforcement",
+        "Password complexity requirements"
+      ],
+      "priority": "CRITICAL",
+      "estimated_duration": "12 minutes"
+    }
+  }
+}
