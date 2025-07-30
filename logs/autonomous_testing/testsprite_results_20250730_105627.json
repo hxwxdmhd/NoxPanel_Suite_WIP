@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "session_id": "noxsuite_testsprite_20250730_105627",
+    "timestamp": "20250730_105627",
+    "generator": "NoxSuite TestSprite Runner v1.2"
+  },
+  "test_results": {
+    "frontend": {
+      "tests": [
+        {
+          "test": "Login form validation",
+          "status": "PASS",
+          "duration": 2.1,
+          "error": null
+        },
+        {
+          "test": "Dashboard loading",
+          "status": "FAIL",
+          "duration": 1.84,
+          "error": "Unexpected error during test execution"
+        },
+        {
+          "test": "Navigation menu",
+          "status": "PASS",
+          "duration": 0.95,
+          "error": null
+        },
+        {
+          "test": "User settings",
+          "status": "PASS",
+          "duration": 2.19,
+          "error": null
+        },
+        {
+          "test": "Responsive design",
+          "status": "PASS",
+          "duration": 0.86,
+          "error": null
+        }
+      ],
+      "summary": {
+        "total": 5,
+        "passed": 4,
+        "failed": 1,
+        "pass_rate": 80.0
+      }
+    },
+    "backend": {
+      "tests": [
+        {
+          "test": "Authentication API",
+          "status": "FAIL",
+          "duration": 2.72,
+          "error": "Authentication failed: Invalid credentials or token expired"
+        },
+        {
+          "test": "User management API",
+          "status": "FAIL",
+          "duration": 1.79,
+          "error": "API error: HTTP 500 - Internal server error"
+        },
+        {
+          "test": "Panel management API",
+          "status": "PASS",
+          "duration": 2.37,
+          "error": null
+        },
+        {
+          "test": "Database operations",
+          "status": "PASS",
+          "duration": 2.66,
+          "error": null
+        },
+        {
+          "test": "Error handling",
+          "status": "PASS",
+          "duration": 1.81,
+          "error": null
+        }
+      ],
+      "summary": {
+        "total": 5,
+        "passed": 3,
+        "failed": 2,
+        "pass_rate": 60.0
+      }
+    },
+    "integration": {
+      "tests": [
+        {
+          "test": "User login flow",
+          "status": "PASS",
+          "duration": 0.7,
+          "error": null
+        },
+        {
+          "test": "Panel creation workflow",
+          "status": "PASS",
+          "duration": 0.56,
+          "error": null
+        },
+        {
+          "test": "Data synchronization",
+          "status": "PASS",
+          "duration": 2.91,
+          "error": null
+        },
+        {
+          "test": "System monitoring",
+          "status": "PASS",
+          "duration": 0.56,
+          "error": null
+        },
+        {
+          "test": "Performance testing",
+          "status": "PASS",
+          "duration": 1.73,
+          "error": null
+        }
+      ],
+      "summary": {
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 100.0
+      }
+    },
+    "security": {
+      "tests": [
+        {
+          "test": "JWT token validation",
+          "status": "PASS",
+          "duration": 2.69,
+          "error": null
+        },
+        {
+          "test": "Session management",
+          "status": "PASS",
+          "duration": 1.84,
+          "error": null
+        },
+        {
+          "test": "Input sanitization",
+          "status": "PASS",
+          "duration": 1.38,
+          "error": null
+        },
+        {
+          "test": "Access control",
+          "status": "FAIL",
+          "duration": 1.26,
+          "error": "Unexpected error during test execution"
+        },
+        {
+          "test": "Rate limiting",
+          "status": "PASS",
+          "duration": 1.59,
+          "error": null
+        }
+      ],
+      "summary": {
+        "total": 5,
+        "passed": 4,
+        "failed": 1,
+        "pass_rate": 80.0
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 20,
+    "passed": 16,
+    "failed": 4,
+    "pass_rate": 80.0
+  },
+  "cross_validation": {
+    "mcp_auditor": {
+      "score": 91.5,
+      "recommendations": [
+        "Monitor API response times",
+        "Improve error handling",
+        "Add performance metrics"
+      ]
+    },
+    "chatgpt_api": {
+      "score": 87.3,
+      "insights": [
+        "Authentication patterns consistent",
+        "Frontend tests show good coverage",
+        "Some edge cases need attention"
+      ]
+    },
+    "consensus_score": 89.4,
+    "status": "APPROVED"
+  },
+  "remediation_tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Fix: Dashboard loading",
+      "priority": "MEDIUM",
+      "category": "Frontend",
+      "description": "Unexpected error during test execution",
+      "effort": "2-3 hours",
+      "steps": [
+        "Analyze error logs",
+        "Identify root cause",
+        "Implement fix",
+        "Test thoroughly"
+      ]
+    },
+    {
+      "id": "TASK-002",
+      "title": "Fix: Authentication API",
+      "priority": "CRITICAL",
+      "category": "Backend",
+      "description": "Authentication failed: Invalid credentials or token expired",
+      "effort": "2-4 hours",
+      "steps": [
+        "Review authentication logic",
+        "Check token configuration",
+        "Test credential validation",
+        "Update error handling"
+      ]
+    },
+    {
+      "id": "TASK-003",
+      "title": "Fix: User management API",
+      "priority": "HIGH",
+      "category": "Backend",
+      "description": "API error: HTTP 500 - Internal server error",
+      "effort": "2-3 hours",
+      "steps": [
+        "Check API endpoint implementation",
+        "Verify error responses",
+        "Test input validation",
+        "Monitor performance"
+      ]
+    },
+    {
+      "id": "TASK-004",
+      "title": "Fix: Access control",
+      "priority": "CRITICAL",
+      "category": "Security",
+      "description": "Unexpected error during test execution",
+      "effort": "2-3 hours",
+      "steps": [
+        "Analyze error logs",
+        "Identify root cause",
+        "Implement fix",
+        "Test thoroughly"
+      ]
+    }
+  ],
+  "adhd_report": {
+    "EXECUTIVE_SUMMARY": {
+      "session_id": "noxsuite_testsprite_20250730_105627",
+      "timestamp": "20250730_105627",
+      "overall_health": "NEEDS ATTENTION",
+      "pass_rate": "80.0%",
+      "total_tests": 20,
+      "failed_tests": 4,
+      "critical_issues": 2,
+      "total_tasks": 4
+    },
+    "QUICK_METRICS": {
+      "Test Coverage": "20 tests across 4 suites",
+      "Success Rate": "16/20 (80.0%)",
+      "Critical Issues": 2,
+      "High Priority": 1,
+      "Cross-Validation": "89.4%"
+    },
+    "IMMEDIATE_ACTIONS": [
+      {
+        "task": "Fix: Authentication API",
+        "priority": "CRITICAL",
+        "effort": "2-4 hours",
+        "description": "Authentication failed: Invalid credentials or token expired"
+      },
+      {
+        "task": "Fix: User management API",
+        "priority": "HIGH",
+        "effort": "2-3 hours",
+        "description": "API error: HTTP 500 - Internal server error"
+      },
+      {
+        "task": "Fix: Access control",
+        "priority": "CRITICAL",
+        "effort": "2-3 hours",
+        "description": "Unexpected error during test execution"
+      }
+    ],
+    "ALL_TASKS": {
+      "critical": [
+        {
+          "id": "TASK-002",
+          "title": "Fix: Authentication API",
+          "priority": "CRITICAL",
+          "category": "Backend",
+          "description": "Authentication failed: Invalid credentials or token expired",
+          "effort": "2-4 hours",
+          "steps": [
+            "Review authentication logic",
+            "Check token configuration",
+            "Test credential validation",
+            "Update error handling"
+          ]
+        },
+        {
+          "id": "TASK-004",
+          "title": "Fix: Access control",
+          "priority": "CRITICAL",
+          "category": "Security",
+          "description": "Unexpected error during test execution",
+          "effort": "2-3 hours",
+          "steps": [
+            "Analyze error logs",
+            "Identify root cause",
+            "Implement fix",
+            "Test thoroughly"
+          ]
+        }
+      ],
+      "high": [
+        {
+          "id": "TASK-003",
+          "title": "Fix: User management API",
+          "priority": "HIGH",
+          "category": "Backend",
+          "description": "API error: HTTP 500 - Internal server error",
+          "effort": "2-3 hours",
+          "steps": [
+            "Check API endpoint implementation",
+            "Verify error responses",
+            "Test input validation",
+            "Monitor performance"
+          ]
+        }
+      ],
+      "medium": [
+        {
+          "id": "TASK-001",
+          "title": "Fix: Dashboard loading",
+          "priority": "MEDIUM",
+          "category": "Frontend",
+          "description": "Unexpected error during test execution",
+          "effort": "2-3 hours",
+          "steps": [
+            "Analyze error logs",
+            "Identify root cause",
+            "Implement fix",
+            "Test thoroughly"
+          ]
+        }
+      ]
+    },
+    "RECOMMENDATIONS": [
+      "Monitor API response times",
+      "Improve error handling",
+      "Add performance metrics",
+      "Authentication patterns consistent",
+      "Frontend tests show good coverage"
+    ],
+    "NEXT_STEPS": [
+      "Address 2 critical issues immediately",
+      "Schedule 1 high-priority fixes",
+      "Re-run tests after fixes",
+      "Monitor system performance"
+    ]
+  }
+}

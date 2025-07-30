@@ -1,0 +1,44 @@
+[10:56:37] Starting TestSprite results monitoring...
+[10:56:37] Found latest results: logs\autonomous_testing\testsprite_results_20250730_105627.json
+[10:56:37] Analyzing TestSprite failures...
+[10:56:37] 🚨 Found 2 critical issues requiring auto-repair
+[10:56:37] Triggering Langflow auto-repair workflows...
+[10:56:37] 🔧 Triggering repair for authentication_failures: 1 issues
+[10:56:37] Executing Langflow workflow: auth_repair_agent
+[10:56:37] Simulating auto-repair for authentication_failures...
+[10:56:37]    ⚡ Regenerating JWT secret keys
+[10:56:39]    ⚡ Updating authentication middleware
+[10:56:41]    ⚡ Refreshing token validation logic
+[10:56:43]    ⚡ Testing credential flow
+[10:56:55] 🔧 Triggering repair for api_failures: 1 issues
+[10:56:55] Executing Langflow workflow: api_repair_agent
+[10:56:55] Simulating auto-repair for api_failures...
+[10:56:55]    ⚡ Restarting API services
+[10:56:57]    ⚡ Clearing API cache
+[10:56:59]    ⚡ Updating endpoint configurations
+[10:57:01]    ⚡ Testing API connectivity
+[10:57:13] 🔧 Triggering repair for integration_failures: 1 issues
+[10:57:13] Executing Langflow workflow: integration_repair_agent
+[10:57:13] Simulating auto-repair for integration_failures...
+[10:57:13]    ⚡ Restarting integration services
+[10:57:15]    ⚡ Refreshing service connections
+[10:57:17]    ⚡ Updating workflow configurations
+[10:57:19]    ⚡ Testing end-to-end flows
+[10:57:31] Validating auto-repair results...
+[10:57:31] ✅ authentication_failures repair validated successfully
+[10:57:31] ✅ api_failures repair validated successfully
+[10:57:31] ✅ integration_failures repair validated successfully
+[10:57:31] Triggering TestSprite re-test after auto-repair...
+[10:57:32] ❌ Post-repair TestSprite re-test failed: Traceback (most recent call last):
+  File "K:\NoxGuard---NoxPanel-main\noxsuite_testsprite_simple.py", line 484, in <module>
+    result = runner.run_autonomous_testing()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "K:\NoxGuard---NoxPanel-main\noxsuite_testsprite_simple.py", line 435, in run_autonomous_testing
+    print("\U0001f9ea NoxSuite Autonomous TestSprite Testing")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f9ea' in position 0: character maps to <undefined>
+
+[10:57:32] Syncing auto-repair results to GitHub...
+[10:57:32] Auto-repair results saved: logs\auto_repair\auto_repair_report_20250730_105637.json
