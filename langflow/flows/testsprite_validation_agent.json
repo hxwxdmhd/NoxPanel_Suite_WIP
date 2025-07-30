@@ -1,0 +1,338 @@
+{
+  "name": "TestSprite Validation Agent",
+  "description": "Automated testing agent that runs test suites via TestSprite MCP, parses results, and feeds into MCP Auditor for auto-repair capabilities",
+  "version": "1.0.0",
+  "created": "2025-07-30T09:00:00Z",
+  "updated": "2025-07-30T09:00:00Z",
+  "langflow_version": "1.0.0",
+  "noxsuite_version": "2.0",
+  "testsprite_integration": true,
+  "flow": {
+    "nodes": [
+      {
+        "id": "testsprite_controller",
+        "type": "TestSpriteController",
+        "position": {"x": 100, "y": 100},
+        "data": {
+          "display_name": "TestSprite Controller",
+          "description": "Main controller for TestSprite MCP integration",
+          "api_key": "sk-user-PHX6GBegO44LzqKY7otF7AmKHjbHE2AuPE5Yl4M8EShn7RS4dkFqb2Kas8jVg4wiONnDXfnU_EBQ8B4nnllXNDObNrqL2L4dMH0UIcLVE9YPge0ZQomL01KtEuMzMuzDOQM",
+          "mcp_endpoint": "npx @testsprite/testsprite-mcp@latest",
+          "test_types": ["api", "ui", "integration"],
+          "throttle_enabled": true,
+          "cooldown_period": 30
+        }
+      },
+      {
+        "id": "api_test_runner",
+        "type": "APITestRunner", 
+        "position": {"x": 300, "y": 50},
+        "data": {
+          "display_name": "API Test Runner",
+          "description": "Executes API tests via TestSprite MCP",
+          "target_url": "http://localhost:7860",
+          "endpoints": [
+            "/health",
+            "/api/v1/flows", 
+            "/api/v1/components",
+            "/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse"
+          ],
+          "timeout": 10,
+          "retry_count": 3
+        }
+      },
+      {
+        "id": "ui_test_runner",
+        "type": "UITestRunner",
+        "position": {"x": 300, "y": 150}, 
+        "data": {
+          "display_name": "UI Test Runner",
+          "description": "Executes UI flow tests via TestSprite MCP",
+          "target_url": "http://localhost:7860",
+          "scenarios": [
+            {
+              "name": "Login Flow",
+              "steps": [
+                {"action": "navigate", "url": "http://localhost:7860/login"},
+                {"action": "input", "selector": "input[name='username']", "value": "noxsuite_admin"},
+                {"action": "input", "selector": "input[name='password']", "value": "noxsuite_secure_2024"},
+                {"action": "click", "selector": "button[type='submit']"}
+              ]
+            },
+            {
+              "name": "Flow Navigation",
+              "steps": [
+                {"action": "navigate", "url": "http://localhost:7860/flows"},
+                {"action": "wait", "selector": ".flow-list", "timeout": 5000}
+              ]
+            }
+          ],
+          "browser": "chromium",
+          "headless": true
+        }
+      },
+      {
+        "id": "result_parser",
+        "type": "TestResultParser",
+        "position": {"x": 500, "y": 100},
+        "data": {
+          "display_name": "Test Result Parser",
+          "description": "Parses TestSprite results (JSON/JUnit) and prepares for MCP Auditor",
+          "supported_formats": ["json", "junit", "testng"],
+          "failure_threshold": 0.8,
+          "auto_repair_enabled": true,
+          "severity_mapping": {
+            "critical": ["login_failure", "api_unavailable"],
+            "high": ["timeout", "connection_error"],
+            "medium": ["ui_element_missing", "slow_response"],
+            "low": ["cosmetic_issue", "minor_delay"]
+          }
+        }
+      },
+      {
+        "id": "mcp_auditor_feeder",
+        "type": "MCPAuditorFeeder",
+        "position": {"x": 700, "y": 100},
+        "data": {
+          "display_name": "MCP Auditor Feeder",
+          "description": "Feeds parsed test results into MCP Auditor for auto-repair",
+          "mcp_auditor_endpoint": "http://localhost:7860/api/v1/mcp/auditor",
+          "auto_repair_triggers": [
+            "api_endpoint_failure",
+            "ui_navigation_failure", 
+            "authentication_failure",
+            "performance_degradation"
+          ],
+          "repair_actions": {
+            "api_endpoint_failure": "restart_service",
+            "ui_navigation_failure": "clear_cache_restart",
+            "authentication_failure": "reset_credentials",
+            "performance_degradation": "scale_resources"
+          }
+        }
+      },
+      {
+        "id": "failure_flagging_system",
+        "type": "FailureFlaggingSystem",
+        "position": {"x": 500, "y": 200},
+        "data": {
+          "display_name": "Failure Flagging System", 
+          "description": "Flags failed test cases for immediate attention and auto-repair",
+          "notification_channels": ["log", "webhook", "email"],
+          "escalation_rules": {
+            "critical": {"immediate": true, "auto_repair": true},
+            "high": {"delay": 300, "auto_repair": true},
+            "medium": {"delay": 1800, "auto_repair": false},
+            "low": {"delay": 3600, "auto_repair": false}
+          },
+          "repair_confidence_threshold": 0.85
+        }
+      },
+      {
+        "id": "tool_throttler",
+        "type": "ToolThrottler",
+        "position": {"x": 100, "y": 250},
+        "data": {
+          "display_name": "Tool Throttler",
+          "description": "Manages 128-tool limit with atomic requests and cooldowns",
+          "max_tools": 120,
+          "current_usage": 0,
+          "cooldown_between_requests": 30,
+          "atomic_test_batches": [
+            {"name": "API Tests", "estimated_tools": 15},
+            {"name": "UI Tests", "estimated_tools": 25},
+            {"name": "Integration Tests", "estimated_tools": 20},
+            {"name": "Report Generation", "estimated_tools": 10}
+          ],
+          "emergency_throttle_enabled": true
+        }
+      },
+      {
+        "id": "security_header_handler", 
+        "type": "SecurityHeaderHandler",
+        "position": {"x": 300, "y": 300},
+        "data": {
+          "display_name": "Security Header Handler",
+          "description": "Handles HTTPS/HSTS issues for UI testing on local endpoints",
+          "local_cert_path": "./certs/noxsuite-local.crt",
+          "ignore_ssl_errors": true,
+          "relaxed_headers": [
+            "Strict-Transport-Security",
+            "Content-Security-Policy",
+            "X-Frame-Options"
+          ],
+          "browser_automation_config": {
+            "ignore_certificate_errors": true,
+            "disable_web_security": true,
+            "allow_running_insecure_content": true
+          }
+        }
+      },
+      {
+        "id": "chatgpt_cross_validator",
+        "type": "ChatGPTCrossValidator", 
+        "position": {"x": 700, "y": 200},
+        "data": {
+          "display_name": "ChatGPT Cross Validator",
+          "description": "Submits summarized test reports to ChatGPT API for cross-validation",
+          "api_endpoint": "https://api.openai.com/v1/chat/completions",
+          "model": "gpt-4",
+          "api_key": "provided_earlier",
+          "analysis_prompt": "Analyze this TestSprite test report and identify any discrepancies or overlooked errors. Compare with MCP test results.",
+          "confidence_threshold": 0.9,
+          "discrepancy_detection": true
+        }
+      },
+      {
+        "id": "report_generator",
+        "type": "ADHDFriendlyReportGenerator",
+        "position": {"x": 900, "y": 150},
+        "data": {
+          "display_name": "ADHD-Friendly Report Generator", 
+          "description": "Generates clear, concise test reports optimized for ADHD-friendly consumption",
+          "report_format": "adhd_optimized",
+          "sections": [
+            "Executive Summary (bullet points)",
+            "Pass/Fail Overview (color-coded)",
+            "Auto-fixes Applied (action list)",
+            "Tool Usage Statistics (visual)",
+            "MCP Agent Health (status indicators)",
+            "Docker Status (container grid)",
+            "Next Actions Required (priority list)"
+          ],
+          "visual_indicators": true,
+          "color_coding": true,
+          "bullet_point_format": true
+        }
+      },
+      {
+        "id": "persistence_manager",
+        "type": "PersistenceManager",
+        "position": {"x": 900, "y": 250},
+        "data": {
+          "display_name": "Persistence Manager",
+          "description": "Saves results and maintains context for next session",
+          "storage_locations": [
+            "./logs/mcp_agent/testsprite/",
+            "./logs/mcp_agent/reports/",
+            "./logs/mcp_agent/context/"
+          ],
+          "retention_policy": {
+            "test_results": "30_days",
+            "reports": "90_days", 
+            "context": "permanent"
+          },
+          "backup_enabled": true,
+          "compression": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_1",
+        "source": "testsprite_controller",
+        "target": "api_test_runner",
+        "sourceHandle": "trigger_api_tests",
+        "targetHandle": "execute"
+      },
+      {
+        "id": "edge_2", 
+        "source": "testsprite_controller",
+        "target": "ui_test_runner",
+        "sourceHandle": "trigger_ui_tests",
+        "targetHandle": "execute"
+      },
+      {
+        "id": "edge_3",
+        "source": "api_test_runner",
+        "target": "result_parser", 
+        "sourceHandle": "test_results",
+        "targetHandle": "api_results"
+      },
+      {
+        "id": "edge_4",
+        "source": "ui_test_runner",
+        "target": "result_parser",
+        "sourceHandle": "test_results", 
+        "targetHandle": "ui_results"
+      },
+      {
+        "id": "edge_5",
+        "source": "result_parser",
+        "target": "mcp_auditor_feeder",
+        "sourceHandle": "parsed_results",
+        "targetHandle": "audit_data"
+      },
+      {
+        "id": "edge_6",
+        "source": "result_parser", 
+        "target": "failure_flagging_system",
+        "sourceHandle": "failure_data",
+        "targetHandle": "process_failures"
+      },
+      {
+        "id": "edge_7",
+        "source": "tool_throttler",
+        "target": "testsprite_controller",
+        "sourceHandle": "throttle_status",
+        "targetHandle": "throttle_input"
+      },
+      {
+        "id": "edge_8",
+        "source": "security_header_handler",
+        "target": "ui_test_runner",
+        "sourceHandle": "security_config",
+        "targetHandle": "security_settings"
+      },
+      {
+        "id": "edge_9",
+        "source": "result_parser",
+        "target": "chatgpt_cross_validator",
+        "sourceHandle": "summary_data", 
+        "targetHandle": "analysis_request"
+      },
+      {
+        "id": "edge_10",
+        "source": "chatgpt_cross_validator",
+        "target": "report_generator",
+        "sourceHandle": "validation_results",
+        "targetHandle": "cross_validation_data"
+      },
+      {
+        "id": "edge_11",
+        "source": "mcp_auditor_feeder",
+        "target": "report_generator",
+        "sourceHandle": "audit_status",
+        "targetHandle": "audit_data"
+      },
+      {
+        "id": "edge_12",
+        "source": "failure_flagging_system",
+        "target": "report_generator", 
+        "sourceHandle": "flagged_issues",
+        "targetHandle": "failure_data"
+      },
+      {
+        "id": "edge_13",
+        "source": "report_generator",
+        "target": "persistence_manager",
+        "sourceHandle": "final_report",
+        "targetHandle": "save_report"
+      }
+    ]
+  },
+  "metadata": {
+    "author": "NoxSuite MCP Team",
+    "category": "testing_automation",
+    "tags": ["testsprite", "mcp", "automation", "testing", "validation"],
+    "complexity": "advanced",
+    "estimated_execution_time": "5-10 minutes",
+    "tool_usage_estimate": 70,
+    "dependencies": [
+      "TestSprite MCP",
+      "Langflow MCP", 
+      "GitHub MCP",
+      "Emergency Throttler"
+    ]
+  }
+}

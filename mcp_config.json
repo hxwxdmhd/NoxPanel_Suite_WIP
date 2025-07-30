@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "lf-starter_project": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "uvx",
+        "mcp-proxy",
+        "http://localhost:7860/api/v1/mcp/project/d602c2ae-497e-49cf-9e7b-f503ef844007/sse"
+      ]
+    },
+    "TestSprite": {
+      "command": "npx",
+      "args": ["@testsprite/testsprite-mcp@latest"],
+      "env": {
+        "API_KEY": "sk-user-PHX6GBegO44LzqKY7otF7AmKHjbHE2AuPE5Yl4M8EShn7RS4dkFqb2Kas8jVg4wiONnDXfnU_EBQ8B4nnllXNDObNrqL2L4dMH0UIcLVE9YPge0ZQomL01KtEuMzMuzDOQM"
+      }
+    },
+    "github": {
+      "command": "uvx",
+      "args": ["mcp-server-github"]
+    }
+  }
+}

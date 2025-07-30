@@ -1,0 +1,98 @@
+name: TestSprite Nightly Full Suite
+
+on:
+  schedule:
+    # Run every night at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Manual trigger
+    inputs:
+      test_depth:
+        description: 'Test depth level'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - extended
+          - chaos
+
+env:
+  TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+  LANGFLOW_URL: ${{ secrets.LANGFLOW_URL || 'http://localhost:7860' }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  nightly-comprehensive-testing:
+    runs-on: ubuntu-latest
+    name: "🌙 TestSprite Nightly Full Suite"
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+          
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: 🧪 Install TestSprite MCP
+        run: |
+          npm install -g @testsprite/testsprite-mcp@latest
+          
+      - name: 🐳 Setup Docker Environment
+        run: |
+          docker --version
+          docker-compose --version
+          
+      - name: 🚀 Start NoxSuite Services
+        run: |
+          docker-compose -f docker-compose.production.yml up -d
+          sleep 30  # Wait for services to start
+          
+      - name: 🧪 Execute Comprehensive TestSprite Suite
+        run: |
+          python noxsuite_testsprite_comprehensive.py --mode=nightly --depth=${{ github.event.inputs.test_depth || 'comprehensive' }}
+          
+      - name: 🔧 Execute Auto-Repair if Needed
+        if: failure()
+        run: |
+          python langflow_auto_repair_agent.py --mode=nightly
+          
+      - name: 📊 Generate Performance Report
+        run: |
+          python performance_load_scenarios.py --generate-report
+          
+      - name: 📡 Sync Results to GitHub MCP
+        run: |
+          python github_mcp_sync.py --mode=nightly
+          
+      - name: 📋 Generate PRD Documentation
+        run: |
+          python prd_auto_generator.py --from-test-results
+          
+      - name: 🚨 Security Vulnerability Scan
+        run: |
+          python security_chaos_testing.py --edge-cases
+          
+      - name: 📧 Send Notification
+        if: always()
+        run: |
+          python notification_system.py --channel=nightly --results-file=logs/nightly_results.json
+          
+      - name: 🗃️ Archive Results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: nightly-test-results-${{ github.run_number }}
+          path: |
+            logs/nightly_results.json
+            logs/performance_report.json
+            logs/security_scan_results.json
+            docs/auto_generated_prd.md

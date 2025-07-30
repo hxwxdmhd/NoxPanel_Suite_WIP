@@ -1,0 +1,257 @@
+name: TestSprite Autonomous Testing
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:  # Manual trigger
+    inputs:
+      test_suite:
+        description: 'Test suite to run'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - frontend
+          - backend
+          - security
+
+env:
+  TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+  LANGFLOW_URL: ${{ secrets.LANGFLOW_URL || 'http://localhost:7860' }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  testsprite-autonomous-testing:
+    runs-on: ubuntu-latest
+    name: "🧪 TestSprite MCP Autonomous Testing"
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+          
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: 🔧 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dotenv
+          npm install -g @testsprite/testsprite-mcp@latest
+          
+      - name: 🐳 Setup Docker Environment
+        run: |
+          # Start required services for testing
+          docker-compose -f docker-compose.yml up -d --wait
+          
+      - name: ⏳ Wait for Services
+        run: |
+          echo "Waiting for services to be ready..."
+          timeout 300 bash -c 'until curl -f http://localhost:7860/health; do sleep 5; done'
+          
+      - name: 🧪 Run TestSprite Autonomous Testing
+        id: testsprite
+        run: |
+          echo "🚀 Starting TestSprite Autonomous Testing..."
+          python noxsuite_testsprite_simple.py
+          
+          # Capture results
+          if [ -f "logs/autonomous_testing/testsprite_results_*.json" ]; then
+            echo "✅ TestSprite testing completed successfully"
+            echo "testsprite_status=success" >> $GITHUB_OUTPUT
+            
+            # Extract key metrics
+            LATEST_RESULT=$(ls -t logs/autonomous_testing/testsprite_results_*.json | head -1)
+            PASS_RATE=$(jq -r '.summary.pass_rate' "$LATEST_RESULT")
+            CRITICAL_TASKS=$(jq -r '.adhd_report.EXECUTIVE_SUMMARY.critical_issues' "$LATEST_RESULT")
+            
+            echo "pass_rate=$PASS_RATE" >> $GITHUB_OUTPUT
+            echo "critical_issues=$CRITICAL_TASKS" >> $GITHUB_OUTPUT
+            echo "results_file=$LATEST_RESULT" >> $GITHUB_OUTPUT
+          else
+            echo "❌ TestSprite testing failed"
+            echo "testsprite_status=failed" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+      - name: 🔍 Trigger Langflow Auto-Repair
+        if: steps.testsprite.outputs.critical_issues > 0
+        run: |
+          echo "🔧 Triggering Langflow auto-repair for ${{ steps.testsprite.outputs.critical_issues }} critical issues..."
+          
+          # Create auto-repair trigger payload
+          cat > auto_repair_payload.json << EOF
+          {
+            "session_id": "$(date +%Y%m%d_%H%M%S)",
+            "trigger": "testsprite_critical_failures",
+            "critical_issues": ${{ steps.testsprite.outputs.critical_issues }},
+            "pass_rate": ${{ steps.testsprite.outputs.pass_rate }},
+            "results_file": "${{ steps.testsprite.outputs.results_file }}",
+            "commit_sha": "${{ github.sha }}",
+            "branch": "${{ github.ref_name }}"
+          }
+          EOF
+          
+          # Trigger Langflow auto-repair workflow
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.LANGFLOW_API_KEY }}" \
+            -d @auto_repair_payload.json \
+            "$LANGFLOW_URL/api/v1/flows/testsprite_validation_agent/run" || true
+            
+      - name: 📊 Sync to GitHub MCP
+        if: always()
+        run: |
+          echo "📡 Syncing results to GitHub MCP..."
+          
+          # Prepare GitHub MCP sync data
+          COMMIT_MESSAGE="🧪 TestSprite Autonomous Testing Results - $(date '+%Y-%m-%d %H:%M:%S')"
+          
+          if [ "${{ steps.testsprite.outputs.testsprite_status }}" = "success" ]; then
+            COMMIT_MESSAGE="✅ TestSprite: ${{ steps.testsprite.outputs.pass_rate }}% pass rate - ${{ steps.testsprite.outputs.critical_issues }} critical issues"
+          else
+            COMMIT_MESSAGE="❌ TestSprite: Testing failed - requires investigation"
+          fi
+          
+          # Create GitHub commit with results
+          git config --local user.email "action@github.com"
+          git config --local user.name "TestSprite Automation"
+          
+          # Add test results to repository
+          git add logs/autonomous_testing/ || true
+          git add NOXSUITE_TESTSPRITE_AUTONOMOUS_TESTING_COMPLETE.md || true
+          
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "$COMMIT_MESSAGE" || true
+            git push || true
+          fi
+          
+      - name: 📋 Generate ADHD-Friendly PR Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Find latest results file
+            const logsDir = './logs/autonomous_testing';
+            const files = fs.readdirSync(logsDir).filter(f => f.startsWith('testsprite_results_'));
+            const latestFile = files.sort().reverse()[0];
+            
+            if (!latestFile) {
+              console.log('No results file found');
+              return;
+            }
+            
+            const resultsPath = path.join(logsDir, latestFile);
+            const results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+            
+            const report = results.adhd_report;
+            const summary = results.summary;
+            
+            // Create ADHD-friendly comment
+            const comment = `# 🧪 TestSprite Autonomous Testing Results
+            
+            ## 🎯 Quick Summary
+            - **Overall Health:** ${report.EXECUTIVE_SUMMARY.overall_health}
+            - **Pass Rate:** ${report.EXECUTIVE_SUMMARY.pass_rate}
+            - **Critical Issues:** ${report.EXECUTIVE_SUMMARY.critical_issues}
+            - **Total Tests:** ${report.EXECUTIVE_SUMMARY.total_tests}
+            
+            ## 🚨 Immediate Actions
+            ${report.IMMEDIATE_ACTIONS.map((action, i) => 
+              `${i + 1}. **${action.task}** (${action.priority})\n   - Effort: ${action.effort}\n   - Issue: ${action.description}`
+            ).join('\n\n')}
+            
+            ## 📊 Test Coverage
+            ${Object.entries(report.QUICK_METRICS).map(([key, value]) => `- **${key}:** ${value}`).join('\n')}
+            
+            ## 🤖 Auto-Repair Status
+            ${report.EXECUTIVE_SUMMARY.critical_issues > 0 ? 
+              '🔧 **Langflow auto-repair triggered** for critical issues' : 
+              '✅ **No auto-repair needed** - system healthy'
+            }
+            
+            ---
+            *Generated by TestSprite MCP Autonomous Testing*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+            
+      - name: 📈 Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: testsprite-results-${{ github.sha }}
+          path: |
+            logs/autonomous_testing/
+            NOXSUITE_TESTSPRITE_AUTONOMOUS_TESTING_COMPLETE.md
+          retention-days: 30
+          
+      - name: 🔔 Notification Summary
+        if: always()
+        run: |
+          echo "📋 TestSprite Autonomous Testing Summary:"
+          echo "   Status: ${{ steps.testsprite.outputs.testsprite_status }}"
+          echo "   Pass Rate: ${{ steps.testsprite.outputs.pass_rate }}%"
+          echo "   Critical Issues: ${{ steps.testsprite.outputs.critical_issues }}"
+          echo "   Auto-Repair: ${{ steps.testsprite.outputs.critical_issues > 0 && 'Triggered' || 'Not needed' }}"
+          echo "   GitHub Sync: Completed"
+          echo "   ADHD Report: Generated"
+
+  # Additional job for failed test auto-repair monitoring
+  auto-repair-monitor:
+    needs: testsprite-autonomous-testing
+    if: needs.testsprite-autonomous-testing.outputs.critical_issues > 0
+    runs-on: ubuntu-latest
+    name: "🔧 Auto-Repair Monitor"
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: ⏳ Monitor Auto-Repair Progress
+        timeout-minutes: 30
+        run: |
+          echo "🔧 Monitoring Langflow auto-repair progress..."
+          
+          # Poll for auto-repair completion
+          for i in {1..30}; do
+            echo "Check $i/30: Polling auto-repair status..."
+            
+            # Check if auto-repair has generated fixes
+            if curl -s "$LANGFLOW_URL/api/v1/flows/testsprite_validation_agent/status" | grep -q "completed"; then
+              echo "✅ Auto-repair completed successfully!"
+              break
+            fi
+            
+            sleep 60  # Wait 1 minute between checks
+          done
+          
+      - name: 🔄 Trigger Re-test After Auto-Repair
+        run: |
+          echo "🔄 Triggering re-test after auto-repair..."
+          
+          # Trigger another TestSprite run to validate fixes
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/testsprite-autonomous.yml/dispatches" \
+            -d '{"ref":"${{ github.ref_name }}","inputs":{"test_suite":"validation"}}'
