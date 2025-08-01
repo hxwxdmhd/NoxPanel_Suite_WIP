@@ -3,22 +3,21 @@ Enhanced Database Layer for NoxGuard---NoxPanel System
 Implements complete schema with knowledge management, AI conversations, and session handling
 """
 
-import sqlite3
+import json
 import logging
 import os
-import json
+import sqlite3
 import threading
-from pathlib import Path
-from datetime import datetime, timedelta, timezone
 from contextlib import contextmanager
-from typing import Optional, Dict, List, Any, Union
-import time
+from datetime import datetime, timezone
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+
 class DatabaseConnectionPool:
     """SQLite connection pool for improved performance"""
-    
+
     def __init__(self, db_path: str, pool_size: int = 10, timeout: float = 30.0):
         self.db_path = db_path
         self.pool_size = pool_size
@@ -26,7 +25,7 @@ class DatabaseConnectionPool:
         self._pool = []
         self._lock = threading.Lock()
         self._create_pool()
-    
+
     def _create_pool(self):
         """Initialize connection pool"""
         for _ in range(self.pool_size):
@@ -34,14 +33,14 @@ class DatabaseConnectionPool:
                 self.db_path,
                 check_same_thread=False,
                 isolation_level=None,  # autocommit mode
-                timeout=self.timeout
+                timeout=self.timeout,
             )
             conn.execute("PRAGMA journal_mode=WAL")
             conn.execute("PRAGMA synchronous=NORMAL")
             conn.execute("PRAGMA cache_size=10000")
             conn.execute("PRAGMA temp_store=MEMORY")
             self._pool.append(conn)
-    
+
     def get_connection(self) -> sqlite3.Connection:
         """Get connection from pool"""
         with self._lock:
@@ -53,11 +52,11 @@ class DatabaseConnectionPool:
                     self.db_path,
                     check_same_thread=False,
                     isolation_level=None,
-                    timeout=self.timeout
+                    timeout=self.timeout,
                 )
                 conn.execute("PRAGMA journal_mode=WAL")
                 return conn
-    
+
     def return_connection(self, conn: sqlite3.Connection):
         """Return connection to pool"""
         try:
@@ -74,7 +73,7 @@ class DatabaseConnectionPool:
                 conn.close()
             except Exception:
                 pass
-    
+
     def close_all(self):
         """Close all connections in pool"""
         with self._lock:
@@ -85,25 +84,26 @@ class DatabaseConnectionPool:
                     pass
             self._pool.clear()
 
+
 class NoxDatabase:
     """Enhanced database manager for NoxGuard---NoxPanel system"""
-    
+
     # Database schema version for migrations
     SCHEMA_VERSION = 1
-    
+
     def __init__(self, db_path: str = "data/db/noxpanel.db", pool_size: int = 10):
         """Initialize database with connection pooling"""
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
         # Initialize connection pool
         self.pool = DatabaseConnectionPool(str(self.db_path), pool_size)
-        
+
         # Initialize database schema
         self.init_database()
-        
+
         logger.info(f"Database initialized: {self.db_path}")
-    
+
     @contextmanager
     def get_connection(self):
         """Context manager for database connections"""
@@ -113,7 +113,7 @@ class NoxDatabase:
             yield conn
         finally:
             self.pool.return_connection(conn)
-    
+
     def init_database(self):
         """Initialize complete database schema"""
         try:
@@ -124,22 +124,23 @@ class NoxDatabase:
                 self._create_ai_tables(conn)
                 self._create_session_tables(conn)
                 self._create_indexes(conn)
-                
+
                 # Initialize metadata
                 self._init_metadata(conn)
-                
+
                 # Create default admin user
                 self._create_default_user(conn)
-                
+
                 logger.info("Database schema initialized successfully")
-                
+
         except Exception as e:
             logger.error(f"Database initialization failed: {e}")
             raise
-    
+
     def _create_core_tables(self, conn: sqlite3.Connection):
         """Create core system tables"""
-        conn.executescript("""
+        conn.executescript(
+            """
             -- Users table
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -154,7 +155,7 @@ class NoxDatabase:
                 settings TEXT DEFAULT '{}',
                 preferences TEXT DEFAULT '{}'
             );
-            
+
             -- Network devices table
             CREATE TABLE IF NOT EXISTS devices (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -172,7 +173,7 @@ class NoxDatabase:
                 notes TEXT,
                 tags TEXT DEFAULT '[]'
             );
-            
+
             -- System settings table
             CREATE TABLE IF NOT EXISTS settings (
                 key TEXT PRIMARY KEY,
@@ -183,7 +184,7 @@ class NoxDatabase:
                 updated_by INTEGER,
                 FOREIGN KEY (updated_by) REFERENCES users (id)
             );
-            
+
             -- Audit logs table
             CREATE TABLE IF NOT EXISTS audit_logs (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -197,11 +198,13 @@ class NoxDatabase:
                 timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (user_id) REFERENCES users (id)
             );
-        """)
-    
+        """
+        )
+
     def _create_knowledge_tables(self, conn: sqlite3.Connection):
         """Create knowledge management tables"""
-        conn.executescript("""
+        conn.executescript(
+            """
             -- Knowledge items table
             CREATE TABLE IF NOT EXISTS knowledge_items (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -223,7 +226,7 @@ class NoxDatabase:
                 search_keywords TEXT,
                 FOREIGN KEY (author_id) REFERENCES users (id)
             );
-            
+
             -- Tags table for categorization
             CREATE TABLE IF NOT EXISTS tags (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -236,7 +239,7 @@ class NoxDatabase:
                 created_by INTEGER,
                 FOREIGN KEY (created_by) REFERENCES users (id)
             );
-            
+
             -- Knowledge item tags relationship
             CREATE TABLE IF NOT EXISTS knowledge_item_tags (
                 knowledge_item_id INTEGER,
@@ -246,7 +249,7 @@ class NoxDatabase:
                 FOREIGN KEY (knowledge_item_id) REFERENCES knowledge_items (id) ON DELETE CASCADE,
                 FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
             );
-            
+
             -- Knowledge item relationships
             CREATE TABLE IF NOT EXISTS knowledge_relationships (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -258,11 +261,13 @@ class NoxDatabase:
                 FOREIGN KEY (source_item_id) REFERENCES knowledge_items (id) ON DELETE CASCADE,
                 FOREIGN KEY (target_item_id) REFERENCES knowledge_items (id) ON DELETE CASCADE
             );
-        """)
-    
+        """
+        )
+
     def _create_ai_tables(self, conn: sqlite3.Connection):
         """Create AI conversation and interaction tables"""
-        conn.executescript("""
+        conn.executescript(
+            """
             -- AI conversations table
             CREATE TABLE IF NOT EXISTS conversations (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -280,7 +285,7 @@ class NoxDatabase:
                 metadata TEXT DEFAULT '{}',
                 FOREIGN KEY (user_id) REFERENCES users (id)
             );
-            
+
             -- AI messages within conversations
             CREATE TABLE IF NOT EXISTS conversation_messages (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -294,7 +299,7 @@ class NoxDatabase:
                 metadata TEXT DEFAULT '{}',
                 FOREIGN KEY (conversation_id) REFERENCES conversations (id) ON DELETE CASCADE
             );
-            
+
             -- AI model performance metrics
             CREATE TABLE IF NOT EXISTS ai_metrics (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -304,7 +309,7 @@ class NoxDatabase:
                 context TEXT DEFAULT '{}',
                 recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
-            
+
             -- AI training and feedback data
             CREATE TABLE IF NOT EXISTS ai_feedback (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -319,11 +324,13 @@ class NoxDatabase:
                 FOREIGN KEY (message_id) REFERENCES conversation_messages (id),
                 FOREIGN KEY (user_id) REFERENCES users (id)
             );
-        """)
-    
+        """
+        )
+
     def _create_session_tables(self, conn: sqlite3.Connection):
         """Create session management tables"""
-        conn.executescript("""
+        conn.executescript(
+            """
             -- User sessions table
             CREATE TABLE IF NOT EXISTS sessions (
                 id TEXT PRIMARY KEY,
@@ -338,7 +345,7 @@ class NoxDatabase:
                 security_flags TEXT DEFAULT '{}',
                 FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
             );
-            
+
             -- Session activities log
             CREATE TABLE IF NOT EXISTS session_activities (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -348,7 +355,7 @@ class NoxDatabase:
                 timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (session_id) REFERENCES sessions (id) ON DELETE CASCADE
             );
-            
+
             -- API tokens table
             CREATE TABLE IF NOT EXISTS api_tokens (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -364,24 +371,26 @@ class NoxDatabase:
                 rate_limit INTEGER DEFAULT 1000,
                 FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
             );
-        """)
-    
+        """
+        )
+
     def _create_indexes(self, conn: sqlite3.Connection):
         """Create database indexes for performance"""
-        conn.executescript("""
+        conn.executescript(
+            """
             -- User indexes
             CREATE INDEX IF NOT EXISTS idx_users_username ON users (username);
             CREATE INDEX IF NOT EXISTS idx_users_email ON users (email);
             CREATE INDEX IF NOT EXISTS idx_users_active ON users (active);
             CREATE INDEX IF NOT EXISTS idx_users_last_login ON users (last_login);
-            
+
             -- Device indexes
             CREATE INDEX IF NOT EXISTS idx_devices_ip ON devices (ip_address);
             CREATE INDEX IF NOT EXISTS idx_devices_mac ON devices (mac_address);
             CREATE INDEX IF NOT EXISTS idx_devices_online ON devices (online);
             CREATE INDEX IF NOT EXISTS idx_devices_last_seen ON devices (last_seen);
             CREATE INDEX IF NOT EXISTS idx_devices_type ON devices (device_type);
-            
+
             -- Knowledge indexes
             CREATE INDEX IF NOT EXISTS idx_knowledge_title ON knowledge_items (title);
             CREATE INDEX IF NOT EXISTS idx_knowledge_category ON knowledge_items (category);
@@ -389,92 +398,104 @@ class NoxDatabase:
             CREATE INDEX IF NOT EXISTS idx_knowledge_created ON knowledge_items (created_at);
             CREATE INDEX IF NOT EXISTS idx_knowledge_status ON knowledge_items (status);
             CREATE INDEX IF NOT EXISTS idx_knowledge_keywords ON knowledge_items (search_keywords);
-            
+
             -- Tag indexes
             CREATE INDEX IF NOT EXISTS idx_tags_name ON tags (name);
             CREATE INDEX IF NOT EXISTS idx_tags_category ON tags (category);
             CREATE INDEX IF NOT EXISTS idx_tags_usage ON tags (usage_count);
-            
+
             -- Conversation indexes
             CREATE INDEX IF NOT EXISTS idx_conversations_user ON conversations (user_id);
             CREATE INDEX IF NOT EXISTS idx_conversations_session ON conversations (session_id);
             CREATE INDEX IF NOT EXISTS idx_conversations_started ON conversations (started_at);
             CREATE INDEX IF NOT EXISTS idx_conversations_status ON conversations (status);
-            
+
             -- Message indexes
             CREATE INDEX IF NOT EXISTS idx_messages_conversation ON conversation_messages (conversation_id);
             CREATE INDEX IF NOT EXISTS idx_messages_timestamp ON conversation_messages (timestamp);
             CREATE INDEX IF NOT EXISTS idx_messages_role ON conversation_messages (role);
-            
+
             -- Session indexes
             CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions (user_id);
             CREATE INDEX IF NOT EXISTS idx_sessions_active ON sessions (active);
             CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions (expires_at);
             CREATE INDEX IF NOT EXISTS idx_sessions_last_activity ON sessions (last_activity);
-            
+
             -- Audit log indexes
             CREATE INDEX IF NOT EXISTS idx_audit_user ON audit_logs (user_id);
             CREATE INDEX IF NOT EXISTS idx_audit_action ON audit_logs (action);
             CREATE INDEX IF NOT EXISTS idx_audit_timestamp ON audit_logs (timestamp);
             CREATE INDEX IF NOT EXISTS idx_audit_resource ON audit_logs (resource_type, resource_id);
-        """)
-    
+        """
+        )
+
     def _init_metadata(self, conn: sqlite3.Connection):
         """Initialize database metadata"""
-        conn.execute("""
+        conn.execute(
+            """
             INSERT OR REPLACE INTO settings (key, value, category, description)
             VALUES (?, ?, ?, ?)
-        """, (
-            'db_schema_version',
-            str(self.SCHEMA_VERSION),
-            'system',
-            'Database schema version for migrations'
-        ))
-        
-        conn.execute("""
+        """,
+            (
+                "db_schema_version",
+                str(self.SCHEMA_VERSION),
+                "system",
+                "Database schema version for migrations",
+            ),
+        )
+
+        conn.execute(
+            """
             INSERT OR REPLACE INTO settings (key, value, category, description)
             VALUES (?, ?, ?, ?)
-        """, (
-            'db_initialized_at',
-            datetime.now(timezone.utc).isoformat(),
-            'system',
-            'Database initialization timestamp'
-        ))
-    
+        """,
+            (
+                "db_initialized_at",
+                datetime.now(timezone.utc).isoformat(),
+                "system",
+                "Database initialization timestamp",
+            ),
+        )
+
     def _create_default_user(self, conn: sqlite3.Connection):
         """Create default admin user if none exists"""
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?", ("admin",))
-        
+
         if cursor.fetchone()[0] == 0:
             # Simple password hashing (in production, use proper hashing like bcrypt)
             import hashlib
+
             admin_password = os.getenv("ADMIN_PASS", "admin123!")
             hashed_password = hashlib.sha256(admin_password.encode()).hexdigest()
-            
-            cursor.execute("""
+
+            cursor.execute(
+                """
                 INSERT INTO users (username, password_hash, email, role, settings, preferences)
                 VALUES (?, ?, ?, ?, ?, ?)
-            """, (
-                "admin",
-                hashed_password,
-                "admin@noxguard.local",
-                "admin",
-                json.dumps({"theme": "dark", "notifications": True}),
-                json.dumps({"dashboard_layout": "default", "auto_refresh": 30})
-            ))
-            
+            """,
+                (
+                    "admin",
+                    hashed_password,
+                    "admin@noxguard.local",
+                    "admin",
+                    json.dumps({"theme": "dark", "notifications": True}),
+                    json.dumps({"dashboard_layout": "default", "auto_refresh": 30}),
+                ),
+            )
+
             logger.info("Default admin user created")
-    
+
     def close(self):
         """Close database connection pool"""
         self.pool.close_all()
-    
+
     def __enter__(self):
         return self
-    
+
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
 
+
 # Export the main class
-__all__ = ['NoxDatabase', 'DatabaseConnectionPool']
+__all__ = ["NoxDatabase", "DatabaseConnectionPool"]
