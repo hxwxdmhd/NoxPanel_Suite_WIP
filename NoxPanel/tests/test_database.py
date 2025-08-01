@@ -446,7 +446,8 @@ class TestDatabaseAdmin(unittest.TestCase):
         self.db_path = os.path.join(self.temp_dir, 'test.db')
         # Initialize database service first
         self.db_service = DatabaseService(self.db_path, auto_migrate=True)
-        self.admin = DatabaseAdmin(self.db_path)
+        # Pass the database service directly to avoid singleton issues
+        self.admin = DatabaseAdmin(db_service=self.db_service)
     
     def tearDown(self):
         try:
