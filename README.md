@@ -1,6 +1,6 @@
 # Heimnetz (NoxGuard/NoxPanel) 🛡️
 
-[![Code Quality](https://github.com/noxpanel/heimnetz/workflows/Code%20Quality%20Checks/badge.svg)](https://github.com/noxpanel/heimnetz/actions)
+[![Code Quality](https://github.com/hxwxdmhd/NoxPanel_Suite_WIP/workflows/Code%20Quality%20Checks/badge.svg)](https://github.com/hxwxdmhd/NoxPanel_Suite_WIP/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -61,8 +61,8 @@ The entire codebase has undergone a comprehensive overhaul with significant impr
 ### Production Deployment
 ```bash
 # Clone repository
-git clone https://github.com/noxpanel/heimnetz.git
-cd heimnetz
+git clone https://github.com/hxwxdmhd/NoxPanel_Suite_WIP.git
+cd NoxPanel_Suite_WIP
 
 # Start production stack
 docker-compose -f docker-compose.production.yml up -d
@@ -252,9 +252,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **GitHub Issues**: [Report bugs](https://github.com/noxpanel/heimnetz/issues)
-- **Discussions**: [Community support](https://github.com/noxpanel/heimnetz/discussions)
-- **Documentation**: [Wiki](https://github.com/noxpanel/heimnetz/wiki)
+- **GitHub Issues**: [Report bugs](https://github.com/hxwxdmhd/NoxPanel_Suite_WIP/issues)
+- **Discussions**: [Community support](https://github.com/hxwxdmhd/NoxPanel_Suite_WIP/discussions)
+- **Documentation**: [Wiki](https://github.com/hxwxdmhd/NoxPanel_Suite_WIP/wiki)
 
 ---
 

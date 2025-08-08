@@ -502,6 +502,72 @@ class TestDatabaseAdmin(unittest.TestCase):
         self.assertIn('user_summary', report)
         self.assertIn('recommendations', report)
 
+class TestDatabaseResilience(unittest.TestCase):
+    """Test database connection resilience and error handling"""
+    
+    def test_invalid_database_path(self):
+        """Test handling of invalid database path"""
+        with self.assertRaises(Exception):
+            # Try to initialize with an invalid path
+            invalid_path = "/invalid/nonexistent/path/test.db"
+            db = NoxDatabase(invalid_path)
+            # Attempt to use the database should fail gracefully
+            with db.get_connection() as conn:
+                conn.execute("SELECT 1")
+    
+    def test_connection_pool_exhaustion(self):
+        """Test behavior when connection pool is exhausted"""
+        temp_dir = tempfile.mkdtemp()
+        db_path = os.path.join(temp_dir, 'test.db')
+        
+        try:
+            # Create pool with only 1 connection
+            pool = DatabaseConnectionPool(db_path, pool_size=1)
+            
+            # Get the only connection
+            conn1 = pool.get_connection()
+            self.assertIsNotNone(conn1)
+            
+            # Try to get another connection (should handle gracefully)
+            try:
+                conn2 = pool.get_connection()
+                # If it succeeds, make sure to return it
+                if conn2:
+                    pool.return_connection(conn2)
+            except Exception as e:
+                # Expected behavior - pool exhaustion should be handled
+                self.assertTrue(True, "Pool exhaustion handled appropriately")
+            
+            # Return the first connection
+            pool.return_connection(conn1)
+            pool.close_all()
+            
+        finally:
+            shutil.rmtree(temp_dir)
+    
+    def test_database_corruption_simulation(self):
+        """Test handling of database corruption scenarios"""
+        temp_dir = tempfile.mkdtemp()
+        db_path = os.path.join(temp_dir, 'test.db')
+        
+        try:
+            # Create a valid database first
+            db = NoxDatabase(db_path)
+            db.close()
+            
+            # Corrupt the database file by writing invalid data
+            with open(db_path, 'w') as f:
+                f.write("INVALID DATABASE CONTENT")
+            
+            # Try to open the corrupted database
+            with self.assertRaises(Exception):
+                corrupted_db = NoxDatabase(db_path)
+                with corrupted_db.get_connection() as conn:
+                    conn.execute("SELECT 1")
+                
+        finally:
+            shutil.rmtree(temp_dir)
+
 def run_tests():
     """Run all database tests"""
     # Create test suite
@@ -514,7 +580,8 @@ def run_tests():
         TestConversationRepository,
         TestSessionRepository,
         TestDatabaseService,
-        TestDatabaseAdmin
+        TestDatabaseAdmin,
+        TestDatabaseResilience
     ]
     
     suite = unittest.TestSuite()

@@ -18,6 +18,8 @@ from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
 import os
 import json
+import re
+import html
 
 # Import routers
 from .routers import (
@@ -514,11 +516,20 @@ def _get_system_uptime() -> str:
     """Get system uptime"""
     try:
         import psutil
+        boot_time = psutil.boot_time()
+        uptime_seconds = datetime.now().timestamp() - boot_time
+        
+        days = int(uptime_seconds // 86400)
+        hours = int((uptime_seconds % 86400) // 3600)
+        minutes = int((uptime_seconds % 3600) // 60)
+        
+        return f"{days}d {hours}h {minutes}m"
+    except:
+        return "Unknown"
 
-# Security: Input validation utilities
-import re
-import html
-from typing import Any, Optional
+# ============================================================================
+# SECURITY UTILITIES
+# ============================================================================
 
 def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
     """Validate and sanitize input data."""
@@ -551,17 +562,6 @@ def validate_file_path(path: str) -> str:
     
     return normalized
 
-        boot_time = psutil.boot_time()
-        uptime_seconds = datetime.now().timestamp() - boot_time
-        
-        days = int(uptime_seconds // 86400)
-        hours = int((uptime_seconds % 86400) // 3600)
-        minutes = int((uptime_seconds % 3600) // 60)
-        
-        return f"{days}d {hours}h {minutes}m"
-    except:
-        return "Unknown"
-
 # ============================================================================
 # ERROR HANDLERS
 # ============================================================================
@@ -574,7 +574,7 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         content={
             "error": exc.detail,
             "status_code": exc.status_code,
-            "timestamp": datetime.now(timezone.uitc).isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "path": str(request.url.path)
         }
     )
