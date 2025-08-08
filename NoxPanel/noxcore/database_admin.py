@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 class DatabaseAdmin:
     """Database administration utilities"""
     
-    def __init__((self, db_path: str = None) -> None:
+    def __init__(self, db_path: str = None) -> None:
         self.db_service = get_database_service(db_path)
     
     def status(self) -> Dict[str, Any]:

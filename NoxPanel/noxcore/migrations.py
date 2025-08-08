@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from typing import List, Dict, Any, Optional
 from contextlib import contextmanager
 
+from .utils.datetime_utils import utc_now
+
 
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
@@ -38,7 +40,7 @@ logger = logging.getLogger(__name__)
 class Migration:
     """Base class for database migrations"""
     
-    def __init__((self, version: int, description: str) -> None:
+    def __init__(self, version: int, description: str) -> None:
         self.version = version
         self.description = description
     
@@ -53,7 +55,7 @@ class Migration:
 class InitialMigration(Migration):
     """Initial database schema migration"""
     
-    def __init__((self) -> None:
+    def __init__(self) -> None:
         super().__init__(1, "Initial database schema with enhanced tables")
     
     def up(self, conn: sqlite3.Connection) -> None:
@@ -78,7 +80,7 @@ class InitialMigration(Migration):
 class MigrationManager:
     """Manages database migrations and schema versioning"""
     
-    def __init__((self, db_path: str) -> None:
+    def __init__(self, db_path: str) -> None:
         self.db_path = Path(db_path)
         self.migrations: List[Migration] = []
         self._register_migrations()
@@ -178,7 +180,7 @@ class MigrationManager:
                 self._ensure_migration_table(conn)
                 
                 for migration in pending:
-                    start_time = datetime.now(timezone.utc)
+                    start_time = utc_now()
                     logger.info(f"Applying migration {migration.version}: {migration.description}")
                     
                     try:
@@ -186,7 +188,7 @@ class MigrationManager:
                         migration.up(conn)
                         
                         # Record successful application
-                        execution_time = (datetime.now(timezone.utc) - start_time).total_seconds()
+                        execution_time = (utc_now() - start_time).total_seconds()
                         conn.execute("""
                             INSERT INTO schema_migrations 
                             (version, description, applied_at, execution_time)
@@ -194,7 +196,7 @@ class MigrationManager:
                         """, (
                             migration.version,
                             migration.description,
-                            datetime.now(timezone.utc).isoformat(),
+                            utc_now().isoformat(),
                             execution_time
                         ))
                         
@@ -232,7 +234,7 @@ class MigrationManager:
             
             with self.get_connection() as conn:
                 for migration in to_rollback:
-                    start_time = datetime.now(timezone.utc)
+                    start_time = utc_now()
                     logger.info(f"Rolling back migration {migration.version}: {migration.description}")
                     
                     try:
@@ -242,7 +244,7 @@ class MigrationManager:
                         # Remove from migration table
                         conn.execute("DELETE FROM schema_migrations WHERE version = ?", (migration.version,))
                         
-                        execution_time = (datetime.now(timezone.utc) - start_time).total_seconds()
+                        execution_time = (utc_now() - start_time).total_seconds()
                         logger.info(f"Migration {migration.version} rolled back successfully in {execution_time:.2f}s")
                         
                     except Exception as e:

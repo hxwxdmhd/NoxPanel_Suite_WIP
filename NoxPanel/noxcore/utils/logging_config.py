@@ -12,48 +12,11 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List
 import json
 
-# Security: Input validation utilities
-import re
-import html
-from typing import Any, Optional
-
-def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
-    """Validate and sanitize input data."""
-    if value is None:
-        return ""
-    
-    # Convert to string and strip
-    str_value = str(value).strip()
-    
-    # Check length
-    if len(str_value) > max_length:
-        raise ValueError(f"Input too long (max {max_length} characters)")
-    
-    # Apply pattern validation if provided
-    if pattern and not re.match(pattern, str_value):
-        raise ValueError("Input format validation failed")
-    
-    # HTML escape for XSS prevention
-    return html.escape(str_value)
-
-def validate_file_path(path: str) -> str:
-    """Validate file path to prevent directory traversal."""
-    if not path:
-        raise ValueError("File path cannot be empty")
-    
-    # Normalize path and check for traversal attempts
-    normalized = os.path.normpath(path)
-    if '..' in normalized or normalized.startswith('/'):
-        raise ValueError("Invalid file path detected")
-    
-    return normalized
-
-
 
 class NoxPanelFormatter(logging.Formatter):
     """Custom formatter for NoxPanel with enhanced metadata."""
     
-    def __init__(self, include_context: bool = True) -> None:
+    def __init__(self, include_context: bool = True):
         """Initialize formatter.
         
         Args:
@@ -135,7 +98,7 @@ class LoggingConfig:
     DEFAULT_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     DEFAULT_LEVEL = logging.INFO
     
-    def __init__(self, config: Optional[Dict[str, Any]] = None) -> None:
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
         """Initialize logging configuration.
         
         Args:
@@ -225,53 +188,11 @@ class LoggingConfig:
             self._setup_loggers()
             
             # Set root logger level
-            root_
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger()
+            root_logger = logging.getLogger()
             root_logger.setLevel(self._get_log_level(self.config.get('level', 'INFO')))
             
             # Log successful setup
-            
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger('noxpanel.logging')
+            logger = logging.getLogger('noxpanel.logging')
             logger.info("Logging configuration setup completed successfully")
             
         except Exception as e:
@@ -286,28 +207,7 @@ logger = logging.getLogger('noxpanel.logging')
     def _clear_handlers(self) -> None:
         """Clear existing handlers."""
         # Clear root logger handlers
-        root_
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger()
+        root_logger = logging.getLogger()
         for handler in root_logger.handlers[:]:
             root_logger.removeHandler(handler)
             handler.close()
@@ -378,28 +278,7 @@ logger = logging.getLogger()
         loggers_config = self.config.get('loggers', {})
         
         for logger_name, logger_config in loggers_config.items():
-            
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger(logger_name)
+            logger = logging.getLogger(logger_name)
             
             # Set level
             level = self._get_log_level(logger_config.get('level', 'INFO'))
@@ -494,28 +373,7 @@ logger = logging.getLogger(logger_name)
         if name in self.loggers:
             return self.loggers[name]
         
-        
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger(name)
+        logger = logging.getLogger(name)
         
         # Apply default configuration if not explicitly configured
         if not any(name.startswith(configured_name) for configured_name in self.loggers.keys()):
@@ -595,7 +453,7 @@ def add_context_to_logger(logger: logging.Logger, context: Dict[str, Any]) -> No
         context: Context dictionary to add
     """
     class ContextFilter(logging.Filter):
-        def filter(self, record) -> bool:
+        def filter(self, record):
             record.context = context
             return True
     

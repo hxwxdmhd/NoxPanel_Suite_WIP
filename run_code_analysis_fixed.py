@@ -12,6 +12,7 @@ import argparse
 from pathlib import Path
 import logging
 import json
+from datetime import datetime
 from typing import Dict, List, Optional, Any, Union
 
 # Add the project root to Python path
@@ -68,10 +69,23 @@ def main() -> None:
     args = parser.parse_args()
     
     # Setup logging
-    setup_logging(
-        level=logging.DEBUG if args.verbose else logging.INFO,
-        enable_file_logging=True
-    )
+    setup_logging({
+        'version': 1,
+        'level': 'DEBUG' if args.verbose else 'INFO',
+        'handlers': {
+            'console': {
+                'type': 'console',
+                'level': 'DEBUG' if args.verbose else 'INFO',
+                'format': 'enhanced'
+            }
+        },
+        'loggers': {
+            'noxpanel': {
+                'level': 'DEBUG' if args.verbose else 'INFO',
+                'handlers': ['console']
+            }
+        }
+    })
     
     logger = get_logger('noxpanel.analysis')
     logger.info(f"Starting code analysis of {args.directory}")
@@ -109,11 +123,23 @@ def main() -> None:
     
     try:
         # Run analysis
-        results = analyze_codebase(
+        issues, report = analyze_codebase(
             args.directory,
             exclude_patterns=exclude_patterns,
-            output_format=args.format
+            report_format=args.format
         )
+        
+        # Convert to appropriate format
+        if args.format == 'json':
+            results = {
+                'timestamp': datetime.utcnow().isoformat(),
+                'directory': str(args.directory),
+                'issues_count': len(issues),
+                'issues': [issue.to_dict() for issue in issues],
+                'report': report
+            }
+        else:
+            results = report
         
         # Output results
         if args.output:
@@ -121,12 +147,15 @@ def main() -> None:
             if args.format == 'json':
                 with open(output_path, 'w') as f:
                     json.dump(results, f, indent=2)
-                logger.info(f"Report written to {output_path}")
+                logger.info(f"JSON report written to {output_path}")
             else:
                 output_path.write_text(str(results), encoding='utf-8')
                 logger.info(f"Report written to {output_path}")
         else:
-            print(results)
+            if args.format == 'json':
+                print(json.dumps(results, indent=2))
+            else:
+                print(results)
         
         # Check for critical issues
         summary = results if isinstance(results, dict) else {}
@@ -142,7 +171,8 @@ def main() -> None:
             sys.exit(0)
             
     except Exception as e:
-        handle_error(e, "Code analysis failed", logger)
+        logger.error(f"Code analysis failed: {e}")
+        handle_error(e)
         sys.exit(1)
 
 

@@ -14,6 +14,8 @@ from contextlib import contextmanager
 from typing import Optional, Dict, List, Any, Union
 import time
 
+from .utils.datetime_utils import utc_now
+
 
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
@@ -40,7 +42,7 @@ logger = logging.getLogger(__name__)
 class DatabaseConnectionPool:
     """SQLite connection pool for improved performance"""
     
-    def __init__((self, db_path: str, pool_size: int = 10, timeout: float = 30.0) -> None:
+    def __init__(self, db_path: str, pool_size: int = 10, timeout: float = 30.0) -> None:
         self.db_path = db_path
         self.pool_size = pool_size
         self.timeout = timeout
@@ -112,7 +114,7 @@ class NoxDatabase:
     # Database schema version for migrations
     SCHEMA_VERSION = 1
     
-    def __init__((self, db_path: str = "data/db/noxpanel.db", pool_size: int = 10) -> None:
+    def __init__(self, db_path: str = "data/db/noxpanel.db", pool_size: int = 10) -> None:
         """Initialize database with connection pooling"""
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -457,7 +459,7 @@ class NoxDatabase:
             VALUES (?, ?, ?, ?)
         """, (
             'db_initialized_at',
-            datetime.now(timezone.utc).isoformat(),
+            utc_now().isoformat(),
             'system',
             'Database initialization timestamp'
         ))

@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 class BaseRepository:
     """Base repository class with common functionality"""
     
-    def __init__((self, db: NoxDatabase) -> None:
+    def __init__(self, db: NoxDatabase) -> None:
         self.db = db
     
     def _serialize_json(self, data: Any) -> str:

@@ -12,6 +12,8 @@ from typing import Optional, Dict, Any, Callable, Type, Union, List
 from enum import Enum
 import json
 
+from .datetime_utils import utc_now
+
 
 class ErrorSeverity(Enum):
     """Error severity levels for consistent classification."""
@@ -65,7 +67,7 @@ class NoxPanelError(Exception):
         self.details = details or {}
         self.context = context or {}
         self.original_exception = original_exception
-        self.timestamp = datetime.now(timezone.utc)
+        self.timestamp = utc_now()
         self.error_id = self._generate_error_id()
     
     def _generate_error_id(self) -> str:
@@ -156,27 +158,6 @@ class ErrorHandler:
             logger_name: Name for the logger
         """
         self.logger = logging.getLogger(logger_name)
-# Security: Audit logging for security events
-def log_security_event(event_type: str, details: dict, request_ip: str = None):
-    """Log security-related events for audit trails."""
-    security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
-        'event_type': event_type,
-        'details': details,
-        'request_ip': request_ip,
-        'severity': 'security'
-    }
-    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
-
-def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
-    """Log access attempts for security monitoring."""
-    log_security_event('access_attempt', {
-        'endpoint': endpoint,
-        'user_id': user_id,
-        'success': success
-    })
-
-logger = logging.getLogger(logger_name)
         self.error_count = 0
         self.recent_errors: List[Dict[str, Any]] = []
         self.max_recent_errors = 100
@@ -402,6 +383,29 @@ def get_error_summary() -> Dict[str, Any]:
     return global_error_handler.get_error_summary()
 
 
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger = logging.getLogger(__name__)
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+
 # Export main utilities
 __all__ = [
     'ErrorSeverity',
@@ -418,5 +422,7 @@ __all__ = [
     'safe_execute',
     'validate_input',
     'handle_error',
-    'get_error_summary'
+    'get_error_summary',
+    'log_security_event',
+    'log_access_attempt'
 ]

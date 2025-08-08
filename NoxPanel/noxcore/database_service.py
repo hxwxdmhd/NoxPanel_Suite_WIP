@@ -43,7 +43,7 @@ logger = logging.getLogger(__name__)
 class DatabaseService:
     """Main database service for NoxGuard---NoxPanel"""
     
-    def __init__((self, db_path: str = None, auto_migrate: bool = True, pool_size: int = 10) -> None:
+    def __init__(self, db_path: str = None, auto_migrate: bool = True, pool_size: int = 10) -> None:
         """Initialize database service"""
         if db_path is None:
             db_path = os.getenv('NOX_DB_PATH', 'data/db/noxpanel.db')
