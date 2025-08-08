@@ -514,6 +514,9 @@ def _get_system_uptime() -> str:
     """Get system uptime"""
     try:
         import psutil
+        return str(psutil.boot_time())
+    except ImportError:
+        return "0"
 
 # Security: Input validation utilities
 import re
@@ -550,17 +553,6 @@ def validate_file_path(path: str) -> str:
         raise ValueError("Invalid file path detected")
     
     return normalized
-
-        boot_time = psutil.boot_time()
-        uptime_seconds = datetime.now().timestamp() - boot_time
-        
-        days = int(uptime_seconds // 86400)
-        hours = int((uptime_seconds % 86400) // 3600)
-        minutes = int((uptime_seconds % 3600) // 60)
-        
-        return f"{days}d {hours}h {minutes}m"
-    except:
-        return "Unknown"
 
 # ============================================================================
 # ERROR HANDLERS
