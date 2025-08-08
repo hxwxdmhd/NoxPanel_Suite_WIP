@@ -191,11 +191,18 @@ def main():
         return False
     
     finally:
-        # Cleanup option
-        keep_files = input(f"\nKeep test files in {test_dir}? (y/N): ").lower().startswith('y')
+        # Cleanup test files unless explicitly asked to keep them via env var
+        keep_files = os.getenv("KEEP_STANDALONE_INSTALLER_TEST_FILES", "").lower() in (
+            "1",
+            "true",
+            "yes",
+            "y",
+        )
         if not keep_files:
-            shutil.rmtree(test_dir)
+            shutil.rmtree(test_dir, ignore_errors=True)
             print("🗑️  Test files cleaned up")
+        else:
+            print(f"📁 Test files kept in {test_dir}")
 
 if __name__ == "__main__":
     success = main()
