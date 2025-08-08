@@ -343,10 +343,17 @@ _db_service: Optional[DatabaseService] = None
 def get_database_service(db_path: str = None, auto_migrate: bool = True) -> DatabaseService:
     """Get or create global database service instance"""
     global _db_service
-    
     if _db_service is None:
         _db_service = DatabaseService(db_path, auto_migrate)
-    
+    else:
+        # If a specific path is provided and differs from the existing service,
+        # re-initialize the global service for the new database. This prevents
+        # stale or closed connections from being reused across different tests
+        # or application contexts.
+        if db_path is not None and os.path.abspath(_db_service.db_path) != os.path.abspath(db_path):
+            _db_service.close()
+            _db_service = DatabaseService(db_path, auto_migrate)
+
     return _db_service
 
 def close_database_service() -> bool:
