@@ -97,6 +97,24 @@ class TestNoxDatabase(unittest.TestCase):
             self.assertIsNotNone(admin_user)
             self.assertEqual(admin_user['role'], 'admin')
     
+    def test_duplicate_mac_address_constraint(self):
+        """Test that duplicate MAC addresses are rejected by the database"""
+        with self.db.get_connection() as conn:
+            cursor = conn.cursor()
+            
+            # Insert first device with MAC address
+            cursor.execute("""
+                INSERT INTO devices (name, ip_address, mac_address) 
+                VALUES (?, ?, ?)
+            """, ("Device1", "192.168.1.100", "AA:BB:CC:DD:EE:FF"))
+            
+            # Try to insert second device with same MAC address
+            with self.assertRaises(Exception):  # Should raise integrity error
+                cursor.execute("""
+                    INSERT INTO devices (name, ip_address, mac_address) 
+                    VALUES (?, ?, ?)
+                """, ("Device2", "192.168.1.101", "AA:BB:CC:DD:EE:FF"))
+    
     def test_settings_initialization(self):
         """Test settings are initialized correctly"""
         with self.db.get_connection() as conn:
