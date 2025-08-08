@@ -2,7 +2,7 @@
 
 ## Overview
 
-The NoxGuard---NoxPanel database system provides a comprehensive data storage solution for network management, knowledge management, AI conversations, and user sessions. Built on SQLite with connection pooling and migration support.
+The NoxGuard-NoxPanel database system provides a comprehensive data storage solution for network management, knowledge management, AI conversations, and user sessions. Built on SQLite with connection pooling and migration support.
 
 ## Database Architecture
 
