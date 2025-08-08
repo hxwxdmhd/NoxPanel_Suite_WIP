@@ -183,7 +183,7 @@ class NoxDatabase:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT,
                 ip_address TEXT UNIQUE NOT NULL,
-                mac_address TEXT,
+                mac_address TEXT UNIQUE,
                 device_type TEXT,
                 vendor TEXT,
                 operating_system TEXT,

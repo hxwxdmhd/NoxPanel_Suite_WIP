@@ -18,7 +18,7 @@ from .database import NoxDatabase
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
     security_event = {
-        'timestamp': datetime.utcnow().isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'event_type': event_type,
         'details': details,
         'request_ip': request_ip,
