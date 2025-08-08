@@ -574,7 +574,7 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         content={
             "error": exc.detail,
             "status_code": exc.status_code,
-            "timestamp": datetime.now(timezone.uitc).isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "path": str(request.url.path)
         }
     )
