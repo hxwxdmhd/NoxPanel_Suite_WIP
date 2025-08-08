@@ -12,7 +12,7 @@ import hashlib
 import yaml
 from pathlib import Path
 from typing import Dict, List, Optional, Any, Union
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 class ProgressTracker:
     """Enhanced progress tracking with ETA calculation"""
