@@ -107,8 +107,8 @@ services:
   # ContextForge MCP Server
   contextforge:
     build:
-      context: ./enterprise/context
-      dockerfile: Dockerfile
+      context: ./enterprise
+      dockerfile: Dockerfile.gateway
     image: hobelab/contextforge:latest
     container_name: contextforge-mcp
     restart: unless-stopped
@@ -155,7 +155,7 @@ services:
     restart: unless-stopped
 
     environment:
-      - REDIS_PASSWORD=heimnetz_redis_password
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_default_password}
 
     volumes:
       - heimnetz-redis:/data
@@ -220,7 +220,7 @@ services:
     environment:
       - POSTGRES_DB=heimnetz
       - POSTGRES_USER=heimnetz
-      - POSTGRES_PASSWORD=heimnetz_db_password
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres_default_password}
 
     volumes:
       - heimnetz-postgres:/var/lib/postgresql/data
@@ -301,7 +301,7 @@ services:
     restart: unless-stopped
 
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=grafana_admin_password
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-grafana_default_password}
       - GF_USERS_ALLOW_SIGN_UP=false
 
     ports:

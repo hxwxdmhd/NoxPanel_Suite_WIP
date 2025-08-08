@@ -1,0 +1,370 @@
+[
+  {
+    "type": "Runtime bug",
+    "file": "backend/fastapi/main.py",
+    "line": 577,
+    "issue": "Uses `timezone.uitc` which causes AttributeError at runtime.",
+    "suggestion": "Change to `timezone.utc` to fix the typo.",
+    "priority": "high"
+  },
+  {
+    "type": "Code structure",
+    "file": "backend/fastapi/main.py",
+    "line": 23,
+    "issue": "Imports from non-existent modules (routers, core, models, schemas directories don't exist).",
+    "suggestion": "Create the missing directory structure or remove invalid imports to prevent ImportError.",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 121,
+    "issue": "Malformed function definition `def __init__((self, log_file: str = \"noxsuite_installer.log\") -> None:` with extra parentheses.",
+    "suggestion": "Remove extra parentheses: `def __init__(self, log_file: str = \"noxsuite_installer.log\") -> None:`",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 130,
+    "issue": "Incomplete assignment `self.` without attribute name.",
+    "suggestion": "Complete the assignment or remove the incomplete line.",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 192,
+    "issue": "Function returning `bool` in type hint but function body suggests it doesn't return anything.",
+    "suggestion": "Fix return type annotation or add proper return statements.",
+    "priority": "medium"
+  },
+  {
+    "type": "Code structure",
+    "file": "noxsuite_smart_installer.py",
+    "line": 131,
+    "issue": "Duplicate security function definitions scattered throughout file.",
+    "suggestion": "Move security functions to a separate module and import them.",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 307,
+    "issue": "Another malformed function definition `def __init__((self, log_file: Path) -> None:` with extra parentheses.",
+    "suggestion": "Remove extra parentheses: `def __init__(self, log_file: Path) -> None:`",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 419,
+    "issue": "Another malformed function definition `def __init__((self, logger: SmartLogger) -> None:` with extra parentheses.",
+    "suggestion": "Remove extra parentheses: `def __init__(self, logger: SmartLogger) -> None:`",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 722,
+    "issue": "Another malformed function definition `def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:` with extra parentheses.",
+    "suggestion": "Remove extra parentheses: `def __init__(self, system_info: SystemInfo, logger: SmartLogger) -> None:`",
+    "priority": "high"
+  },
+  {
+    "type": "Security flaw",
+    "file": "docker-compose.yml",
+    "line": 158,
+    "issue": "Hardcoded Redis password in environment variable.",
+    "suggestion": "Use Docker secrets or environment variable substitution instead of hardcoded password.",
+    "priority": "high"
+  },
+  {
+    "type": "Security flaw",
+    "file": "docker-compose.yml",
+    "line": 223,
+    "issue": "Hardcoded PostgreSQL password in environment variable.",
+    "suggestion": "Use Docker secrets or environment variable substitution instead of hardcoded password.",
+    "priority": "high"
+  },
+  {
+    "type": "Security flaw",
+    "file": "docker-compose.yml",
+    "line": 304,
+    "issue": "Hardcoded Grafana admin password in environment variable.",
+    "suggestion": "Use Docker secrets or environment variable substitution instead of hardcoded password.",
+    "priority": "high"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "docker-compose.yml",
+    "line": 227,
+    "issue": "References non-existent schema file `/sql/schema.sql`.",
+    "suggestion": "Create the schema file or remove the volume mount reference.",
+    "priority": "medium"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "docker-compose.yml",
+    "line": 257,
+    "issue": "References non-existent nginx config `/docker/nginx.conf`.",
+    "suggestion": "Create the nginx configuration files or remove the volume mounts.",
+    "priority": "medium"
+  },
+  {
+    "type": "Test missing",
+    "file": "backend/fastapi/main.py",
+    "line": "N/A",
+    "issue": "No tests for FastAPI application startup, exception handlers, or background tasks.",
+    "suggestion": "Create comprehensive tests for main.py including startup lifecycle, error handlers, and background task functionality.",
+    "priority": "high"
+  },
+  {
+    "type": "Test missing",
+    "file": "frontend/src",
+    "line": "N/A",
+    "issue": "Frontend components are empty files with no implementation or tests.",
+    "suggestion": "Implement React components and add Jest/React Testing Library tests.",
+    "priority": "high"
+  },
+  {
+    "type": "Test missing",
+    "file": "plugins",
+    "line": "N/A",
+    "issue": "Plugin files are empty with no implementation or tests.",
+    "suggestion": "Implement plugin functionality and add comprehensive plugin tests.",
+    "priority": "high"
+  },
+  {
+    "type": "Code structure",
+    "file": "archive/deprecated/NoxPanel/tests/test_security.py",
+    "line": 14,
+    "issue": "Test setup method is incomplete and has syntax errors with incomplete docstrings.",
+    "suggestion": "Complete the test setup method implementation and fix docstring syntax.",
+    "priority": "medium"
+  },
+  {
+    "type": "Doc discrepancy",
+    "file": "archive/deprecated/NoxPanel/tests/test_security.py",
+    "line": 16,
+    "issue": "Malformed docstring with RLVR comments that don't follow standard Python documentation format.",
+    "suggestion": "Replace non-standard RLVR comments with proper docstrings following PEP 257.",
+    "priority": "low"
+  },
+  {
+    "type": "Security flaw",
+    "file": "cleanup_project.py",
+    "line": 46,
+    "issue": "Path validation function has weak security - allows some directory traversal patterns.",
+    "suggestion": "Strengthen path validation to use `Path.resolve()` and check against allowed base directories.",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "run_code_analysis_fixed.py",
+    "line": 23,
+    "issue": "Import from non-existent module `NoxPanel.noxcore.utils.code_analysis`.",
+    "suggestion": "Create the missing module or update import to existing module path.",
+    "priority": "high"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "package.json",
+    "line": 12,
+    "issue": "Test script shows error message and exits with code 1 instead of running actual tests.",
+    "suggestion": "Implement proper test script or remove the error message if no tests are intended.",
+    "priority": "medium"
+  },
+  {
+    "type": "Security flaw",
+    "file": ".env.example",
+    "line": 23,
+    "issue": "Example uses placeholder text for critical security credentials without guidance on generation.",
+    "suggestion": "Add comments with examples of how to generate secure passwords and keys.",
+    "priority": "medium"
+  },
+  {
+    "type": "Code structure",
+    "file": "requirements.txt",
+    "line": 76,
+    "issue": "Excessive number of dependencies (134 packages) with many development-only packages in production requirements.",
+    "suggestion": "Split into requirements.txt, requirements-dev.txt, and requirements-prod.txt to separate concerns.",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "requirements.txt",
+    "line": 112,
+    "issue": "Uses beta/prerelease packages (e.g., `opentelemetry-instrumentation>=0.39b0`) which may be unstable.",
+    "suggestion": "Pin to stable versions or clearly document beta dependency risks.",
+    "priority": "medium"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "backend/fastapi",
+    "line": "N/A",
+    "issue": "Missing critical FastAPI project structure (routers/, core/, models/, schemas/ directories).",
+    "suggestion": "Create proper FastAPI project structure or provide alternative implementation.",
+    "priority": "high"
+  },
+  {
+    "type": "Test missing",
+    "file": "tests",
+    "line": "N/A",
+    "issue": "Test directory contains only archived/deprecated tests, no active test suite.",
+    "suggestion": "Create comprehensive test suite covering unit, integration, and end-to-end tests.",
+    "priority": "high"
+  },
+  {
+    "type": "Security flaw",
+    "file": "backend/fastapi/main.py",
+    "line": 186,
+    "issue": "CORS middleware allows all origins, methods, and headers which is overly permissive.",
+    "suggestion": "Restrict CORS to specific allowed origins and limit methods/headers as needed.",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "backend/fastapi/main.py",
+    "line": 577,
+    "issue": "Using `datetime.now(timezone.uitc)` with typo in timezone reference.",
+    "suggestion": "Fix typo: change `timezone.uitc` to `timezone.utc`.",
+    "priority": "high"
+  },
+  {
+    "type": "Code structure",
+    "file": "Dockerfile",
+    "line": 38,
+    "issue": "Creates user for security but then switches back to root by default.",
+    "suggestion": "Add `USER heimnetz` at the end to run container as non-root user.",
+    "priority": "medium"
+  },
+  {
+    "type": "Security flaw",
+    "file": "Dockerfile",
+    "line": 17,
+    "issue": "Installs network tools like nmap that could be used for scanning attacks.",
+    "suggestion": "Remove unnecessary network tools or justify their need with comments.",
+    "priority": "low"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "README.md",
+    "line": "N/A",
+    "issue": "No clear documentation on how to set up development environment or run the application.",
+    "suggestion": "Add comprehensive setup instructions, architecture documentation, and contribution guidelines.",
+    "priority": "medium"
+  },
+  {
+    "type": "Code structure",
+    "file": ".",
+    "line": "N/A",
+    "issue": "Project has excessive number of root-level files (100+) making it difficult to navigate.",
+    "suggestion": "Organize files into proper directories (docs/, scripts/, configs/, etc.).",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "noxsuite_smart_installer.py",
+    "line": 674,
+    "issue": "Missing import for `ctypes` used in Windows admin rights check.",
+    "suggestion": "Add `import ctypes` at the top of the file or move the import inside the try block.",
+    "priority": "medium"
+  },
+  {
+    "type": "Security flaw",
+    "file": "noxsuite_smart_installer.py",
+    "line": 1054,
+    "issue": "Uses `sudo` commands without proper validation of package names, could allow command injection.",
+    "suggestion": "Validate package names against allowed patterns and escape shell arguments.",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "backend/fastapi/main.py",
+    "line": 454,
+    "issue": "Attempts to import docker client but docker library may not be installed.",
+    "suggestion": "Add try-catch around docker import and graceful fallback if not available.",
+    "priority": "medium"
+  },
+  {
+    "type": "Test missing",
+    "file": "plugins/fritzwatcher_plugin.py",
+    "line": "N/A",
+    "issue": "Plugin file is empty but has test files suggesting it should have implementation.",
+    "suggestion": "Implement the FritzWatcher plugin or remove the test files if not needed.",
+    "priority": "medium"
+  },
+  {
+    "type": "Doc discrepancy",
+    "file": "backend/fastapi/main.py",
+    "line": 133,
+    "issue": "API description mentions features not implemented in the current codebase.",
+    "suggestion": "Update API description to match actual implemented features or implement missing features.",
+    "priority": "low"
+  },
+  {
+    "type": "Security flaw",
+    "file": "backend/fastapi/main.py",
+    "line": 519,
+    "issue": "Security validation functions are duplicated multiple times throughout the codebase.",
+    "suggestion": "Create a centralized security module and import validation functions.",
+    "priority": "medium"
+  },
+  {
+    "type": "Code structure",
+    "file": "noxsuite_smart_installer.py",
+    "line": 1144,
+    "issue": "File is extremely long (1144+ lines) and handles multiple responsibilities.",
+    "suggestion": "Split into multiple focused modules: installer, logger, platform_detector, dependency_manager.",
+    "priority": "medium"
+  },
+  {
+    "type": "UI/UX bug",
+    "file": "frontend/src",
+    "line": "N/A",
+    "issue": "All React components are empty files, no UI implementation exists.",
+    "suggestion": "Implement React components for Dashboard, Login, Security, Settings, and Analytics.",
+    "priority": "high"
+  },
+  {
+    "type": "Dev experience issue",
+    "file": "docker-compose.yml",
+    "line": 312,
+    "issue": "References non-existent Grafana dashboard and provisioning files.",
+    "suggestion": "Create the dashboard configuration files or remove the volume mounts.",
+    "priority": "medium"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "docker-compose.yml",
+    "line": 110,
+    "issue": "ContextForge service build context points to non-existent directory `./enterprise/context`.",
+    "suggestion": "Create the build context directory or update the path to existing directory.",
+    "priority": "high"
+  },
+  {
+    "type": "Runtime bug",
+    "file": "docker-compose.yml",
+    "line": 64,
+    "issue": "AetherCore service build context points to non-existent directory `./aethercore`.",
+    "suggestion": "Create the build context directory or update the path to existing directory.",
+    "priority": "high"
+  },
+  {
+    "type": "Test missing",
+    "file": "noxsuite_smart_installer.py",
+    "line": "N/A",
+    "issue": "Complex installer logic with no unit tests for critical functions like dependency management.",
+    "suggestion": "Create comprehensive tests for installer functionality, platform detection, and error handling.",
+    "priority": "high"
+  },
+  {
+    "type": "Security flaw",
+    "file": "noxsuite_smart_installer.py",
+    "line": 648,
+    "issue": "Creates and deletes test files without proper cleanup on error conditions.",
+    "suggestion": "Use try-finally blocks or context managers to ensure test file cleanup.",
+    "priority": "low"
+  }
+]

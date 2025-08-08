@@ -118,7 +118,7 @@ class InstallStep:
 class SmartLogger:
     """Enhanced logging with UTF-8 support and structured output"""
     
-    def __init__((self, log_file: str = "noxsuite_installer.log") -> None:
+    def __init__(self, log_file: str = "noxsuite_installer.log") -> None:
         self.log_file = Path(log_file)
         self.session_id = str(uuid.uuid4())[:8]
         self.start_time = datetime.now(timezone.utc)
@@ -127,7 +127,16 @@ class SmartLogger:
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Setup structured logger
-        self.
+        self.logger = logging.getLogger(__name__)
+    
+    def info(self, message: str):
+        """Log info message"""
+        self.logger.info(message)
+    
+    def error(self, message: str):
+        """Log error message"""
+        self.logger.error(message)
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
@@ -148,63 +157,10 @@ def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True)
         'success': success
     })
 
+# Global logger for standalone functions
 logger = logging.getLogger('noxsuite_installer')
-        self.logger.setLevel(logging.DEBUG)
-        
-        # Clear existing handlers
-        self.logger.handlers.clear()
-        
-        # Console handler with UTF-8 support
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(logging.INFO)
-        
-        # File handler with UTF-8 encoding
-        file_handler = logging.FileHandler(
-            self.log_file, 
-            mode='a', 
-            encoding='utf-8'
-        )
-        file_handler.setLevel(logging.DEBUG)
-        
-        # Formatters
-        console_format = '%(message)s'
-        file_format = '%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s'
-        
-        console_formatter = logging.Formatter(console_format)
-        file_formatter = logging.Formatter(file_format)
-        
-        console_handler.setFormatter(console_formatter)
-        file_formatter = self._create_custom_formatter()
-        file_handler.setFormatter(file_formatter)
-        
-        self.logger.addHandler(console_handler)
-        self.logger.addHandler(file_handler)
-        
-        # Log session start
-        self._log_structured({
-            'event': 'session_start',
-            'session_id': self.session_id,
-            'timestamp': self.start_time.isoformat(),
-            'platform': platform.platform(),
-            'python_version': sys.version
-        })
-    
-    def _create_custom_formatter(self) -> bool:
-        """Create custom formatter that includes session ID"""
-        class CustomFormatter(logging.Formatter):
-            def format(self, record) -> bool:
-                record.session_id = self.session_id
-                return super().format(record)
-        return CustomFormatter('%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s')
-    
-    def _log_structured(self, data: Dict[str, Any]) -> bool:
-        """Log structured data as JSON"""
-        json_str = json.dumps(data, ensure_ascii=False, indent=None)
-        self.logger.debug(f"STRUCTURED: {json_str}")
-    
-    def _safe_decode(self, text: Union[str, bytes]) -> str:
-        """Safely decode text with fallback encoding detection"""
-        if isinstance(text, str):
+
+class InstallationAuditor:
             return text
         
         # Try UTF-8 first
@@ -304,7 +260,7 @@ logger = logging.getLogger('noxsuite_installer')
 class InstallationAuditor:
     """Analyzes previous installation attempts and suggests improvements"""
     
-    def __init__((self, log_file: Path) -> None:
+    def __init__(self, log_file: Path) -> None:
         self.log_file = log_file
         self.issues_database = Path("noxsuite_issues.json")
         self.known_issues = self._load_known_issues()
@@ -416,8 +372,9 @@ class InstallationAuditor:
 class PlatformDetector:
     """Enhanced platform detection with capability analysis"""
     
-    def __init__((self, logger: SmartLogger) -> None:
-        self.
+    def __init__(self, logger: SmartLogger) -> None:
+        self.logger = logger
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
@@ -719,9 +676,31 @@ def validate_file_path(path: str) -> str:
 class SmartDependencyManager:
     """Intelligent dependency management with multiple fallback strategies"""
     
-    def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:
+    def __init__(self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
-        self.
+        self.logger = logger
+    
+    def _validate_package_name(self, package_name: str) -> bool:
+        """Validate package name to prevent command injection"""
+        import re
+        
+        # Allow only alphanumeric characters, hyphens, dots, and underscores
+        # This prevents command injection while allowing valid package names
+        if not package_name or len(package_name) > 100:
+            return False
+        
+        # Check for valid package name pattern
+        valid_pattern = re.compile(r'^[a-zA-Z0-9\-\._+]+$')
+        if not valid_pattern.match(package_name):
+            return False
+        
+        # Prevent shell metacharacters
+        dangerous_chars = ['&', '|', ';', '`', '$', '(', ')', '{', '}', '<', '>', '*', '?', '[', ']', '!', '#', '"', "'", '\\', ' ']
+        if any(char in package_name for char in dangerous_chars):
+            return False
+            
+        return True
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
@@ -1048,6 +1027,11 @@ logger = logger
         }
         
         package_name = package_map.get(dep, dep)
+        
+        # Security: Validate package name to prevent command injection
+        if not self._validate_package_name(package_name):
+            self.logger.error(f"Invalid package name: {package_name}")
+            return False
         
         try:
             if package_manager in ["apt-get", "apt"]:
