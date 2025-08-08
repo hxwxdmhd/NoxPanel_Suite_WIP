@@ -95,8 +95,8 @@ The installer will:
 # Run the setup script
 ./setup-noxsuite.sh
 
-# Start all services
-./scripts/start-noxsuite.sh
+# Start services with Docker Compose
+docker-compose -f docker-compose.noxsuite.yml --profile ai up -d
 ```
 
 ### Option 3: Manual Docker Compose
