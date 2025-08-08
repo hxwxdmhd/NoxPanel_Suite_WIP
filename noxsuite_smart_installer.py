@@ -732,6 +732,27 @@ class SmartDependencyManager:
     def __init__(self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
         self.logger = logger
+    
+    def _validate_package_name(self, package_name: str) -> bool:
+        """Validate package name to prevent command injection"""
+        import re
+        
+        # Allow only alphanumeric characters, hyphens, dots, and underscores
+        # This prevents command injection while allowing valid package names
+        if not package_name or len(package_name) > 100:
+            return False
+        
+        # Check for valid package name pattern
+        valid_pattern = re.compile(r'^[a-zA-Z0-9\-\._+]+$')
+        if not valid_pattern.match(package_name):
+            return False
+        
+        # Prevent shell metacharacters
+        dangerous_chars = ['&', '|', ';', '`', '$', '(', ')', '{', '}', '<', '>', '*', '?', '[', ']', '!', '#', '"', "'", '\\', ' ']
+        if any(char in package_name for char in dangerous_chars):
+            return False
+            
+        return True
 
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
@@ -1059,6 +1080,11 @@ logger = logger
         }
         
         package_name = package_map.get(dep, dep)
+        
+        # Security: Validate package name to prevent command injection
+        if not self._validate_package_name(package_name):
+            self.logger.error(f"Invalid package name: {package_name}")
+            return False
         
         try:
             if package_manager in ["apt-get", "apt"]:
