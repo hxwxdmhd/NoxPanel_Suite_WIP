@@ -19,12 +19,33 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class DatabaseAdmin:
     """Database administration utilities"""
     
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str = None) -> None:
         self.db_service = get_database_service(db_path)
     
     def status(self) -> Dict[str, Any]:
@@ -258,7 +279,7 @@ class DatabaseAdmin:
         
         return recommendations if recommendations else ["Database is healthy and well-maintained."]
 
-def main():
+def main() -> bool:
     """Command-line interface for database administration"""
     parser = argparse.ArgumentParser(description='NoxGuard Database Administration Tool')
     parser.add_argument('--db-path', help='Database file path')

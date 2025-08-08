@@ -17,15 +17,36 @@ from datetime import datetime, timezone
 class ProgressTracker:
     """Enhanced progress tracking with ETA calculation"""
     
-    def __init__(self, total_steps: int, logger):
+    def __init__((self, total_steps: int, logger) -> None:
         self.total_steps = total_steps
         self.current_step = 0
-        self.logger = logger
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.start_time = datetime.now()
         self.step_times = []
         self.step_names = []
     
-    def start_step(self, step_name: str):
+    def start_step(self, step_name: str) -> bool:
         """Start tracking a new step"""
         self.current_step += 1
         self.step_names.append(step_name)
@@ -45,7 +66,7 @@ class ProgressTracker:
         self.logger.info(f"[{self.current_step}/{self.total_steps}] {step_name} ({progress_pct:.1f}% - ETA: {eta_str})")
         return step_start_time
     
-    def complete_step(self, step_start_time: datetime):
+    def complete_step(self, step_start_time: datetime) -> bool:
         """Complete the current step and record timing"""
         step_duration = (datetime.now() - step_start_time).total_seconds()
         self.step_times.append(step_duration)
@@ -67,9 +88,30 @@ class ProgressTracker:
 class FileBackupManager:
     """Manages file and directory backups during installation"""
     
-    def __init__(self, backup_root: Path, logger):
+    def __init__((self, backup_root: Path, logger) -> None:
         self.backup_root = backup_root
-        self.logger = logger
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.backups = []
         
         # Ensure backup directory exists
@@ -131,7 +173,7 @@ class FileBackupManager:
         self.logger.warning(f"No backup found for {original_path}")
         return False
     
-    def cleanup_backups(self, max_age_days: int = 7):
+    def cleanup_backups(self, max_age_days: int = 7) -> bool:
         """Clean up old backups"""
         cutoff_time = datetime.now() - timedelta(days=max_age_days)
         
@@ -170,8 +212,29 @@ class FileBackupManager:
 class DockerManager:
     """Enhanced Docker management with health checks and image optimization"""
     
-    def __init__(self, logger):
-        self.logger = logger
+    def __init__((self, logger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.docker_available = shutil.which("docker") is not None
     
     def check_docker_health(self) -> Dict[str, Any]:
@@ -319,8 +382,29 @@ class DockerManager:
 class NetworkValidator:
     """Network connectivity and service validation"""
     
-    def __init__(self, logger):
-        self.logger = logger
+    def __init__((self, logger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
     
     def check_connectivity(self, urls: List[str], timeout: int = 10) -> Dict[str, Any]:
         """Check connectivity to required services"""
@@ -374,19 +458,40 @@ class NetworkValidator:
 class SystemResourceMonitor:
     """Monitor system resources during installation"""
     
-    def __init__(self, logger):
-        self.logger = logger
+    def __init__((self, logger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.monitoring = False
         self.resource_history = []
     
-    def start_monitoring(self, interval: int = 30):
+    def start_monitoring(self, interval: int = 30) -> bool:
         """Start resource monitoring in background"""
         if self.monitoring:
             return
         
         self.monitoring = True
         
-        def monitor_loop():
+        def monitor_loop() -> bool:
             while self.monitoring:
                 try:
                     resources = self.get_current_resources()
@@ -413,7 +518,7 @@ class SystemResourceMonitor:
         
         self.logger.debug("Started resource monitoring")
     
-    def stop_monitoring(self):
+    def stop_monitoring(self) -> bool:
         """Stop resource monitoring"""
         self.monitoring = False
         if hasattr(self, 'monitor_thread'):
@@ -488,7 +593,7 @@ class SystemResourceMonitor:
         
         return resources
     
-    def _check_resource_alerts(self, resources: Dict[str, Any]):
+    def _check_resource_alerts(self, resources: Dict[str, Any]) -> bool:
         """Check for resource usage alerts"""
         # CPU alert
         cpu_percent = resources.get('cpu_percent', 0)
@@ -513,8 +618,29 @@ class SystemResourceMonitor:
 class ConfigurationValidator:
     """Validate generated configuration files"""
     
-    def __init__(self, logger):
-        self.logger = logger
+    def __init__((self, logger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
     
     def validate_docker_compose(self, compose_file: Path) -> Dict[str, Any]:
         """Validate Docker Compose configuration"""
@@ -616,7 +742,7 @@ class ConfigurationValidator:
         except:
             return False
     
-    def _check_compose_common_issues(self, compose_data: Dict[str, Any], validation: Dict[str, Any]):
+    def _check_compose_common_issues(self, compose_data: Dict[str, Any], validation: Dict[str, Any]) -> bool:
         """Check for common Docker Compose issues"""
         services = compose_data.get("services", {})
         
@@ -701,8 +827,29 @@ class ConfigurationValidator:
 class UpdateChecker:
     """Check for installer and component updates"""
     
-    def __init__(self, logger, current_version: str = "1.0.0"):
-        self.logger = logger
+    def __init__((self, logger, current_version: str = "1.0.0") -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.current_version = current_version
         self.update_sources = {
             "installer": "https://api.github.com/repos/noxsuite/installer/releases/latest",
@@ -761,6 +908,43 @@ class UpdateChecker:
         """Download component update"""
         try:
             import requests
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
             
             self.logger.info(f"📥 Downloading {component} update...")
             

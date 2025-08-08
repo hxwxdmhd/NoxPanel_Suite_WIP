@@ -1,4 +1,25 @@
 from NoxPanel.noxcore.utils.logging_config import get_logger
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = get_logger(__name__)
 
 #!/usr/bin/env python3
@@ -11,6 +32,7 @@ import sys
 import argparse
 from pathlib import Path
 import logging
+from typing import Dict, List, Optional, Any, Union
 
 # Add the project root to Python path
 project_root = Path(__file__).parent
@@ -27,7 +49,7 @@ except ImportError as e:
     sys.exit(1)
 
 
-def main():
+def main() -> None:
     """Main entry point for code analysis."""
     parser = argparse.ArgumentParser(description='NoxPanel Code Analysis Tool')
     parser.add_argument(
@@ -77,7 +99,28 @@ def main():
         }
     })
     
-    logger = get_logger('noxpanel.analysis')
+    
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('noxpanel.analysis')
     
     # Additional exclusions for active files only
     if args.only_active:

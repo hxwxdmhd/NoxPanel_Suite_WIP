@@ -1,0 +1,220 @@
+{
+  "summary": {
+    "total_security_issues": 22,
+    "high_severity": 22,
+    "medium_severity": 0,
+    "low_severity": 0,
+    "scan_timestamp": "2025-07-29T10:45:34.308010"
+  },
+  "issues_by_category": {
+    "sql_injection_risks": 3,
+    "xss_vulnerabilities": 13,
+    "path_traversal_risks": 0,
+    "hardcoded_secrets": 0,
+    "unsafe_eval_exec": 6,
+    "weak_crypto": 0,
+    "missing_input_validation": 0,
+    "insecure_imports": 0
+  },
+  "detailed_findings": {
+    "sql_injection_risks": [
+      {
+        "file": "NoxPanel/noxcore/database_service.py",
+        "line": 87,
+        "code": "cursor.execute(f\"SELECT COUNT(*) FROM {table}\")",
+        "pattern": "cursor\\.execute\\s*\\(\\s*f[\"\\']",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_admin.py",
+        "line": 129,
+        "code": "cursor.execute(f\"SELECT * FROM {table}\")",
+        "pattern": "cursor\\.execute\\s*\\(\\s*f[\"\\']",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_admin.py",
+        "line": 140,
+        "code": "cursor.execute(f\"SELECT * FROM {table_name}\")",
+        "pattern": "cursor\\.execute\\s*\\(\\s*f[\"\\']",
+        "severity": "high"
+      }
+    ],
+    "xss_vulnerabilities": [
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 113,
+        "code": "'eval(': {",
+        "pattern": "eval\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 114,
+        "code": "'reason': 'eval() can execute arbitrary code',",
+        "pattern": "eval\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 331,
+        "code": "document.getElementById('resultContent').innerHTML = '\ud83d\udd04 Crawling in progress...';",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 361,
+        "code": "document.getElementById('resultContent').innerHTML = '\u274c Crawl failed: ' + data.error;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 365,
+        "code": "document.getElementById('resultContent').innerHTML = '\u274c Error: ' + error.message;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 378,
+        "code": "document.getElementById('resultContent').innerHTML = html;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 383,
+        "code": "document.getElementById('resultContent').innerHTML = 'No results yet.';",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 510,
+        "code": "statusDiv.innerHTML = `",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 521,
+        "code": "document.getElementById('systemStatus').innerHTML = `\u274c Error: ${error.message}`;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 561,
+        "code": "document.getElementById('availablePlugins').innerHTML = html;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 564,
+        "code": "document.getElementById('availablePlugins').innerHTML = `\u274c Error loading plugins: ${error.message}`;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 594,
+        "code": "document.getElementById('loadedPlugins').innerHTML = html;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 597,
+        "code": "document.getElementById('loadedPlugins').innerHTML = `\u274c Error loading plugins: ${error.message}`;",
+        "pattern": "innerHTML\\s*=",
+        "severity": "high"
+      }
+    ],
+    "path_traversal_risks": [],
+    "hardcoded_secrets": [],
+    "unsafe_eval_exec": [
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 103,
+        "code": "__import__(package_name)",
+        "pattern": "\\b__import__\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "noxsuite_installer_status_checker.py",
+        "line": 78,
+        "code": "__import__(dep)",
+        "pattern": "\\b__import__\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 113,
+        "code": "'eval(': {",
+        "pattern": "\\beval\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 114,
+        "code": "'reason': 'eval() can execute arbitrary code',",
+        "pattern": "\\beval\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 117,
+        "code": "'exec(': {",
+        "pattern": "\\bexec\\s*\\(",
+        "severity": "high"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 118,
+        "code": "'reason': 'exec() can execute arbitrary code',",
+        "pattern": "\\bexec\\s*\\(",
+        "severity": "high"
+      }
+    ],
+    "weak_crypto": [],
+    "missing_input_validation": [],
+    "insecure_imports": []
+  },
+  "recommendations": [
+    {
+      "priority": "critical",
+      "category": "sql_injection",
+      "title": "Implement Parameterized Queries",
+      "description": "Found 3 potential SQL injection vulnerabilities",
+      "action": "Replace string concatenation with parameterized queries",
+      "impact": "Prevents SQL injection attacks that could compromise database"
+    },
+    {
+      "priority": "high",
+      "category": "xss_prevention",
+      "title": "Implement XSS Protection",
+      "description": "Found 13 potential XSS vulnerabilities",
+      "action": "Implement proper input sanitization and output encoding",
+      "impact": "Prevents cross-site scripting attacks"
+    },
+    {
+      "priority": "medium",
+      "category": "monitoring",
+      "title": "Implement Security Monitoring",
+      "description": "Add comprehensive security event logging",
+      "action": "Deploy SIEM solution and security dashboards",
+      "impact": "Enables detection and response to security incidents"
+    },
+    {
+      "priority": "medium",
+      "category": "authentication",
+      "title": "Enhance Authentication Security",
+      "description": "Implement multi-factor authentication and session management",
+      "action": "Add MFA, session timeouts, and secure token handling",
+      "impact": "Reduces risk of unauthorized access"
+    }
+  ]
+}

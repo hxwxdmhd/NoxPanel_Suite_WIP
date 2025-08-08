@@ -13,12 +13,33 @@ from contextlib import contextmanager
 
 from .database import NoxDatabase
 
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class BaseRepository:
     """Base repository class with common functionality"""
     
-    def __init__(self, db: NoxDatabase):
+    def __init__(self, db: NoxDatabase) -> None:
         self.db = db
     
     def _serialize_json(self, data: Any) -> str:
@@ -97,7 +118,7 @@ class UserRepository(BaseRepository):
                 return user
         return None
     
-    def update_last_login(self, user_id: int):
+    def update_last_login(self, user_id: int) -> bool:
         """Update user's last login timestamp"""
         try:
             with self.db.get_connection() as conn:

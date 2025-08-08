@@ -11,6 +11,65 @@ from datetime import datetime
 from collections import defaultdict
 from tqdm import tqdm
 from NoxPanel.noxcore.utils.logging_config import get_logger
+from typing import Dict, List, Optional, Any, Union
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = get_logger(__name__)
 
 
@@ -30,7 +89,7 @@ REPORT_CATEGORIES = [
 ARCHIVE_DIR = './archive/deprecated/'
 
 # --- Utility Functions ---
-def sha256sum(filepath):
+def sha256sum(filepath) -> Any:
     """Compute SHA256 hash of a file."""
     h = hashlib.sha256()
     with open(filepath, 'rb') as f:
@@ -38,15 +97,15 @@ def sha256sum(filepath):
             h.update(chunk)
     return h.hexdigest()
 
-def get_last_modified(filepath):
+def get_last_modified(filepath) -> Any:
     """Get last modified date as ISO string."""
     return datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat()
 
-def is_legacy_name(filename):
+def is_legacy_name(filename) -> Any:
     """Detect legacy naming patterns."""
     return bool(LEGACY_PATTERNS.search(filename))
 
-def parse_imports(filepath):
+def parse_imports(filepath) -> Any:
     """Parse import/require/include statements from file."""
     imports = set()
     try:
@@ -78,7 +137,7 @@ def parse_imports(filepath):
         pass
     return imports
 
-def scan_files(root):
+def scan_files(root) -> Any:
     """Recursively scan files, excluding EXCLUDE_DIRS."""
     file_list = []
     for dirpath, dirnames, filenames in os.walk(root):
@@ -90,7 +149,7 @@ def scan_files(root):
                 file_list.append(os.path.join(dirpath, fname))
     return file_list
 
-def analyze_file(filepath, all_imports, hash_map):
+def analyze_file(filepath, all_imports, hash_map) -> Any:
     """Analyze file for legacy, config, duplicate, and reference status."""
     ext = os.path.splitext(filepath)[1].lower()
     filename = os.path.basename(filepath)
@@ -127,14 +186,14 @@ def analyze_file(filepath, all_imports, hash_map):
         'category': category
     }
 
-def call_ai_suggester(report):
+def call_ai_suggester(report) -> Any:
     """Call Supermaven/Langflow/Ollama API to refine suggestions. Abstracted for future extension."""
     # Placeholder: try external API, fallback to local LLM
     # Example: requests.post('http://localhost:11434/api', json=report)
     # For now, just return report unchanged
     return report
 
-def generate_reports(results, metrics):
+def generate_reports(results, metrics) -> Any:
     """Write cleanup_report.json and cleanup_report.md with categorized entries and metrics."""
     # JSON
     with open('cleanup_report.json', 'w', encoding='utf-8') as f:
@@ -151,7 +210,7 @@ def generate_reports(results, metrics):
         for k, v in metrics.items():
             f.write(f"- {k}: {v}\n")
 
-def perform_cleanup(results, execute=False):
+def perform_cleanup(results, execute=False) -> Any:
     """Delete or archive files in safe_to_delete and migration_candidate categories."""
     candidates = results.get('safe_to_delete', []) + results.get('migration_candidate', [])
     if not candidates:
@@ -178,7 +237,7 @@ def perform_cleanup(results, execute=False):
             logger.info(f"Failed to archive {entry['path']}: {e}")
 
 # --- Main CLI ---
-def main():
+def main() -> Any:
     parser = argparse.ArgumentParser(description="Advanced NoxPanel Suite Cleanup Tool")
     parser.add_argument('--execute', action='store_true', help='Actually delete/archive files (default: dry-run)')
     parser.add_argument('--root', type=str, default='.', help='Project root directory')

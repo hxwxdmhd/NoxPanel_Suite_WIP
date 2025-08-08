@@ -19,12 +19,33 @@ import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class NoxSuiteCLI:
     """NoxSuite command-line interface"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.config_path = self._find_config()
         self.config = self._load_config()
         
@@ -159,14 +180,14 @@ class NoxSuiteCLI:
 # CLI Commands
 @click.group()
 @click.version_option(version="2.0.0", prog_name="NoxSuite CLI")
-def cli():
+def cli() -> bool:
     """🧠 NoxSuite CLI - AI-Powered Infrastructure Management"""
     pass
 
 @cli.command()
 @click.option('--profile', '-p', multiple=True, help='Docker compose profiles to include')
 @click.option('--detach', '-d', is_flag=True, default=True, help='Run in detached mode')
-def start(profile, detach):
+def start(profile, detach) -> bool:
     """🚀 Start NoxSuite services"""
     nox = NoxSuiteCLI()
     
@@ -193,7 +214,7 @@ def start(profile, detach):
 
 @cli.command()
 @click.option('--all', '-a', is_flag=True, help='Stop all services including volumes')
-def stop(all):
+def stop(all) -> bool:
     """🛑 Stop NoxSuite services"""
     nox = NoxSuiteCLI()
     
@@ -211,7 +232,7 @@ def stop(all):
         click.echo("❌ Failed to stop services")
 
 @cli.command()
-def restart():
+def restart() -> bool:
     """🔄 Restart NoxSuite services"""
     nox = NoxSuiteCLI()
     
@@ -232,7 +253,7 @@ def restart():
 
 @cli.command()
 @click.option('--json', 'output_json', is_flag=True, help='Output in JSON format')
-def status(output_json):
+def status(output_json) -> bool:
     """📊 Show NoxSuite system status"""
     nox = NoxSuiteCLI()
     
@@ -267,7 +288,7 @@ def status(output_json):
         for service, status in ai_services.items():
             click.echo(f"   {service}: {_status_icon(status.get('status'))}")
 
-def _status_icon(status):
+def _status_icon(status) -> bool:
     """Get status icon"""
     icons = {
         "healthy": "✅ Healthy",
@@ -279,7 +300,7 @@ def _status_icon(status):
 
 @cli.command()
 @click.argument('service')
-def logs(service):
+def logs(service) -> bool:
     """📋 Show logs for a specific service"""
     nox = NoxSuiteCLI()
     
@@ -290,7 +311,7 @@ def logs(service):
         click.echo(f"❌ Failed to show logs for {service}")
 
 @cli.command()
-def ps():
+def ps() -> bool:
     """📋 List running services"""
     nox = NoxSuiteCLI()
     
@@ -299,7 +320,7 @@ def ps():
 
 @cli.command()
 @click.argument('model')
-def install_model(model):
+def install_model(model) -> bool:
     """🤖 Install AI model via Ollama"""
     click.echo(f"🤖 Installing AI model: {model}")
     
@@ -315,7 +336,7 @@ def install_model(model):
         click.echo(f"❌ Failed to install model {model}")
 
 @cli.command()
-def list_models():
+def list_models() -> bool:
     """🤖 List installed AI models"""
     click.echo("🤖 Installed AI Models:")
     
@@ -331,7 +352,7 @@ def list_models():
 
 @cli.command()
 @click.option('--backup-name', help='Name for the backup')
-def backup(backup_name):
+def backup(backup_name) -> bool:
     """💾 Backup NoxSuite data"""
     nox = NoxSuiteCLI()
     
@@ -353,6 +374,43 @@ def backup(backup_name):
         src = nox.install_dir / config_file
         if src.exists():
             import shutil
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
             shutil.copy2(src, config_backup / src.name)
     
     # Database backup
@@ -375,7 +433,7 @@ def backup(backup_name):
 
 @cli.command()
 @click.argument('backup_name')
-def restore(backup_name):
+def restore(backup_name) -> bool:
     """🔄 Restore NoxSuite from backup"""
     nox = NoxSuiteCLI()
     
@@ -407,7 +465,7 @@ def restore(backup_name):
             click.echo("❌ Database restore failed")
 
 @cli.command()
-def health():
+def health() -> bool:
     """🏥 Run comprehensive health check"""
     nox = NoxSuiteCLI()
     
@@ -451,7 +509,7 @@ def health():
         click.echo("💥 System needs attention")
 
 @cli.command()
-def update():
+def update() -> bool:
     """🔄 Update NoxSuite to latest version"""
     nox = NoxSuiteCLI()
     
@@ -473,7 +531,7 @@ def update():
 
 @cli.command()
 @click.option('--output', '-o', help='Output file for report')
-def report(output):
+def report(output) -> bool:
     """📊 Generate system report"""
     nox = NoxSuiteCLI()
     
@@ -497,7 +555,7 @@ def report(output):
     else:
         click.echo(json.dumps(report_data, indent=2))
 
-def _get_docker_info():
+def _get_docker_info() -> bool:
     """Get Docker system information"""
     try:
         result = subprocess.run(["docker", "system", "info", "--format", "json"], 
@@ -506,7 +564,7 @@ def _get_docker_info():
     except:
         return {"error": "Could not get Docker info"}
 
-def _get_system_resources():
+def _get_system_resources() -> bool:
     """Get system resource information"""
     try:
         # Get container stats

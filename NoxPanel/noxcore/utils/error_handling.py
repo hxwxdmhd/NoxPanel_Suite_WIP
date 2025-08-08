@@ -12,6 +12,8 @@ from typing import Optional, Dict, Any, Callable, Type, Union, List
 from enum import Enum
 import json
 
+from .datetime_utils import utc_now
+
 
 class ErrorSeverity(Enum):
     """Error severity levels for consistent classification."""
@@ -65,7 +67,7 @@ class NoxPanelError(Exception):
         self.details = details or {}
         self.context = context or {}
         self.original_exception = original_exception
-        self.timestamp = datetime.now(timezone.utc)
+        self.timestamp = utc_now()
         self.error_id = self._generate_error_id()
     
     def _generate_error_id(self) -> str:
@@ -95,7 +97,7 @@ class NoxPanelError(Exception):
 class DatabaseError(NoxPanelError):
     """Database-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.DATABASE)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -104,7 +106,7 @@ class DatabaseError(NoxPanelError):
 class NetworkError(NoxPanelError):
     """Network-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.NETWORK)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -113,7 +115,7 @@ class NetworkError(NoxPanelError):
 class AuthenticationError(NoxPanelError):
     """Authentication-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.AUTH)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -122,7 +124,7 @@ class AuthenticationError(NoxPanelError):
 class ValidationError(NoxPanelError):
     """Validation-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.VALIDATION)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -131,7 +133,7 @@ class ValidationError(NoxPanelError):
 class PluginError(NoxPanelError):
     """Plugin-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.PLUGIN)
         kwargs.setdefault('severity', ErrorSeverity.MEDIUM)
         super().__init__(message, **kwargs)
@@ -140,7 +142,7 @@ class PluginError(NoxPanelError):
 class ConfigurationError(NoxPanelError):
     """Configuration-specific error."""
     
-    def __init__(self, message: str, **kwargs):
+    def __init__(self, message: str, **kwargs) -> None:
         kwargs.setdefault('category', ErrorCategory.CONFIG)
         kwargs.setdefault('severity', ErrorSeverity.HIGH)
         super().__init__(message, **kwargs)
@@ -149,7 +151,7 @@ class ConfigurationError(NoxPanelError):
 class ErrorHandler:
     """Centralized error handling with logging and reporting capabilities."""
     
-    def __init__(self, logger_name: str = __name__):
+    def __init__(self, logger_name: str = __name__) -> None:
         """Initialize error handler.
         
         Args:
@@ -233,7 +235,7 @@ class ErrorHandler:
             'last_error': self.recent_errors[-1] if self.recent_errors else None
         }
     
-    def clear_recent_errors(self):
+    def clear_recent_errors(self) -> None:
         """Clear recent errors list."""
         self.recent_errors.clear()
         self.logger.info("Recent errors cleared")
@@ -255,7 +257,7 @@ def error_handler(
     """
     def decorator(func: Callable) -> Callable:
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args, **kwargs) -> None:
             try:
                 return func(*args, **kwargs)
             except Exception as e:
@@ -381,6 +383,29 @@ def get_error_summary() -> Dict[str, Any]:
     return global_error_handler.get_error_summary()
 
 
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger = logging.getLogger(__name__)
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+
 # Export main utilities
 __all__ = [
     'ErrorSeverity',
@@ -397,5 +422,7 @@ __all__ = [
     'safe_execute',
     'validate_input',
     'handle_error',
-    'get_error_summary'
+    'get_error_summary',
+    'log_security_event',
+    'log_access_attempt'
 ]

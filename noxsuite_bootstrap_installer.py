@@ -32,25 +32,25 @@ if sys.platform.startswith('win'):
 class BootstrapLogger:
     """Simple logger using only standard library"""
     
-    def __init__(self):
+    def __init__((self) -> None:
         self.log_file = Path("noxsuite_bootstrap.log")
         self.ensure_log_file()
     
-    def ensure_log_file(self):
+    def ensure_log_file(self) -> bool:
         """Ensure log file exists and is writable"""
         try:
             with open(self.log_file, 'a', encoding='utf-8') as f:
                 f.write(f"\n=== Bootstrap Session Started: {self._get_timestamp()} ===\n")
         except Exception as e:
-            print(f"Warning: Could not create log file: {e}")
+            logger.warning(f"Warning: Could not create log file: {e}")
             self.log_file = None
     
-    def _get_timestamp(self):
+    def _get_timestamp(self) -> bool:
         """Get current timestamp string"""
         from datetime import datetime
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    def _log_to_file(self, level: str, message: str):
+    def _log_to_file(self, level: str, message: str) -> bool:
         """Log message to file if possible"""
         if self.log_file:
             try:
@@ -59,35 +59,56 @@ class BootstrapLogger:
             except:
                 pass  # Silent fail for logging
     
-    def info(self, message: str):
+    def info(self, message: str) -> bool:
         """Log info message"""
-        print(f"ℹ️  {message}")
+        logger.info(f"ℹ️  {message}")
         self._log_to_file("INFO", message)
     
-    def success(self, message: str):
+    def success(self, message: str) -> bool:
         """Log success message"""
-        print(f"✅ {message}")
+        logger.info(f"✅ {message}")
         self._log_to_file("SUCCESS", message)
     
-    def warning(self, message: str):
+    def warning(self, message: str) -> bool:
         """Log warning message"""
-        print(f"⚠️  {message}")
+        logger.info(f"⚠️  {message}")
         self._log_to_file("WARNING", message)
     
-    def error(self, message: str):
+    def error(self, message: str) -> bool:
         """Log error message"""
-        print(f"❌ {message}")
+        logger.info(f"❌ {message}")
         self._log_to_file("ERROR", message)
     
-    def debug(self, message: str):
+    def debug(self, message: str) -> bool:
         """Log debug message"""
         self._log_to_file("DEBUG", message)
 
 class DependencyInstaller:
     """Handles installation of required Python packages"""
     
-    def __init__(self, logger: BootstrapLogger):
-        self.logger = logger
+    def __init__((self, logger: BootstrapLogger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.required_packages = [
             'requests>=2.25.0',
             'chardet>=4.0.0'
@@ -211,8 +232,29 @@ class DependencyInstaller:
 class SystemChecker:
     """Check system compatibility and requirements"""
     
-    def __init__(self, logger: BootstrapLogger):
-        self.logger = logger
+    def __init__((self, logger: BootstrapLogger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
     
     def check_python_version(self) -> bool:
         """Check if Python version is compatible"""
@@ -283,12 +325,33 @@ class SystemChecker:
 class NoxSuiteBootstrap:
     """Main bootstrap class"""
     
-    def __init__(self):
-        self.logger = BootstrapLogger()
+    def __init__((self) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = BootstrapLogger()
         self.system_checker = SystemChecker(self.logger)
         self.dependency_installer = DependencyInstaller(self.logger)
     
-    def show_banner(self):
+    def show_banner(self) -> bool:
         """Show welcome banner"""
         banner = """
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -296,7 +359,7 @@ class NoxSuiteBootstrap:
 ║              Self-Contained Dependency Manager                    ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """
-        print(banner)
+        logger.info(banner)
         self.logger.info("NoxSuite Bootstrap Installer started")
     
     def run_system_checks(self) -> bool:
@@ -353,6 +416,43 @@ class NoxSuiteBootstrap:
             try:
                 from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode
                 from install_noxsuite import main as launcher_main
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
                 
                 # Pass control to the launcher with original arguments
                 launcher_main()
@@ -398,7 +498,7 @@ class NoxSuiteBootstrap:
             self.logger.debug(f"Traceback: {traceback.format_exc()}")
             return False
 
-def main():
+def main() -> bool:
     """Entry point"""
     bootstrap = NoxSuiteBootstrap()
     success = bootstrap.run(sys.argv[1:])

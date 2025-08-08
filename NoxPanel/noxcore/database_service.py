@@ -17,12 +17,33 @@ from .repositories import (
     ConversationRepository, SessionRepository, AuditRepository
 )
 
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class DatabaseService:
     """Main database service for NoxGuard---NoxPanel"""
     
-    def __init__(self, db_path: str = None, auto_migrate: bool = True, pool_size: int = 10):
+    def __init__(self, db_path: str = None, auto_migrate: bool = True, pool_size: int = 10) -> None:
         """Initialize database service"""
         if db_path is None:
             db_path = os.getenv('NOX_DB_PATH', 'data/db/noxpanel.db')
@@ -50,7 +71,7 @@ class DatabaseService:
         
         logger.info("Database service initialized successfully")
     
-    def _apply_migrations(self):
+    def _apply_migrations(self) -> bool:
         """Apply pending migrations"""
         try:
             status = self.migration_manager.status()
@@ -302,7 +323,7 @@ class DatabaseService:
                 'checked_at': datetime.now().isoformat()
             }
     
-    def close(self):
+    def close(self) -> bool:
         """Close database service"""
         try:
             self.db.close()
@@ -328,7 +349,7 @@ def get_database_service(db_path: str = None, auto_migrate: bool = True) -> Data
     
     return _db_service
 
-def close_database_service():
+def close_database_service() -> bool:
     """Close global database service"""
     global _db_service
     

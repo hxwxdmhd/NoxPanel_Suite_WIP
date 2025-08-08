@@ -14,12 +14,35 @@ from contextlib import contextmanager
 from typing import Optional, Dict, List, Any, Union
 import time
 
+from .utils.datetime_utils import utc_now
+
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 class DatabaseConnectionPool:
     """SQLite connection pool for improved performance"""
     
-    def __init__(self, db_path: str, pool_size: int = 10, timeout: float = 30.0):
+    def __init__(self, db_path: str, pool_size: int = 10, timeout: float = 30.0) -> None:
         self.db_path = db_path
         self.pool_size = pool_size
         self.timeout = timeout
@@ -27,7 +50,7 @@ class DatabaseConnectionPool:
         self._lock = threading.Lock()
         self._create_pool()
     
-    def _create_pool(self):
+    def _create_pool(self) -> Any:
         """Initialize connection pool"""
         for _ in range(self.pool_size):
             conn = sqlite3.connect(
@@ -58,7 +81,7 @@ class DatabaseConnectionPool:
                 conn.execute("PRAGMA journal_mode=WAL")
                 return conn
     
-    def return_connection(self, conn: sqlite3.Connection):
+    def return_connection(self, conn: sqlite3.Connection) -> Any:
         """Return connection to pool"""
         try:
             # Test connection health
@@ -75,7 +98,7 @@ class DatabaseConnectionPool:
             except Exception:
                 pass
     
-    def close_all(self):
+    def close_all(self) -> Any:
         """Close all connections in pool"""
         with self._lock:
             for conn in self._pool:
@@ -91,7 +114,7 @@ class NoxDatabase:
     # Database schema version for migrations
     SCHEMA_VERSION = 1
     
-    def __init__(self, db_path: str = "data/db/noxpanel.db", pool_size: int = 10):
+    def __init__(self, db_path: str = "data/db/noxpanel.db", pool_size: int = 10) -> None:
         """Initialize database with connection pooling"""
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -105,7 +128,7 @@ class NoxDatabase:
         logger.info(f"Database initialized: {self.db_path}")
     
     @contextmanager
-    def get_connection(self):
+    def get_connection(self) -> Any:
         """Context manager for database connections"""
         conn = self.pool.get_connection()
         try:
@@ -114,7 +137,7 @@ class NoxDatabase:
         finally:
             self.pool.return_connection(conn)
     
-    def init_database(self):
+    def init_database(self) -> Any:
         """Initialize complete database schema"""
         try:
             with self.get_connection() as conn:
@@ -137,7 +160,7 @@ class NoxDatabase:
             logger.error(f"Database initialization failed: {e}")
             raise
     
-    def _create_core_tables(self, conn: sqlite3.Connection):
+    def _create_core_tables(self, conn: sqlite3.Connection) -> Any:
         """Create core system tables"""
         conn.executescript("""
             -- Users table
@@ -199,7 +222,7 @@ class NoxDatabase:
             );
         """)
     
-    def _create_knowledge_tables(self, conn: sqlite3.Connection):
+    def _create_knowledge_tables(self, conn: sqlite3.Connection) -> Any:
         """Create knowledge management tables"""
         conn.executescript("""
             -- Knowledge items table
@@ -260,7 +283,7 @@ class NoxDatabase:
             );
         """)
     
-    def _create_ai_tables(self, conn: sqlite3.Connection):
+    def _create_ai_tables(self, conn: sqlite3.Connection) -> Any:
         """Create AI conversation and interaction tables"""
         conn.executescript("""
             -- AI conversations table
@@ -321,7 +344,7 @@ class NoxDatabase:
             );
         """)
     
-    def _create_session_tables(self, conn: sqlite3.Connection):
+    def _create_session_tables(self, conn: sqlite3.Connection) -> Any:
         """Create session management tables"""
         conn.executescript("""
             -- User sessions table
@@ -366,7 +389,7 @@ class NoxDatabase:
             );
         """)
     
-    def _create_indexes(self, conn: sqlite3.Connection):
+    def _create_indexes(self, conn: sqlite3.Connection) -> Any:
         """Create database indexes for performance"""
         conn.executescript("""
             -- User indexes
@@ -419,7 +442,7 @@ class NoxDatabase:
             CREATE INDEX IF NOT EXISTS idx_audit_resource ON audit_logs (resource_type, resource_id);
         """)
     
-    def _init_metadata(self, conn: sqlite3.Connection):
+    def _init_metadata(self, conn: sqlite3.Connection) -> Any:
         """Initialize database metadata"""
         conn.execute("""
             INSERT OR REPLACE INTO settings (key, value, category, description)
@@ -436,12 +459,12 @@ class NoxDatabase:
             VALUES (?, ?, ?, ?)
         """, (
             'db_initialized_at',
-            datetime.now(timezone.utc).isoformat(),
+            utc_now().isoformat(),
             'system',
             'Database initialization timestamp'
         ))
     
-    def _create_default_user(self, conn: sqlite3.Connection):
+    def _create_default_user(self, conn: sqlite3.Connection) -> Any:
         """Create default admin user if none exists"""
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?", ("admin",))
@@ -466,7 +489,7 @@ class NoxDatabase:
             
             logger.info("Default admin user created")
     
-    def close(self):
+    def close(self) -> Any:
         """Close database connection pool"""
         self.pool.close_all()
     

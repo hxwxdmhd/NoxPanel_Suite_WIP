@@ -1,0 +1,1917 @@
+{
+  "summary": {
+    "total_issues": 314,
+    "unused_imports": 8,
+    "todo_comments": 129,
+    "incomplete_features": 2,
+    "broken_imports": 90,
+    "dead_functions": 85
+  },
+  "details": {
+    "unused_imports": [
+      {
+        "file": "cleanup_project.py",
+        "unused": [
+          "Union",
+          "Dict",
+          "time",
+          "Path",
+          "Optional",
+          "sys",
+          "List"
+        ]
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "unused": [
+          "json",
+          "Union",
+          "Dict",
+          "Optional",
+          "Any",
+          "List"
+        ]
+      },
+      {
+        "file": "examples/database_integration.py",
+        "unused": [
+          "Dict",
+          "timedelta",
+          "Optional",
+          "Any",
+          "List",
+          "datetime"
+        ]
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/__init__.py",
+        "unused": [
+          "setup_logging",
+          "get_logger",
+          "utc_now",
+          "PluginError",
+          "validate_input",
+          "error_handler",
+          "NetworkError",
+          "add_context_to_logger",
+          "LoggingConfig",
+          "ConfigurationError",
+          "NoxConfig",
+          "format_iso",
+          "CodeAnalyzer",
+          "JSONFormatter",
+          "ErrorCategory",
+          "ErrorHandler",
+          "ErrorSeverity",
+          "time_ago",
+          "DateTimeUtils",
+          "DatabaseError",
+          "IssueType",
+          "IssueSeverity",
+          "ValidationError",
+          "safe_execute",
+          "AuthenticationError",
+          "logging_config",
+          "get_error_summary",
+          "analyze_codebase",
+          "parse_iso",
+          "NoxPanelError",
+          "NoxPanelFormatter",
+          "CodeIssue",
+          "handle_error"
+        ]
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "unused": [
+          "Union",
+          "os",
+          "Optional"
+        ]
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "unused": [
+          "calendar",
+          "Any",
+          "time"
+        ]
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "unused": [
+          "json",
+          "BackgroundTasks",
+          "StaticFiles",
+          "get_db",
+          "os",
+          "HealthCheck",
+          "SystemStatus",
+          "List",
+          "Base"
+        ]
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "unused": [
+          "json",
+          "uuid",
+          "Union",
+          "importlib.util",
+          "time",
+          "timedelta",
+          "weakref",
+          "os",
+          "jsonschema"
+        ]
+      }
+    ],
+    "unused_variables": [],
+    "dead_functions": [
+      {
+        "file": "examples/database_integration.py",
+        "function": "_create_sample_data",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "function": "_create_sample_tags",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "function": "_setup_default_settings",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "function": "setup_system",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "function": "_create_sample_knowledge",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "function": "close",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "get_default_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "set",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "load_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "_deep_update",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "get",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "reset_to_defaults",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "update",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "save_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "function": "validate_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "to_timestamp",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "business_hours_offset",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "start_of_day",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "from_timestamp",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "_format_timedelta",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "format_iso",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "format_filename",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "parse_iso",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "ensure_timezone_aware",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "end_of_day",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "utc_timestamp",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "format_display",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "time_ago",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/datetime_utils.py",
+        "function": "is_recent",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "is_loaded",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "load_all_plugins",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_description",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_plugin_type",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_hook",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "unload_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_plugin_manager",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "on_config_changed",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "unregister_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_permissions",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_hooks",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "enable_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_status",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "resolve_dependencies",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "unregister_event_handlers",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_all_plugins",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "set_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_handler",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "unregister_hooks",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "add_cleanup_task",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "on_initialize",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "initialize",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_plugin_info",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_author",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_config",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "to_dict",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_dependencies",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "emit",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "disable_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_stats",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_priority",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "discover_plugins",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_capabilities",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "_extract_metadata",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "load_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "scan_plugins",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "from_dict",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_event_handlers",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "unload",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "set_system_context",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "cleanup",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "is_active",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "load",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_all_plugin_info",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_metadata",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "get_info",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "on_cleanup",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "emit_event",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "_topological_sort",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "reload_plugin",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "register_event_handler",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "call_hook",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "validate_dependencies",
+        "type": "potentially_unused"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "function": "validate_config",
+        "type": "potentially_unused"
+      }
+    ],
+    "incomplete_features": [
+      {
+        "file": "NoxPanel/noxcore/migrations.py",
+        "line": 26,
+        "type": "not_implemented",
+        "code": "raise NotImplementedError(\"Subclasses must implement up()\")"
+      },
+      {
+        "file": "NoxPanel/noxcore/migrations.py",
+        "line": 30,
+        "type": "not_implemented",
+        "code": "raise NotImplementedError(\"Subclasses must implement down()\")"
+      }
+    ],
+    "broken_imports": [
+      {
+        "file": "final_overhaul_report.py",
+        "line": 18,
+        "import": "from NoxPanel.noxcore.utils.datetime_utils import utc_now",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "final_overhaul_report.py",
+        "line": 22,
+        "import": "from NoxPanel.noxcore.utils.logging_config import get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "final_overhaul_report.py",
+        "line": 25,
+        "import": "import logging",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 19,
+        "import": "import requests",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 26,
+        "import": "import chardet",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 50,
+        "import": "from NoxPanel.noxcore.utils.datetime_utils import utc_now",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 60,
+        "import": "import locale",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 511,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 631,
+        "import": "import locale",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 670,
+        "import": "import ctypes",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1583,
+        "import": "import yaml",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1713,
+        "import": "import yaml",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 2138,
+        "import": "import yaml",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 2331,
+        "import": "import yaml",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 2856,
+        "import": "import winreg",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 3917,
+        "import": "import urllib.request",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 3918,
+        "import": "import urllib.error",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 35,
+        "import": "import locale",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 473,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 593,
+        "import": "import locale",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 632,
+        "import": "import ctypes",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 50,
+        "import": "from datetime import datetime",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 354,
+        "import": "from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 355,
+        "import": "from install_noxsuite import main as launcher_main",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 331,
+        "import": "import requests",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 351,
+        "import": "import socket",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 410,
+        "import": "import threading",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 430,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 480,
+        "import": "import shutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 733,
+        "import": "import requests",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 763,
+        "import": "import requests",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "validate_improvements.py",
+        "line": 21,
+        "import": "from NoxPanel.noxcore.utils.code_analysis import analyze_codebase",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "validate_improvements.py",
+        "line": 22,
+        "import": "from NoxPanel.noxcore.utils.logging_config import setup_logging, get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "validate_improvements.py",
+        "line": 23,
+        "import": "from NoxPanel.noxcore.utils.datetime_utils import utc_now, format_iso",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "validate_improvements.py",
+        "line": 24,
+        "import": "from NoxPanel.noxcore.utils.error_handling import safe_execute",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "nox-cli.py",
+        "line": 355,
+        "import": "import shutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 25,
+        "import": "from NoxPanel.noxcore.utils.code_analysis import CodeAnalyzer, IssueType, IssueSeverity",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 26,
+        "import": "from NoxPanel.noxcore.utils.logging_config import setup_logging, get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 27,
+        "import": "from NoxPanel.noxcore.utils.datetime_utils import utc_now",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 28,
+        "import": "from NoxPanel.noxcore.utils.error_handling import handle_error, safe_execute",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "install_noxsuite.py",
+        "line": 93,
+        "import": "from noxsuite_installer_utils import UpdateChecker",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "install_noxsuite.py",
+        "line": 94,
+        "import": "from noxsuite_smart_installer_complete import SmartLogger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "install_noxsuite.py",
+        "line": 119,
+        "import": "import subprocess",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "install_noxsuite.py",
+        "line": 155,
+        "import": "from noxsuite_smart_installer_complete import SmartNoxSuiteInstaller, InstallMode",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "install_noxsuite.py",
+        "line": 211,
+        "import": "import traceback",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 100,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 567,
+        "import": "import Head from 'next/head'",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 568,
+        "import": "import { motion } from 'framer-motion'",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 667,
+        "import": "from .routers import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 1010,
+        "import": "import yaml",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 20,
+        "import": "from NoxPanel.noxcore.utils.code_analysis import CodeAnalyzer, analyze_codebase",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 21,
+        "import": "from NoxPanel.noxcore.utils.logging_config import setup_logging, get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 22,
+        "import": "from NoxPanel.noxcore.utils.datetime_utils import utc_now",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 23,
+        "import": "from NoxPanel.noxcore.utils.error_handling import handle_error",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_status_checker.py",
+        "line": 100,
+        "import": "import platform",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_status_checker.py",
+        "line": 104,
+        "import": "from NoxPanel.noxcore.utils.logging_config import get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "noxsuite_installer_status_checker.py",
+        "line": 107,
+        "import": "import logging",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "line": 230,
+        "import": "import tempfile",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "examples/database_integration.py",
+        "line": 231,
+        "import": "import shutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_service.py",
+        "line": 15,
+        "import": "from .repositories import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_service.py",
+        "line": 131,
+        "import": "import shutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_service.py",
+        "line": 165,
+        "import": "import shutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_admin.py",
+        "line": 76,
+        "import": "import hashlib",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/migrations.py",
+        "line": 40,
+        "import": "from .database import NoxDatabase",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/migrations.py",
+        "line": 308,
+        "import": "import argparse",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/database.py",
+        "line": 451,
+        "import": "import hashlib",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/__init__.py",
+        "line": 9,
+        "import": "from .error_handling import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/__init__.py",
+        "line": 14,
+        "import": "from .logging_config import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/__init__.py",
+        "line": 18,
+        "import": "from .code_analysis import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/error_handling.py",
+        "line": 73,
+        "import": "import uuid",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 539,
+        "import": "import json",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 23,
+        "import": "from .routers import (",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 424,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 425,
+        "import": "import docker",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 495,
+        "import": "import psutil",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 852,
+        "import": "from noxcrawler import NoxCrawler",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 974,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1001,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1037,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1059,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1084,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1105,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1126,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1147,
+        "import": "from git_plugin_system import GitPluginManager",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "line": 47,
+        "import": "from packaging import version",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "line": 48,
+        "import": "import jsonschema",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "line": 49,
+        "import": "from jsonschema import validate, ValidationError",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "AI/NoxPanel/unified_plugin_system.py",
+        "line": 807,
+        "import": "from collections import deque, defaultdict",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "security/quarantine/quarantined_20250718_120108_routes.py",
+        "line": 24,
+        "import": "from NoxPanel.noxcore.utils.logging_config import get_logger",
+        "issue": "syntax_error"
+      },
+      {
+        "file": "security/quarantine/quarantined_20250718_120108_routes.py",
+        "line": 27,
+        "import": "import logging",
+        "issue": "syntax_error"
+      }
+    ],
+    "duplicate_code": [],
+    "todo_fixme_comments": [
+      {
+        "file": "final_overhaul_report.py",
+        "line": 95,
+        "type": "bug",
+        "comment": "'ai_module_cleanup': 'Some AI modules still have complex debugging code',"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 97,
+        "type": "bug",
+        "comment": "DEBUG = \"debug\""
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 157,
+        "type": "bug",
+        "comment": "self.logger.setLevel(logging.DEBUG)"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 172,
+        "type": "bug",
+        "comment": "file_handler.setLevel(logging.DEBUG)"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 209,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"STRUCTURED: {json_str}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 310,
+        "type": "bug",
+        "comment": "def debug(self, message: str, context: Dict[str, Any] = None) -> bool:"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 311,
+        "type": "bug",
+        "comment": "\"\"\"Log debug message\"\"\""
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 312,
+        "type": "bug",
+        "comment": "self.logger.debug(message)"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 315,
+        "type": "bug",
+        "comment": "'event': 'debug',"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 555,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Memory detection failed: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 698,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {dep}: {status.get('version', 'unknown')}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 704,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c {dep}: not found\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 789,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Version check failed for {dep}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 792,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Dependency check failed for {dep}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 868,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Trying installation method: {method_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 884,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Installation method {method_name} failed: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1039,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Manual installation not yet implemented for {dep}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1046,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Containerized installation not yet implemented for {dep}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1157,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Created directory: {dir_path}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1273,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Generating {config_name}...\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1276,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {config_name} generated successfully\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1680,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Validating generated configuration files...\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1692,
+        "type": "bug",
+        "comment": "self.logger.debug(\"All generated configurations are valid\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1723,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Config validation failed for {config_path}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1774,
+        "type": "bug",
+        "comment": "\"NOXSUITE_DEBUG\": \"false\" if not self.config.dev_mode else \"true\","
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1857,
+        "type": "bug",
+        "comment": "\"NOXSUITE_DEBUG\": str(self.config.dev_mode).lower(),"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1900,
+        "type": "bug",
+        "comment": "\"environment\": [\"NODE_ENV=development\", \"DEBUG=true\"],"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1934,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Validating {check_name}...\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1939,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {check_name}: PASSED\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1950,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c {check_name}: {result['message']}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1960,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\ud83d\udca5 {check_name}: Exception - {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1987,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Attempting to heal: {failure.check_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 1998,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 Healed: {failure.check_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 2007,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c Failed to heal: {failure.check_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 2016,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\ud83d\udca5 Healing exception for {failure.check_name}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 3463,
+        "type": "bug",
+        "comment": "\"\u2699\ufe0f  Enable development mode (hot reload, debug logging)\","
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 3775,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {check_name}: OK\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 4505,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Error getting installation info for {install_path}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_complete.py",
+        "line": 4833,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Cleanup completed\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 71,
+        "type": "bug",
+        "comment": "DEBUG = \"debug\""
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 131,
+        "type": "bug",
+        "comment": "self.logger.setLevel(logging.DEBUG)"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 146,
+        "type": "bug",
+        "comment": "file_handler.setLevel(logging.DEBUG)"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 182,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"STRUCTURED: {json_str}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 272,
+        "type": "bug",
+        "comment": "def debug(self, message: str, context: Dict[str, Any] = None) -> bool:"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 273,
+        "type": "bug",
+        "comment": "\"\"\"Log debug message\"\"\""
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 274,
+        "type": "bug",
+        "comment": "self.logger.debug(message)"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 277,
+        "type": "bug",
+        "comment": "'event': 'debug',"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 517,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Memory detection failed: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 660,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {dep}: {status.get('version', 'unknown')}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 666,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c {dep}: not found\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 751,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Version check failed for {dep}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 754,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Dependency check failed for {dep}: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 830,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Trying installation method: {method_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 846,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Installation method {method_name} failed: {e}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 1001,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Manual installation not yet implemented for {dep}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer.py",
+        "line": 1008,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Containerized installation not yet implemented for {dep}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 82,
+        "type": "bug",
+        "comment": "def debug(self, message: str) -> bool:"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 83,
+        "type": "bug",
+        "comment": "\"\"\"Log debug message\"\"\""
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 84,
+        "type": "bug",
+        "comment": "self._log_to_file(\"DEBUG\", message)"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 105,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Found package: {package_name}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 108,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Missing package: {package_name}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 143,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Trying: {' '.join(cmd)}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 155,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Command failed with return code {result.returncode}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 157,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Error output: {result.stderr.strip()}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 161,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Detected externally managed environment, trying alternative methods...\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 165,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Command not available or timed out: {' '.join(cmd)}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 168,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Exception with command {' '.join(cmd)}: {e}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 324,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"System info: {json.dumps(system_info, indent=2)}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 363,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Traceback: {traceback.format_exc()}\")"
+      },
+      {
+        "file": "noxsuite_bootstrap_installer.py",
+        "line": 398,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Traceback: {traceback.format_exc()}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 102,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Backed up {path} to {backup_path}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 150,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Cleaned up old backup: {backup_path}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 278,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"  {line}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 335,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {url} - OK ({response.status_code})\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 338,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c {url} - HTTP {response.status_code}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 342,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u274c {url} - {type(e).__name__}: {e}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 363,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Port {port}: In use\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 366,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Port {port}: Available\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 369,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Port {port}: Check failed - {e}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 406,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Resource monitoring error: {e}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 414,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Started resource monitoring\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 422,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Stopped resource monitoring\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 448,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Resource check error: {e}\")"
+      },
+      {
+        "file": "noxsuite_installer_utils.py",
+        "line": 725,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Update check failed for {component}: {e}\")"
+      },
+      {
+        "file": "comprehensive_fix.py",
+        "line": 451,
+        "type": "bug",
+        "comment": "'file': {'enabled': True, 'level': 'DEBUG', 'file': 'comprehensive_fix.log'}"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 96,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Created backup: {backup_path}\")"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 175,
+        "type": "bug",
+        "comment": "# Don't convert prints in tests or debug code"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 176,
+        "type": "bug",
+        "comment": "if any(pattern in str(line.lower()) for pattern in ['test', 'debug', 'tmp', 'temp']):"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 191,
+        "type": "bug",
+        "comment": "elif any(word in print_content.lower() for word in ['debug', 'trace']):"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 192,
+        "type": "bug",
+        "comment": "log_level = 'debug'"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 464,
+        "type": "bug",
+        "comment": "'level': 'DEBUG' if args.verbose else 'INFO',"
+      },
+      {
+        "file": "improve_codebase.py",
+        "line": 468,
+        "type": "bug",
+        "comment": "'level': 'DEBUG' if args.verbose else 'INFO'"
+      },
+      {
+        "file": "noxsuite_smart_installer_part2.py",
+        "line": 82,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"Created directory: {dir_path}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_part2.py",
+        "line": 500,
+        "type": "bug",
+        "comment": "\"\u2699\ufe0f  Enable development mode (hot reload, debug logging)\","
+      },
+      {
+        "file": "noxsuite_smart_installer_part2.py",
+        "line": 808,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 {check_name}: OK\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_part2.py",
+        "line": 1086,
+        "type": "bug",
+        "comment": "self.logger.debug(f\"\u2705 Validation passed: {check_name}\")"
+      },
+      {
+        "file": "noxsuite_smart_installer_part2.py",
+        "line": 1183,
+        "type": "bug",
+        "comment": "self.logger.debug(\"Cleanup completed\")"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 189,
+        "type": "bug",
+        "comment": "dev_mode = input(f\"\\n\u2699\ufe0f  Enable development mode (hot reload, debug) [y/N]: \").strip().lower() == 'y'"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 767,
+        "type": "todo",
+        "comment": "\"uptime\": \"00:05:23\", # TODO: Calculate actual uptime"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 794,
+        "type": "bug",
+        "comment": "reload=True if settings.DEBUG else False,"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 845,
+        "type": "bug",
+        "comment": "\"DEBUG\": str(self.config.dev_mode).lower()"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 1143,
+        "type": "bug",
+        "comment": "DEBUG={\"true\" if self.config.dev_mode else \"false\"}"
+      },
+      {
+        "file": "noxsuite-installer.py",
+        "line": 1164,
+        "type": "bug",
+        "comment": "LOG_LEVEL={\"DEBUG\" if self.config.dev_mode else \"INFO\"}"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 70,
+        "type": "bug",
+        "comment": "log_level = logging.DEBUG if args.verbose else logging.INFO"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 72,
+        "type": "bug",
+        "comment": "'level': 'DEBUG' if args.verbose else 'INFO',"
+      },
+      {
+        "file": "run_code_analysis.py",
+        "line": 76,
+        "type": "bug",
+        "comment": "'level': 'DEBUG' if args.verbose else 'INFO'"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 15,
+        "type": "todo",
+        "comment": "TODO_FILE = f\"cleanup_todo_{time.strftime('%Y%m%d_%H%M%S')}.md\""
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 94,
+        "type": "bug",
+        "comment": "if any(x in file for x in [\"diagnostic\", \"debug\", \"temp\", \"log\"]):"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 99,
+        "type": "todo",
+        "comment": "def generate_todo(deleted, skipped) -> bool:"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 101,
+        "type": "todo",
+        "comment": "\"# Project Cleanup TODO Checklist\","
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 116,
+        "type": "todo",
+        "comment": "with open(TODO_FILE, \"w\", encoding=\"utf-8\") as f:"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 118,
+        "type": "todo",
+        "comment": "write_log(f\"\ud83d\udcdd TODO checklist generated: {TODO_FILE}\")"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 161,
+        "type": "todo",
+        "comment": "generate_todo(deleted, skipped)"
+      },
+      {
+        "file": "project_cleanup_migration_working.py",
+        "line": 163,
+        "type": "todo",
+        "comment": "logger.info(\"\\nCleanup complete. See log and TODO checklist for details.\")"
+      },
+      {
+        "file": "NoxPanel/noxcore/database_admin.py",
+        "line": 341,
+        "type": "bug",
+        "comment": "logging.getLogger().setLevel(logging.DEBUG)"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 46,
+        "type": "bug",
+        "comment": "logger.debug(f\"Configuration saved to {self.config_file}\")"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 61,
+        "type": "bug",
+        "comment": "\"debug\": False,"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 100,
+        "type": "bug",
+        "comment": "key: Configuration key using dot notation (e.g., 'app.debug')"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 123,
+        "type": "bug",
+        "comment": "key: Configuration key using dot notation (e.g., 'app.debug')"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 133,
+        "type": "bug",
+        "comment": "logger.debug(f\"Configuration key '{key}' set to '{value}'\")"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/config.py",
+        "line": 187,
+        "type": "bug",
+        "comment": "logger.debug(\"Configuration validation passed\")"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/logging_config.py",
+        "line": 130,
+        "type": "bug",
+        "comment": "'level': 'DEBUG',"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/logging_config.py",
+        "line": 155,
+        "type": "bug",
+        "comment": "'level': 'DEBUG',"
+      },
+      {
+        "file": "NoxPanel/noxcore/utils/code_analysis.py",
+        "line": 282,
+        "type": "bug",
+        "comment": "suggestion=\"Use logger.info(), logger.debug(), etc. instead\","
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 532,
+        "type": "bug",
+        "comment": "\"message\": str(exc) if settings.DEBUG else \"An unexpected error occurred\","
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 547,
+        "type": "bug",
+        "comment": "reload=settings.DEBUG,"
+      },
+      {
+        "file": "backend/fastapi/main.py",
+        "line": 548,
+        "type": "bug",
+        "comment": "log_level=\"debug\" if settings.DEBUG else \"info\","
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 62,
+        "type": "bug",
+        "comment": "'DEBUG': True,"
+      },
+      {
+        "file": "AI/NoxPanel/simple_noxpanel_fixed.py",
+        "line": 1190,
+        "type": "bug",
+        "comment": "debug=True,"
+      }
+    ]
+  },
+  "enterprise_recommendations": [
+    {
+      "priority": "high",
+      "category": "code_quality",
+      "title": "Remove Unused Imports",
+      "description": "Found 8 files with unused imports",
+      "action": "Use automated tools like autoflake to remove unused imports",
+      "impact": "Improves code clarity and reduces bundle size"
+    },
+    {
+      "priority": "medium",
+      "category": "technical_debt",
+      "title": "Address Technical Debt Comments",
+      "description": "Found 129 TODO/FIXME comments",
+      "action": "Create tickets for each TODO/FIXME and prioritize resolution",
+      "impact": "Reduces technical debt and improves code maintainability"
+    },
+    {
+      "priority": "high",
+      "category": "functionality",
+      "title": "Complete Incomplete Features",
+      "description": "Found 2 incomplete features",
+      "action": "Review and either complete or remove incomplete features",
+      "impact": "Improves system reliability and user experience"
+    }
+  ]
+}

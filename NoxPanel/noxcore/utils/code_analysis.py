@@ -16,6 +16,27 @@ import importlib.util
 import traceback
 
 
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = logging.getLogger(__name__)
 
 
@@ -136,7 +157,7 @@ class CodeAnalyzer:
         }
     }
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize code analyzer."""
         self.issues: List[CodeIssue] = []
         self.file_count = 0
@@ -218,7 +239,7 @@ class CodeAnalyzer:
         issues = []
         
         class Visitor(ast.NodeVisitor):
-            def visit_FunctionDef(self, node):
+            def visit_FunctionDef(self, node) -> bool:
                 # Check for missing type hints
                 if not node.returns and not node.name.startswith('_'):
                     issues.append(CodeIssue(
@@ -250,7 +271,7 @@ class CodeAnalyzer:
                 
                 self.generic_visit(node)
             
-            def visit_Try(self, node):
+            def visit_Try(self, node) -> bool:
                 # Check for bare except clauses
                 for handler in node.handlers:
                     if not handler.type:
@@ -268,7 +289,7 @@ class CodeAnalyzer:
                 
                 self.generic_visit(node)
             
-            def visit_Call(self, node):
+            def visit_Call(self, node) -> bool:
                 # Check for print statements
                 if isinstance(node.func, ast.Name) and node.func.id == 'print':
                     issues.append(CodeIssue(

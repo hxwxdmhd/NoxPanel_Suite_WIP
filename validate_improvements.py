@@ -1,4 +1,25 @@
 from NoxPanel.noxcore.utils.logging_config import get_logger
+
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
 logger = get_logger(__name__)
 
 #!/usr/bin/env python3
@@ -22,13 +43,14 @@ try:
     from NoxPanel.noxcore.utils.logging_config import setup_logging, get_logger
     from NoxPanel.noxcore.utils.datetime_utils import utc_now, format_iso
     from NoxPanel.noxcore.utils.error_handling import safe_execute
+from typing import Dict, List, Optional, Any, Union
 except ImportError as e:
     logger.info(f"Import error: {e}")
     logger.info("Please ensure the NoxPanel package is properly installed")
     sys.exit(1)
 
 
-def check_git_status():
+def check_git_status() -> List[Any]:
     """Check git status for changes made."""
     try:
         result = subprocess.run(['git', 'status', '--porcelain'], 
@@ -41,16 +63,37 @@ def check_git_status():
         return []
 
 
-def count_backup_files():
+def count_backup_files() -> List[Any]:
     """Count backup files created during improvements."""
     backup_files = list(project_root.rglob('*.backup'))
     return len(backup_files)
 
 
-def run_analysis_comparison():
+def run_analysis_comparison() -> List[Any]:
     """Run analysis on different parts of codebase for comparison."""
     setup_logging()
-    logger = get_logger('validation')
+    
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('validation')
     
     results = {}
     
@@ -95,10 +138,31 @@ def run_analysis_comparison():
     return results
 
 
-def generate_improvement_report():
+def generate_improvement_report() -> List[Any]:
     """Generate comprehensive improvement report."""
     setup_logging()
-    logger = get_logger('validation')
+    
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('validation')
     
     logger.info("Starting validation and reporting...")
     
@@ -198,7 +262,7 @@ def generate_improvement_report():
     return report
 
 
-def main():
+def main() -> List[Any]:
     """Main entry point."""
     try:
         report = generate_improvement_report()

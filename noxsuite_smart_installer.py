@@ -118,7 +118,7 @@ class InstallStep:
 class SmartLogger:
     """Enhanced logging with UTF-8 support and structured output"""
     
-    def __init__(self, log_file: str = "noxsuite_installer.log"):
+    def __init__((self, log_file: str = "noxsuite_installer.log") -> None:
         self.log_file = Path(log_file)
         self.session_id = str(uuid.uuid4())[:8]
         self.start_time = datetime.now(timezone.utc)
@@ -127,7 +127,28 @@ class SmartLogger:
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Setup structured logger
-        self.logger = logging.getLogger('noxsuite_installer')
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logging.getLogger('noxsuite_installer')
         self.logger.setLevel(logging.DEBUG)
         
         # Clear existing handlers
@@ -168,15 +189,15 @@ class SmartLogger:
             'python_version': sys.version
         })
     
-    def _create_custom_formatter(self):
+    def _create_custom_formatter(self) -> bool:
         """Create custom formatter that includes session ID"""
         class CustomFormatter(logging.Formatter):
-            def format(self, record):
+            def format(self, record) -> bool:
                 record.session_id = self.session_id
                 return super().format(record)
         return CustomFormatter('%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s')
     
-    def _log_structured(self, data: Dict[str, Any]):
+    def _log_structured(self, data: Dict[str, Any]) -> bool:
         """Log structured data as JSON"""
         json_str = json.dumps(data, ensure_ascii=False, indent=None)
         self.logger.debug(f"STRUCTURED: {json_str}")
@@ -199,7 +220,7 @@ class SmartLogger:
                 # Last resort: replace problematic characters
                 return text.decode('utf-8', errors='replace')
     
-    def step_start(self, step_name: str, description: str = ""):
+    def step_start(self, step_name: str, description: str = "") -> bool:
         """Log step start with emoji support"""
         emoji_map = {
             'detecting': '🔍',
@@ -224,7 +245,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def step_complete(self, step_name: str, details: Dict[str, Any] = None):
+    def step_complete(self, step_name: str, details: Dict[str, Any] = None) -> bool:
         """Log step completion"""
         self.logger.info(f"✅ {step_name.replace('_', ' ').title()} completed")
         self._log_structured({
@@ -234,7 +255,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None):
+    def step_error(self, step_name: str, error: Exception, context: Dict[str, Any] = None) -> bool:
         """Log step error with context"""
         error_msg = str(error)
         self.logger.error(f"❌ {step_name.replace('_', ' ').title()} failed: {error_msg}")
@@ -248,7 +269,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def warning(self, message: str, context: Dict[str, Any] = None):
+    def warning(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log warning message"""
         self.logger.warning(f"⚠️  {message}")
         self._log_structured({
@@ -258,7 +279,7 @@ class SmartLogger:
             'timestamp': datetime.now(timezone.utc).isoformat()
         })
     
-    def info(self, message: str, context: Dict[str, Any] = None):
+    def info(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log info message"""
         self.logger.info(message)
         if context:
@@ -269,7 +290,7 @@ class SmartLogger:
                 'timestamp': datetime.now(timezone.utc).isoformat()
             })
     
-    def debug(self, message: str, context: Dict[str, Any] = None):
+    def debug(self, message: str, context: Dict[str, Any] = None) -> bool:
         """Log debug message"""
         self.logger.debug(message)
         if context:
@@ -283,7 +304,7 @@ class SmartLogger:
 class InstallationAuditor:
     """Analyzes previous installation attempts and suggests improvements"""
     
-    def __init__(self, log_file: Path):
+    def __init__((self, log_file: Path) -> None:
         self.log_file = log_file
         self.issues_database = Path("noxsuite_issues.json")
         self.known_issues = self._load_known_issues()
@@ -395,8 +416,29 @@ class InstallationAuditor:
 class PlatformDetector:
     """Enhanced platform detection with capability analysis"""
     
-    def __init__(self, logger: SmartLogger):
-        self.logger = logger
+    def __init__((self, logger: SmartLogger) -> None:
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
     
     def detect_system(self) -> SystemInfo:
         """Comprehensive system detection"""
@@ -630,6 +672,43 @@ class PlatformDetector:
             if platform.system().lower() == "windows":
                 # Windows: Check if running as administrator
                 import ctypes
+
+# Security: Input validation utilities
+import re
+import html
+from typing import Any, Optional
+
+def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> str:
+    """Validate and sanitize input data."""
+    if value is None:
+        return ""
+    
+    # Convert to string and strip
+    str_value = str(value).strip()
+    
+    # Check length
+    if len(str_value) > max_length:
+        raise ValueError(f"Input too long (max {max_length} characters)")
+    
+    # Apply pattern validation if provided
+    if pattern and not re.match(pattern, str_value):
+        raise ValueError("Input format validation failed")
+    
+    # HTML escape for XSS prevention
+    return html.escape(str_value)
+
+def validate_file_path(path: str) -> str:
+    """Validate file path to prevent directory traversal."""
+    if not path:
+        raise ValueError("File path cannot be empty")
+    
+    # Normalize path and check for traversal attempts
+    normalized = os.path.normpath(path)
+    if '..' in normalized or normalized.startswith('/'):
+        raise ValueError("Invalid file path detected")
+    
+    return normalized
+
                 return ctypes.windll.shell32.IsUserAnAdmin() != 0
             else:
                 # Unix-like: Check if running as root
@@ -640,9 +719,30 @@ class PlatformDetector:
 class SmartDependencyManager:
     """Intelligent dependency management with multiple fallback strategies"""
     
-    def __init__(self, system_info: SystemInfo, logger: SmartLogger):
+    def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
-        self.logger = logger
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = logger
         self.retry_count = {}
         self.max_retries = 3
     

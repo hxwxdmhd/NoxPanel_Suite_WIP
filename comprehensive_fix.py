@@ -24,14 +24,35 @@ from NoxPanel.noxcore.utils.error_handling import handle_error
 class ComprehensiveFixer:
     """Comprehensive codebase fixer."""
     
-    def __init__(self, project_root: Path):
+    def __init__((self, project_root: Path) -> None:
         """Initialize fixer.
         
         Args:
             project_root: Project root directory
         """
         self.project_root = project_root
-        self.logger = get_logger('comprehensive_fixer')
+        self.
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('comprehensive_fixer')
         self.fixes_applied = []
         
     def fix_syntax_errors(self) -> int:
@@ -46,7 +67,7 @@ class ComprehensiveFixer:
         # Common syntax error patterns
         syntax_fixes = [
             # Missing parentheses in print statements
-            (r'print\s+([^()]*[^)])\s*$', r'print(\1)'),
+logger.info(\1)
             # Missing commas in function calls
             (r'(\w+)\s+(\w+)\s*\)', r'\1, \2)'),
         ]
@@ -170,9 +191,9 @@ class ComprehensiveFixer:
                 needs_logger_import = False
                 
                 for line in lines:
-                    if line.strip().startswith('print('):
+logger.info(')
                         # Convert print to logger
-                        print_content = line.strip()[6:-1]  # Remove print( and )
+ logger.info(and)
                         new_line = line.replace(line.strip(), f'logger.info({print_content})')
                         new_lines.append(new_line)
                         modified = True
@@ -431,7 +452,28 @@ class ComprehensiveFixer:
         # Insert imports
         logger_imports = [
             'from NoxPanel.noxcore.utils.logging_config import get_logger\n',
-            'logger = get_logger(__name__)\n',
+            '
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger(__name__)\n',
             '\n'
         ]
         
@@ -441,7 +483,7 @@ class ComprehensiveFixer:
         return lines
 
 
-def main():
+def main() -> Any:
     """Main function."""
     # Setup logging
     setup_logging({
@@ -452,7 +494,28 @@ def main():
         }
     })
     
-    logger = get_logger('comprehensive_fix')
+    
+# Security: Audit logging for security events
+def log_security_event(event_type: str, details: dict, request_ip: str = None):
+    """Log security-related events for audit trails."""
+    security_event = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'details': details,
+        'request_ip': request_ip,
+        'severity': 'security'
+    }
+    logger.warning(f"SECURITY_EVENT: {json.dumps(security_event)}")
+
+def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True):
+    """Log access attempts for security monitoring."""
+    log_security_event('access_attempt', {
+        'endpoint': endpoint,
+        'user_id': user_id,
+        'success': success
+    })
+
+logger = get_logger('comprehensive_fix')
     logger.info("Starting comprehensive codebase fix")
     
     try:
