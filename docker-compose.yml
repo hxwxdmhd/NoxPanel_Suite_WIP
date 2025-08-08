@@ -107,8 +107,8 @@ services:
   # ContextForge MCP Server
   contextforge:
     build:
-      context: ./enterprise/context
-      dockerfile: Dockerfile
+      context: ./enterprise
+      dockerfile: Dockerfile.gateway
     image: hobelab/contextforge:latest
     container_name: contextforge-mcp
     restart: unless-stopped

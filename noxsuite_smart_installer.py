@@ -118,7 +118,7 @@ class InstallStep:
 class SmartLogger:
     """Enhanced logging with UTF-8 support and structured output"""
     
-    def __init__((self, log_file: str = "noxsuite_installer.log") -> None:
+    def __init__(self, log_file: str = "noxsuite_installer.log") -> None:
         self.log_file = Path(log_file)
         self.session_id = str(uuid.uuid4())[:8]
         self.start_time = datetime.now(timezone.utc)
@@ -127,7 +127,16 @@ class SmartLogger:
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Setup structured logger
-        self.
+        self.logger = logging.getLogger(__name__)
+    
+    def info(self, message: str):
+        """Log info message"""
+        self.logger.info(message)
+    
+    def error(self, message: str):
+        """Log error message"""
+        self.logger.error(message)
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
@@ -304,7 +313,7 @@ logger = logging.getLogger('noxsuite_installer')
 class InstallationAuditor:
     """Analyzes previous installation attempts and suggests improvements"""
     
-    def __init__((self, log_file: Path) -> None:
+    def __init__(self, log_file: Path) -> None:
         self.log_file = log_file
         self.issues_database = Path("noxsuite_issues.json")
         self.known_issues = self._load_known_issues()
@@ -416,8 +425,9 @@ class InstallationAuditor:
 class PlatformDetector:
     """Enhanced platform detection with capability analysis"""
     
-    def __init__((self, logger: SmartLogger) -> None:
-        self.
+    def __init__(self, logger: SmartLogger) -> None:
+        self.logger = logger
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
@@ -719,9 +729,10 @@ def validate_file_path(path: str) -> str:
 class SmartDependencyManager:
     """Intelligent dependency management with multiple fallback strategies"""
     
-    def __init__((self, system_info: SystemInfo, logger: SmartLogger) -> None:
+    def __init__(self, system_info: SystemInfo, logger: SmartLogger) -> None:
         self.system_info = system_info
-        self.
+        self.logger = logger
+
 # Security: Audit logging for security events
 def log_security_event(event_type: str, details: dict, request_ip: str = None):
     """Log security-related events for audit trails."""
