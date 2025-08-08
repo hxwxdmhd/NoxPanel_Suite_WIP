@@ -157,63 +157,10 @@ def log_access_attempt(endpoint: str, user_id: str = None, success: bool = True)
         'success': success
     })
 
+# Global logger for standalone functions
 logger = logging.getLogger('noxsuite_installer')
-        self.logger.setLevel(logging.DEBUG)
-        
-        # Clear existing handlers
-        self.logger.handlers.clear()
-        
-        # Console handler with UTF-8 support
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(logging.INFO)
-        
-        # File handler with UTF-8 encoding
-        file_handler = logging.FileHandler(
-            self.log_file, 
-            mode='a', 
-            encoding='utf-8'
-        )
-        file_handler.setLevel(logging.DEBUG)
-        
-        # Formatters
-        console_format = '%(message)s'
-        file_format = '%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s'
-        
-        console_formatter = logging.Formatter(console_format)
-        file_formatter = logging.Formatter(file_format)
-        
-        console_handler.setFormatter(console_formatter)
-        file_formatter = self._create_custom_formatter()
-        file_handler.setFormatter(file_formatter)
-        
-        self.logger.addHandler(console_handler)
-        self.logger.addHandler(file_handler)
-        
-        # Log session start
-        self._log_structured({
-            'event': 'session_start',
-            'session_id': self.session_id,
-            'timestamp': self.start_time.isoformat(),
-            'platform': platform.platform(),
-            'python_version': sys.version
-        })
-    
-    def _create_custom_formatter(self) -> bool:
-        """Create custom formatter that includes session ID"""
-        class CustomFormatter(logging.Formatter):
-            def format(self, record) -> bool:
-                record.session_id = self.session_id
-                return super().format(record)
-        return CustomFormatter('%(asctime)s [%(levelname)s] [%(session_id)s] %(message)s')
-    
-    def _log_structured(self, data: Dict[str, Any]) -> bool:
-        """Log structured data as JSON"""
-        json_str = json.dumps(data, ensure_ascii=False, indent=None)
-        self.logger.debug(f"STRUCTURED: {json_str}")
-    
-    def _safe_decode(self, text: Union[str, bytes]) -> str:
-        """Safely decode text with fallback encoding detection"""
-        if isinstance(text, str):
+
+class InstallationAuditor:
             return text
         
         # Try UTF-8 first
