@@ -149,6 +149,14 @@ def main() -> None:
         handle_error(exc)
         sys.exit(1)
 
-
+    except (OSError, ValueError) as exc:
+        logger.error(f"Code analysis failed due to an expected error: {exc}")
+        handle_error(exc)
+        sys.exit(1)
+    except Exception as exc:
+        # Catch-all for unexpected exceptions to ensure graceful shutdown and logging.
+        logger.error(f"An unexpected error occurred during code analysis: {exc}")
+        handle_error(exc)
+        sys.exit(1)
 if __name__ == "__main__":
     main()
