@@ -4,19 +4,20 @@ NoxSuite + AI Dev Infrastructure Auto-Installer
 Intelligent cross-platform setup for the complete NoxSuite ecosystem
 """
 
-import os
-import sys
 import json
-import subprocess
+import logging
+import os
 import platform
 import shutil
-import requests
+import subprocess
+import sys
 import time
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
-import logging
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import requests
 
 # Configure logging
 logging.basicConfig(
@@ -80,26 +81,26 @@ class InstallConfig:
 
 class NoxSuiteInstaller:
     """Comprehensive NoxSuite installer with AI-powered setup"""
-    
+
     DEFAULT_MODULES = [
-        "noxpanel", "noxguard", "autoimport", "powerlog", 
-        "langflow-hub", "autocleaner", "heimnetz-scanner", 
+        "noxpanel", "noxguard", "autoimport", "powerlog",
+        "langflow-hub", "autocleaner", "heimnetz-scanner",
         "plugin-system", "update-manager"
     ]
-    
+
     DEFAULT_AI_MODELS = [
         "mistral:7b-instruct", "gemma:7b-it", "tinyllama", "phi"
     ]
-    
+
     def __init__((self) -> None:
         self.system_info = self._detect_system()
         self.config: Optional[InstallConfig] = None
         self.install_log = []
-        
+
     def _detect_system(self) -> SystemInfo:
         """Detect comprehensive system information"""
         logger.info("🔍 Detecting system specifications...")
-        
+
         # OS Detection
         os_name = platform.system().lower()
         if os_name == "windows":
@@ -110,11 +111,11 @@ class NoxSuiteInstaller:
             os_type = OSType.MACOS
         else:
             os_type = OSType.UNKNOWN
-            
+
         # System specs
         architecture = platform.machine()
         python_version = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
-        
+
         # Memory (rough estimate)
         try:
             if os_type == OSType.WINDOWS:
@@ -126,14 +127,14 @@ class NoxSuiteInstaller:
                     available_memory = memory_kb // (1024**2)  # GB
         except:
             available_memory = 8  # Default assumption
-            
+
         cpu_cores = os.cpu_count() or 4
-        
+
         # Tool availability
         docker_available = shutil.which("docker") is not None
         node_available = shutil.which("node") is not None
         git_available = shutil.which("git") is not None
-        
+
         system_info = SystemInfo(
             os_type=os_type,
             architecture=architecture,
@@ -144,10 +145,10 @@ class NoxSuiteInstaller:
             node_available=node_available,
             git_available=git_available
         )
-        
+
         logger.info(f"✅ Detected: {os_type.value} {architecture}, {cpu_cores} cores, {available_memory}GB RAM")
         return system_info
-    
+
     def welcome_screen(self) -> bool:
         """Display welcome and system info"""
         print("""
@@ -161,7 +162,7 @@ class NoxSuiteInstaller:
 ║  • Modular Architecture      • Real-time Monitoring             ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """)
-        
+
         logger.info(f"\n🖥️  System Information:")
         logger.info(f"   OS: {self.system_info.os_type.value.title()
         logger.info(f"   Python: {self.system_info.python_version}")
@@ -170,26 +171,26 @@ class NoxSuiteInstaller:
         logger.info(f"   Docker: {'✅' if self.system_info.docker_available else '❌'}")
         logger.info(f"   Node.js: {'✅' if self.system_info.node_available else '❌'}")
         logger.info(f"   Git: {'✅' if self.system_info.git_available else '❌'}")
-        
+
     def interactive_config(self) -> InstallConfig:
         """Interactive configuration wizard"""
         logger.info("\n🛠️  Configuration Wizard")
         logger.info("=" * 50)
-        
+
         # Installation directory
         if self.system_info.os_type == OSType.WINDOWS:
             default_dir = Path.home() / "NoxSuite"
         else:
             default_dir = Path.home() / "noxsuite"
-            
+
         install_dir_input = input(f"📁 Installation directory [{default_dir}]: ").strip()
         install_directory = Path(install_dir_input) if install_dir_input else default_dir
-        
+
         # Module selection
         logger.info(f"\n📦 Available Modules:")
         for i, module in enumerate(self.DEFAULT_MODULES, 1):
             logger.info(f"   {i}. {module}")
-            
+
         module_input = input(f"\n🔢 Select modules (comma-separated numbers, or 'all') [all]: ").strip()
         if module_input.lower() in ["", "all"]:
             modules = self.DEFAULT_MODULES
@@ -200,23 +201,23 @@ class NoxSuiteInstaller:
             except:
                 logger.warning("Invalid module selection, using all modules")
                 modules = self.DEFAULT_MODULES
-        
+
         # AI Configuration
         enable_ai = input(f"\n🤖 Enable AI features (Ollama, LLMs) [Y/n]: ").strip().lower() != 'n'
         enable_voice = input(f"🎤 Enable voice interface [y/N]: ").strip().lower() == 'y'
         enable_mobile = input(f"📱 Enable mobile companion (NoxGo PWA) [Y/n]: ").strip().lower() != 'n'
-        
+
         # Development mode
         dev_mode = input(f"\n⚙️  Enable development mode (hot reload, debug) [y/N]: ").strip().lower() == 'y'
         auto_start = input(f"🚀 Auto-start services after installation [Y/n]: ").strip().lower() != 'n'
-        
+
         # AI Models
         ai_models = []
         if enable_ai:
             logger.info(f"\n🧠 Available AI Models:")
             for i, model in enumerate(self.DEFAULT_AI_MODELS, 1):
                 logger.info(f"   {i}. {model}")
-            
+
             model_input = input(f"🤖 Select AI models (comma-separated numbers, or 'all') [1,2]: ").strip()
             if model_input.lower() == "all":
                 ai_models = self.DEFAULT_AI_MODELS
@@ -228,7 +229,7 @@ class NoxSuiteInstaller:
                     ai_models = [self.DEFAULT_AI_MODELS[i] for i in indices if 0 <= i < len(self.DEFAULT_AI_MODELS)]
                 except:
                     ai_models = self.DEFAULT_AI_MODELS[:2]
-        
+
         config = InstallConfig(
             install_directory=install_directory,
             modules=modules,
@@ -239,7 +240,7 @@ class NoxSuiteInstaller:
             auto_start=auto_start,
             ai_models=ai_models
         )
-        
+
         # Confirmation
         logger.info(f"\n📋 Installation Summary:")
         logger.info(f"   Directory: {config.install_directory}")
@@ -250,19 +251,19 @@ class NoxSuiteInstaller:
         logger.info(f"   Development Mode: {'✅' if config.dev_mode else '❌'}")
         if config.ai_models:
             logger.info(f"   AI Models: {', '.join(config.ai_models)
-            
+
         confirm = input(f"\n✅ Proceed with installation? [Y/n]: ").strip().lower()
         if confirm == 'n':
             logger.info("❌ Installation cancelled.")
             sys.exit(0)
-            
+
         return config
-    
+
     def check_dependencies(self) -> bool:
         """Check and install missing dependencies"""
         logger.info("🔍 Checking dependencies...")
         missing_deps = []
-        
+
         # Critical dependencies
         if not self.system_info.docker_available:
             missing_deps.append("Docker")
@@ -270,24 +271,24 @@ class NoxSuiteInstaller:
             missing_deps.append("Git")
         if not self.system_info.node_available and self.config.enable_mobile:
             missing_deps.append("Node.js")
-            
+
         if missing_deps:
             logger.info(f"\n⚠️  Missing Dependencies: {', '.join(missing_deps)
             install_deps = input("🤖 Auto-install missing dependencies? [Y/n]: ").strip().lower() != 'n'
-            
+
             if install_deps:
                 return self._install_dependencies(missing_deps)
             else:
                 logger.info("❌ Cannot proceed without required dependencies.")
                 return False
-                
+
         logger.info("✅ All dependencies satisfied")
         return True
-    
+
     def _install_dependencies(self, deps: List[str]) -> bool:
         """Install missing dependencies based on OS"""
         logger.info(f"📦 Installing dependencies: {', '.join(deps)}")
-        
+
         try:
             if self.system_info.os_type == OSType.WINDOWS:
                 return self._install_windows_deps(deps)
@@ -298,9 +299,9 @@ class NoxSuiteInstaller:
         except Exception as e:
             logger.error(f"❌ Failed to install dependencies: {e}")
             return False
-            
+
         return True
-    
+
     def _install_windows_deps(self, deps: List[str]) -> bool:
         """Install dependencies on Windows using Chocolatey"""
         # Check for Chocolatey
@@ -312,7 +313,7 @@ class NoxSuiteInstaller:
             iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
             """
             subprocess.run(["powershell", "-Command", powershell_cmd], check=True)
-        
+
         # Install dependencies
         for dep in deps:
             if dep == "Docker":
@@ -321,10 +322,10 @@ class NoxSuiteInstaller:
                 subprocess.run(["choco", "install", "git", "-y"], check=True)
             elif dep == "Node.js":
                 subprocess.run(["choco", "install", "nodejs", "-y"], check=True)
-                
+
         logger.info("🔄 Please restart your terminal and re-run the installer.")
         return False  # Require restart
-    
+
     def _install_linux_deps(self, deps: List[str]) -> bool:
         """Install dependencies on Linux"""
         # Detect package manager
@@ -339,7 +340,7 @@ class NoxSuiteInstaller:
         else:
             logger.error("❌ Unsupported Linux distribution")
             return False
-            
+
         for dep in deps:
             if dep == "Docker":
                 if pkg_manager == "apt":
@@ -353,17 +354,17 @@ class NoxSuiteInstaller:
             elif dep == "Node.js":
                 if pkg_manager == "apt":
                     subprocess.run(["sudo", "apt-get", "install", "-y", "nodejs", "npm"], check=True)
-                    
+
         return True
-    
+
     def _install_macos_deps(self, deps: List[str]) -> bool:
         """Install dependencies on macOS using Homebrew"""
         # Check for Homebrew
         if not shutil.which("brew"):
             logger.info("🍺 Installing Homebrew package manager...")
-            subprocess.run(["/bin/bash", "-c", 
+            subprocess.run(["/bin/bash", "-c",
                 "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"], check=True)
-        
+
         for dep in deps:
             if dep == "Docker":
                 subprocess.run(["brew", "install", "--cask", "docker"], check=True)
@@ -371,64 +372,64 @@ class NoxSuiteInstaller:
                 subprocess.run(["brew", "install", "git"], check=True)
             elif dep == "Node.js":
                 subprocess.run(["brew", "install", "node"], check=True)
-                
+
         return True
-    
+
     def setup_directories(self) -> bool:
         """Create directory structure"""
         logger.info(f"📁 Setting up directories in {self.config.install_directory}")
-        
+
         dirs = [
             "frontend/noxpanel-ui",
-            "frontend/noxgo-mobile", 
+            "frontend/noxgo-mobile",
             "backend/fastapi",
             "backend/flask-legacy",
             "services/langflow",
             "services/ollama",
             "data/postgres",
-            "data/redis", 
+            "data/redis",
             "data/logs",
             "config",
             "scripts",
             "docker",
             "plugins"
         ]
-        
+
         for dir_path in dirs:
             full_path = self.config.install_directory / dir_path
             full_path.mkdir(parents=True, exist_ok=True)
-            
+
         logger.info("✅ Directory structure created")
-    
+
     def clone_repositories(self) -> bool:
         """Clone or copy existing codebase"""
         logger.info("📂 Setting up codebase...")
-        
+
         # Copy existing NoxPanel/Heimnetz codebase
         src_dir = Path.cwd()
         dst_dir = self.config.install_directory / "backend" / "flask-legacy"
-        
+
         if src_dir != dst_dir:
             shutil.copytree(src_dir / "NoxPanel", dst_dir / "NoxPanel", dirs_exist_ok=True)
             shutil.copytree(src_dir / "aethercore", dst_dir / "aethercore", dirs_exist_ok=True)
-            
+
             # Copy Docker configurations
             for file in src_dir.glob("docker-compose*.yml"):
                 shutil.copy2(file, self.config.install_directory / "docker")
-                
+
             # Copy configuration files
             for file in ["pyproject.toml", ".env.example", "requirements.txt"]:
                 if (src_dir / file).exists():
                     shutil.copy2(src_dir / file, self.config.install_directory)
-        
+
         logger.info("✅ Existing codebase integrated")
-    
+
     def generate_react_frontend(self) -> bool:
         """Generate React-based frontend"""
         logger.info("⚛️  Generating React frontend...")
-        
+
         frontend_dir = self.config.install_directory / "frontend" / "noxpanel-ui"
-        
+
         # Create package.json
         package_json = {
             "name": "noxpanel-ui",
@@ -436,7 +437,7 @@ class NoxSuiteInstaller:
             "description": "NoxSuite React Frontend - ADHD-Friendly Network Management",
             "scripts": {
                 "dev": "next dev",
-                "build": "next build", 
+                "build": "next build",
                 "start": "next start",
                 "lint": "next lint",
                 "type-check": "tsc --noEmit"
@@ -468,18 +469,18 @@ class NoxSuiteInstaller:
                 "postcss": "^8.4.31"
             }
         }
-        
+
         with open(frontend_dir / "package.json", "w") as f:
             json.dump(package_json, f, indent=2)
-            
+
         # Create basic Next.js structure
         self._create_nextjs_structure(frontend_dir)
-        
+
         logger.info("✅ React frontend generated")
-    
+
     def _create_nextjs_structure(self, frontend_dir: Path) -> bool:
         """Create Next.js application structure"""
-        
+
         # Next.js config
         nextjs_config = '''/** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -502,7 +503,7 @@ module.exports = nextConfig
 '''
         with open(frontend_dir / "next.config.js", "w") as f:
             f.write(nextjs_config)
-            
+
         # Tailwind config
         tailwind_config = '''module.exports = {
   content: [
@@ -515,7 +516,7 @@ module.exports = nextConfig
       colors: {
         // ADHD-friendly color palette
         'nox-primary': '#6366f1',
-        'nox-secondary': '#8b5cf6', 
+        'nox-secondary': '#8b5cf6',
         'nox-accent': '#f59e0b',
         'nox-danger': '#ef4444',
         'nox-success': '#10b981',
@@ -544,7 +545,7 @@ module.exports = nextConfig
 '''
         with open(frontend_dir / "tailwind.config.js", "w") as f:
             f.write(tailwind_config)
-            
+
         # TypeScript config
         ts_config = {
             "compilerOptions": {
@@ -574,15 +575,15 @@ module.exports = nextConfig
             "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
             "exclude": ["node_modules"]
         }
-        
+
         with open(frontend_dir / "tsconfig.json", "w") as f:
             json.dump(ts_config, f, indent=2)
-            
+
         # Create directory structure
         dirs = ["pages", "components", "lib", "types", "styles", "public"]
         for dir_name in dirs:
             (frontend_dir / dir_name).mkdir(exist_ok=True)
-            
+
         # Basic index page
         index_page = '''import { useState, useEffect } from 'react'
 import Head from 'next/head'
@@ -641,7 +642,7 @@ export default function Home() {
               <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">
                 AI-Powered Infrastructure Management for ADHD-Friendly Operations
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold mb-2">🛡️ NoxGuard</h3>
@@ -666,13 +667,13 @@ export default function Home() {
 '''
         with open(frontend_dir / "pages" / "index.tsx", "w") as f:
             f.write(index_page)
-    
+
     def generate_fastapi_backend(self) -> bool:
         """Generate FastAPI backend service"""
         logger.info("🚀 Generating FastAPI backend...")
-        
+
         backend_dir = self.config.install_directory / "backend" / "fastapi"
-        
+
         # Create main FastAPI application
         main_py = '''from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
@@ -724,23 +725,24 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Application lifespan manager"""
     logger.info("🚀 Starting NoxSuite FastAPI Backend...")
-    
+
     # Initialize database
     await init_db()
-    
+
     # Initialize AI Manager
     ai_manager = AIManager()
     await ai_manager.initialize()
     app.state.ai_manager = ai_manager
-    
+
     # Initialize WebSocket Manager
     ws_manager = WebSocketManager()
     app.state.ws_manager = ws_manager
-    
+    app.state.start_time = datetime.now(timezone.utc)
+
     logger.info("✅ NoxSuite Backend initialized successfully")
-    
+
     yield
-    
+
     # Cleanup
     logger.info("🛑 Shutting down NoxSuite Backend...")
     await ai_manager.cleanup()
@@ -792,7 +794,7 @@ async def health_check():
         "version": "2.0.0",
         "services": {
             "database": "connected",
-            "redis": "connected", 
+            "redis": "connected",
             "ai_models": "loaded"
         }
     }
@@ -803,13 +805,16 @@ async def system_status():
     try:
         ai_manager = app.state.ai_manager
         models_status = await ai_manager.get_models_status()
-        
+
+        uptime_delta = datetime.now(timezone.utc) - app.state.start_time
+        uptime = str(uptime_delta).split('.')[0]
+
         return {
             "status": "operational",
-            "uptime": "00:05:23", # TODO: Calculate actual uptime
+            "uptime": uptime,
             "modules": {
                 "noxpanel": "active",
-                "noxguard": "active", 
+                "noxguard": "active",
                 "autoimport": "active",
                 "powerlog": "active",
                 "langflow_hub": "active",
@@ -839,21 +844,21 @@ if __name__ == "__main__":
 '''
         with open(backend_dir / "main.py", "w") as f:
             f.write(main_py)
-            
+
         # Create directory structure
         dirs = ["routers", "core", "models", "services", "utils"]
         for dir_name in dirs:
             (backend_dir / dir_name).mkdir(parents=True, exist_ok=True)
             (backend_dir / dir_name / "__init__.py").touch()
-            
+
         logger.info("✅ FastAPI backend generated")
-    
+
     def generate_docker_compose(self) -> bool:
         """Generate comprehensive Docker Compose configuration"""
         logger.info("🐳 Generating Docker Compose configuration...")
-        
+
         docker_dir = self.config.install_directory / "docker"
-        
+
         compose_config = {
             "version": "3.8",
             "services": {
@@ -872,7 +877,7 @@ if __name__ == "__main__":
                     "depends_on": ["noxsuite-api"],
                     "networks": ["noxsuite-network"]
                 },
-                
+
                 # FastAPI Backend
                 "noxsuite-api": {
                     "build": {
@@ -893,12 +898,12 @@ if __name__ == "__main__":
                     "depends_on": ["postgres", "redis"],
                     "networks": ["noxsuite-network"]
                 },
-                
+
                 # Legacy Flask Backend (Compatibility)
                 "heimnetz-legacy": {
                     "build": {
                         "context": "../backend/flask-legacy",
-                        "dockerfile": "../../Dockerfile.production"  
+                        "dockerfile": "../../Dockerfile.production"
                     },
                     "ports": ["5000:5000"],
                     "environment": {
@@ -910,13 +915,13 @@ if __name__ == "__main__":
                     "depends_on": ["postgres", "redis"],
                     "networks": ["noxsuite-network"]
                 },
-                
+
                 # PostgreSQL Database
                 "postgres": {
                     "image": "postgres:15-alpine",
                     "environment": {
                         "POSTGRES_DB": "noxsuite",
-                        "POSTGRES_USER": "postgres", 
+                        "POSTGRES_USER": "postgres",
                         "POSTGRES_PASSWORD": "noxsuite123"
                     },
                     "volumes": [
@@ -932,7 +937,7 @@ if __name__ == "__main__":
                         "retries": 5
                     }
                 },
-                
+
                 # Redis Cache
                 "redis": {
                     "image": "redis:7-alpine",
@@ -947,7 +952,7 @@ if __name__ == "__main__":
                         "retries": 3
                     }
                 },
-                
+
                 # Nginx Reverse Proxy
                 "nginx": {
                     "image": "nginx:alpine",
@@ -959,7 +964,7 @@ if __name__ == "__main__":
                     "depends_on": ["noxpanel-ui", "noxsuite-api"],
                     "networks": ["noxsuite-network"]
                 },
-                
+
                 # Prometheus Monitoring
                 "prometheus": {
                     "image": "prom/prometheus:latest",
@@ -977,7 +982,7 @@ if __name__ == "__main__":
                     ],
                     "networks": ["noxsuite-network"]
                 },
-                
+
                 # Grafana Dashboards
                 "grafana": {
                     "image": "grafana/grafana:latest",
@@ -993,13 +998,13 @@ if __name__ == "__main__":
                     "networks": ["noxsuite-network"]
                 }
             },
-            
+
             "networks": {
                 "noxsuite-network": {
                     "driver": "bridge"
                 }
             },
-            
+
             "volumes": {
                 "postgres_data": {"driver": "local"},
                 "redis_data": {"driver": "local"},
@@ -1007,7 +1012,7 @@ if __name__ == "__main__":
                 "grafana_data": {"driver": "local"}
             }
         }
-        
+
         # Add AI services if enabled
         if self.config.enable_ai:
             compose_config["services"]["ollama"] = {
@@ -1035,7 +1040,7 @@ if __name__ == "__main__":
                     }
                 }
             }
-            
+
             compose_config["services"]["langflow"] = {
                 "image": "logspace/langflow:latest",
                 "ports": ["7860:7860"],
@@ -1047,7 +1052,7 @@ if __name__ == "__main__":
                 "depends_on": ["postgres", "redis", "ollama"],
                 "networks": ["noxsuite-network"]
             }
-        
+
         # Write Docker Compose file
         import yaml
 
@@ -1060,18 +1065,18 @@ def validate_input(value: Any, pattern: str = None, max_length: int = 1000) -> s
     """Validate and sanitize input data."""
     if value is None:
         return ""
-    
+
     # Convert to string and strip
     str_value = str(value).strip()
-    
+
     # Check length
     if len(str_value) > max_length:
         raise ValueError(f"Input too long (max {max_length} characters)")
-    
+
     # Apply pattern validation if provided
     if pattern and not re.match(pattern, str_value):
         raise ValueError("Input format validation failed")
-    
+
     # HTML escape for XSS prevention
     return html.escape(str_value)
 
@@ -1079,29 +1084,29 @@ def validate_file_path(path: str) -> str:
     """Validate file path to prevent directory traversal."""
     if not path:
         raise ValueError("File path cannot be empty")
-    
+
     # Normalize path and check for traversal attempts
     normalized = os.path.normpath(path)
     if '..' in normalized or normalized.startswith('/'):
         raise ValueError("Invalid file path detected")
-    
+
     return normalized
 
         with open(docker_dir / "docker-compose.noxsuite.yml", "w") as f:
             yaml.dump(compose_config, f, default_flow_style=False, indent=2)
-            
+
         logger.info("✅ Docker Compose configuration generated")
-    
+
     def install_ai_models(self) -> bool:
         """Install and configure AI models"""
         if not self.config.enable_ai or not self.config.ai_models:
             return
-            
+
         logger.info("🤖 Installing AI models...")
-        
+
         models_dir = self.config.install_directory / "models"
         models_dir.mkdir(exist_ok=True)
-        
+
         # Create model installation script
         install_script = f'''#!/bin/bash
 # NoxSuite AI Model Installation Script
@@ -1127,21 +1132,21 @@ echo "🧪 Testing models..."
 
 echo "🎉 AI model installation complete!"
 '''
-        
+
         script_path = self.config.install_directory / "scripts" / "install-models.sh"
         script_path.parent.mkdir(exist_ok=True)
         with open(script_path, "w") as f:
             f.write(install_script)
         script_path.chmod(0o755)
-        
+
         logger.info(f"✅ AI model installation script created: {script_path}")
-    
+
     def generate_startup_scripts(self) -> bool:
         """Generate platform-specific startup scripts"""
         logger.info("📜 Generating startup scripts...")
-        
+
         scripts_dir = self.config.install_directory / "scripts"
-        
+
         # Cross-platform startup script
         if self.system_info.os_type == OSType.WINDOWS:
             startup_script = f'''@echo off
@@ -1174,7 +1179,7 @@ pause
 '''
             with open(scripts_dir / "start-noxsuite.bat", "w") as f:
                 f.write(startup_script)
-                
+
         else:  # Linux/macOS
             startup_script = f'''#!/bin/bash
 echo "🧠 Starting NoxSuite + AI Dev Infrastructure..."
@@ -1193,7 +1198,7 @@ sleep 30
 
 echo "✅ NoxSuite is starting up!"
 echo "🌐 Web UI: http://localhost:3000"
-echo "📊 Grafana: http://localhost:3001" 
+echo "📊 Grafana: http://localhost:3001"
 echo "🔧 API Docs: http://localhost:8000/api/docs"
 {"echo '🤖 Langflow: http://localhost:7860'" if self.config.enable_ai else ""}
 
@@ -1207,15 +1212,15 @@ read -n 1
             with open(script_path, "w") as f:
                 f.write(startup_script)
             script_path.chmod(0o755)
-            
+
         logger.info("✅ Startup scripts generated")
-    
+
     def create_configuration_files(self) -> bool:
         """Create configuration files and environment variables"""
         logger.info("⚙️  Creating configuration files...")
-        
+
         config_dir = self.config.install_directory / "config"
-        
+
         # Environment configuration
         env_content = f'''# NoxSuite Configuration
 NOXSUITE_ENV={"development" if self.config.dev_mode else "production"}
@@ -1248,10 +1253,10 @@ ENABLE_MOBILE={"true" if self.config.enable_mobile else "false"}
 ENABLE_LEGACY_SUPPORT=true
 ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
 '''
-        
+
         with open(self.config.install_directory / ".env", "w") as f:
             f.write(env_content)
-            
+
         # NoxSuite configuration
         noxsuite_config = {
             "version": "2.0.0",
@@ -1261,7 +1266,7 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
                 "installer_version": "1.0.0"
             },
             "modules": {
-                module: {"enabled": True, "version": "2.0.0"} 
+                module: {"enabled": True, "version": "2.0.0"}
                 for module in self.config.modules
             },
             "features": {
@@ -1282,16 +1287,16 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
                 "memory_gb": self.system_info.available_memory
             }
         }
-        
+
         with open(config_dir / "noxsuite.json", "w") as f:
             json.dump(noxsuite_config, f, indent=2)
-            
+
         logger.info("✅ Configuration files created")
-    
+
     def finalize_installation(self) -> bool:
         """Finalize installation and provide summary"""
         logger.info("🎯 Finalizing installation...")
-        
+
         # Create installation summary
         summary = {
             "installation_status": "completed",
@@ -1317,16 +1322,16 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
                 "Set up monitoring dashboards in Grafana"
             ]
         }
-        
+
         if self.config.enable_ai:
             summary["services"]["langflow"] = "http://localhost:7860"
             summary["services"]["ollama"] = "http://localhost:11434"
             summary["next_steps"].insert(2, "Wait for AI models to download and initialize")
-        
+
         # Save installation summary
         with open(self.config.install_directory / "INSTALLATION_SUMMARY.json", "w") as f:
             json.dump(summary, f, indent=2)
-            
+
         # Display completion message
         print(f"""
 ╔═══════════════════════════════════════════════════════════════════╗
@@ -1350,33 +1355,33 @@ ENABLE_EXPERIMENTAL_FEATURES={"true" if self.config.dev_mode else "false"}
 ║  📋 Summary: INSTALLATION_SUMMARY.json                          ║
 ╚═══════════════════════════════════════════════════════════════════╝
         """)
-        
+
         logger.info("🎉 NoxSuite installation completed successfully!")
-    
+
     def run_installation(self) -> bool:
         """Run the complete installation process"""
         try:
             self.welcome_screen()
             self.config = self.interactive_config()
-            
+
             if not self.check_dependencies():
                 return False
-                
+
             self.setup_directories()
             self.clone_repositories()
             self.generate_react_frontend()
             self.generate_fastapi_backend()
             self.generate_docker_compose()
-            
+
             if self.config.enable_ai:
                 self.install_ai_models()
-                
+
             self.generate_startup_scripts()
             self.create_configuration_files()
             self.finalize_installation()
-            
+
             return True
-            
+
         except KeyboardInterrupt:
             logger.info("\n❌ Installation cancelled by user")
             return False
